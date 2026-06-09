@@ -1,0 +1,46 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action
+  (progn
+   (echo "Region:" %{lib-available:frama-c-region.core} "\n")
+   (echo "  - RteGen:" %{lib-available:frama-c-rtegen.core} "\n")
+   (echo "  - Server:" %{lib-available:frama-c-server.core} "\n")
+   (echo "  - UnionFind:" %{lib-available:unionFind} "\n")
+   (echo "  - ppx_deriving.ord:" %{lib-available:ppx_deriving.ord} "\n"))))
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-region.core})))
+ (action (echo "WARNING: Region disabled. Run 'dune build @frama-c-configure' for more details\n")))
+
+(env
+ (release
+  (flags -noassert)))
+
+(library
+ (optional)
+ (name Region)
+ (public_name frama-c-region.core)
+ (flags -open Frama_c_kernel :standard -w -9)
+ (libraries frama-c.kernel frama-c-rtegen.core frama-c-server.core unionFind)
+ (preprocess (pps ppx_deriving.ord))
+ (instrumentation (backend landmarks))
+ (instrumentation (backend bisect_ppx)))
+
+(plugin
+ (optional)
+ (name region)
+ (libraries frama-c-region.core)
+ (site (frama-c plugins)))

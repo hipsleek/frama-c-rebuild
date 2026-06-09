@@ -1,0 +1,18 @@
+# frama-c -wp -wp-steps 50 [...]
+[kernel] Parsing injector.c (with preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] injector.c:19: Warning: 
+  Neither code nor explicit exits and terminates for function g, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] 4 goals scheduled
+[wp] [Unsuccess] typed_f_ko_ensures_qed_ko (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_f_ko_1_ensures_qed_ko (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_f_ko_1_ensures_qed_ko_2 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_f_ko_1_ensures_qed_ko_3 (Alt-Ergo) (Cached)
+[wp] Proved goals:    0 / 4
+  Unsuccess:       4
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  f                         -        -        4       0.0%
+------------------------------------------------------------

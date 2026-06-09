@@ -1,0 +1,81 @@
+# frama-c -wp [...]
+[kernel] Parsing tset.i (no preprocessing)
+[wp] Running WP plugin...
+------------------------------------------------------------
+  Global
+------------------------------------------------------------
+
+Goal Lemma 'INTER_EMPTY':
+Assume Lemmas: 'INTER_RANGE' 'INTER_EQ' 'UNION_DESCR_LIFT_BOTH'
+  'UNION_DESCR_LIFT_RIGHT' 'UNION_DESCR_LIFT_LEFT' 'UNION_DESCR'
+  'UNION_RANGE' 'UNION_LIFT' 'UNION_EQ'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'INTER_EQ':
+Assume Lemmas: 'UNION_DESCR_LIFT_BOTH' 'UNION_DESCR_LIFT_RIGHT'
+  'UNION_DESCR_LIFT_LEFT' 'UNION_DESCR' 'UNION_RANGE' 'UNION_LIFT' 'UNION_EQ'
+Let a = singleton(y).
+Let a_1 = inter(a, a).
+Let a_2 = singleton(x).
+Let a_3 = inter(a_2, a_2).
+Prove: ((forall i : Z. (mem(i, a_1) -> mem(i, a_3))) /\
+        (forall i : Z. (mem(i, a_3) -> mem(i, a_1)))) <-> (y = x).
+
+------------------------------------------------------------
+
+Goal Lemma 'INTER_RANGE':
+Assume Lemmas: 'INTER_EQ' 'UNION_DESCR_LIFT_BOTH' 'UNION_DESCR_LIFT_RIGHT'
+  'UNION_DESCR_LIFT_LEFT' 'UNION_DESCR' 'UNION_RANGE' 'UNION_LIFT' 'UNION_EQ'
+Let a = inter(inter(range(0, 1 + k), singleton(k)), range(k - 1, n)).
+Assume { Have: 0 <= k. Have: k <= n. }
+Prove: mem(k, a) /\ (forall i : Z. (mem(i, a) -> (i = k))).
+
+------------------------------------------------------------
+
+Goal Lemma 'UNION_DESCR':
+Assume Lemmas: 'UNION_RANGE' 'UNION_LIFT' 'UNION_EQ'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'UNION_DESCR_LIFT_BOTH':
+Assume Lemmas: 'UNION_DESCR_LIFT_RIGHT' 'UNION_DESCR_LIFT_LEFT' 'UNION_DESCR'
+  'UNION_RANGE' 'UNION_LIFT' 'UNION_EQ'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'UNION_DESCR_LIFT_LEFT':
+Assume Lemmas: 'UNION_DESCR' 'UNION_RANGE' 'UNION_LIFT' 'UNION_EQ'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'UNION_DESCR_LIFT_RIGHT':
+Assume Lemmas: 'UNION_DESCR_LIFT_LEFT' 'UNION_DESCR' 'UNION_RANGE'
+  'UNION_LIFT' 'UNION_EQ'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'UNION_EQ':
+Prove: (((x = 0) \/ (y = x)) /\ ((y = 0) \/ (y = x))) <-> (y = x).
+
+------------------------------------------------------------
+
+Goal Lemma 'UNION_LIFT':
+Assume Lemmas: 'UNION_EQ'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'UNION_RANGE':
+Assume Lemmas: 'UNION_LIFT' 'UNION_EQ'
+Assume { Have: 0 <= k. Have: k <= n. }
+Prove: (((k < n) -> ((-1) <= k))) /\ (((0 < k) -> (k <= (1 + n)))) /\
+    (forall i : Z. ((0 <= i) -> ((i <= n) ->
+     ((i = k) \/ ((k < i) /\ (i <= n)) \/ ((0 <= i) /\ (i < k)))))).
+
+------------------------------------------------------------

@@ -1,0 +1,33 @@
+# frama-c -wp [...]
+[kernel] Parsing reads.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal f_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal f_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal g_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal g_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal modifies_x_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal modifies_x_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal modifies_y_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal modifies_y_terminates (Cfg) (Trivial)
+[wp] 7 goals scheduled
+[wp] [Valid] typed_f_ensures_qed_ok (Alt-Ergo) (Cached)
+[wp] [Valid] typed_g_ensures_qed_ok (Alt-Ergo) (Cached)
+[wp] [Valid] typed_modifies_y_ensures_qed_ok_F_OK (Qed)
+[wp] [Valid] typed_modifies_y_ensures_qed_ok_G_OK (Qed)
+[wp] [Unsuccess] typed_modifies_y_ensures_qed_ok_W_OK_todo (Alt-Ergo) (Cached)
+[wp] [Valid] typed_modifies_x_ensures_qed_ok_F_OK (Qed)
+[wp] [Unsuccess] typed_modifies_x_ensures_qed_ok_W_OK_todo (Alt-Ergo) (Cached)
+[wp] Proved goals:   13 / 15
+  Terminating:     4
+  Unreachable:     4
+  Qed:             3
+  Alt-Ergo:        2
+  Unsuccess:       2
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  f                         2        1        3       100%
+  g                         2        1        3       100%
+  modifies_y                4        -        5      80.0%
+  modifies_x                3        -        4      75.0%
+------------------------------------------------------------

@@ -1,0 +1,192 @@
+[kernel] Parsing slevelex.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  c ∈ [--..--]
+[eva:alarm] slevelex.i:80: Warning: assertion got status unknown.
+[eva:show] slevelex.i:82: Frama_C_show_each_xy: {1; 2}, {1; 2}
+[eva:progress] 
+  computing for function f <- main.
+  Called from slevelex.i:83:7-10.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] slevelex.i:84: assertion got status valid.
+[eva:progress] 
+  computing for function gu <- main.
+  Called from slevelex.i:88:3-9.
+[eva:progress] slevelex.i:26: assertion got status valid.
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {1}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {2}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {3}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {4}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {5}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {6}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {7}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {8}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {9}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {10}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {11}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {12}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {13}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {14}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {15}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {16}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {17}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {18}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {19}
+[eva:show] slevelex.i:40: Frama_C_show_each_u: {20}
+[eva:progress] Recording results for gu
+[eva:progress] Done for function gu
+[eva:progress] 
+  computing for function ginc <- main.
+  Called from slevelex.i:89:3-11.
+[eva:progress] slevelex.i:49: assertion got status valid.
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {4}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {8}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {12}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {16}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {20}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {24}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {28}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {32}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {36}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {40}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {44}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {48}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {52}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {56}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {60}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {64}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {68}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {72}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {76}
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: {80}
+[eva:progress] Recording results for ginc
+[eva:progress] Done for function ginc
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function f:
+  x ∈ {1; 2}
+  y ∈ {1; 2}
+  __retres ∈ {0}
+[eva:final-states] Values at end of function ginc:
+  inc ∈ [4..80],0%4
+[eva:final-states] Values at end of function gu:
+  
+[eva:final-states] Values at end of function main:
+  un ∈ [1..20]
+  x ∈ {0}
+  y ∈ {1; 2}
+[from] Computing for function f
+[from] Done for function f
+[from] Computing for function ginc
+[from] Done for function ginc
+[from] Computing for function gu
+[from] Done for function gu
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  \result FROM c
+[from] Function ginc:
+  NO EFFECTS
+[from] Function gu:
+  NO EFFECTS
+[from] Function main:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function f:
+    x; y; __retres
+[inout] Inputs for function f:
+    c
+[inout] Out (internal) for function ginc:
+    inc
+[inout] Inputs for function ginc:
+    \nothing
+[inout] Out (internal) for function gu:
+    \nothing
+[inout] Inputs for function gu:
+    \nothing
+[inout] Out (internal) for function main:
+    un; x; y
+[inout] Inputs for function main:
+    c
+[eva] Warning: option -eva-slevel-function: 'gu' previously bound to '21'; now bound to '0'.
+[eva] Warning: option -eva-slevel-function: 'ginc' previously bound to '21';
+  now bound to '0'.
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  c ∈ [--..--]
+[eva:show] slevelex.i:82: Frama_C_show_each_xy: {1; 2}, {1; 2}
+[eva:progress] 
+  computing for function f <- main.
+  Called from slevelex.i:83:7-10.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] 
+  computing for function gu <- main.
+  Called from slevelex.i:88:3-9.
+[eva:show] slevelex.i:40: Frama_C_show_each_u: [1..20]
+[eva:progress] Recording results for gu
+[eva:progress] Done for function gu
+[eva:progress] 
+  computing for function ginc <- main.
+  Called from slevelex.i:89:3-11.
+[eva:show] slevelex.i:63: Frama_C_show_each_inc: [4..80],0%4
+[eva:progress] Recording results for ginc
+[eva:progress] Done for function ginc
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function f:
+  x ∈ {1; 2}
+  y ∈ {1; 2}
+  __retres ∈ {0}
+[eva:final-states] Values at end of function ginc:
+  inc ∈ [4..80],0%4
+[eva:final-states] Values at end of function gu:
+  
+[eva:final-states] Values at end of function main:
+  un ∈ [1..20]
+  x ∈ {0}
+  y ∈ {1; 2}
+[from] Computing for function f
+[from] Done for function f
+[from] Computing for function ginc
+[from] Done for function ginc
+[from] Computing for function gu
+[from] Done for function gu
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  \result FROM c
+[from] Function ginc:
+  NO EFFECTS
+[from] Function gu:
+  NO EFFECTS
+[from] Function main:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function f:
+    x; y; __retres
+[inout] Inputs for function f:
+    c
+[inout] Out (internal) for function ginc:
+    inc
+[inout] Inputs for function ginc:
+    \nothing
+[inout] Out (internal) for function gu:
+    \nothing
+[inout] Inputs for function gu:
+    \nothing
+[inout] Out (internal) for function main:
+    un; x; y
+[inout] Inputs for function main:
+    c

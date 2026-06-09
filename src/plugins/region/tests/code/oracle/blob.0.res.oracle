@@ -1,0 +1,14 @@
+[kernel] Parsing blob.i (no preprocessing)
+[region] Function array_blob:
+  R0001: ---- arr[3] 32b (allocated) (garbage) ;
+  R0002: I--- p (int *) 64b (*R0001) (singleton) (allocated) ;
+[region] annotating function array_blob
+[region] Function struct_blob:
+  R0001: ---- y 64b { .f: R0002[…]; #32b; } (singleton) (allocated) (garbage) ;
+  R0002: ---- 0b (allocated) (garbage) ;
+  R0003: I--- p (int *) 64b (*R0002) (singleton) (allocated) ;
+[region] annotating function struct_blob
+[region] Function var_blob:
+  R0001: ---- x 32b (singleton) (allocated) (garbage) ;
+  R0002: I--- p (int *) 64b (*R0001) (singleton) (allocated) ;
+[region] annotating function var_blob

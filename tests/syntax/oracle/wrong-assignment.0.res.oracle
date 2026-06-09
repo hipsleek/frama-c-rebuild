@@ -1,0 +1,9 @@
+[kernel] Parsing wrong-assignment.i (no preprocessing)
+[kernel] wrong-assignment.i:13: User Error: 
+  implicit cast: cast from ebool to _Bool
+  11    void d() {
+  12      // this assignment should be rejected
+  13      c.a = b;
+                ^
+  14    }
+[kernel] Frama-C aborted: invalid user input.

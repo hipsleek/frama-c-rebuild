@@ -1,0 +1,84 @@
+Plug-in name: Aorai
+Plug-in shortname: aorai
+Description: verification of behavioral properties (experimental)
+
+Most options of the form '-aorai-option-name' and without any parameter
+have an opposite with the name '-aorai-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-aorai-AI-off       does not use abstract interpretation (opposite option is
+                    -aorai-no-AI-off)
+-aorai-acceptance   if set, considers acceptation states (opposite option is
+                    -aorai-no-acceptance)
+-aorai-add-oper     Adding current operation name (and statut) in pre/post
+                    conditions (opposite option is -aorai-no-add-oper)
+-aorai-automata <f>  considers the property described by the ya automata (in
+                    Ya language) from file <f>.
+-aorai-dot          generates a dot file of the Buchi automata (opposite
+                    option is -aorai-no-dot)
+-aorai-dot-sep-labels  tells dot to not output guards directly over the edges
+                    (opposite option is -aorai-no-dot-sep-labels)
+-aorai-generate-annotations  generate computed ACSL annotations for the
+                    program (set by default, opposite option is
+                    -aorai-no-generate-annotations)
+-aorai-generate-deterministic-lemmas  generate lemmas to be proven in order
+                    to prove that an automaton is indeed deterministic (set
+                    by default, opposite option is
+                    -aorai-no-generate-deterministic-lemmas)
+-aorai-instrumentation-history <N>  the instrumentation will keep an history
+                    of the N last states
+-aorai-raw-auto     opposite of option -aorai-simplified-auto, whose help
+                    message is:
+                    If set, does not simplify automata
+-aorai-simple-AI    use simple abstract interpretation (opposite option is
+                    -aorai-no-simple-AI)
+-aorai-simplified-auto  If set, does not simplify automata (set by default,
+                    opposite option is -aorai-raw-auto)
+-aorai-smoke-tests  Add assertion in the generated functions to ensure that
+                    the automaton is always in at least one state (opposite
+                    option is -aorai-no-smoke-tests)
+-aorai-spec-off     opposite of option -aorai-spec-on, whose help message
+                    is:
+                    if set, does not axiomatize automata
+-aorai-spec-on      if set, does not axiomatize automata (set by default,
+                    opposite option is -aorai-spec-off)
+
+*** DEBUG
+
+-aorai-debug <n>    level of debug for plug-in Aorai (default to 0)
+
+*** GETTING INFORMATION
+
+-aorai-help         help of plug-in Aorai
+-aorai-h            alias for option -aorai-help
+
+*** OUTPUT MESSAGES
+
+-aorai-log <K_1:file_1,...>  copy log messages from Aorai to a file. <K> is a
+                    combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -aorai-log="K_1:file_1,...")
+-aorai-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -aorai-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -aorai-msg-key="k1[,...,kn]")
+-aorai-verbose <n>  level of verbosity for plug-in Aorai (default to 1)
+-aorai-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category <k1>
+                    to <s1>,...,<kn> to <sn>. Use -aorai-warn-key help to get
+                    a list of available categories, and * to enable all
+                    categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -aorai-warn-key="k1[=s1][,...,kn[=sn]]")

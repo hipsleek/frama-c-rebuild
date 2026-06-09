@@ -1,0 +1,39 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing funcall11.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function func <- main.
+  Called from funcall11.c:16.
+[eva:progress] funcall11.c:11: assertion got status valid.
+[eva:progress] Recording results for func
+[eva:progress] Done for function func
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function func:
+  
+[eva:final-states] Values at end of function main:
+  __retres ∈ {0}
+[from] Computing for function func
+[from] Done for function func
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function func:
+  NO EFFECTS
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function func:
+    \nothing
+[inout] Inputs for function func:
+    \nothing
+[inout] Out (internal) for function main:
+    __retres
+[inout] Inputs for function main:
+    \nothing

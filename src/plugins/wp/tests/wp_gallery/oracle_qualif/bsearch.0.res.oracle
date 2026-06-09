@@ -1,0 +1,47 @@
+# frama-c -wp -wp-rte [...]
+[kernel] Parsing bsearch.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] Warning: Skipped RTE guards: unaligned pointers (\aligned not supported)
+[wp] Warning: Skipped RTE guards: invalid function pointer calls (\valid_function not supported)
+[rte:annot] annotating function binary_search
+[wp] [Valid] Goal binary_search_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal binary_search_terminates (Cfg) (Trivial)
+[wp] 28 goals scheduled
+[wp] [Passed] (Unsuccess) typed_binary_search_wp_smoke_default_requires (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_binary_search_wp_smoke_dead_loop_s3 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_binary_search_wp_smoke_dead_code_s8 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_binary_search_wp_smoke_dead_code_s12 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_binary_search_wp_smoke_dead_code_s16 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_binary_search_wp_smoke_dead_code_s17 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_binary_search_wp_smoke_dead_code_s18 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_binary_search_ensures_Result (Alt-Ergo) (Cached)
+[wp] [Valid] typed_binary_search_ensures_Found (Qed)
+[wp] [Valid] typed_binary_search_ensures_NotFound (Alt-Ergo) (Cached)
+[wp] [Valid] typed_binary_search_assert_rte_signed_overflow (Qed)
+[wp] [Valid] typed_binary_search_loop_invariant_Left_established (Qed)
+[wp] [Valid] typed_binary_search_loop_invariant_Left_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_binary_search_loop_invariant_Range_established (Qed)
+[wp] [Valid] typed_binary_search_loop_invariant_Range_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_binary_search_loop_invariant_Right_established (Qed)
+[wp] [Valid] typed_binary_search_loop_invariant_Right_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_binary_search_assert_rte_signed_overflow_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_binary_search_assert_rte_signed_overflow_3 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_binary_search_assert_rte_signed_overflow_4 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_binary_search_assert_rte_signed_overflow_5 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_binary_search_assert_rte_mem_access (Alt-Ergo) (Cached)
+[wp] [Valid] typed_binary_search_assert_rte_mem_access_2 (Qed)
+[wp] [Valid] typed_binary_search_assert_rte_signed_overflow_6 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_binary_search_assert_rte_signed_overflow_7 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_binary_search_loop_assigns (Qed)
+[wp] [Valid] typed_binary_search_loop_variant_positive (Qed)
+[wp] [Valid] typed_binary_search_loop_variant_decrease (Alt-Ergo) (Cached)
+[wp] Proved goals:   30 / 30
+  Terminating:     1
+  Unreachable:     1
+  Qed:             8
+  Alt-Ergo:       20
+  Smoke Tests:     7 / 7
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  binary_search            10       20       30       100%
+------------------------------------------------------------

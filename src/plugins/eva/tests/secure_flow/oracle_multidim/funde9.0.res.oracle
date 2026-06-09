@@ -1,0 +1,8 @@
+13c13,17
+< [eva:progress] funde9.c:21: Reusing old results for call to f
+---
+> [eva:progress] 
+>   computing for function f <- main.
+>   Called from funde9.c:21.
+> [eva:progress] Recording results for f
+> [eva:progress] Done for function f

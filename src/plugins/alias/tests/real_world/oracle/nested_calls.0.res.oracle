@@ -1,0 +1,848 @@
+[kernel] Parsing nested_calls.c (with preprocessing)
+[kernel:typing:no-proto] nested_calls.c:27: Warning: 
+  Function quotearg_colon is declared without prototype.
+  Its formals will be inferred from actual arguments at first call.
+  Declare it as quotearg_colon(void) if the function does not take any parameters.
+[kernel:typing:implicit-conv-void-ptr] nested_calls.c:93: Warning: 
+  implicit conversion from void * to struct hash_entry *
+[alias] analysing global variable definition: transfer_entries_new_bucket = {};
+[alias] May-aliases after global variable definition  transfer_entries_new_bucket
+  are  <none>
+[alias] analysing global variable definition: transfer_entries_cursor = {};
+[alias] May-aliases after global variable definition  transfer_entries_cursor  are
+  <none>
+[alias] analysing global variable definition: hash_rehash_cursor = {};
+[alias] May-aliases after global variable definition  hash_rehash_cursor  are  <none>
+[alias] analysing global variable definition: next_prime_tmp = {};
+[alias] May-aliases after global variable definition  next_prime_tmp  are  <none>
+[alias] analysing global variable definition: hash_free_table___0 = {};
+[alias] May-aliases after global variable definition  hash_free_table___0  are
+  <none>
+[alias] analysing global variable definition: __fc_lit_string1 = "";
+[alias] May-aliases after global variable definition  __fc_lit_string1  are  <none>
+[alias] analysing global variable definition: E_invalid_user = (char *)"";
+[alias] May-aliases after global variable definition  E_invalid_user  are
+  { E_invalid_user; "" }
+[alias] analysing global variable definition: change_file_owner_tmp___11 = {};
+[alias] May-aliases after global variable definition  change_file_owner_tmp___11
+  are  { E_invalid_user; "" }
+[alias] analysing global variable definition: __fc_lit_string2 = "";
+[alias] May-aliases after global variable definition  __fc_lit_string2  are
+  { E_invalid_user; "" }
+[alias] analysing global variable definition: E_invalid_group = (char *)"";
+[alias] May-aliases after global variable definition  E_invalid_group  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }
+[alias] analysing global variable definition: __fc_lit_string3 = "";
+[alias] May-aliases after global variable definition  __fc_lit_string3  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }
+[alias] analysing global variable definition: E_bad_spec = (char *)"";
+[alias] May-aliases after global variable definition  E_bad_spec  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+[alias] analysing global variable definition: __fc_lit_string4 = "";
+[alias] May-aliases after global variable definition  __fc_lit_string4  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+[alias] analysing global variable definition: __fc_lit_string5 = "";
+[alias] May-aliases after global variable definition  __fc_lit_string5  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+[alias] analysing global variable definition: __fc_lit_string6 = "";
+[alias] May-aliases after global variable definition  __fc_lit_string6  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+[alias] analysing global variable definition: __fc_lit_string7 = "";
+[alias] May-aliases after global variable definition  __fc_lit_string7  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+[alias] analysing global variable definition: __fc_lit_string8 = "";
+[alias] May-aliases after global variable definition  __fc_lit_string8  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+[alias] analysing global variable definition: __fc_lit_string9 = "";
+[alias] May-aliases after global variable definition  __fc_lit_string9  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+[alias] analysing global variable definition: __fc_lit_string10 = "";
+[alias] May-aliases after global variable definition  __fc_lit_string10  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+[alias] analysing global variable definition: __fc_lit_string11 = "";
+[alias] May-aliases after global variable definition  __fc_lit_string11  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+[alias] analysing global variable definition: quoting_style_args =
+  {(char *)"",
+   (char *)"",
+   (char *)"",
+   (char *)"",
+   (char *)"",
+   (char *)"",
+   (char *)"",
+   (char *)""};
+[alias] May-aliases after global variable definition  quoting_style_args  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }
+[alias] analysing global variable definition: open_safer_tmp___25 = {};
+[alias] May-aliases after global variable definition  open_safer_tmp___25  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }
+[alias] analysing global variable definition: free_entry_table___0 = {};
+[alias] May-aliases after global variable definition  free_entry_table___0  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }
+[alias] analysing global variable definition: hash_find_entry_next = {};
+[alias] May-aliases after global variable definition  hash_find_entry_next  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }
+[alias] analysing global variable definition: fd_ring_clear_tmp___0 = {};
+[alias] May-aliases after global variable definition  fd_ring_clear_tmp___0  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }
+[alias] analysing global variable definition: fts_open_p_1 = {};
+[alias] May-aliases after global variable definition  fts_open_p_1  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }
+[alias] analysing global variable definition: __fc_lit_string12 = "";
+[alias] May-aliases after global variable definition  __fc_lit_string12  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }
+[alias] analysing global variable definition: Version = (char *)"";
+[alias] May-aliases after global variable definition  Version  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing function: AD_compare
+[alias] analysing instruction: __retres = (_Bool)0;
+[alias] May-aliases after instruction  __retres = (_Bool)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function AD_compare:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing function: AD_hash
+[alias] May-aliases at the end of function AD_hash:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing function: change_file_owner
+[alias] analysing instruction: int *tmp = & chopt;
+[alias] May-aliases after instruction  int *tmp = & chopt;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: int *tmp_3 = & chopt;
+[alias] May-aliases after instruction  int *tmp_3 = & chopt;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3 }
+[alias] analysing instruction: int *tmp_5 = & chopt;
+[alias] May-aliases after instruction  int *tmp_5 = & chopt;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5 }
+[alias] analysing instruction: int *tmp_7 = & chopt;
+[alias] May-aliases after instruction  int *tmp_7 = & chopt;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7 }
+[alias] analysing instruction: ignore_ptr();
+[alias] analysing function: ignore_ptr
+[alias] May-aliases at the end of function ignore_ptr:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  ignore_ptr();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7 }
+[alias] analysing instruction: int *tmp_9 = & chopt;
+[alias] May-aliases after instruction  int *tmp_9 = & chopt;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] analysing instruction: rpl_fdopendir();
+[alias] analysing function: rpl_fdopendir
+[alias] analysing instruction: __retres = (enum RCH_status *)0;
+[alias] May-aliases after instruction  __retres = (enum RCH_status *)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function rpl_fdopendir:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  rpl_fdopendir();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] analysing instruction: char *tmp_11 = & __trans_tmp_2;
+[alias] May-aliases after instruction  char *tmp_11 = & __trans_tmp_2;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] analysing instruction: quote();
+[alias] analysing function: quote
+[alias] analysing instruction: rpl_fdopendir();
+[alias] May-aliases after instruction  rpl_fdopendir();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: __retres = (char *)0;
+[alias] May-aliases after instruction  __retres = (char *)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function quote:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  quote();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] analysing instruction: change_file_owner_tmp___11 = quote();
+[alias] May-aliases after instruction  change_file_owner_tmp___11 = quote();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] analysing instruction: cycle_warning_required();
+[alias] analysing function: cycle_warning_required
+[alias] analysing instruction: __retres = (_Bool)0;
+[alias] May-aliases after instruction  __retres = (_Bool)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function cycle_warning_required:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  cycle_warning_required();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] analysing instruction: rpl_fdopendir();
+[alias] May-aliases after instruction  rpl_fdopendir();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] analysing instruction: quote_n();
+[alias] analysing function: quote_n
+[alias] analysing instruction: __retres = (char)0;
+[alias] May-aliases after instruction  __retres = (char)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function quote_n:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  quote_n();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] analysing instruction: quote_n();
+[alias] May-aliases after instruction  quote_n();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] analysing instruction: lchownat();
+[alias] analysing function: lchownat
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function lchownat:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  lchownat();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] analysing instruction: restricted_chown();
+[alias] analysing function: restricted_chown
+[alias] analysing instruction: __retres = (enum RCH_status)0;
+[alias] May-aliases after instruction  __retres = (enum RCH_status)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function restricted_chown:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  restricted_chown();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] analysing instruction: chownat();
+[alias] analysing function: chownat
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function chownat:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  chownat();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] analysing instruction: describe_change();
+[alias] analysing function: describe_change
+[alias] analysing instruction: tmp = xmalloc();
+[alias] analysing function: xmalloc
+[alias] analysing instruction: __retres = (void *)0;
+[alias] May-aliases after instruction  __retres = (void *)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function xmalloc:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  tmp = xmalloc();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function describe_change:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  describe_change();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] analysing instruction: xfts_open((int (*)(int const **, int const **))0);
+[alias] analysing function: xfts_open
+[alias] analysing instruction: fts_open(compar);
+[alias] analysing function: fts_open
+[alias] analysing instruction: fts_maxarglen();
+[alias] analysing function: fts_maxarglen
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function fts_maxarglen:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  fts_maxarglen();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: fts_palloc();
+[alias] analysing function: fts_palloc
+[alias] analysing instruction: __retres = (_Bool)0;
+[alias] May-aliases after instruction  __retres = (_Bool)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function fts_palloc:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  fts_palloc();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: fts_alloc();
+[alias] analysing function: fts_alloc
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function fts_alloc:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  fts_alloc();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: fts_alloc();
+[alias] May-aliases after instruction  fts_alloc();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: fts_stat();
+[alias] analysing function: fts_stat
+[alias] analysing instruction: __retres = (short)0;
+[alias] May-aliases after instruction  __retres = (short)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function fts_stat:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  fts_stat();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: fts_open_p_1 = fts_stat();
+[alias] May-aliases after instruction  fts_open_p_1 = fts_stat();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: while_break: fts_sort();
+[alias] analysing function: fts_sort
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function fts_sort:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  while_break: fts_sort();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: setup_dir();
+[alias] analysing function: setup_dir
+[alias] analysing instruction: hash_initialize(& AD_hash);
+[alias] analysing function: hash_initialize
+[alias] analysing instruction: compute_bucket_size();
+[alias] analysing function: compute_bucket_size
+[alias] analysing instruction: int x = next_prime();
+[alias] analysing function: next_prime
+[alias] analysing instruction: next_prime_tmp = is_prime();
+[alias] analysing function: is_prime
+[alias] analysing instruction: __retres = (_Bool)0;
+[alias] May-aliases after instruction  __retres = (_Bool)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function is_prime:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  next_prime_tmp = is_prime();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias:no-return] nested_calls.c:77: Warning: 
+  function next_prime does not return; analysis may be unsound
+[alias] May-aliases at the end of function next_prime:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  int x = next_prime();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function compute_bucket_size:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  compute_bucket_size();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function hash_initialize:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  hash_initialize(& AD_hash);  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: __retres = (_Bool)0;
+[alias] May-aliases after instruction  __retres = (_Bool)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function setup_dir:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  setup_dir();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: diropen();
+[alias] analysing function: diropen
+[alias] analysing instruction: openat_safer();
+[alias] analysing function: openat_safer
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function openat_safer:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  openat_safer();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: open_safer();
+[alias] analysing function: open_safer
+[alias] analysing instruction: is_basic();
+[alias] analysing function: is_basic
+[alias] analysing instruction: __retres = (_Bool)0;
+[alias] May-aliases after instruction  __retres = (_Bool)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function is_basic:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  is_basic();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: strnlen1();
+[alias] analysing function: strnlen1
+[alias] analysing instruction: __retres = (unsigned int)0;
+[alias] May-aliases after instruction  __retres = (unsigned int)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function strnlen1:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  strnlen1();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: tmp = is_basic();
+[alias] May-aliases after instruction  tmp = is_basic();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: int tmp___1 = (int)tmp;
+[alias] May-aliases after instruction  int tmp___1 = (int)tmp;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: tmp_0 = strnlen1();
+[alias] May-aliases after instruction  tmp_0 = strnlen1();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: is_basic();
+[alias] May-aliases after instruction  is_basic();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: strnlen1();
+[alias] May-aliases after instruction  strnlen1();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: tmp = is_basic();
+[alias] May-aliases after instruction  tmp = is_basic();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: int tmp___1 = (int)tmp;
+[alias] May-aliases after instruction  int tmp___1 = (int)tmp;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: tmp_0 = strnlen1();
+[alias] May-aliases after instruction  tmp_0 = strnlen1();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: mbuiter_multi_next();
+[alias] analysing function: mbuiter_multi_next
+[alias] analysing instruction: tmp = is_basic();
+[alias] May-aliases after instruction  tmp = is_basic();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: int tmp___1 = (int)tmp;
+[alias] May-aliases after instruction  int tmp___1 = (int)tmp;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: tmp_0 = strnlen1();
+[alias] May-aliases after instruction  tmp_0 = strnlen1();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: tmp___1 = (int)tmp_0;
+[alias] May-aliases after instruction  tmp___1 = (int)tmp_0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function mbuiter_multi_next:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  mbuiter_multi_next();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function open_safer:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  open_safer();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: set_cloexec_flag();
+[alias] analysing function: set_cloexec_flag
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function set_cloexec_flag:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  set_cloexec_flag();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function diropen:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  diropen();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: fts_lfree();
+[alias] analysing function: fts_lfree
+[alias] analysing instruction: int *tmp = & p;
+[alias] May-aliases after instruction  int *tmp = & p;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function fts_lfree:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  fts_lfree();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: __retres = (int *)0;
+[alias] May-aliases after instruction  __retres = (int *)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function fts_open:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  fts_open(compar);  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function xfts_open:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction
+  xfts_open((int (*)(int const **, int const **))0);  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] analysing instruction: fts_close();
+[alias] analysing function: fts_close
+[alias] analysing instruction: fd_ring_clear();
+[alias] analysing function: fd_ring_clear
+[alias] analysing instruction: fd_ring_clear_tmp___0 = i_ring_empty();
+[alias] analysing function: i_ring_empty
+[alias] analysing instruction: __retres = (_Bool)0;
+[alias] May-aliases after instruction  __retres = (_Bool)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function i_ring_empty:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  fd_ring_clear_tmp___0 = i_ring_empty();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: while_break: ;
+[alias] May-aliases after instruction  while_break: ;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function fd_ring_clear:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  fd_ring_clear();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: hash_free();
+[alias] analysing function: hash_free
+[alias] analysing instruction:
+  struct hash_entry *tmp = & hash_free_table___0->bucket;
+[alias] May-aliases after instruction
+  struct hash_entry *tmp = & hash_free_table___0->bucket;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function hash_free:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  hash_free();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: free_dir();
+[alias] analysing function: free_dir
+[alias] analysing instruction: hash_free();
+[alias] May-aliases after instruction  hash_free();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function free_dir:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  free_dir();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function fts_close:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  fts_close();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] May-aliases at the end of function change_file_owner:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+  { tmp; tmp_3; tmp_5; tmp_7; tmp_9 }
+[alias] analysing function: close_stdout
+[alias] analysing instruction: close_stream();
+[alias] analysing function: close_stream
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function close_stream:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  close_stream();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: quotearg_colon();
+[alias] analysing function: quotearg_colon
+[alias] analysing instruction: quotearg_char();
+[alias] analysing function: quotearg_char
+[alias] analysing instruction: __retres = (char)0;
+[alias] May-aliases after instruction  __retres = (char)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function quotearg_char:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  quotearg_char();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: __retres = (char *)0;
+[alias] May-aliases after instruction  __retres = (char *)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function quotearg_colon:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  quotearg_colon();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function close_stdout:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing function: cycle_check
+[alias] analysing instruction: is_zero_or_power_of_two();
+[alias] analysing function: is_zero_or_power_of_two
+[alias] analysing instruction: __retres = (_Bool)0;
+[alias] May-aliases after instruction  __retres = (_Bool)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function is_zero_or_power_of_two:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  is_zero_or_power_of_two();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function cycle_check:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing function: free_entry
+[alias] analysing instruction: entry = & free_entry_table___0.free_entry_list;
+[alias] May-aliases after instruction
+  entry = & free_entry_table___0.free_entry_list;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function free_entry:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing function: hash_find_entry
+[alias] analysing instruction: free_entry((struct hash_entry *)hash_find_entry_next);
+[alias] May-aliases after instruction
+  free_entry((struct hash_entry *)hash_find_entry_next);  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function hash_find_entry:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing function: hash_insert
+[alias] analysing instruction: hash_find_entry();
+[alias] May-aliases after instruction  hash_find_entry();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: hash_rehash();
+[alias] analysing function: hash_rehash
+[alias] analysing instruction: free_entry(& hash_rehash_cursor);
+[alias] May-aliases after instruction  free_entry(& hash_rehash_cursor);  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: free_entry(& hash_rehash_cursor);
+[alias] May-aliases after instruction  free_entry(& hash_rehash_cursor);  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: free_entry(& transfer_entries_cursor);
+[alias] May-aliases after instruction  free_entry(& transfer_entries_cursor);  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: free_entry(& transfer_entries_cursor);
+[alias] May-aliases after instruction  free_entry(& transfer_entries_cursor);  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: transfer_entries();
+[alias] analysing function: transfer_entries
+[alias] analysing instruction: free_entry(& transfer_entries_cursor);
+[alias] May-aliases after instruction  free_entry(& transfer_entries_cursor);  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: free_entry(& transfer_entries_cursor);
+[alias] May-aliases after instruction  free_entry(& transfer_entries_cursor);  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: __retres = (_Bool)0;
+[alias] May-aliases after instruction  __retres = (_Bool)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function transfer_entries:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  transfer_entries();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: __retres = (_Bool)0;
+[alias] May-aliases after instruction  __retres = (_Bool)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function hash_rehash:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  hash_rehash();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function hash_insert:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing function: parse_user_spec_error_msg
+[alias] analysing instruction: tmp = xmalloc();
+[alias] May-aliases after instruction  tmp = xmalloc();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: parse_with_separator();
+[alias] analysing function: parse_with_separator
+[alias] analysing instruction: xmemdup();
+[alias] analysing function: xmemdup
+[alias] analysing instruction: __retres = (void *)0;
+[alias] May-aliases after instruction  __retres = (void *)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function xmemdup:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  xmemdup();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: xstrtoul();
+[alias] analysing function: xstrtoul
+[alias] analysing instruction: strtol_error __constr_expr_0 = {.x = (char)0};
+[alias] May-aliases after instruction
+  strtol_error __constr_expr_0 = {.x = (char)0};  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function xstrtoul:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  xstrtoul();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: umaxtostr();
+[alias] analysing function: umaxtostr
+[alias] analysing instruction: __retres = (char)0;
+[alias] May-aliases after instruction  __retres = (char)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function umaxtostr:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  umaxtostr();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: xstrdup();
+[alias] analysing function: xstrdup
+[alias] analysing instruction: tmp = xmemdup();
+[alias] May-aliases after instruction  tmp = xmemdup();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function xstrdup:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  xstrdup();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: xstrtoul();
+[alias] May-aliases after instruction  xstrtoul();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: xstrdup();
+[alias] May-aliases after instruction  xstrdup();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] analysing instruction: __retres = (char)0;
+[alias] May-aliases after instruction  __retres = (char)0;  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function parse_with_separator:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases after instruction  parse_with_separator();  are
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }
+[alias] May-aliases at the end of function parse_user_spec_error_msg:
+  { E_invalid_user; "" }  { E_invalid_group; "" }  { E_bad_spec; "" }
+  { quoting_style_args[0..]; ""; ""; ""; ""; ""; ""; ""; "" }  { Version; "" }

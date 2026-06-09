@@ -1,0 +1,2 @@
+PLUGIN: from,inout,nonterm,scope
+OPT: -eva -eva-msg-key=progress,-summary -then -nonterm -nonterm-verbose 2

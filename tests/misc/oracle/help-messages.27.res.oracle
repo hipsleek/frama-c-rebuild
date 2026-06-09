@@ -1,0 +1,67 @@
+Plug-in name: Semantic Constant Folding
+Plug-in shortname: scf
+Description: propagates constants semantically
+
+Most options of the form '-scf-option-name' and without any parameter
+have an opposite with the name '-scf-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-scf                pretty print a version of the source code where each
+                    constant expression is replaced by its value (opposite
+                    option is -no-scf)
+-semantic-const-folding  alias for option -scf
+-scf-allow-cast     replace expressions by constants even when doing so
+                    requires a pointer cast (opposite option is
+                    -scf-no-allow-cast)
+-cast-from-constant  alias for option -scf-allow-cast
+-scf-fct <f1, ..., fn>  propagate constants only into functions f1,...,fn
+                    (preferably use -scf-fct="f1, ..., fn")
+-semantic-const-fold <f1, ..., fn>  alias for option -scf-fct
+-scf-logic          replace values from logical context and create
+                    corresponding variables (HIGHLY EXPERIMENTAL) (opposite
+                    option is -scf-no-logic)
+-semantic-const-fold-logic  alias for option -scf-logic
+-scf-project-name <s>  name of the generated project (default is
+                    `propagated`) (preferably use -scf-project-name="")
+
+*** DEBUG
+
+-scf-debug <n>      level of debug for plug-in Semantic Constant Folding
+                    (default to 0)
+
+*** GETTING INFORMATION
+
+-scf-help           help of plug-in Semantic Constant Folding
+-scf-h              alias for option -scf-help
+
+*** OUTPUT MESSAGES
+
+-scf-log <K_1:file_1,...>  copy log messages from Semantic Constant Folding
+                    to a file. <K> is a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -scf-log="K_1:file_1,...")
+-scf-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -scf-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -scf-msg-key="k1[,...,kn]")
+-scf-verbose <n>    level of verbosity for plug-in Semantic Constant Folding
+                    (default to 1)
+-scf-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category <k1>
+                    to <s1>,...,<kn> to <sn>. Use -scf-warn-key help to get a
+                    list of available categories, and * to enable all
+                    categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -scf-warn-key="k1[=s1][,...,kn[=sn]]")

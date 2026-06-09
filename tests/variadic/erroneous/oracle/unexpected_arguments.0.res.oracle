@@ -1,0 +1,6 @@
+[kernel] Parsing unexpected_arguments.c (with preprocessing)
+[kernel:typing:incompatible-types-call] unexpected_arguments.c:13: Warning: 
+  expected '__builtin_va_list' but got argument of type 'char **': a
+[kernel:variadic] unexpected_arguments.c:10: Declaration of variadic function f.
+[kernel] User Error: Unexpected arguments to va_arg
+[kernel] Frama-C aborted: invalid user input.

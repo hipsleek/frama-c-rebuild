@@ -1,0 +1,29 @@
+# frama-c -wp [...]
+[kernel] Parsing poly.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal main_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal main_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 10 goals scheduled
+[wp] [Unsuccess] typed_check_lemma_test2_ko (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_test2_ok (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_check_lemma_test_ko (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_test_ok (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_check_lemma_testp2_ko (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_testp2_ok (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_check_lemma_testp_ko (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_testp_ok (Alt-Ergo) (Cached)
+[wp] [Valid] typed_main_check_NotP_ok (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_main_check_Y_ko (Alt-Ergo) (Cached)
+[wp] Proved goals:    7 / 12
+  Terminating:     1
+  Unreachable:     1
+  Alt-Ergo:        5
+  Unsuccess:       5
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Lemma                     -        4        8      50.0%
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  main                      2        1        4      75.0%
+------------------------------------------------------------

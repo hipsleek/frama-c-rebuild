@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--                                                                        -->
+<!--                                                                        -->
+<!--  SPDX-License-Identifier LGPL-2.1                                      -->
+<!--  Copyright (C)                                                         -->
+<!--  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  -->
+<!--                                                                        -->
+<!--                                                                        -->
+
+<language name="ACSL" version="1" extensions="*.acsl"
+          section="Sources" kateversion="2.4">
+<highlighting>
+<list name="keywords">
+<item>allocates</item>
+<item>assert</item>
+<item>assigns</item>
+<item>assumes</item>
+<item>axiom</item>
+<item>axiomatic</item>
+<item>behavior</item>
+<item>behaviors</item>
+<item>boolean</item>
+<item>breaks</item>
+<item>complete</item>
+<item>continues</item>
+<item>data</item>
+<item>decreases</item>
+<item>disjoint</item>
+<item>ensures</item>
+<item>exit_behavior</item>
+<item>frees</item>
+<item>ghost</item>
+<item>global</item>
+<item>inductive</item>
+<item>integer</item>
+<item>invariant</item>
+<item>lemma</item>
+<item>logic</item>
+<item>loop</item>
+<item>model</item>
+<item>predicate</item>
+<item>reads</item>
+<item>real</item>
+<item>requires</item>
+<item>returns</item>
+<item>sizeof</item>
+<item>strong</item>
+<item>struct</item>
+<item>terminates</item>
+<item>type</item>
+<item>union</item>
+<item>variant</item>
+</list>
+<contexts>
+  <context attribute="Normal Text" lineEndContext="#pop" name="Normal Text">
+    <keyword attribute="Keyword" context="#stay" String="keywords"/>
+    <DetectChar attribute="Keyword" context="bskeyword" char="\"/>
+  </context>
+  <context name="bskeyword" attribute="Keyword" lineEndContext="#pop">
+    <DetectIdentifier attribute="Keyword" context="#pop" />
+  </context>
+</contexts>
+<itemDatas>
+  <itemData name="Normal Text" defStyleNum="dsNormal"/>
+  <itemData name="Keyword" defStyleNum="dsKeyword"/>
+</itemDatas>
+<general>
+</general>
+</highlighting>
+</language>

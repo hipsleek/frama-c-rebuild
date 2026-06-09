@@ -1,0 +1,31 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing ptr3.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  x[0..9] ∈ {0}
+  y ∈ {0}
+  z ∈ {0}
+  n ∈ {10}
+[eva:progress] ptr3.c:17: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  y ∈ {{ &x[0] }}
+  z ∈ {{ &n }}
+  n ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  y FROM \nothing
+  z FROM \nothing
+  n FROM x[5]
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    y; z; n
+[inout] Inputs for function main:
+    x[5]; y; z

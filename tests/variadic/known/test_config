@@ -1,0 +1,2 @@
+PLUGIN: from,inout,eva,scope
+OPT: -print -kernel-msg-key variadic -eva -eva-slevel 10 -eva-msg-key=-initial-state,-summary,-progress

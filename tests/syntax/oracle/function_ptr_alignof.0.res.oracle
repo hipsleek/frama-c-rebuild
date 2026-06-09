@@ -1,0 +1,5 @@
+[kernel] Parsing function_ptr_alignof.i (no preprocessing)
+[kernel:parser:conditional-feature] function_ptr_alignof.i:12: Failure: 
+  __alignof__ is a GCC extension, use a GCC-based machdep to enable it.
+[kernel] User Error: warning parser:conditional-feature treated as fatal error.
+[kernel] Frama-C aborted: invalid user input.

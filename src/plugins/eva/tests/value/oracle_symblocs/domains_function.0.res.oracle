@@ -1,0 +1,39 @@
+21,22c21
+< [eva:show] domains_function.c:93: 
+<   Frama_C_show_each_top: [-2147483648..2147483647]
+---
+> [eva:show] domains_function.c:93: Frama_C_show_each_top: {3}
+32,33c31
+< [eva:show] domains_function.c:78: 
+<   Frama_C_show_each_top: [-2147483648..2147483647]
+---
+> [eva:show] domains_function.c:78: Frama_C_show_each_top: {1}
+36,37c34
+< [eva:show] domains_function.c:97: 
+<   Frama_C_show_each_top: [-2147483648..2147483647]
+---
+> [eva:show] domains_function.c:97: Frama_C_show_each_top: {1}
+59,64c56,57
+< [eva:progress] 
+<   computing for function not_enabled <- recursively_enabled <- main.
+<   Called from domains_function.c:111.
+< [eva:show] domains_function.c:78: Frama_C_show_each_top: {1}
+< [eva:progress] Recording results for not_enabled
+< [eva:progress] Done for function not_enabled
+---
+> [eva:progress] domains_function.c:111: 
+>   Reusing old results for call to not_enabled
+66,72c59
+< [eva:progress] 
+<   computing for function disabled <- recursively_enabled <- main.
+<   Called from domains_function.c:113.
+< [eva:show] domains_function.c:85: 
+<   Frama_C_show_each_top: [-2147483648..2147483647]
+< [eva:progress] Recording results for disabled
+< [eva:progress] Done for function disabled
+---
+> [eva:progress] domains_function.c:113: Reusing old results for call to disabled
+147c134
+<   result ∈ [--..--]
+---
+>   result ∈ {1}

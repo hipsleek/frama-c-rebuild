@@ -1,0 +1,2 @@
+minimal frama-c/minimal.git none
+unitcheck frama-c/UnitCheck.git frama-c/UnitCheck-Ivette.git

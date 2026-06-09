@@ -1,0 +1,9 @@
+function zz: //-- typing error #0
+contract: ensures parsing_only: \true; //-- typing error #0 bis
+function may_exits_bis:
+contract:
+   ensures parsing_only: \result == c; //-- typing error #1
+contract:
+   ensures parsing_only: what-ever == c; //-- typing error #2
+at return: loop invariant c == c; //-- typing error #3
+at loop 1: loop invariant c == c; //-- typing error #4

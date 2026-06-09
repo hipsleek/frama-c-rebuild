@@ -1,0 +1,124 @@
+[kernel] Parsing err_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+[eva:progress] 
+  computing for function warn <- main.
+  Called from err_h.c:39.
+[eva] using specification for function warn
+[eva:progress] err_h.c:39: 
+  function warn: precondition 'fmt_valid_read_or_null' got status valid.
+[eva:progress] Done for function warn
+[eva:progress] 
+  computing for function warn <- main.
+  Called from err_h.c:40.
+[eva:progress] err_h.c:40: 
+  function warn: precondition 'fmt_valid_read_or_null' got status valid.
+[eva:progress] Done for function warn
+[eva:progress] 
+  computing for function warnx <- main.
+  Called from err_h.c:41.
+[eva] using specification for function warnx
+[eva:progress] err_h.c:41: 
+  function warnx: precondition 'fmt_valid_read_or_null' got status valid.
+[eva:progress] Done for function warnx
+[eva:progress] 
+  computing for function vaw <- main.
+  Called from err_h.c:42.
+[eva:progress] 
+  computing for function vwarn <- vaw <- main.
+  Called from err_h.c:12.
+[eva] using specification for function vwarn
+[eva:progress] err_h.c:12: 
+  function vwarn: precondition 'fmt_valid_read_or_null' got status valid.
+[eva:progress] Done for function vwarn
+[eva:progress] Recording results for vaw
+[eva:progress] Done for function vaw
+[eva:progress] 
+  computing for function vawx <- main.
+  Called from err_h.c:43.
+[eva:progress] 
+  computing for function vwarnx <- vawx <- main.
+  Called from err_h.c:19.
+[eva] using specification for function vwarnx
+[eva:progress] err_h.c:19: 
+  function vwarnx: precondition 'fmt_valid_read_or_null' got status valid.
+[eva:progress] Done for function vwarnx
+[eva:progress] Recording results for vawx
+[eva:progress] Done for function vawx
+[eva:progress] 
+  computing for function err <- main.
+  Called from err_h.c:45.
+[eva] using specification for function err
+[eva:progress] err_h.c:45: 
+  function err: precondition 'fmt_valid_read_or_null' got status valid.
+[eva] err_h.c:45: Warning: 
+  cannot interpret assigns clause \exit_status
+  (unsupported logic var \exit_status); effects will be ignored
+[eva:progress] Done for function err
+[eva:progress] 
+  computing for function err <- main.
+  Called from err_h.c:49.
+[eva:progress] err_h.c:49: 
+  function err: precondition 'fmt_valid_read_or_null' got status valid.
+[eva] err_h.c:49: Warning: 
+  cannot interpret assigns clause \exit_status
+  (unsupported logic var \exit_status); effects will be ignored
+[eva:progress] Done for function err
+[eva:progress] 
+  computing for function errx <- main.
+  Called from err_h.c:53.
+[eva] using specification for function errx
+[eva:progress] err_h.c:53: 
+  function errx: precondition 'fmt_valid_read_or_null' got status valid.
+[eva] err_h.c:53: Warning: 
+  cannot interpret assigns clause \exit_status
+  (unsupported logic var \exit_status); effects will be ignored
+[eva:progress] Done for function errx
+[eva:progress] 
+  computing for function vae <- main.
+  Called from err_h.c:57.
+[eva:progress] 
+  computing for function verr <- vae <- main.
+  Called from err_h.c:26.
+[eva] using specification for function verr
+[eva:progress] err_h.c:26: 
+  function verr: precondition 'fmt_valid_read_or_null' got status valid.
+[eva] err_h.c:26: Warning: 
+  cannot interpret assigns clause \exit_status
+  (unsupported logic var \exit_status); effects will be ignored
+[eva:progress] Done for function verr
+[eva:progress] Recording results for vae
+[eva:progress] Done for function vae
+[eva:progress] 
+  computing for function vaex <- main.
+  Called from err_h.c:61.
+[eva:progress] 
+  computing for function verrx <- vaex <- main.
+  Called from err_h.c:33.
+[eva] using specification for function verrx
+[eva:progress] err_h.c:33: 
+  function verrx: precondition 'fmt_valid_read_or_null' got status valid.
+[eva] err_h.c:33: Warning: 
+  cannot interpret assigns clause \exit_status
+  (unsupported logic var \exit_status); effects will be ignored
+[eva:progress] Done for function verrx
+[eva:progress] Recording results for vaex
+[eva:progress] Done for function vaex
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function vae:
+  NON TERMINATING FUNCTION
+[eva:final-states] Values at end of function vaex:
+  NON TERMINATING FUNCTION
+[eva:final-states] Values at end of function vaw:
+  ap ∈ {{ &__va_args_14[0] }}
+[eva:final-states] Values at end of function vawx:
+  ap ∈ {{ &__va_args_16[0] }}
+[eva:final-states] Values at end of function main:
+  a ∈ {1}
+  p ∈ {4}
+  __retres ∈ {0}

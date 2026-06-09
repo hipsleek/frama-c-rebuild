@@ -1,0 +1,45 @@
+{
+  "dbfile": "mopsa.db",
+  "contents":
+[  {
+    "filename": "a.o",
+    "type": "object",
+    "lang": "C",
+    "source": "a.c",
+    "args": ["-D", "FOO"],
+    "path": "."
+  },
+  {
+    "filename": "b.o",
+    "type": "object",
+    "lang": "C",
+    "source": "b.c",
+    "args": ["-D", "FOO"],
+    "path": "."
+  },
+  {
+    "filename": "bar",
+    "type": "executable",
+    "contents": ["bar.o"]
+  },
+  {
+    "filename": "bar.o",
+    "type": "object",
+    "lang": "C",
+    "source": "a.c",
+    "args": ["-D", "BAR"],
+    "path": "."
+  },
+  {
+    "filename": "libcool.a",
+    "type": "library",
+    "kind": "static",
+    "contents": ["a.o", "b.o"]
+  },
+  {
+    "filename": "libhot.a",
+    "type": "library",
+    "kind": "static",
+    "contents": ["a.o", "b.o"]
+  }]
+}

@@ -1,0 +1,9 @@
+caveat-importer git@git.frama-c.com:frama-c/caveat-importer.git
+context-from-precondition git@git.frama-c.com:frama-c/context-from-precondition.git
+frama-clang git@git.frama-c.com:frama-c/frama-clang.git
+genassigns git@git.frama-c.com:frama-c/genassigns.git
+meta git@git.frama-c.com:frama-c/meta.git
+minimal git@git.frama-c.com:frama-c/minimal.git
+security git@git.frama-c.com:frama-c/security.git
+synchrone git@git.frama-c.com:frama-c/synchrone.git
+unitcheck git@git.frama-c.com:frama-c/UnitCheck.git

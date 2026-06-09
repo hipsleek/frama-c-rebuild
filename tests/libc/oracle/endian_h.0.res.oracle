@@ -1,0 +1,29 @@
+[kernel] Parsing endian_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] endian_h.c:20: assertion got status valid.
+[eva:progress] endian_h.c:21: assertion got status valid.
+[eva:progress] endian_h.c:22: assertion got status valid.
+[eva:progress] endian_h.c:32: assertion got status valid.
+[eva:progress] endian_h.c:33: assertion got status valid.
+[eva:progress] endian_h.c:34: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  i16 ∈ {1234}
+  i32 ∈ {1234}
+  i64 ∈ {1234}
+  be16 ∈ {53764}
+  be32 ∈ {3523477504}
+  be64 ∈ {15133220647871709184}
+  h16 ∈ {1234}
+  h32 ∈ {1234}
+  h64 ∈ {1234}
+  le16 ∈ {1234}
+  le32 ∈ {1234}
+  le64 ∈ {1234}
+  __retres ∈ {0}

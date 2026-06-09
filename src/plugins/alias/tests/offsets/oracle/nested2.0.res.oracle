@@ -1,0 +1,48 @@
+[kernel] Parsing nested2.c (with preprocessing)
+[alias] analysing global variable definition: __fc_heap_status = {};
+[alias] May-aliases after global variable definition  __fc_heap_status  are  <none>
+[alias] analysing global variable definition: __fc_errno = {};
+[alias] May-aliases after global variable definition  __fc_errno  are  <none>
+[alias] analysing global variable definition: __fc_rand_max =
+  (unsigned long)2147483647;
+[alias] May-aliases after global variable definition  __fc_rand_max  are  <none>
+[alias] analysing global variable definition: __fc_random48_init = {};
+[alias] May-aliases after global variable definition  __fc_random48_init  are  <none>
+[alias] analysing function: main
+[alias] analysing instruction: st_1_t x1 = {.a = 0, .b = 1};
+[alias] May-aliases after instruction  st_1_t x1 = {.a = 0, .b = 1};  are  <none>
+[alias] analysing instruction: st_1_t x2 = {.a = 2, .b = 3};
+[alias] May-aliases after instruction  st_1_t x2 = {.a = 2, .b = 3};  are  <none>
+[alias] analysing instruction: st_2_t *z1 = malloc(sizeof(st_2_t));
+[alias] May-aliases after instruction  st_2_t *z1 = malloc(sizeof(st_2_t));  are
+  <none>
+[alias] analysing instruction: st_3_t *t = malloc(sizeof(st_3_t));
+[alias] May-aliases after instruction  st_3_t *t = malloc(sizeof(st_3_t));  are
+  <none>
+[alias] analysing instruction: int *a = malloc(sizeof(int));
+[alias] May-aliases after instruction  int *a = malloc(sizeof(int));  are  <none>
+[alias] analysing instruction: *a = 0;
+[alias] May-aliases after instruction  *a = 0;  are  <none>
+[alias] analysing instruction: z1->s[0] = (struct struct_1_t *)(& x1);
+[alias] May-aliases after instruction  z1->s[0] = (struct struct_1_t *)(& x1);  are
+  <none>
+[alias] analysing instruction: z1->s[1] = (struct struct_1_t *)(& x2);
+[alias] May-aliases after instruction  z1->s[1] = (struct struct_1_t *)(& x2);  are
+  <none>
+[alias] analysing instruction: z1->c = a;
+[alias] May-aliases after instruction  z1->c = a;  are  { z1->c; a }
+[alias] analysing instruction: t->t = (struct struct_2_t *)z1;
+[alias] May-aliases after instruction  t->t = (struct struct_2_t *)z1;  are
+  { (t->t)->s[0..]; z1->s[0..] }  { (t->t)->s; z1->s }
+  { (t->t)->c; z1->c; a }  { t->t; z1 }
+[alias] analysing instruction: t->d = a;
+[alias] May-aliases after instruction  t->d = a;  are
+  { (t->t)->s[0..]; z1->s[0..] }  { (t->t)->s; z1->s }
+  { (t->t)->c; z1->c; t->d; a }  { t->t; z1 }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { (t->t)->s[0..]; z1->s[0..] }  { (t->t)->s; z1->s }
+  { (t->t)->c; z1->c; t->d; a }  { t->t; z1 }
+[alias] May-aliases at the end of function main:
+  { (t->t)->s[0..]; z1->s[0..] }  { (t->t)->s; z1->s }
+  { (t->t)->c; z1->c; t->d; a }  { t->t; z1 }

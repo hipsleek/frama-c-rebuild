@@ -1,0 +1,208 @@
+[kernel] Expanding arguments from mthread_test_options.txt
+[mt] Preparing sources for Mthread with lib pthreads
+[kernel] Parsing FRAMAC_SHARE/mt/mthread.c (with preprocessing)
+[kernel] Parsing FRAMAC_SHARE/mt/mthread_pthread.c (with preprocessing)
+[kernel] Parsing read_all.c (with preprocessing)
+[mt] Warning: Mthread is an experimental plugin and is still in development.
+[mt] ******* Starting mthread
+[eva] Found concurrency builtins: enabling mthread domain
+[mt] *** Computing value analysis for main thread
+[eva] Analyzing a complete application starting at main
+[mt] New thread: <main>, fun main
+[kernel:annot:missing-spec] read_all.c:25: Warning: 
+  Neither code nor specification for function random, generating default
+  assigns. See -generated-spec-* options for more info.
+[eva] using specification for function random
+[mt] read_all.c:27: 
+  New thread: jobs, fun f, parent <main>, args [0..18446744073709551615]
+[mt] read_all.c:27: Start thread jobs
+[mt] read_all.c:29: User Error: 
+  read of the whole memory. Ignoring to allow Mthread to continue, but the
+  analysis will not be correct.
+[eva] using specification for function g
+[eva:assigns:missing-result] read_all.c:16: Warning: 
+  no 'assigns \result \from ...' clause specified for function g
+[eva:assigns:missing] read_all.c:15: User Error: 
+  no \from part for clause 'assigns *p, r;'.
+  Assuming \from \nothing so that the analysis can continue, but be aware this is probably incorrect.
+[mt] *** First value analysis for main thread done.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  r: write by <main> at read_all.c:29 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] ******* Starting to iterate
+[mt] ***** Iteration 1
+[mt] *** Computing thread jobs, iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs
+[eva] Analyzing a complete application starting at f
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of f for thread jobs
+[mt] read_all.c:19: User Error: 
+  read of the whole memory. Ignoring to allow Mthread to continue, but the
+  analysis will not be correct.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  r: write by jobs at read_all.c:19 <- f
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs computed
+[mt] ***** Threads computed for iteration 1.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: r
+[mt] Concurrent imprecise accesses have changed: before
+    \nothing
+  vs.
+    r
+[mt] Possible read/write data races:
+  none
+[mt] Possible write/write data races:
+  none
+[mt] Shared memory: \nothing
+[mt] Mutexes for concurrent accesses:
+[mt] Detailed shared zones protections
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 2
+[mt] *** Computing thread <main>, iteration 2 (potential shared vars changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[mt] Thread <main>, fun main
+[mt] read_all.c:27: 
+  Thread jobs, fun f, parent <main>, args [0..18446744073709551615]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  r: write by <main> at read_all.c:29 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+      r = g(); read_all.c:29 <- main
+    shared bases: {r}
+    interferences by location:
+      read_all.c:29:
+        # cvalue: r ∈ [--..--] 
+    interferences by mutexes:
+      {}:
+        # cvalue: r ∈ [--..--]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread jobs, iteration 2 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs
+[eva] Analyzing a complete application starting at f
+[eva] Initial state supplied by user
+[eva:interferences] read_all.c:19: inject threads interferences at this point
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  r: write by jobs at read_all.c:19 <- f
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs
+    concurrent writes:
+      g(); read_all.c:19 <- f
+    shared bases: {r}
+    interferences by location:
+      read_all.c:19:
+        # cvalue: r ∈ [--..--] 
+    interferences by mutexes:
+      {}:
+        # cvalue: r ∈ [--..--]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs computed
+[mt] ***** Threads computed for iteration 2.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: r
+[mt] <main> writes  r ∈ [--..--]  // read_all.c:29 main
+[mt] <main> writes  r ∈ [--..--]  // read_all.c:29 g :: read_all.c:29 <- main
+[mt] jobs writes  r ∈ [--..--]  // read_all.c:19 g :: read_all.c:19 <- f
+[mt] Possible read/write data races:
+  none
+[mt] Possible write/write data races:
+  r:
+    write by <main> at read_all.c:29, unprotected
+    write by <main> at read_all.c:29, unprotected
+    write by jobs at read_all.c:19, unprotected
+[mt] Shared memory: r
+[mt] Concurrent precise var accesses have changed: before
+    \nothing
+  vs.
+    r
+[mt] Write summary for <main> (updated): r ∈ [--..--]
+[mt] Write summary for jobs (updated): r ∈ [--..--]
+[mt] Mutexes for concurrent accesses:
+  r  write unprotected, read unaccessed
+[mt] Detailed shared zones protections
+  r:
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 3
+[mt] *** Computing thread <main>, iteration 3 (interferences changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[eva:interferences] read_all.c:29: inject threads interferences at this point
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  r: write by <main> at read_all.c:29 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+      r = g(); read_all.c:29 <- main
+    shared bases: {r}
+    interferences by location:
+      read_all.c:29:
+        # cvalue: r ∈ [--..--] 
+    interferences by mutexes:
+      {}:
+        # cvalue: r ∈ [--..--]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] ***** Threads computed for iteration 3.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: r
+[mt] Possible read/write data races:
+  none
+[mt] Possible write/write data races:
+  r:
+    write by jobs at read_all.c:19, unprotected
+    write by <main> at read_all.c:29, unprotected
+    write by <main> at read_all.c:29, unprotected
+[mt] Shared memory: r
+[mt] Write summary for <main>: r ∈ [--..--]
+[mt] Write summary for jobs: r ∈ [--..--]
+[mt] Mutexes for concurrent accesses:
+  r  write unprotected, read unaccessed
+[mt] Detailed shared zones protections
+  r:
+[mt] ***** Shared variables computed
+[mt] ******* Analysis performed, 3 iterations
+[mt] Deferred error message was emitted during execution:
+  read_all.c:29: read of the whole memory. Ignoring to allow Mthread to continue, but the
+  analysis will not be correct.
+[kernel] Plug-in mt aborted: invalid user input.

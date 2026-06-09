@@ -1,0 +1,27 @@
+179,186d178
+< [eva:alarm] octagons.c:135: Warning: 
+<   signed overflow. assert a + 2 ≤ 2147483647;
+< [eva:alarm] octagons.c:136: Warning: 
+<   signed overflow. assert b + 2 ≤ 2147483647;
+< [eva:alarm] octagons.c:138: Warning: 
+<   signed overflow. assert a + k ≤ 2147483647;
+< [eva:alarm] octagons.c:141: Warning: 
+<   signed overflow. assert -2147483648 ≤ c - a;
+188c180
+< [eva:show] octagons.c:144: Frama_C_show_each_imprecise: [-2147483648..1]
+---
+> [eva:show] octagons.c:144: Frama_C_show_each_imprecise: [-2468..1]
+420,423c412,415
+<   a ∈ [-1024..2147483647]
+<   b ∈ [-1023..2147483647]
+<   c ∈ [-1023..2147483647]
+<   d ∈ [-1032..2147483647]
+---
+>   a ∈ [-182..1866]
+>   b ∈ [-181..1867]
+>   c ∈ [-602..1446]
+>   d ∈ [-190..1874]
+425c417
+<   d2 ∈ [-2147483648..1]
+---
+>   d2 ∈ [-2468..1]

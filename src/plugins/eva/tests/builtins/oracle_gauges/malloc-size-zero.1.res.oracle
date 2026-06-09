@@ -1,0 +1,13 @@
+32a33,44
+> [eva:progress] 
+>   computing for function my_calloc <- main.
+>   Called from malloc-size-zero.c:29.
+> [eva:progress] malloc-size-zero.c:10: Call to builtin malloc
+> [eva:progress] Recording results for my_calloc
+> [eva:progress] Done for function my_calloc
+> [eva:progress] 
+>   computing for function my_calloc <- main.
+>   Called from malloc-size-zero.c:29.
+> [eva:progress] malloc-size-zero.c:10: Call to builtin malloc
+> [eva:progress] Recording results for my_calloc
+> [eva:progress] Done for function my_calloc

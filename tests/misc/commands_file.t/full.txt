@@ -1,0 +1,10 @@
+src.c
+-commands-file prepro.txt
+-keep-unused-types
+-then
+-eva
+-eva-slevel 50
+-eva-precision=5
+-eva-slevel 200
+-then
+-print

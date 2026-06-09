@@ -1,0 +1,836 @@
+[kernel] Expanding arguments from mthread_test_options.txt
+[mt] Preparing sources for Mthread with builtins only
+[kernel] Parsing FRAMAC_SHARE/mt/mthread.c (with preprocessing)
+[kernel] Parsing interrupt.c (with preprocessing)
+[mt] Warning: Mthread is an experimental plugin and is still in development.
+[mt] ******* Starting mthread
+[eva] Found concurrency builtins: enabling mthread domain
+[mt] *** Computing value analysis for main thread
+[eva] Analyzing a complete application starting at main_interrupt_cross_incr
+[mt] New thread: <main>, fun main_interrupt_cross_incr
+[mt] New thread: <interrupt_handler interrupt_cross_incr1>,
+  fun interrupt_cross_incr1
+[mt] New thread: <interrupt_handler interrupt_cross_incr2>,
+  fun interrupt_cross_incr2
+[mt] New context for <main>, fun main_interrupt_cross_incr
+[mt] New context for <interrupt_handler interrupt_cross_incr2>,
+    fun interrupt_cross_incr2
+[mt] New context for <interrupt_handler interrupt_cross_incr1>,
+    fun interrupt_cross_incr1
+[eva:show] interrupt.c:49: Frama_C_show_each_a: {0}
+[eva:show] interrupt.c:52: Frama_C_show_each_b: {0}
+[mt] *** First value analysis for main thread done.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] ******* Starting to iterate
+[mt] ***** Iteration 1
+[mt] *** Computing thread <main>, iteration 1 (thread initial memory state
+    changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main_interrupt_cross_incr
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of main_interrupt_cross_incr for thread <main>
+[mt] Thread <main>, fun main_interrupt_cross_incr
+[eva:show] interrupt.c:49: Frama_C_show_each_a: {0}
+[eva:show] interrupt.c:52: Frama_C_show_each_b: {0}
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    read by <main> at interrupt.c:58 <- main_interrupt_cross_incr
+  interrupt_received_b:
+    read by <main> at interrupt.c:59 <- main_interrupt_cross_incr
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread <interrupt_handler interrupt_cross_incr1>, iteration 1
+    (first iteration)
+[mt] * Computing value analysis for thread <interrupt_handler interrupt_cross_incr1>
+[eva] Analyzing a complete application starting at interrupt_cross_incr1
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of interrupt_cross_incr1 for thread <interrupt_handler interrupt_cross_incr1>
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    write by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41 <-
+      interrupt_cross_incr1
+  interrupt_received_b:
+    read by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41 <-
+      interrupt_cross_incr1
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <interrupt_handler interrupt_cross_incr1>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <interrupt_handler interrupt_cross_incr1> computed
+[mt] *** Computing thread <interrupt_handler interrupt_cross_incr2>, iteration 1
+    (first iteration)
+[mt] * Computing value analysis for thread <interrupt_handler interrupt_cross_incr2>
+[eva] Analyzing a complete application starting at interrupt_cross_incr2
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of interrupt_cross_incr2 for thread <interrupt_handler interrupt_cross_incr2>
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    read by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45 <-
+      interrupt_cross_incr2
+  interrupt_received_b:
+    write by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45 <-
+      interrupt_cross_incr2
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <interrupt_handler interrupt_cross_incr2>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <interrupt_handler interrupt_cross_incr2> computed
+[mt] ***** Threads computed for iteration 1.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: interrupt_received_a; interrupt_received_b
+[mt] Concurrent imprecise accesses have changed: before
+    \nothing
+  vs.
+    interrupt_received_a; interrupt_received_b
+[mt] Possible read/write data races:
+  none
+[mt] Shared memory: \nothing
+[mt] Mutexes for concurrent accesses:
+[mt] Detailed shared zones protections
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 2
+[mt] *** Computing thread <main>, iteration 2 (potential shared vars changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main_interrupt_cross_incr
+[eva] Initial state supplied by user
+[eva:show] interrupt.c:49: Frama_C_show_each_a: {0}
+[eva:show] interrupt.c:52: Frama_C_show_each_b: {0}
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    read by <main> at interrupt.c:58 <- main_interrupt_cross_incr
+  interrupt_received_b:
+    read by <main> at interrupt.c:59 <- main_interrupt_cross_incr
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {interrupt_received_a, interrupt_received_b}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread <interrupt_handler interrupt_cross_incr1>, iteration 2
+    (potential shared vars changed and interferences changed)
+[mt] * Computing value analysis for thread <interrupt_handler interrupt_cross_incr1>
+[eva] Analyzing a complete application starting at interrupt_cross_incr1
+[eva] Initial state supplied by user
+[eva:interferences] interrupt.c:41: inject threads interferences at this point
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    write by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41 <-
+      interrupt_cross_incr1
+  interrupt_received_b:
+    read by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41 <-
+      interrupt_cross_incr1
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <interrupt_handler interrupt_cross_incr1>
+    concurrent writes:
+      interrupt_received_a = interrupt_received_b + 1; interrupt.c:41 <-
+        interrupt_cross_incr1
+    shared bases: {interrupt_received_a, interrupt_received_b}
+    interferences by location:
+      interrupt.c:41:
+        # cvalue: interrupt_received_a ∈ {1}
+                  interrupt_received_b ∈ {0} 
+    interferences by mutexes:
+      {}:
+        # cvalue: interrupt_received_a ∈ {1}
+                  interrupt_received_b ∈ {0}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <interrupt_handler interrupt_cross_incr1> computed
+[mt] *** Computing thread <interrupt_handler interrupt_cross_incr2>, iteration 2
+    (potential shared vars changed and interferences changed)
+[mt] * Computing value analysis for thread <interrupt_handler interrupt_cross_incr2>
+[eva] Analyzing a complete application starting at interrupt_cross_incr2
+[eva] Initial state supplied by user
+[eva:interferences] interrupt.c:45: inject threads interferences at this point
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    read by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45 <-
+      interrupt_cross_incr2
+  interrupt_received_b:
+    write by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45 <-
+      interrupt_cross_incr2
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <interrupt_handler interrupt_cross_incr2>
+    concurrent writes:
+      interrupt_received_b = interrupt_received_a + 1; interrupt.c:45 <-
+        interrupt_cross_incr2
+    shared bases: {interrupt_received_a, interrupt_received_b}
+    interferences by location:
+      interrupt.c:45:
+        # cvalue: interrupt_received_a ∈ {0; 1}
+                  interrupt_received_b ∈ {1; 2} 
+    interferences by mutexes:
+      {}:
+        # cvalue: interrupt_received_a ∈ {0; 1}
+                  interrupt_received_b ∈ {1; 2}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <interrupt_handler interrupt_cross_incr2> computed
+[mt] ***** Threads computed for iteration 2.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: interrupt_received_a; interrupt_received_b
+[mt] <main> reads  interrupt_received_a ∈ {0}  // interrupt.c:58
+  main_interrupt_cross_incr
+[mt] <interrupt_handler interrupt_cross_incr2> reads 
+  interrupt_received_a ∈ {0; 1}  // interrupt.c:45 interrupt_cross_incr2
+[mt] <main> reads  interrupt_received_b ∈ {0}  // interrupt.c:59
+  main_interrupt_cross_incr
+[mt] <interrupt_handler interrupt_cross_incr1> reads  interrupt_received_b ∈ {0} 
+  // interrupt.c:41 interrupt_cross_incr1
+[mt] <interrupt_handler interrupt_cross_incr1> writes  interrupt_received_a ∈ {1} 
+  // interrupt.c:41 interrupt_cross_incr1
+[mt] <interrupt_handler interrupt_cross_incr2> writes 
+  interrupt_received_b ∈ {1; 2}  // interrupt.c:45 interrupt_cross_incr2
+[mt] Possible read/write data races:
+  interrupt_received_b:
+    read by <main> at interrupt.c:59, unprotected
+    read by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41,
+       unprotected
+    write by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45,
+       unprotected
+  interrupt_received_a:
+    read by <main> at interrupt.c:58, unprotected
+    read by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45,
+       unprotected
+    write by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41,
+       unprotected
+[mt] Shared memory: interrupt_received_a; interrupt_received_b
+[mt] Concurrent precise var accesses have changed: before
+    \nothing
+  vs.
+    interrupt_received_a; interrupt_received_b
+[mt] Write summary for <interrupt_handler interrupt_cross_incr1> (updated):
+  interrupt_received_a ∈ {1}
+[mt] Write summary for <interrupt_handler interrupt_cross_incr2> (updated):
+  interrupt_received_b ∈ {1; 2}
+[mt] Mutexes for concurrent accesses:
+  interrupt_received_a  unprotected
+  interrupt_received_b  unprotected
+[mt] Detailed shared zones protections
+  interrupt_received_b:
+    Read by <interrupt_handler interrupt_cross_incr1>,
+      Write by <interrupt_handler interrupt_cross_incr2>: unprotected
+    Read by <main>, Write by <interrupt_handler interrupt_cross_incr2>:
+      unprotected
+  interrupt_received_a:
+    Read by <interrupt_handler interrupt_cross_incr2>,
+      Write by <interrupt_handler interrupt_cross_incr1>: unprotected
+    Read by <main>, Write by <interrupt_handler interrupt_cross_incr1>:
+      unprotected
+[mt] Statements needing manual synchronisation
+  interrupt.c:45 (for interrupt_received_a)
+  interrupt.c:41 (for interrupt_received_b)
+  interrupt.c:59 (for interrupt_received_b)
+  interrupt.c:58 (for interrupt_received_a)
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 3
+[mt] *** Computing thread <main>, iteration 3 (shared vars values changed and
+    interferences changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main_interrupt_cross_incr
+[eva] Initial state supplied by user
+[eva:interferences] interrupt.c:58: inject threads interferences at this point
+[eva:show] interrupt.c:49: Frama_C_show_each_a: {0; 1}
+[eva:interferences] interrupt.c:59: inject threads interferences at this point
+[eva:show] interrupt.c:52: Frama_C_show_each_b: {0; 1; 2}
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    read by <main> at interrupt.c:58 <- main_interrupt_cross_incr
+  interrupt_received_b:
+    read by <main> at interrupt.c:59 <- main_interrupt_cross_incr
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {interrupt_received_a, interrupt_received_b}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread <interrupt_handler interrupt_cross_incr1>, iteration 3
+    (shared vars values changed and interferences changed)
+[mt] * Computing value analysis for thread <interrupt_handler interrupt_cross_incr1>
+[eva] Analyzing a complete application starting at interrupt_cross_incr1
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    write by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41 <-
+      interrupt_cross_incr1
+  interrupt_received_b:
+    read by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41 <-
+      interrupt_cross_incr1
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <interrupt_handler interrupt_cross_incr1>
+    concurrent writes:
+      interrupt_received_a = interrupt_received_b + 1; interrupt.c:41 <-
+        interrupt_cross_incr1
+    shared bases: {interrupt_received_a, interrupt_received_b}
+    interferences by location:
+      interrupt.c:41:
+        # cvalue:
+        interrupt_received_a ∈ {1; 2; 3}
+        interrupt_received_b ∈ {0; 1; 2} 
+    interferences by mutexes:
+      {}:
+        # cvalue:
+        interrupt_received_a ∈ {1; 2; 3}
+        interrupt_received_b ∈ {0; 1; 2}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <interrupt_handler interrupt_cross_incr1> computed
+[mt] *** Computing thread <interrupt_handler interrupt_cross_incr2>, iteration 3
+    (shared vars values changed and interferences changed)
+[mt] * Computing value analysis for thread <interrupt_handler interrupt_cross_incr2>
+[eva] Analyzing a complete application starting at interrupt_cross_incr2
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    read by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45 <-
+      interrupt_cross_incr2
+  interrupt_received_b:
+    write by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45 <-
+      interrupt_cross_incr2
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <interrupt_handler interrupt_cross_incr2>
+    concurrent writes:
+      interrupt_received_b = interrupt_received_a + 1; interrupt.c:45 <-
+        interrupt_cross_incr2
+    shared bases: {interrupt_received_a, interrupt_received_b}
+    interferences by location:
+      interrupt.c:45:
+        # cvalue:
+        interrupt_received_a ∈ {0; 1; 2; 3}
+        interrupt_received_b ∈ {1; 2; 3; 4} 
+    interferences by mutexes:
+      {}:
+        # cvalue:
+        interrupt_received_a ∈ {0; 1; 2; 3}
+        interrupt_received_b ∈ {1; 2; 3; 4}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <interrupt_handler interrupt_cross_incr2> computed
+[mt] ***** Threads computed for iteration 3.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: interrupt_received_a; interrupt_received_b
+[mt] <main> reads  interrupt_received_a ∈ {0; 1}  // interrupt.c:58
+  main_interrupt_cross_incr
+[mt] <interrupt_handler interrupt_cross_incr2> reads 
+  interrupt_received_a ∈ {0; 1; 2; 3}  // interrupt.c:45 interrupt_cross_incr2
+[mt] <main> reads  interrupt_received_b ∈ {0; 1; 2}  // interrupt.c:59
+  main_interrupt_cross_incr
+[mt] <interrupt_handler interrupt_cross_incr1> reads 
+  interrupt_received_b ∈ {0; 1; 2}  // interrupt.c:41 interrupt_cross_incr1
+[mt] <interrupt_handler interrupt_cross_incr1> writes 
+  interrupt_received_a ∈ {1; 2; 3}  // interrupt.c:41 interrupt_cross_incr1
+[mt] <interrupt_handler interrupt_cross_incr2> writes 
+  interrupt_received_b ∈ {1; 2; 3; 4}  // interrupt.c:45 interrupt_cross_incr2
+[mt] Possible read/write data races:
+  interrupt_received_b:
+    read by <main> at interrupt.c:59, unprotected
+    read by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41,
+       unprotected
+    write by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45,
+       unprotected
+  interrupt_received_a:
+    read by <main> at interrupt.c:58, unprotected
+    read by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45,
+       unprotected
+    write by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41,
+       unprotected
+[mt] Shared memory: interrupt_received_a; interrupt_received_b
+[mt] Write summary for <interrupt_handler interrupt_cross_incr1> (updated):
+  interrupt_received_a ∈ {1; 2; 3}
+[mt] Write summary for <interrupt_handler interrupt_cross_incr2> (updated):
+  interrupt_received_b ∈ [1..2147483647]
+[mt] Mutexes for concurrent accesses:
+  interrupt_received_a  unprotected
+  interrupt_received_b  unprotected
+[mt] Detailed shared zones protections
+  interrupt_received_b:
+    Read by <interrupt_handler interrupt_cross_incr1>,
+      Write by <interrupt_handler interrupt_cross_incr2>: unprotected
+    Read by <main>, Write by <interrupt_handler interrupt_cross_incr2>:
+      unprotected
+  interrupt_received_a:
+    Read by <interrupt_handler interrupt_cross_incr2>,
+      Write by <interrupt_handler interrupt_cross_incr1>: unprotected
+    Read by <main>, Write by <interrupt_handler interrupt_cross_incr1>:
+      unprotected
+[mt] Statements needing manual synchronisation
+  interrupt.c:45 (for interrupt_received_a)
+  interrupt.c:41 (for interrupt_received_b)
+  interrupt.c:59 (for interrupt_received_b)
+  interrupt.c:58 (for interrupt_received_a)
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 4
+[mt] *** Computing thread <main>, iteration 4 (shared vars values changed and
+    interferences changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main_interrupt_cross_incr
+[eva] Initial state supplied by user
+[eva:show] interrupt.c:49: Frama_C_show_each_a: {0; 1; 2; 3}
+[eva:show] interrupt.c:52: Frama_C_show_each_b: {0; 1; 2; 3; 4}
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    read by <main> at interrupt.c:58 <- main_interrupt_cross_incr
+  interrupt_received_b:
+    read by <main> at interrupt.c:59 <- main_interrupt_cross_incr
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {interrupt_received_a, interrupt_received_b}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread <interrupt_handler interrupt_cross_incr1>, iteration 4
+    (shared vars values changed and interferences changed)
+[mt] * Computing value analysis for thread <interrupt_handler interrupt_cross_incr1>
+[eva] Analyzing a complete application starting at interrupt_cross_incr1
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    write by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41 <-
+      interrupt_cross_incr1
+  interrupt_received_b:
+    read by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41 <-
+      interrupt_cross_incr1
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <interrupt_handler interrupt_cross_incr1>
+    concurrent writes:
+      interrupt_received_a = interrupt_received_b + 1; interrupt.c:41 <-
+        interrupt_cross_incr1
+    shared bases: {interrupt_received_a, interrupt_received_b}
+    interferences by location:
+      interrupt.c:41:
+        # cvalue:
+        interrupt_received_a ∈ {1; 2; 3; 4; 5}
+        interrupt_received_b ∈ {0; 1; 2; 3; 4} 
+    interferences by mutexes:
+      {}:
+        # cvalue:
+        interrupt_received_a ∈ {1; 2; 3; 4; 5}
+        interrupt_received_b ∈ {0; 1; 2; 3; 4}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <interrupt_handler interrupt_cross_incr1> computed
+[mt] *** Computing thread <interrupt_handler interrupt_cross_incr2>, iteration 4
+    (shared vars values changed and interferences changed)
+[mt] * Computing value analysis for thread <interrupt_handler interrupt_cross_incr2>
+[eva] Analyzing a complete application starting at interrupt_cross_incr2
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    read by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45 <-
+      interrupt_cross_incr2
+  interrupt_received_b:
+    write by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45 <-
+      interrupt_cross_incr2
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <interrupt_handler interrupt_cross_incr2>
+    concurrent writes:
+      interrupt_received_b = interrupt_received_a + 1; interrupt.c:45 <-
+        interrupt_cross_incr2
+    shared bases: {interrupt_received_a, interrupt_received_b}
+    interferences by location:
+      interrupt.c:45:
+        # cvalue:
+        interrupt_received_a ∈ {0; 1; 2; 3; 4; 5}
+        interrupt_received_b ∈ {1; 2; 3; 4; 5; 6} 
+    interferences by mutexes:
+      {}:
+        # cvalue:
+        interrupt_received_a ∈ {0; 1; 2; 3; 4; 5}
+        interrupt_received_b ∈ {1; 2; 3; 4; 5; 6}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <interrupt_handler interrupt_cross_incr2> computed
+[mt] ***** Threads computed for iteration 4.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: interrupt_received_a; interrupt_received_b
+[mt] <main> reads  interrupt_received_a ∈ {0; 1; 2; 3}  // interrupt.c:58
+  main_interrupt_cross_incr
+[mt] <interrupt_handler interrupt_cross_incr2> reads 
+  interrupt_received_a ∈ {0; 1; 2; 3; 4; 5}  // interrupt.c:45
+  interrupt_cross_incr2
+[mt] <main> reads  interrupt_received_b ∈ {0; 1; 2; 3; 4}  // interrupt.c:59
+  main_interrupt_cross_incr
+[mt] <interrupt_handler interrupt_cross_incr1> reads 
+  interrupt_received_b ∈ {0; 1; 2; 3; 4}  // interrupt.c:41
+  interrupt_cross_incr1
+[mt] <interrupt_handler interrupt_cross_incr1> writes 
+  interrupt_received_a ∈ {1; 2; 3; 4; 5}  // interrupt.c:41
+  interrupt_cross_incr1
+[mt] <interrupt_handler interrupt_cross_incr2> writes 
+  interrupt_received_b ∈ {1; 2; 3; 4; 5; 6}  // interrupt.c:45
+  interrupt_cross_incr2
+[mt] Possible read/write data races:
+  interrupt_received_b:
+    read by <main> at interrupt.c:59, unprotected
+    read by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41,
+       unprotected
+    write by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45,
+       unprotected
+  interrupt_received_a:
+    read by <main> at interrupt.c:58, unprotected
+    read by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45,
+       unprotected
+    write by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41,
+       unprotected
+[mt] Shared memory: interrupt_received_a; interrupt_received_b
+[mt] Write summary for <interrupt_handler interrupt_cross_incr1> (updated):
+  interrupt_received_a ∈ [1..2147483647]
+[mt] Write summary for <interrupt_handler interrupt_cross_incr2>:
+  interrupt_received_b ∈ [1..2147483647]
+[mt] Mutexes for concurrent accesses:
+  interrupt_received_a  unprotected
+  interrupt_received_b  unprotected
+[mt] Detailed shared zones protections
+  interrupt_received_b:
+    Read by <interrupt_handler interrupt_cross_incr1>,
+      Write by <interrupt_handler interrupt_cross_incr2>: unprotected
+    Read by <main>, Write by <interrupt_handler interrupt_cross_incr2>:
+      unprotected
+  interrupt_received_a:
+    Read by <interrupt_handler interrupt_cross_incr2>,
+      Write by <interrupt_handler interrupt_cross_incr1>: unprotected
+    Read by <main>, Write by <interrupt_handler interrupt_cross_incr1>:
+      unprotected
+[mt] Statements needing manual synchronisation
+  interrupt.c:45 (for interrupt_received_a)
+  interrupt.c:41 (for interrupt_received_b)
+  interrupt.c:59 (for interrupt_received_b)
+  interrupt.c:58 (for interrupt_received_a)
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 5
+[mt] *** Computing thread <main>, iteration 5 (shared vars values changed and
+    interferences changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main_interrupt_cross_incr
+[eva] Initial state supplied by user
+[eva:show] interrupt.c:49: Frama_C_show_each_a: {0; 1; 2; 3; 4; 5}
+[eva:show] interrupt.c:52: Frama_C_show_each_b: {0; 1; 2; 3; 4; 5; 6}
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    read by <main> at interrupt.c:58 <- main_interrupt_cross_incr
+  interrupt_received_b:
+    read by <main> at interrupt.c:59 <- main_interrupt_cross_incr
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {interrupt_received_a, interrupt_received_b}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread <interrupt_handler interrupt_cross_incr1>, iteration 5
+    (interferences changed)
+[mt] * Computing value analysis for thread <interrupt_handler interrupt_cross_incr1>
+[eva] Analyzing a complete application starting at interrupt_cross_incr1
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    write by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41 <-
+      interrupt_cross_incr1
+  interrupt_received_b:
+    read by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41 <-
+      interrupt_cross_incr1
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <interrupt_handler interrupt_cross_incr1>
+    concurrent writes:
+      interrupt_received_a = interrupt_received_b + 1; interrupt.c:41 <-
+        interrupt_cross_incr1
+    shared bases: {interrupt_received_a, interrupt_received_b}
+    interferences by location:
+      interrupt.c:41:
+        # cvalue:
+        interrupt_received_a ∈ [1..2147483647]
+        interrupt_received_b ∈ [0..2147483647] 
+    interferences by mutexes:
+      {}:
+        # cvalue:
+        interrupt_received_a ∈ [1..2147483647]
+        interrupt_received_b ∈ [0..2147483647]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <interrupt_handler interrupt_cross_incr1> computed
+[mt] *** Computing thread <interrupt_handler interrupt_cross_incr2>, iteration 5
+    (shared vars values changed and interferences changed)
+[mt] * Computing value analysis for thread <interrupt_handler interrupt_cross_incr2>
+[eva] Analyzing a complete application starting at interrupt_cross_incr2
+[eva] Initial state supplied by user
+[eva:alarm] interrupt.c:45: Warning: 
+  signed overflow. assert interrupt_received_a + 1 ≤ 2147483647;
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    read by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45 <-
+      interrupt_cross_incr2
+  interrupt_received_b:
+    write by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45 <-
+      interrupt_cross_incr2
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <interrupt_handler interrupt_cross_incr2>
+    concurrent writes:
+      /*@ assert Eva: signed_overflow: interrupt_received_a + 1 ≤ 2147483647;
+      */
+      interrupt_received_b = interrupt_received_a + 1; interrupt.c:45 <-
+        interrupt_cross_incr2
+    shared bases: {interrupt_received_a, interrupt_received_b}
+    interferences by location:
+      interrupt.c:45:
+        # cvalue:
+        interrupt_received_a ∈ [0..2147483647]
+        interrupt_received_b ∈ [1..2147483647] 
+    interferences by mutexes:
+      {}:
+        # cvalue:
+        interrupt_received_a ∈ [0..2147483647]
+        interrupt_received_b ∈ [1..2147483647]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <interrupt_handler interrupt_cross_incr2> computed
+[mt] ***** Threads computed for iteration 5.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: interrupt_received_a; interrupt_received_b
+[mt] <main> reads  interrupt_received_a ∈ {0; 1; 2; 3; 4; 5}  // interrupt.c:58
+  main_interrupt_cross_incr
+[mt] <interrupt_handler interrupt_cross_incr2> reads 
+  interrupt_received_a ∈ [0..2147483647]  // interrupt.c:45
+  interrupt_cross_incr2
+[mt] <main> reads  interrupt_received_b ∈ {0; 1; 2; 3; 4; 5; 6}  // interrupt.c:59
+  main_interrupt_cross_incr
+[mt] <interrupt_handler interrupt_cross_incr1> reads 
+  interrupt_received_b ∈ {0; 1; 2; 3; 4; 5; 6}  // interrupt.c:41
+  interrupt_cross_incr1
+[mt] <interrupt_handler interrupt_cross_incr1> writes 
+  interrupt_received_a ∈ {1; 2; 3; 4; 5; 6; 7}  // interrupt.c:41
+  interrupt_cross_incr1
+[mt] <interrupt_handler interrupt_cross_incr2> writes 
+  interrupt_received_b ∈ [1..2147483647]  // interrupt.c:45
+  interrupt_cross_incr2
+[mt] Possible read/write data races:
+  interrupt_received_b:
+    read by <main> at interrupt.c:59, unprotected
+    read by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41,
+       unprotected
+    write by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45,
+       unprotected
+  interrupt_received_a:
+    read by <main> at interrupt.c:58, unprotected
+    read by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45,
+       unprotected
+    write by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41,
+       unprotected
+[mt] Shared memory: interrupt_received_a; interrupt_received_b
+[mt] Write summary for <interrupt_handler interrupt_cross_incr1>:
+  interrupt_received_a ∈ [1..2147483647]
+[mt] Write summary for <interrupt_handler interrupt_cross_incr2>:
+  interrupt_received_b ∈ [1..2147483647]
+[mt] Mutexes for concurrent accesses:
+  interrupt_received_a  unprotected
+  interrupt_received_b  unprotected
+[mt] Detailed shared zones protections
+  interrupt_received_b:
+    Read by <interrupt_handler interrupt_cross_incr1>,
+      Write by <interrupt_handler interrupt_cross_incr2>: unprotected
+    Read by <main>, Write by <interrupt_handler interrupt_cross_incr2>:
+      unprotected
+  interrupt_received_a:
+    Read by <interrupt_handler interrupt_cross_incr2>,
+      Write by <interrupt_handler interrupt_cross_incr1>: unprotected
+    Read by <main>, Write by <interrupt_handler interrupt_cross_incr1>:
+      unprotected
+[mt] Statements needing manual synchronisation
+  interrupt.c:45 (for interrupt_received_a)
+  interrupt.c:41 (for interrupt_received_b)
+  interrupt.c:59 (for interrupt_received_b)
+  interrupt.c:58 (for interrupt_received_a)
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 6
+[mt] *** Computing thread <main>, iteration 6 (interferences changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main_interrupt_cross_incr
+[eva] Initial state supplied by user
+[eva:show] interrupt.c:49: Frama_C_show_each_a: [0..2147483647]
+[eva:show] interrupt.c:52: Frama_C_show_each_b: [0..2147483647]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    read by <main> at interrupt.c:58 <- main_interrupt_cross_incr
+  interrupt_received_b:
+    read by <main> at interrupt.c:59 <- main_interrupt_cross_incr
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {interrupt_received_a, interrupt_received_b}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread <interrupt_handler interrupt_cross_incr1>, iteration 6
+    (interferences changed)
+[mt] * Computing value analysis for thread <interrupt_handler interrupt_cross_incr1>
+[eva] Analyzing a complete application starting at interrupt_cross_incr1
+[eva] Initial state supplied by user
+[eva:alarm] interrupt.c:41: Warning: 
+  signed overflow. assert interrupt_received_b + 1 ≤ 2147483647;
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  interrupt_received_a:
+    write by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41 <-
+      interrupt_cross_incr1
+  interrupt_received_b:
+    read by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41 <-
+      interrupt_cross_incr1
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <interrupt_handler interrupt_cross_incr1>
+    concurrent writes:
+      /*@ assert Eva: signed_overflow: interrupt_received_b + 1 ≤ 2147483647;
+      */
+      interrupt_received_a = interrupt_received_b + 1; interrupt.c:41 <-
+        interrupt_cross_incr1
+    shared bases: {interrupt_received_a, interrupt_received_b}
+    interferences by location:
+      interrupt.c:41:
+        # cvalue:
+        interrupt_received_a ∈ [1..2147483647]
+        interrupt_received_b ∈ [0..2147483647] 
+    interferences by mutexes:
+      {}:
+        # cvalue:
+        interrupt_received_a ∈ [1..2147483647]
+        interrupt_received_b ∈ [0..2147483647]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <interrupt_handler interrupt_cross_incr1> computed
+[mt] ***** Threads computed for iteration 6.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: interrupt_received_a; interrupt_received_b
+[mt] <main> reads  interrupt_received_a ∈ [0..2147483647]  // interrupt.c:58
+  main_interrupt_cross_incr
+[mt] <main> reads  interrupt_received_b ∈ [0..2147483647]  // interrupt.c:59
+  main_interrupt_cross_incr
+[mt] <interrupt_handler interrupt_cross_incr1> reads 
+  interrupt_received_b ∈ [0..2147483647]  // interrupt.c:41
+  interrupt_cross_incr1
+[mt] <interrupt_handler interrupt_cross_incr1> writes 
+  interrupt_received_a ∈ [1..2147483647]  // interrupt.c:41
+  interrupt_cross_incr1
+[mt] Possible read/write data races:
+  interrupt_received_b:
+    read by <main> at interrupt.c:59, unprotected
+    read by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41,
+       unprotected
+    write by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45,
+       unprotected
+  interrupt_received_a:
+    read by <interrupt_handler interrupt_cross_incr2> at interrupt.c:45,
+       unprotected
+    read by <main> at interrupt.c:58, unprotected
+    write by <interrupt_handler interrupt_cross_incr1> at interrupt.c:41,
+       unprotected
+[mt] Shared memory: interrupt_received_a; interrupt_received_b
+[mt] Write summary for <interrupt_handler interrupt_cross_incr1>:
+  interrupt_received_a ∈ [1..2147483647]
+[mt] Write summary for <interrupt_handler interrupt_cross_incr2>:
+  interrupt_received_b ∈ [1..2147483647]
+[mt] Mutexes for concurrent accesses:
+  interrupt_received_a  unprotected
+  interrupt_received_b  unprotected
+[mt] Detailed shared zones protections
+  interrupt_received_b:
+    Read by <interrupt_handler interrupt_cross_incr1>,
+      Write by <interrupt_handler interrupt_cross_incr2>: unprotected
+    Read by <main>, Write by <interrupt_handler interrupt_cross_incr2>:
+      unprotected
+  interrupt_received_a:
+    Read by <interrupt_handler interrupt_cross_incr2>,
+      Write by <interrupt_handler interrupt_cross_incr1>: unprotected
+    Read by <main>, Write by <interrupt_handler interrupt_cross_incr1>:
+      unprotected
+[mt] Statements needing manual synchronisation
+  interrupt.c:45 (for interrupt_received_a)
+  interrupt.c:41 (for interrupt_received_b)
+  interrupt.c:59 (for interrupt_received_b)
+  interrupt.c:58 (for interrupt_received_a)
+[mt] ***** Shared variables computed
+[mt] ******* Analysis performed, 6 iterations

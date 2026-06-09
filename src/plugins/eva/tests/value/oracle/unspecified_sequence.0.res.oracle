@@ -1,0 +1,46 @@
+[kernel] Parsing unspecified_sequence.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  t[0..9] ∈ {0}
+[eva:alarm] unspecified_sequence.i:7: Warning: 
+  function main: precondition got status unknown.
+[eva:progress] 
+  computing for function f <- main.
+  Called from unspecified_sequence.i:10:18-24.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] unspecified_sequence.i:11: Reusing old results for call to f
+[eva:progress] 
+  computing for function f <- main.
+  Called from unspecified_sequence.i:11:30-34.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function f:
+  __retres ∈ {0}
+[eva:final-states] Values at end of function main:
+  y ∈ {0}
+  z ∈ {0}
+[from] Computing for function f
+[from] Done for function f
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  \result FROM \nothing
+[from] Function main:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function f:
+    __retres
+[inout] Inputs for function f:
+    \nothing
+[inout] Out (internal) for function main:
+    y; tmp; z; tmp_0; tmp_1
+[inout] Inputs for function main:
+    t[0]

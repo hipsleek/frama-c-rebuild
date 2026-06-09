@@ -1,0 +1,65 @@
+Plug-in name: Impact
+Plug-in shortname: impact
+Description: impact analysis
+
+Most options of the form '-impact-option-name' and without any parameter
+have an opposite with the name '-impact-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-impact-annot <f1, ..., fn>  use the impact annotations in the code of
+                    functions f1,...,fn (preferably use -impact-annot="f1,
+                    ..., fn")
+-impact-graph       build a graph that explains why a statement is in the set
+                    of impacted nodes (opposite option is -impact-no-graph)
+-impact-in-callers  compute compute impact in callers as well as in callees
+                    (set by default, opposite option is
+                    -impact-not-in-callers)
+-impact-not-in-callers  opposite of option -impact-in-callers, whose help
+                    message is:
+                    compute compute impact in callers as well as in callees
+-impact-print       print the impacted stmt (opposite option is
+                    -impact-no-print)
+-impact-skip <v1,...,vn>  consider that those variables are not impacted
+                    (preferably use -impact-skip="v1,...,vn")
+-impact-slicing     slice from the impacted stmt (opposite option is
+                    -impact-no-slicing)
+
+*** DEBUG
+
+-impact-debug <n>   level of debug for plug-in Impact (default to 0)
+
+*** GETTING INFORMATION
+
+-impact-help        help of plug-in Impact
+-impact-h           alias for option -impact-help
+
+*** OUTPUT MESSAGES
+
+-impact-log <K_1:file_1,...>  copy log messages from Impact to a file. <K> is
+                    a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -impact-log="K_1:file_1,...")
+-impact-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -impact-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -impact-msg-key="k1[,...,kn]")
+-impact-verbose <n>  level of verbosity for plug-in Impact (default to 1)
+-impact-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category
+                    <k1> to <s1>,...,<kn> to <sn>. Use -impact-warn-key help
+                    to get a list of available categories, and * to enable
+                    all categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -impact-warn-key="k1[=s1][,...,kn[=sn]]")

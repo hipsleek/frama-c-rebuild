@@ -1,0 +1,19 @@
+acsl_check.c: In function 'main'
+acsl_check.c:21: Error: Assertion failed:
+	The failing predicate is:
+	a == 1.
+	With values at failure point:
+	- a: 0
+acsl_check.c: In function 'f'
+acsl_check.c:7: Error: Precondition failed:
+	The failing predicate is:
+	a != 0.
+	With values at failure point:
+	- a: 0
+acsl_check.c: In function 'f'
+acsl_check.c:8: Error: Postcondition failed:
+	The failing predicate is:
+	\result != 0.
+	With values at failure point:
+	- \result: 0
+SHOULD BE PRINTED IN EXECUTION LOG

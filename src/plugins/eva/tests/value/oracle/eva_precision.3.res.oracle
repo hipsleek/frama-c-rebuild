@@ -1,0 +1,28 @@
+[kernel] Parsing eva_precision.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+[eva:loop-unroll:auto] eva_precision.i:23: Automatic loop unrolling.
+[eva:show] eva_precision.i:33: Frama_C_show_each_42: {42}
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  t[0..63] ∈ [0..99]
+  index ∈ [0..63]
+  r ∈ [0..99]
+  k ∈ [0..162]
+  diff ∈ [-99..162]
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    t[0..63]; i; index; r; k; diff
+[inout] Inputs for function main:
+    nondet

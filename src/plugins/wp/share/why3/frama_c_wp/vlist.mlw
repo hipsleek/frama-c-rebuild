@@ -1,0 +1,281 @@
+(**************************************************************************)
+(*                                                                        *)
+(*  SPDX-License-Identifier LGPL-2.1                                      *)
+(*  Copyright (C)                                                         *)
+(*  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  *)
+(*                                                                        *)
+(**************************************************************************)
+
+(* ---------------------------------------------------------------------- *)
+(* --- Lists for Why-3                                                --- *)
+(* ---------------------------------------------------------------------- *)
+
+theory Vlist
+
+  use int.Int
+  use int.ComputerDivision
+  use list.Append
+  use list.HdTl
+  use list.Nth
+  use option.Option
+
+  use export list.List
+  use export list.Length
+
+  (* -------------------------------------------------------------------- *)
+  (* --- Classical Lists for Alt-Ergo                                 --- *)
+  (* -------------------------------------------------------------------- *)
+
+  function nil : list 'a = Nil
+
+  function cons (x: 'a) (xs: list 'a) : list 'a = Cons x xs
+
+  let function head (l: list 'a) : 'a
+    requires { l <> Nil }
+    ensures  { hd l = Some result }
+  = match l with Nil -> absurd | Cons h _ -> h end
+
+  let function tail (l: list 'a) : list 'a
+    requires { l <> Nil }
+    ensures  { tl l = Some result }
+  = match l with Nil -> absurd | Cons _ t -> t end
+
+  function concat (xs: list 'a) (ys: list 'a) : list 'a = xs ++ ys
+
+  function elt (x:'a) : list 'a  = cons x nil
+
+  (* repeat *)
+  (* Here we are forced to use axiomatic definition to conform to ACSL *)
+
+  function repeat (xs: list 'a) (n: int) : list 'a
+
+  axiom repeat_empty:
+    forall xs : list 'a.
+      repeat xs 0 = Nil
+
+  axiom repeat_pos:
+    forall xs : list 'a, n. n > 0 ->
+      repeat xs n = xs ++ repeat xs (n - 1)
+
+  (* nth *)
+  (* Here we are forced to use axiomatic definition to conform to ACSL *)
+
+  function nth (l: list 'a) (n: int): 'a
+
+  axiom nth_zero:
+    forall l : list 'a, x.
+      nth (Cons x l) 0 = x
+
+  axiom nth_pos:
+    forall l : list 'a, n.
+      l <> Nil -> 0 < n < length l -> nth l n = nth (tail l) (n-1)
+
+  (* -------------------------------------------------------------------- *)
+  (* --- concat                                                       --- *)
+  (* -------------------------------------------------------------------- *)
+
+  lemma concat_cons: forall u v: list 'a, x: 'a.
+    concat (cons x u) v = cons x (concat u v)
+
+  let lemma head_concat (u v: list 'a)
+    requires { u <> Nil }
+    ensures  { head (concat u v) = head u }
+  = match u with Nil -> absurd | Cons _ _ -> () end
+
+  lemma concat_tail:
+    forall u v: list 'a. u <> Nil -> concat (tail u) v = tail (concat u v)
+
+  (* -------------------------------------------------------------------- *)
+  (* --- length                                                       --- *)
+  (* -------------------------------------------------------------------- *)
+
+  lemma length_pos : forall w:list 'a. (Int.(<=) 0 (length w))
+
+  lemma length_nil : length (nil: list 'a) = 0
+
+  lemma length_nil_bis : forall w:list 'a. length w = 0 -> w = nil
+
+  lemma length_not_nil : forall w:list 'a. w <> Nil -> 0 < length w
+
+  lemma length_cons :
+    forall x:'a, w:list 'a [length (cons x w)].
+      length (cons x w) = (Int.(+) 1 (length w))
+
+  lemma length_tail:
+    forall w: list 'a.
+      w <> Nil -> length (tail w) = length w - 1
+
+  lemma singleton_tail: forall w: list 'a. length w = 1 -> tail w = Nil
+
+  lemma length_concat :
+    forall u,v:list 'a [length (concat u v)].
+      length (concat u v) = (Int.(+) (length u) (length v))
+
+  let rec lemma length_repeat (w: list 'a) (n: int)
+    requires { 0 <= n }
+    ensures  { length (repeat w n) = (Int.( * ) n (length w)) }
+    variant  { n }
+  = if 0 < n then length_repeat w (n - 1)
+
+  (* -------------------------------------------------------------------- *)
+  (* --- nth                                                          --- *)
+  (* -------------------------------------------------------------------- *)
+
+  lemma nth_cons:
+    forall k:int, x:'a, w:list 'a [nth (cons x w) k].
+      0 <= k <= length w -> nth (cons x w) k = if k = 0 then x else nth w (k-1)
+
+  let lemma nth_head (w: list 'a)
+    requires { w <> Nil }
+    ensures  { nth w 0 = head w }
+  = match w with Nil -> absurd | Cons _ _ -> () end
+
+  lemma nth_tail:
+    forall k: int, w: list 'a.
+      0 < k < length w - 1 -> nth (tail w) (k - 1) = nth w k
+
+  let rec lemma nth_concat (u v: list 'a) (k: int)
+    requires { 0 <= k < length u + length v }
+    ensures  { nth (concat u v) k =
+                 if k < length u then nth u k else nth v (k - length u) }
+    variant  { k }
+  = if 0 < k && 0 < length u then nth_concat (tail u) v (k - 1)
+
+  (* -------------------------------------------------------------------- *)
+  (* --- equality of Lists                                            --- *)
+  (* -------------------------------------------------------------------- *)
+
+  predicate vlist_eq (u : list 'a) (v : list 'a) =
+    length u = length v &&
+    forall i:int. 0 <= i < length u -> nth u i = nth v i
+
+  let rec lemma extensionality (u v: list 'a)
+    requires { vlist_eq u v }
+    ensures  { u = v }
+    variant  { length u }
+  = assert { forall x: 'a, r: list 'a. head (cons x r) = x } ;
+    assert { forall x: 'a, r: list 'a. tail (cons x r) = r } ;
+    match u, v with Cons _ x, Cons _ y -> extensionality x y | _ -> () end
+
+  (* -------------------------------------------------------------------- *)
+  (* --- neutral elements                                             --- *)
+  (* -------------------------------------------------------------------- *)
+
+  lemma eq_nil_concat:
+    forall w:list 'a. vlist_eq (concat nil w) w /\ vlist_eq (concat w nil) w
+
+  lemma rw_nil_concat_left:
+    forall w:list 'a [concat nil w]. concat nil w = w
+
+  lemma rw_nil_concat_right:
+    forall w:list 'a [concat w nil]. concat w nil = w
+
+  (* -------------------------------------------------------------------- *)
+  (* --- normalization                                                --- *)
+  (* -------------------------------------------------------------------- *)
+
+  lemma eq_cons_concat:
+    forall x:'a, v,w:list 'a [concat (cons x v) w].
+      vlist_eq (concat (cons x v) w) (cons x (concat v w))
+
+  lemma rw_cons_concat:
+    forall x:'a, v,w:list 'a [concat (cons x v) w].
+      (concat (cons x v) w) = (cons x (concat v w))
+
+  lemma rw_nil_cons_concat:
+    forall x:'a, w:list 'a [concat (cons x nil) w].
+      (concat (cons x nil) w) = (cons x w)
+
+  (* -------------------------------------------------------------------- *)
+  (* --- associativity                                                --- *)
+  (* -------------------------------------------------------------------- *)
+
+  lemma eq_assoc_concat:
+    forall u,v,w:list 'a.
+      vlist_eq (concat (concat u v) w) (concat u (concat v w))
+
+  (* -------------------------------------------------------------------- *)
+  (* --- repeat                                                       --- *)
+  (* -------------------------------------------------------------------- *)
+
+  lemma rw_nil_repeat:
+    forall n:int [repeat (nil: list 'a) n].
+      n >= 0 -> repeat (nil: list 'a) n = (nil: list 'a)
+
+  lemma rw_repeat_zero:
+    forall w:list 'a [repeat w 0].
+      repeat w 0 = nil
+
+  let lemma eq_repeat_one (w: list 'a)
+    ensures { vlist_eq (repeat w 1) w }
+  = assert { repeat w 1 = repeat w 0 ++ w }
+
+  lemma rw_repeat_one:
+    forall w:list 'a [repeat w 1]. repeat w 1 = w
+
+  let rec lemma repeat_more (w: list 'a) (n: int)
+    requires { 0 <= n }
+    ensures  { repeat w (n + 1) = concat (repeat w n) w }
+    variant  { n }
+  = if 0 < n then repeat_more w (n - 1)
+
+  let rec lemma rw_repeat_concat (p q: int) (w: list 'a)
+    requires { 0 <= p }
+    requires { 0 <= q }
+    ensures  { repeat w (Int.(+) p q) = concat (repeat w p) (repeat w q) }
+    variant  { p }
+  = if 0 < p then rw_repeat_concat (p - 1) q w
+
+  lemma eq_repeat_concat:
+    forall p,q:int, w:list 'a.
+      0 <= p -> 0 <= q ->
+      vlist_eq (repeat w (Int.(+) p q)) (concat (repeat w p) (repeat w q))
+
+  lemma rw_repeat_after:
+    forall p:int, w:list 'a.
+       0 <= p -> concat (repeat w p) w = repeat w (Int.(+) p 1)
+
+  lemma rw_repeat_before:
+    forall p:int, w:list 'a.
+      0 <= p -> concat w (repeat w p) = repeat w (Int.(+) p 1)
+
+  let rec lemma nth_repeat (w: list 'a) (n k: int)
+    requires { 0 <= k < n * length w }
+    ensures  { nth (repeat w n) k = nth w (mod k (length w)) }
+    variant  { n }
+  =
+    if n <= 0 then absurd
+    else if n = 1 then ()
+    else
+      if k < length w
+      then begin
+        assert { (n - 1) * length w >= 1 * length w };
+        nth_repeat w (n - 1) k
+      end
+      else begin
+        let lw = length w in
+          nth_repeat w (n - 1) (k - lw);
+          assert { mod (lw * 1 + (k - lw)) lw = mod (k - lw) lw };
+      end
+
+(*--- To avoid exponential blowup of use of repeat_after by alt-ergo ---*)
+
+  function repeat_box (list 'a) int : (list 'a) (* repeat *)
+
+  axiom rw_repeat_box_unfold:
+    forall w:list 'a, n:int [ repeat_box w n ].
+      repeat_box w n = repeat w n
+
+  axiom rw_repeat_plus_box_unfold:
+    forall w:list 'a, a,b: int [ repeat_box w (Int.(+) a b) ].
+      (Int.(<=) 0 a)
+  -> (Int.(<=) 0 b)
+  -> repeat_box w (Int.(+) a b) = concat (repeat w a)
+                                                (repeat w b)
+  axiom rw_repeat_plus_one_box_unfold:
+    forall w:list 'a, n:int [ repeat_box w n ].
+      (Int.(<) 0 n)
+  -> (repeat_box w n = (concat (repeat w (Int.(-) n 1)) w)
+  && (repeat_box w (Int.(+) n 1) = concat (repeat w n) w))
+
+end

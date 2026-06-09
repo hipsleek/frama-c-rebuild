@@ -1,0 +1,18 @@
+# frama-c -wp [...]
+[kernel] Parsing default-stmt-assigns.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal automaton_state_accessor_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal automaton_state_accessor_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] default-stmt-assigns.i:2: Warning: 
+  Missing assigns clause (assigns 'everything' instead)
+[wp] 1 goal scheduled
+[wp] [Unsuccess] typed_automaton_state_accessor_assert (Alt-Ergo) (Cached)
+[wp] Proved goals:    2 / 3
+  Terminating:     1
+  Unreachable:     1
+  Unsuccess:       1
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  automaton_state_accessor   2       -        3      66.7%
+------------------------------------------------------------

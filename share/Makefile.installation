@@ -1,0 +1,79 @@
+##########################################################################
+#                                                                        #
+#  SPDX-License-Identifier LGPL-2.1                                      #
+#  Copyright (C)                                                         #
+#  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  #
+#                                                                        #
+##########################################################################
+
+################
+# INSTALLATION #
+################
+
+INSTALL_TARGET?=
+
+################################
+## Help
+
+help::
+	@echo "Installation configuration variables:"
+	@echo "  - PREFIX: target installation prefix (default is OPAM switch or /usr/local)"
+	@echo "  - MANDIR: custom installation for man pages"
+
+################################
+## Man Path
+
+# Default: the manuals are installed in the installation directory transmitted
+# to Dune (so either in Opam or in PREFIX)
+MANDIR?=
+
+ifeq (${MANDIR},)
+MANDIR_OPT=
+else
+MANDIR_OPT=--mandir ${MANDIR}
+endif
+
+################################
+## Install and uninstall
+
+.PHONY: install uninstall
+
+ifneq (${DUNE_WS},)
+  WORKSPACE_OPT:=--workspace dev/dune-workspace.${DUNE_WS}
+else
+  WORKSPACE_OPT:=
+endif
+
+ifneq ($(INSTALL_TARGET),)
+INSTALL_TARGET:="$(INSTALL_TARGET) "
+endif
+
+install::
+ifndef PREFIX
+	@echo "Warning: cannot install: no PREFIX defined"
+	@echo "  (recommendation: include FRAMAC/share/Makefile.common)"
+	@exit 1
+else
+ifeq ($(patsubst ~%,,$(PREFIX)),)
+$(error "PREFIX cannot start with '~'; use $$HOME instead")
+endif
+ifeq ($(PREFIX),$(OPAM_SWITCH_PREFIX))
+	@echo "Installing $(INSTALL_TARGET)to current Opam switch"
+	@printf "  Copying and relocating files..."
+	dune install ${WORKSPACE_OPT} --root . ${MANDIR_OPT} 2> /dev/null
+	@echo " (done)"
+else
+	@echo "Installing $(INSTALL_TARGET)to ${PREFIX}"
+	@printf " Copying and relocating files..."
+	dune install ${WORKSPACE_OPT} --root . --prefix ${PREFIX} ${MANDIR_OPT} 2> /dev/null
+	@echo " (done)"
+	@echo 'DO NOT FORGET TO EXPAND YOUR OCAMLPATH VARIABLE:'
+	@echo '  export OCAMLPATH="${PREFIX}/lib:$$OCAMLPATH"'
+endif
+endif
+
+ifdef PREFIX
+uninstall::
+	@echo "Uninstalling $(INSTALL_TARGET)"
+	dune uninstall ${WORKSPACE_OPT} --root . --prefix ${PREFIX} ${MANDIR_OPT} 2> /dev/null
+endif

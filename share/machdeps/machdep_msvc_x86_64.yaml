@@ -1,0 +1,166 @@
+alignof_aligned: 1
+alignof_double: 8
+alignof_float: 4
+alignof_fun: -1
+alignof_int: 4
+alignof_long: 4
+alignof_longdouble: 8
+alignof_longlong: 8
+alignof_max_align_t: 8
+alignof_ptr: 8
+alignof_short: 2
+alignof_void: -1
+max_align_t: double # taken from cstddef
+max_extended_alignment: -1
+char_is_unsigned: false
+compiler: msvc
+cpp_arch_flags:
+- -m64
+has__builtin_va_list: false
+int_fast8_t: signed char
+int_fast16_t: signed int
+int_fast32_t: signed int
+int_fast64_t: signed long long
+intptr_t: signed long long
+little_endian: true
+nsig: '23'
+ptrdiff_t: long long
+# NB: wasn't defined at all in old __fc_machdep.h
+sig_atomic_t: int
+size_t: unsigned long long
+sizeof_double: 8
+sizeof_float: 4
+sizeof_fun: -1
+sizeof_int: 4
+sizeof_long: 4
+sizeof_longdouble: 8
+sizeof_longlong: 8
+sizeof_ptr: 8
+sizeof_short: 2
+sizeof_void: 0
+ssize_t: long long
+time_t: long long
+uint_fast8_t: unsigned char
+uint_fast16_t: unsigned int
+uint_fast32_t: unsigned int
+uint_fast64_t: unsigned long long
+uintptr_t: unsigned long long
+version: MSVC - X86-64bits mode
+wchar_t: unsigned short
+weof: (0xffffU)
+wint_t: unsigned short
+wordsize: '64'
+posix_c_source: ''
+
+# NB: except for l_tmpnam, the following macros are not defined in the old
+# __fc_machdep.h in the MSVC_X86_64 section. The values below have thus been
+# taken from gnu
+bufsiz: '8192'
+eof: '(-1)'
+fopen_max: '20'
+host_name_max: '255'
+path_max: '256'
+tty_name_max: '32'
+filename_max: '2048'
+l_ctermid: '9'
+l_tmpnam: '20'
+tmp_max: '0xFFFFFFFF'
+rand_max: '32767'
+mb_cur_max: '((size_t)16)'
+machdep_name: machdep_msvc_x86_64
+
+custom_defs:
+    _MSC_FULL_VER: '160040219'
+    _MSC_VER: '1600'
+    __ptr64: ''
+    __ptr32: ''
+    __unaligned: ''
+    __cdecl: ''
+    __possibly_notnullterminated: ''
+    errno_t: int
+    _ERRNO_T_DEFINED: ''
+    _WIN64: '1'
+    _AMD64_: '1'
+    _M_AMD64: '1'
+    _M_X64: '1'
+
+errno:
+    eperm: '1'
+    enoent: '2'
+    esrch: '3'
+    eintr: '4'
+    eio: '5'
+    enxio: '6'
+    e2big: '7'
+    enoexec: '8'
+    ebadf: '9'
+    echild: '10'
+    eagain: '11'
+    enomem: '12'
+    eacces: '13'
+    efault: '14'
+    ebusy: '16'
+    eexist: '17'
+    exdev: '18'
+    enodev: '19'
+    enotdir: '20'
+    eisdir: '21'
+    einval: '22'
+    enfile: '23'
+    emfile: '24'
+    enotty: '25'
+    etxtbsy: '139'
+    efbig: '27'
+    enospc: '28'
+    espipe: '29'
+    erofs: '30'
+    emlink: '31'
+    epipe: '32'
+    edom: '33'
+    erange: '34'
+    edeadlk: '36'
+    enametoolong: '38'
+    enolck: '39'
+    enosys: '40'
+    enotempty: '41'
+    eloop: '114'
+    ewouldblock: '140'
+    enomsg: '122'
+    eidrm: '111'
+    edeadlock: '36'
+    enostr: '125'
+    enodata: '120'
+    etime: '137'
+    enosr: '124'
+    enolink: '121'
+    eproto: '134'
+    ebadmsg: '104'
+    eoverflow: '132'
+    eilseq: '42'
+    enotsock: '128'
+    edestaddrreq: '109'
+    emsgsize: '115'
+    eprototype: '136'
+    enoprotoopt: '123'
+    eprotonosupport: '135'
+    enotsup: '129'
+    eopnotsupp: '130'
+    eafnosupport: '102'
+    eaddrinuse: '100'
+    eaddrnotavail: '101'
+    enetdown: '116'
+    enetunreach: '118'
+    enetreset: '117'
+    econnaborted: '106'
+    econnreset: '108'
+    enobufs: '119'
+    eisconn: '113'
+    enotconn: '126'
+    etimedout: '138'
+    econnrefused: '107'
+    ehostunreach: '110'
+    ealready: '103'
+    einprogress: '112'
+    ecanceled: '105'
+    eownerdead: '133'
+    enotrecoverable: '127'

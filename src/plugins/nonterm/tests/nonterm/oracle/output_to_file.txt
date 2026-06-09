@@ -1,0 +1,4 @@
+[nonterm:stmt] output_to_file.i:7: Warning: 
+  non-terminating loop
+  stack: loop :: output_to_file.i:11:3-9 <- main
+[nonterm:unreachable] output_to_file.i:12: Warning: unreachable return

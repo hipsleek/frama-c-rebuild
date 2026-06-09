@@ -1,0 +1,32 @@
+# frama-c -wp [...]
+[kernel] Parsing bool.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal band_bool_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band_bool_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal bor_bool_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bor_bool_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bxor_bool_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bxor_bool_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal job_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal job_terminates (Cfg) (Trivial)
+[wp] 7 goals scheduled
+[wp] [Valid] typed_job_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_bor_bool_true_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_bor_bool_false_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_band_bool_true_ensures (Qed)
+[wp] [Valid] typed_band_bool_false_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_bxor_bool_true_ensures (Qed)
+[wp] [Valid] typed_bxor_bool_false_ensures (Alt-Ergo) (Cached)
+[wp] Proved goals:   15 / 15
+  Terminating:     4
+  Unreachable:     4
+  Qed:             2
+  Alt-Ergo:        5
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  job                       2        1        3       100%
+  bor_bool                  2        2        4       100%
+  band_bool                 3        1        4       100%
+  bxor_bool                 3        1        4       100%
+------------------------------------------------------------

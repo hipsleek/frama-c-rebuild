@@ -1,0 +1,3 @@
+function main:
+contract:
+requires includes_file2:\true ;

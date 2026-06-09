@@ -1,0 +1,4 @@
+[
+  { id:"GET-1", request:"kernel.ast.fetchFunctions", data:5 },
+  { id:"GET-2", request:"kernel.ast.fetchFunctions", data:5 }
+]

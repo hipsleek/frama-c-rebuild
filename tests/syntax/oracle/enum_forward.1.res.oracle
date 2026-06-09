@@ -1,0 +1,9 @@
+[kernel] Parsing enum_forward.i (no preprocessing)
+[kernel] enum_forward.i:8: User Error: 
+  forward declaration of enum only allowed for GCC machdeps; see option -machdep or run 'frama-c -machdep help' for the list of available machdeps
+[kernel] enum_forward.i:11: User Error: 
+  forward declaration of enum only allowed for GCC machdeps; see option -machdep or run 'frama-c -machdep help' for the list of available machdeps
+[kernel] enum_forward.i:14: User Error: 
+  forward declaration of enum only allowed for GCC machdeps; see option -machdep or run 'frama-c -machdep help' for the list of available machdeps
+[kernel] User Error: stopping on file "enum_forward.i" that has errors.
+[kernel] Frama-C aborted: invalid user input.

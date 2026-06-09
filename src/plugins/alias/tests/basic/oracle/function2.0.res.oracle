@@ -1,0 +1,29 @@
+[kernel] Parsing function2.c (with preprocessing)
+[alias] analysing global variable definition: __fc_heap_status = {};
+[alias] May-aliases after global variable definition  __fc_heap_status  are  <none>
+[alias] analysing global variable definition: __fc_errno = {};
+[alias] May-aliases after global variable definition  __fc_errno  are  <none>
+[alias] analysing global variable definition: __fc_rand_max =
+  (unsigned long)2147483647;
+[alias] May-aliases after global variable definition  __fc_rand_max  are  <none>
+[alias] analysing global variable definition: __fc_random48_init = {};
+[alias] May-aliases after global variable definition  __fc_random48_init  are  <none>
+[alias] analysing function: main
+[alias] analysing instruction: int *a = (int *)0;
+[alias] May-aliases after instruction  int *a = (int *)0;  are  <none>
+[alias] analysing instruction: int *b = (int *)0;
+[alias] May-aliases after instruction  int *b = (int *)0;  are  <none>
+[alias] analysing instruction: a = my_malloc(2);
+[alias] analysing function: my_malloc
+[alias] analysing instruction: int *res = (int *)0;
+[alias] May-aliases after instruction  int *res = (int *)0;  are  <none>
+[alias] analysing instruction: res = (int *)malloc((size_t)size);
+[alias] May-aliases after instruction  res = (int *)malloc((size_t)size);  are
+  <none>
+[alias] May-aliases at the end of function my_malloc: <none>
+[alias] May-aliases after instruction  a = my_malloc(2);  are  <none>
+[alias] analysing instruction: b = my_malloc(3);
+[alias] May-aliases after instruction  b = my_malloc(3);  are  <none>
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are  <none>
+[alias] May-aliases at the end of function main: <none>

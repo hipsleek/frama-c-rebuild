@@ -1,0 +1,17 @@
+# frama-c -wp [...]
+[kernel] Parsing issue-684-exit.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal unconditional_exit_assigns_normal (Cfg) (Unreachable)
+[wp] [Valid] Goal unconditional_exit_ensures (Cfg) (Unreachable)
+[wp] Warning: Missing RTE guards
+[wp] 3 goals scheduled
+[wp] [Valid] typed_unconditional_exit_terminates (Qed)
+[wp] [Valid] typed_unconditional_exit_exits (Qed)
+[wp] [Valid] typed_unconditional_exit_assigns_exit (Qed)
+[wp] Proved goals:    5 / 5
+  Unreachable:     2
+  Qed:             3
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  unconditional_exit        5        -        5       100%
+------------------------------------------------------------

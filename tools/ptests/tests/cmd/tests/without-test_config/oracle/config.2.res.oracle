@@ -1,0 +1,1 @@
+tests/test_config:CMD tests/test_config1 tests/test_config2 tests/test_config3-redef test#2

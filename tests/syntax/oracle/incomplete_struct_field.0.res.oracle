@@ -1,0 +1,14 @@
+[kernel] Parsing incomplete_struct_field.i (no preprocessing)
+[kernel] incomplete_struct_field.i:7: User Error: 
+  declaration of array of incomplete type 'struct _s`
+[kernel] incomplete_struct_field.i:7: User Error: 
+  field 'v' is declared with incomplete type 'struct _s [12]'
+[kernel] incomplete_struct_field.i:7: User Error: 
+  field v declaration contains a circular reference to type struct _s
+  5     typedef struct _s {
+  6       int i;
+  7       struct _s v[12];
+                    ^
+  8     } ts;
+  9
+[kernel] Frama-C aborted: invalid user input.

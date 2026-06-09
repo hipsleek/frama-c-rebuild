@@ -1,0 +1,135 @@
+365a366,367
+> [eva:signed-overflow] ieee_1180_1990.c:219: Warning: 
+>   2's complement assumed for overflow
+369a372,373
+> [eva:signed-overflow] ieee_1180_1990.c:220: Warning: 
+>   2's complement assumed for overflow
+375,376d378
+< [eva:signed-overflow] ieee_1180_1990.c:219: Warning: 
+<   2's complement assumed for overflow
+404a407,408
+> [eva:signed-overflow] ieee_1180_1990.c:243: Warning: 
+>   2's complement assumed for overflow
+408a413,414
+> [eva:signed-overflow] ieee_1180_1990.c:244: Warning: 
+>   2's complement assumed for overflow
+414,415d419
+< [eva:signed-overflow] ieee_1180_1990.c:243: Warning: 
+<   2's complement assumed for overflow
+438a443,450
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+451a464,465
+> [eva:signed-overflow] ieee_1180_1990.c:265: Warning: 
+>   2's complement assumed for overflow
+455a470,471
+> [eva:signed-overflow] ieee_1180_1990.c:266: Warning: 
+>   2's complement assumed for overflow
+461,462d476
+< [eva:signed-overflow] ieee_1180_1990.c:265: Warning: 
+<   2's complement assumed for overflow
+480a495,496
+> [eva:signed-overflow] ieee_1180_1990.c:289: Warning: 
+>   2's complement assumed for overflow
+484a501,502
+> [eva:signed-overflow] ieee_1180_1990.c:290: Warning: 
+>   2's complement assumed for overflow
+490,491d507
+< [eva:signed-overflow] ieee_1180_1990.c:289: Warning: 
+<   2's complement assumed for overflow
+514a531,538
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+527a552,553
+> [eva:signed-overflow] ieee_1180_1990.c:311: Warning: 
+>   2's complement assumed for overflow
+531a558,559
+> [eva:signed-overflow] ieee_1180_1990.c:312: Warning: 
+>   2's complement assumed for overflow
+537,538d564
+< [eva:signed-overflow] ieee_1180_1990.c:311: Warning: 
+<   2's complement assumed for overflow
+556a583,584
+> [eva:signed-overflow] ieee_1180_1990.c:335: Warning: 
+>   2's complement assumed for overflow
+560a589,590
+> [eva:signed-overflow] ieee_1180_1990.c:336: Warning: 
+>   2's complement assumed for overflow
+566,567d595
+< [eva:signed-overflow] ieee_1180_1990.c:335: Warning: 
+<   2's complement assumed for overflow
+588a617,624
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+597a634,651
+> [eva:progress] ieee_1180_1990.c:100: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:101: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:100: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:101: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:100: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:101: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:100: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:101: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:100: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+599a654,655
+> [eva:progress] ieee_1180_1990.c:100: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+601a658,659
+> [eva:progress] ieee_1180_1990.c:100: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+624a683,696
+> [eva:progress] ieee_1180_1990.c:140: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:141: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:140: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:141: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:140: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:141: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:140: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+626a699,700
+> [eva:progress] ieee_1180_1990.c:140: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+628a703,708
+> [eva:progress] ieee_1180_1990.c:140: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:141: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:140: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+999c1079
+<     by the Eva analyzer:      0 errors   42 warnings
+---
+>     by the Eva analyzer:      0 errors   48 warnings

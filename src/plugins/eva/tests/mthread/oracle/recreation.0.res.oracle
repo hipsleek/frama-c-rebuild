@@ -1,0 +1,1568 @@
+[kernel] Expanding arguments from mthread_test_options.txt
+[mt] Preparing sources for Mthread with lib pthreads
+[kernel] Parsing FRAMAC_SHARE/mt/mthread.c (with preprocessing)
+[kernel] Parsing FRAMAC_SHARE/mt/mthread_pthread.c (with preprocessing)
+[kernel] Parsing recreation.c (with preprocessing)
+[mt] Warning: Mthread is an experimental plugin and is still in development.
+[mt] ******* Starting mthread
+[eva] Found concurrency builtins: enabling mthread domain
+[mt] *** Computing value analysis for main thread
+[eva] Analyzing a complete application starting at main
+[mt] New thread: <main>, fun main
+[mt] recreation.c:63: Initializing mutex locks[0]
+[mt] recreation.c:63: Initializing mutex locks[1]
+[mt] recreation.c:63: Initializing mutex locks[2]
+[mt] recreation.c:63: Initializing mutex locks[3]
+[mt] recreation.c:63: Initializing mutex locks[4]
+[mt] recreation.c:63: Initializing mutex locks[5]
+[mt] recreation.c:63: Initializing mutex locks[6]
+[mt] recreation.c:63: Initializing mutex locks[7]
+[mt] recreation.c:63: Initializing mutex locks[8]
+[mt] recreation.c:63: Initializing mutex locks[9]
+[mt] recreation.c:63: Initializing mutex locks[10]
+[mt] recreation.c:63: Initializing mutex locks[11]
+[mt] recreation.c:66: New thread: jobs[0], fun job, parent <main>, args {0}
+[mt] recreation.c:66: Start thread jobs[0]
+[mt] recreation.c:66: New thread: jobs[1], fun job, parent <main>, args {1}
+[mt] recreation.c:66: Start thread jobs[1]
+[mt] recreation.c:66: New thread: jobs[2], fun job, parent <main>, args {2}
+[mt] recreation.c:66: Start thread jobs[2]
+[mt] *** First value analysis for main thread done.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: read by <main> at recreation.c:68 <- main
+  jobs[0..2]:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: recreation.c:66 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] ******* Starting to iterate
+[mt] ***** Iteration 1
+[mt] *** Computing thread jobs[0], iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs[0]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[0]
+[mt] recreation.c:25: New thread: jobs[3], fun job, parent jobs[0], args {3}
+[mt] recreation.c:25: Start thread jobs[3]
+[mt] recreation.c:25: New thread: jobs[4], fun job, parent jobs[0], args {4}
+[mt] recreation.c:25: Start thread jobs[4]
+[mt] recreation.c:25: New thread: jobs[5], fun job, parent jobs[0], args {5}
+[mt] recreation.c:25: Start thread jobs[5]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: read by jobs[0] at recreation.c:28 <- job
+  jobs[3..5]:
+    write by jobs[0] at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: recreation.c:25 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[0]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[0] computed
+[mt] *** Computing thread jobs[1], iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs[1]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[1]
+[mt] recreation.c:25: New thread: jobs[6], fun job, parent jobs[1], args {6}
+[mt] recreation.c:25: Start thread jobs[6]
+[mt] recreation.c:25: New thread: jobs[7], fun job, parent jobs[1], args {7}
+[mt] recreation.c:25: Start thread jobs[7]
+[mt] recreation.c:25: New thread: jobs[8], fun job, parent jobs[1], args {8}
+[mt] recreation.c:25: Start thread jobs[8]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: read by jobs[1] at recreation.c:28 <- job
+  jobs[6..8]:
+    write by jobs[1] at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: recreation.c:25 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[1]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[1] computed
+[mt] *** Computing thread jobs[2], iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs[2]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[2]
+[mt] recreation.c:25: New thread: jobs[9], fun job, parent jobs[2], args {9}
+[mt] recreation.c:25: Start thread jobs[9]
+[mt] recreation.c:25: New thread: jobs[10], fun job, parent jobs[2], args {10}
+[mt] recreation.c:25: Start thread jobs[10]
+[mt] recreation.c:25: New thread: jobs[11], fun job, parent jobs[2], args {11}
+[mt] recreation.c:25: Start thread jobs[11]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: read by jobs[2] at recreation.c:28 <- job
+  jobs[9..11]:
+    write by jobs[2] at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: recreation.c:25 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[2]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[2] computed
+[mt] ***** Threads computed for iteration 1.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: \nothing
+[mt] Possible read/write data races:
+  none
+[mt] Shared memory: \nothing
+[mt] Mutexes for concurrent accesses:
+[mt] Detailed shared zones protections
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 2
+[mt] *** Computing thread jobs[3], iteration 2 (first iteration)
+[mt] * Computing value analysis for thread jobs[3]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[3]
+[mt] recreation.c:37: Lock locks[2]
+[mt] recreation.c:38: Lock locks[4]
+[kernel:annot:missing-spec] recreation.c:40: Warning: 
+  Neither code nor specification for function random, generating default
+  assigns. See -generated-spec-* options for more info.
+[eva] using specification for function random
+[mt] recreation.c:44: Lock locks[0]
+[mt] recreation.c:45: Release locks[0]
+[mt] recreation.c:48: Release locks[2]
+[mt] recreation.c:49: Release locks[4]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[3] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[2]:
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[4]:
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[3]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[3] computed
+[mt] *** Computing thread jobs[4], iteration 2 (first iteration)
+[mt] * Computing value analysis for thread jobs[4]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[4]
+[mt] recreation.c:37: Lock locks[3]
+[mt] recreation.c:38: Lock locks[5]
+[mt] recreation.c:48: Release locks[3]
+[mt] recreation.c:49: Release locks[5]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[4] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[3]:
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[5]:
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[4]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[4] computed
+[mt] *** Computing thread jobs[5], iteration 2 (first iteration)
+[mt] * Computing value analysis for thread jobs[5]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[5]
+[mt] recreation.c:37: Lock locks[4]
+[mt] recreation.c:38: Lock locks[6]
+[mt] recreation.c:48: Release locks[4]
+[mt] recreation.c:49: Release locks[6]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[5] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[4]:
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[6]:
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[5]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[5] computed
+[mt] *** Computing thread jobs[6], iteration 2 (first iteration)
+[mt] * Computing value analysis for thread jobs[6]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[6]
+[mt] recreation.c:37: Lock locks[5]
+[mt] recreation.c:38: Lock locks[7]
+[mt] recreation.c:48: Release locks[5]
+[mt] recreation.c:49: Release locks[7]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[6] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[5]:
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[7]:
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[6]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[6] computed
+[mt] *** Computing thread jobs[7], iteration 2 (first iteration)
+[mt] * Computing value analysis for thread jobs[7]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[7]
+[mt] recreation.c:37: Lock locks[6]
+[mt] recreation.c:38: Lock locks[8]
+[mt] recreation.c:48: Release locks[6]
+[mt] recreation.c:49: Release locks[8]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[7] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[6]:
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[8]:
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[7]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[7] computed
+[mt] *** Computing thread jobs[8], iteration 2 (first iteration)
+[mt] * Computing value analysis for thread jobs[8]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[8]
+[mt] recreation.c:37: Lock locks[7]
+[mt] recreation.c:38: Lock locks[9]
+[mt] recreation.c:48: Release locks[7]
+[mt] recreation.c:49: Release locks[9]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[8] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[7]:
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[9]:
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[8]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[8] computed
+[mt] *** Computing thread jobs[9], iteration 2 (first iteration)
+[mt] * Computing value analysis for thread jobs[9]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[9]
+[mt] recreation.c:37: Lock locks[8]
+[mt] recreation.c:38: Lock locks[10]
+[mt] recreation.c:48: Release locks[8]
+[mt] recreation.c:49: Release locks[10]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[9] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[8]:
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[10]:
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[9]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[9] computed
+[mt] *** Computing thread jobs[10], iteration 2 (first iteration)
+[mt] * Computing value analysis for thread jobs[10]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[10]
+[mt] recreation.c:37: Lock locks[9]
+[mt] recreation.c:38: Lock locks[11]
+[mt] recreation.c:48: Release locks[9]
+[mt] recreation.c:49: Release locks[11]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[10] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[9]:
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[11]:
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[10]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[10] computed
+[mt] *** Computing thread jobs[11], iteration 2 (first iteration)
+[mt] * Computing value analysis for thread jobs[11]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[11]
+[mt] recreation.c:37: Lock locks[10]
+[mt] recreation.c:38: Lock locks[0]
+[mt] recreation.c:44: Warning: 
+  Trying to lock mutex locks[0], but it might already be locked (and initialized).
+[eva] FRAMAC_SHARE/mt/mthread_pthread.c:46: Warning: 
+  The mutex locks[0] is already locked.
+[mt] recreation.c:48: Release locks[10]
+[mt] recreation.c:49: Warning: 
+  Trying to unlock mutex locks[0], but it might already be unlocked (and initialized).
+[mt] recreation.c:49: Release locks[0]
+[eva] FRAMAC_SHARE/mt/mthread_pthread.c:56: Warning: 
+  The mutex locks[0] is already unlocked.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[11] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+  locks[10]:
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[11]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[11] computed
+[mt] ***** Threads computed for iteration 2.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: end
+[mt] Concurrent imprecise accesses have changed: before
+    \nothing
+  vs.
+    end
+[mt] Possible read/write data races:
+  none
+[mt] Shared memory: \nothing
+[mt] Mutexes for concurrent accesses:
+[mt] Detailed shared zones protections
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 3
+[mt] *** Computing thread <main>, iteration 3 (potential shared vars changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[mt] Thread <main>, fun main
+[mt] recreation.c:66: Thread jobs[0], fun job, parent <main>, args {0}
+[mt] recreation.c:66: Thread jobs[1], fun job, parent <main>, args {1}
+[mt] recreation.c:66: Thread jobs[2], fun job, parent <main>, args {2}
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: read by <main> at recreation.c:68 <- main
+  jobs[0..2]:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: recreation.c:66 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {end}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread jobs[0], iteration 3 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[0]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] recreation.c:25: Thread jobs[3], fun job, parent jobs[0], args {3}
+[mt] recreation.c:25: Thread jobs[4], fun job, parent jobs[0], args {4}
+[mt] recreation.c:25: Thread jobs[5], fun job, parent jobs[0], args {5}
+[eva:interferences] recreation.c:28: inject threads interferences at this point
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: read by jobs[0] at recreation.c:28 <- job
+  jobs[3..5]:
+    write by jobs[0] at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: recreation.c:25 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[0]
+    concurrent writes:
+    shared bases: {end}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[0] computed
+[mt] *** Computing thread jobs[1], iteration 3 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[1]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] recreation.c:25: Thread jobs[6], fun job, parent jobs[1], args {6}
+[mt] recreation.c:25: Thread jobs[7], fun job, parent jobs[1], args {7}
+[mt] recreation.c:25: Thread jobs[8], fun job, parent jobs[1], args {8}
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: read by jobs[1] at recreation.c:28 <- job
+  jobs[6..8]:
+    write by jobs[1] at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: recreation.c:25 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[1]
+    concurrent writes:
+    shared bases: {end}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[1] computed
+[mt] *** Computing thread jobs[2], iteration 3 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[2]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] recreation.c:25: Thread jobs[9], fun job, parent jobs[2], args {9}
+[mt] recreation.c:25: Thread jobs[10], fun job, parent jobs[2], args {10}
+[mt] recreation.c:25: Thread jobs[11], fun job, parent jobs[2], args {11}
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: read by jobs[2] at recreation.c:28 <- job
+  jobs[9..11]:
+    write by jobs[2] at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: recreation.c:25 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[2]
+    concurrent writes:
+    shared bases: {end}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[2] computed
+[mt] *** Computing thread jobs[3], iteration 3 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[3]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] recreation.c:40: inject threads interferences at this point
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[3] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[2]:
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[4]:
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[3]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[2]; locks[4] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[3] computed
+[mt] *** Computing thread jobs[4], iteration 3 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[4]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[4] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[3]:
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[5]:
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[4]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[3]; locks[5] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[4] computed
+[mt] *** Computing thread jobs[5], iteration 3 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[5]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[5] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[4]:
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[6]:
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[5]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[4]; locks[6] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[5] computed
+[mt] *** Computing thread jobs[6], iteration 3 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[6]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[6] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[5]:
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[7]:
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[6]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[5]; locks[7] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[6] computed
+[mt] *** Computing thread jobs[7], iteration 3 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[7]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[7] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[6]:
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[8]:
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[7]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[6]; locks[8] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[7] computed
+[mt] *** Computing thread jobs[8], iteration 3 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[8]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[8] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[7]:
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[9]:
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[8]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[7]; locks[9] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[8] computed
+[mt] *** Computing thread jobs[9], iteration 3 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[9]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[9] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[8]:
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[10]:
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[9]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[8]; locks[10] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[9] computed
+[mt] *** Computing thread jobs[10], iteration 3 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[10]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[10] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[9]:
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[11]:
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[10]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[9]; locks[11] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[10] computed
+[mt] *** Computing thread jobs[11], iteration 3 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[11]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[11] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+  locks[10]:
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[11]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[0]; locks[10] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[11] computed
+[mt] ***** Threads computed for iteration 3.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: end
+[mt] <main> reads  end ∈ {0}  // recreation.c:68 main
+[mt] jobs[0] reads  end ∈ {0}  // recreation.c:28 job
+[mt] jobs[1] reads  end ∈ {0}  // recreation.c:28 job
+[mt] jobs[2] reads  end ∈ {0}  // recreation.c:28 job
+[mt] jobs[3] writes  end ∈ {1}  // recreation.c:40 job
+[mt] jobs[4] writes  end ∈ {1}  // recreation.c:40 job
+[mt] jobs[5] writes  end ∈ {1}  // recreation.c:40 job
+[mt] jobs[6] writes  end ∈ {1}  // recreation.c:40 job
+[mt] jobs[7] writes  end ∈ {1}  // recreation.c:40 job
+[mt] jobs[8] writes  end ∈ {1}  // recreation.c:40 job
+[mt] jobs[9] writes  end ∈ {1}  // recreation.c:40 job
+[mt] jobs[10] writes  end ∈ {1}  // recreation.c:40 job
+[mt] jobs[11] writes  end ∈ {1}  // recreation.c:40 job
+[mt] Possible read/write data races:
+  end:
+    read by <main> at recreation.c:68, unprotected
+    read by jobs[0] at recreation.c:28, unprotected
+    read by jobs[1] at recreation.c:28, unprotected
+    read by jobs[2] at recreation.c:28, unprotected
+    write by jobs[3] at recreation.c:40, protected by locks[2] locks[4]
+    write by jobs[4] at recreation.c:40, protected by locks[3] locks[5]
+    write by jobs[5] at recreation.c:40, protected by locks[4] locks[6]
+    write by jobs[6] at recreation.c:40, protected by locks[5] locks[7]
+    write by jobs[7] at recreation.c:40, protected by locks[6] locks[8]
+    write by jobs[8] at recreation.c:40, protected by locks[7] locks[9]
+    write by jobs[9] at recreation.c:40, protected by locks[8] locks[10]
+    write by jobs[10] at recreation.c:40, protected by locks[9] locks[11]
+    write by jobs[11] at recreation.c:40, protected by locks[0] locks[10]
+[mt] Shared memory: end
+[mt] Concurrent precise var accesses have changed: before
+    \nothing
+  vs.
+    end
+[mt] Write summary for jobs[3] (updated): end ∈ {1}
+[mt] Write summary for jobs[4] (updated): end ∈ {1}
+[mt] Write summary for jobs[5] (updated): end ∈ {1}
+[mt] Write summary for jobs[6] (updated): end ∈ {1}
+[mt] Write summary for jobs[7] (updated): end ∈ {1}
+[mt] Write summary for jobs[8] (updated): end ∈ {1}
+[mt] Write summary for jobs[9] (updated): end ∈ {1}
+[mt] Write summary for jobs[10] (updated): end ∈ {1}
+[mt] Write summary for jobs[11] (updated): end ∈ {1}
+[mt] Mutexes for concurrent accesses:
+  end  write protected by (?)locks[0] (?)locks[2] (?)locks[3] (?)locks[4]
+       (?)locks[5] (?)locks[6] (?)locks[7] (?)locks[8] (?)locks[9] (?)locks[10]
+       (?)locks[11], read unprotected
+[mt] Detailed shared zones protections
+  end:
+    Read by jobs[2], Write by jobs[11]: unprotected
+    Read by jobs[2], Write by jobs[10]: unprotected
+    Read by jobs[2], Write by jobs[9]: unprotected
+    Read by jobs[2], Write by jobs[8]: unprotected
+    Read by jobs[2], Write by jobs[7]: unprotected
+    Read by jobs[2], Write by jobs[6]: unprotected
+    Read by jobs[2], Write by jobs[5]: unprotected
+    Read by jobs[2], Write by jobs[4]: unprotected
+    Read by jobs[2], Write by jobs[3]: unprotected
+    Read by jobs[1], Write by jobs[11]: unprotected
+    Read by jobs[1], Write by jobs[10]: unprotected
+    Read by jobs[1], Write by jobs[9]: unprotected
+    Read by jobs[1], Write by jobs[8]: unprotected
+    Read by jobs[1], Write by jobs[7]: unprotected
+    Read by jobs[1], Write by jobs[6]: unprotected
+    Read by jobs[1], Write by jobs[5]: unprotected
+    Read by jobs[1], Write by jobs[4]: unprotected
+    Read by jobs[1], Write by jobs[3]: unprotected
+    Read by jobs[0], Write by jobs[11]: unprotected
+    Read by jobs[0], Write by jobs[10]: unprotected
+    Read by jobs[0], Write by jobs[9]: unprotected
+    Read by jobs[0], Write by jobs[8]: unprotected
+    Read by jobs[0], Write by jobs[7]: unprotected
+    Read by jobs[0], Write by jobs[6]: unprotected
+    Read by jobs[0], Write by jobs[5]: unprotected
+    Read by jobs[0], Write by jobs[4]: unprotected
+    Read by jobs[0], Write by jobs[3]: unprotected
+    Read by <main>, Write by jobs[11]: unprotected
+    Read by <main>, Write by jobs[10]: unprotected
+    Read by <main>, Write by jobs[9]: unprotected
+    Read by <main>, Write by jobs[8]: unprotected
+    Read by <main>, Write by jobs[7]: unprotected
+    Read by <main>, Write by jobs[6]: unprotected
+    Read by <main>, Write by jobs[5]: unprotected
+    Read by <main>, Write by jobs[4]: unprotected
+    Read by <main>, Write by jobs[3]: unprotected
+[mt] Statements needing manual synchronisation
+  recreation.c:28 (for end)
+  recreation.c:68 (for end)
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 4
+[mt] *** Computing thread <main>, iteration 4 (shared vars values changed and
+    interferences changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[mt] recreation.c:66: New context for jobs[1], fun job, parent <main>, args {1}
+[mt] recreation.c:66: New context for jobs[2], fun job, parent <main>, args {2}
+[eva:interferences] recreation.c:68: inject threads interferences at this point
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: read by <main> at recreation.c:68 <- main
+  jobs[0..2]:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: recreation.c:66 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {end}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread jobs[0], iteration 4 (shared vars values changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[0]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] recreation.c:25: New context for jobs[3], fun job, parent jobs[0], args {3}
+[mt] recreation.c:25: New context for jobs[4], fun job, parent jobs[0], args {4}
+[mt] recreation.c:25: New context for jobs[5], fun job, parent jobs[0], args {5}
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: read by jobs[0] at recreation.c:28 <- job
+  jobs[3..5]:
+    write by jobs[0] at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: recreation.c:25 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[0]
+    concurrent writes:
+    shared bases: {end}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[0] computed
+[mt] *** Computing thread jobs[1], iteration 4 (shared vars values changed, thread
+    initial memory state changed and interferences changed)
+[mt] * Computing value analysis for thread jobs[1]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] recreation.c:25: New context for jobs[6], fun job, parent jobs[1], args {6}
+[mt] recreation.c:25: New context for jobs[7], fun job, parent jobs[1], args {7}
+[mt] recreation.c:25: New context for jobs[8], fun job, parent jobs[1], args {8}
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: read by jobs[1] at recreation.c:28 <- job
+  jobs[6..8]:
+    write by jobs[1] at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: recreation.c:25 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[1]
+    concurrent writes:
+    shared bases: {end}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[1] computed
+[mt] *** Computing thread jobs[2], iteration 4 (shared vars values changed, thread
+    initial memory state changed and interferences changed)
+[mt] * Computing value analysis for thread jobs[2]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] recreation.c:25: New context for jobs[9], fun job, parent jobs[2], args {9}
+[mt] recreation.c:25: 
+  New context for jobs[10], fun job, parent jobs[2], args {10}
+[mt] recreation.c:25: 
+  New context for jobs[11], fun job, parent jobs[2], args {11}
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: read by jobs[2] at recreation.c:28 <- job
+  jobs[9..11]:
+    write by jobs[2] at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: recreation.c:25 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[2]
+    concurrent writes:
+    shared bases: {end}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[2] computed
+[mt] *** Computing thread jobs[3], iteration 4 (thread initial memory state
+    changed and interferences changed)
+[mt] * Computing value analysis for thread jobs[3]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[3] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[2]:
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[4]:
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[3]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[2]; locks[4] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[3] computed
+[mt] *** Computing thread jobs[4], iteration 4 (thread initial memory state
+    changed and interferences changed)
+[mt] * Computing value analysis for thread jobs[4]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[4] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[3]:
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[5]:
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[4]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[3]; locks[5] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[4] computed
+[mt] *** Computing thread jobs[5], iteration 4 (thread initial memory state
+    changed and interferences changed)
+[mt] * Computing value analysis for thread jobs[5]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[5] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[4]:
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[6]:
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[5] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[5]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[4]; locks[6] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[5] computed
+[mt] *** Computing thread jobs[6], iteration 4 (thread initial memory state
+    changed and interferences changed)
+[mt] * Computing value analysis for thread jobs[6]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[6] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[5]:
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[7]:
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[6] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[6]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[5]; locks[7] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[6] computed
+[mt] *** Computing thread jobs[7], iteration 4 (thread initial memory state
+    changed and interferences changed)
+[mt] * Computing value analysis for thread jobs[7]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[7] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[6]:
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[8]:
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[7] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[7]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[6]; locks[8] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[7] computed
+[mt] *** Computing thread jobs[8], iteration 4 (thread initial memory state
+    changed and interferences changed)
+[mt] * Computing value analysis for thread jobs[8]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[8] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[7]:
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[9]:
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[8] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[8]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[7]; locks[9] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[8] computed
+[mt] *** Computing thread jobs[9], iteration 4 (thread initial memory state
+    changed and interferences changed)
+[mt] * Computing value analysis for thread jobs[9]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[9] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[8]:
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[10]:
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[9] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[9]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[8]; locks[10] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[9] computed
+[mt] *** Computing thread jobs[10], iteration 4 (thread initial memory state
+    changed and interferences changed)
+[mt] * Computing value analysis for thread jobs[10]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[10] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+  locks[9]:
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+  locks[11]:
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[10] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[10]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[9]; locks[11] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[10] computed
+[mt] *** Computing thread jobs[11], iteration 4 (thread initial memory state
+    changed)
+[mt] * Computing value analysis for thread jobs[11]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  end: write by jobs[11] at recreation.c:40 <- job
+  locks[0]:
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:38 <- job
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:44 <- job
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:45 <- job
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:49 <- job
+  locks[10]:
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: recreation.c:37 <- job
+    read by jobs[11] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: recreation.c:48 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[11]
+    concurrent writes:
+      end = 1; recreation.c:40 <- job
+    shared bases: {end}
+    interferences by location:
+      recreation.c:40:
+        # cvalue: end ∈ {1} 
+    interferences by mutexes:
+      { locks[0]; locks[10] }:
+        # cvalue: end ∈ {1}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[11] computed
+[mt] ***** Threads computed for iteration 4.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: end
+[mt] <main> reads  end ∈ {0; 1}  // recreation.c:68 main
+[mt] jobs[0] reads  end ∈ {0; 1}  // recreation.c:28 job
+[mt] jobs[1] reads  end ∈ {0; 1}  // recreation.c:28 job
+[mt] jobs[2] reads  end ∈ {0; 1}  // recreation.c:28 job
+[mt] Possible read/write data races:
+  end:
+    read by <main> at recreation.c:68, unprotected
+    read by jobs[0] at recreation.c:28, unprotected
+    read by jobs[1] at recreation.c:28, unprotected
+    read by jobs[2] at recreation.c:28, unprotected
+    write by jobs[3] at recreation.c:40, protected by locks[2] locks[4]
+    write by jobs[4] at recreation.c:40, protected by locks[3] locks[5]
+    write by jobs[5] at recreation.c:40, protected by locks[4] locks[6]
+    write by jobs[6] at recreation.c:40, protected by locks[5] locks[7]
+    write by jobs[7] at recreation.c:40, protected by locks[6] locks[8]
+    write by jobs[8] at recreation.c:40, protected by locks[7] locks[9]
+    write by jobs[9] at recreation.c:40, protected by locks[8] locks[10]
+    write by jobs[10] at recreation.c:40, protected by locks[9] locks[11]
+    write by jobs[11] at recreation.c:40, protected by locks[0] locks[10]
+[mt] Shared memory: end
+[mt] Write summary for jobs[3]: end ∈ {1}
+[mt] Write summary for jobs[4]: end ∈ {1}
+[mt] Write summary for jobs[5]: end ∈ {1}
+[mt] Write summary for jobs[6]: end ∈ {1}
+[mt] Write summary for jobs[7]: end ∈ {1}
+[mt] Write summary for jobs[8]: end ∈ {1}
+[mt] Write summary for jobs[9]: end ∈ {1}
+[mt] Write summary for jobs[10]: end ∈ {1}
+[mt] Write summary for jobs[11]: end ∈ {1}
+[mt] Mutexes for concurrent accesses:
+  end  write protected by (?)locks[0] (?)locks[2] (?)locks[3] (?)locks[4]
+       (?)locks[5] (?)locks[6] (?)locks[7] (?)locks[8] (?)locks[9] (?)locks[10]
+       (?)locks[11], read unprotected
+[mt] Detailed shared zones protections
+  end:
+    Read by jobs[2], Write by jobs[11]: unprotected
+    Read by jobs[2], Write by jobs[10]: unprotected
+    Read by jobs[2], Write by jobs[9]: unprotected
+    Read by jobs[2], Write by jobs[8]: unprotected
+    Read by jobs[2], Write by jobs[7]: unprotected
+    Read by jobs[2], Write by jobs[6]: unprotected
+    Read by jobs[2], Write by jobs[5]: unprotected
+    Read by jobs[2], Write by jobs[4]: unprotected
+    Read by jobs[2], Write by jobs[3]: unprotected
+    Read by jobs[1], Write by jobs[11]: unprotected
+    Read by jobs[1], Write by jobs[10]: unprotected
+    Read by jobs[1], Write by jobs[9]: unprotected
+    Read by jobs[1], Write by jobs[8]: unprotected
+    Read by jobs[1], Write by jobs[7]: unprotected
+    Read by jobs[1], Write by jobs[6]: unprotected
+    Read by jobs[1], Write by jobs[5]: unprotected
+    Read by jobs[1], Write by jobs[4]: unprotected
+    Read by jobs[1], Write by jobs[3]: unprotected
+    Read by jobs[0], Write by jobs[11]: unprotected
+    Read by jobs[0], Write by jobs[10]: unprotected
+    Read by jobs[0], Write by jobs[9]: unprotected
+    Read by jobs[0], Write by jobs[8]: unprotected
+    Read by jobs[0], Write by jobs[7]: unprotected
+    Read by jobs[0], Write by jobs[6]: unprotected
+    Read by jobs[0], Write by jobs[5]: unprotected
+    Read by jobs[0], Write by jobs[4]: unprotected
+    Read by jobs[0], Write by jobs[3]: unprotected
+    Read by <main>, Write by jobs[11]: unprotected
+    Read by <main>, Write by jobs[10]: unprotected
+    Read by <main>, Write by jobs[9]: unprotected
+    Read by <main>, Write by jobs[8]: unprotected
+    Read by <main>, Write by jobs[7]: unprotected
+    Read by <main>, Write by jobs[6]: unprotected
+    Read by <main>, Write by jobs[5]: unprotected
+    Read by <main>, Write by jobs[4]: unprotected
+    Read by <main>, Write by jobs[3]: unprotected
+[mt] Statements needing manual synchronisation
+  recreation.c:28 (for end)
+  recreation.c:68 (for end)
+[mt] ***** Shared variables computed
+[mt] ******* Analysis performed, 4 iterations

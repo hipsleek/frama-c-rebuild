@@ -1,0 +1,25 @@
+# frama-c -wp [...]
+[kernel] Parsing flash.c (with preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] flash.c:64: Warning: 
+  Neither code nor explicit exits and terminates for function RD, generating
+  default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] flash.c:90: Warning: 
+  Neither code nor explicit exits and terminates for function WR, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] 8 goals scheduled
+[wp] [Valid] typed_flash_job_terminates (Qed)
+[wp] [Valid] typed_flash_job_ensures_Events (Qed)
+[wp] [Valid] typed_flash_job_ensures_A_reads (Qed)
+[wp] [Valid] typed_flash_job_ensures_B_reads (Qed)
+[wp] [Valid] typed_flash_job_ensures_B_writes (Qed)
+[wp] [Valid] typed_flash_job_ensures_ReadValues (Qed)
+[wp] [Valid] typed_flash_job_ensures_WriteValues (Qed)
+[wp] [Valid] typed_flash_job_exits (Qed)
+[wp] Proved goals:    8 / 8
+  Qed:             8
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  job                       8        -        8       100%
+------------------------------------------------------------

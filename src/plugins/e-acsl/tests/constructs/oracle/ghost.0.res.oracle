@@ -1,0 +1,9 @@
+[e-acsl] beginning translation.
+[e-acsl] ghost.i:30: Warning: 
+  E-ACSL construct `let-binding on array or pointer' is not yet supported.
+  Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] ghost.i:16: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] ghost.i:30: Warning: 
+  out of bounds read. assert \valid_read(&(ghost_int_arr[0]));

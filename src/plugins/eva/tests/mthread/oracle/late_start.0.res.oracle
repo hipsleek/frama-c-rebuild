@@ -1,0 +1,92 @@
+[kernel] Expanding arguments from mthread_test_options.txt
+[mt] Preparing sources for Mthread with lib pthreads
+[kernel] Parsing FRAMAC_SHARE/mt/mthread.c (with preprocessing)
+[kernel] Parsing FRAMAC_SHARE/mt/mthread_pthread.c (with preprocessing)
+[kernel] Parsing late_start.c (with preprocessing)
+[mt] Warning: Mthread is an experimental plugin and is still in development.
+[mt] ******* Starting mthread
+[eva] Found concurrency builtins: enabling mthread domain
+[mt] *** Computing value analysis for main thread
+[eva] Analyzing a complete application starting at main
+[mt] New thread: <main>, fun main
+[mt] late_start.c:32: New thread: job1, fun f1, parent <main>, args {0}
+[mt] late_start.c:33: New thread: job2, fun f2, parent <main>, args {0}
+[mt] Start thread job2
+[mt] *** First value analysis for main thread done.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] ******* Starting to iterate
+[mt] ***** Iteration 1
+[mt] *** Thread job1 has been created but not started. Skipping.
+[mt] *** Computing thread job2, iteration 1 (first iteration)
+[mt] * Computing value analysis for thread job2
+[eva] Analyzing a complete application starting at f2
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of f2 for thread job2
+[mt] late_start.c:27: Start thread job1
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  job1: read by job2 at late_start.c:27 <- f2
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread job2
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread job2 computed
+[mt] ***** Threads computed for iteration 1.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: \nothing
+[mt] Possible read/write data races:
+  none
+[mt] Shared memory: \nothing
+[mt] Mutexes for concurrent accesses:
+[mt] Detailed shared zones protections
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 2
+[mt] *** Computing thread job1, iteration 2 (thread initial memory state changed)
+[mt] * Computing value analysis for thread job1
+[eva] Analyzing a complete application starting at f1
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of f1 for thread job1
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread job1
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread job1 computed
+[mt] ***** Threads computed for iteration 2.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: \nothing
+[mt] Possible read/write data races:
+  none
+[mt] Shared memory: \nothing
+[mt] Mutexes for concurrent accesses:
+[mt] Detailed shared zones protections
+[mt] ***** Shared variables computed
+[mt] ******* Analysis performed, 2 iterations

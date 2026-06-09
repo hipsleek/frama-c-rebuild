@@ -1,0 +1,31 @@
+[kernel] Parsing structure4.c (with preprocessing)
+[alias] analysing global variable definition: __fc_heap_status = {};
+[alias] May-aliases after global variable definition  __fc_heap_status  are  <none>
+[alias] analysing global variable definition: __fc_errno = {};
+[alias] May-aliases after global variable definition  __fc_errno  are  <none>
+[alias] analysing global variable definition: __fc_rand_max =
+  (unsigned long)2147483647;
+[alias] May-aliases after global variable definition  __fc_rand_max  are  <none>
+[alias] analysing global variable definition: __fc_random48_init = {};
+[alias] May-aliases after global variable definition  __fc_random48_init  are  <none>
+[alias] analysing function: main
+[alias] analysing instruction: st_1_t x1 = {.a = 0, .b = 1};
+[alias] May-aliases after instruction  st_1_t x1 = {.a = 0, .b = 1};  are  <none>
+[alias] analysing instruction: st_1_t x2 = {.a = 1, .b = 2};
+[alias] May-aliases after instruction  st_1_t x2 = {.a = 1, .b = 2};  are  <none>
+[alias] analysing instruction: st_1_t *y1 = malloc(sizeof(st_1_t));
+[alias] May-aliases after instruction  st_1_t *y1 = malloc(sizeof(st_1_t));  are
+  <none>
+[alias] analysing instruction: st_2_t *z = malloc(sizeof(st_2_t));
+[alias] May-aliases after instruction  st_2_t *z = malloc(sizeof(st_2_t));  are
+  <none>
+[alias] analysing instruction: y1 = & x1;
+[alias] May-aliases after instruction  y1 = & x1;  are  <none>
+[alias] analysing instruction: z->s = (struct struct_1_t *)y1;
+[alias] May-aliases after instruction  z->s = (struct struct_1_t *)y1;  are
+  { z->s; y1 }
+[alias] analysing instruction: z->c = 6;
+[alias] May-aliases after instruction  z->c = 6;  are  { z->s; y1 }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are  { z->s; y1 }
+[alias] May-aliases at the end of function main: { z->s; y1 }

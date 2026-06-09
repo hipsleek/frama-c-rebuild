@@ -1,0 +1,11 @@
+[kernel] Parsing rettype.i (no preprocessing)
+[kernel] rettype.i:12: User Error: 
+  Declaration of foo does not match previous declaration from rettype.i:9:6-9 (different integer types:
+  'int' and 'unsigned short').
+  10    
+  11    //@ ensures 0 <= \result < 25;
+  12    unsigned short foo()
+                        ^^^
+  13    {
+  14      return 0;
+[kernel] Frama-C aborted: invalid user input.

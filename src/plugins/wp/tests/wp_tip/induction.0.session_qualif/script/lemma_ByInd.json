@@ -1,0 +1,12 @@
+[ { "header": "Induction", "tactic": "Wp.induction",
+    "params": { "base": { "select": "kint", "val": "0" } },
+    "select": { "select": "inside-goal", "occur": 0, "target": "(L_f x_0)",
+                "pattern": "L_f$x" },
+    "children": { "Base": [ { "prover": "Alt-Ergo:2.6.2", "verdict": "valid",
+                              "time": 0.013909, "steps": 4 } ],
+                  "Induction (sup)": [ { "prover": "Alt-Ergo:2.6.2",
+                                         "verdict": "valid", "time": 0.02138,
+                                         "steps": 88 } ],
+                  "Induction (inf)": [ { "prover": "Alt-Ergo:2.6.2",
+                                         "verdict": "valid",
+                                         "time": 0.026118, "steps": 116 } ] } } ]

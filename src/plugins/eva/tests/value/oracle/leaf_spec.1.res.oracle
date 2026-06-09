@@ -1,0 +1,38 @@
+[kernel] Parsing leaf_spec.i (no preprocessing)
+[eva] Analyzing a complete application starting at main1
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[kernel:annot:missing-spec] leaf_spec.i:27: Warning: 
+  Neither code nor specification for function f, generating default assigns.
+  See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function f <- main1.
+  Called from leaf_spec.i:27:3-15.
+[eva] using specification for function f
+[eva:assigns:invalid-location] leaf_spec.i:27: 
+  Completely invalid destination for assigns clause *x. Ignoring.
+[eva:assigns:invalid-location] leaf_spec.i:27: 
+  Completely invalid destination for assigns clause *y. Ignoring.
+[eva:progress] Done for function f
+[eva:progress] Recording results for main1
+[eva:progress] Done for function main1
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main1:
+  
+[from] Computing for function main1
+[from] Computing for function f <-main1
+[from] Done for function f
+[from] Done for function main1
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  NO EFFECTS
+[from] Function main1:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main1:
+    \nothing
+[inout] Inputs for function main1:
+    \nothing

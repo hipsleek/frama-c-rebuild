@@ -1,0 +1,6 @@
+# Parameters of the secure-flow tests, shared by all test configurations.
+
+-eva-secure-flow
+-eva-msg-key=d-taint
+-eva-warn-key experimental=inactive
+-cpp-extra-args="-include security_macro.h"

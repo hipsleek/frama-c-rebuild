@@ -1,0 +1,50 @@
+\section{The Bytes Memory Model}
+\label{sec:bytes-model}
+
+The behavior of the Bytes memory model is essentially the same as the Typed
+memory model except that, while Typed dispatches the aliased memory according
+to the types of the values, the Bytes memory model has a single memory which
+is an array from pointer base to memory block, memory blocks being arrays from
+pointer offset to byte.
+
+\paragraph{Modeling.} When a value is written to the memory, it first encoded
+as a sequence of bytes. More precisely, unsigned integers are directly encoded
+into bytes via modulo and division. For other fundamental types, WP first
+translate them into an unsigned and then encode the obtained unsigned, the
+following applies for the translation to unsigned:
+\begin{itemize}
+  \item signed integers are translated using (morally) an ACSL cast,
+  \item for pointers, we use the physical translation axiomatized in WP,
+  \item for float, we assume that there exists such a function without providing it.
+\end{itemize}
+The sequence of bytes that we obtained is then written bytes by bytes in memory.
+
+When a value is read from the memory, the opposite applies: we read the bytes
+from the memory, build the unsigned value and then translate it back to the
+expected type.
+
+This modeling is \textbf{super costly} for proof, since the read and writes
+involves the encoding + decoding of values. It makes formulas quite complex.
+
+\paragraph{Mitigation.} There are two main mitigations.
+
+First, we provide a lot of lemmas about load/store operations so that when the
+code does not exhibit heterogeneous load/store, the SMT solvers do not have to
+reason about the encoding. Furthermore, there are also shortcuts for load/store
+when the only heterogeneous behavior is the presence of a sign or not.
+
+Second, we use the Hoare memory model when there is no alias. It avoids modeling
+bytes for every single variable of the program.
+
+\paragraph{Limitations.} The model has three main limitations currently:
+\begin{itemize}
+  \item it assumes little-endian,
+  \item it cannot really deal with low-level operations for pointers and floats,
+        because WP assumes that a conversion function exists (which makes sense)
+        but does not exhibit this function,
+  \item in default mode (+ Hoare), if a union is not aliased it is \textbf{not}
+        sent into the Bytes model but into the Hoare one that does not take in
+        account heterogeneous operations. One can use \texttt{+raw} to use the
+        Bytes memory model everywhere, but be prepared to the fact that
+        properties will be extremely hard to prove.
+\end{itemize}

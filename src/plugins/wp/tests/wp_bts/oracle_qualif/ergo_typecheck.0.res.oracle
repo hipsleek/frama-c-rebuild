@@ -1,0 +1,23 @@
+# frama-c -wp [...]
+[kernel] Parsing ergo_typecheck.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal f_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal f_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 8 goals scheduled
+[wp] [Valid] typed_f_ensures_var_divided (Qed)
+[wp] [Valid] typed_f_ensures_var_inline (Qed)
+[wp] [Valid] typed_f_ensures_var_unit0 (Qed)
+[wp] [Valid] typed_f_ensures_var_unit1 (Qed)
+[wp] [Valid] typed_f_ensures_var_unit2 (Qed)
+[wp] [Valid] typed_f_ensures_var_unit3 (Qed)
+[wp] [Valid] typed_f_ensures_var_unit4 (Qed)
+[wp] [Valid] typed_f_assigns (Qed)
+[wp] Proved goals:   10 / 10
+  Terminating:     1
+  Unreachable:     1
+  Qed:             8
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  f                        10        -       10       100%
+------------------------------------------------------------

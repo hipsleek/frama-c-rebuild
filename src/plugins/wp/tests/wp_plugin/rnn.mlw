@@ -1,0 +1,51 @@
+module RNN
+  use int.Int
+
+  type state
+  type input
+  type output
+
+  val function state state input : state
+  val function output state input : output
+
+  type inputs = int -> input
+  type outputs = int -> output
+
+  let rec function hidden (h : state) (xs : inputs) (n : int) : state =
+    variant { n }
+    if n <= 0 then h else state (hidden h xs (n-1)) (xs (n-1))
+
+  let function rnn (h : state) (xs : inputs) : outputs =
+    fun n -> output (hidden h xs n) (xs n)
+
+end
+
+module Spec
+
+  use int.Int
+  use real.Real as R
+
+  let function ( +. ) (x y : real) : real = R.(+) x y
+  let function ( *. ) (x y : real) : real = R.(*) x y
+  let predicate ( <. ) (x y : real) = R.(<) x y
+
+  let function state (h x : real) : real = 0.5 *. h +. 2.0 *. x
+  let function output (h x : real) : real =
+    let s = state h x in if 0.0 <. s then s else 0.0
+
+  type vector = int -> real
+  predicate eqn (a b : vector) (n : int) =
+    forall k. 0 <= k < n -> a k = b k
+
+  let function get (xs : vector) (k : int) : real = xs k
+
+  clone RNN as R with
+    type state = real,
+    type input = real,
+    type output = real,
+    val state, val output
+
+  let function rnn (xs : vector) : vector = R.rnn 0.0 xs
+  let function hidden (xs : vector) (n : int) : real = R.hidden 0.0 xs n
+
+end

@@ -1,0 +1,17 @@
+# frama-c -wp [...]
+[kernel] Parsing avar.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] avar.i:2: Warning: 
+  Neither code nor explicit exits, assigns and terminates for function f,
+  generating default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] 3 goals scheduled
+[wp] [Valid] typed_g_terminates (Qed)
+[wp] [Valid] typed_g_exits (Qed)
+[wp] [Valid] typed_g_call_f_requires (Qed)
+[wp] Proved goals:    3 / 3
+  Qed:             3
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  g                         3        -        3       100%
+------------------------------------------------------------

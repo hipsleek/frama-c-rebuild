@@ -1,0 +1,19 @@
+# frama-c -wp [...]
+[kernel] Parsing bts_2501.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] 2 goals scheduled
+[wp] 2 goals generated
+------------------------------------------------------------
+  Global
+------------------------------------------------------------
+
+Goal Lemma 'R_1':
+Let x = L_R(p - 1). Prove: (x + L_F(x)) = L_R(p).
+
+------------------------------------------------------------
+
+Goal Lemma 'R_2':
+Assume Lemmas: 'R_1'
+Prove: 0 <= L_R(p).
+
+------------------------------------------------------------

@@ -1,0 +1,33 @@
+{
+  "dbfile": "./mopsa.db",
+  "contents":
+[  {
+    "filename": "./Tests/UnitTests/CMakeFiles/UnitTests.dir/Main.cpp.o",
+    "type": "object",
+    "lang": "C++",
+    "source": "../Tests/UnitTests/Main.cpp",
+    "args": ["-std=c++17", "-Wall", "-Wextra", "-pedantic", "-Werror", "-MD", "-MT", "-MF"],
+    "path": "./Tests/UnitTests"
+  },
+  {
+    "filename": "./Tests/UnitTests/CMakeFiles/UnitTests.dir/TestTable.cpp.o",
+    "type": "object",
+    "lang": "C++",
+    "source": "../Tests/UnitTests/TestTable.cpp",
+    "args": ["-std=c++17", "-Wall", "-Wextra", "-pedantic", "-Werror", "-MD", "-MT", "-MF"],
+    "path": "./Tests/UnitTests"
+  },
+  {
+    "filename": "./Tests/UnitTests/CMakeFiles/UnitTests.dir/UnitTest.cpp.o",
+    "type": "object",
+    "lang": "C++",
+    "source": "../Tests/UnitTests/UnitTest.cpp",
+    "args": ["-std=c++17", "-Wall", "-Wextra", "-pedantic", "-Werror", "-MD", "-MT", "-MF"],
+    "path": "./Tests/UnitTests"
+  },
+  {
+    "filename": "./Tests/UnitTests/UnitTests",
+    "type": "executable",
+    "contents": ["./Tests/UnitTests/CMakeFiles/UnitTests.dir/UnitTest.cpp.o", "./Tests/UnitTests/CMakeFiles/UnitTests.dir/TestTable.cpp.o", "./Tests/UnitTests/CMakeFiles/UnitTests.dir/Main.cpp.o"]
+  }]
+}

@@ -1,0 +1,55 @@
+# frama-c -wp [...]
+[kernel] Parsing overassign.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] overassign.i:3: Warning: 
+  Neither code nor explicit exits and terminates for function g, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] 24 goals scheduled
+[wp] [Valid] typed_f1_ok_terminates (Qed)
+[wp] [Valid] typed_f1_ok_exits (Qed)
+[wp] [Valid] typed_f1_ok_assigns_normal (Qed)
+[wp] [Valid] typed_f1_ok_assigns_exit (Qed)
+[wp] [Valid] typed_f2_ok_terminates (Qed)
+[wp] [Valid] typed_f2_ok_exits (Qed)
+[wp] [Valid] typed_f2_ok_assigns_normal (Qed)
+[wp] [Valid] typed_f2_ok_assigns_exit (Qed)
+[wp] [Valid] typed_f3_ok_terminates (Qed)
+[wp] [Valid] typed_f3_ok_exits (Qed)
+[wp] [Valid] typed_f3_ok_assigns_normal (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f3_ok_assigns_exit (Qed)
+[wp] [Valid] typed_f4_ok_terminates (Qed)
+[wp] [Valid] typed_f4_ok_exits (Qed)
+[wp] [Valid] typed_f4_ok_assigns_normal (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f4_ok_assigns_exit (Qed)
+[wp] [Valid] typed_f5_ko_terminates (Qed)
+[wp] [Valid] typed_f5_ko_exits (Qed)
+[wp] [Unsuccess] typed_f5_ko_assigns_normal (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f5_ko_assigns_exit (Qed)
+[wp] [Valid] typed_f6_ko_terminates (Qed)
+[wp] [Valid] typed_f6_ko_exits (Qed)
+[wp] [Unsuccess] typed_f6_ko_assigns_normal (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f6_ko_assigns_exit (Qed)
+[wp] Proved goals:   22 / 24
+  Qed:            20
+  Alt-Ergo:        2
+  Unsuccess:       2
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  f1_ok                     4        -        4       100%
+  f2_ok                     4        -        4       100%
+  f3_ok                     3        1        4       100%
+  f4_ok                     3        1        4       100%
+  f5_ko                     3        -        4      75.0%
+  f6_ko                     3        -        4      75.0%
+------------------------------------------------------------
+[wp] overassign.i:14: Warning: 
+  Memory model hypotheses for function 'f1_ok':
+  /*@ behavior wp_typed:
+        requires \separated(p + (0 .. 9), &p); */
+  void f1_ok(void);
+[wp] overassign.i:17: Warning: 
+  Memory model hypotheses for function 'f2_ok':
+  /*@ behavior wp_typed:
+        requires \separated(p + (10 .. 19), &p); */
+  void f2_ok(void);

@@ -1,0 +1,19 @@
+[e-acsl] beginning translation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] t_dpointer.c:15: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] t_dpointer.c:15: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] t_dpointer.c:15: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] t_dpointer.c:21: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] t_dpointer.c:21: Warning: 
+  accessing left-value that contains escaping addresses.
+  assert !\dangling(p + 2);
+[eva:alarm] t_dpointer.c:21: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] t_dpointer.c:21: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] t_dpointer.c:21: Warning: 
+  assertion got status invalid (stopping propagation).

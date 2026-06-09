@@ -1,0 +1,425 @@
+[kernel] Parsing pointer_alignment.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+  c ∈ {0}
+  s ∈ {0}
+  i ∈ {0}
+  l ∈ {0}
+  c2 ∈ {0}
+  c4 ∈ {0}
+  i8 ∈ {0}
+  c_ptr ∈ {0}
+  s_ptr ∈ {0}
+  i_ptr ∈ {0}
+  l_ptr ∈ {0}
+  t[0..199] ∈ {0}
+  st ∈ {0}
+  st_packed ∈ {0}
+[eva:progress] 
+  computing for function int_constant_to_ptr <- main.
+  Called from pointer_alignment.c:341.
+[eva:alarm] pointer_alignment.c:40: Warning: 
+  unaligned pointer creation. assert \aligned((void *)1,alignof(short));
+[eva:alarm] pointer_alignment.c:41: Warning: 
+  unaligned pointer creation. assert \aligned((void *)2,alignof(int));
+[eva:alarm] pointer_alignment.c:42: Warning: 
+  unaligned pointer creation. assert \aligned((void *)4,alignof(long));
+[eva:progress] Recording results for int_constant_to_ptr
+[eva:progress] Done for function int_constant_to_ptr
+[eva:progress] 
+  computing for function int_to_ptr <- main.
+  Called from pointer_alignment.c:342.
+[eva:progress] 
+  computing for function int_to_ptr_aux <- int_to_ptr <- main.
+  Called from pointer_alignment.c:87.
+[eva:alarm] pointer_alignment.c:72: Warning: 
+  unaligned pointer creation. assert \aligned((void *)any,alignof(short));
+[eva:alarm] pointer_alignment.c:74: Warning: 
+  unaligned pointer creation. assert \aligned((void *)any,alignof(int));
+[eva:alarm] pointer_alignment.c:76: Warning: 
+  unaligned pointer creation. assert \aligned((void *)any_mod2,alignof(int));
+[eva:alarm] pointer_alignment.c:78: Warning: 
+  unaligned pointer creation. assert \aligned((void *)any,alignof(long));
+[eva:alarm] pointer_alignment.c:80: Warning: 
+  unaligned pointer creation. assert \aligned((void *)any_mod2,alignof(long));
+[eva:alarm] pointer_alignment.c:82: Warning: 
+  unaligned pointer creation. assert \aligned((void *)any_mod4,alignof(long));
+[eva:progress] Recording results for int_to_ptr_aux
+[eva:progress] Done for function int_to_ptr_aux
+[eva:progress] 
+  computing for function int_to_ptr_aux <- int_to_ptr <- main.
+  Called from pointer_alignment.c:88.
+[eva:progress] Recording results for int_to_ptr_aux
+[eva:progress] Done for function int_to_ptr_aux
+[eva:progress] Recording results for int_to_ptr
+[eva:progress] Done for function int_to_ptr
+[eva:progress] 
+  computing for function ptr_to_int <- main.
+  Called from pointer_alignment.c:343.
+[eva:alarm] pointer_alignment.c:99: Warning: 
+  unaligned pointer creation. assert \aligned(&s,alignof(int));
+[eva:alarm] pointer_alignment.c:100: Warning: 
+  unaligned pointer creation. assert \aligned(p,alignof(int));
+[eva:alarm] pointer_alignment.c:101: Warning: 
+  unaligned pointer creation. assert \aligned((void *)addr,alignof(int));
+[eva:progress] Recording results for ptr_to_int
+[eva:progress] Done for function ptr_to_int
+[eva:progress] 
+  computing for function addrof_to_ptr <- main.
+  Called from pointer_alignment.c:344.
+[eva:alarm] pointer_alignment.c:144: Warning: 
+  unaligned pointer creation. assert \aligned(&c,alignof(short));
+[eva:alarm] pointer_alignment.c:145: Warning: 
+  unaligned pointer creation. assert \aligned(&c,alignof(int));
+[eva:alarm] pointer_alignment.c:146: Warning: 
+  unaligned pointer creation. assert \aligned(&c2,alignof(int));
+[eva:alarm] pointer_alignment.c:147: Warning: 
+  unaligned pointer creation. assert \aligned(&s,alignof(int));
+[eva:alarm] pointer_alignment.c:148: Warning: 
+  unaligned pointer creation. assert \aligned(&c,alignof(long));
+[eva:alarm] pointer_alignment.c:149: Warning: 
+  unaligned pointer creation. assert \aligned(&c2,alignof(long));
+[eva:alarm] pointer_alignment.c:150: Warning: 
+  unaligned pointer creation. assert \aligned(&s,alignof(long));
+[eva:alarm] pointer_alignment.c:151: Warning: 
+  unaligned pointer creation. assert \aligned(&i,alignof(long));
+[eva:alarm] pointer_alignment.c:152: Warning: 
+  unaligned pointer creation. assert \aligned(&c4,alignof(long));
+[eva:alarm] pointer_alignment.c:154: Warning: 
+  unaligned pointer creation. assert \aligned(i_ptr,alignof(int));
+[eva:alarm] pointer_alignment.c:154: Warning: 
+  unaligned pointer creation. assert \aligned(i_ptr,alignof(long));
+[eva:alarm] pointer_alignment.c:155: Warning: 
+  unaligned pointer creation. assert \aligned(s_ptr,alignof(int));
+[eva:alarm] pointer_alignment.c:155: Warning: 
+  unaligned pointer creation. assert \aligned(s_ptr,alignof(short));
+[eva:alarm] pointer_alignment.c:156: Warning: 
+  unaligned pointer creation. assert \aligned(c_ptr,alignof(short));
+[eva:progress] Recording results for addrof_to_ptr
+[eva:progress] Done for function addrof_to_ptr
+[eva:progress] 
+  computing for function alignment_in_array <- main.
+  Called from pointer_alignment.c:345.
+[eva:alarm] pointer_alignment.c:181: Warning: 
+  unaligned pointer creation. assert \aligned(&t[1],alignof(short));
+[eva:alarm] pointer_alignment.c:182: Warning: 
+  unaligned pointer creation. assert \aligned(&t[2],alignof(int));
+[eva:alarm] pointer_alignment.c:184: Warning: 
+  unaligned pointer creation. assert \aligned(&t[1],alignof(long));
+[eva:alarm] pointer_alignment.c:185: Warning: 
+  unaligned pointer creation. assert \aligned(&t[4],alignof(long));
+[eva:alarm] pointer_alignment.c:186: Warning: 
+  unaligned pointer creation. assert \aligned(&t[8],alignof(long));
+[eva:alarm] pointer_alignment.c:191: Warning: 
+  unaligned pointer creation. assert \aligned(&t[set_offset],alignof(short));
+[eva:alarm] pointer_alignment.c:192: Warning: 
+  unaligned pointer creation.
+  assert \aligned(&t[(int)(2 * set_offset)],alignof(int));
+[eva:alarm] pointer_alignment.c:193: Warning: 
+  unaligned pointer creation.
+  assert \aligned(&t[(int)(8 * set_offset)],alignof(long));
+[eva:alarm] pointer_alignment.c:195: Warning: 
+  unaligned pointer creation. assert \aligned(&t[itv_offset],alignof(short));
+[eva:alarm] pointer_alignment.c:196: Warning: 
+  unaligned pointer creation.
+  assert \aligned(&t[(int)(2 * itv_offset)],alignof(int));
+[eva:alarm] pointer_alignment.c:197: Warning: 
+  unaligned pointer creation.
+  assert \aligned(&t[(int)(8 * itv_offset)],alignof(long));
+[eva:progress] Recording results for alignment_in_array
+[eva:progress] Done for function alignment_in_array
+[eva:progress] 
+  computing for function alignment_in_struct <- main.
+  Called from pointer_alignment.c:346.
+[eva:alarm] pointer_alignment.c:224: Warning: 
+  unaligned pointer creation. assert \aligned(&st.c1,alignof(short));
+[eva:alarm] pointer_alignment.c:225: Warning: 
+  unaligned pointer creation. assert \aligned(&st.c1,alignof(int));
+[eva:alarm] pointer_alignment.c:226: Warning: 
+  unaligned pointer creation. assert \aligned(&st.c2,alignof(int));
+[eva:alarm] pointer_alignment.c:227: Warning: 
+  unaligned pointer creation. assert \aligned(&st.c3,alignof(long));
+[eva:alarm] pointer_alignment.c:230: Warning: 
+  unaligned pointer creation. assert \aligned(&st,alignof(long));
+[eva:alarm] pointer_alignment.c:231: Warning: 
+  unaligned pointer creation. assert \aligned(&st.i0,alignof(long));
+[eva:alarm] pointer_alignment.c:232: Warning: 
+  unaligned pointer creation. assert \aligned(&st.s4,alignof(long));
+[eva:progress] Recording results for alignment_in_struct
+[eva:progress] Done for function alignment_in_struct
+[eva:progress] 
+  computing for function alignment_in_packed_struct <- main.
+  Called from pointer_alignment.c:347.
+[eva:alarm] pointer_alignment.c:247: Warning: 
+  unaligned pointer creation. assert \aligned(&st_packed.s,alignof(short));
+[eva:alarm] pointer_alignment.c:248: Warning: 
+  unaligned pointer creation. assert \aligned(&st_packed.i,alignof(int));
+[eva:alarm] pointer_alignment.c:251: Warning: 
+  unaligned pointer creation. assert \aligned(&st_packed,alignof(short));
+[eva:alarm] pointer_alignment.c:252: Warning: 
+  unaligned pointer creation. assert \aligned(&st_packed,alignof(int));
+[eva:alarm] pointer_alignment.c:253: Warning: 
+  unaligned pointer creation. assert \aligned(&st_packed.s,alignof(short));
+[eva:alarm] pointer_alignment.c:254: Warning: 
+  unaligned pointer creation. assert \aligned(&st_packed.i,alignof(int));
+[eva:alarm] pointer_alignment.c:255: Warning: 
+  unaligned pointer creation. assert \aligned(&st_packed.i,alignof(int));
+[eva:alarm] pointer_alignment.c:255: Warning: 
+  unaligned pointer creation. assert \aligned(&st_packed.i,alignof(short));
+[eva:progress] Recording results for alignment_in_packed_struct
+[eva:progress] Done for function alignment_in_packed_struct
+[eva:progress] 
+  computing for function unaligned_pointer_creation <- main.
+  Called from pointer_alignment.c:348.
+[eva:alarm] pointer_alignment.c:275: Warning: 
+  unaligned pointer creation. assert \aligned(p,alignof(int));
+[eva:alarm] pointer_alignment.c:276: Warning: 
+  unaligned pointer creation. assert \aligned(p,alignof(int));
+[eva:alarm] pointer_alignment.c:277: Warning: 
+  unaligned pointer creation. assert \aligned(p,alignof(int));
+[eva:alarm] pointer_alignment.c:282: Warning: 
+  unaligned pointer creation. assert \aligned(u.ptr,alignof(int));
+[eva:alarm] pointer_alignment.c:283: Warning: 
+  unaligned pointer creation. assert \aligned(u.ptr,alignof(int));
+[eva:alarm] pointer_alignment.c:284: Warning: 
+  unaligned pointer creation. assert \aligned(u.ptr,alignof(int));
+[eva:progress] Recording results for unaligned_pointer_creation
+[eva:progress] Done for function unaligned_pointer_creation
+[eva:progress] 
+  computing for function aligned_predicate <- main.
+  Called from pointer_alignment.c:349.
+[eva:progress] pointer_alignment.c:304: check 'true' got status valid.
+[eva:progress] pointer_alignment.c:305: check 'true' got status valid.
+[eva:progress] pointer_alignment.c:306: check 'true' got status valid.
+[eva:progress] pointer_alignment.c:307: check 'true' got status valid.
+[eva:progress] pointer_alignment.c:308: check 'true' got status valid.
+[eva:progress] pointer_alignment.c:309: check 'true' got status valid.
+[eva:progress] pointer_alignment.c:310: check 'true' got status valid.
+[eva:progress] pointer_alignment.c:311: check 'true' got status valid.
+[eva:progress] pointer_alignment.c:313: check 'true' got status valid.
+[eva:progress] pointer_alignment.c:314: check 'true' got status valid.
+[eva:progress] pointer_alignment.c:315: check 'true' got status valid.
+[eva:progress] pointer_alignment.c:316: check 'true' got status valid.
+[eva:progress] pointer_alignment.c:317: check 'true' got status valid.
+[eva:progress] pointer_alignment.c:318: check 'true' got status valid.
+[eva:alarm] pointer_alignment.c:320: Warning: check 'false' got status unknown.
+[eva:alarm] pointer_alignment.c:321: Warning: check 'false' got status unknown.
+[eva:alarm] pointer_alignment.c:322: Warning: check 'false' got status unknown.
+[eva:alarm] pointer_alignment.c:323: Warning: check 'false' got status unknown.
+[eva:alarm] pointer_alignment.c:324: Warning: check 'false' got status unknown.
+[eva:alarm] pointer_alignment.c:325: Warning: check 'false' got status unknown.
+[eva:alarm] pointer_alignment.c:326: Warning: check 'false' got status unknown.
+[eva:alarm] pointer_alignment.c:327: Warning: check 'false' got status unknown.
+[eva:alarm] pointer_alignment.c:328: Warning: check 'false' got status unknown.
+[eva:alarm] pointer_alignment.c:330: Warning: 
+  check 'unknown' got status unknown.
+[eva:alarm] pointer_alignment.c:333: Warning: 
+  check 'unknown' got status unknown.
+[eva:progress] Recording results for aligned_predicate
+[eva:progress] Done for function aligned_predicate
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] pointer_alignment.c:40: 
+  assertion 'Eva,pointer_alignment' got final status invalid.
+[eva] pointer_alignment.c:41: 
+  assertion 'Eva,pointer_alignment' got final status invalid.
+[eva] pointer_alignment.c:42: 
+  assertion 'Eva,pointer_alignment' got final status invalid.
+[eva] pointer_alignment.c:181: 
+  assertion 'Eva,pointer_alignment' got final status invalid.
+[eva] pointer_alignment.c:182: 
+  assertion 'Eva,pointer_alignment' got final status invalid.
+[eva] pointer_alignment.c:184: 
+  assertion 'Eva,pointer_alignment' got final status invalid.
+[eva] pointer_alignment.c:224: 
+  assertion 'Eva,pointer_alignment' got final status invalid.
+[eva] pointer_alignment.c:225: 
+  assertion 'Eva,pointer_alignment' got final status invalid.
+[eva] pointer_alignment.c:226: 
+  assertion 'Eva,pointer_alignment' got final status invalid.
+[eva] pointer_alignment.c:227: 
+  assertion 'Eva,pointer_alignment' got final status invalid.
+[scope:rm_asserts] removing 7 assertion(s)
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function addrof_to_ptr:
+  c_ptr ∈
+       {{ &c ; (char *)&s ; (char *)&i ; (char *)&l ; &c2 ; &c4 ;
+          (char *)&i8 }}
+  s_ptr ∈
+       {{ (short *)&c ; &s ; (short *)&i ; (short *)&l ; (short *)&c2 ;
+          (short *)&c4 ; (short *)&i8 }}
+  i_ptr ∈ {{ (int *)&c }}
+  l_ptr ∈ {{ (long *)&s }}
+[eva:final-states] Values at end of function aligned_predicate:
+  ptr8 ∈ {{ (char *)&l ; (char *)&i8 }}
+  ptr4 ∈ {{ (char *)&i ; (char *)&l ; &c4 ; (char *)&i8 }}
+  ptr2 ∈ {{ (char *)&s ; (char *)&i ; (char *)&l ; &c2 ; &c4 ; (char *)&i8 }}
+  ptr1 ∈
+      {{ &c ; (char *)&s ; (char *)&i ; (char *)&l ; &c2 ; &c4 ;
+         (char *)&i8 }}
+  x ∈ [0..9]
+[eva:final-states] Values at end of function alignment_in_array:
+  c_ptr ∈ {{ &t + [0..19] }}
+  s_ptr ∈ {{ &t + [0..38],0%2 }}
+  i_ptr ∈ {{ &t + [0..76],0%4 }}
+  l_ptr ∈ {{ &t + [0..152],0%8 }}
+  set_offset ∈ {0; 1; 2; 3; 4}
+  itv_offset ∈ [0..19]
+[eva:final-states] Values at end of function alignment_in_packed_struct:
+  c_ptr ∈ {{ (char *)&st_packed.i }}
+  s_ptr ∈ {{ (short *)&st_packed.i }}
+  i_ptr ∈ {{ &st_packed.i }}
+[eva:final-states] Values at end of function alignment_in_struct:
+  s_ptr ∈ {{ &st.s4 }}
+  i_ptr ∈ {{ (int *)&st.s4 }}
+  l_ptr ∈ {{ (long *)&st.s4 }}
+[eva:final-states] Values at end of function int_constant_to_ptr:
+  c_ptr ∈ {1}
+  s_ptr ∈ {2}
+  i_ptr ∈ {4}
+  l_ptr ∈ {8}
+[eva:final-states] Values at end of function int_to_ptr_aux:
+  c_ptr ∈ [0..792],0%8
+  s_ptr ∈ [0..98],0%2
+  i_ptr ∈ [0..196],0%4
+  l_ptr ∈ [0..392],0%8
+  any ∈ [0..96],0%8
+  any_mod2 ∈ [0..192],0%8
+  any_mod4 ∈ [0..392],0%8
+  any_mod8 ∈ [0..792],0%8
+[eva:final-states] Values at end of function int_to_ptr:
+  c_ptr ∈ [0..792],0%8
+  s_ptr ∈ [0..98],0%2
+  i_ptr ∈ [0..196],0%4
+  l_ptr ∈ [0..392],0%8
+[eva:final-states] Values at end of function ptr_to_int:
+  p ∈ {{ (int *)&s ; &i }}
+  p2 ∈ {{ (int *)&s ; &i }}
+  addr ∈ {{ (unsigned long)&s ; (unsigned long)&i }}
+[eva:final-states] Values at end of function unaligned_pointer_creation:
+  c_0[0..3] ∈ {0}
+  i_0 ∈ {0}
+  p ∈ {{ (int *)&c_0 }}
+  q ∈ {{ (int *)&c_0 }}
+  u{.ptr; .i} ∈ {{ (? *)&c_0 }}
+[eva:final-states] Values at end of function main:
+  c_ptr ∈ {{ (char *)&st_packed.i }}
+  s_ptr ∈ {{ (short *)&st_packed.i }}
+  i_ptr ∈ {{ &st_packed.i }}
+  l_ptr ∈ {{ (long *)&st.s4 }}
+[from] Computing for function addrof_to_ptr
+[from] Done for function addrof_to_ptr
+[from] Computing for function aligned_predicate
+[from] Done for function aligned_predicate
+[from] Computing for function alignment_in_array
+[from] Done for function alignment_in_array
+[from] Computing for function alignment_in_packed_struct
+[from] Done for function alignment_in_packed_struct
+[from] Computing for function alignment_in_struct
+[from] Done for function alignment_in_struct
+[from] Computing for function int_constant_to_ptr
+[from] Done for function int_constant_to_ptr
+[from] Computing for function int_to_ptr_aux
+[from] Done for function int_to_ptr_aux
+[from] Computing for function int_to_ptr
+[from] Done for function int_to_ptr
+[from] Computing for function ptr_to_int
+[from] Done for function ptr_to_int
+[from] Computing for function unaligned_pointer_creation
+[from] Done for function unaligned_pointer_creation
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function addrof_to_ptr:
+  c_ptr FROM nondet
+  s_ptr FROM nondet
+  i_ptr FROM \nothing
+  l_ptr FROM \nothing
+[from] Function aligned_predicate:
+  NO EFFECTS
+[from] Function alignment_in_array:
+  c_ptr FROM nondet
+  s_ptr FROM nondet
+  i_ptr FROM nondet
+  l_ptr FROM nondet
+[from] Function alignment_in_packed_struct:
+  c_ptr FROM \nothing
+  s_ptr FROM \nothing
+  i_ptr FROM \nothing
+[from] Function alignment_in_struct:
+  s_ptr FROM nondet
+  i_ptr FROM nondet
+  l_ptr FROM \nothing
+[from] Function int_constant_to_ptr:
+  c_ptr FROM \nothing
+  s_ptr FROM nondet
+  i_ptr FROM nondet
+  l_ptr FROM nondet
+[from] Function int_to_ptr_aux:
+  c_ptr FROM nondet; limit
+  s_ptr FROM nondet; limit
+  i_ptr FROM nondet; limit
+  l_ptr FROM nondet; limit
+[from] Function int_to_ptr:
+  c_ptr FROM nondet
+  s_ptr FROM nondet
+  i_ptr FROM nondet
+  l_ptr FROM nondet
+[from] Function ptr_to_int:
+  NO EFFECTS
+[from] Function unaligned_pointer_creation:
+  NO EFFECTS
+[from] Function main:
+  c_ptr FROM \nothing
+  s_ptr FROM \nothing
+  i_ptr FROM \nothing
+  l_ptr FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function addrof_to_ptr:
+    c_ptr; s_ptr; i_ptr; l_ptr
+[inout] Inputs for function addrof_to_ptr:
+    nondet; c_ptr; s_ptr; i_ptr; l_ptr
+[inout] Out (internal) for function aligned_predicate:
+    ptr8; ptr4; ptr2; ptr1; x
+[inout] Inputs for function aligned_predicate:
+    nondet
+[inout] Out (internal) for function alignment_in_array:
+    c_ptr; s_ptr; i_ptr; l_ptr; set_offset; itv_offset
+[inout] Inputs for function alignment_in_array:
+    nondet
+[inout] Out (internal) for function alignment_in_packed_struct:
+    c_ptr; s_ptr; i_ptr
+[inout] Inputs for function alignment_in_packed_struct:
+    \nothing
+[inout] Out (internal) for function alignment_in_struct:
+    s_ptr; i_ptr; l_ptr
+[inout] Inputs for function alignment_in_struct:
+    nondet
+[inout] Out (internal) for function int_constant_to_ptr:
+    c_ptr; s_ptr; i_ptr; l_ptr
+[inout] Inputs for function int_constant_to_ptr:
+    nondet
+[inout] Out (internal) for function int_to_ptr_aux:
+    c_ptr; s_ptr; i_ptr; l_ptr; any; any_mod2; any_mod4; any_mod8
+[inout] Inputs for function int_to_ptr_aux:
+    nondet
+[inout] Out (internal) for function int_to_ptr:
+    c_ptr; s_ptr; i_ptr; l_ptr
+[inout] Inputs for function int_to_ptr:
+    nondet
+[inout] Out (internal) for function ptr_to_int:
+    p; p2; addr
+[inout] Inputs for function ptr_to_int:
+    nondet
+[inout] Out (internal) for function unaligned_pointer_creation:
+    c_0[0..3]; i_0; p; q; u
+[inout] Inputs for function unaligned_pointer_creation:
+    \nothing
+[inout] Out (internal) for function main:
+    c_ptr; s_ptr; i_ptr; l_ptr
+[inout] Inputs for function main:
+    nondet; c_ptr; s_ptr; i_ptr; l_ptr

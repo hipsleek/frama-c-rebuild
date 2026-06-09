@@ -1,0 +1,81 @@
+[kernel] Parsing dirent_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function __va_open_void <- main.
+  Called from dirent_h.c:19.
+[eva] using specification for function __va_open_void
+[eva:progress] dirent_h.c:19: 
+  function __va_open_void: precondition 'valid_filename' got status valid.
+[eva:progress] dirent_h.c:19: 
+  function __va_open_void: precondition 'flag_not_CREAT' got status valid.
+[eva:progress] Done for function __va_open_void
+[eva:progress] 
+  computing for function fdopendir <- main.
+  Called from dirent_h.c:19.
+[eva] using specification for function fdopendir
+[eva:garbled-mix:assigns] dirent_h.c:19: 
+  The specification of function fdopendir
+  has generated a garbled mix of addresses for assigns clause \result.
+[eva:garbled-mix:assigns] dirent_h.c:19: 
+  The specification of function fdopendir
+  has generated a garbled mix of addresses
+  for assigns clause __fc_opendir[0 .. 16 - 1].
+[eva:progress] Done for function fdopendir
+[eva:alarm] dirent_h.c:19: Warning: 
+  unaligned pointer creation. assert \aligned(d,alignof(DIR));
+[eva:alarm] dirent_h.c:19: Warning: 
+  pointer comparison. assert \pointer_comparable((void *)d, (void *)0);
+[eva:progress] 
+  computing for function fprintf_va_1 <- main.
+  Called from dirent_h.c:20.
+[eva] using specification for function fprintf
+[eva:progress] dirent_h.c:20: 
+  function fprintf_va_1: precondition got status valid.
+[eva:progress] Done for function fprintf_va_1
+[eva:progress] 
+  computing for function exit <- main.
+  Called from dirent_h.c:21.
+[eva] using specification for function exit
+[eva:progress] Done for function exit
+[eva:alarm] dirent_h.c:23: Warning: 
+  unaligned pointer creation. assert \aligned(d,alignof(DIR));
+[eva:progress] 
+  computing for function readdir <- main.
+  Called from dirent_h.c:23.
+[eva] using specification for function readdir
+[eva:alarm] dirent_h.c:23: Warning: 
+  function readdir: precondition 'dirp_valid_dir_stream' got status unknown.
+[eva:progress] Done for function readdir
+[eva:progress] 
+  computing for function closedir <- main.
+  Called from dirent_h.c:39.
+[eva] using specification for function closedir
+[eva:progress] dirent_h.c:39: 
+  function closedir: precondition 'dirp_valid_dir_stream' got status valid.
+[eva:progress] Done for function closedir
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva:garbled-mix:summary] 
+  Origins of garbled mix generated during analysis:
+    dirent_h.c:19: assigns clause on addresses
+      (read in 2 statements, propagated through 2 statements)
+      garbled mix of &{__fc_opendir}
+[scope:rm_asserts] removing 1 assertion(s)
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  __fc_errno ∈ [--..--]
+  __fc_opendir[0..15] ∈
+              {{ garbled mix of &{S___fc_dir_inode_0___fc_opendir;
+                                  S___fc_dir_entries_0___fc_opendir;
+                                  S___fc_dir_inode_1___fc_opendir;
+                                  S___fc_dir_entries_1___fc_opendir}
+               (origin: Misaligned read {dirent_h.c:19}) }}
+  d ∈ {{ &__fc_opendir + [0..240],0%16 }}
+  dp ∈ {0}
+  dfd ∈ [-1..1023]
+  __retres ∈ {0}
+  S___fc_stderr[0..1] ∈ [--..--]

@@ -1,0 +1,6 @@
+aligned.c: In function 'main'
+aligned.c:20: Error: RTE failed:
+	The failing predicate is:
+	division by zero:
+		2 - 2 ≢ 0.
+

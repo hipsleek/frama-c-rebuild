@@ -1,0 +1,86 @@
+21,22c21
+< [eva:show] domains_function.c:93: 
+<   Frama_C_show_each_top: [-2147483648..2147483647]
+---
+> [eva:show] domains_function.c:93: Frama_C_show_each_top: {3}
+32,33c31
+< [eva:show] domains_function.c:78: 
+<   Frama_C_show_each_top: [-2147483648..2147483647]
+---
+> [eva:show] domains_function.c:78: Frama_C_show_each_top: {1}
+36,37c34
+< [eva:show] domains_function.c:97: 
+<   Frama_C_show_each_top: [-2147483648..2147483647]
+---
+> [eva:show] domains_function.c:97: Frama_C_show_each_top: {1}
+41,42c38
+< [eva:show] domains_function.c:85: 
+<   Frama_C_show_each_top: [-2147483648..2147483647]
+---
+> [eva:show] domains_function.c:85: Frama_C_show_each_top: {2}
+45,46c41
+< [eva:show] domains_function.c:99: 
+<   Frama_C_show_each_top: [-2147483648..2147483647]
+---
+> [eva:show] domains_function.c:99: Frama_C_show_each_top: {2}
+69,70c64
+< [eva:show] domains_function.c:85: 
+<   Frama_C_show_each_top: [-2147483648..2147483647]
+---
+> [eva:show] domains_function.c:85: Frama_C_show_each_top: {2}
+73,74c67
+< [eva:show] domains_function.c:114: 
+<   Frama_C_show_each_top: [-2147483648..2147483647]
+---
+> [eva:show] domains_function.c:114: Frama_C_show_each_top: {2}
+90,91c83
+< [eva:show] domains_function.c:56: 
+<   Frama_C_show_each_top: [-2147483648..2147483647]
+---
+> [eva:show] domains_function.c:56: Frama_C_show_each_top: {42}
+96,97d87
+<   signed overflow. assert -2147483648 ≤ t[i] - t[0];
+< [eva:alarm] domains_function.c:22: Warning: 
+124,126c114,119
+< [eva:progress] domains_function.c:64: Reusing old results for call to use
+< [eva:show] domains_function.c:65: 
+<   Frama_C_show_each_top: [-2147483648..2147483647]
+---
+> [eva:progress] 
+>   computing for function use <- test_propagation <- main.
+>   Called from domains_function.c:64.
+> [eva:progress] Recording results for use
+> [eva:progress] Done for function use
+> [eva:show] domains_function.c:65: Frama_C_show_each_top: {42}
+133c126
+<   result ∈ [--..--]
+---
+>   result ∈ {2}
+145c138
+<   result ∈ [--..--]
+---
+>   result ∈ {42}
+147c140
+<   result ∈ [--..--]
+---
+>   result ∈ {1}
+150c143
+<   tmp ∈ [--..--]
+---
+>   tmp ∈ [-2147483605..2147483647]
+152c145
+<   result ∈ [--..--]
+---
+>   result ∈ {2}
+155c148
+<   result ∈ [--..--]
+---
+>   result ∈ {2}
+160c153
+<   result ∈ [--..--]
+---
+>   result ∈ {42}
+165c158
+<   result ∈ [--..--]
+---
+>   result ∈ {42}

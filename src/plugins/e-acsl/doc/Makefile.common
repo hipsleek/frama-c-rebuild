@@ -1,0 +1,50 @@
+# Common makefile for both refman and userman
+
+VERSION_FILE=$(wildcard ../../../../../VERSION)
+CODENAME_FILE=$(wildcard ../../../../../VERSION_CODENAME)
+
+include $(EACSL_DIR)/doc/support/MakeLaTeXModern
+
+#################
+# Generic rules #
+#################
+
+%.1: %.mp
+	mpost -interaction=batchmode $<
+
+%.mps: %.1
+	mv $< $@
+
+%.pp: %.tex pp
+	./pp -utf8 $< > $@
+
+%.pp: %.c pp
+	./pp -utf8 -c $< > $@
+
+%.tex: %.ctex pp
+	rm -f $@
+	./pp $< > $@
+	chmod a-w $@
+
+%.bnf: %.tex transf
+	rm -f $@
+	./transf $< > $@
+	chmod a-w $@
+
+%_modern.bnf: %.tex transf
+	rm -f $@
+	./transf -modern $< > $@
+	chmod a-w $@
+
+%.ml: %.mll
+	ocamllex $<
+
+%.pdf: %.tex
+	pdflatex -halt-on-error $*
+	makeindex $*
+	bibtex $*
+	pdflatex -halt-on-error $*
+	pdflatex -halt-on-error $*
+
+%.cmo: %.ml
+	ocamlc -c $<

@@ -1,0 +1,119 @@
+[kernel] Parsing initial.i (no preprocessing)
+[impact] beginning analysis
+[eva] Analyzing a complete application starting at main1
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  x1 ∈ {0}
+  x2 ∈ {0}
+  y2 ∈ {0}
+  z2 ∈ {0}
+  x3 ∈ {0}
+  c ∈ [--..--]
+[eva:progress] 
+  computing for function g1 <- main1.
+  Called from initial.i:25:5-9.
+[eva:progress] 
+  computing for function f1 <- g1 <- main1.
+  Called from initial.i:19:6-10.
+[eva:progress] Recording results for f1
+[eva:progress] Done for function f1
+[eva:progress] Recording results for g1
+[eva:progress] Done for function g1
+[eva:partition] initial.i:24: starting to merge loop iterations
+[eva:progress] 
+  computing for function g1 <- main1.
+  Called from initial.i:25:5-9.
+[eva:progress] initial.i:19: Reusing old results for call to f1
+[eva:progress] Recording results for g1
+[eva:progress] Done for function g1
+[eva:progress] Recording results for main1
+[eva:progress] Done for function main1
+[from] Computing for function f1
+[from] Done for function f1
+[from] Computing for function g1
+[from] Done for function g1
+[pdg] initial.i:24: Warning: no final state. Probably unreachable...
+[impact] impacted statements of stmt(s) 7 are:
+[impact] analysis done
+[impact] beginning analysis
+[eva] Analyzing a complete application starting at main2
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  x1 ∈ {0}
+  x2 ∈ {0}
+  y2 ∈ {0}
+  z2 ∈ {0}
+  x3 ∈ {0}
+  c ∈ [--..--]
+[eva:progress] 
+  computing for function h2 <- main2.
+  Called from initial.i:58:5-9.
+[eva:progress] 
+  computing for function g2 <- h2 <- main2.
+  Called from initial.i:52:3-7.
+[eva:progress] 
+  computing for function f2 <- g2 <- h2 <- main2.
+  Called from initial.i:46:6-10.
+[eva:progress] Recording results for f2
+[eva:progress] Done for function f2
+[eva:progress] 
+  computing for function aux2 <- g2 <- h2 <- main2.
+  Called from initial.i:47:12-18.
+[eva:progress] Recording results for aux2
+[eva:progress] Done for function aux2
+[eva:progress] Recording results for g2
+[eva:progress] Done for function g2
+[eva:progress] Recording results for h2
+[eva:progress] Done for function h2
+[eva:progress] Recording results for main2
+[eva:progress] Done for function main2
+[from] Computing for function f2
+[from] Done for function f2
+[from] Computing for function aux2
+[from] Done for function aux2
+[from] Computing for function g2
+[from] Done for function g2
+[from] Computing for function h2
+[from] Done for function h2
+[pdg] initial.i:57: Warning: no final state. Probably unreachable...
+[impact] impacted statements of stmt(s) 23 are:
+    initial.i:35:8-10 (sid 14): x2 = y2;initial.i:40:8-10 (sid 17): y2 = z2;
+    initial.i:46:6-10 (sid 23): f2();initial.i:47:12-18 (sid 26): aux2();
+    initial.i:52:3-7 (sid 31): g2();initial.i:53:8-10 (sid 32): z2 = x2;
+    initial.i:58:5-9 (sid 36): h2();
+[impact] analysis done
+[impact] beginning analysis
+[eva] Analyzing a complete application starting at main3
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  x1 ∈ {0}
+  x2 ∈ {0}
+  y2 ∈ {0}
+  z2 ∈ {0}
+  x3 ∈ {0}
+  c ∈ [--..--]
+[eva:progress] 
+  computing for function g3 <- main3.
+  Called from initial.i:81:5-9.
+[eva:progress] 
+  computing for function f3 <- g3 <- main3.
+  Called from initial.i:69:4-8.
+[eva:progress] Recording results for f3
+[eva:progress] Done for function f3
+[eva:progress] Recording results for g3
+[eva:progress] Done for function g3
+[eva:partition] initial.i:80: starting to merge loop iterations
+[eva:progress] initial.i:81: Reusing old results for call to g3
+[eva:progress] Recording results for main3
+[eva:progress] Done for function main3
+[from] Computing for function f3
+[from] Done for function f3
+[from] Computing for function g3
+[from] Done for function g3
+[pdg] initial.i:80: Warning: no final state. Probably unreachable...
+[impact] impacted statements of stmt(s) 42 are:
+    initial.i:71:10-12 (sid 45): x3 = x3;initial.i:81:5-9 (sid 50): g3();
+[impact] analysis done

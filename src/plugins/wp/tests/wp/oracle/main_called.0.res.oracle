@@ -1,0 +1,12 @@
+# frama-c -wp [...]
+[kernel] Parsing main_called.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] Warning: Missing RTE guards
+[wp] User Error: Main entry point function 'main' is (potentially) recursive.
+  This case is not supported yet (skipped verification).
+[wp] Warning: No goal generated
+[wp] No proof obligations
+[wp] Deferred error message was emitted during execution:
+  Main entry point function 'main' is (potentially) recursive.
+  This case is not supported yet (skipped verification).
+[kernel] Plug-in wp aborted: invalid user input.

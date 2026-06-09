@@ -1,0 +1,36 @@
+[kernel] Parsing depend1.i (no preprocessing)
+[impact] beginning analysis
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function find <- main.
+  Called from depend1.i:10:11-18.
+[eva:progress] Recording results for find
+[eva:progress] Done for function find
+[eva:progress] 
+  computing for function find <- main.
+  Called from depend1.i:12:11-18.
+[eva:progress] Recording results for find
+[eva:progress] Done for function find
+[eva:progress] depend1.i:13: Reusing old results for call to find
+[eva:progress] 
+  computing for function find <- main.
+  Called from depend1.i:14:11-18.
+[eva:progress] Recording results for find
+[eva:progress] Done for function find
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[pdg] computing for function main
+[from] Computing for function find
+[from] Done for function find
+[pdg] done for function main
+[pdg] computing for function find
+[pdg] done for function find
+[impact] impacted statements of stmt(s) 6 are:
+    depend1.i:6:19-28 (sid 2): return x;
+    depend1.i:13:11-18 (sid 7): int c = find(b);
+    depend1.i:15:3-13 (sid 10): return c;
+[impact] analysis done

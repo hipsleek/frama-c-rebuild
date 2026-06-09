@@ -1,0 +1,318 @@
+[kernel] Parsing stdlib_c.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function calloc <- main.
+  Called from stdlib_c.c:15.
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:58: Call to builtin Frama_C_malloc
+[eva:malloc:new] FRAMAC_SHARE/libc/stdlib.c:58: 
+  allocating variable __malloc_calloc_l58
+[eva:progress] 
+  computing for function memset <- calloc <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:59.
+[eva] using specification for function memset
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:59: 
+  function memset: precondition 'valid_s' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:167: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function memset
+[eva:progress] Done for function memset
+[eva:progress] Recording results for calloc
+[eva:progress] Done for function calloc
+[eva:progress] stdlib_c.c:17: assertion got status valid.
+[eva:progress] 
+  computing for function Frama_C_size_t_interval <- main.
+  Called from stdlib_c.c:21.
+[eva] using specification for function Frama_C_size_t_interval
+[eva:progress] stdlib_c.c:21: 
+  function Frama_C_size_t_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_size_t_interval
+[eva:progress] 
+  computing for function calloc <- main.
+  Called from stdlib_c.c:22.
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:58: Call to builtin Frama_C_malloc
+[eva:malloc:new] FRAMAC_SHARE/libc/stdlib.c:58: 
+  allocating variable __malloc_calloc_l58_0
+[eva:progress] 
+  computing for function memset <- calloc <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:59.
+[eva:alarm] FRAMAC_SHARE/libc/stdlib.c:59: Warning: 
+  function memset: precondition 'valid_s' got status unknown.
+[eva:progress] Done for function memset
+[eva:progress] Recording results for calloc
+[eva:progress] Done for function calloc
+[eva:alarm] stdlib_c.c:24: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function calloc <- main.
+  Called from stdlib_c.c:28.
+[eva:progress] Recording results for calloc
+[eva:progress] Done for function calloc
+[eva:progress] stdlib_c.c:29: assertion got status valid.
+[eva:progress] 
+  computing for function calloc <- main.
+  Called from stdlib_c.c:33.
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:58: Call to builtin Frama_C_malloc
+[eva:malloc:new] FRAMAC_SHARE/libc/stdlib.c:58: 
+  allocating variable __malloc_calloc_l58_1
+[eva:progress] 
+  computing for function memset <- calloc <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:59.
+[eva:progress] Done for function memset
+[eva:progress] Recording results for calloc
+[eva:progress] Done for function calloc
+[eva:partition] stdlib_c.c:32: starting to merge loop iterations
+[eva:progress] 
+  computing for function calloc <- main.
+  Called from stdlib_c.c:33.
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:58: Call to builtin Frama_C_malloc
+[eva:progress] 
+  computing for function memset <- calloc <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:59.
+[eva:progress] Done for function memset
+[eva:progress] Recording results for calloc
+[eva:progress] Done for function calloc
+[eva:alarm] stdlib_c.c:34: Warning: 
+  out of bounds write. assert \valid(s + (size_t)(i - 1));
+[eva:progress] 
+  computing for function calloc <- main.
+  Called from stdlib_c.c:33.
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:58: Call to builtin Frama_C_malloc
+[eva:progress] 
+  computing for function memset <- calloc <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:59.
+[eva:progress] Done for function memset
+[eva:progress] Recording results for calloc
+[eva:progress] Done for function calloc
+[eva:progress] 
+  computing for function calloc <- main.
+  Called from stdlib_c.c:33.
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:58: Call to builtin Frama_C_malloc
+[eva:progress] 
+  computing for function memset <- calloc <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:59.
+[eva:progress] Done for function memset
+[eva:progress] Recording results for calloc
+[eva:progress] Done for function calloc
+[eva:progress] 
+  computing for function calloc <- main.
+  Called from stdlib_c.c:33.
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:58: Call to builtin Frama_C_malloc
+[eva:progress] 
+  computing for function memset <- calloc <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:59.
+[eva:progress] Done for function memset
+[eva:progress] Recording results for calloc
+[eva:progress] Done for function calloc
+[eva:progress] 
+  computing for function calloc <- main.
+  Called from stdlib_c.c:33.
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:58: Call to builtin Frama_C_malloc
+[eva:progress] 
+  computing for function memset <- calloc <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:59.
+[eva:progress] Done for function memset
+[eva:progress] Recording results for calloc
+[eva:progress] Done for function calloc
+[eva:progress] 
+  computing for function posix_memalign <- main.
+  Called from stdlib_c.c:38.
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:186: Call to builtin Frama_C_malloc
+[eva:malloc:new] FRAMAC_SHARE/libc/stdlib.c:186: 
+  allocating variable __malloc_posix_memalign_l186
+[eva:progress] Recording results for posix_memalign
+[eva:progress] Done for function posix_memalign
+[eva:progress] 
+  computing for function free <- main.
+  Called from stdlib_c.c:39.
+[eva] using specification for function free
+[eva] stdlib_c.c:39: Warning: ignoring unsupported allocates clause
+[eva:progress] stdlib_c.c:39: 
+  function free: precondition 'freeable' got status valid.
+[eva:progress] Done for function free
+[eva:progress] 
+  computing for function posix_memalign <- main.
+  Called from stdlib_c.c:40.
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:186: Call to builtin Frama_C_malloc
+[eva:malloc:new] FRAMAC_SHARE/libc/stdlib.c:186: 
+  allocating variable __malloc_posix_memalign_l186_0
+[eva:progress] Recording results for posix_memalign
+[eva:progress] Done for function posix_memalign
+[eva:progress] 
+  computing for function free <- main.
+  Called from stdlib_c.c:41.
+[eva] stdlib_c.c:41: Warning: ignoring unsupported allocates clause
+[eva:progress] stdlib_c.c:41: 
+  function free: precondition 'freeable' got status valid.
+[eva:progress] Done for function free
+[eva:progress] 
+  computing for function posix_memalign <- main.
+  Called from stdlib_c.c:43.
+[eva:progress] Recording results for posix_memalign
+[eva:progress] Done for function posix_memalign
+[eva:progress] stdlib_c.c:44: assertion 'ok_einval_expected' got status valid.
+[eva:progress] stdlib_c.c:47: Call to builtin Frama_C_malloc
+[eva:malloc:new] stdlib_c.c:47: allocating variable __malloc_main_l47
+[eva:progress] 
+  computing for function realpath <- main.
+  Called from stdlib_c.c:49.
+[eva:progress] 
+  computing for function Frama_C_interval <- realpath <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:200.
+[eva] using specification for function Frama_C_interval
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:200: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- realpath <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:209.
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:209: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_make_unknown <- realpath <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:217.
+[eva] using specification for function Frama_C_make_unknown
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:217: 
+  function Frama_C_make_unknown: precondition 'valid_p' got status valid.
+[eva:progress] Done for function Frama_C_make_unknown
+[eva:progress] Recording results for realpath
+[eva:progress] Done for function realpath
+[eva:alarm] stdlib_c.c:51: Warning: 
+  assertion 'valid_if_exact' got status unknown.
+[eva:progress] 
+  computing for function Frama_C_nondet <- main.
+  Called from stdlib_c.c:53.
+[eva] using specification for function Frama_C_nondet
+[eva:progress] Done for function Frama_C_nondet
+[eva:alarm] stdlib_c.c:54: Warning: 
+  assertion 'maybe_uninitialized' got status unknown.
+[eva:progress] 
+  computing for function free <- main.
+  Called from stdlib_c.c:56.
+[eva] stdlib_c.c:56: Warning: ignoring unsupported allocates clause
+[eva:progress] stdlib_c.c:56: 
+  function free: precondition 'freeable' got status valid.
+[eva:progress] Done for function free
+[eva:progress] 
+  computing for function realpath <- main.
+  Called from stdlib_c.c:57.
+[eva:progress] 
+  computing for function Frama_C_interval <- realpath <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:200.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- realpath <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:209.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:211: Call to builtin Frama_C_malloc
+[eva:malloc:new] FRAMAC_SHARE/libc/stdlib.c:211: 
+  allocating variable __malloc_realpath_l211
+[eva:progress] 
+  computing for function Frama_C_make_unknown <- realpath <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:217.
+[eva:progress] Done for function Frama_C_make_unknown
+[eva:progress] Recording results for realpath
+[eva:progress] Done for function realpath
+[eva:progress] 
+  computing for function canonicalize_file_name <- main.
+  Called from stdlib_c.c:59.
+[eva:progress] 
+  computing for function realpath <- canonicalize_file_name <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:223.
+[eva:progress] 
+  computing for function Frama_C_interval <- realpath <- 
+                          canonicalize_file_name <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:200.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- realpath <- 
+                          canonicalize_file_name <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:209.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] FRAMAC_SHARE/libc/stdlib.c:211: Call to builtin Frama_C_malloc
+[eva:malloc:new] FRAMAC_SHARE/libc/stdlib.c:211: 
+  allocating variable __malloc_realpath_l211_0
+[eva:progress] 
+  computing for function Frama_C_make_unknown <- realpath <- 
+                          canonicalize_file_name <- main.
+  Called from FRAMAC_SHARE/libc/stdlib.c:217.
+[eva:progress] Done for function Frama_C_make_unknown
+[eva:progress] Recording results for realpath
+[eva:progress] Done for function realpath
+[eva:progress] Recording results for canonicalize_file_name
+[eva:progress] Done for function canonicalize_file_name
+[eva:progress] 
+  computing for function free <- main.
+  Called from stdlib_c.c:60.
+[eva] stdlib_c.c:60: Warning: ignoring unsupported allocates clause
+[eva:progress] stdlib_c.c:60: 
+  function free: precondition 'freeable' got status valid.
+[eva:progress] Done for function free
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function calloc:
+  __fc_heap_status ∈ [--..--]
+  __fc_errno ∈ [--..--]
+  l ∈ [0..4294967292],0%4
+  p ∈
+   {{ NULL ; &__malloc_calloc_l58[0] ; &__malloc_calloc_l58_0[0] ;
+      &__malloc_w_calloc_l58_1[0] }} or UNINITIALIZED
+  __retres ∈
+          {{ NULL ; (void *)&__malloc_calloc_l58 ;
+             (void *)&__malloc_calloc_l58_0 ;
+             (void *)&__malloc_w_calloc_l58_1 }}
+  __malloc_calloc_l58[0..3] ∈ [--..--] or UNINITIALIZED
+  __malloc_calloc_l58_0[0..4294967291] ∈ [--..--] or UNINITIALIZED
+  __malloc_w_calloc_l58_1[0..4294967291] ∈ [--..--] or UNINITIALIZED
+[eva:final-states] Values at end of function posix_memalign:
+  __fc_heap_status ∈ [--..--]
+  __fc_errno ∈ [--..--]
+  p_al0 ∈ {{ NULL ; &__malloc_posix_memalign_l186[0] }}
+  p_al1 ∈ {{ NULL ; &__malloc_posix_memalign_l186_0[0] }} or UNINITIALIZED
+  __retres ∈ {0; 12; 22}
+[eva:final-states] Values at end of function realpath:
+  __fc_heap_status ∈ [--..--]
+  __fc_errno ∈ [--..--]
+  Frama_C_entropy_source ∈ [--..--]
+  resolved_name ∈
+               {{ NULL ; &__malloc_main_l47[0] ; &__malloc_realpath_l211[0] ;
+                  &__malloc_realpath_l211_0[0] }}
+  realpath_len ∈ [1..4096] or UNINITIALIZED
+  __retres ∈
+          {{ NULL ; &__malloc_main_l47[0] ; &__malloc_realpath_l211[0] ;
+             &__malloc_realpath_l211_0[0] }}
+  __malloc_main_l47[0..4095] ∈ [--..--] or UNINITIALIZED
+  __malloc_realpath_l211[0..4095] ∈ [--..--] or UNINITIALIZED
+  __malloc_realpath_l211_0[0..4095] ∈ [--..--] or UNINITIALIZED
+[eva:final-states] Values at end of function canonicalize_file_name:
+  __fc_heap_status ∈ [--..--]
+  __fc_errno ∈ [--..--]
+  Frama_C_entropy_source ∈ [--..--]
+  __malloc_realpath_l211_0[0..4095] ∈ [--..--] or UNINITIALIZED
+[eva:final-states] Values at end of function main:
+  __fc_heap_status ∈ [--..--]
+  __fc_errno ∈ [--..--]
+  Frama_C_entropy_source ∈ [--..--]
+  p ∈ {{ NULL ; (int *)&__malloc_calloc_l58 }}
+  nmemb ∈ [1..4294967295]
+  q ∈ {{ NULL ; (int *)&__malloc_calloc_l58_0 }}
+  r ∈ {0}
+  s ∈ {{ NULL ; (int *)&__malloc_w_calloc_l58_1 }} or UNINITIALIZED
+  p_al0 ∈ {{ NULL ; &__malloc_posix_memalign_l186[0] }}
+  p_al1 ∈ {{ NULL ; &__malloc_posix_memalign_l186_0[0] }}
+  p_memal_res ∈ {0; 12}
+  p_memal_res2 ∈ {0; 12}
+  p_memal_inv ∈ {22}
+  resolved_name ∈ {{ NULL ; &__malloc_main_l47[0] }}
+  realpath_res ∈ {{ NULL ; &__malloc_realpath_l211[0] }} or UNINITIALIZED
+  canon ∈ {{ NULL ; &__malloc_realpath_l211_0[0] }} or UNINITIALIZED
+  __retres ∈ {0; 1}
+  __malloc_calloc_l58[0..3] ∈ [--..--] or UNINITIALIZED
+  __malloc_calloc_l58_0[0..4294967291] ∈ [--..--] or UNINITIALIZED
+  __malloc_w_calloc_l58_1[0..4294967291] ∈ [--..--] or UNINITIALIZED
+  __malloc_main_l47[0..4095] ∈ [--..--] or UNINITIALIZED
+  __malloc_realpath_l211[0..4095] ∈ [--..--] or UNINITIALIZED
+  __malloc_realpath_l211_0[0..4095] ∈ [--..--] or UNINITIALIZED

@@ -1,0 +1,194 @@
+[default.extend-identifiers]
+Cose = "Cose"
+Cristal = "Cristal"
+Cros = "Cros"
+MODULEs = "MODULEs"
+alignd = "alignd"
+classeName = "classeName"
+cose = "cose"
+froms = "froms"
+nd = "nd"
+ot = "ot"
+permut = "permut"
+pn = "pn"
+sav = "sav"
+tio = "tio"
+typ = "typ"
+typs = "typs"
+
+[default.extend-words]
+ABD = "ABD" # text that does not match regex "ABC"
+ABL = "ABL" # 'L' suffix for a hexadecimal constant finishing in 'AB'
+aloc = "aloc" # variable name, related to locations
+Aspec = "Aspec" # constructor (A spec)
+Cose = "Cose" # as in CoSE layout, in cytoscape
+Cristal = "Cristal" # old INRIA research team
+Cros = "Cros" # Last name of a Frama-C developer
+DUM = "DUM" # used as ACSL name (for "DUMMY")
+ESPACE = "ESPACE" # REG_ESPACE, in regex.h
+ECT = "ECT" # TCP-related acronym
+Ful = "Ful" # 'ul' suffix for a hexadecimal constant finishing in 'F'
+IHS = "IHS" # induction hypothesis in Coq
+Iinclude = "Iinclude" # related to GCC's option '-I include'
+LOOSING = "LOOSING" # seems to be intentional and correct use of 'to loose' verb
+Ono = "Ono"
+PARMS = "PARMS" # abbr. of parameters
+Padd = "Padd" # constructor for addition
+Referers = "Referers" # apparently the OED now accepts this
+SUR = "SUR" # French word present in some tests (PROP_SUR_XX)
+TOU = "TOU" # as in TOC TOU (time-of-check to time-of-use)
+Unsuccess = "Unsuccess" # WP uses this as a PO status
+WHT = "WHT" # part of an identifier in dirent.h
+WRONLY = "WRONLY" # O_WRONLY (write-only)
+Wonce = "Wonce" # Warn-once constructor
+atend = "atend" # "at end", present in PS files
+ba = "ba"
+bimap = "bimap" # data structure used in E-ACSL
+bitcase = "bitcase"
+breal = "breal"
+caf = "caf" # code annotation filter
+clen = "clen" # variable name (c len)
+cmo = "cmo" # OCaml compiler extension
+configl = "configl" # print_configl, l for "list"
+controllen = "controllen" # part of msg_controllen, field in libc's socket.h
+cose = "cose" # as in CoSE layout, in cytoscape
+cpy = "cpy" # variable name
+datas = "datas" # has too many occurrences to be fixed
+divde = "divde" # from __builtin_divde, for doubleword extended division
+elemt = "elemt" # variable name
+eles = "eles" # variable name (elements)
+esource = "esource" # variable name
+finitel = "finitel" # C function (finite long double)
+fle = "fle" # floating less than or equal
+flor = "flor" # in Cint, related to f_lor
+fnd = "fnd"
+fo = "fo"
+fre = "fre" # __builtin_ppc_fre
+froms = "froms" # \from clauses in assigns
+inouts = "inouts"
+ist = "ist" # LaTeX-related extension
+iterm = "iterm"
+iy = "iy" # short variable name
+iz = "iz" # variable name
+lene = "lene" # variable name (l ene)
+lok = "lok" # variable name (l ok)
+marger = "marger" # something that "creates a margin" in OCaml Format?
+mone = "mone" # minus one
+multipl = "multipl" # variable name
+nd = "nd" # short variable name
+numer = "numer" # as in "numerator"/"denominator" in a division
+ome = "ome" # short variable name
+onef = "onef" # identifier (one float)
+ot = "ot" # short variable name
+padds = "padds" # paddings
+parm = "parm" # abbr. of parameter
+parms = "parms" # abbr. of parameters
+pathc = "pathc" # field name in libc's glob.h
+permut = "permut"
+projet = "projet" # appears in "projet Cristal", Inria header in several files
+ptd = "ptd" # part of identifier (pointed)
+referers = "referers" # apparently the OED now accepts this
+raison = "raison" # in "raison d'être", a posh phrase
+rela = "rela" # function name
+sav = "sav" # 3-letter extension for save files
+scatch = "scatch" # variable name
+scond = "scond" # variable name in WP
+secur = "secur" # part of macro names in libc's netinet/ip.h
+seh = "seh" # variable name
+selt = "selt" # variable name (stack element)
+servent = "servent" # struct name in libc's netdb.h
+siz = "siz" # variable name (for 'size')
+strat = "strat" # in file name
+tabl = "tabl" # variable name
+templat = "templat" # in ACSL spec; template is a C++ keyword to be avoided
+tha = "tha"
+thex = "thex" # variable name (related to 'hex')
+thi = "thi"
+thid = "thid" # variable name
+thm = "thm" # short variable name
+thn = "thn" # thread number n (mthread)
+thq = "thq" # short variable name
+ths = "ths" # short variable name
+timout = "timout" # field name in stropts.h
+tio = "tio" # terminal I/O
+typ = "typ" # type name (must be different from the 'type' keyword)
+typdef = "typdef"
+typs = "typs" # plural of typ
+ue = "ue" # variable name
+uiu = "uiu" # variable name
+undet = "undet" # variable name for a non-deterministic value
+unio = "unio" # variable name for a union
+varity = "varity" # related to variadic arguments
+writeable = "writeable" # alternative spelling
+zerod = "zerod" # variable name (zero with type double)
+
+[files]
+extend-exclude = [
+"*.svg",
+# exclude generated files
+"*.oracle",
+# files temporarily excluded because they contain deprecated terms that are
+# being migrated towards a fixed version. We do not want to add the words
+# themselves (otherwise they might reappear in other files).
+"src/kernel_services/ast_queries/logic_const.ml",
+"src/kernel_services/ast_queries/logic_const.mli",
+"src/libraries/datatype/structural_descr.ml",
+"src/libraries/datatype/structural_descr.mli",
+"src/libraries/arithmetic/finite.ml",
+"src/libraries/arithmetic/finite.mli",
+# excluded because they contain French text, hashes, or contain typos that were
+# not introduced by us and we do not feel like fixing them (e.g. source code
+# written by others)
+"**/*.bib",
+"doc/**/macros_modern.tex",
+"doc/aorai/macros.tex",
+"doc/developer/macros.sty",
+"doc/eva/tutorial/Reference_Implementation/*",
+"doc/makeLatex",
+"doc/pdg/*.tex",
+"doc/scope/M.v",
+"doc/scope/scope.tex",
+"doc/slicing/design-fr/*",
+"doc/slicing/user-manual-fr/*.tex",
+"headers/OCAML_STDLIB",
+"ivette/src/dome/doc/template/static/scripts/prettify/prettify.js",
+"nix/sources.json",
+"share/emacs/acsl.el",
+"share/libc/netinet/tcp.h",
+"src/plugins/acsl-importer/doc/manual/bib.bib",
+"src/plugins/aorai/path_analysis.ml",
+"src/plugins/e-acsl/contrib/libdlmalloc/dlmalloc.c",
+"src/plugins/e-acsl/doc/doxygen/doxygen.cfg.in",
+"src/plugins/e-acsl/doc/refman/macros_modern.tex",
+"src/plugins/e-acsl/doc/userman/macros.tex",
+"src/plugins/eva/tests/float/float_cast_implicite.i",
+"src/plugins/eva/tests/idct/idct.c",
+"src/plugins/eva/tests/idct/idct.c",
+"src/plugins/eva/tests/idct/ieee_1180_1990.c",
+"src/plugins/eva/tests/value/builtins_split.c",
+"src/plugins/eva/tests/value/CruiseControl.c",
+"src/plugins/eva/tests/value/CruiseControl.h",
+"src/plugins/eva/tests/value/shift.i",
+"src/plugins/volatile/tests/basic/bts_1030.i",
+"src/plugins/wp/tests/wp_bts/issue_508.c",
+"src/plugins/wp/tests/wp_gallery/frama_c_exo1_solved.c",
+"src/plugins/wp/tests/wp_gallery/frama_c_exo2_solved.c",
+"src/plugins/wp/tests/wp_gallery/frama_c_exo3_solved.old.c",
+"src/plugins/wp/tests/wp_gallery/frama_c_exo3_solved.old.v2.c",
+"src/plugins/wp/tests/wp_gallery/frama_c_exo3_solved.simplified.c",
+"tests/misc/m12_2.i",
+"tests/mopsa/cjson.t/cJSON.*",
+"tests/mopsa/polarssl-cmake.t/*",
+"tests/mopsa/polarssl.t/*",
+"tests/pdg/call.c",
+"tests/pdg/loops.c",
+"tests/pdg/simple_intra_slice.c",
+"tests/slicing/adpcm.c",
+"tests/slicing/simple_intra_slice.i",
+"tests/slicing/simple_intra_slice.ml",
+"tests/spec/conf1.h",
+"tests/spec/enum.c",
+"tests/spec/prototype_assigns.c",
+"tests/syntax/gnu-asm-aesni.c",
+"tests/variadic/declared/label.i",
+]

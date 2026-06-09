@@ -1,0 +1,18 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; This library is only used to include Apron without polluting the namespace
+; with generic names like Box or Oct.
+
+(include_subdirs no)
+
+(library
+ (name fc_internal_apron)
+ (optional)
+ (public_name frama-c-eva.fc_internal_apron)
+ (libraries apron.apron apron.boxMPQ apron.octMPQ apron.polkaMPQ))

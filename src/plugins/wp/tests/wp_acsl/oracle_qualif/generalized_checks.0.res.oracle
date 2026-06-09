@@ -1,0 +1,49 @@
+# frama-c -wp -wp-timeout 1 [...]
+[kernel] Parsing generalized_checks.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] generalized_checks.i:40: Warning: 
+  Neither code nor explicit exits and terminates for function f, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal loop_exits (Cfg) (Unreachable)
+[wp] 26 goals scheduled
+[wp] [Unsuccess] typed_check_lemma_C_ko (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_lemma_L_ko (Alt-Ergo) (Cached)
+[wp] [Valid] typed_job_terminates (Qed)
+[wp] [Valid] typed_job_ensures_B (Alt-Ergo) (Cached)
+[wp] [Valid] typed_job_check_ensures_CB1 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_job_check_ensures_CB2_ko (Alt-Ergo) (Cached)
+[wp] [Valid] typed_job_exits (Qed)
+[wp] [Valid] typed_job_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_job_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_job_assigns_exit (Qed)
+[wp] [Valid] typed_caller_terminates (Qed)
+[wp] [Valid] typed_caller_ensures_R (Qed)
+[wp] [Unsuccess] typed_caller_ensures_R1_ko (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_caller_ensures_R2_ko (Alt-Ergo) (Cached)
+[wp] [Valid] typed_caller_exits (Qed)
+[wp] [Valid] typed_caller_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_caller_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_caller_assigns_exit (Qed)
+[wp] [Valid] typed_caller_call_job_requires_A (Qed)
+[wp] [Valid] typed_caller_call_job_check_requires_CA1 (Qed)
+[wp] [Unsuccess] typed_caller_call_job_check_requires_CA2_ko (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_loop_terminates (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_loop_check_loop_invariant_false_but_preserved_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_loop_check_loop_invariant_false_but_preserved_preserved (Qed)
+[wp] [Unsuccess] typed_loop_check_implied_by_false_invariant (Alt-Ergo) (Cached)
+[wp] [Valid] typed_loop_loop_assigns (Qed)
+[wp] Proved goals:   18 / 27
+  Unreachable:     1
+  Qed:            15
+  Alt-Ergo:        2
+  Unsuccess:       9
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Axiomatic Th              -        -        2       0.0%
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  job                       5        2        8      87.5%
+  caller                    8        -       11      72.7%
+  loop                      3        -        6      50.0%
+------------------------------------------------------------

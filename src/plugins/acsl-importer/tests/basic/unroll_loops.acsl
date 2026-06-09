@@ -1,0 +1,6 @@
+function main:
+  at L: assert i>0 ;
+  at loop 1: loop invariant i<=10 ;
+
+function F_BoucleDepliee_1:
+  at loop 1: invariant \false ;

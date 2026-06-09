@@ -1,0 +1,41 @@
+[kernel] Parsing ghost_cfg.c (with preprocessing)
+[kernel:ghost:bad-use] ghost_cfg.c:10: User Error: 
+  Ghost code breaks CFG starting at:
+  /*@ ghost goto X; */
+[kernel:ghost:bad-use] ghost_cfg.c:27: User Error: 
+  Ghost code breaks CFG starting at:
+  /*@ ghost if (i == 0) break; */
+  i ++;
+[kernel:ghost:bad-use] ghost_cfg.c:35: User Error: 
+  Ghost code breaks CFG starting at:
+  /*@ ghost if (i == 0) continue; */
+  i ++;
+[kernel:ghost:bad-use] ghost_cfg.c:61: User Error: 
+  Ghost code breaks CFG starting at:
+  /*@ ghost case 1: g = 3; */
+[kernel:ghost:bad-use] ghost_cfg.c:80: User Error: 
+  Ghost code breaks CFG starting at:
+  /*@ ghost goto X; */
+[kernel:ghost:bad-use] ghost_cfg.c:90: User Error: 
+  Ghost code breaks CFG starting at:
+  /*@ ghost goto X; */
+[kernel:ghost:bad-use] ghost_cfg.c:101: User Error: 
+  Ghost code breaks CFG starting at:
+  /*@ ghost case 1: x ++; */
+[kernel:ghost:bad-use] ghost_cfg.c:109: User Error: 
+  Ghost code breaks CFG starting at:
+  /*@ ghost __retres = 1; */
+  /*@ ghost goto return_label; */
+[kernel:ghost:bad-use] ghost_cfg.c:115: User Error: 
+  Ghost code breaks CFG starting at:
+  /*@ ghost case 3: ; */
+[kernel:ghost:bad-use] ghost_cfg.c:143: User Error: 
+  Ghost code breaks CFG starting at:
+  /*@ ghost goto return_label; */
+[kernel:ghost:bad-use] ghost_cfg.c:133: User Error: 
+  Ghost code breaks CFG starting at:
+  /*@ ghost goto X; */
+[kernel] Deferred error: warning as error ghost:bad-use:
+  ghost_cfg.c:10: Ghost code breaks CFG starting at:
+  /*@ ghost goto X; */
+[kernel] Frama-C aborted: invalid user input.

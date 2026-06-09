@@ -1,0 +1,61 @@
+Plug-in name: Alias Analysis
+Plug-in shortname: alias
+Description: Lightweight May-Alias Analysis (experimental)
+
+Most options of the form '-alias-option-name' and without any parameter
+have an opposite with the name '-alias-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-alias              Enable May-Alias Analyzer (opposite option is -no-alias)
+-alias-debug-table  switch to debug mode when printing statement or function
+                    tables (with options -alias-show-stmt-table and
+                    -alias-show-function-table) (opposite option is
+                    -alias-no-debug-table)
+-alias-dot-output <f>  output final abstract state as dot file <f>
+                    (preferably use -alias-dot-output="f")
+-alias-show-function-table  display summary for each function after the
+                    analysis (opposite option is
+                    -alias-no-show-function-table)
+-alias-show-stmt-table  display abstract state for each statement after the
+                    analysis (opposite option is -alias-no-show-stmt-table)
+
+*** DEBUG
+
+-alias-debug <n>    level of debug for plug-in Alias Analysis (default to 0)
+
+*** GETTING INFORMATION
+
+-alias-help         help of plug-in Alias Analysis
+-alias-h            alias for option -alias-help
+
+*** OUTPUT MESSAGES
+
+-alias-log <K_1:file_1,...>  copy log messages from Alias Analysis to a file.
+                    <K> is a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -alias-log="K_1:file_1,...")
+-alias-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -alias-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -alias-msg-key="k1[,...,kn]")
+-alias-verbose <n>  level of verbosity for plug-in Alias Analysis (default to
+                    1)
+-alias-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category <k1>
+                    to <s1>,...,<kn> to <sn>. Use -alias-warn-key help to get
+                    a list of available categories, and * to enable all
+                    categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -alias-warn-key="k1[=s1][,...,kn[=sn]]")

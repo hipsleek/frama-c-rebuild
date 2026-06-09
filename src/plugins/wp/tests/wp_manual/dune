@@ -1,0 +1,3 @@
+(subdir
+ result_qualif/working_dir
+ (copy_files ../../working_dir/*))

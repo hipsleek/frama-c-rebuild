@@ -1,0 +1,13 @@
+[kernel] Parsing get_astinfo_bts1136.i (no preprocessing)
+found variable vid:23 formal in f
+found variable vid:26 formal in g
+found variable vid:29 formal in h
+found variable vid:31 formal in i
+found variable vid:33 formal in j
+found variable vid:35 formal in k
+[do_v] vid:29 Parameter of h
+[do_v] vid:26 Parameter of g
+[do_v] vid:23 Parameter of f
+[do_v] vid:35 Local variable of k
+[do_v] vid:33 Local variable of j
+[do_v] vid:31 Local variable of i

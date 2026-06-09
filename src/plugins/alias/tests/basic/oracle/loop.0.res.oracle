@@ -1,0 +1,27 @@
+[kernel] Parsing loop.c (with preprocessing)
+[alias] analysing function: main
+[alias] analysing instruction: int l[1] = {0};
+[alias] May-aliases after instruction  int l[1] = {0};  are  <none>
+[alias] analysing instruction: int *n_0 = & l[1];
+[alias] May-aliases after instruction  int *n_0 = & l[1];  are  { l; n_0 }
+[alias] analysing instruction: n_0 = & l[1] + 0;
+[alias] May-aliases after instruction  n_0 = & l[1] + 0;  are  { l; n_0 }
+[alias] analysing instruction: int w = 0;
+[alias] May-aliases after instruction  int w = 0;  are  { l; n_0 }
+[alias] analysing instruction: l[0] = *(& l[1] + 0);
+[alias] May-aliases after instruction  l[0] = *(& l[1] + 0);  are  { l; n_0 }
+[alias] analysing instruction: int l[1] = {0};
+[alias] May-aliases after instruction  int l[1] = {0};  are  { l; n_0 }
+[alias] analysing instruction: int *n_0 = & l[1];
+[alias] May-aliases after instruction  int *n_0 = & l[1];  are  { l; n_0 }
+[alias] analysing instruction: n_0 = & l[1] + 0;
+[alias] May-aliases after instruction  n_0 = & l[1] + 0;  are  { l; n_0 }
+[alias] analysing instruction: int w = 0;
+[alias] May-aliases after instruction  int w = 0;  are  { l; n_0 }
+[alias] analysing instruction: l[0] = *(& l[1] + 0);
+[alias] May-aliases after instruction  l[0] = *(& l[1] + 0);  are  { l; n_0 }
+[alias] analysing instruction: int l[1] = {0};
+[alias] May-aliases after instruction  int l[1] = {0};  are  { l; n_0 }
+[alias:no-return] loop.c:4: Warning: 
+  function main does not return; analysis may be unsound
+[alias] May-aliases at the end of function main: <none>

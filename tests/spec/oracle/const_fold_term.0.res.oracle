@@ -1,0 +1,21 @@
+[kernel] Parsing const_fold_term.i (no preprocessing)
+Custom terms :
+  !(21 + 21) folds to 0
+  !(21 - 21) folds to 1
+  0 < (42 ∧ 21) folds to 1
+  1 > (0 ∨ 21) folds to 0
+  0 ≢ (0 ≤ (42 ∧ 21)) folds to 1
+  1 ≡ (1 ≥ (1 ∨ 0)) folds to 1
+File terms :
+  -(21 + 21) folds to -42
+  ~21 folds to -22
+  -a folds to -a
+  (21 + 21) + a folds to 42 + a
+  84 - 42 folds to 42
+  6 * 7 folds to 42
+  21 << 1 folds to 42
+  672 >> sizeof(int) folds to 42
+  58 & 47 folds to 42
+  34 | sizeof("frama-c") folds to 42
+  63 ^ 21 folds to 42
+  168 / sizeof(a) folds to 168 / 4

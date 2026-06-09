@@ -1,0 +1,74 @@
+; Test dependencies
+(rule
+ (alias frama-c-configure)
+ (deps
+  (universe)
+  (alias ../frama-c-configure-tests))
+ (action (progn
+            (echo "  - tests/misc/:" %{read:../../tests-misc-deps-available} "\n")
+            (echo "    - gcc:" %{bin-available:gcc} "\n")
+            (echo "    - socat:" %{bin-available:socat} "\n")
+            ; If you add some dependencies here, do not forget to add them to
+            ; tests_configurator.ml
+  ))
+)
+
+; Generic dependencies for all cram tests
+(cram
+  (deps (package frama-c))
+)
+
+(cram
+  (applies_to user_directories.unix)
+  (enabled_if (and (= %{os_type} Unix) (<> %{system} macosx)))
+)
+
+(cram ; macOS ARM has a different memory layout
+  (applies_to pragma-pack-gcc)
+  (enabled_if (and %{bin-available:gcc} (<> %{system} macosx)))
+  (deps
+    pragma-pack.c pragma-pack-utils.h
+    (package frama-c-eva) (package frama-c-inout) (package frama-c-scope)
+  )
+)
+
+(cram
+  (applies_to pragma-pack-macos-arm-gcc)
+  (enabled_if (and %{bin-available:gcc} (= %{system} macosx) (= %{architecture} arm64)))
+  (deps
+    pragma-pack.c pragma-pack-utils.h
+    (package frama-c-eva) (package frama-c-inout) (package frama-c-scope)
+  )
+)
+
+(cram
+  (applies_to symbolic_path)
+  (deps (package frama-c-eva) (package frama-c-report))
+)
+
+(cram
+  (applies_to log-truncation)
+  (enabled_if %{bin-available:socat})
+)
+
+(cram
+  (applies_to share_directory)
+  (deps
+    (package frama-c)
+  )
+)
+
+(cram
+  (applies_to commands_file)
+  (deps
+    (package frama-c-eva)
+    (package frama-c-inout)
+    (package frama-c-scope)
+  )
+)
+
+(tests
+ (names coherent_compare_hash_types remove_attrs_deep string_literal)
+ (deps (package frama-c))
+ (libraries frama-c.init frama-c.kernel)
+ (flags :standard -open Frama_c_kernel))

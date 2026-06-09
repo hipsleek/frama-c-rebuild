@@ -1,0 +1,78 @@
+Plug-in name: Markdown report
+Plug-in shortname: mdr
+Description: generates a report in markdown format
+
+Most options of the form '-mdr-option-name' and without any parameter
+have an opposite with the name '-mdr-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-mdr-authors <l>    list of authors of the report (preferably use
+                    -mdr-authors="l")
+-mdr-date <d>       date of the report (preferably use -mdr-date="d")
+-mdr-flamegraph <f>  reads file <f> to include a FlameGraph
+                    (https://github.com/brendangregg/FlameGraph.git),allowing
+                    the most analysis-intensive callstacks to be
+                    identifiedquickly and accurately (preferably use
+                    -mdr-flamegraph="f")
+-mdr-gen <kind>     select the <kind> of report to generate among: none
+                    (default), md, draft and sarif (preferably use
+                    -mdr-gen="kind")
+-mdr-out <f>        sets the name of the output file to <f>. If <f> has no
+                    extension, it is chosen automatically based on the report
+                    kind
+-mdr-print-libc     when set (default), reports include information about
+                    libc elements. (set by default, opposite option is
+                    -mdr-no-print-libc)
+-mdr-remarks <f>    reads file <f> to add additional remarks to various
+                    sections of the report. Must be in a format compatible
+                    with the file produced by -mdr-gen-draft. Remarks
+                    themselves must be written in pandoc's markdown, although
+                    this is not enforced by the plug-in
+-mdr-sarif-deterministic  omits non-deterministic data from SARIF reports,
+                    such as absolute file URIs and timestamps. (opposite
+                    option is -mdr-no-sarif-deterministic)
+-mdr-stubs <f1,...,fn>  list of C files containing stub functions (preferably
+                    use -mdr-stubs="f1,...,fn")
+-mdr-title <t>      title of the generated document (preferably use
+                    -mdr-title="t")
+
+*** DEBUG
+
+-mdr-debug <n>      level of debug for plug-in Markdown report (default to 0)
+
+*** GETTING INFORMATION
+
+-mdr-help           help of plug-in Markdown report
+-mdr-h              alias for option -mdr-help
+
+*** OUTPUT MESSAGES
+
+-mdr-log <K_1:file_1,...>  copy log messages from Markdown report to a file.
+                    <K> is a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -mdr-log="K_1:file_1,...")
+-mdr-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -mdr-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -mdr-msg-key="k1[,...,kn]")
+-mdr-verbose <n>    level of verbosity for plug-in Markdown report (default
+                    to 1)
+-mdr-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category <k1>
+                    to <s1>,...,<kn> to <sn>. Use -mdr-warn-key help to get a
+                    list of available categories, and * to enable all
+                    categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -mdr-warn-key="k1[=s1][,...,kn[=sn]]")

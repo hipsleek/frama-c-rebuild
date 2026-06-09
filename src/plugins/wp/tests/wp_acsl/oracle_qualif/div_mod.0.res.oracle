@@ -1,0 +1,38 @@
+# frama-c -wp [...]
+[kernel] Parsing div_mod.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal f_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal f_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 22 goals scheduled
+[wp] [Valid] typed_f_ensures_d0_div_pos_pos (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_d1_div_neg_pos (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_d2_div_pos_neg (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_d3_div_neg_neg (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_d4_div_x_1 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_d5_div_x_minus1 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_d6_div_0_x (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f_ensures_sd0_div_pos_pos (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f_ensures_sd1_div_neg_pos (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_f_ensures_sd2_div_pos_neg (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_f_ensures_sd3_div_neg_neg (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f_ensures_m0_mod_pos_pos (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_m1_mod_neg_pos (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_m2_mod_pos_neg (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_m3_mod_neg_neg (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_m4_mod_x_1 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_m5_mod_x_minus1 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f_ensures_m6_mod_0_x (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f_ensures_sm0_mod_pos_pos (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f_ensures_sm1_mod_neg_pos (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f_ensures_sm2_mod_pos_neg (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f_ensures_sm3_mod_neg_neg (Alt-Ergo) (Cached)
+[wp] Proved goals:   22 / 24
+  Terminating:     1
+  Unreachable:     1
+  Alt-Ergo:       20
+  Unsuccess:       2
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  f                         2       20       24      91.7%
+------------------------------------------------------------

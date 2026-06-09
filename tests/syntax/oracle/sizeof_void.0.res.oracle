@@ -1,0 +1,5 @@
+[kernel] Parsing sizeof_void.c (with preprocessing)
+[kernel:parser:conditional-feature] sizeof_void.c:21: Failure: 
+  __alignof__ is a GCC extension, use a GCC-based machdep to enable it.
+[kernel] User Error: warning parser:conditional-feature treated as fatal error.
+[kernel] Frama-C aborted: invalid user input.

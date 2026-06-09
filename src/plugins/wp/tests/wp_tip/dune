@@ -1,0 +1,47 @@
+; Non qualif
+
+(subdir
+ result/clear.0.session/script
+ (copy_files ../../../clear.0.session/script/*))
+
+(subdir
+ result/induction_typing.0.session/script
+ (copy_files ../../../induction_typing.0.session/script/*))
+
+(subdir
+ result/modmask.0.session/script
+ (copy_files ../../../modmask.0.session/script/*))
+
+(subdir
+ result/modmask.1.session/script
+ (copy_files ../../../modmask.1.session/script/*))
+
+(subdir
+ result/split.0.session/script
+ (copy_files ../../../split.0.session/script/*))
+
+; Qualif
+
+(subdir
+ result_qualif/induction.0.session_qualif/script
+ (copy_files ../../../induction.0.session_qualif/script/*))
+
+(subdir
+ result_qualif/induction.1.session_qualif/script
+ (copy_files ../../../induction.1.session_qualif/script/*))
+
+(subdir
+ result_qualif/induction.2.session_qualif/script
+ (copy_files ../../../induction.2.session_qualif/script/*))
+
+(subdir
+ result_qualif/overflow.0.session_qualif/script
+ (copy_files ../../../overflow.0.session_qualif/script/*))
+
+(subdir
+ result_qualif/tac_split_quantifiers.0.session_qualif/script
+ (copy_files ../../../tac_split_quantifiers.0.session_qualif/script/*))
+
+(subdir
+ result_qualif/unroll.0.session_qualif/script
+ (copy_files ../../../unroll.0.session_qualif/script/*))

@@ -1,0 +1,78 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing jump6.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+  one ∈ [--..--]
+[eva:progress] 
+  computing for function compute <- main.
+  Called from jump6.c:48.
+[eva:secure-flow:condition] jump6.c:12: Warning: 
+  non-interference violation on condition involving {secret; n}
+[eva:secure-flow:condition] jump6.c:15: Warning: 
+  non-interference violation on condition involving {n}
+[eva:secure-flow:condition] jump6.c:16: Warning: 
+  non-interference violation on condition involving {tmp}
+[eva:progress] Recording results for compute
+[eva:progress] Done for function compute
+[eva:alarm] jump6.c:49: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function compute2 <- main.
+  Called from jump6.c:50.
+[eva:progress] jump6.c:28: assertion got status valid.
+[eva:secure-flow:condition] jump6.c:32: Warning: 
+  non-interference violation on condition involving {secret; n}
+[eva:partition] jump6.c:30: starting to merge loop iterations
+[eva:alarm] jump6.c:36: Warning: assertion got status unknown.
+[eva:progress] jump6.c:41: assertion got status valid.
+[eva:secure-flow:condition] jump6.c:29: Warning: 
+  non-interference violation on condition involving {n}
+[eva:secure-flow:condition] jump6.c:35: Warning: 
+  non-interference violation on condition involving {i}
+[eva:partition] jump6.c:26: starting to merge loop iterations
+[eva:progress] Recording results for compute2
+[eva:progress] Done for function compute2
+[eva:alarm] jump6.c:51: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function compute:
+  n ∈ [--..--]
+  __retres ∈ [--..--]
+[eva:final-states] Values at end of function compute2:
+  n ∈ [--..--]
+  i ∈ [--..--]
+  j ∈ [0..4294967294],0%2
+  k ∈ [0..4294967294]
+[eva:final-states] Values at end of function main:
+  result ∈ [--..--]
+  __retres ∈ {0}
+[from] Computing for function compute
+[from] Done for function compute
+[from] Computing for function compute2
+[from] Done for function compute2
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function compute:
+  \result FROM secret; n
+[from] Function compute2:
+  \result FROM secret; n
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function compute:
+    n; tmp; __retres
+[inout] Inputs for function compute:
+    secret
+[inout] Out (internal) for function compute2:
+    n; i; j; k
+[inout] Inputs for function compute2:
+    secret
+[inout] Out (internal) for function main:
+    result; __retres
+[inout] Inputs for function main:
+    secret; one

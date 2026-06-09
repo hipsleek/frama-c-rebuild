@@ -1,0 +1,11 @@
+# frama-c -wp [...]
+[kernel] Parsing module.i (no preprocessing)
+[wp] Running WP plugin...
+------------------------------------------------------------
+  Global
+------------------------------------------------------------
+
+Goal Lemma 'AbsOp':
+Let a = IAbs.abs(n). Prove: L_fooJazzopN(x, a) = L_fooBaropN(x, a).
+
+------------------------------------------------------------

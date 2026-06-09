@@ -1,0 +1,113 @@
+Plug-in name: Slicing
+Plug-in shortname: slicing
+Description: code slicer
+
+Most options of the form '-slicing-option-name' and without any parameter
+have an opposite with the name '-slicing-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-slice-annot <f1, ..., fn>  use the slicing pragmas in the code of functions
+                    f1,...,fn as slicing criteria:
+                    //@ slice_preserve_ctrl;  to reach this control-flow
+                    point
+                    //@ slice_preserve_expr <expr>;  to preserve the value of
+                    an expression at this control-flow point
+                    //@ slice_preserve_stmt;  to preserve the effect of the
+                    next statement (preferably use -slice-annot="f1, ...,
+                    fn")
+-slice-assert <f1, ..., fn>  select the assertions of functions f1,...,fn
+                    (preferably use -slice-assert="f1, ..., fn")
+-slice-callers      propagate the slicing to the function callers (set by
+                    default, opposite option is -no-slice-callers)
+-slice-calls <f1, ..., fn>  select every calls to functions f1,...,fn, and
+                    all their effect (preferably use -slice-calls="f1, ...,
+                    fn")
+-slice-force        force slicing (set by default, opposite option is
+                    -no-slice-force)
+-slice-loop-inv <f1, ..., fn>  select the loop invariants of functions
+                    f1,...,fn (preferably use -slice-loop-inv="f1, ..., fn")
+-slice-loop-var <f1, ..., fn>  select the loop variants of functions
+                    f1,...,fn (preferably use -slice-loop-var="f1, ..., fn")
+-slice-rd <v1, ..., vn>  select the read accesses to left-values v1,...,vn
+                    (addresses are evaluated at the beginning of the function
+                    given as entry point) (preferably use -slice-rd="v1, ...,
+                    vn")
+-slice-return <f1, ..., fn>  select the result (returned value) of functions
+                    f1,...,fn (preferably use -slice-return="f1, ..., fn")
+-slice-threat <f1, ..., fn>  select the threats of functions f1,...,fn
+                    (preferably use -slice-threat="f1, ..., fn")
+-slice-undef-functions  allow the use of the -slicing-level option for calls
+                    to undefined functions (opposite option is
+                    -no-slice-undef-functions)
+-slice-value <v1, ..., vn>  select the result of left-values v1,...,vn at the
+                    end of the function given as entry point (addresses are
+                    evaluated at the beginning of the function given as entry
+                    point) (preferably use -slice-value="v1, ..., vn")
+-slice-wr <v1, ..., vn>  select the write accesses to left-values v1,...,vn
+                    (addresses are evaluated at the beginning of the function
+                    given asentry point) (preferably use -slice-wr="v1, ...,
+                    vn")
+-slicing-exported-project-postfix <postfix>  postfix added to the slicing
+                    project name for building the name of the exported
+                    project (defaults to " export") (preferably use
+                    -slicing-exported-project-postfix="postfix")
+-slicing-keep-annotations  keep annotations as long as the used variables are
+                    declared and the accessibility of the program point is
+                    preserved (even if the value of the data is not
+                    preserved) (opposite option is
+                    -slicing-no-keep-annotations)
+-slicing-level <n>  set the default level of slicing used to propagate to the
+                    calls
+                    0 : don't slice the called functions
+                    1 : don't slice the called functions but propagate the
+                    marks anyway
+                    2 : try to use existing slices, create at most one
+                    3 : most precise slices
+                    note: this value (defaults to 2) is not used for calls to
+                    undefined functions
+                    except when '-slice-undef-functions' option is set
+-slicing-project-name <ident>  name of the slicing project (defaults to
+                    "Slicing").This name is used as basename when building
+                    the name of the exported project (see
+                    -slicing-exported-project-postfix option) (preferably use
+                    -slicing-project-name="ident")
+
+*** DEBUG
+
+-slicing-debug <n>  level of debug for plug-in Slicing (default to 0)
+
+*** GETTING INFORMATION
+
+-slicing-help       help of plug-in Slicing
+-slicing-h          alias for option -slicing-help
+
+*** OUTPUT MESSAGES
+
+-slicing-log <K_1:file_1,...>  copy log messages from Slicing to a file. <K>
+                    is a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -slicing-log="K_1:file_1,...")
+-slicing-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -slicing-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -slicing-msg-key="k1[,...,kn]")
+-slicing-verbose <n>  level of verbosity for plug-in Slicing (default to 1)
+-slicing-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category
+                    <k1> to <s1>,...,<kn> to <sn>. Use -slicing-warn-key help
+                    to get a list of available categories, and * to enable
+                    all categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -slicing-warn-key="k1[=s1][,...,kn[=sn]]")

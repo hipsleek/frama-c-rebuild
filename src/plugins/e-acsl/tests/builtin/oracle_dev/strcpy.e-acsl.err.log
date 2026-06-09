@@ -1,0 +1,27 @@
+TEST 1: OK: Expected execution at strcpy.c:63
+TEST 2: OK: Expected execution at strcpy.c:64
+strlen: insufficient space in destination string, at least 5 bytes required
+TEST 3: OK: Expected signal at strcpy.c:65
+strlen: destination string space unallocated or cannot be written
+TEST 4: OK: Expected signal at strcpy.c:66
+strlen: destination string space unallocated or cannot be written
+TEST 5: OK: Expected signal at strcpy.c:67
+TEST 6: OK: Expected execution at strcpy.c:68
+strcpy: overlapping memory areas
+TEST 7: OK: Expected signal at strcpy.c:69
+TEST 8: OK: Expected execution at strcpy.c:70
+strcpy: overlapping memory areas
+TEST 9: OK: Expected signal at strcpy.c:71
+TEST 10: OK: Expected execution at strcpy.c:74
+strncpy: insufficient space in destination string , at least 6 bytes required
+TEST 11: OK: Expected signal at strcpy.c:75
+strncpy: destination string  space unallocated or cannot be written
+TEST 12: OK: Expected signal at strcpy.c:76
+strncpy: destination string  space unallocated or cannot be written
+TEST 13: OK: Expected signal at strcpy.c:77
+TEST 14: OK: Expected execution at strcpy.c:78
+strncpy: overlapping memory areas
+TEST 15: OK: Expected signal at strcpy.c:79
+TEST 16: OK: Expected execution at strcpy.c:80
+strncpy: overlapping memory areas
+TEST 17: OK: Expected signal at strcpy.c:81

@@ -1,0 +1,50 @@
+(**************************************************************************)
+(*                                                                        *)
+(*  SPDX-License-Identifier LGPL-2.1                                      *)
+(*  Copyright (C)                                                         *)
+(*  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  *)
+(*                                                                        *)
+(**************************************************************************)
+
+theory Qed
+
+  use bool.Bool
+  use int.Int
+  use real.RealInfix
+  use real.FromInt
+  use int.ComputerDivision as CD
+
+  (** The definitions are in comment because its not useful for coq
+      (no if-then-else on formula) and not tested on automatic provers *)
+
+  function eqb (x y : 'a) : bool = if x = y then True else False
+  function neqb (x y : 'a) : bool = if x <> y then True else False
+
+  function zlt  (x y : int) : bool = if x < y  then True else False
+  function zleq (x y : int) : bool = if x <= y then True else False
+
+  function rlt  (x y : real) : bool = if x <. y  then True else False
+  function rleq (x y : real) : bool = if x <=. y then True else False
+
+  function real_of_int (x:int) : real = FromInt.from_int x
+  meta "inline:no" function real_of_int
+
+  lemma c_euclidian : forall n d:int [(CD.div n d),(CD.mod n d)].
+    d <> 0 -> n = CD.div n d * d + CD.mod n d
+
+  lemma cmod_remainder : forall n d:int [CD.mod n d].
+    ((n >= 0) -> (d > 0) ->  0 <= CD.mod n d <  d) /\
+    ((n <= 0) -> (d > 0) -> -d <  CD.mod n d <= 0) /\
+    ((n >= 0) -> (d < 0) ->  0 <= CD.mod n d < -d) /\
+    ((n <= 0) -> (d < 0) ->  d <  CD.mod n d <= 0)
+
+  lemma cdiv_neutral : forall a:int [CD.div a 1]. CD.div a 1 = a
+  lemma cdiv_inv : forall a:int [CD.div a a]. a<>0 -> CD.div a a = 1
+
+  lemma cdiv_closed_remainder :
+    forall a,b,n:int.
+    0 <= a -> 0 <= b -> 0 <= b-a < n ->
+    CD.mod a n = CD.mod b n -> a = b
+  by b - a = n * (CD.div (b - a) n) + CD.mod (b - a) n
+  so (CD.div b n) - (CD.div a n) = CD.div (b - a) n
+end

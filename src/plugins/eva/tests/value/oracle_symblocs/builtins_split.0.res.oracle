@@ -1,0 +1,53 @@
+67a68
+> [eva:progress] builtins_split.c:96: Call to builtin Frama_C_builtin_split_all
+71a73
+> [eva:progress] builtins_split.c:96: Call to builtin Frama_C_builtin_split_all
+84a87,107
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+88a112
+> [eva:progress] builtins_split.c:104: Call to builtin Frama_C_builtin_split_all
+106a131,137
+> [eva:progress] builtins_split.c:112: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:112: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:112: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:112: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:112: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:112: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:112: Call to builtin Frama_C_builtin_split_all
+110a142
+> [eva:progress] builtins_split.c:112: Call to builtin Frama_C_builtin_split_all
+117a150,163
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5:
+>   {{ &s6 + {4} }}, {{ &s4 + {4} }}, {{ &s2 }}, [-2147483648..2147483647]
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s6 + {4} }}, {{ &s4 + {4} }}, {{ &s0 }}, {0}
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s5 + {4} }}, {{ &s3 + {4} }}, {{ &s1 }}, {-1}
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s5 + {4} }}, {{ &s3 + {4} }}, {{ &s0 }}, {0}
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5:
+>   {{ &s5 + {4} }}, {{ &s4 + {4} }}, {{ &s2 }}, [-2147483648..2147483647]
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s5 + {4} }}, {{ &s4 + {4} }}, {{ &s0 }}, {0}

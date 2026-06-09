@@ -1,0 +1,119 @@
+[kernel] Parsing sys_sem_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function ftok <- main.
+  Called from sys_sem_h.c:20.
+[eva] using specification for function ftok
+[eva:progress] Done for function ftok
+[eva:progress] 
+  computing for function perror <- main.
+  Called from sys_sem_h.c:21.
+[eva] using specification for function perror
+[eva:progress] sys_sem_h.c:21: 
+  function perror: precondition 'valid_string_s' got status valid.
+[eva:progress] Done for function perror
+[eva:progress] 
+  computing for function exit <- main.
+  Called from sys_sem_h.c:21.
+[eva] using specification for function exit
+[eva:progress] Done for function exit
+[eva:progress] 
+  computing for function semget <- main.
+  Called from sys_sem_h.c:25.
+[eva] using specification for function semget
+[eva:progress] Done for function semget
+[eva:progress] 
+  computing for function semget <- main.
+  Called from sys_sem_h.c:28-29.
+[eva:progress] Done for function semget
+[eva:progress] 
+  computing for function semctl <- main.
+  Called from sys_sem_h.c:36.
+[eva] using specification for function semctl
+[eva:progress] Done for function semctl
+[eva:progress] 
+  computing for function semop <- main.
+  Called from sys_sem_h.c:37.
+[eva] using specification for function semop
+[eva:progress] Done for function semop
+[eva:progress] 
+  computing for function perror <- main.
+  Called from sys_sem_h.c:38.
+[eva:progress] sys_sem_h.c:38: 
+  function perror: precondition 'valid_string_s' got status valid.
+[eva:progress] Done for function perror
+[eva:progress] 
+  computing for function exit <- main.
+  Called from sys_sem_h.c:38.
+[eva:progress] Done for function exit
+[eva:progress] 
+  computing for function semget <- main.
+  Called from sys_sem_h.c:42.
+[eva:progress] Done for function semget
+[eva:progress] 
+  computing for function perror <- main.
+  Called from sys_sem_h.c:43.
+[eva:progress] sys_sem_h.c:43: 
+  function perror: precondition 'valid_string_s' got status valid.
+[eva:progress] Done for function perror
+[eva:progress] 
+  computing for function exit <- main.
+  Called from sys_sem_h.c:43.
+[eva:progress] Done for function exit
+[eva:progress] 
+  computing for function perror <- main.
+  Called from sys_sem_h.c:48.
+[eva:progress] sys_sem_h.c:48: 
+  function perror: precondition 'valid_string_s' got status valid.
+[eva:progress] Done for function perror
+[eva:progress] 
+  computing for function exit <- main.
+  Called from sys_sem_h.c:48.
+[eva:progress] Done for function exit
+[eva:progress] 
+  computing for function semctl <- main.
+  Called from sys_sem_h.c:58.
+[eva:progress] Done for function semctl
+[eva:progress] 
+  computing for function perror <- main.
+  Called from sys_sem_h.c:59.
+[eva:progress] sys_sem_h.c:59: 
+  function perror: precondition 'valid_string_s' got status valid.
+[eva:progress] Done for function perror
+[eva:progress] 
+  computing for function exit <- main.
+  Called from sys_sem_h.c:59.
+[eva:progress] Done for function exit
+[eva:alarm] sys_sem_h.c:61: Warning: 
+  accessing uninitialized left-value. assert \initialized(&ds.sem_otime);
+[eva:progress] 
+  computing for function semop <- main.
+  Called from sys_sem_h.c:68.
+[eva:progress] Done for function semop
+[eva:progress] 
+  computing for function perror <- main.
+  Called from sys_sem_h.c:69.
+[eva:progress] sys_sem_h.c:69: 
+  function perror: precondition 'valid_string_s' got status valid.
+[eva:progress] Done for function perror
+[eva:progress] 
+  computing for function exit <- main.
+  Called from sys_sem_h.c:69.
+[eva:progress] Done for function exit
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] sys_sem_h.c:61: assertion 'Eva,initialization' got final status invalid.
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  semkey ∈ [0..4294967294]
+  semid ∈ [--..--]
+  sbuf.sem_num ∈ {0}
+      .sem_op ∈ {-1}
+      .sem_flg ∈ {4096}
+  arg ∈ {0}
+  __retres ∈ {0}
+  S___fc_stdout[0..1] ∈ [--..--]

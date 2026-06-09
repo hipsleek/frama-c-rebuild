@@ -1,0 +1,100 @@
+[kernel] Parsing special_floats.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  rand ∈ [--..--]
+  any_double ∈ [--..--]
+  global_infinity ∈ {inf}
+  global_nan ∈ NaN
+[eva:progress] 
+  computing for function nan_comparisons <- main.
+  Called from special_floats.c:117.
+[eva:progress] Recording results for nan_comparisons
+[eva:progress] Done for function nan_comparisons
+[eva:progress] 
+  computing for function is_infinite <- main.
+  Called from special_floats.c:118.
+[eva:progress] special_floats.c:29: check 'true' got status valid.
+[eva:alarm] special_floats.c:30: Warning: check 'false' got status invalid.
+[eva:alarm] special_floats.c:31: Warning: check 'false' got status invalid.
+[eva:alarm] special_floats.c:32: Warning: check 'false' got status invalid.
+[eva:alarm] special_floats.c:33: Warning: check 'false' got status invalid.
+[eva:alarm] special_floats.c:35: Warning: check 'false' got status invalid.
+[eva:progress] special_floats.c:36: check 'true' got status valid.
+[eva:progress] special_floats.c:37: check 'true' got status valid.
+[eva:progress] special_floats.c:38: check 'true' got status valid.
+[eva:alarm] special_floats.c:39: Warning: check 'false' got status invalid.
+[eva:alarm] special_floats.c:41: Warning: check 'false' got status invalid.
+[eva:progress] special_floats.c:42: check 'true' got status valid.
+[eva:alarm] special_floats.c:43: Warning: check 'false' got status invalid.
+[eva:alarm] special_floats.c:44: Warning: check 'false' got status invalid.
+[eva:alarm] special_floats.c:45: Warning: check 'false' got status invalid.
+[eva:alarm] special_floats.c:49: Warning: check 'unknown' got status unknown.
+[eva:alarm] special_floats.c:50: Warning: check 'unknown' got status unknown.
+[eva:alarm] special_floats.c:51: Warning: check 'unknown' got status unknown.
+[eva:alarm] special_floats.c:52: Warning: check 'false' got status invalid.
+[eva:alarm] special_floats.c:53: Warning: check 'unknown' got status unknown.
+[eva:alarm] special_floats.c:57: Warning: assertion got status unknown.
+[eva:show] special_floats.c:58: Frama_C_show_each_pos_infinity: {inf}
+[eva:alarm] special_floats.c:61: Warning: assertion got status unknown.
+[eva:show] special_floats.c:62: Frama_C_show_each_neg_infinity: {-inf}
+[eva:alarm] special_floats.c:65: Warning: assertion got status unknown.
+[eva:show] special_floats.c:66: Frama_C_show_each_infinities: [-inf .. inf]
+[eva:alarm] special_floats.c:69: Warning: assertion got status unknown.
+[eva:alarm] special_floats.c:70: Warning: assertion got status unknown.
+[eva:show] special_floats.c:71: 
+  Frama_C_show_each_finite_nan:
+  [-1.79769313486e+308 .. 1.79769313486e+308] ∪ {NaN}
+[eva:alarm] special_floats.c:74: Warning: assertion got status unknown.
+[eva:show] special_floats.c:75: 
+  Frama_C_show_each_finite_nan:
+  [-1.79769313486e+308 .. 1.79769313486e+308] ∪ {NaN}
+[eva:alarm] special_floats.c:78: Warning: assertion got status unknown.
+[eva:show] special_floats.c:79: Frama_C_show_each_top: [-inf .. inf] ∪ {NaN}
+[eva:alarm] special_floats.c:82: Warning: assertion got status unknown.
+[eva:show] special_floats.c:83: Frama_C_show_each_pos_infinity: {inf;NaN}
+[eva:alarm] special_floats.c:86: Warning: assertion got status unknown.
+[eva:show] special_floats.c:87: Frama_C_show_each_neg_infinity: {-inf}
+[eva:progress] Recording results for is_infinite
+[eva:progress] Done for function is_infinite
+[eva:progress] 
+  computing for function macro_infinity <- main.
+  Called from special_floats.c:119.
+[eva:show] special_floats.c:97: Frama_C_show_each_infinity: {inf}
+[eva:progress] special_floats.c:98: assertion got status valid.
+[eva:progress] Recording results for macro_infinity
+[eva:progress] Done for function macro_infinity
+[eva:progress] 
+  computing for function macro_nan <- main.
+  Called from special_floats.c:120.
+[eva:show] special_floats.c:107: Frama_C_show_each_nan: NaN
+[eva:progress] special_floats.c:108: assertion got status valid.
+[eva:progress] special_floats.c:109: assertion got status valid.
+[eva:progress] special_floats.c:110: assertion got status valid.
+[eva:progress] Recording results for macro_nan
+[eva:progress] Done for function macro_nan
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function is_infinite:
+  zero ∈ {-0.}
+  inf ∈ {inf}
+  nan_0 ∈ NaN
+  d ∈ [-inf .. inf] ∪ {NaN}
+[eva:final-states] Values at end of function macro_infinity:
+  infinity_f ∈ {inf}
+  infinity_d ∈ {inf}
+[eva:final-states] Values at end of function macro_nan:
+  nan_f ∈ NaN
+[eva:final-states] Values at end of function nan_comparisons:
+  n ∈ NaN
+  d ∈ [-10. .. 10.]
+  eq1 ∈ {0}
+  comp1 ∈ {0; 1}
+  ne1 ∈ {1}
+  eq2 ∈ {0}
+  comp2 ∈ {0; 1}
+  ne2 ∈ {1}
+[eva:final-states] Values at end of function main:
+  

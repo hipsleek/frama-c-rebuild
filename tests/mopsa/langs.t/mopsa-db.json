@@ -1,0 +1,25 @@
+{
+  "dbfile": "mopsa.db",
+  "contents":
+[  {
+    "filename": "a.out",
+    "type": "executable",
+    "contents": ["cpp.o", "cpp.foo"]
+  },
+  {
+    "filename": "cpp.o",
+    "type": "object",
+    "lang": "C++",
+    "source": "cpp.cc",
+    "args": [],
+    "path": "."
+  },
+  {
+    "filename": "cpp.foo",
+    "type": "object",
+    "lang": "FOOBAR",
+    "source": "foo.bar",
+    "args": [],
+    "path": "."
+  }]
+}

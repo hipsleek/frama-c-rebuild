@@ -1,0 +1,18 @@
+# frama-c -wp [...]
+[kernel] Parsing unit_bitwise.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] Warning: Missing RTE guards
+[wp] 4 goals scheduled
+[wp] [Unsuccess] typed_band_int_assert_ko (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_bnot_uint_ensures_ko (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_bnot_uchar_ensures_ko (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_cast_assert_ko (Alt-Ergo) (Cached)
+[wp] Proved goals:    0 / 4
+  Unsuccess:       4
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  band_int                  -        -        1       0.0%
+  bnot_uint                 -        -        1       0.0%
+  bnot_uchar                -        -        1       0.0%
+  cast                      -        -        1       0.0%
+------------------------------------------------------------

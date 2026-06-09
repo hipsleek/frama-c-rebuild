@@ -1,0 +1,12 @@
+# Default tests
+
+DEFAULT_SUITES= builtins float idct numerors traces value mthread secure_flow
+
+## Diff/default domain tests
+apron_SUITES = builtins float idct value secure_flow
+bitwise_SUITES = value builtins float idct mthread secure_flow
+equality_SUITES = value builtins float idct mthread secure_flow
+gauges_SUITES = value builtins float idct mthread secure_flow
+multidim_SUITES = value builtins float idct secure_flow
+octagon_SUITES = value builtins float idct mthread secure_flow
+symblocs_SUITES = value builtins float idct mthread secure_flow

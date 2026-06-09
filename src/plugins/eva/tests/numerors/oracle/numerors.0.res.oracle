@@ -1,0 +1,309 @@
+[kernel] Parsing numerors.c (with preprocessing)
+[kernel:parser:decimal-float] numerors.c:24: Warning: 
+  Floating-point constant 0.69314718056 is not represented exactly. Will use 0x1.62e42fefa3bdcp-1.
+  (warn-once: no further messages from category 'parser:decimal-float' will be emitted)
+[eva:experimental] Warning: The numerors domain is experimental.
+[eva] Analyzing a complete application starting at main
+[eva:initial-state] Values of globals at initialization
+  
+[eva] using specification for function Frama_C_double_interval
+[eva:show] numerors.c:175: 
+  Frama_C_domain_show_each_ex0:
+  res : # cvalue: [1.60171325191e-16 .. 13.9069790712]
+        # numerors: Real     : [0. .. 13.9069790712]
+                    Absolute : [-1.01026102232e-14 .. 9.61205485973e-15]
+                    Relative : [-inf .. inf]
+                    Format : Binary64
+[eva:show] numerors.c:181: 
+  Frama_C_domain_show_each_ex1:
+  res_0 : # cvalue: [1. .. 2.]
+          # numerors: Real     : [1. .. 2.]
+                      Absolute : [-2.22044604925e-16 .. 2.22044604925e-16]
+                      Relative : [-1.11022302463e-16 .. 1.11022302463e-16]
+                      Format : Binary64
+[eva:show] numerors.c:188: 
+  Frama_C_domain_show_each_ex2:
+  res_1 : # cvalue: [2. .. 3495.]
+          # numerors: Real     : [2. .. 3495.]
+                      Absolute : [-8.43325409505e-13 .. 8.43325409505e-13]
+                      Relative : [-8.881784197e-16 .. 8.881784197e-16]
+                      Format : Binary64
+[eva:show] numerors.c:194: 
+  Frama_C_domain_show_each_ex3:
+  res_2 : # cvalue: [0.0337542351052 .. 8.95097760024]
+          # numerors: Real     : [0.0337542351052 .. 8.95097760024]
+                      Absolute : [-4.03811312222e-15 .. 4.03811312222e-15]
+                      Relative : [-4.94572598593e-16 .. 4.94572598593e-16]
+                      Format : Binary64
+[eva:show] numerors.c:201: 
+  Frama_C_domain_show_each_ex3b:
+  res_3 : # cvalue: [0.978318343479 .. 3.09371424212]
+          # numerors: Real     : [0.978318343479 .. 3.09371424212]
+                      Absolute : [-7.2552265692e-16 .. 7.2552265692e-16]
+                      Relative : [-2.73764563897e-16 .. 2.73764563897e-16]
+                      Format : Binary64
+[eva:show] numerors.c:212: 
+  Frama_C_domain_show_each_ex6:
+  res_4 : # cvalue: [302.104204 .. 888.8981992]
+          # numerors: Real     : [302.104204 .. 888.8981992]
+                      Absolute : [-3.63496387937e-13 .. 3.63496387937e-13]
+                      Relative : [-6.83507753907e-16 .. 6.83507753907e-16]
+                      Format : Binary64
+[eva:show] numerors.c:218: 
+  Frama_C_domain_show_each_ex7:
+  res_5 : # cvalue: [-0. .. 999.]
+          # numerors: Real     : [0. .. 999.]
+                      Absolute : [-1.67754699021e-13 .. 1.67754699021e-13]
+                      Relative : [-inf .. inf]
+                      Format : Binary64
+[eva:show] numerors.c:225: 
+  Frama_C_domain_show_each_ex8:
+  res_6 : # cvalue: [0.0001334 .. 748.875937031]
+          # numerors: Real     : [0.0001334 .. 748.875937031]
+                      Absolute : [-6.28186863291e-11 .. 6.28186863291e-11]
+                      Relative : [-1.39402496432e-13 .. 1.39402496432e-13]
+                      Format : Binary64
+[eva:show] numerors.c:233: 
+  Frama_C_domain_show_each_ex9:
+  res_7 : # cvalue: [0. .. 9.]
+          # numerors: Real     : [0. .. 9.]
+                      Absolute : [-3.33066907388e-15 .. 3.33066907388e-15]
+                      Relative : [-inf .. inf]
+                      Format : Binary64
+[eva:show] numerors.c:246: 
+  Frama_C_domain_show_each_ex10:
+  res_8 : # cvalue: [8. .. 16.]
+          # numerors: Real     : [8. .. 16.]
+                      Absolute : [-6.2172489379e-15 .. 6.2172489379e-15]
+                      Relative : [-5.93792476123e-16 .. 5.93792476123e-16]
+                      Format : Binary64
+[eva:show] numerors.c:253: 
+  Frama_C_domain_show_each_ex11:
+  res_9 : # cvalue: [-10. .. 9.]
+          # numerors: Real     : [-10. .. 9.]
+                      Absolute : [-3.10862446895e-15 .. 3.10862446895e-15]
+                      Relative : [-inf .. inf]
+                      Format : Binary64
+[eva:show] numerors.c:267: 
+  Frama_C_domain_show_each_ex12:
+  res_10 : # cvalue: [-90000000000. .. 90000000000.]
+           # numerors: Real     : [-90000000000. .. 90000000000.]
+                       Absolute : [-5.45599833686e-05 .. 5.45599833686e-05]
+                       Relative : [-inf .. inf]
+                       Format : Binary64
+[eva:show] numerors.c:273: 
+  Frama_C_domain_show_each_ex13:
+  res_11 : # cvalue: [3.33333333336e-06 .. 49999.7500009]
+           # numerors: Real     : [3.33333333333e-06 .. 49999.7500012]
+                       Absolute : [-2.77567720782e-07 .. 2.77567720782e-07]
+                       Relative : [-5.55142043457e-12 .. 5.55142043463e-12]
+                       Format : Binary64
+[eva:show] numerors.c:279: 
+  Frama_C_domain_show_each_ex14:
+  res_12 : # cvalue: [0.333333333333 .. 0.499997500012]
+           # numerors: Real     : [0.333333333333 .. 0.499997500012]
+                       Absolute : [-8.32661717395e-17 .. 8.32661717395e-17]
+                       Relative : [-1.94288474201e-16 .. 1.94288474201e-16]
+                       Format : Binary64
+[eva:show] numerors.c:287: 
+  Frama_C_domain_show_each_ex15:
+  res_13 : # cvalue: [-158.71914441 .. -0.0294424405923]
+           # numerors: Real     : [-158.71914441 .. -0.0294424405923]
+                       Absolute : [-1.61263884318e-13 .. 1.13124952313e-13]
+                       Relative : [-8.03726213211e-16 .. 1.08756244008e-15]
+                       Format : Binary64
+[eva:show] numerors.c:295: 
+  Frama_C_domain_show_each_ex16:
+  res_14 : # cvalue: [-276.076533164 .. -0.0190177456065]
+           # numerors: Real     : [-276.076533164 .. -0.0190177456065]
+                       Absolute : [-3.25629217954e-13 .. 2.21130746831e-13]
+                       Relative : [-8.48450204766e-16 .. 1.20256799708e-15]
+                       Format : Binary64
+[eva:show] numerors.c:303: 
+  Frama_C_domain_show_each_ex17:
+  res_15 : # cvalue: [-96.2940054272 .. -0.437730749478]
+           # numerors: Real     : [-96.2940054272 .. -0.437730749478]
+                       Absolute : [-8.46847755296e-14 .. 6.51409668787e-14]
+                       Relative : [-7.83514848072e-16 .. 9.6594960775e-16]
+                       Format : Binary64
+[eva:show] numerors.c:311: 
+  Frama_C_domain_show_each_ex18:
+  res_16 : # cvalue: [0.23 .. 705.]
+           # numerors: Real     : [0.23 .. 705.]
+                       Absolute : [-2.13162820728e-13 .. 2.13162820728e-13]
+                       Relative : [-4.4400806042e-16 .. 4.4400806042e-16]
+                       Format : Binary64
+[eva:show] numerors.c:319: 
+  Frama_C_domain_show_each_ex19:
+  res_17 : # cvalue: [-56604.375 .. -17500.7226562]
+           # numerors: Real     : [-56604.375 .. -17500.7226562]
+                       Absolute : [-2.27160512623e-11 .. 2.27160512623e-11]
+                       Relative : [-7.32356440923e-16 .. 7.32356440923e-16]
+                       Format : Binary64
+[eva:show] numerors.c:327: 
+  Frama_C_domain_show_each_ex20:
+  res_18 : # cvalue: [-58.3291268902 .. -1.55052857215]
+           # numerors: Real     : [-58.3291268902 .. -1.55052857215]
+                       Absolute : [-3.88897081548e-14 .. 3.88897081548e-14]
+                       Relative : [-2.50815811159e-14 .. 2.50815811159e-14]
+                       Format : Binary64
+[eva:show] numerors.c:335: 
+  Frama_C_domain_show_each_ex21:
+  res_19 : # cvalue: [-29.45668 .. -17.2064186047]
+           # numerors: Real     : [-29.45668 .. -17.2064186047]
+                       Absolute : [-8.07198172854e-15 .. 8.07198172854e-15]
+                       Relative : [-4.69126197265e-16 .. 4.69126197265e-16]
+                       Format : Binary64
+[eva:show] numerors.c:343: 
+  Frama_C_domain_show_each_ex22:
+  res_20 : # cvalue: [0.466095844875 .. 40.3751268902]
+           # numerors: Real     : [0.466095844875 .. 40.3751268902]
+                       Absolute : [-3.00548778516e-14 .. 3.00548778516e-14]
+                       Relative : [-5.69709245396e-14 .. 5.69709245396e-14]
+                       Format : Binary64
+[eva:show] numerors.c:349: 
+  Frama_C_domain_show_each_ex23:
+  res_21 : # cvalue: [0.314893617021 .. 1.10082644628]
+           # numerors: Real     : [0.314893617021 .. 1.10082644628]
+                       Absolute : [-2.28526174992e-16 .. 2.69756894669e-16]
+                       Relative : [-2.17763808289e-16 .. 2.55218140728e-16]
+                       Format : Binary64
+[eva:show] numerors.c:355: 
+  Frama_C_domain_show_each_ex24:
+  res_22 : # cvalue: [0.037277059224 .. 0.357101682634]
+           # numerors: Real     : [0.037277059224 .. 0.357101682634]
+                       Absolute : [-9.82631818675e-17 .. 1.06942056319e-16]
+                       Relative : [-3.4238984433e-16 .. 3.66693494728e-16]
+                       Format : Binary64
+[eva:show] numerors.c:361: 
+  Frama_C_domain_show_each_ex25:
+  res_23 : # cvalue: [2097409.2 .. 34343230.]
+           # numerors: Real     : [2097409.2 .. 34343230.]
+                       Absolute : [-1.91559754846e-08 .. 2.02522436684e-08]
+                       Relative : [-7.30876920433e-16 .. 7.52646189763e-16]
+                       Format : Binary64
+[eva:show] numerors.c:367: 
+  Frama_C_domain_show_each_ex26:
+  res_24 : # cvalue: [0.228628389494 .. 1.53875739135]
+           # numerors: Real     : [0.228628389494 .. 1.53875739135]
+                       Absolute : [-5.18136190785e-16 .. 5.18136190785e-16]
+                       Relative : [-1.3106570744e-15 .. 1.3106570744e-15]
+                       Format : Binary64
+[eva:show] numerors.c:373: 
+  Frama_C_domain_show_each_ex27:
+  res_25 : # cvalue: [0.8359375 .. 1.5625]
+           # numerors: Real     : [0.8359375 .. 1.5625]
+                       Absolute : [-4.85722573274e-16 .. 4.85722573274e-16]
+                       Relative : [-5.81051302608e-16 .. 5.81051302608e-16]
+                       Format : Binary64
+[eva:show] numerors.c:379: 
+  Frama_C_domain_show_each_ex28:
+  res_26 : # cvalue: [-1.7261767499 .. -0.0422467640079]
+           # numerors: Real     : [-1.7261767499 .. -0.0422467640079]
+                       Absolute : [-5.86785353639e-16 .. 5.57099405092e-16]
+                       Relative : [-1.07540923285e-14 .. 1.09968771904e-14]
+                       Format : Binary64
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function ex0:
+  x ∈ [0.5 .. 1.]
+  n ∈ [1..14]
+  y ∈ [1.11022302463e-16 .. 0.5]
+  lx ∈ [1.11022302463e-16 .. 0.688541666667]
+  __retres ∈ [1.60171325191e-16 .. 13.9069790712]
+[eva:final-states] Values at end of function ex1:
+  x ∈ [1. .. 10000.]
+  temp ∈ [1. .. 2.]
+[eva:final-states] Values at end of function ex10:
+  __retres ∈ [8. .. 16.]
+[eva:final-states] Values at end of function ex11:
+  __retres ∈ [-10. .. 9.]
+[eva:final-states] Values at end of function ex12:
+  v2 ∈ [-30000000000. .. 30000000000.]
+  v1 ∈ [-30000000000. .. 30000000000.]
+  v0 ∈ [-30000000000. .. 30000000000.]
+  __retres ∈ [-90000000000. .. 90000000000.]
+[eva:final-states] Values at end of function ex13:
+  r1 ∈ [1.00000000001e-05 .. 1.]
+  r2 ∈ [1.0000200001 .. 4.]
+  __retres ∈ [3.33333333336e-06 .. 49999.7500009]
+[eva:final-states] Values at end of function ex14:
+  __retres ∈ [0.333333333333 .. 0.499997500012]
+[eva:final-states] Values at end of function ex15:
+  t1 ∈ [313.4 .. 361.4]
+  __retres ∈ [-158.71914441 .. -0.0294424405923]
+[eva:final-states] Values at end of function ex16:
+  t1 ∈ [307.4 .. 367.4]
+  __retres ∈ [-276.076533164 .. -0.0190177456065]
+[eva:final-states] Values at end of function ex17:
+  t1 ∈ [301.4 .. 349.4]
+  __retres ∈ [-96.2940054272 .. -0.437730749478]
+[eva:final-states] Values at end of function ex18:
+  __retres ∈ [0.23 .. 705.]
+[eva:final-states] Values at end of function ex19:
+  __retres ∈ [-56604.375 .. -17500.7226562]
+[eva:final-states] Values at end of function ex2:
+  x ∈ [1. .. 10000.]
+  temp ∈ [2. .. 3495.]
+[eva:final-states] Values at end of function ex20:
+  __retres ∈ [-58.3291268902 .. -1.55052857215]
+[eva:final-states] Values at end of function ex21:
+  __retres ∈ [-29.45668 .. -17.2064186047]
+[eva:final-states] Values at end of function ex22:
+  __retres ∈ [0.466095844875 .. 40.3751268902]
+[eva:final-states] Values at end of function ex23:
+  r ∈ {4.}
+  K ∈ {1.11}
+  __retres ∈ [0.314893617021 .. 1.10082644628]
+[eva:final-states] Values at end of function ex24:
+  r ∈ {4.}
+  K ∈ {1.11}
+  __retres ∈ [0.037277059224 .. 0.357101682634]
+[eva:final-states] Values at end of function ex25:
+  p ∈ {35000000.}
+  a ∈ {0.401}
+  b ∈ {4.27e-05}
+  t ∈ {300.}
+  n ∈ {1000.}
+  k ∈ {1.3806503e-23}
+  __retres ∈ [2097409.2 .. 34343230.]
+[eva:final-states] Values at end of function ex26:
+  __retres ∈ [0.228628389494 .. 1.53875739135]
+[eva:final-states] Values at end of function ex27:
+  __retres ∈ [0.8359375 .. 1.5625]
+[eva:final-states] Values at end of function ex28:
+  __retres ∈ [-1.7261767499 .. -0.0422467640079]
+[eva:final-states] Values at end of function ex6:
+  __retres ∈ [302.104204 .. 888.8981992]
+[eva:final-states] Values at end of function ex7:
+  __retres ∈ [-0. .. 999.]
+[eva:final-states] Values at end of function ex8:
+  t ∈ [1.002001 .. 4.]
+  __retres ∈ [0.0001334 .. 748.875937031]
+[eva:final-states] Values at end of function ex9:
+  p0 ∈ [0. .. 3.]
+  p1 ∈ [0. .. 3.]
+  p2 ∈ [0. .. 3.]
+  __retres ∈ [0. .. 9.]
+[eva:final-states] Values at end of function ex3:
+  __retres ∈ [0.0337542351052 .. 8.95097760024]
+[eva:final-states] Values at end of function ex3b:
+  __retres ∈ [0.978318343479 .. 3.09371424212]
+[eva:final-states] Values at end of function main:
+  Frama_C_entropy_source ∈ [--..--]
+  __retres ∈ {0}
+[eva:summary] ====== ANALYSIS SUMMARY ======
+  ----------------------------------------------------------------------------
+  29 functions analyzed (out of 29): 100% coverage.
+  In these functions, 257 statements reached (out of 257): 100% coverage.
+  ----------------------------------------------------------------------------
+  Some errors and warnings have been raised during the analysis:
+    by the Eva analyzer:      0 errors    1 warning
+    by the Frama-C kernel:    0 errors    1 warning
+  ----------------------------------------------------------------------------
+  0 alarms generated by the analysis.
+  ----------------------------------------------------------------------------
+  Evaluation of the logical properties reached by the analysis:
+    Assertions        0 valid     0 unknown     0 invalid      0 total
+    Preconditions   146 valid     0 unknown     0 invalid    146 total
+  100% of the logical properties reached have been proven.
+  ----------------------------------------------------------------------------

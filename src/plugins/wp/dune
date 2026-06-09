@@ -1,0 +1,60 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "WP:" %{lib-available:frama-c-wp.core} "\n")
+          (echo "  - Ocamlgraph:" %{lib-available:ocamlgraph} "\n")
+          (echo "  - Qed:" %{lib-available:qed} "\n")
+          (echo "  - Rtegen:" %{lib-available:frama-c-rtegen.core} "\n")
+          (echo "  - Why3:" %{lib-available:why3} "\n")
+          (echo "  - Zarith:" %{lib-available:zarith} "\n")
+          (echo "  - ppx_inline_test:" %{lib-available:ppx_inline_test} "\n")
+          (echo "  - ppx_z_literals:" %{lib-available:frama-c.ppx_z_literals} "\n")))
+)
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-wp.core})))
+ (action (echo "WARNING: WP disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+(library
+ (name wp)
+  (optional)
+  (public_name frama-c-wp.core)
+  (flags (-open Frama_c_kernel :standard -w -9))
+  (libraries
+    frama-c.kernel
+    frama-c-rtegen.core
+    frama-c-server.core
+    frama-c-region.core
+    qed why3 zarith ocamlgraph
+    (select wp_eva.ml from
+      (frama-c-eva.core -> wp_eva.enabled.ml)
+      (  -> wp_eva.disabled.ml)))
+  (foreign_stubs (language c) (names cores))
+  (instrumentation (backend landmarks))
+  (instrumentation (backend bisect_ppx))
+  (preprocess (pps frama-c.ppx_z_literals ppx_inline_test))
+  (inline_tests (libraries frama-c.init))
+)
+
+(plugin (optional) (name wp) (libraries frama-c-wp.core) (site (frama-c plugins)))
+
+(ocamllex driver rformat script)
+
+(install
+  (package frama-c-wp)
+  (section (site (frama-c share)))
+  (source_trees (share as wp)))

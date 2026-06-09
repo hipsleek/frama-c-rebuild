@@ -1,0 +1,20 @@
+[e-acsl] beginning translation.
+[e-acsl:analysis:inductive] extracting predicate from gcd using mode: complete
+[e-acsl:analysis:inductive] extracting predicate from gcd2 using mode: complete
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] gcd.c:24: Warning: assertion got status unknown.
+[eva:alarm] gcd.c:25: Warning: assertion got status unknown.
+[eva] gcd.c:17: Warning: 
+  Using specification of function __gen_e_acsl_gcd2
+  for recursive calls of depth 5. Analysis of function __gen_e_acsl_gcd2
+  is thus incomplete and its soundness relies on the written specification.
+[eva] gcd.c:18: Warning: 
+  Using specification of function __gen_e_acsl_gcd2
+  for recursive calls of depth 5. Analysis of function __gen_e_acsl_gcd2
+  is thus incomplete and its soundness relies on the written specification.
+[eva:alarm] gcd.c:26: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] gcd.c:26: Warning: assertion got status unknown.
+[eva:alarm] gcd.c:27: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] gcd.c:27: Warning: assertion got status unknown.

@@ -1,0 +1,53 @@
+[kernel] Parsing empty_struct.c (with preprocessing)
+[eva] Analyzing a complete application starting at main4
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  s2 ∈ {0}
+  pgs ∈ {{ &gs }}
+[eva:progress] 
+  computing for function f <- main4.
+  Called from empty_struct.c:99.
+[eva] using specification for function f
+[eva:garbled-mix:assigns] empty_struct.c:99: 
+  The specification of function f has generated a garbled mix of addresses
+  for assigns clause \result.
+[eva:progress] Done for function f
+[kernel:annot:missing-spec] empty_struct.c:100: Warning: 
+  Neither code nor specification for function g, generating default assigns.
+  See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function g <- main4.
+  Called from empty_struct.c:100.
+[eva] using specification for function g
+[eva:progress] Done for function g
+[eva:progress] Recording results for main4
+[eva:progress] Done for function main4
+[eva:garbled-mix:summary] 
+  Origins of garbled mix generated during analysis:
+    empty_struct.c:99: assigns clause on addresses
+      (read in 1 statement, propagated through 2 statements)
+      garbled mix of &{gs}
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main4:
+  r ∈
+   {{ garbled mix of &{gs} (origin: Library function {empty_struct.c:99}) }}
+[from] Computing for function main4
+[from] Computing for function f <-main4
+[from] Done for function f
+[from] Computing for function g <-main4
+[from] Done for function g
+[from] Done for function main4
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  \result FROM pgs
+[from] Function g:
+  NO EFFECTS
+[from] Function main4:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main4:
+    r
+[inout] Inputs for function main4:
+    pgs

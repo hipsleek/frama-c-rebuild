@@ -1,0 +1,97 @@
+# frama-c -wp -wp-model 'Typed (Ref)' [...]
+[kernel] Parsing reference_and_struct.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] reference_and_struct.i:88: Warning: 
+  Neither code nor explicit exits and terminates for function load_5,
+  generating default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] reference_and_struct.i:58: Warning: 
+  Neither code nor explicit exits and terminates for function reset_1_5,
+  generating default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] reference_and_struct.i:30: Warning: 
+  Neither code nor explicit exits and terminates for function reset_5,
+  generating default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal reset_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal reset_terminates (Cfg) (Trivial)
+[wp] 46 goals scheduled
+[wp] [Valid] typed_ref_reset_ensures (Qed)
+[wp] [Valid] typed_ref_reset_assigns (Qed)
+[wp] [Valid] typed_ref_call_reset_terminates (Qed)
+[wp] [Valid] typed_ref_call_reset_ensures (Qed)
+[wp] [Valid] typed_ref_call_reset_exits (Qed)
+[wp] [Valid] typed_ref_call_reset_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_ref_call_reset_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_ref_call_reset_assigns_exit (Qed)
+[wp] [Valid] typed_ref_call_reset_call_reset_requires (Qed)
+[wp] [Valid] typed_ref_call_reset_5_terminates (Qed)
+[wp] [Valid] typed_ref_call_reset_5_ensures_Preset_5 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ref_call_reset_5_exits (Qed)
+[wp] [Valid] typed_ref_call_reset_5_assigns_normal (Qed)
+[wp] [Valid] typed_ref_call_reset_5_assigns_exit (Qed)
+[wp] [Valid] typed_ref_call_reset_5_call_reset_5_requires (Qed)
+[wp] [Valid] typed_ref_call_reset_5_tps_terminates (Qed)
+[wp] [Valid] typed_ref_call_reset_5_tps_ensures_Preset_5_tps (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ref_call_reset_5_tps_exits (Qed)
+[wp] [Valid] typed_ref_call_reset_5_tps_assigns_normal (Qed)
+[wp] [Valid] typed_ref_call_reset_5_tps_assigns_exit (Qed)
+[wp] [Valid] typed_ref_call_reset_5_tps_call_reset_5_requires (Qed)
+[wp] [Valid] typed_ref_call_reset_1_5_terminates (Qed)
+[wp] [Valid] typed_ref_call_reset_1_5_ensures_Presset_mat (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ref_call_reset_1_5_exits (Qed)
+[wp] [Valid] typed_ref_call_reset_1_5_assigns_normal (Qed)
+[wp] [Valid] typed_ref_call_reset_1_5_assigns_exit (Qed)
+[wp] [Valid] typed_ref_call_reset_1_5_call_reset_1_5_requires (Qed)
+[wp] [Valid] typed_ref_call_reset_5_dim2_terminates (Qed)
+[wp] [Valid] typed_ref_call_reset_5_dim2_ensures_Presset_mat (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ref_call_reset_5_dim2_exits (Qed)
+[wp] [Valid] typed_ref_call_reset_5_dim2_assigns_normal (Qed)
+[wp] [Valid] typed_ref_call_reset_5_dim2_assigns_exit (Qed)
+[wp] [Valid] typed_ref_call_reset_5_dim2_call_reset_5_requires (Qed)
+[wp] [Valid] typed_ref_call_on_array_in_struct_global_terminates (Qed)
+[wp] [Valid] typed_ref_call_on_array_in_struct_global_ensures_Pload (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ref_call_on_array_in_struct_global_exits (Qed)
+[wp] [Valid] typed_ref_call_on_array_in_struct_global_assigns_normal (Qed)
+[wp] [Valid] typed_ref_call_on_array_in_struct_global_assigns_exit (Qed)
+[wp] [Valid] typed_ref_call_on_array_in_struct_global_call_load_5_requires (Qed)
+[wp] [Valid] typed_ref_call_array_in_struct_param_terminates (Qed)
+[wp] [Valid] typed_ref_call_array_in_struct_param_ensures_Pload2 (Qed)
+[wp] [Valid] typed_ref_call_array_in_struct_param_ensures_Pload3 (Qed)
+[wp] [Valid] typed_ref_call_array_in_struct_param_exits (Qed)
+[wp] [Valid] typed_ref_call_array_in_struct_param_assigns_normal (Qed)
+[wp] [Valid] typed_ref_call_array_in_struct_param_assigns_exit (Qed)
+[wp] [Valid] typed_ref_call_array_in_struct_param_call_load_5_requires (Qed)
+[wp] Proved goals:   48 / 48
+  Terminating:     1
+  Unreachable:     1
+  Qed:            41
+  Alt-Ergo:        5
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  reset                     4        -        4       100%
+  call_reset                7        -        7       100%
+  call_reset_5              5        1        6       100%
+  call_reset_5_tps          5        1        6       100%
+  call_reset_1_5            5        1        6       100%
+  call_reset_5_dim2         5        1        6       100%
+  call_on_array_in_struct_global   5   1      6       100%
+  call_array_in_struct_param   7     -        7       100%
+------------------------------------------------------------
+[wp] reference_and_struct.i:15: Warning: 
+  Memory model hypotheses for function 'reset':
+  /*@ behavior wp_typed_ref:
+        requires \valid(p); */
+  void reset(struct T *p);
+[wp] reference_and_struct.i:48: Warning: 
+  Memory model hypotheses for function 'call_reset_5_tps':
+  /*@
+     behavior wp_typed_ref:
+       requires \separated(tps[9] + (0 .. 4), &(tps[0]) + (..));
+     */
+  void call_reset_5_tps(void);
+[wp] reference_and_struct.i:88: Warning: 
+  Memory model hypotheses for function 'load_5':
+  /*@
+     behavior wp_typed_ref:
+       requires \separated(hp + (..), &(reg_load[0]) + (..));
+     */
+  void load_5(int *hp);

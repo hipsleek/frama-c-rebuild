@@ -1,0 +1,51 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing ptr8.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  a ∈ [--..--]
+  b ∈ [--..--]
+[eva:progress] 
+  computing for function deref <- main.
+  Called from ptr8.c:16.
+[eva:progress] Recording results for deref
+[eva:progress] Done for function deref
+[eva:progress] ptr8.c:17: assertion got status valid.
+[eva:progress] 
+  computing for function deref <- main.
+  Called from ptr8.c:18.
+[eva:progress] Recording results for deref
+[eva:progress] Done for function deref
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function deref:
+  a ∈ {42}
+  b ∈ [--..--]
+[eva:final-states] Values at end of function main:
+  a ∈ {42}
+  b ∈ {42}
+  __retres ∈ {0}
+[from] Computing for function deref
+[from] Done for function deref
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function deref:
+  a FROM p (and SELF)
+  b FROM p (and SELF)
+[from] Function main:
+  a FROM \nothing (and SELF)
+  b FROM \nothing (and SELF)
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function deref:
+    a; b
+[inout] Inputs for function deref:
+    \nothing
+[inout] Out (internal) for function main:
+    a; b; __retres
+[inout] Inputs for function main:
+    \nothing

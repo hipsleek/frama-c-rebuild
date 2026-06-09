@@ -1,0 +1,12 @@
+power.c: In function 'main'
+power.c:24: Warning: no sound verdict for Assertion (guess: ok).
+	the considered predicate is:
+	¬power(2, 3, 7)
+	With values at failure point:
+	- power(2, 3, 7): 0
+power.c: In function 'main'
+power.c:25: Warning: no sound verdict for Assertion (guess: ok).
+	the considered predicate is:
+	¬power2(2, 3, 7)
+	With values at failure point:
+	- power2(2, 3, 7): 0

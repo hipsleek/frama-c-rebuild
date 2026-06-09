@@ -1,0 +1,11 @@
+[kernel] Parsing binary_op.c (with preprocessing)
+[kernel] binary_op.c:46: User Error: 
+  operator '-' on non-object (function) pointer types 'ptrdiff_t (*)(void)' and 'ptrdiff_t (*)
+  (void)'
+  44    #ifdef MIN1
+  45    // Only GCC allows function pointers here
+  46    ptrdiff_t x(void) { return x - x; }
+                                   ^^^^^
+  47    #endif
+  48
+[kernel] Frama-C aborted: invalid user input.

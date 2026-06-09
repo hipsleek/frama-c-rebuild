@@ -1,0 +1,2 @@
+why3find.json  -check-eoleof -check-utf8 -check-indent header_spec=.ignore
+proof.json     -check-eoleof -check-utf8 -check-indent header_spec=.ignore

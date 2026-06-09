@@ -1,0 +1,28 @@
+# frama-c -wp [...]
+[kernel] Parsing doomed_loop.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal foo_exits (Cfg) (Unreachable)
+[wp] Warning: Missing RTE guards
+[wp] 9 goals scheduled
+[wp] [Failed] (Doomed) typed_foo_wp_smoke_dead_loop_s2 (Qed)
+[wp] doomed_loop.i:22: Warning: Failed smoke-test
+[wp] [Failed] (Doomed) typed_foo_wp_smoke_dead_code_s7 (Qed)
+[wp] doomed_loop.i:23: Warning: Failed smoke-test
+[wp] [Failed] (Doomed) typed_foo_wp_smoke_dead_code_s9 (Qed)
+[wp] doomed_loop.i:25: Warning: Failed smoke-test
+[wp] [Valid] typed_foo_terminates (Qed)
+[wp] [Unsuccess] typed_foo_loop_invariant_A_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_foo_loop_invariant_A_preserved (Qed)
+[wp] [Unsuccess] typed_foo_loop_invariant_B_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_foo_loop_invariant_B_preserved (Qed)
+[wp] [Valid] typed_foo_loop_assigns (Qed)
+[wp] Proved goals:    5 / 10
+  Unreachable:     1
+  Qed:             4
+  Failed:          3
+  Unsuccess:       2
+  Smoke Tests:     0 / 3
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  foo                       5        -       10      50.0%
+------------------------------------------------------------

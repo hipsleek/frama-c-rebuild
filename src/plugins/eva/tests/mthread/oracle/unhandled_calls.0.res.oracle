@@ -1,0 +1,55 @@
+[kernel] Expanding arguments from mthread_test_options.txt
+[mt] Preparing sources for Mthread with lib pthreads
+[kernel] Parsing FRAMAC_SHARE/mt/mthread.c (with preprocessing)
+[kernel] Parsing FRAMAC_SHARE/mt/mthread_pthread.c (with preprocessing)
+[kernel] Parsing unhandled_calls.c (with preprocessing)
+[kernel:typing:incompatible-types-call] unhandled_calls.c:33: Warning: 
+  implicit conversion between incompatible function types:
+  int (*)(msgqueue_t *q, int size)
+  and
+  int (*)(void *, int )
+[kernel] Parsing "FRAMAC_SHARE/mt"/mthread_queue.c (with preprocessing)
+[mt] Warning: Mthread is an experimental plugin and is still in development.
+[mt] ******* Starting mthread
+[eva] Found concurrency builtins: enabling mthread domain
+[mt] *** Computing value analysis for main thread
+[eva] Analyzing a complete application starting at main
+[mt] New thread: <main>, fun main
+[kernel:annot:missing-spec] unhandled_calls.c:30: Warning: 
+  Neither code nor specification for function random, generating default
+  assigns. See -generated-spec-* options for more info.
+[eva] using specification for function random
+[eva:alarm] unhandled_calls.c:35: Warning: 
+  pointer to function with incompatible type. assert \valid_function(p);
+[mt] unhandled_calls.c:18: New thread: th2, fun t, parent <main>, args {0}
+[mt] unhandled_calls.c:18: Start thread th2
+[mt] Warning: Trying to initialize message queue q, but it might be already initialized.
+[mt] unhandled_calls.c:23: New thread: th1, fun t, parent <main>, args {0}
+[mt] unhandled_calls.c:23: Start thread th1
+[mt] unhandled_calls.c:23: Thread th1, fun t, parent <main>, args {0}
+[mt] unhandled_calls.c:23: New context for th1, fun t, parent <main>, args {0}
+[mt] *** First value analysis for main thread done.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  th1:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: unhandled_calls.c:23 <-
+      f2 :: unhandled_calls.c:42 <-
+      main
+  th2:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: unhandled_calls.c:18 <-
+      f1 :: unhandled_calls.c:35 <-
+      main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] unhandled_calls.c:42: User Error: 
+  simultaneous call to a mthread function and to another function: very
+  strangely written mthread binding?
+[kernel] Plug-in mt aborted: invalid user input.

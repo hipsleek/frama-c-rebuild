@@ -1,0 +1,51 @@
+Plug-in name: Test
+Plug-in shortname: test
+Description: A fake plugin for test purpose
+
+Most options of the form '-test-option-name' and without any parameter
+have an opposite with the name '-test-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-test-decimal-option <x>  test option
+-test-deprecated-option <x>  alias for option -test-decimal-option
+-test-default-range <x>  test option
+
+*** DEBUG
+
+-test-debug <n>     level of debug for plug-in Test (default to 0)
+
+*** GETTING INFORMATION
+
+-test-help          help of plug-in Test
+-test-h             alias for option -test-help
+
+*** OUTPUT MESSAGES
+
+-test-log <K_1:file_1,...>  copy log messages from Test to a file. <K> is a
+                    combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -test-log="K_1:file_1,...")
+-test-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -test-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -test-msg-key="k1[,...,kn]")
+-test-verbose <n>   level of verbosity for plug-in Test (default to 1)
+-test-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category <k1>
+                    to <s1>,...,<kn> to <sn>. Use -test-warn-key help to get
+                    a list of available categories, and * to enable all
+                    categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -test-warn-key="k1[=s1][,...,kn[=sn]]")

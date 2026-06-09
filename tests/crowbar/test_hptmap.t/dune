@@ -1,0 +1,4 @@
+(test
+ (name test_hptmap)
+ (libraries frama-c.init frama-c.kernel crowbar crowbar_utils)
+ (flags -open Frama_c_kernel :standard -w -9))

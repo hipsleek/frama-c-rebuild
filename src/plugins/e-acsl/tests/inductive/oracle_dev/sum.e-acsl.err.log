@@ -1,0 +1,4 @@
+sum.c: In function 'main'
+sum.c:30: Warning: no sound verdict for Assertion (guess: ok).
+	the considered predicate is:
+	¬sum(ptr, 1, 2, 4, 4)

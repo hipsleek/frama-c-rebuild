@@ -1,0 +1,77 @@
+Plug-in name: RteGen
+Plug-in shortname: rte
+Description: generates annotations for runtime error checking
+
+Most options of the form '-rte-option-name' and without any parameter
+have an opposite with the name '-rte-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-rte                when on (off by default), generates annotations for
+                    runtime error checking (opposite option is -no-rte)
+-rte-div            when on (default), annotate for modulo and division by
+                    zero (set by default, opposite option is -rte-no-div)
+-rte-float-to-int   when on (default), annotate casts from floating-point to
+                    integer (set by default, opposite option is
+                    -rte-no-float-to-int)
+-rte-initialized <fct>  for each function in 'fct', annotates reads of non
+                    struct or union values from local variables and pointers
+                    with initialization tests, see documentation for more
+                    details (preferably use -rte-initialized="fct")
+-rte-mem            when on (default), annotate for valid pointer or array
+                    access (set by default, opposite option is -rte-no-mem)
+-rte-pointer-call   when on, annotate functions calls through pointers (set
+                    by default, opposite option is -rte-no-pointer-call)
+-rte-select <fun>   select <fun> for analysis (default all functions)
+                    (preferably use -rte-select="fun")
+-rte-shift          when on (default), annotate for left and right shifts by
+                    a value out of bounds (set by default, opposite option is
+                    -rte-no-shift)
+-rte-trivial-annotations  generate all annotations even if they trivially
+                    hold (from evaluation of constant expressions,
+                    syntactical rules...) (opposite option is
+                    -rte-no-trivial-annotations)
+-rte-use-eva-results  When enabled, do not emit annotations on functions
+                    analyzed by Eva (set by default, opposite option is
+                    -rte-no-use-eva-results)
+-rte-warn           when on (default), emits warning on broken asserts (set
+                    by default, opposite option is -rte-no-warn)
+
+*** DEBUG
+
+-rte-debug <n>      level of debug for plug-in RteGen (default to 0)
+
+*** GETTING INFORMATION
+
+-rte-help           help of plug-in RteGen
+-rte-h              alias for option -rte-help
+
+*** OUTPUT MESSAGES
+
+-rte-log <K_1:file_1,...>  copy log messages from RteGen to a file. <K> is a
+                    combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -rte-log="K_1:file_1,...")
+-rte-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -rte-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -rte-msg-key="k1[,...,kn]")
+-rte-verbose <n>    level of verbosity for plug-in RteGen (default to 1)
+-rte-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category <k1>
+                    to <s1>,...,<kn> to <sn>. Use -rte-warn-key help to get a
+                    list of available categories, and * to enable all
+                    categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -rte-warn-key="k1[=s1][,...,kn[=sn]]")

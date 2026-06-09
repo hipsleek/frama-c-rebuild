@@ -1,0 +1,457 @@
+(**************************************************************************)
+(*                                                                        *)
+(*  SPDX-License-Identifier LGPL-2.1                                      *)
+(*  Copyright (C)                                                         *)
+(*  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  *)
+(*                                                                        *)
+(**************************************************************************)
+
+open Cil_types
+
+(* ************************************************************************** *)
+(** {2 Expressions} *)
+(* ************************************************************************** *)
+
+let is_integral_const = function
+  | CInt64 _ | CEnum _ | CChr _ -> true
+  | CReal _ -> false
+
+let rec possible_value_of_integral_const = function
+  | CInt64 (i,_,_) -> Some i
+  | CEnum {eival = e} -> possible_value_of_integral_expr e
+  | CChr c -> Some (Z.of_int (Char.code c))
+  (* This is against the ISO C norm! See Cil.charConstToInt  *)
+  | _ -> None
+
+and possible_value_of_integral_expr e =
+  match (Cil.constFold true e).enode with
+  | Const c -> possible_value_of_integral_const c
+  | _ -> None
+
+let value_of_integral_const c =
+  match possible_value_of_integral_const c with
+  | None -> assert false
+  | Some i -> i
+
+let value_of_integral_expr e =
+  match possible_value_of_integral_expr e with
+  | None -> assert false
+  | Some i -> i
+
+let rec uncast e = match e.enode with
+  | CastE(_,e) -> uncast e
+  | _ -> e
+
+let is_null_expr e =
+  match (uncast (Cil.constFold true e)).enode with
+  | Const c when is_integral_const c ->
+    Z.is_zero (value_of_integral_const c)
+  | _ -> false
+
+let is_non_null_expr e =
+  match (uncast (Cil.constFold true e)).enode with
+  | Const c when is_integral_const c ->
+    not (Z.is_zero (value_of_integral_const c))
+  | _ -> false
+
+let is_string_literal vi = Ast_attributes.(contains fc_literal vi.vattr)
+
+(* ************************************************************************** *)
+(** {2 Logical terms} *)
+(* ************************************************************************** *)
+
+let is_integral_logic_const = function
+  | Integer _ | LEnum _ | LChr _ -> true
+  | LStr _ | LWStr _ | LReal _ | Boolean _ -> false
+
+let possible_value_of_integral_logic_const = function
+  | Integer(i,_) -> Some i
+  | LEnum {eival = e} -> possible_value_of_integral_expr e
+  | LChr c -> Some (Z.of_int (Char.code c))
+  (* This is against the ISO C norm! See Cil.charConstToInt  *)
+  | _ -> None
+
+let value_of_integral_logic_const c =
+  match possible_value_of_integral_logic_const c with
+  | None -> assert false
+  | Some i -> i
+
+let possible_value_of_integral_term t =
+  match t.term_node with
+  | TConst c -> possible_value_of_integral_logic_const c
+  | _ -> None
+
+let term_lvals_of_term t =
+  let l = ref [] in
+  ignore
+    (Cil.visitCilTerm
+       (object
+         inherit Cil.nopCilVisitor
+         method! vterm_lval lv =
+           l := lv :: !l;
+           DoChildren
+       end)
+       t);
+  !l
+
+let behavior_assumes b =
+  Logic_const.pands (List.map Logic_const.pred_of_id_pred b.b_assumes)
+
+let take_ip ~goal (ip : identified_predicate) =
+  let { tp_kind ; tp_statement } = ip.ip_content in
+  let take_it =
+    if goal
+    then Logic_utils.verify_predicate tp_kind
+    else Logic_utils.use_predicate tp_kind in
+  if take_it then tp_statement else Logic_const.ptrue
+
+let behavior_postcondition ~goal b k =
+  let assumes = Logic_const.pold (behavior_assumes b) in
+  let postcondition =
+    Logic_const.pands
+      (List.map
+         (fun (tk,ip) ->
+            if tk = k then take_ip ~goal ip else Logic_const.ptrue)
+         b.b_post_cond)
+  in Logic_const.pimplies (assumes,postcondition)
+
+let behavior_precondition ~goal b =
+  let assumes = behavior_assumes b in
+  let requires =
+    Logic_const.pands
+      (List.map (take_ip ~goal) b.b_requires)
+  in Logic_const.pimplies (assumes,requires)
+
+let precondition ~goal spec =
+  Logic_const.pands (List.map (behavior_precondition ~goal) spec.spec_behavior)
+
+(** find the behavior named [name] in the list *)
+let get_named_bhv bhv_list name =
+  try Some (List.find (fun b -> b.b_name = name) bhv_list)
+  with Not_found -> None
+
+let get_named_bhv_assumes spec bhv_names =
+  let bhvs = match bhv_names with
+    | [] -> (* no names ==> all named behaviors *)
+      List.filter (fun b -> not (Cil.is_default_behavior b)) spec.spec_behavior
+    | _ ->
+      let rec get l =
+        match l with
+        | [] -> []
+        | name::tl ->
+          match get_named_bhv spec.spec_behavior name with
+          | None -> (* TODO: warn ? *) get tl
+          | Some b -> b::(get tl)
+      in
+      get bhv_names
+  in
+  List.map behavior_assumes bhvs
+
+let complete_behaviors spec bhv_names =
+  let bhv_assumes = get_named_bhv_assumes spec bhv_names in
+  Logic_const.pors bhv_assumes
+
+let disjoint_behaviors spec bhv_names =
+  let bhv_assumes = get_named_bhv_assumes spec bhv_names in
+  let mk_disj_bhv b1 b2 = (* ~ (b1 /\ b2) *)
+    let p = Logic_const.pands [b1; b2] in
+    Logic_const.pnot p
+  in
+  let do_one_with_list prop b lb =
+    let lp = List.map (mk_disj_bhv b) lb in
+    Logic_const.pands (prop::lp)
+  in
+  let rec do_list prop l =
+    match l with
+    | [] -> prop
+    | b::tl ->
+      let prop = do_one_with_list prop b tl in
+      do_list prop tl
+  in
+  do_list Logic_const.ptrue bhv_assumes
+
+let merge_assigns_internal (get:'b -> assigns) (origin:'b -> string list)
+    (acc:(('a*(bool * string list))*int) option) (bhvs: 'b list) =
+  let cmp_assigns acc b =
+    let a' = get b in
+    match acc,a' with
+    | _, WritesAny -> acc
+    | None, Writes l ->
+      (* use the number of assigned terms as measure *)
+      Some ((a',(false,origin b)),List.length l)
+    | (Some((a,(w,orig)),n)), Writes l ->
+      let w = (* warning is needed? *)
+        w || (a != a' && a <> WritesAny)
+      in (* use the number of assigned terms as measure *)
+      let m = List.length l in
+      if n<0 || m<n then Some((a',(w,origin b)),m) else Some((a,(w,orig)),n)
+  in List.fold_left (* find the smallest one *)
+    cmp_assigns acc bhvs
+
+(** Returns the assigns from complete behaviors and unguarded behaviors. *)
+let merge_assigns_from_complete_bhvs ?warn ?(unguarded=true) bhvs complete_bhvs =
+  let merge_assigns_from_complete_bhvs bhv_names =
+    try (* For merging assigns of a "complete" set of behaviors *)
+      let behaviors = match bhv_names with
+        (* Extract behaviors from their names. *)
+        | [] -> (* All behaviors should be taken except the default behavior *)
+          List.filter (fun b -> not (Cil.is_default_behavior b)) bhvs
+        | _ -> (* Finds the corresponding behaviors from the set *)
+          List.map
+            (fun b_name ->
+               List.find (fun b -> b.b_name = b_name) bhvs) bhv_names
+      in
+      (* Merges the assigns of the complete behaviors.
+         Once one of them as no assumes, that means the merge
+         of the unguarded behavior did already the job *)
+      Writes
+        (List.fold_left
+           (fun acc b -> match b.b_assigns with
+              | Writes l when b.b_assumes <> [] -> l @ acc
+              | _ -> raise Not_found) [] behaviors)
+    with Not_found ->
+      (* One of these behaviors is not found or has no assumes *)
+      WritesAny
+  in
+  let acc =
+    if unguarded then (* Looks first at unguarded behaviors. *)
+      let unguarded_bhvs = List.filter (fun b -> b.b_assumes = []) bhvs
+      in merge_assigns_internal  (* Chooses the smallest one *)
+        (fun b -> b.b_assigns) (fun b -> [b.b_name])
+        None unguarded_bhvs
+    else None
+  in
+  let acc = match acc with
+    | Some (((Writes _),_),_) ->
+      (* Does not look further since one has been found *)
+      acc
+    | _ ->
+      (* Look at complete behaviors *)
+      merge_assigns_internal (* Chooses the smallest one *)
+        merge_assigns_from_complete_bhvs
+        (fun bhvnames -> bhvnames)
+        acc
+        complete_bhvs
+  in
+  match acc with
+  | None -> WritesAny (* No unguarded behavior -> assigns everything *)
+  | Some ((a,(w,orig)),_) -> (* The smallest one *)
+    let warn = match warn with
+      | None -> w
+      | Some warn -> warn
+    in
+    if warn then begin
+      let orig =
+        if orig = [] then List.map (fun b -> b.b_name) bhvs else orig
+      in
+      Kernel.warning ~once:true ~current:true
+        "keeping only assigns from behaviors: %a"
+        (Pretty_utils.pp_list ~sep:",@ " Format.pp_print_string) orig
+    end;
+    a
+
+(** Returns the assigns from complete behaviors and unguarded behaviors. *)
+let merge_assigns_from_spec ?warn (spec :funspec) =
+  merge_assigns_from_complete_bhvs
+    ?warn spec.spec_behavior spec.spec_complete_behaviors
+
+(** Returns the assigns of an unguarded behavior. *)
+let merge_assigns ?warn (bhvs : funbehavior list) =
+  let unguarded_bhvs = List.filter (fun b -> b.b_assumes = []) bhvs in
+  let acc = merge_assigns_internal
+      (fun b -> b.b_assigns) (fun b -> [b.b_name])
+      None unguarded_bhvs
+  in
+  match acc with
+  | None -> WritesAny (* No unguarded behavior -> assigns everything *)
+  | Some((a,(w,orig)),_) -> (* The smallest one *)
+    let warn = match warn with
+      | None -> w
+      | Some warn -> warn
+    in
+    if warn then
+      Kernel.warning ~once:true ~current:true
+        "keeping only assigns from behaviors: %a"
+        (Pretty_utils.pp_list ~sep:",@ " Format.pp_print_string) orig;
+    a
+
+let variable_term loc v =
+  {
+    term_node = TLval(TVar v,TNoOffset);
+    term_loc = loc;
+    term_type = v.lv_type;
+    term_name = [];
+  }
+
+let constant_term loc i =
+  {
+    term_node = TConst(Integer(i,None));
+    term_loc = loc;
+    term_type = Ctype Cil_const.intType;
+    term_name = [];
+  }
+
+let rec is_null_term t = match t.term_node with
+  | TConst c when is_integral_logic_const c ->
+    Z.is_zero (value_of_integral_logic_const c)
+  | TCast(false, _,t) -> is_null_term t
+  | _ -> false
+
+(* ************************************************************************** *)
+(** {2 Statements} *)
+(* ************************************************************************** *)
+
+let is_loop_statement s = match s.skind with Loop _ -> true | _ -> false
+
+let get_sid s = match s with
+  | Kglobal -> assert false
+  | Kstmt s -> s.sid
+
+let mkassign lv e loc = Set(lv,e,loc)
+
+let mkassign_statement lv e loc = Cil.mkStmt (Instr(mkassign lv e loc))
+
+let is_block_local v b = List.exists (fun vv -> v.vid = vv.vid) b.blocals
+
+(* ************************************************************************** *)
+(** {2 Functions} *)
+(* ************************************************************************** *)
+
+module Function = struct
+
+  let formal_args called_vinfo = match called_vinfo.vtype.tnode with
+    | TFun (_,Some argl,_) ->
+      argl
+    | TFun _ ->
+      []
+    | _ -> assert false
+
+  let is_formal v fundec =
+    List.exists (fun vv -> v.vid = vv.vid) fundec.sformals
+
+  let is_local v fundec = List.exists (fun vv -> v.vid = vv.vid) fundec.slocals
+
+  let is_formal_or_local v fundec =
+    (not v.vglob) && ((is_formal v fundec) || (is_local v fundec))
+
+  let is_formal_of_prototype v vi =
+    let formals = try Cil.getFormalsDecl vi with Not_found -> [] in
+    List.exists (fun x -> x.vid = v.vid) formals
+
+  let is_definition = function
+    | Definition _ -> true
+    | Declaration _ -> false
+
+  let get_vi = function
+    | Definition (d, _) -> d.svar
+    | Declaration (_,vi,_, _) -> vi
+
+  let get_name f = (get_vi f).vname
+  let get_id f = (get_vi f).vid
+
+  let get_statics fundec =
+    let statics = ref [] in
+    let local_statics_visitor =
+      object
+        inherit Cil.nopCilVisitor
+        method! vblock b =
+          statics := !statics @ b.bstatics;
+          Cil.DoChildren
+        method! vinst _ = Cil.SkipChildren
+        method! vvdec _ = Cil.SkipChildren
+        method! vexpr _ = Cil.SkipChildren
+      end
+    in
+    ignore (Cil.visitCilBlock local_statics_visitor fundec.sbody);
+    !statics
+
+end
+
+exception FoundBlock of block
+
+let block_of_local (fdec:fundec) vi =
+  let find_in_block bl =
+    if is_block_local vi bl then raise (FoundBlock bl)
+  in
+  let find_in_stmt stmt =
+    match stmt.skind with
+    | Block b
+    | Switch (_, b, _, _)
+    | Loop (_, b, _, _, _) -> find_in_block b
+    | If (_, be, bt, _) -> find_in_block be; find_in_block bt
+    | TryExcept (b1, _, b2, _)
+    | TryFinally (b1, b2, _) -> find_in_block b1; find_in_block b2
+    | TryCatch (b, l, _) ->
+      find_in_block b;
+      let aux (cb, b) =
+        find_in_block b;
+        match cb with
+        | Catch_all -> ()
+        | Catch_exn (vi', _l) ->
+          (* note: vars in [_l] (related to exception subtyping)
+             are generated and never pretty-printed, so need not be compared *)
+          if Cil_datatype.Varinfo.equal vi vi' then raise (FoundBlock b)
+      in
+      List.iter aux l
+    | _ -> ()
+  in
+  try
+    find_in_block fdec.sbody;
+    List.iter find_in_stmt fdec.sallstmts;
+    Kernel.abort "[local_declaration_block]: block not found for %a in %a"
+      Cil_datatype.Varinfo.pretty vi Cil_datatype.Varinfo.pretty fdec.svar
+  with FoundBlock bl-> bl
+
+(* ************************************************************************** *)
+(** {2 Types} *)
+(* ************************************************************************** *)
+
+let direct_array_size ty =
+  match Ast_types.unroll_node ty with
+  | TArray(_ty,Some size) -> value_of_integral_expr size
+  | TArray(_ty,None) -> Z.zero
+  | _ -> assert false
+
+let rec array_size ty =
+  match Ast_types.unroll_node ty with
+  | TArray(elemty,Some _) ->
+    if Ast_types.is_array elemty then
+      Z.mul (direct_array_size ty) (array_size elemty)
+    else direct_array_size ty
+  | TArray(_,None) -> Z.zero
+  | _ -> assert false
+
+(* ************************************************************************** *)
+(** {2 Predefined} *)
+(* ************************************************************************** *)
+
+let start_with_frama_c name =
+  String.starts_with ~prefix:"Frama_C_" name
+
+let is_show_each_builtin name =
+  String.starts_with ~prefix:"Frama_C_show_each" name
+
+let is_domain_show_each_builtin name =
+  String.starts_with ~prefix:"Frama_C_domain_show_each" name
+
+let is_dump_each_builtin name =
+  String.starts_with ~prefix:"Frama_C_dump_each" name
+
+let is_dump_file_builtin name =
+  String.starts_with ~prefix:"Frama_C_dump_each_file" name
+
+let is_split_builtin name =
+  String.starts_with ~prefix:"Frama_C_builtin_split" name
+
+let start_with_frama_c_builtin n =
+  start_with_frama_c n &&
+  (is_dump_each_builtin n ||
+   is_show_each_builtin n ||
+   is_split_builtin n ||
+   is_domain_show_each_builtin n ||
+   is_dump_file_builtin n)
+
+let () = Cil_builtins.add_special_builtin_family start_with_frama_c_builtin
+
+let is_frama_c_builtin v =
+  Cil_builtins.has_fc_builtin_attr v || start_with_frama_c_builtin v.vname

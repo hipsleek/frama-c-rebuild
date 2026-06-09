@@ -1,0 +1,34 @@
+[e-acsl] beginning translation.
+[e-acsl:analysis:inductive] 
+  extracting predicate from CountInd using mode: complete
+[e-acsl] count.c:35: Warning: 
+  no assigns clause generated for function CountInd because pointers as arguments is not yet supported
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] count.c:21: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] count.c:21: Warning: 
+  out of bounds read. assert \valid_read(arr + __gen_e_acsl_sub_2);
+[eva] count.c:21: Warning: 
+  Using specification of function __gen_e_acsl_CountInd_here
+  for recursive calls. Analysis of function __gen_e_acsl_CountInd_here
+  is thus incomplete and its soundness relies on the written specification.
+[eva:assigns:missing] <unknown location>: Warning: 
+  no \from part for clause 'assigns \result;'.
+  Assuming \from \nothing so that the analysis can continue, but be aware this is probably incorrect.
+[eva:alarm] count.c:26: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] count.c:26: Warning: 
+  out of bounds read. assert \valid_read(arr + __gen_e_acsl_sub_7);
+[eva] count.c:26: Warning: 
+  Using specification of function __gen_e_acsl_CountInd_here
+  for recursive calls. Analysis of function __gen_e_acsl_CountInd_here
+  is thus incomplete and its soundness relies on the written specification.
+[eva:alarm] count.c:35: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] count.c:35: Warning: assertion got status unknown.
+[eva:alarm] count.c:36: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] count.c:36: Warning: assertion got status unknown.
+[eva:alarm] count.c:37: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] count.c:37: Warning: assertion got status unknown.

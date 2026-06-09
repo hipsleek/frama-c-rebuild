@@ -1,0 +1,29 @@
+# frama-c -wp [...]
+[kernel] Parsing axioms.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal f_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal f_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 12 goals scheduled
+[wp] [Unsuccess] typed_f_ensures_P_todo (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f_ensures_Q (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f_loop_invariant_Index_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f_loop_invariant_Index_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f_loop_invariant_Positive_established (Qed)
+[wp] [Valid] typed_f_loop_invariant_Positive_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_f_loop_assigns_part2 (Qed)
+[wp] [Valid] typed_f_loop_assigns_part3 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_f_assigns (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f_loop_variant_positive (Qed)
+[wp] [Valid] typed_f_loop_variant_decrease (Qed)
+[wp] Proved goals:   12 / 14
+  Terminating:     1
+  Unreachable:     1
+  Qed:             5
+  Alt-Ergo:        5
+  Unsuccess:       2
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  f                         7        5       14      85.7%
+------------------------------------------------------------

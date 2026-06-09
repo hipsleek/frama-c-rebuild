@@ -1,0 +1,5 @@
+(tests
+ (names circle random_3D simple)
+ (deps (package frama-c))
+ (libraries frama-c.init frama-c.kernel)
+ (flags :standard -open Frama_c_kernel))

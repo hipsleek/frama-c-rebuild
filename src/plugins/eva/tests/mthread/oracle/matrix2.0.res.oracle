@@ -1,0 +1,2755 @@
+[kernel] Expanding arguments from mthread_test_options.txt
+[mt] Preparing sources for Mthread with lib pthreads
+[kernel] Parsing FRAMAC_SHARE/mt/mthread.c (with preprocessing)
+[kernel] Parsing FRAMAC_SHARE/mt/mthread_pthread.c (with preprocessing)
+[kernel] Parsing matrix2.c (with preprocessing)
+[mt] Warning: Mthread is an experimental plugin and is still in development.
+[mt] ******* Starting mthread
+[eva] Found concurrency builtins: enabling mthread domain
+[mt] *** Computing value analysis for main thread
+[eva] Analyzing a complete application starting at main
+[mt] New thread: <main>, fun main
+[mt] matrix2.c:43: Initializing mutex locks[0]
+[mt] matrix2.c:43: Initializing mutex locks[1]
+[mt] matrix2.c:43: Initializing mutex locks[2]
+[mt] matrix2.c:43: Initializing mutex locks[3]
+[mt] matrix2.c:43: Initializing mutex locks[4]
+[mt] matrix2.c:46: New thread: jobs[0], fun job, parent <main>, args {0}
+[mt] matrix2.c:46: Start thread jobs[0]
+[mt] matrix2.c:46: New thread: jobs[1], fun job, parent <main>, args {1}
+[mt] matrix2.c:46: Start thread jobs[1]
+[mt] matrix2.c:46: New thread: jobs[2], fun job, parent <main>, args {2}
+[mt] matrix2.c:46: Start thread jobs[2]
+[mt] matrix2.c:46: New thread: jobs[3], fun job, parent <main>, args {3}
+[mt] matrix2.c:46: Start thread jobs[3]
+[mt] matrix2.c:46: New thread: jobs[4], fun job, parent <main>, args {4}
+[mt] matrix2.c:46: Start thread jobs[4]
+[kernel:annot:missing-spec] matrix2.c:48: Warning: 
+  Neither code nor specification for function completed, generating default
+  assigns. See -generated-spec-* options for more info.
+[eva] using specification for function completed
+[mt] matrix2.c:52: Lock locks[0]
+[mt] matrix2.c:58: Release locks[0]
+[mt] matrix2.c:52: Lock locks[1]
+[eva:alarm] matrix2.c:54: Warning: 
+  pointer comparison.
+  assert \pointer_comparable((void *)pj_unfold_32, (void *)(&matrix[150]));
+[mt] matrix2.c:58: Release locks[1]
+[mt] matrix2.c:52: Lock locks[2]
+[eva:alarm] matrix2.c:54: Warning: 
+  pointer comparison.
+  assert \pointer_comparable((void *)pj_unfold_24, (void *)(&matrix[150]));
+[mt] matrix2.c:58: Release locks[2]
+[mt] matrix2.c:52: Lock locks[3]
+[eva:alarm] matrix2.c:54: Warning: 
+  pointer comparison.
+  assert \pointer_comparable((void *)pj_unfold_16, (void *)(&matrix[150]));
+[mt] matrix2.c:58: Release locks[3]
+[mt] matrix2.c:52: Lock locks[4]
+[eva:alarm] matrix2.c:54: Warning: 
+  pointer comparison.
+  assert \pointer_comparable((void *)pj_unfold_8, (void *)(&matrix[150]));
+[mt] matrix2.c:58: Release locks[4]
+[mt] *** First value analysis for main thread done.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[0]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[1]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[2]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[3]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[4]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  jobs[0..4]:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: matrix2.c:46 <- main
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50]; [55];
+         [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105]; [110];
+         [115]; [120]; [125]; [130]; [135]; [140]; [145]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51]; [56];
+         [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106]; [111];
+         [116]; [121]; [126]; [131]; [136]; [141]; [146]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52]; [57];
+         [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107]; [112];
+         [117]; [122]; [127]; [132]; [137]; [142]; [147]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53]; [58];
+         [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108]; [113];
+         [118]; [123]; [128]; [133]; [138]; [143]; [148]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54]; [59];
+         [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109]; [114];
+         [119]; [124]; [129]; [134]; [139]; [144]; [149]}:
+    read by <main> at matrix2.c:55 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] ******* Starting to iterate
+[mt] ***** Iteration 1
+[mt] *** Computing thread jobs[0], iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs[0]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[0]
+[mt] matrix2.c:31: Lock locks[0]
+[kernel:annot:missing-spec] matrix2.c:33: Warning: 
+  Neither code nor specification for function compute, generating default
+  assigns. See -generated-spec-* options for more info.
+[eva] using specification for function compute
+[mt] matrix2.c:34: Release locks[0]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[0]:
+    read by jobs[0] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[0] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50]; [55];
+         [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105]; [110];
+         [115]; [120]; [125]; [130]; [135]; [140]; [145]}:
+    read by jobs[0] at matrix2.c:33 <- job
+    write by jobs[0] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[0]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[0] computed
+[mt] *** Computing thread jobs[1], iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs[1]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[1]
+[mt] matrix2.c:31: Lock locks[1]
+[mt] matrix2.c:34: Release locks[1]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[1]:
+    read by jobs[1] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[1] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51]; [56];
+         [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106]; [111];
+         [116]; [121]; [126]; [131]; [136]; [141]; [146]}:
+    read by jobs[1] at matrix2.c:33 <- job
+    write by jobs[1] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[1]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[1] computed
+[mt] *** Computing thread jobs[2], iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs[2]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[2]
+[mt] matrix2.c:31: Lock locks[2]
+[mt] matrix2.c:34: Release locks[2]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[2]:
+    read by jobs[2] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[2] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52]; [57];
+         [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107]; [112];
+         [117]; [122]; [127]; [132]; [137]; [142]; [147]}:
+    read by jobs[2] at matrix2.c:33 <- job
+    write by jobs[2] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[2]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[2] computed
+[mt] *** Computing thread jobs[3], iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs[3]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[3]
+[mt] matrix2.c:31: Lock locks[3]
+[mt] matrix2.c:34: Release locks[3]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[3]:
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53]; [58];
+         [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108]; [113];
+         [118]; [123]; [128]; [133]; [138]; [143]; [148]}:
+    read by jobs[3] at matrix2.c:33 <- job
+    write by jobs[3] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[3]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[3] computed
+[mt] *** Computing thread jobs[4], iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs[4]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[4]
+[mt] matrix2.c:31: Lock locks[4]
+[mt] matrix2.c:34: Release locks[4]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[4]:
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54]; [59];
+         [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109]; [114];
+         [119]; [124]; [129]; [134]; [139]; [144]; [149]}:
+    read by jobs[4] at matrix2.c:33 <- job
+    write by jobs[4] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[4]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[4] computed
+[mt] ***** Threads computed for iteration 1.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: matrix[0..149]
+[mt] Concurrent imprecise accesses have changed: before
+    \nothing
+  vs.
+    matrix[0..149]
+[mt] Possible read/write data races:
+  none
+[mt] Shared memory: \nothing
+[mt] Mutexes for concurrent accesses:
+[mt] Detailed shared zones protections
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 2
+[mt] *** Computing thread <main>, iteration 2 (potential shared vars changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[mt] Thread <main>, fun main
+[mt] matrix2.c:46: Thread jobs[0], fun job, parent <main>, args {0}
+[mt] matrix2.c:46: Thread jobs[1], fun job, parent <main>, args {1}
+[mt] matrix2.c:46: Thread jobs[2], fun job, parent <main>, args {2}
+[mt] matrix2.c:46: Thread jobs[3], fun job, parent <main>, args {3}
+[mt] matrix2.c:46: Thread jobs[4], fun job, parent <main>, args {4}
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[0]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[1]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[2]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[3]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[4]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  jobs[0..4]:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: matrix2.c:46 <- main
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50]; [55];
+         [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105]; [110];
+         [115]; [120]; [125]; [130]; [135]; [140]; [145]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51]; [56];
+         [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106]; [111];
+         [116]; [121]; [126]; [131]; [136]; [141]; [146]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52]; [57];
+         [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107]; [112];
+         [117]; [122]; [127]; [132]; [137]; [142]; [147]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53]; [58];
+         [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108]; [113];
+         [118]; [123]; [128]; [133]; [138]; [143]; [148]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54]; [59];
+         [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109]; [114];
+         [119]; [124]; [129]; [134]; [139]; [144]; [149]}:
+    read by <main> at matrix2.c:55 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {matrix}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread jobs[0], iteration 2 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[0]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] matrix2.c:33: inject threads interferences at this point
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[0]:
+    read by jobs[0] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[0] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50]; [55];
+         [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105]; [110];
+         [115]; [120]; [125]; [130]; [135]; [140]; [145]}:
+    read by jobs[0] at matrix2.c:33 <- job
+    write by jobs[0] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[0]
+    concurrent writes:
+      matrix[j] = compute(j,matrix[j]); matrix2.c:33 <- job
+    shared bases: {matrix}
+    interferences by location:
+      matrix2.c:33:
+        # cvalue:
+        matrix[0] ∈ [--..--]
+              [1..4] ∈ {0}
+              [5] ∈ [--..--]
+              [6..9] ∈ {0}
+              [10] ∈ [--..--]
+              [11..14] ∈ {0}
+              [15] ∈ [--..--]
+              [16..19] ∈ {0}
+              [20] ∈ [--..--]
+              [21..24] ∈ {0}
+              [25] ∈ [--..--]
+              [26..29] ∈ {0}
+              [30] ∈ [--..--]
+              [31..34] ∈ {0}
+              [35] ∈ [--..--]
+              [36..39] ∈ {0}
+              [40] ∈ [--..--]
+              [41..44] ∈ {0}
+              [45] ∈ [--..--]
+              [46..49] ∈ {0}
+              [50] ∈ [--..--]
+              [51..54] ∈ {0}
+              [55] ∈ [--..--]
+              [56..59] ∈ {0}
+              [60] ∈ [--..--]
+              [61..64] ∈ {0}
+              [65] ∈ [--..--]
+              [66..69] ∈ {0}
+              [70] ∈ [--..--]
+              [71..74] ∈ {0}
+              [75] ∈ [--..--]
+              [76..79] ∈ {0}
+              [80] ∈ [--..--]
+              [81..84] ∈ {0}
+              [85] ∈ [--..--]
+              [86..89] ∈ {0}
+              [90] ∈ [--..--]
+              [91..94] ∈ {0}
+              [95] ∈ [--..--]
+              [96..99] ∈ {0}
+              [100] ∈ [--..--]
+              [101..104] ∈ {0}
+              [105] ∈ [--..--]
+              [106..109] ∈ {0}
+              [110] ∈ [--..--]
+              [111..114] ∈ {0}
+              [115] ∈ [--..--]
+              [116..119] ∈ {0}
+              [120] ∈ [--..--]
+              [121..124] ∈ {0}
+              [125] ∈ [--..--]
+              [126..129] ∈ {0}
+              [130] ∈ [--..--]
+              [131..134] ∈ {0}
+              [135] ∈ [--..--]
+              [136..139] ∈ {0}
+              [140] ∈ [--..--]
+              [141..144] ∈ {0}
+              [145] ∈ [--..--]
+              [146..149] ∈ {0} 
+    interferences by mutexes:
+      { locks[0] }:
+        # cvalue:
+        matrix[0] ∈ [--..--]
+              [1..4] ∈ {0}
+              [5] ∈ [--..--]
+              [6..9] ∈ {0}
+              [10] ∈ [--..--]
+              [11..14] ∈ {0}
+              [15] ∈ [--..--]
+              [16..19] ∈ {0}
+              [20] ∈ [--..--]
+              [21..24] ∈ {0}
+              [25] ∈ [--..--]
+              [26..29] ∈ {0}
+              [30] ∈ [--..--]
+              [31..34] ∈ {0}
+              [35] ∈ [--..--]
+              [36..39] ∈ {0}
+              [40] ∈ [--..--]
+              [41..44] ∈ {0}
+              [45] ∈ [--..--]
+              [46..49] ∈ {0}
+              [50] ∈ [--..--]
+              [51..54] ∈ {0}
+              [55] ∈ [--..--]
+              [56..59] ∈ {0}
+              [60] ∈ [--..--]
+              [61..64] ∈ {0}
+              [65] ∈ [--..--]
+              [66..69] ∈ {0}
+              [70] ∈ [--..--]
+              [71..74] ∈ {0}
+              [75] ∈ [--..--]
+              [76..79] ∈ {0}
+              [80] ∈ [--..--]
+              [81..84] ∈ {0}
+              [85] ∈ [--..--]
+              [86..89] ∈ {0}
+              [90] ∈ [--..--]
+              [91..94] ∈ {0}
+              [95] ∈ [--..--]
+              [96..99] ∈ {0}
+              [100] ∈ [--..--]
+              [101..104] ∈ {0}
+              [105] ∈ [--..--]
+              [106..109] ∈ {0}
+              [110] ∈ [--..--]
+              [111..114] ∈ {0}
+              [115] ∈ [--..--]
+              [116..119] ∈ {0}
+              [120] ∈ [--..--]
+              [121..124] ∈ {0}
+              [125] ∈ [--..--]
+              [126..129] ∈ {0}
+              [130] ∈ [--..--]
+              [131..134] ∈ {0}
+              [135] ∈ [--..--]
+              [136..139] ∈ {0}
+              [140] ∈ [--..--]
+              [141..144] ∈ {0}
+              [145] ∈ [--..--]
+              [146..149] ∈ {0}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[0] computed
+[mt] *** Computing thread jobs[1], iteration 2 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[1]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[1]:
+    read by jobs[1] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[1] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51]; [56];
+         [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106]; [111];
+         [116]; [121]; [126]; [131]; [136]; [141]; [146]}:
+    read by jobs[1] at matrix2.c:33 <- job
+    write by jobs[1] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[1]
+    concurrent writes:
+      matrix[j] = compute(j,matrix[j]); matrix2.c:33 <- job
+    shared bases: {matrix}
+    interferences by location:
+      matrix2.c:33:
+        # cvalue:
+        matrix[0..1] ∈ [--..--]
+              [2..4] ∈ {0}
+              [5..6] ∈ [--..--]
+              [7..9] ∈ {0}
+              [10..11] ∈ [--..--]
+              [12..14] ∈ {0}
+              [15..16] ∈ [--..--]
+              [17..19] ∈ {0}
+              [20..21] ∈ [--..--]
+              [22..24] ∈ {0}
+              [25..26] ∈ [--..--]
+              [27..29] ∈ {0}
+              [30..31] ∈ [--..--]
+              [32..34] ∈ {0}
+              [35..36] ∈ [--..--]
+              [37..39] ∈ {0}
+              [40..41] ∈ [--..--]
+              [42..44] ∈ {0}
+              [45..46] ∈ [--..--]
+              [47..49] ∈ {0}
+              [50..51] ∈ [--..--]
+              [52..54] ∈ {0}
+              [55..56] ∈ [--..--]
+              [57..59] ∈ {0}
+              [60..61] ∈ [--..--]
+              [62..64] ∈ {0}
+              [65..66] ∈ [--..--]
+              [67..69] ∈ {0}
+              [70..71] ∈ [--..--]
+              [72..74] ∈ {0}
+              [75..76] ∈ [--..--]
+              [77..79] ∈ {0}
+              [80..81] ∈ [--..--]
+              [82..84] ∈ {0}
+              [85..86] ∈ [--..--]
+              [87..89] ∈ {0}
+              [90..91] ∈ [--..--]
+              [92..94] ∈ {0}
+              [95..96] ∈ [--..--]
+              [97..99] ∈ {0}
+              [100..101] ∈ [--..--]
+              [102..104] ∈ {0}
+              [105..106] ∈ [--..--]
+              [107..109] ∈ {0}
+              [110..111] ∈ [--..--]
+              [112..114] ∈ {0}
+              [115..116] ∈ [--..--]
+              [117..119] ∈ {0}
+              [120..121] ∈ [--..--]
+              [122..124] ∈ {0}
+              [125..126] ∈ [--..--]
+              [127..129] ∈ {0}
+              [130..131] ∈ [--..--]
+              [132..134] ∈ {0}
+              [135..136] ∈ [--..--]
+              [137..139] ∈ {0}
+              [140..141] ∈ [--..--]
+              [142..144] ∈ {0}
+              [145..146] ∈ [--..--]
+              [147..149] ∈ {0} 
+    interferences by mutexes:
+      { locks[1] }:
+        # cvalue:
+        matrix[0..1] ∈ [--..--]
+              [2..4] ∈ {0}
+              [5..6] ∈ [--..--]
+              [7..9] ∈ {0}
+              [10..11] ∈ [--..--]
+              [12..14] ∈ {0}
+              [15..16] ∈ [--..--]
+              [17..19] ∈ {0}
+              [20..21] ∈ [--..--]
+              [22..24] ∈ {0}
+              [25..26] ∈ [--..--]
+              [27..29] ∈ {0}
+              [30..31] ∈ [--..--]
+              [32..34] ∈ {0}
+              [35..36] ∈ [--..--]
+              [37..39] ∈ {0}
+              [40..41] ∈ [--..--]
+              [42..44] ∈ {0}
+              [45..46] ∈ [--..--]
+              [47..49] ∈ {0}
+              [50..51] ∈ [--..--]
+              [52..54] ∈ {0}
+              [55..56] ∈ [--..--]
+              [57..59] ∈ {0}
+              [60..61] ∈ [--..--]
+              [62..64] ∈ {0}
+              [65..66] ∈ [--..--]
+              [67..69] ∈ {0}
+              [70..71] ∈ [--..--]
+              [72..74] ∈ {0}
+              [75..76] ∈ [--..--]
+              [77..79] ∈ {0}
+              [80..81] ∈ [--..--]
+              [82..84] ∈ {0}
+              [85..86] ∈ [--..--]
+              [87..89] ∈ {0}
+              [90..91] ∈ [--..--]
+              [92..94] ∈ {0}
+              [95..96] ∈ [--..--]
+              [97..99] ∈ {0}
+              [100..101] ∈ [--..--]
+              [102..104] ∈ {0}
+              [105..106] ∈ [--..--]
+              [107..109] ∈ {0}
+              [110..111] ∈ [--..--]
+              [112..114] ∈ {0}
+              [115..116] ∈ [--..--]
+              [117..119] ∈ {0}
+              [120..121] ∈ [--..--]
+              [122..124] ∈ {0}
+              [125..126] ∈ [--..--]
+              [127..129] ∈ {0}
+              [130..131] ∈ [--..--]
+              [132..134] ∈ {0}
+              [135..136] ∈ [--..--]
+              [137..139] ∈ {0}
+              [140..141] ∈ [--..--]
+              [142..144] ∈ {0}
+              [145..146] ∈ [--..--]
+              [147..149] ∈ {0}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[1] computed
+[mt] *** Computing thread jobs[2], iteration 2 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[2]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[2]:
+    read by jobs[2] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[2] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52]; [57];
+         [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107]; [112];
+         [117]; [122]; [127]; [132]; [137]; [142]; [147]}:
+    read by jobs[2] at matrix2.c:33 <- job
+    write by jobs[2] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[2]
+    concurrent writes:
+      matrix[j] = compute(j,matrix[j]); matrix2.c:33 <- job
+    shared bases: {matrix}
+    interferences by location:
+      matrix2.c:33:
+        # cvalue:
+        matrix[0..2] ∈ [--..--]
+              [3..4] ∈ {0}
+              [5..7] ∈ [--..--]
+              [8..9] ∈ {0}
+              [10..12] ∈ [--..--]
+              [13..14] ∈ {0}
+              [15..17] ∈ [--..--]
+              [18..19] ∈ {0}
+              [20..22] ∈ [--..--]
+              [23..24] ∈ {0}
+              [25..27] ∈ [--..--]
+              [28..29] ∈ {0}
+              [30..32] ∈ [--..--]
+              [33..34] ∈ {0}
+              [35..37] ∈ [--..--]
+              [38..39] ∈ {0}
+              [40..42] ∈ [--..--]
+              [43..44] ∈ {0}
+              [45..47] ∈ [--..--]
+              [48..49] ∈ {0}
+              [50..52] ∈ [--..--]
+              [53..54] ∈ {0}
+              [55..57] ∈ [--..--]
+              [58..59] ∈ {0}
+              [60..62] ∈ [--..--]
+              [63..64] ∈ {0}
+              [65..67] ∈ [--..--]
+              [68..69] ∈ {0}
+              [70..72] ∈ [--..--]
+              [73..74] ∈ {0}
+              [75..77] ∈ [--..--]
+              [78..79] ∈ {0}
+              [80..82] ∈ [--..--]
+              [83..84] ∈ {0}
+              [85..87] ∈ [--..--]
+              [88..89] ∈ {0}
+              [90..92] ∈ [--..--]
+              [93..94] ∈ {0}
+              [95..97] ∈ [--..--]
+              [98..99] ∈ {0}
+              [100..102] ∈ [--..--]
+              [103..104] ∈ {0}
+              [105..107] ∈ [--..--]
+              [108..109] ∈ {0}
+              [110..112] ∈ [--..--]
+              [113..114] ∈ {0}
+              [115..117] ∈ [--..--]
+              [118..119] ∈ {0}
+              [120..122] ∈ [--..--]
+              [123..124] ∈ {0}
+              [125..127] ∈ [--..--]
+              [128..129] ∈ {0}
+              [130..132] ∈ [--..--]
+              [133..134] ∈ {0}
+              [135..137] ∈ [--..--]
+              [138..139] ∈ {0}
+              [140..142] ∈ [--..--]
+              [143..144] ∈ {0}
+              [145..147] ∈ [--..--]
+              [148..149] ∈ {0} 
+    interferences by mutexes:
+      { locks[2] }:
+        # cvalue:
+        matrix[0..2] ∈ [--..--]
+              [3..4] ∈ {0}
+              [5..7] ∈ [--..--]
+              [8..9] ∈ {0}
+              [10..12] ∈ [--..--]
+              [13..14] ∈ {0}
+              [15..17] ∈ [--..--]
+              [18..19] ∈ {0}
+              [20..22] ∈ [--..--]
+              [23..24] ∈ {0}
+              [25..27] ∈ [--..--]
+              [28..29] ∈ {0}
+              [30..32] ∈ [--..--]
+              [33..34] ∈ {0}
+              [35..37] ∈ [--..--]
+              [38..39] ∈ {0}
+              [40..42] ∈ [--..--]
+              [43..44] ∈ {0}
+              [45..47] ∈ [--..--]
+              [48..49] ∈ {0}
+              [50..52] ∈ [--..--]
+              [53..54] ∈ {0}
+              [55..57] ∈ [--..--]
+              [58..59] ∈ {0}
+              [60..62] ∈ [--..--]
+              [63..64] ∈ {0}
+              [65..67] ∈ [--..--]
+              [68..69] ∈ {0}
+              [70..72] ∈ [--..--]
+              [73..74] ∈ {0}
+              [75..77] ∈ [--..--]
+              [78..79] ∈ {0}
+              [80..82] ∈ [--..--]
+              [83..84] ∈ {0}
+              [85..87] ∈ [--..--]
+              [88..89] ∈ {0}
+              [90..92] ∈ [--..--]
+              [93..94] ∈ {0}
+              [95..97] ∈ [--..--]
+              [98..99] ∈ {0}
+              [100..102] ∈ [--..--]
+              [103..104] ∈ {0}
+              [105..107] ∈ [--..--]
+              [108..109] ∈ {0}
+              [110..112] ∈ [--..--]
+              [113..114] ∈ {0}
+              [115..117] ∈ [--..--]
+              [118..119] ∈ {0}
+              [120..122] ∈ [--..--]
+              [123..124] ∈ {0}
+              [125..127] ∈ [--..--]
+              [128..129] ∈ {0}
+              [130..132] ∈ [--..--]
+              [133..134] ∈ {0}
+              [135..137] ∈ [--..--]
+              [138..139] ∈ {0}
+              [140..142] ∈ [--..--]
+              [143..144] ∈ {0}
+              [145..147] ∈ [--..--]
+              [148..149] ∈ {0}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[2] computed
+[mt] *** Computing thread jobs[3], iteration 2 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[3]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[3]:
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53]; [58];
+         [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108]; [113];
+         [118]; [123]; [128]; [133]; [138]; [143]; [148]}:
+    read by jobs[3] at matrix2.c:33 <- job
+    write by jobs[3] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[3]
+    concurrent writes:
+      matrix[j] = compute(j,matrix[j]); matrix2.c:33 <- job
+    shared bases: {matrix}
+    interferences by location:
+      matrix2.c:33:
+        # cvalue:
+        matrix[0..3] ∈ [--..--]
+              [4] ∈ {0}
+              [5..8] ∈ [--..--]
+              [9] ∈ {0}
+              [10..13] ∈ [--..--]
+              [14] ∈ {0}
+              [15..18] ∈ [--..--]
+              [19] ∈ {0}
+              [20..23] ∈ [--..--]
+              [24] ∈ {0}
+              [25..28] ∈ [--..--]
+              [29] ∈ {0}
+              [30..33] ∈ [--..--]
+              [34] ∈ {0}
+              [35..38] ∈ [--..--]
+              [39] ∈ {0}
+              [40..43] ∈ [--..--]
+              [44] ∈ {0}
+              [45..48] ∈ [--..--]
+              [49] ∈ {0}
+              [50..53] ∈ [--..--]
+              [54] ∈ {0}
+              [55..58] ∈ [--..--]
+              [59] ∈ {0}
+              [60..63] ∈ [--..--]
+              [64] ∈ {0}
+              [65..68] ∈ [--..--]
+              [69] ∈ {0}
+              [70..73] ∈ [--..--]
+              [74] ∈ {0}
+              [75..78] ∈ [--..--]
+              [79] ∈ {0}
+              [80..83] ∈ [--..--]
+              [84] ∈ {0}
+              [85..88] ∈ [--..--]
+              [89] ∈ {0}
+              [90..93] ∈ [--..--]
+              [94] ∈ {0}
+              [95..98] ∈ [--..--]
+              [99] ∈ {0}
+              [100..103] ∈ [--..--]
+              [104] ∈ {0}
+              [105..108] ∈ [--..--]
+              [109] ∈ {0}
+              [110..113] ∈ [--..--]
+              [114] ∈ {0}
+              [115..118] ∈ [--..--]
+              [119] ∈ {0}
+              [120..123] ∈ [--..--]
+              [124] ∈ {0}
+              [125..128] ∈ [--..--]
+              [129] ∈ {0}
+              [130..133] ∈ [--..--]
+              [134] ∈ {0}
+              [135..138] ∈ [--..--]
+              [139] ∈ {0}
+              [140..143] ∈ [--..--]
+              [144] ∈ {0}
+              [145..148] ∈ [--..--]
+              [149] ∈ {0} 
+    interferences by mutexes:
+      { locks[3] }:
+        # cvalue:
+        matrix[0..3] ∈ [--..--]
+              [4] ∈ {0}
+              [5..8] ∈ [--..--]
+              [9] ∈ {0}
+              [10..13] ∈ [--..--]
+              [14] ∈ {0}
+              [15..18] ∈ [--..--]
+              [19] ∈ {0}
+              [20..23] ∈ [--..--]
+              [24] ∈ {0}
+              [25..28] ∈ [--..--]
+              [29] ∈ {0}
+              [30..33] ∈ [--..--]
+              [34] ∈ {0}
+              [35..38] ∈ [--..--]
+              [39] ∈ {0}
+              [40..43] ∈ [--..--]
+              [44] ∈ {0}
+              [45..48] ∈ [--..--]
+              [49] ∈ {0}
+              [50..53] ∈ [--..--]
+              [54] ∈ {0}
+              [55..58] ∈ [--..--]
+              [59] ∈ {0}
+              [60..63] ∈ [--..--]
+              [64] ∈ {0}
+              [65..68] ∈ [--..--]
+              [69] ∈ {0}
+              [70..73] ∈ [--..--]
+              [74] ∈ {0}
+              [75..78] ∈ [--..--]
+              [79] ∈ {0}
+              [80..83] ∈ [--..--]
+              [84] ∈ {0}
+              [85..88] ∈ [--..--]
+              [89] ∈ {0}
+              [90..93] ∈ [--..--]
+              [94] ∈ {0}
+              [95..98] ∈ [--..--]
+              [99] ∈ {0}
+              [100..103] ∈ [--..--]
+              [104] ∈ {0}
+              [105..108] ∈ [--..--]
+              [109] ∈ {0}
+              [110..113] ∈ [--..--]
+              [114] ∈ {0}
+              [115..118] ∈ [--..--]
+              [119] ∈ {0}
+              [120..123] ∈ [--..--]
+              [124] ∈ {0}
+              [125..128] ∈ [--..--]
+              [129] ∈ {0}
+              [130..133] ∈ [--..--]
+              [134] ∈ {0}
+              [135..138] ∈ [--..--]
+              [139] ∈ {0}
+              [140..143] ∈ [--..--]
+              [144] ∈ {0}
+              [145..148] ∈ [--..--]
+              [149] ∈ {0}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[3] computed
+[mt] *** Computing thread jobs[4], iteration 2 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[4]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[4]:
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54]; [59];
+         [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109]; [114];
+         [119]; [124]; [129]; [134]; [139]; [144]; [149]}:
+    read by jobs[4] at matrix2.c:33 <- job
+    write by jobs[4] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[4]
+    concurrent writes:
+      matrix[j] = compute(j,matrix[j]); matrix2.c:33 <- job
+    shared bases: {matrix}
+    interferences by location:
+      matrix2.c:33:
+        # cvalue: matrix[0..149] ∈ [--..--] 
+    interferences by mutexes:
+      { locks[4] }:
+        # cvalue: matrix[0..149] ∈ [--..--]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[4] computed
+[mt] ***** Threads computed for iteration 2.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: matrix[0..149]
+[mt] <main> reads 
+  matrix[0] ∈ {0}
+        [5] ∈ {0}
+        [10] ∈ {0}
+        [15] ∈ {0}
+        [20] ∈ {0}
+        [25] ∈ {0}
+        [30] ∈ {0}
+        [35] ∈ {0}
+        [40] ∈ {0}
+        [45] ∈ {0}
+        [50] ∈ {0}
+        [55] ∈ {0}
+        [60] ∈ {0}
+        [65] ∈ {0}
+        [70] ∈ {0}
+        [75] ∈ {0}
+        [80] ∈ {0}
+        [85] ∈ {0}
+        [90] ∈ {0}
+        [95] ∈ {0}
+        [100] ∈ {0}
+        [105] ∈ {0}
+        [110] ∈ {0}
+        [115] ∈ {0}
+        [120] ∈ {0}
+        [125] ∈ {0}
+        [130] ∈ {0}
+        [135] ∈ {0}
+        [140] ∈ {0}
+        [145] ∈ {0}
+   // matrix2.c:55 main
+[mt] jobs[0] reads 
+  matrix[0] ∈ [--..--]
+        [5] ∈ [--..--]
+        [10] ∈ [--..--]
+        [15] ∈ [--..--]
+        [20] ∈ [--..--]
+        [25] ∈ [--..--]
+        [30] ∈ [--..--]
+        [35] ∈ [--..--]
+        [40] ∈ [--..--]
+        [45] ∈ [--..--]
+        [50] ∈ [--..--]
+        [55] ∈ [--..--]
+        [60] ∈ [--..--]
+        [65] ∈ [--..--]
+        [70] ∈ [--..--]
+        [75] ∈ [--..--]
+        [80] ∈ [--..--]
+        [85] ∈ [--..--]
+        [90] ∈ [--..--]
+        [95] ∈ [--..--]
+        [100] ∈ [--..--]
+        [105] ∈ [--..--]
+        [110] ∈ [--..--]
+        [115] ∈ [--..--]
+        [120] ∈ [--..--]
+        [125] ∈ [--..--]
+        [130] ∈ [--..--]
+        [135] ∈ [--..--]
+        [140] ∈ [--..--]
+        [145] ∈ [--..--]
+   // matrix2.c:33 job
+[mt] <main> reads 
+  matrix[1] ∈ {0}
+        [6] ∈ {0}
+        [11] ∈ {0}
+        [16] ∈ {0}
+        [21] ∈ {0}
+        [26] ∈ {0}
+        [31] ∈ {0}
+        [36] ∈ {0}
+        [41] ∈ {0}
+        [46] ∈ {0}
+        [51] ∈ {0}
+        [56] ∈ {0}
+        [61] ∈ {0}
+        [66] ∈ {0}
+        [71] ∈ {0}
+        [76] ∈ {0}
+        [81] ∈ {0}
+        [86] ∈ {0}
+        [91] ∈ {0}
+        [96] ∈ {0}
+        [101] ∈ {0}
+        [106] ∈ {0}
+        [111] ∈ {0}
+        [116] ∈ {0}
+        [121] ∈ {0}
+        [126] ∈ {0}
+        [131] ∈ {0}
+        [136] ∈ {0}
+        [141] ∈ {0}
+        [146] ∈ {0}
+   // matrix2.c:55 main
+[mt] jobs[1] reads 
+  matrix[1] ∈ [--..--]
+        [6] ∈ [--..--]
+        [11] ∈ [--..--]
+        [16] ∈ [--..--]
+        [21] ∈ [--..--]
+        [26] ∈ [--..--]
+        [31] ∈ [--..--]
+        [36] ∈ [--..--]
+        [41] ∈ [--..--]
+        [46] ∈ [--..--]
+        [51] ∈ [--..--]
+        [56] ∈ [--..--]
+        [61] ∈ [--..--]
+        [66] ∈ [--..--]
+        [71] ∈ [--..--]
+        [76] ∈ [--..--]
+        [81] ∈ [--..--]
+        [86] ∈ [--..--]
+        [91] ∈ [--..--]
+        [96] ∈ [--..--]
+        [101] ∈ [--..--]
+        [106] ∈ [--..--]
+        [111] ∈ [--..--]
+        [116] ∈ [--..--]
+        [121] ∈ [--..--]
+        [126] ∈ [--..--]
+        [131] ∈ [--..--]
+        [136] ∈ [--..--]
+        [141] ∈ [--..--]
+        [146] ∈ [--..--]
+   // matrix2.c:33 job
+[mt] <main> reads 
+  matrix[2] ∈ {0}
+        [7] ∈ {0}
+        [12] ∈ {0}
+        [17] ∈ {0}
+        [22] ∈ {0}
+        [27] ∈ {0}
+        [32] ∈ {0}
+        [37] ∈ {0}
+        [42] ∈ {0}
+        [47] ∈ {0}
+        [52] ∈ {0}
+        [57] ∈ {0}
+        [62] ∈ {0}
+        [67] ∈ {0}
+        [72] ∈ {0}
+        [77] ∈ {0}
+        [82] ∈ {0}
+        [87] ∈ {0}
+        [92] ∈ {0}
+        [97] ∈ {0}
+        [102] ∈ {0}
+        [107] ∈ {0}
+        [112] ∈ {0}
+        [117] ∈ {0}
+        [122] ∈ {0}
+        [127] ∈ {0}
+        [132] ∈ {0}
+        [137] ∈ {0}
+        [142] ∈ {0}
+        [147] ∈ {0}
+   // matrix2.c:55 main
+[mt] jobs[2] reads 
+  matrix[2] ∈ [--..--]
+        [7] ∈ [--..--]
+        [12] ∈ [--..--]
+        [17] ∈ [--..--]
+        [22] ∈ [--..--]
+        [27] ∈ [--..--]
+        [32] ∈ [--..--]
+        [37] ∈ [--..--]
+        [42] ∈ [--..--]
+        [47] ∈ [--..--]
+        [52] ∈ [--..--]
+        [57] ∈ [--..--]
+        [62] ∈ [--..--]
+        [67] ∈ [--..--]
+        [72] ∈ [--..--]
+        [77] ∈ [--..--]
+        [82] ∈ [--..--]
+        [87] ∈ [--..--]
+        [92] ∈ [--..--]
+        [97] ∈ [--..--]
+        [102] ∈ [--..--]
+        [107] ∈ [--..--]
+        [112] ∈ [--..--]
+        [117] ∈ [--..--]
+        [122] ∈ [--..--]
+        [127] ∈ [--..--]
+        [132] ∈ [--..--]
+        [137] ∈ [--..--]
+        [142] ∈ [--..--]
+        [147] ∈ [--..--]
+   // matrix2.c:33 job
+[mt] <main> reads 
+  matrix[3] ∈ {0}
+        [8] ∈ {0}
+        [13] ∈ {0}
+        [18] ∈ {0}
+        [23] ∈ {0}
+        [28] ∈ {0}
+        [33] ∈ {0}
+        [38] ∈ {0}
+        [43] ∈ {0}
+        [48] ∈ {0}
+        [53] ∈ {0}
+        [58] ∈ {0}
+        [63] ∈ {0}
+        [68] ∈ {0}
+        [73] ∈ {0}
+        [78] ∈ {0}
+        [83] ∈ {0}
+        [88] ∈ {0}
+        [93] ∈ {0}
+        [98] ∈ {0}
+        [103] ∈ {0}
+        [108] ∈ {0}
+        [113] ∈ {0}
+        [118] ∈ {0}
+        [123] ∈ {0}
+        [128] ∈ {0}
+        [133] ∈ {0}
+        [138] ∈ {0}
+        [143] ∈ {0}
+        [148] ∈ {0}
+   // matrix2.c:55 main
+[mt] jobs[3] reads 
+  matrix[3] ∈ [--..--]
+        [8] ∈ [--..--]
+        [13] ∈ [--..--]
+        [18] ∈ [--..--]
+        [23] ∈ [--..--]
+        [28] ∈ [--..--]
+        [33] ∈ [--..--]
+        [38] ∈ [--..--]
+        [43] ∈ [--..--]
+        [48] ∈ [--..--]
+        [53] ∈ [--..--]
+        [58] ∈ [--..--]
+        [63] ∈ [--..--]
+        [68] ∈ [--..--]
+        [73] ∈ [--..--]
+        [78] ∈ [--..--]
+        [83] ∈ [--..--]
+        [88] ∈ [--..--]
+        [93] ∈ [--..--]
+        [98] ∈ [--..--]
+        [103] ∈ [--..--]
+        [108] ∈ [--..--]
+        [113] ∈ [--..--]
+        [118] ∈ [--..--]
+        [123] ∈ [--..--]
+        [128] ∈ [--..--]
+        [133] ∈ [--..--]
+        [138] ∈ [--..--]
+        [143] ∈ [--..--]
+        [148] ∈ [--..--]
+   // matrix2.c:33 job
+[mt] <main> reads 
+  matrix[4] ∈ {0}
+        [9] ∈ {0}
+        [14] ∈ {0}
+        [19] ∈ {0}
+        [24] ∈ {0}
+        [29] ∈ {0}
+        [34] ∈ {0}
+        [39] ∈ {0}
+        [44] ∈ {0}
+        [49] ∈ {0}
+        [54] ∈ {0}
+        [59] ∈ {0}
+        [64] ∈ {0}
+        [69] ∈ {0}
+        [74] ∈ {0}
+        [79] ∈ {0}
+        [84] ∈ {0}
+        [89] ∈ {0}
+        [94] ∈ {0}
+        [99] ∈ {0}
+        [104] ∈ {0}
+        [109] ∈ {0}
+        [114] ∈ {0}
+        [119] ∈ {0}
+        [124] ∈ {0}
+        [129] ∈ {0}
+        [134] ∈ {0}
+        [139] ∈ {0}
+        [144] ∈ {0}
+        [149] ∈ {0}
+   // matrix2.c:55 main
+[mt] jobs[4] reads 
+  matrix[4] ∈ [--..--]
+        [9] ∈ [--..--]
+        [14] ∈ [--..--]
+        [19] ∈ [--..--]
+        [24] ∈ [--..--]
+        [29] ∈ [--..--]
+        [34] ∈ [--..--]
+        [39] ∈ [--..--]
+        [44] ∈ [--..--]
+        [49] ∈ [--..--]
+        [54] ∈ [--..--]
+        [59] ∈ [--..--]
+        [64] ∈ [--..--]
+        [69] ∈ [--..--]
+        [74] ∈ [--..--]
+        [79] ∈ [--..--]
+        [84] ∈ [--..--]
+        [89] ∈ [--..--]
+        [94] ∈ [--..--]
+        [99] ∈ [--..--]
+        [104] ∈ [--..--]
+        [109] ∈ [--..--]
+        [114] ∈ [--..--]
+        [119] ∈ [--..--]
+        [124] ∈ [--..--]
+        [129] ∈ [--..--]
+        [134] ∈ [--..--]
+        [139] ∈ [--..--]
+        [144] ∈ [--..--]
+        [149] ∈ [--..--]
+   // matrix2.c:33 job
+[mt] jobs[0] writes 
+  matrix[0] ∈ [--..--]
+        [5] ∈ [--..--]
+        [10] ∈ [--..--]
+        [15] ∈ [--..--]
+        [20] ∈ [--..--]
+        [25] ∈ [--..--]
+        [30] ∈ [--..--]
+        [35] ∈ [--..--]
+        [40] ∈ [--..--]
+        [45] ∈ [--..--]
+        [50] ∈ [--..--]
+        [55] ∈ [--..--]
+        [60] ∈ [--..--]
+        [65] ∈ [--..--]
+        [70] ∈ [--..--]
+        [75] ∈ [--..--]
+        [80] ∈ [--..--]
+        [85] ∈ [--..--]
+        [90] ∈ [--..--]
+        [95] ∈ [--..--]
+        [100] ∈ [--..--]
+        [105] ∈ [--..--]
+        [110] ∈ [--..--]
+        [115] ∈ [--..--]
+        [120] ∈ [--..--]
+        [125] ∈ [--..--]
+        [130] ∈ [--..--]
+        [135] ∈ [--..--]
+        [140] ∈ [--..--]
+        [145] ∈ [--..--]
+   // matrix2.c:33 job
+[mt] jobs[1] writes 
+  matrix[1] ∈ [--..--]
+        [6] ∈ [--..--]
+        [11] ∈ [--..--]
+        [16] ∈ [--..--]
+        [21] ∈ [--..--]
+        [26] ∈ [--..--]
+        [31] ∈ [--..--]
+        [36] ∈ [--..--]
+        [41] ∈ [--..--]
+        [46] ∈ [--..--]
+        [51] ∈ [--..--]
+        [56] ∈ [--..--]
+        [61] ∈ [--..--]
+        [66] ∈ [--..--]
+        [71] ∈ [--..--]
+        [76] ∈ [--..--]
+        [81] ∈ [--..--]
+        [86] ∈ [--..--]
+        [91] ∈ [--..--]
+        [96] ∈ [--..--]
+        [101] ∈ [--..--]
+        [106] ∈ [--..--]
+        [111] ∈ [--..--]
+        [116] ∈ [--..--]
+        [121] ∈ [--..--]
+        [126] ∈ [--..--]
+        [131] ∈ [--..--]
+        [136] ∈ [--..--]
+        [141] ∈ [--..--]
+        [146] ∈ [--..--]
+   // matrix2.c:33 job
+[mt] jobs[2] writes 
+  matrix[2] ∈ [--..--]
+        [7] ∈ [--..--]
+        [12] ∈ [--..--]
+        [17] ∈ [--..--]
+        [22] ∈ [--..--]
+        [27] ∈ [--..--]
+        [32] ∈ [--..--]
+        [37] ∈ [--..--]
+        [42] ∈ [--..--]
+        [47] ∈ [--..--]
+        [52] ∈ [--..--]
+        [57] ∈ [--..--]
+        [62] ∈ [--..--]
+        [67] ∈ [--..--]
+        [72] ∈ [--..--]
+        [77] ∈ [--..--]
+        [82] ∈ [--..--]
+        [87] ∈ [--..--]
+        [92] ∈ [--..--]
+        [97] ∈ [--..--]
+        [102] ∈ [--..--]
+        [107] ∈ [--..--]
+        [112] ∈ [--..--]
+        [117] ∈ [--..--]
+        [122] ∈ [--..--]
+        [127] ∈ [--..--]
+        [132] ∈ [--..--]
+        [137] ∈ [--..--]
+        [142] ∈ [--..--]
+        [147] ∈ [--..--]
+   // matrix2.c:33 job
+[mt] jobs[3] writes 
+  matrix[3] ∈ [--..--]
+        [8] ∈ [--..--]
+        [13] ∈ [--..--]
+        [18] ∈ [--..--]
+        [23] ∈ [--..--]
+        [28] ∈ [--..--]
+        [33] ∈ [--..--]
+        [38] ∈ [--..--]
+        [43] ∈ [--..--]
+        [48] ∈ [--..--]
+        [53] ∈ [--..--]
+        [58] ∈ [--..--]
+        [63] ∈ [--..--]
+        [68] ∈ [--..--]
+        [73] ∈ [--..--]
+        [78] ∈ [--..--]
+        [83] ∈ [--..--]
+        [88] ∈ [--..--]
+        [93] ∈ [--..--]
+        [98] ∈ [--..--]
+        [103] ∈ [--..--]
+        [108] ∈ [--..--]
+        [113] ∈ [--..--]
+        [118] ∈ [--..--]
+        [123] ∈ [--..--]
+        [128] ∈ [--..--]
+        [133] ∈ [--..--]
+        [138] ∈ [--..--]
+        [143] ∈ [--..--]
+        [148] ∈ [--..--]
+   // matrix2.c:33 job
+[mt] jobs[4] writes 
+  matrix[4] ∈ [--..--]
+        [9] ∈ [--..--]
+        [14] ∈ [--..--]
+        [19] ∈ [--..--]
+        [24] ∈ [--..--]
+        [29] ∈ [--..--]
+        [34] ∈ [--..--]
+        [39] ∈ [--..--]
+        [44] ∈ [--..--]
+        [49] ∈ [--..--]
+        [54] ∈ [--..--]
+        [59] ∈ [--..--]
+        [64] ∈ [--..--]
+        [69] ∈ [--..--]
+        [74] ∈ [--..--]
+        [79] ∈ [--..--]
+        [84] ∈ [--..--]
+        [89] ∈ [--..--]
+        [94] ∈ [--..--]
+        [99] ∈ [--..--]
+        [104] ∈ [--..--]
+        [109] ∈ [--..--]
+        [114] ∈ [--..--]
+        [119] ∈ [--..--]
+        [124] ∈ [--..--]
+        [129] ∈ [--..--]
+        [134] ∈ [--..--]
+        [139] ∈ [--..--]
+        [144] ∈ [--..--]
+        [149] ∈ [--..--]
+   // matrix2.c:33 job
+[mt] Possible read/write data races:
+  matrix{[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54];
+         [59]; [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109];
+         [114]; [119]; [124]; [129]; [134]; [139]; [144]; [149]}:
+    read by <main> at matrix2.c:55, protected by locks[4]
+    read by jobs[4] at matrix2.c:33, protected by locks[4]
+    write by jobs[4] at matrix2.c:33, protected by locks[4]
+  matrix{[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53];
+         [58]; [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108];
+         [113]; [118]; [123]; [128]; [133]; [138]; [143]; [148]}:
+    read by <main> at matrix2.c:55, protected by locks[3]
+    read by jobs[3] at matrix2.c:33, protected by locks[3]
+    write by jobs[3] at matrix2.c:33, protected by locks[3]
+  matrix{[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52];
+         [57]; [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107];
+         [112]; [117]; [122]; [127]; [132]; [137]; [142]; [147]}:
+    read by <main> at matrix2.c:55, protected by locks[2]
+    read by jobs[2] at matrix2.c:33, protected by locks[2]
+    write by jobs[2] at matrix2.c:33, protected by locks[2]
+  matrix{[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51];
+         [56]; [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106];
+         [111]; [116]; [121]; [126]; [131]; [136]; [141]; [146]}:
+    read by <main> at matrix2.c:55, protected by locks[1]
+    read by jobs[1] at matrix2.c:33, protected by locks[1]
+    write by jobs[1] at matrix2.c:33, protected by locks[1]
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50];
+         [55]; [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105];
+         [110]; [115]; [120]; [125]; [130]; [135]; [140]; [145]}:
+    read by <main> at matrix2.c:55, protected by locks[0]
+    read by jobs[0] at matrix2.c:33, protected by locks[0]
+    write by jobs[0] at matrix2.c:33, protected by locks[0]
+[mt] Shared memory: matrix[0..149]
+[mt] Concurrent precise var accesses have changed: before
+    \nothing
+  vs.
+    matrix[0..149]
+[mt] Write summary for jobs[0] (updated):
+  matrix[0] ∈ [--..--]
+        [5] ∈ [--..--]
+        [10] ∈ [--..--]
+        [15] ∈ [--..--]
+        [20] ∈ [--..--]
+        [25] ∈ [--..--]
+        [30] ∈ [--..--]
+        [35] ∈ [--..--]
+        [40] ∈ [--..--]
+        [45] ∈ [--..--]
+        [50] ∈ [--..--]
+        [55] ∈ [--..--]
+        [60] ∈ [--..--]
+        [65] ∈ [--..--]
+        [70] ∈ [--..--]
+        [75] ∈ [--..--]
+        [80] ∈ [--..--]
+        [85] ∈ [--..--]
+        [90] ∈ [--..--]
+        [95] ∈ [--..--]
+        [100] ∈ [--..--]
+        [105] ∈ [--..--]
+        [110] ∈ [--..--]
+        [115] ∈ [--..--]
+        [120] ∈ [--..--]
+        [125] ∈ [--..--]
+        [130] ∈ [--..--]
+        [135] ∈ [--..--]
+        [140] ∈ [--..--]
+        [145] ∈ [--..--]
+[mt] Write summary for jobs[1] (updated):
+  matrix[1] ∈ [--..--]
+        [6] ∈ [--..--]
+        [11] ∈ [--..--]
+        [16] ∈ [--..--]
+        [21] ∈ [--..--]
+        [26] ∈ [--..--]
+        [31] ∈ [--..--]
+        [36] ∈ [--..--]
+        [41] ∈ [--..--]
+        [46] ∈ [--..--]
+        [51] ∈ [--..--]
+        [56] ∈ [--..--]
+        [61] ∈ [--..--]
+        [66] ∈ [--..--]
+        [71] ∈ [--..--]
+        [76] ∈ [--..--]
+        [81] ∈ [--..--]
+        [86] ∈ [--..--]
+        [91] ∈ [--..--]
+        [96] ∈ [--..--]
+        [101] ∈ [--..--]
+        [106] ∈ [--..--]
+        [111] ∈ [--..--]
+        [116] ∈ [--..--]
+        [121] ∈ [--..--]
+        [126] ∈ [--..--]
+        [131] ∈ [--..--]
+        [136] ∈ [--..--]
+        [141] ∈ [--..--]
+        [146] ∈ [--..--]
+[mt] Write summary for jobs[2] (updated):
+  matrix[2] ∈ [--..--]
+        [7] ∈ [--..--]
+        [12] ∈ [--..--]
+        [17] ∈ [--..--]
+        [22] ∈ [--..--]
+        [27] ∈ [--..--]
+        [32] ∈ [--..--]
+        [37] ∈ [--..--]
+        [42] ∈ [--..--]
+        [47] ∈ [--..--]
+        [52] ∈ [--..--]
+        [57] ∈ [--..--]
+        [62] ∈ [--..--]
+        [67] ∈ [--..--]
+        [72] ∈ [--..--]
+        [77] ∈ [--..--]
+        [82] ∈ [--..--]
+        [87] ∈ [--..--]
+        [92] ∈ [--..--]
+        [97] ∈ [--..--]
+        [102] ∈ [--..--]
+        [107] ∈ [--..--]
+        [112] ∈ [--..--]
+        [117] ∈ [--..--]
+        [122] ∈ [--..--]
+        [127] ∈ [--..--]
+        [132] ∈ [--..--]
+        [137] ∈ [--..--]
+        [142] ∈ [--..--]
+        [147] ∈ [--..--]
+[mt] Write summary for jobs[3] (updated):
+  matrix[3] ∈ [--..--]
+        [8] ∈ [--..--]
+        [13] ∈ [--..--]
+        [18] ∈ [--..--]
+        [23] ∈ [--..--]
+        [28] ∈ [--..--]
+        [33] ∈ [--..--]
+        [38] ∈ [--..--]
+        [43] ∈ [--..--]
+        [48] ∈ [--..--]
+        [53] ∈ [--..--]
+        [58] ∈ [--..--]
+        [63] ∈ [--..--]
+        [68] ∈ [--..--]
+        [73] ∈ [--..--]
+        [78] ∈ [--..--]
+        [83] ∈ [--..--]
+        [88] ∈ [--..--]
+        [93] ∈ [--..--]
+        [98] ∈ [--..--]
+        [103] ∈ [--..--]
+        [108] ∈ [--..--]
+        [113] ∈ [--..--]
+        [118] ∈ [--..--]
+        [123] ∈ [--..--]
+        [128] ∈ [--..--]
+        [133] ∈ [--..--]
+        [138] ∈ [--..--]
+        [143] ∈ [--..--]
+        [148] ∈ [--..--]
+[mt] Write summary for jobs[4] (updated):
+  matrix[4] ∈ [--..--]
+        [9] ∈ [--..--]
+        [14] ∈ [--..--]
+        [19] ∈ [--..--]
+        [24] ∈ [--..--]
+        [29] ∈ [--..--]
+        [34] ∈ [--..--]
+        [39] ∈ [--..--]
+        [44] ∈ [--..--]
+        [49] ∈ [--..--]
+        [54] ∈ [--..--]
+        [59] ∈ [--..--]
+        [64] ∈ [--..--]
+        [69] ∈ [--..--]
+        [74] ∈ [--..--]
+        [79] ∈ [--..--]
+        [84] ∈ [--..--]
+        [89] ∈ [--..--]
+        [94] ∈ [--..--]
+        [99] ∈ [--..--]
+        [104] ∈ [--..--]
+        [109] ∈ [--..--]
+        [114] ∈ [--..--]
+        [119] ∈ [--..--]
+        [124] ∈ [--..--]
+        [129] ∈ [--..--]
+        [134] ∈ [--..--]
+        [139] ∈ [--..--]
+        [144] ∈ [--..--]
+        [149] ∈ [--..--]
+[mt] Mutexes for concurrent accesses:
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50]; [55];
+         [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105]; [110];
+         [115]; [120]; [125]; [130]; [135]; [140]; [145]}
+         protected by locks[0]
+        {[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51]; [56];
+         [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106]; [111];
+         [116]; [121]; [126]; [131]; [136]; [141]; [146]}
+         protected by locks[1]
+        {[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52]; [57];
+         [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107]; [112];
+         [117]; [122]; [127]; [132]; [137]; [142]; [147]}
+         protected by locks[2]
+        {[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53]; [58];
+         [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108]; [113];
+         [118]; [123]; [128]; [133]; [138]; [143]; [148]}
+         protected by locks[3]
+        {[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54]; [59];
+         [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109]; [114];
+         [119]; [124]; [129]; [134]; [139]; [144]; [149]}
+         protected by locks[4]
+[mt] Detailed shared zones protections
+  matrix{[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54]; [59];
+         [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109]; [114];
+         [119]; [124]; [129]; [134]; [139]; [144]; [149]}:
+    Read by <main>, Write by jobs[4]: protected by locks[4]
+  matrix{[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53]; [58];
+         [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108]; [113];
+         [118]; [123]; [128]; [133]; [138]; [143]; [148]}:
+    Read by <main>, Write by jobs[3]: protected by locks[3]
+  matrix{[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52]; [57];
+         [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107]; [112];
+         [117]; [122]; [127]; [132]; [137]; [142]; [147]}:
+    Read by <main>, Write by jobs[2]: protected by locks[2]
+  matrix{[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51]; [56];
+         [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106]; [111];
+         [116]; [121]; [126]; [131]; [136]; [141]; [146]}:
+    Read by <main>, Write by jobs[1]: protected by locks[1]
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50]; [55];
+         [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105]; [110];
+         [115]; [120]; [125]; [130]; [135]; [140]; [145]}:
+    Read by <main>, Write by jobs[0]: protected by locks[0]
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 3
+[mt] *** Computing thread <main>, iteration 3 (shared vars values changed and
+    interferences changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[mt] matrix2.c:46: New context for jobs[1], fun job, parent <main>, args {1}
+[mt] matrix2.c:46: New context for jobs[2], fun job, parent <main>, args {2}
+[mt] matrix2.c:46: New context for jobs[3], fun job, parent <main>, args {3}
+[mt] matrix2.c:46: New context for jobs[4], fun job, parent <main>, args {4}
+[eva:interferences] matrix2.c:55: inject threads interferences at this point
+[eva:alarm] matrix2.c:55: Warning: 
+  signed overflow. assert -2147483648 ≤ sum + *pj_unfold_40;
+[eva:alarm] matrix2.c:55: Warning: 
+  signed overflow. assert sum + *pj_unfold_40 ≤ 2147483647;
+[eva:alarm] matrix2.c:55: Warning: 
+  signed overflow. assert -2147483648 ≤ sum + *pj_unfold_32;
+[eva:alarm] matrix2.c:55: Warning: 
+  signed overflow. assert sum + *pj_unfold_32 ≤ 2147483647;
+[eva:alarm] matrix2.c:55: Warning: 
+  signed overflow. assert -2147483648 ≤ sum + *pj_unfold_24;
+[eva:alarm] matrix2.c:55: Warning: 
+  signed overflow. assert sum + *pj_unfold_24 ≤ 2147483647;
+[eva:alarm] matrix2.c:55: Warning: 
+  signed overflow. assert -2147483648 ≤ sum + *pj_unfold_16;
+[eva:alarm] matrix2.c:55: Warning: 
+  signed overflow. assert sum + *pj_unfold_16 ≤ 2147483647;
+[eva:alarm] matrix2.c:55: Warning: 
+  signed overflow. assert -2147483648 ≤ sum + *pj_unfold_8;
+[eva:alarm] matrix2.c:55: Warning: 
+  signed overflow. assert sum + *pj_unfold_8 ≤ 2147483647;
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[0]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[1]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[2]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[3]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[4]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  jobs[0..4]:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: matrix2.c:46 <- main
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50]; [55];
+         [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105]; [110];
+         [115]; [120]; [125]; [130]; [135]; [140]; [145]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51]; [56];
+         [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106]; [111];
+         [116]; [121]; [126]; [131]; [136]; [141]; [146]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52]; [57];
+         [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107]; [112];
+         [117]; [122]; [127]; [132]; [137]; [142]; [147]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53]; [58];
+         [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108]; [113];
+         [118]; [123]; [128]; [133]; [138]; [143]; [148]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54]; [59];
+         [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109]; [114];
+         [119]; [124]; [129]; [134]; [139]; [144]; [149]}:
+    read by <main> at matrix2.c:55 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {matrix}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread jobs[0], iteration 3 (shared vars values changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs[0]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[0]:
+    read by jobs[0] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[0] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50]; [55];
+         [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105]; [110];
+         [115]; [120]; [125]; [130]; [135]; [140]; [145]}:
+    read by jobs[0] at matrix2.c:33 <- job
+    write by jobs[0] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[0]
+    concurrent writes:
+      matrix[j] = compute(j,matrix[j]); matrix2.c:33 <- job
+    shared bases: {matrix}
+    interferences by location:
+      matrix2.c:33:
+        # cvalue: matrix[0..149] ∈ [--..--] 
+    interferences by mutexes:
+      { locks[0] }:
+        # cvalue: matrix[0..149] ∈ [--..--]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[0] computed
+[mt] *** Computing thread jobs[1], iteration 3 (shared vars values changed, thread
+    initial memory state changed and interferences changed)
+[mt] * Computing value analysis for thread jobs[1]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[1]:
+    read by jobs[1] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[1] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51]; [56];
+         [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106]; [111];
+         [116]; [121]; [126]; [131]; [136]; [141]; [146]}:
+    read by jobs[1] at matrix2.c:33 <- job
+    write by jobs[1] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[1]
+    concurrent writes:
+      matrix[j] = compute(j,matrix[j]); matrix2.c:33 <- job
+    shared bases: {matrix}
+    interferences by location:
+      matrix2.c:33:
+        # cvalue: matrix[0..149] ∈ [--..--] 
+    interferences by mutexes:
+      { locks[1] }:
+        # cvalue: matrix[0..149] ∈ [--..--]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[1] computed
+[mt] *** Computing thread jobs[2], iteration 3 (shared vars values changed, thread
+    initial memory state changed and interferences changed)
+[mt] * Computing value analysis for thread jobs[2]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[2]:
+    read by jobs[2] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[2] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52]; [57];
+         [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107]; [112];
+         [117]; [122]; [127]; [132]; [137]; [142]; [147]}:
+    read by jobs[2] at matrix2.c:33 <- job
+    write by jobs[2] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[2]
+    concurrent writes:
+      matrix[j] = compute(j,matrix[j]); matrix2.c:33 <- job
+    shared bases: {matrix}
+    interferences by location:
+      matrix2.c:33:
+        # cvalue: matrix[0..149] ∈ [--..--] 
+    interferences by mutexes:
+      { locks[2] }:
+        # cvalue: matrix[0..149] ∈ [--..--]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[2] computed
+[mt] *** Computing thread jobs[3], iteration 3 (shared vars values changed, thread
+    initial memory state changed and interferences changed)
+[mt] * Computing value analysis for thread jobs[3]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[3]:
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53]; [58];
+         [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108]; [113];
+         [118]; [123]; [128]; [133]; [138]; [143]; [148]}:
+    read by jobs[3] at matrix2.c:33 <- job
+    write by jobs[3] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[3]
+    concurrent writes:
+      matrix[j] = compute(j,matrix[j]); matrix2.c:33 <- job
+    shared bases: {matrix}
+    interferences by location:
+      matrix2.c:33:
+        # cvalue: matrix[0..149] ∈ [--..--] 
+    interferences by mutexes:
+      { locks[3] }:
+        # cvalue: matrix[0..149] ∈ [--..--]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[3] computed
+[mt] *** Computing thread jobs[4], iteration 3 (shared vars values changed, thread
+    initial memory state changed and interferences changed)
+[mt] * Computing value analysis for thread jobs[4]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[4]:
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54]; [59];
+         [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109]; [114];
+         [119]; [124]; [129]; [134]; [139]; [144]; [149]}:
+    read by jobs[4] at matrix2.c:33 <- job
+    write by jobs[4] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[4]
+    concurrent writes:
+      matrix[j] = compute(j,matrix[j]); matrix2.c:33 <- job
+    shared bases: {matrix}
+    interferences by location:
+      matrix2.c:33:
+        # cvalue: matrix[0..149] ∈ [--..--] 
+    interferences by mutexes:
+      { locks[4] }:
+        # cvalue: matrix[0..149] ∈ [--..--]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[4] computed
+[mt] ***** Threads computed for iteration 3.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: matrix[0..149]
+[mt] <main> reads 
+  matrix[0] ∈ [--..--]
+        [5] ∈ [--..--]
+        [10] ∈ [--..--]
+        [15] ∈ [--..--]
+        [20] ∈ [--..--]
+        [25] ∈ [--..--]
+        [30] ∈ [--..--]
+        [35] ∈ [--..--]
+        [40] ∈ [--..--]
+        [45] ∈ [--..--]
+        [50] ∈ [--..--]
+        [55] ∈ [--..--]
+        [60] ∈ [--..--]
+        [65] ∈ [--..--]
+        [70] ∈ [--..--]
+        [75] ∈ [--..--]
+        [80] ∈ [--..--]
+        [85] ∈ [--..--]
+        [90] ∈ [--..--]
+        [95] ∈ [--..--]
+        [100] ∈ [--..--]
+        [105] ∈ [--..--]
+        [110] ∈ [--..--]
+        [115] ∈ [--..--]
+        [120] ∈ [--..--]
+        [125] ∈ [--..--]
+        [130] ∈ [--..--]
+        [135] ∈ [--..--]
+        [140] ∈ [--..--]
+        [145] ∈ [--..--]
+   // matrix2.c:55 main
+[mt] <main> reads 
+  matrix[1] ∈ [--..--]
+        [6] ∈ [--..--]
+        [11] ∈ [--..--]
+        [16] ∈ [--..--]
+        [21] ∈ [--..--]
+        [26] ∈ [--..--]
+        [31] ∈ [--..--]
+        [36] ∈ [--..--]
+        [41] ∈ [--..--]
+        [46] ∈ [--..--]
+        [51] ∈ [--..--]
+        [56] ∈ [--..--]
+        [61] ∈ [--..--]
+        [66] ∈ [--..--]
+        [71] ∈ [--..--]
+        [76] ∈ [--..--]
+        [81] ∈ [--..--]
+        [86] ∈ [--..--]
+        [91] ∈ [--..--]
+        [96] ∈ [--..--]
+        [101] ∈ [--..--]
+        [106] ∈ [--..--]
+        [111] ∈ [--..--]
+        [116] ∈ [--..--]
+        [121] ∈ [--..--]
+        [126] ∈ [--..--]
+        [131] ∈ [--..--]
+        [136] ∈ [--..--]
+        [141] ∈ [--..--]
+        [146] ∈ [--..--]
+   // matrix2.c:55 main
+[mt] <main> reads 
+  matrix[2] ∈ [--..--]
+        [7] ∈ [--..--]
+        [12] ∈ [--..--]
+        [17] ∈ [--..--]
+        [22] ∈ [--..--]
+        [27] ∈ [--..--]
+        [32] ∈ [--..--]
+        [37] ∈ [--..--]
+        [42] ∈ [--..--]
+        [47] ∈ [--..--]
+        [52] ∈ [--..--]
+        [57] ∈ [--..--]
+        [62] ∈ [--..--]
+        [67] ∈ [--..--]
+        [72] ∈ [--..--]
+        [77] ∈ [--..--]
+        [82] ∈ [--..--]
+        [87] ∈ [--..--]
+        [92] ∈ [--..--]
+        [97] ∈ [--..--]
+        [102] ∈ [--..--]
+        [107] ∈ [--..--]
+        [112] ∈ [--..--]
+        [117] ∈ [--..--]
+        [122] ∈ [--..--]
+        [127] ∈ [--..--]
+        [132] ∈ [--..--]
+        [137] ∈ [--..--]
+        [142] ∈ [--..--]
+        [147] ∈ [--..--]
+   // matrix2.c:55 main
+[mt] <main> reads 
+  matrix[3] ∈ [--..--]
+        [8] ∈ [--..--]
+        [13] ∈ [--..--]
+        [18] ∈ [--..--]
+        [23] ∈ [--..--]
+        [28] ∈ [--..--]
+        [33] ∈ [--..--]
+        [38] ∈ [--..--]
+        [43] ∈ [--..--]
+        [48] ∈ [--..--]
+        [53] ∈ [--..--]
+        [58] ∈ [--..--]
+        [63] ∈ [--..--]
+        [68] ∈ [--..--]
+        [73] ∈ [--..--]
+        [78] ∈ [--..--]
+        [83] ∈ [--..--]
+        [88] ∈ [--..--]
+        [93] ∈ [--..--]
+        [98] ∈ [--..--]
+        [103] ∈ [--..--]
+        [108] ∈ [--..--]
+        [113] ∈ [--..--]
+        [118] ∈ [--..--]
+        [123] ∈ [--..--]
+        [128] ∈ [--..--]
+        [133] ∈ [--..--]
+        [138] ∈ [--..--]
+        [143] ∈ [--..--]
+        [148] ∈ [--..--]
+   // matrix2.c:55 main
+[mt] <main> reads 
+  matrix[4] ∈ [--..--]
+        [9] ∈ [--..--]
+        [14] ∈ [--..--]
+        [19] ∈ [--..--]
+        [24] ∈ [--..--]
+        [29] ∈ [--..--]
+        [34] ∈ [--..--]
+        [39] ∈ [--..--]
+        [44] ∈ [--..--]
+        [49] ∈ [--..--]
+        [54] ∈ [--..--]
+        [59] ∈ [--..--]
+        [64] ∈ [--..--]
+        [69] ∈ [--..--]
+        [74] ∈ [--..--]
+        [79] ∈ [--..--]
+        [84] ∈ [--..--]
+        [89] ∈ [--..--]
+        [94] ∈ [--..--]
+        [99] ∈ [--..--]
+        [104] ∈ [--..--]
+        [109] ∈ [--..--]
+        [114] ∈ [--..--]
+        [119] ∈ [--..--]
+        [124] ∈ [--..--]
+        [129] ∈ [--..--]
+        [134] ∈ [--..--]
+        [139] ∈ [--..--]
+        [144] ∈ [--..--]
+        [149] ∈ [--..--]
+   // matrix2.c:55 main
+[mt] Possible read/write data races:
+  matrix{[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54];
+         [59]; [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109];
+         [114]; [119]; [124]; [129]; [134]; [139]; [144]; [149]}:
+    read by <main> at matrix2.c:55, protected by locks[4]
+    read by jobs[4] at matrix2.c:33, protected by locks[4]
+    write by jobs[4] at matrix2.c:33, protected by locks[4]
+  matrix{[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53];
+         [58]; [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108];
+         [113]; [118]; [123]; [128]; [133]; [138]; [143]; [148]}:
+    read by <main> at matrix2.c:55, protected by locks[3]
+    read by jobs[3] at matrix2.c:33, protected by locks[3]
+    write by jobs[3] at matrix2.c:33, protected by locks[3]
+  matrix{[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52];
+         [57]; [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107];
+         [112]; [117]; [122]; [127]; [132]; [137]; [142]; [147]}:
+    read by <main> at matrix2.c:55, protected by locks[2]
+    read by jobs[2] at matrix2.c:33, protected by locks[2]
+    write by jobs[2] at matrix2.c:33, protected by locks[2]
+  matrix{[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51];
+         [56]; [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106];
+         [111]; [116]; [121]; [126]; [131]; [136]; [141]; [146]}:
+    read by <main> at matrix2.c:55, protected by locks[1]
+    read by jobs[1] at matrix2.c:33, protected by locks[1]
+    write by jobs[1] at matrix2.c:33, protected by locks[1]
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50];
+         [55]; [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105];
+         [110]; [115]; [120]; [125]; [130]; [135]; [140]; [145]}:
+    read by <main> at matrix2.c:55, protected by locks[0]
+    read by jobs[0] at matrix2.c:33, protected by locks[0]
+    write by jobs[0] at matrix2.c:33, protected by locks[0]
+[mt] Shared memory: matrix[0..149]
+[mt] Write summary for jobs[0]:
+  matrix[0] ∈ [--..--]
+        [5] ∈ [--..--]
+        [10] ∈ [--..--]
+        [15] ∈ [--..--]
+        [20] ∈ [--..--]
+        [25] ∈ [--..--]
+        [30] ∈ [--..--]
+        [35] ∈ [--..--]
+        [40] ∈ [--..--]
+        [45] ∈ [--..--]
+        [50] ∈ [--..--]
+        [55] ∈ [--..--]
+        [60] ∈ [--..--]
+        [65] ∈ [--..--]
+        [70] ∈ [--..--]
+        [75] ∈ [--..--]
+        [80] ∈ [--..--]
+        [85] ∈ [--..--]
+        [90] ∈ [--..--]
+        [95] ∈ [--..--]
+        [100] ∈ [--..--]
+        [105] ∈ [--..--]
+        [110] ∈ [--..--]
+        [115] ∈ [--..--]
+        [120] ∈ [--..--]
+        [125] ∈ [--..--]
+        [130] ∈ [--..--]
+        [135] ∈ [--..--]
+        [140] ∈ [--..--]
+        [145] ∈ [--..--]
+[mt] Write summary for jobs[1]:
+  matrix[1] ∈ [--..--]
+        [6] ∈ [--..--]
+        [11] ∈ [--..--]
+        [16] ∈ [--..--]
+        [21] ∈ [--..--]
+        [26] ∈ [--..--]
+        [31] ∈ [--..--]
+        [36] ∈ [--..--]
+        [41] ∈ [--..--]
+        [46] ∈ [--..--]
+        [51] ∈ [--..--]
+        [56] ∈ [--..--]
+        [61] ∈ [--..--]
+        [66] ∈ [--..--]
+        [71] ∈ [--..--]
+        [76] ∈ [--..--]
+        [81] ∈ [--..--]
+        [86] ∈ [--..--]
+        [91] ∈ [--..--]
+        [96] ∈ [--..--]
+        [101] ∈ [--..--]
+        [106] ∈ [--..--]
+        [111] ∈ [--..--]
+        [116] ∈ [--..--]
+        [121] ∈ [--..--]
+        [126] ∈ [--..--]
+        [131] ∈ [--..--]
+        [136] ∈ [--..--]
+        [141] ∈ [--..--]
+        [146] ∈ [--..--]
+[mt] Write summary for jobs[2]:
+  matrix[2] ∈ [--..--]
+        [7] ∈ [--..--]
+        [12] ∈ [--..--]
+        [17] ∈ [--..--]
+        [22] ∈ [--..--]
+        [27] ∈ [--..--]
+        [32] ∈ [--..--]
+        [37] ∈ [--..--]
+        [42] ∈ [--..--]
+        [47] ∈ [--..--]
+        [52] ∈ [--..--]
+        [57] ∈ [--..--]
+        [62] ∈ [--..--]
+        [67] ∈ [--..--]
+        [72] ∈ [--..--]
+        [77] ∈ [--..--]
+        [82] ∈ [--..--]
+        [87] ∈ [--..--]
+        [92] ∈ [--..--]
+        [97] ∈ [--..--]
+        [102] ∈ [--..--]
+        [107] ∈ [--..--]
+        [112] ∈ [--..--]
+        [117] ∈ [--..--]
+        [122] ∈ [--..--]
+        [127] ∈ [--..--]
+        [132] ∈ [--..--]
+        [137] ∈ [--..--]
+        [142] ∈ [--..--]
+        [147] ∈ [--..--]
+[mt] Write summary for jobs[3]:
+  matrix[3] ∈ [--..--]
+        [8] ∈ [--..--]
+        [13] ∈ [--..--]
+        [18] ∈ [--..--]
+        [23] ∈ [--..--]
+        [28] ∈ [--..--]
+        [33] ∈ [--..--]
+        [38] ∈ [--..--]
+        [43] ∈ [--..--]
+        [48] ∈ [--..--]
+        [53] ∈ [--..--]
+        [58] ∈ [--..--]
+        [63] ∈ [--..--]
+        [68] ∈ [--..--]
+        [73] ∈ [--..--]
+        [78] ∈ [--..--]
+        [83] ∈ [--..--]
+        [88] ∈ [--..--]
+        [93] ∈ [--..--]
+        [98] ∈ [--..--]
+        [103] ∈ [--..--]
+        [108] ∈ [--..--]
+        [113] ∈ [--..--]
+        [118] ∈ [--..--]
+        [123] ∈ [--..--]
+        [128] ∈ [--..--]
+        [133] ∈ [--..--]
+        [138] ∈ [--..--]
+        [143] ∈ [--..--]
+        [148] ∈ [--..--]
+[mt] Write summary for jobs[4]:
+  matrix[4] ∈ [--..--]
+        [9] ∈ [--..--]
+        [14] ∈ [--..--]
+        [19] ∈ [--..--]
+        [24] ∈ [--..--]
+        [29] ∈ [--..--]
+        [34] ∈ [--..--]
+        [39] ∈ [--..--]
+        [44] ∈ [--..--]
+        [49] ∈ [--..--]
+        [54] ∈ [--..--]
+        [59] ∈ [--..--]
+        [64] ∈ [--..--]
+        [69] ∈ [--..--]
+        [74] ∈ [--..--]
+        [79] ∈ [--..--]
+        [84] ∈ [--..--]
+        [89] ∈ [--..--]
+        [94] ∈ [--..--]
+        [99] ∈ [--..--]
+        [104] ∈ [--..--]
+        [109] ∈ [--..--]
+        [114] ∈ [--..--]
+        [119] ∈ [--..--]
+        [124] ∈ [--..--]
+        [129] ∈ [--..--]
+        [134] ∈ [--..--]
+        [139] ∈ [--..--]
+        [144] ∈ [--..--]
+        [149] ∈ [--..--]
+[mt] Mutexes for concurrent accesses:
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50]; [55];
+         [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105]; [110];
+         [115]; [120]; [125]; [130]; [135]; [140]; [145]}
+         protected by locks[0]
+        {[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51]; [56];
+         [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106]; [111];
+         [116]; [121]; [126]; [131]; [136]; [141]; [146]}
+         protected by locks[1]
+        {[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52]; [57];
+         [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107]; [112];
+         [117]; [122]; [127]; [132]; [137]; [142]; [147]}
+         protected by locks[2]
+        {[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53]; [58];
+         [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108]; [113];
+         [118]; [123]; [128]; [133]; [138]; [143]; [148]}
+         protected by locks[3]
+        {[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54]; [59];
+         [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109]; [114];
+         [119]; [124]; [129]; [134]; [139]; [144]; [149]}
+         protected by locks[4]
+[mt] Detailed shared zones protections
+  matrix{[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54]; [59];
+         [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109]; [114];
+         [119]; [124]; [129]; [134]; [139]; [144]; [149]}:
+    Read by <main>, Write by jobs[4]: protected by locks[4]
+  matrix{[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53]; [58];
+         [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108]; [113];
+         [118]; [123]; [128]; [133]; [138]; [143]; [148]}:
+    Read by <main>, Write by jobs[3]: protected by locks[3]
+  matrix{[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52]; [57];
+         [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107]; [112];
+         [117]; [122]; [127]; [132]; [137]; [142]; [147]}:
+    Read by <main>, Write by jobs[2]: protected by locks[2]
+  matrix{[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51]; [56];
+         [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106]; [111];
+         [116]; [121]; [126]; [131]; [136]; [141]; [146]}:
+    Read by <main>, Write by jobs[1]: protected by locks[1]
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50]; [55];
+         [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105]; [110];
+         [115]; [120]; [125]; [130]; [135]; [140]; [145]}:
+    Read by <main>, Write by jobs[0]: protected by locks[0]
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 4
+[mt] *** Computing thread <main>, iteration 4 (interferences changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[0]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[1]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[2]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[3]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  locks[4]:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:52 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:58 <- main
+  jobs[0..4]:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: matrix2.c:46 <- main
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50]; [55];
+         [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105]; [110];
+         [115]; [120]; [125]; [130]; [135]; [140]; [145]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51]; [56];
+         [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106]; [111];
+         [116]; [121]; [126]; [131]; [136]; [141]; [146]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52]; [57];
+         [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107]; [112];
+         [117]; [122]; [127]; [132]; [137]; [142]; [147]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53]; [58];
+         [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108]; [113];
+         [118]; [123]; [128]; [133]; [138]; [143]; [148]}:
+    read by <main> at matrix2.c:55 <- main
+  matrix{[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54]; [59];
+         [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109]; [114];
+         [119]; [124]; [129]; [134]; [139]; [144]; [149]}:
+    read by <main> at matrix2.c:55 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {matrix}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread jobs[0], iteration 4 (interferences changed)
+[mt] * Computing value analysis for thread jobs[0]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[0]:
+    read by jobs[0] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[0] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50]; [55];
+         [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105]; [110];
+         [115]; [120]; [125]; [130]; [135]; [140]; [145]}:
+    read by jobs[0] at matrix2.c:33 <- job
+    write by jobs[0] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[0]
+    concurrent writes:
+      matrix[j] = compute(j,matrix[j]); matrix2.c:33 <- job
+    shared bases: {matrix}
+    interferences by location:
+      matrix2.c:33:
+        # cvalue: matrix[0..149] ∈ [--..--] 
+    interferences by mutexes:
+      { locks[0] }:
+        # cvalue: matrix[0..149] ∈ [--..--]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[0] computed
+[mt] *** Computing thread jobs[1], iteration 4 (interferences changed)
+[mt] * Computing value analysis for thread jobs[1]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[1]:
+    read by jobs[1] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[1] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51]; [56];
+         [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106]; [111];
+         [116]; [121]; [126]; [131]; [136]; [141]; [146]}:
+    read by jobs[1] at matrix2.c:33 <- job
+    write by jobs[1] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[1]
+    concurrent writes:
+      matrix[j] = compute(j,matrix[j]); matrix2.c:33 <- job
+    shared bases: {matrix}
+    interferences by location:
+      matrix2.c:33:
+        # cvalue: matrix[0..149] ∈ [--..--] 
+    interferences by mutexes:
+      { locks[1] }:
+        # cvalue: matrix[0..149] ∈ [--..--]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[1] computed
+[mt] *** Computing thread jobs[2], iteration 4 (interferences changed)
+[mt] * Computing value analysis for thread jobs[2]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[2]:
+    read by jobs[2] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: matrix2.c:31 <- job
+    read by jobs[2] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: matrix2.c:34 <- job
+  matrix{[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52]; [57];
+         [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107]; [112];
+         [117]; [122]; [127]; [132]; [137]; [142]; [147]}:
+    read by jobs[2] at matrix2.c:33 <- job
+    write by jobs[2] at matrix2.c:33 <- job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[2]
+    concurrent writes:
+      matrix[j] = compute(j,matrix[j]); matrix2.c:33 <- job
+    shared bases: {matrix}
+    interferences by location:
+      matrix2.c:33:
+        # cvalue: matrix[0..149] ∈ [--..--] 
+    interferences by mutexes:
+      { locks[2] }:
+        # cvalue: matrix[0..149] ∈ [--..--]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[2] computed
+[mt] ***** Threads computed for iteration 4.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: matrix[0..149]
+[mt] Possible read/write data races:
+  matrix{[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54];
+         [59]; [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109];
+         [114]; [119]; [124]; [129]; [134]; [139]; [144]; [149]}:
+    read by jobs[4] at matrix2.c:33, protected by locks[4]
+    read by <main> at matrix2.c:55, protected by locks[4]
+    write by jobs[4] at matrix2.c:33, protected by locks[4]
+  matrix{[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53];
+         [58]; [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108];
+         [113]; [118]; [123]; [128]; [133]; [138]; [143]; [148]}:
+    read by jobs[3] at matrix2.c:33, protected by locks[3]
+    read by <main> at matrix2.c:55, protected by locks[3]
+    write by jobs[3] at matrix2.c:33, protected by locks[3]
+  matrix{[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52];
+         [57]; [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107];
+         [112]; [117]; [122]; [127]; [132]; [137]; [142]; [147]}:
+    read by <main> at matrix2.c:55, protected by locks[2]
+    read by jobs[2] at matrix2.c:33, protected by locks[2]
+    write by jobs[2] at matrix2.c:33, protected by locks[2]
+  matrix{[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51];
+         [56]; [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106];
+         [111]; [116]; [121]; [126]; [131]; [136]; [141]; [146]}:
+    read by <main> at matrix2.c:55, protected by locks[1]
+    read by jobs[1] at matrix2.c:33, protected by locks[1]
+    write by jobs[1] at matrix2.c:33, protected by locks[1]
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50];
+         [55]; [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105];
+         [110]; [115]; [120]; [125]; [130]; [135]; [140]; [145]}:
+    read by <main> at matrix2.c:55, protected by locks[0]
+    read by jobs[0] at matrix2.c:33, protected by locks[0]
+    write by jobs[0] at matrix2.c:33, protected by locks[0]
+[mt] Shared memory: matrix[0..149]
+[mt] Write summary for jobs[0]:
+  matrix[0] ∈ [--..--]
+        [5] ∈ [--..--]
+        [10] ∈ [--..--]
+        [15] ∈ [--..--]
+        [20] ∈ [--..--]
+        [25] ∈ [--..--]
+        [30] ∈ [--..--]
+        [35] ∈ [--..--]
+        [40] ∈ [--..--]
+        [45] ∈ [--..--]
+        [50] ∈ [--..--]
+        [55] ∈ [--..--]
+        [60] ∈ [--..--]
+        [65] ∈ [--..--]
+        [70] ∈ [--..--]
+        [75] ∈ [--..--]
+        [80] ∈ [--..--]
+        [85] ∈ [--..--]
+        [90] ∈ [--..--]
+        [95] ∈ [--..--]
+        [100] ∈ [--..--]
+        [105] ∈ [--..--]
+        [110] ∈ [--..--]
+        [115] ∈ [--..--]
+        [120] ∈ [--..--]
+        [125] ∈ [--..--]
+        [130] ∈ [--..--]
+        [135] ∈ [--..--]
+        [140] ∈ [--..--]
+        [145] ∈ [--..--]
+[mt] Write summary for jobs[1]:
+  matrix[1] ∈ [--..--]
+        [6] ∈ [--..--]
+        [11] ∈ [--..--]
+        [16] ∈ [--..--]
+        [21] ∈ [--..--]
+        [26] ∈ [--..--]
+        [31] ∈ [--..--]
+        [36] ∈ [--..--]
+        [41] ∈ [--..--]
+        [46] ∈ [--..--]
+        [51] ∈ [--..--]
+        [56] ∈ [--..--]
+        [61] ∈ [--..--]
+        [66] ∈ [--..--]
+        [71] ∈ [--..--]
+        [76] ∈ [--..--]
+        [81] ∈ [--..--]
+        [86] ∈ [--..--]
+        [91] ∈ [--..--]
+        [96] ∈ [--..--]
+        [101] ∈ [--..--]
+        [106] ∈ [--..--]
+        [111] ∈ [--..--]
+        [116] ∈ [--..--]
+        [121] ∈ [--..--]
+        [126] ∈ [--..--]
+        [131] ∈ [--..--]
+        [136] ∈ [--..--]
+        [141] ∈ [--..--]
+        [146] ∈ [--..--]
+[mt] Write summary for jobs[2]:
+  matrix[2] ∈ [--..--]
+        [7] ∈ [--..--]
+        [12] ∈ [--..--]
+        [17] ∈ [--..--]
+        [22] ∈ [--..--]
+        [27] ∈ [--..--]
+        [32] ∈ [--..--]
+        [37] ∈ [--..--]
+        [42] ∈ [--..--]
+        [47] ∈ [--..--]
+        [52] ∈ [--..--]
+        [57] ∈ [--..--]
+        [62] ∈ [--..--]
+        [67] ∈ [--..--]
+        [72] ∈ [--..--]
+        [77] ∈ [--..--]
+        [82] ∈ [--..--]
+        [87] ∈ [--..--]
+        [92] ∈ [--..--]
+        [97] ∈ [--..--]
+        [102] ∈ [--..--]
+        [107] ∈ [--..--]
+        [112] ∈ [--..--]
+        [117] ∈ [--..--]
+        [122] ∈ [--..--]
+        [127] ∈ [--..--]
+        [132] ∈ [--..--]
+        [137] ∈ [--..--]
+        [142] ∈ [--..--]
+        [147] ∈ [--..--]
+[mt] Write summary for jobs[3]:
+  matrix[3] ∈ [--..--]
+        [8] ∈ [--..--]
+        [13] ∈ [--..--]
+        [18] ∈ [--..--]
+        [23] ∈ [--..--]
+        [28] ∈ [--..--]
+        [33] ∈ [--..--]
+        [38] ∈ [--..--]
+        [43] ∈ [--..--]
+        [48] ∈ [--..--]
+        [53] ∈ [--..--]
+        [58] ∈ [--..--]
+        [63] ∈ [--..--]
+        [68] ∈ [--..--]
+        [73] ∈ [--..--]
+        [78] ∈ [--..--]
+        [83] ∈ [--..--]
+        [88] ∈ [--..--]
+        [93] ∈ [--..--]
+        [98] ∈ [--..--]
+        [103] ∈ [--..--]
+        [108] ∈ [--..--]
+        [113] ∈ [--..--]
+        [118] ∈ [--..--]
+        [123] ∈ [--..--]
+        [128] ∈ [--..--]
+        [133] ∈ [--..--]
+        [138] ∈ [--..--]
+        [143] ∈ [--..--]
+        [148] ∈ [--..--]
+[mt] Write summary for jobs[4]:
+  matrix[4] ∈ [--..--]
+        [9] ∈ [--..--]
+        [14] ∈ [--..--]
+        [19] ∈ [--..--]
+        [24] ∈ [--..--]
+        [29] ∈ [--..--]
+        [34] ∈ [--..--]
+        [39] ∈ [--..--]
+        [44] ∈ [--..--]
+        [49] ∈ [--..--]
+        [54] ∈ [--..--]
+        [59] ∈ [--..--]
+        [64] ∈ [--..--]
+        [69] ∈ [--..--]
+        [74] ∈ [--..--]
+        [79] ∈ [--..--]
+        [84] ∈ [--..--]
+        [89] ∈ [--..--]
+        [94] ∈ [--..--]
+        [99] ∈ [--..--]
+        [104] ∈ [--..--]
+        [109] ∈ [--..--]
+        [114] ∈ [--..--]
+        [119] ∈ [--..--]
+        [124] ∈ [--..--]
+        [129] ∈ [--..--]
+        [134] ∈ [--..--]
+        [139] ∈ [--..--]
+        [144] ∈ [--..--]
+        [149] ∈ [--..--]
+[mt] Mutexes for concurrent accesses:
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50]; [55];
+         [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105]; [110];
+         [115]; [120]; [125]; [130]; [135]; [140]; [145]}
+         protected by locks[0]
+        {[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51]; [56];
+         [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106]; [111];
+         [116]; [121]; [126]; [131]; [136]; [141]; [146]}
+         protected by locks[1]
+        {[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52]; [57];
+         [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107]; [112];
+         [117]; [122]; [127]; [132]; [137]; [142]; [147]}
+         protected by locks[2]
+        {[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53]; [58];
+         [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108]; [113];
+         [118]; [123]; [128]; [133]; [138]; [143]; [148]}
+         protected by locks[3]
+        {[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54]; [59];
+         [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109]; [114];
+         [119]; [124]; [129]; [134]; [139]; [144]; [149]}
+         protected by locks[4]
+[mt] Detailed shared zones protections
+  matrix{[4]; [9]; [14]; [19]; [24]; [29]; [34]; [39]; [44]; [49]; [54]; [59];
+         [64]; [69]; [74]; [79]; [84]; [89]; [94]; [99]; [104]; [109]; [114];
+         [119]; [124]; [129]; [134]; [139]; [144]; [149]}:
+    Read by <main>, Write by jobs[4]: protected by locks[4]
+  matrix{[3]; [8]; [13]; [18]; [23]; [28]; [33]; [38]; [43]; [48]; [53]; [58];
+         [63]; [68]; [73]; [78]; [83]; [88]; [93]; [98]; [103]; [108]; [113];
+         [118]; [123]; [128]; [133]; [138]; [143]; [148]}:
+    Read by <main>, Write by jobs[3]: protected by locks[3]
+  matrix{[2]; [7]; [12]; [17]; [22]; [27]; [32]; [37]; [42]; [47]; [52]; [57];
+         [62]; [67]; [72]; [77]; [82]; [87]; [92]; [97]; [102]; [107]; [112];
+         [117]; [122]; [127]; [132]; [137]; [142]; [147]}:
+    Read by <main>, Write by jobs[2]: protected by locks[2]
+  matrix{[1]; [6]; [11]; [16]; [21]; [26]; [31]; [36]; [41]; [46]; [51]; [56];
+         [61]; [66]; [71]; [76]; [81]; [86]; [91]; [96]; [101]; [106]; [111];
+         [116]; [121]; [126]; [131]; [136]; [141]; [146]}:
+    Read by <main>, Write by jobs[1]: protected by locks[1]
+  matrix{[0]; [5]; [10]; [15]; [20]; [25]; [30]; [35]; [40]; [45]; [50]; [55];
+         [60]; [65]; [70]; [75]; [80]; [85]; [90]; [95]; [100]; [105]; [110];
+         [115]; [120]; [125]; [130]; [135]; [140]; [145]}:
+    Read by <main>, Write by jobs[0]: protected by locks[0]
+[mt] ***** Shared variables computed
+[mt] ******* Analysis performed, 4 iterations

@@ -1,0 +1,18 @@
+11a12,28
+> [eva:partition] widening_points.i:14: starting to merge loop iterations
+> [eva:show] widening_points.i:15: Frama_C_show_each: {4}
+> [eva:show] widening_points.i:15: Frama_C_show_each: {3}
+> [eva:show] widening_points.i:15: Frama_C_show_each: {2}
+> [eva:show] widening_points.i:15: Frama_C_show_each: {1}
+> [eva:show] widening_points.i:15: Frama_C_show_each: {0}
+> [eva:show] widening_points.i:15: Frama_C_show_each: {4}
+> [eva:show] widening_points.i:15: Frama_C_show_each: {3}
+> [eva:show] widening_points.i:15: Frama_C_show_each: {2}
+> [eva:show] widening_points.i:15: Frama_C_show_each: {1}
+> [eva:show] widening_points.i:15: Frama_C_show_each: {0}
+> [eva:widening] widening_points.i:12: applying a widening at this point
+> [eva:show] widening_points.i:15: Frama_C_show_each: {4}
+> [eva:show] widening_points.i:15: Frama_C_show_each: {3}
+> [eva:show] widening_points.i:15: Frama_C_show_each: {2}
+> [eva:show] widening_points.i:15: Frama_C_show_each: {1}
+> [eva:show] widening_points.i:15: Frama_C_show_each: {0}

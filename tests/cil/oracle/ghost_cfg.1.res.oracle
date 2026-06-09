@@ -1,0 +1,6 @@
+[kernel] Parsing ghost_cfg.c (with preprocessing)
+[kernel] ghost_cfg.c:154: User Error: 
+  'goto X;' would jump from normal statement to ghost code
+[kernel] Deferred error message was emitted during execution:
+  ghost_cfg.c:154: 'goto X;' would jump from normal statement to ghost code
+[kernel] Frama-C aborted: invalid user input.

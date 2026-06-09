@@ -1,0 +1,8 @@
+(executable
+  (name "log_truncation")
+  (modules "log_truncation")
+  (modes plugin)
+  (libraries frama-c.init frama-c.kernel)
+  (flags -open Frama_c_kernel :standard)
+  (promote (until-clean))
+)

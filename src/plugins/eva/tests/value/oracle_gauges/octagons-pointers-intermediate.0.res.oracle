@@ -1,0 +1,9 @@
+27a28,35
+> [eva:partition] octagons-pointers-intermediate.c:42: 
+>   starting to merge loop iterations
+> [eva:progress] octagons-pointers-intermediate.c:45: 
+>   Reusing old results for call to cmdRead
+> [eva:progress] octagons-pointers-intermediate.c:45: 
+>   Reusing old results for call to cmdRead
+> [eva:progress] octagons-pointers-intermediate.c:45: 
+>   Reusing old results for call to cmdRead

@@ -1,0 +1,22 @@
+# frama-c -wp -wp-model 'Region' [...]
+[kernel] Parsing affectations.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal f_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal f_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 6 goals scheduled
+[wp] [Valid] region_f_assigns_part1 (Qed)
+[wp] [Valid] region_f_assigns_part2 (Qed)
+[wp] [Valid] region_f_EQ_ensures_P (Qed)
+[wp] [Valid] region_f_EQ_ensures_Q (Qed)
+[wp] [Valid] region_f_SEP_ensures_Q (Alt-Ergo) (Cached)
+[wp] [Valid] region_f_SEP_ensures_Q_2 (Alt-Ergo) (Cached)
+[wp] Proved goals:    8 / 8
+  Terminating:     1
+  Unreachable:     1
+  Qed:             4
+  Alt-Ergo:        2
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  f                         6        2        8       100%
+------------------------------------------------------------

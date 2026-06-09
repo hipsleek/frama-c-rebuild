@@ -1,0 +1,6 @@
+[kernel] Parsing array_size.c (with preprocessing)
+[kernel] array_size.c:38: User Error: 
+  "Variable length array in structure" extension is not supported
+[kernel] User Error: stopping on file "array_size.c" that has errors. Add '-kernel-msg-key pp'
+  for preprocessing command.
+[kernel] Frama-C aborted: invalid user input.

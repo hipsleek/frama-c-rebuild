@@ -1,0 +1,36 @@
+# frama-c -wp -wp-model 'Typed (Ref)' [...]
+[kernel] Parsing reference_array_simple.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] reference_array_simple.i:12: Warning: 
+  Neither code nor explicit exits and terminates for function f1, generating
+  default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] reference_array_simple.i:23: Warning: 
+  Neither code nor explicit exits and terminates for function f2, generating
+  default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] reference_array_simple.i:34: Warning: 
+  Neither code nor explicit exits and terminates for function f3, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] 9 goals scheduled
+[wp] [Valid] typed_ref_call_f1_terminates (Qed)
+[wp] [Valid] typed_ref_call_f1_ensures (Qed)
+[wp] [Valid] typed_ref_call_f1_exits (Qed)
+[wp] [Valid] typed_ref_call_f2_terminates (Qed)
+[wp] [Valid] typed_ref_call_f2_ensures (Qed)
+[wp] [Valid] typed_ref_call_f2_exits (Qed)
+[wp] [Valid] typed_ref_call_f3_terminates (Qed)
+[wp] [Valid] typed_ref_call_f3_ensures (Qed)
+[wp] [Valid] typed_ref_call_f3_exits (Qed)
+[wp] Proved goals:    9 / 9
+  Qed:             9
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  call_f1                   3        -        3       100%
+  call_f2                   3        -        3       100%
+  call_f3                   3        -        3       100%
+------------------------------------------------------------
+[wp] reference_array_simple.i:40: Warning: 
+  Memory model hypotheses for function 'call_f3':
+  /*@ behavior wp_typed_ref:
+        ensures \separated(\result, &(tp[0]) + (..)); */
+  int *call_f3(void);

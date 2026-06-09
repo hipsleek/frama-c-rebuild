@@ -1,0 +1,121 @@
+#
+# Gallery of examples for ACSL importer plug-in
+#
+
+# ----- line of comments
+
+# <module_specification>
+module a2fc_examples:
+
+# 1 <global_specification>
+
+# 1.1 <include_directive>
+include "includes/file2.acsl" ;
+
+# 1.2 <macro_directive>
+let FALSE = \false;
+global let ZERO = 0;
+
+# 1.3 <acsl_logical_axiomatic>
+axiomatic Boolean {
+  predicate False = FALSE;
+}
+
+# 1.4 <acsl_logical_type>
+
+# 1.5 <acsl_logical_predicate>
+predicate True = \true || False;
+
+# 1.6 <acsl_logical_function>
+logic integer max(integer a,integer b) = (a<b) ? a : b;
+
+# 1.7 <acsl_volatile_clause>
+volatile z reads rd_z;
+
+# 2 <fun_specification>
+
+# 2.1 <funspec_spec>
+function exit:
+  contract:
+    assigns \nothing;
+    exits   \exit_status == val;
+    ensures \false;
+
+# 2.1.1 <macro directive>
+function may_exit:
+  let EXIT_STATUS = \exit_status == val;
+  global let x_LE_ZERO = x >= ZERO;
+  contract:
+    assigns \nothing;
+    behavior no_exit:
+      assumes cond;
+      exits   False;
+    behavior no_return:
+      assumes !cond;
+      exits  EXIT_STATUS;
+      ensures \false;
+    disjoint behaviors;
+    complete behaviors;
+
+function extended_Euclid:
+  contract:
+    requires x_LE_ZERO && y >= ZERO;
+    behavior bezoutProperty:
+      ensures (*p)*x+(*q)*y == \result;
+
+# 2.2 <stmt_spec>
+
+# 2.2.1 <acsl_loop_annotation>
+  at loop 1: loop assigns x,y,a,b,c,d ;
+  at loop 1: loop invariant x >= 0 && y >= 0 ;
+  at loop 1:
+      for bezoutProperty: loop invariant
+        a*\at(x,Pre)+b*\at(y,Pre) == x &&
+        c*\at(x,Pre)+d*\at(y,Pre) == y ;
+  at loop 1: loop variant y;
+
+# 2.2.3 <acsl_stmt_spec> and <label_name>
+
+function abrupt_termination:
+  at body:
+    contract:
+      breaks x % 11 == 0 && x == \old(x);
+      continues (x+1) % 11 != 0 && x % 7 == 0 && x == \old(x)-1;
+      returns (\result+2) % 11 != 0 && (\result+1) % 7 != 0
+              && \result % 5 == 0 && \result == \old(x)-2;
+      ensures (x+3) % 11 != 0 && (x+2) % 7 != 0 && (x+1) % 5 != 0
+              && x == \old(x)-3;
+      exits \false;
+
+# 2.2.4 <acsl_code_annotation> and implicit <label_name>
+function may_exit:
+  at return: assert 0==\at(cond,Pre);
+
+# <acsl_stmt_spec> and <call_id>
+function asm_call:
+  at asm 1:
+    contract:
+      assigns five_times;
+      ensures five_times == (int)(5 * x);
+
+# <call_stmt_spec> and <call_id>
+function indirect_call:
+  at indirect_call:
+    contract:
+      requires X >= 0;
+      assigns X;
+  at indirect_call 2:
+    contract:
+      assigns x;
+  at indirect_call 3	:
+    contract:
+      ensures X <= 0;
+  at call 1:
+    contract:
+      ensures x >= 0;
+  at call asm_call:
+    contract:
+      assigns \nothing;
+  at call asm_call 2:
+    contract:
+      ensures X >= 0;

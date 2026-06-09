@@ -1,0 +1,32 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing annot10.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  a ∈ [--..--]
+  b ∈ [--..--]
+  c ∈ [--..--]
+  d ∈ [--..--]
+[eva:partition] annot10.c:17: starting to merge loop iterations
+[eva:secure-flow:condition] annot10.c:21: Warning: 
+  non-interference violation on condition involving {d}
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  x ∈ {1; 2; 3}
+  y ∈ {0; 1; 2}
+  z ∈ {0; 1; 2}
+  __retres ∈ {1; 2; 3; 4; 5; 6; 7}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  \result FROM a; b; c; d
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    x; y; z; __retres
+[inout] Inputs for function main:
+    a; b; c; d

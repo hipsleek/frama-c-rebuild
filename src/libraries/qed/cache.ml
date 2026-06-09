@@ -1,0 +1,78 @@
+(**************************************************************************)
+(*                                                                        *)
+(*  SPDX-License-Identifier LGPL-2.1                                      *)
+(*  Copyright (C)                                                         *)
+(*  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  *)
+(*                                                                        *)
+(**************************************************************************)
+
+(* -------------------------------------------------------------------------- *)
+(* --- Simple Caches                                                      --- *)
+(* -------------------------------------------------------------------------- *)
+
+module type S =
+sig
+  type t
+  val hash : t -> int
+  val equal : t -> t -> bool
+end
+
+module type Cache =
+sig
+  type 'a value
+  type 'a cache
+  val create : size:int -> 'a cache
+  val clear : 'a cache -> unit
+  val compute : 'a cache -> 'a value -> 'a value
+end
+
+let rec log2up n a b =
+  let c = (a+b) / 2 in
+  let s = 1 lsl c in
+  if s = n then c else
+  if c = a then b else
+  if s < n then log2up n c b else log2up n a c
+
+let max_cache_log =
+  log2up Sys.max_array_length 0 (Sys.word_size - 3) - 1
+
+let alloc size = 1 lsl (log2up size 0 max_cache_log)
+
+module Unary(A : S) =
+struct
+
+  type 'a value = A.t -> 'a
+  type 'a cell = N | C of A.t * 'a
+  type 'a cache = 'a cell array
+
+  let clear m = Array.fill m 0 (Array.length m) N
+
+  let compute m f x =
+    let h = A.hash x land (pred (Array.length m)) in
+    match m.(h) with
+    | C( e , r ) when A.equal x e -> r
+    | _ -> let r = f x in m.(h) <- C(x,r) ; r
+
+  let create ~size = Array.make (alloc size) N
+
+end
+
+module Binary(A : S) =
+struct
+
+  type 'a value = A.t -> A.t -> 'a
+  type 'a cell = N | C of A.t * A.t * 'a
+  type 'a cache = 'a cell array
+
+  let clear m = Array.fill m 0 (Array.length m) N
+
+  let compute m f x y =
+    let s = Array.length m in
+    let h = (A.hash x * 5 + A.hash y * 7) land (pred s) in
+    match m.(h) with
+    | C( a , b , r ) when A.equal x a && A.equal y b -> r
+    | _ -> let r = f x y in m.(h) <- C(x,y,r) ; r
+
+  let create ~size = Array.make (alloc size) N
+
+end

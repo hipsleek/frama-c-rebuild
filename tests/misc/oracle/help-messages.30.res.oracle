@@ -1,0 +1,58 @@
+Plug-in name: Sparecode
+Plug-in shortname: sparecode
+Description: code cleaner
+
+Most options of the form '-sparecode-option-name' and without any parameter
+have an opposite with the name '-sparecode-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-sparecode          perform a spare code analysis (opposite option is
+                    -no-sparecode)
+-sparecode-analysis  alias for option -sparecode
+-sparecode-annot    select more things to keep every reachable annotation
+                    (set by default, opposite option is -sparecode-no-annot)
+-sparecode-rm-unused-globals  only remove unused global types and variables
+                    (automatically done by -sparecode-analysis) (opposite
+                    option is -sparecode-no-rm-unused-globals)
+
+*** DEBUG
+
+-sparecode-debug <n>  level of debug for plug-in Sparecode (default to 0)
+
+*** GETTING INFORMATION
+
+-sparecode-help     help of plug-in Sparecode
+-sparecode-h        alias for option -sparecode-help
+
+*** OUTPUT MESSAGES
+
+-sparecode-log <K_1:file_1,...>  copy log messages from Sparecode to a file.
+                    <K> is a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -sparecode-log="K_1:file_1,...")
+-sparecode-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -sparecode-msg-key help to get a list
+                    of available categories, and * to enable all categories
+                    (preferably use -sparecode-msg-key="k1[,...,kn]")
+-sparecode-verbose <n>  level of verbosity for plug-in Sparecode (default to
+                    1)
+-sparecode-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category
+                    <k1> to <s1>,...,<kn> to <sn>. Use -sparecode-warn-key
+                    help to get a list of available categories, and * to
+                    enable all categories. Possible statuses are inactive,
+                    feedback, warning, error, abort, feedback-once,
+                    warning-once, error-once. Defaults to warning.
+                    (preferably use
+                    -sparecode-warn-key="k1[=s1][,...,kn[=sn]]")

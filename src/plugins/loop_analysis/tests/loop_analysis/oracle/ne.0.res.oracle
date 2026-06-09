@@ -1,0 +1,54 @@
+[kernel] Parsing ne.i (no preprocessing)
+[loop] ne.i:38: Warning: 
+  termination condition may not be reached (infinite loop?)
+  loop amounts to: for (i = 0; i != 7; i += 2)
+[loop] ne.i:46: Warning: 
+  termination condition may not be reached (infinite loop?)
+  loop amounts to: for (i = 0; i != -9; i -= 2)
+[loop] ne.i:54: Warning: 
+  termination condition may not be reached (infinite loop?)
+  loop amounts to: for (i = 0; i != 18; i += 15)
+[loop] ne.i:62: Warning: 
+  termination condition may not be reached (infinite loop?)
+  loop amounts to: for (i = 0; i != -5; i -= 15)
+[loop] ne.i:70: Warning: 
+  termination condition may not be reached (infinite loop?)
+  loop amounts to: for (i = 0; i != 3; i += 2)
+[loop] ne.i:78: Warning: 
+  termination condition may not be reached (infinite loop?)
+  loop amounts to: for (i = 0; i != -11; i -= 2)
+[loop] ne.i:86: Warning: 
+  termination condition may not be reached (infinite loop?)
+  loop amounts to: for (i = 0; i != 25; i += 15)
+[loop] ne.i:94: Warning: 
+  termination condition may not be reached (infinite loop?)
+  loop amounts to: for (i = 0; i != -35; i -= 15)
+[loop] ne.i:103: Warning: 
+  termination condition may not be reached (infinite loop?)
+  loop amounts to: for (i = 0; i != 7; i -= 2)
+[loop] ne.i:111: Warning: 
+  termination condition may not be reached (infinite loop?)
+  loop amounts to: for (i = 0; i != -9; i += 2)
+[loop] ne.i:119: Warning: 
+  termination condition may not be reached (infinite loop?)
+  loop amounts to: for (i = 0; i != 18; i -= 15)
+[loop] ne.i:127: Warning: 
+  termination condition may not be reached (infinite loop?)
+  loop amounts to: for (i = 0; i != -5; i += 15)
+[loop] Maximum number of iterations by loop:
+  ne.i:2:3-37: 43
+  ne.i:6:3-40: 146
+  ne.i:10:3-37: 51
+  ne.i:14:3-40: 154
+  ne.i:18:3-39: 46
+  ne.i:22:3-42: 46
+  ne.i:26:3-39: 54
+  ne.i:30:3-42: 54
+  ne.i:34:3-32: 4
+  ne.i:42:3-32: 4
+  ne.i:50:3-39: 1
+  ne.i:58:3-39: 1
+  ne.i:66:3-35: 1
+  ne.i:74:3-35: 6
+  ne.i:82:3-42: 4
+  ne.i:90:3-41: 1

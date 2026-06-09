@@ -1,0 +1,43 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing array7.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  a ∈ {0}
+  b ∈ {1}
+  pa ∈ {{ &a }}
+  pb ∈ {{ &b }}
+  t[0..1] ∈ {0}
+  x[0..1] ∈ {0}
+  y ∈ {0}
+  z ∈ {0}
+[eva:progress] array7.c:35: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  b ∈ {0}
+  t[0] ∈ {3}
+   [1] ∈ {0}
+  x[0] ∈ {{ &a }}
+   [1] ∈ {{ &b }}
+  y ∈ {{ &t }}
+  z ∈ {{ &x }}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  b FROM pb
+  t[0] FROM \nothing
+   [1] FROM pb
+  x[0] FROM pa
+   [1] FROM pb
+  y FROM \nothing
+  z FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    b; t[0..1]; x[0..1]; y; z
+[inout] Inputs for function main:
+    b; pa; pb; x[1]; z

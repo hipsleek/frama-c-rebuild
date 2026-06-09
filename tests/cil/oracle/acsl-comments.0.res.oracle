@@ -1,0 +1,5 @@
+[kernel] Parsing acsl-comments.i (no preprocessing)
+[kernel:annot-error] acsl-comments.i:6: Failure: 
+  lexical error, unexpected block-comment opening
+[kernel] User Error: warning annot-error treated as fatal error.
+[kernel] Frama-C aborted: invalid user input.

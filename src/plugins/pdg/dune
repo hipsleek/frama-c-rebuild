@@ -1,0 +1,41 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "PDG:" %{lib-available:frama-c-pdg.core} "\n")
+          (echo "  - Pdg-Types:" %{lib-available:frama-c-pdg.types.core} "\n")
+          (echo "  - Callgraph:" %{lib-available:frama-c-callgraph.core} "\n")
+          (echo "  - Eva:" %{lib-available:frama-c-eva.core} "\n")
+          (echo "  - From:" %{lib-available:frama-c-from.core} "\n")
+  )
+  )
+)
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-pdg.core})))
+ (action (echo "WARNING: PDG disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+( library
+ (name pdg)
+  (optional)
+  (public_name frama-c-pdg.core)
+  (flags -open Frama_c_kernel :standard -w -9)
+  (libraries frama-c.kernel frama-c-pdg.types.core frama-c-callgraph.core frama-c-from.core frama-c-eva.core)
+  (instrumentation (backend landmarks))
+  (instrumentation (backend bisect_ppx))
+)
+
+(plugin (optional) (name pdg) (libraries frama-c-pdg.core) (site (frama-c plugins)))

@@ -1,0 +1,18 @@
+# frama-c -wp [...]
+[kernel] Parsing postassigns2.c (with preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] postassigns2.c:4: Warning: 
+  Neither code nor explicit terminates for function receive1, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] 4 goals scheduled
+[wp] [Valid] typed_mess1_terminates (Qed)
+[wp] [Valid] typed_mess1_exits (Qed)
+[wp] [Valid] typed_mess1_assigns_normal (Qed)
+[wp] [Valid] typed_mess1_assigns_exit (Qed)
+[wp] Proved goals:    4 / 4
+  Qed:             4
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  mess1                     4        -        4       100%
+------------------------------------------------------------

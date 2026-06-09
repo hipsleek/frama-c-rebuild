@@ -1,0 +1,53 @@
+# frama-c -wp [...]
+[kernel] Parsing frama_c_exo2_solved.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal max_subarray_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal max_subarray_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 22 goals scheduled
+[wp] [Valid] typed_max_subarray_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_max_subarray_ensures_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_max_subarray_loop_invariant_established (Qed)
+[wp] [Valid] typed_max_subarray_loop_invariant_preserved (Qed)
+[wp] [Valid] typed_max_subarray_loop_invariant_2_established (Qed)
+[wp] [Valid] typed_max_subarray_loop_invariant_2_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_max_subarray_loop_invariant_3_established (Qed)
+[wp] [Valid] typed_max_subarray_loop_invariant_3_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_max_subarray_loop_invariant_4_established (Qed)
+[wp] [Valid] typed_max_subarray_loop_invariant_4_preserved (Qed)
+[wp] [Valid] typed_max_subarray_loop_invariant_5_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_max_subarray_loop_invariant_5_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_max_subarray_loop_invariant_6_established (Qed)
+[wp] [Valid] typed_max_subarray_loop_invariant_6_preserved (Qed)
+[wp] [Valid] typed_max_subarray_loop_invariant_7_established (Qed)
+[wp] [Valid] typed_max_subarray_loop_invariant_7_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_max_subarray_loop_invariant_8_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_max_subarray_loop_invariant_8_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_max_subarray_loop_assigns (Qed)
+[wp] [Valid] typed_max_subarray_assigns (Qed)
+[wp] [Valid] typed_max_subarray_loop_variant_positive (Qed)
+[wp] [Valid] typed_max_subarray_loop_variant_decrease (Qed)
+[wp] Proved goals:   24 / 24
+  Terminating:     1
+  Unreachable:     1
+  Qed:            13
+  Alt-Ergo:        9
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  max_subarray             15        9       24       100%
+------------------------------------------------------------
+[wp] Running WP plugin...
+[wp] Warning: Skipped RTE guards: unaligned pointers (\aligned not supported)
+[wp] Warning: Skipped RTE guards: invalid function pointer calls (\valid_function not supported)
+[rte:annot] annotating function max_subarray
+[wp] Warning: -wp-rte can annotate signed overflow because -warn-signed-overflow is not set
+[wp] [Valid] Goal max_subarray_terminates (Cfg) (Trivial)
+[wp] 1 goal scheduled
+[wp] [Valid] typed_max_subarray_assert_rte_mem_access (Alt-Ergo) (Cached)
+[wp] Proved goals:    2 / 2
+  Terminating:     1
+  Alt-Ergo:        1
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  max_subarray             15       10       25       100%
+------------------------------------------------------------

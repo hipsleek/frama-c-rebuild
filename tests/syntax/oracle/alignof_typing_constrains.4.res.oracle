@@ -1,0 +1,4 @@
+[kernel] Parsing alignof_typing_constrains.c (with preprocessing)
+[kernel] alignof_typing_constrains.c:48: User Error: 
+  _Complex is currently unsupported by Frama-C.
+[kernel] Frama-C aborted: invalid user input.

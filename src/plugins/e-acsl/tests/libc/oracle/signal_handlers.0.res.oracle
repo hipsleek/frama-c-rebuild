@@ -1,0 +1,27 @@
+[e-acsl] beginning translation.
+[e-acsl] FRAMAC_SHARE/libc/signal.h:152: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/signal.h:121: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] signal_handlers.c:17: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] signal_handlers.c:17: Warning: assertion got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/signal.h:121: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/signal.h:134: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/signal.h:139: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/signal.h:145: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/signal.h:134: Warning: 
+  function __gen_e_acsl_signal: postcondition 'handler_saved_if_ok' got status unknown.
+[eva:alarm] signal_handlers.c:20: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] signal_handlers.c:23: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] signal_handlers.c:25: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] signal_handlers.c:25: Warning: 
+  assertion 'status_changed' got status unknown.

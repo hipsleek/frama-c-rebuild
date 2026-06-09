@@ -1,0 +1,4 @@
+[kernel] Parsing alignof_typing_constrains.c (with preprocessing)
+[kernel] alignof_typing_constrains.c:126: User Error: 
+  alignof called on function only allowed for GCC machdeps; see option -machdep or run 'frama-c -machdep help' for the list of available machdeps
+[kernel] Frama-C aborted: invalid user input.

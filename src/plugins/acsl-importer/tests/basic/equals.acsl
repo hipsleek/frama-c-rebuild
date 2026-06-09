@@ -1,0 +1,17 @@
+
+predicate is_equal {A,B} (unsigned int *a, unsigned int n,  unsigned int *b) =
+  \forall integer i; 0 <= i < n ==> \at(a[i], A) == \at(b[i], B) ; 
+
+function equals:
+  contract:
+    requires n > 0 ==> \valid(&a[0..n-1]) && \valid(&b[0..n-1]);
+    ensures \result ≢ 0 ⇔ is_equal{Here,Here}(a, n, b); 
+
+  at loop 1: 
+    loop assigns i;
+  at loop 1: 
+    loop variant n-i;
+  at loop 1: 
+    invariant 0 ≤ i; 
+  at loop 1: 
+    invariant is_equal {Here,Here}(a,i,b); 

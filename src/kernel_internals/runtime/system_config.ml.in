@@ -1,0 +1,105 @@
+(**************************************************************************)
+(*                                                                        *)
+(*  SPDX-License-Identifier LGPL-2.1                                      *)
+(*  Copyright (C)                                                         *)
+(*  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  *)
+(*                                                                        *)
+(**************************************************************************)
+
+# 24 "src/kernel_internals/runtime/system_config.ml.in"
+
+module Version = struct
+  let id = "@VERSION@"
+  let codename = "@VERSION_CODENAME@"
+  let id_and_codename = id ^ " (" ^ codename ^ ")"
+  let major = @MAJOR_VERSION@
+  let minor = @MINOR_VERSION@
+end
+
+module Share = struct
+  let dirs = List.map Filepath.of_string Config_data.Sites.share
+  let path = String.concat ":" (Filepath.to_string_list dirs)
+  let main = List.hd (List.rev dirs)
+  let libc = Filepath.(main / "libc")
+
+  let () = Filepath.add_symbolic_dir_list "FRAMAC_SHARE" dirs
+end
+
+module Lib = struct
+  let dirs = List.map Filepath.of_string Config_data.Sites.lib
+  let path = String.concat ":" (Filepath.to_string_list dirs)
+  let main = List.hd (List.rev dirs)
+
+  let () = Filepath.add_symbolic_dir_list "FRAMAC_LIB" dirs
+end
+
+module Plugins = struct
+  let dirs = List.map Filepath.of_string Config_data.Sites.plugins
+  let path = String.concat ":" (Filepath.to_string_list dirs)
+
+  let () = Filepath.add_symbolic_dir_list "FRAMAC_PLUGIN" dirs
+
+  let load name =
+    Config_data.Plugins.Plugins.load name
+
+  let try_load_list load list =
+    let list = list () in
+    List.iter (fun p ->
+        try
+          load p
+        with e ->
+          (* We don't have access to Kernel's log mechanisms here. *)
+          Format.printf "Warning: failed to load plugin '%s' (exception: %s)@."
+            p (Printexc.to_string e);
+          Format.printf "         Try recompiling it or \
+                         completely removing it from the plug-in load path:@.";
+          List.iter (fun path -> Format.printf "         %s@." path)
+            Config_data.Plugins.Plugins.paths
+      ) list
+
+  let load_all () =
+    (* avoid calling Dune_site.Plugins.load_all () directly, so we can catch
+       errors individually *)
+    let open Config_data.Plugins in
+    try_load_list Plugins.load Plugins.list
+end
+
+module Preprocessor = struct
+  let default = "@FRAMAC_DEFAULT_CPP@"
+
+  let default_args = " @FRAMAC_DEFAULT_CPP_ARGS@"
+
+  let env_or_default f vdefault =
+    try
+      let env = Sys.getenv "CPP" ^ default_args in
+      if env = default then vdefault else f env
+    with Not_found -> vdefault
+
+  let command = env_or_default (fun x -> x) default
+
+  let is_default = env_or_default (fun _ -> false) true
+
+  let is_gnu_like =
+    env_or_default
+      (fun _ ->
+         (* be more lenient when trying to determine if the preprocessor
+            is gnu-like: in Cygwin, for instance, CC is "<prefix>-gcc" but
+            CPP is "<prefix>-cpp", so this extra test allows proper detection.
+         *)
+         let env = Sys.getenv "CC" ^ default_args in
+         env=default) @FRAMAC_GNU_CPP@
+
+  let keep_comments =
+    env_or_default (fun _ -> true) @DEFAULT_CPP_KEEP_COMMENTS@
+
+  let supported_arch_options = [@DEFAULT_CPP_SUPPORTED_ARCH_OPTS@]
+end
+
+module User_dirs = struct
+  include @FRAMAC_TARGET_SYSTEM_CONFIG_INCLUDE@
+end
+
+let gui = ref false
+
+let is_gui () = !gui
+let set_gui value = gui := value

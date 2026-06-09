@@ -1,0 +1,17 @@
+# frama-c -wp [...]
+[kernel] Parsing import_inductive.i (no preprocessing)
+[wp] Running WP plugin...
+------------------------------------------------------------
+  Global
+------------------------------------------------------------
+
+Goal Lemma 'L2':
+Prove: list.Distinct.distinct([ 0 ]).
+
+------------------------------------------------------------
+
+Goal Lemma 'L3':
+Assume Lemmas: 'L2'
+Prove: list.Distinct.distinct([ 1, 2 ]).
+
+------------------------------------------------------------

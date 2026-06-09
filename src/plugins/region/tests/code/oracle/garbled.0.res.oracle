@@ -1,0 +1,9 @@
+[kernel] Parsing garbled.i (no preprocessing)
+[region] Function job:
+  R0001: -R-- p (int *) 64b (*R0002) (singleton) ;
+  R0002: -R-- (int) (float) 32b ;
+  R0003: -R-- q (int *) 64b (*R0004) (singleton) ;
+  R0004: -R-- (int) 32b ;
+  R0005: -RW- __retres (float) 32b (singleton) (allocated) ;
+  R0006: --W- \result (float) 32b ;
+[region] annotating function job

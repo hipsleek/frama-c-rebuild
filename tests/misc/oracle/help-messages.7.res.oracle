@@ -1,0 +1,106 @@
+Plug-in name: E-ACSL
+Plug-in shortname: e-acsl
+Description:
+Executable ANSI/ISO C Specification Language --- runtime assertion checker generator
+
+Most options of the form '-e-acsl-option-name' and without any parameter
+have an opposite with the name '-e-acsl-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-e-acsl             generate a new project where E-ACSL annotations are
+                    translated to executable C code (opposite option is
+                    -no-e-acsl)
+-e-acsl-O <n>       Level of optimisation (defaults to 2). 0 - No
+                    optimisation. 1 - Constant-time optimisations. 2 -
+                    Moderate-cost optimisations. 3 - Potentially expensive
+                    optimisations, that may exploit undefined behaviours in
+                    specification.
+-e-acsl-assert-print-data  print data contributing to the failed assertion
+                    along with the runtime error message (set by default,
+                    opposite option is -e-acsl-no-assert-print-data)
+-e-acsl-builtins <s>  C functions which can be used in the E-ACSL
+                    specifications (preferably use -e-acsl-builtins="")
+-e-acsl-concurrency  activate the concurrency support of E-ACSL. The option
+                    implies -e-acsl-full-mtracking. (opposite option is
+                    -e-acsl-no-concurrency)
+-e-acsl-full-mtracking  maximal memory-related instrumentation (opposite
+                    option is -e-acsl-no-full-mtracking)
+-e-acsl-full-mmodel  alias for option -e-acsl-full-mtracking
+-e-acsl-functions <f1, ..., fn>  only annotations in functions f1, ..., fn
+                    are checked at runtime (preferably use
+                    -e-acsl-functions="f1, ..., fn")
+-e-acsl-gmp-only    always use GMP integers instead of C integral types
+                    (opposite option is -e-acsl-no-gmp-only)
+-e-acsl-instrument <f1, ..., fn>  only instrument functions f1, ..., fn. Be
+                    aware that runtime verdicts may become partial.
+                    (preferably use -e-acsl-instrument="f1, ..., fn")
+-e-acsl-interlang   try compilation based on intermediate language (opposite
+                    option is -e-acsl-no-interlang)
+-e-acsl-interlang-force  crash if interlang compilation fails (opposite
+                    option is -e-acsl-no-interlang-force)
+-e-acsl-project <prj>  the name of the generated project is <prj> (default to
+                    "e-acsl") (preferably use -e-acsl-project="prj")
+-e-acsl-replace-libc-functions  replace some libc functions (such as strcpy)
+                    with built-inRTL alternatives (opposite option is
+                    -e-acsl-no-replace-libc-functions)
+-e-acsl-share <dir>  set the plug-in share directory to <dir> (may be used if
+                    the plug-in is not installed at the same place as
+                    Frama-C)
+-e-acsl-temporal-validity  enable temporal analysis in valid annotations
+                    (opposite option is -e-acsl-no-temporal-validity)
+-e-acsl-valid       translate annotation which have been proven valid
+                    (opposite option is -e-acsl-no-valid)
+-e-acsl-validate-format-strings  enable runtime validation of stdio.h format
+                    functions (opposite option is
+                    -e-acsl-no-validate-format-strings)
+-e-acsl-widening-arguments <s>  widening strategy for arguments of functions
+                    on a case by case basis. (preferably use
+                    -e-acsl-widening-arguments="")
+-e-acsl-widening-arguments-base <n>  widening strategy for arguments of
+                    recursive functions.
+-e-acsl-widening-output <s>  widening strategy for output of recursive
+                    functions on a case
+                          by case basis. (preferably use
+                    -e-acsl-widening-output="")
+-e-acsl-widening-output-base <n>  wideining strategy for output of recursive
+                    functions.
+
+*** DEBUG
+
+-e-acsl-debug <n>   level of debug for plug-in E-ACSL (default to 0)
+
+*** GETTING INFORMATION
+
+-e-acsl-help        help of plug-in E-ACSL
+-e-acsl-h           alias for option -e-acsl-help
+
+*** OUTPUT MESSAGES
+
+-e-acsl-log <K_1:file_1,...>  copy log messages from E-ACSL to a file. <K> is
+                    a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -e-acsl-log="K_1:file_1,...")
+-e-acsl-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -e-acsl-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -e-acsl-msg-key="k1[,...,kn]")
+-e-acsl-verbose <n>  level of verbosity for plug-in E-ACSL (default to 1)
+-e-acsl-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category
+                    <k1> to <s1>,...,<kn> to <sn>. Use -e-acsl-warn-key help
+                    to get a list of available categories, and * to enable
+                    all categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -e-acsl-warn-key="k1[=s1][,...,kn[=sn]]")

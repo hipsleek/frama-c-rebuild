@@ -1,0 +1,38 @@
+[kernel:typing:variadic:format:nonliteral] strcmp.c:18: Warning: 
+  Call to function fprintf with non-static format argument: assuming that parameters are coherent with the format, and that no %n specifiers are present in the actual string.
+[e-acsl] beginning translation.
+[e-acsl] FRAMAC_SHARE/libc/unistd.h:899: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/sys/wait.h:71: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/sys/wait.h:71: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/stdlib.h:739: Warning: 
+  E-ACSL construct `terminates clause' is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/stdlib.h:739: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/stdlib.h:742: Warning: 
+  E-ACSL construct `abnormal termination case in behavior'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/stdlib.h:725: Warning: 
+  E-ACSL construct `terminates clause' is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/stdlib.h:725: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/stdlib.h:728: Warning: 
+  E-ACSL construct `abnormal termination case in behavior'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] FRAMAC_SHARE/libc/unistd.h:902: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/unistd.h:902: Warning: 
+  function __gen_e_acsl_fork: postcondition 'result_ok_child_or_error' got status unknown.
+[eva:alarm] strcmp.c:57: Warning: 
+  accessing left-value that contains escaping addresses.
+  assert !\dangling(&dl);
+[eva:alarm] strcmp.c:58: Warning: 
+  accessing left-value that contains escaping addresses.
+  assert !\dangling(&dr);

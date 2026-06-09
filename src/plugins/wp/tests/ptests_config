@@ -1,0 +1,11 @@
+## General Purpose
+DEFAULT_SUITES= wp wp_manual wp_usage wp_plugin wp_gallery wp_tip wp_bts
+qualif_SUITES=  wp wp_manual wp_usage wp_plugin wp_gallery wp_tip wp_bts
+
+## Memory Models
+DEFAULT_SUITES= wp_acsl wp_hoare wp_store wp_typed wp_bytes wp_region
+qualif_SUITES=  wp_acsl wp_hoare wp_store wp_typed wp_bytes wp_region
+
+## Specific Objectives
+DEFAULT_SUITES= wp_ce
+ce_SUITES=      wp_ce

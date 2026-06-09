@@ -1,0 +1,13 @@
+(library
+ (name libSelect)
+ (modules libSelect)
+ (libraries frama-c.init frama-c.boot frama-c.kernel frama-c-slicing.core)
+ (flags -open Frama_c_kernel)
+)
+
+(library
+ (name libAnim)
+ (modules libAnim)
+ (libraries frama-c.init frama-c.boot frama-c.kernel frama-c-slicing.core)
+ (flags -open Frama_c_kernel)
+)

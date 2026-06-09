@@ -1,0 +1,7 @@
+(executable ; MODULE #1 FOR TEST FILES:  "with-space.i"
+  (name "module")
+  (modules "module")
+  (modes plugin)
+  (libraries frama-c.init frama-c.boot frama-c.kernel )
+  (flags :standard -w -9-32-6-34 -open Frama_c_kernel)
+)

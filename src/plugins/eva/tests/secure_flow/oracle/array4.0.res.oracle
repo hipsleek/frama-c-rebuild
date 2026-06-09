@@ -1,0 +1,30 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing array4.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  a ∈ {0}
+  t[0..1] ∈ {0}
+  y ∈ {0}
+[eva:progress] array4.c:28: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  a ∈ {3}
+  t[0..1] ∈ {3}
+  y ∈ {{ &t }}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  a FROM \nothing
+  t[0..1] FROM \nothing
+  y FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    a; t[0..1]; y
+[inout] Inputs for function main:
+    t[1]; y

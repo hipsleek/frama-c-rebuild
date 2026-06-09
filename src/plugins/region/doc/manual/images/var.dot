@@ -1,0 +1,6 @@
+digraph {
+  rankdir="LR"; bgcolor="none"; width=0.5; node [ style="filled" ]; margin=0;
+  X [ fontname="Courier"; label="var "; shape="cds"; fontcolor="black"; fillcolor="white"; ];
+  N [ label="" ; fillcolor="white" ; shape="ellipse"; width=0.4; height=0.3 ]
+  X -> N;
+}

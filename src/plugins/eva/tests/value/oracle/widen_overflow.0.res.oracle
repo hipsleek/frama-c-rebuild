@@ -1,0 +1,44 @@
+[kernel] Parsing widen_overflow.i (no preprocessing)
+[kernel:typing:implicit-function-declaration] widen_overflow.i:9: Warning: 
+  Calling undeclared function u. Old style K&R code?
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:show] widen_overflow.i:6: Frama_C_show_each: {4}
+[kernel:annot:missing-spec] widen_overflow.i:9: Warning: 
+  Neither code nor specification for function u, generating default assigns.
+  See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function u <- main.
+  Called from widen_overflow.i:9:10-13.
+[eva] using specification for function u
+[eva:progress] Done for function u
+[eva:partition] widen_overflow.i:9: starting to merge loop iterations
+[eva:progress] 
+  computing for function u <- main.
+  Called from widen_overflow.i:9:10-13.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- main.
+  Called from widen_overflow.i:9:10-13.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- main.
+  Called from widen_overflow.i:9:10-13.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- main.
+  Called from widen_overflow.i:9:10-13.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- main.
+  Called from widen_overflow.i:9:10-13.
+[eva:progress] Done for function u
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  i ∈ [0..4294967294],0%2
+  __retres ∈ {0}

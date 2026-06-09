@@ -1,0 +1,10 @@
+module merge:
+
+function f:
+contract:
+
+  behavior A_Not_Null:
+    assigns x1;
+
+  behavior A_Null:
+   assigns x2;

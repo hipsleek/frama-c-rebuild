@@ -1,0 +1,450 @@
+[kernel] Parsing strings.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+  s1[0] ∈ {104}
+    [1] ∈ {101}
+    [2..3] ∈ {108}
+    [4] ∈ {111}
+    [5] ∈ {0}
+    [6] ∈ {32}
+    [7] ∈ {119}
+    [8] ∈ {111}
+    [9] ∈ {114}
+    [10] ∈ {108}
+    [11] ∈ {100}
+    [12] ∈ {0}
+  s2[0] ∈ {104}
+    [1] ∈ {101}
+    [2..3] ∈ {108}
+    [4] ∈ {111}
+    [5] ∈ {0}
+  s3 ∈ {{ "tutu" }}
+  s4 ∈ {{ "tutu" }}
+  s5 ∈ {0}
+  s6 ∈ {0}
+  s7 ∈ {{ "hello\000 world" }}
+  s8 ∈ {{ "hello" }}
+  cc ∈ {97}
+  Q ∈ {0}
+  R ∈ {0}
+  S ∈ {0}
+  T ∈ {0}
+  U ∈ {0}
+  V ∈ {0}
+  W ∈ {0}
+  X ∈ {0}
+  Y ∈ {0}
+  Z ∈ {0}
+[eva:progress] 
+  computing for function string_reads <- main.
+  Called from strings.i:142:3-18.
+[kernel:annot:missing-spec] strings.i:39: Warning: 
+  Neither code nor specification for function u, generating default assigns.
+  See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function u <- string_reads <- main.
+  Called from strings.i:39:7-10.
+[eva] using specification for function u
+[eva:progress] Done for function u
+[eva:alarm] strings.i:39: Warning: 
+  out of bounds read. assert \valid_read(p - 4);
+[eva:progress] 
+  computing for function u <- string_reads <- main.
+  Called from strings.i:42:7-10.
+[eva:progress] Done for function u
+[eva:alarm] strings.i:42: Warning: 
+  out of bounds read. assert \valid_read(p + 12);
+[eva:progress] 
+  computing for function u <- string_reads <- main.
+  Called from strings.i:44:7-10.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- string_reads <- main.
+  Called from strings.i:48:7-10.
+[eva:progress] Done for function u
+[eva:alarm] strings.i:48: Warning: 
+  out of bounds read. assert \valid_read(p - 4);
+[eva:progress] 
+  computing for function u <- string_reads <- main.
+  Called from strings.i:53:9-12.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function strcpy <- string_reads <- main.
+  Called from strings.i:53:14-25.
+[eva:alarm] strings.i:23: Warning: 
+  out of bounds write.
+  assert \valid(tmp_unfold_46);
+  (tmp_unfold_46 from ldst++)
+[eva] strings.i:23: Warning: 
+  all target addresses were invalid. This path is assumed to be dead.
+[eva:progress] Recording results for strcpy
+[eva:progress] Done for function strcpy
+[eva:progress] 
+  computing for function strlen <- string_reads <- main.
+  Called from strings.i:58:10-20.
+[eva:progress] Recording results for strlen
+[eva:progress] Done for function strlen
+[eva:progress] Recording results for string_reads
+[eva:progress] Done for function string_reads
+[eva:progress] 
+  computing for function string_writes <- main.
+  Called from strings.i:143:3-19.
+[eva:alarm] strings.i:64: Warning: 
+  out of bounds write. assert \valid(tmp);
+                       (tmp from nondet?s5 + 2:& c)
+[eva:alarm] strings.i:66: Warning: out of bounds write. assert \valid(s5);
+[eva:alarm] strings.i:68: Warning: out of bounds write. assert \valid(s6);
+[eva:progress] Recording results for string_writes
+[eva:progress] Done for function string_writes
+[eva:locals-escaping] strings.i:143: Warning: 
+  locals {c} escaping the scope of string_writes through s5
+[eva:locals-escaping] strings.i:143: Warning: 
+  locals {c} escaping the scope of string_writes through s6
+[eva:progress] 
+  computing for function string_comparison <- main.
+  Called from strings.i:144:3-23.
+[eva:progress] 
+  computing for function u <- string_comparison <- main.
+  Called from strings.i:78:7-10.
+[eva:progress] Done for function u
+[eva:alarm] strings.i:79: Warning: 
+  pointer comparison. assert \pointer_comparable((void *)s3, (void *)s4);
+[eva:progress] 
+  computing for function u <- string_comparison <- main.
+  Called from strings.i:80:7-10.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- string_comparison <- main.
+  Called from strings.i:82:7-10.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- string_comparison <- main.
+  Called from strings.i:84:7-10.
+[eva:progress] Done for function u
+[eva:alarm] strings.i:85: Warning: 
+  pointer comparison. assert \pointer_comparable((void *)s7, (void *)s8);
+[eva:progress] 
+  computing for function u <- string_comparison <- main.
+  Called from strings.i:86:7-10.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- string_comparison <- main.
+  Called from strings.i:88:7-10.
+[eva:progress] Done for function u
+[eva:alarm] strings.i:89: Warning: 
+  pointer comparison.
+  assert \pointer_comparable((void *)(s7 + 1), (void *)(s8 + 1));
+[eva:progress] 
+  computing for function u <- string_comparison <- main.
+  Called from strings.i:90:7-10.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- string_comparison <- main.
+  Called from strings.i:92:10-13.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- string_comparison <- main.
+  Called from strings.i:93:7-10.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- string_comparison <- main.
+  Called from strings.i:94:11-14.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- string_comparison <- main.
+  Called from strings.i:95:9-12.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- string_comparison <- main.
+  Called from strings.i:95:14-17.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- string_comparison <- main.
+  Called from strings.i:96:7-10.
+[eva:progress] Done for function u
+[eva:alarm] strings.i:97: Warning: 
+  pointer comparison. assert \pointer_comparable((void *)s5, (void *)s6);
+[eva:progress] 
+  computing for function u <- string_comparison <- main.
+  Called from strings.i:98:7-10.
+[eva:progress] Done for function u
+[eva:alarm] strings.i:99: Warning: 
+  pointer comparison.
+  assert \pointer_comparable((void *)(&"oh, hello"[4]), (void *)s7);
+[eva:progress] Recording results for string_comparison
+[eva:progress] Done for function string_comparison
+[eva:progress] 
+  computing for function wide_string_comparison <- main.
+  Called from strings.i:145:3-28.
+[eva:alarm] strings.i:111: Warning: 
+  pointer comparison. assert \pointer_comparable((void *)w1, (void *)w2);
+[eva:alarm] strings.i:114: Warning: 
+  pointer comparison. assert \pointer_comparable((void *)w2, (void *)w3);
+[eva:progress] Recording results for wide_string_comparison
+[eva:progress] Done for function wide_string_comparison
+[eva:progress] 
+  computing for function long_chain <- main.
+  Called from strings.i:146:3-16.
+[eva:progress] 
+  computing for function assigns <- long_chain <- main.
+  Called from strings.i:135:3-21.
+[eva] using specification for function assigns
+[eva:progress] Done for function assigns
+[eva:progress] 
+  computing for function strcmp <- long_chain <- main.
+  Called from strings.i:136:11-33.
+[eva:alarm] strings.i:123: Warning: 
+  out of bounds read. assert \valid_read(tmp_0);
+                      (tmp_0 from s2_0++)
+[eva:progress] Recording results for strcmp
+[eva:progress] Done for function strcmp
+[eva:progress] Recording results for long_chain
+[eva:progress] Done for function long_chain
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] strings.i:23: assertion 'Eva,mem_access' got final status invalid.
+[eva] strings.i:39: assertion 'Eva,mem_access' got final status invalid.
+[eva] strings.i:42: assertion 'Eva,mem_access' got final status invalid.
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function strcmp:
+  s1_0 ∈ {{ &long_chain_0 + [0..29] }}
+  s2_0 ∈ {{ &tc + [0..29] }}
+  __retres ∈ [-223..121]
+[eva:final-states] Values at end of function long_chain:
+  tc[0..29] ∈ [--..--]
+  long_chain_0[0] ∈ {114}
+              [1] ∈ {101}
+              [2] ∈ {97}
+              [3..4] ∈ {108}
+              [5] ∈ {121}
+              [6] ∈ {32}
+              [7] ∈ {114}
+              [8] ∈ {101}
+              [9] ∈ {97}
+              [10..11] ∈ {108}
+              [12] ∈ {121}
+              [13] ∈ {32}
+              [14] ∈ {114}
+              [15] ∈ {101}
+              [16] ∈ {97}
+              [17..18] ∈ {108}
+              [19] ∈ {121}
+              [20] ∈ {32}
+              [21] ∈ {108}
+              [22] ∈ {111}
+              [23] ∈ {110}
+              [24] ∈ {103}
+              [25] ∈ {32}
+              [26] ∈ {99}
+              [27] ∈ {104}
+              [28] ∈ {97}
+              [29] ∈ {105}
+              [30] ∈ {110}
+              [31] ∈ {0}
+  x ∈ [-223..121]
+[eva:final-states] Values at end of function strcpy:
+  NON TERMINATING FUNCTION
+[eva:final-states] Values at end of function string_writes:
+  s5 ∈ {{ &c }}
+  s6 ∈ {{ &c }}
+  R ∈ {84}
+  c ∈ {116}
+  __retres ∈ {116}
+[eva:final-states] Values at end of function strlen:
+  s ∈ {{ &s1[6] }}
+  l ∈ {5}
+[eva:final-states] Values at end of function string_comparison:
+  s5 ∈ {{ "tutu" ; "hello" }}
+  s6 ∈ {{ "tutu" ; "tutu" ; "hello" }}
+  cc ∈ {116}
+  Q ∈ {0}
+  R ∈ {0; 84}
+  S ∈ {0}
+  T ∈ {0; 101}
+  U ∈ {0}
+  V ∈ {0}
+  W ∈ {0}
+  X ∈ {0; 1}
+  Y ∈ {0; 1}
+  Z ∈ {0; 1}
+  s ∈ {{ "toto" }}
+  __retres ∈ {116}
+[eva:final-states] Values at end of function string_reads:
+  s1[0] ∈ {104}
+    [1] ∈ {101}
+    [2] ∈ {108}
+    [3] ∈ {97}
+    [4] ∈ {111}
+    [5] ∈ {0}
+    [6] ∈ {97}
+    [7] ∈ {119}
+    [8] ∈ {111}
+    [9] ∈ {114}
+    [10] ∈ {108}
+    [11] ∈ {100}
+    [12] ∈ {0}
+  R ∈ {0}
+  S ∈ {0}
+  T ∈ {0; 101}
+  p ∈ {{ &s1[5] ; &s2[3] }}
+  __retres ∈ {5}
+[eva:final-states] Values at end of function wide_string_comparison:
+  w1 ∈ {{ (char *)L"abcdef" }}
+  w2 ∈ {{ (char *)L"def" }}
+  w3 ∈ {{ (char *)L"abc" }}
+  res ∈ {0}
+[eva:final-states] Values at end of function main:
+  s1[0] ∈ {104}
+    [1] ∈ {101}
+    [2] ∈ {108}
+    [3] ∈ {97}
+    [4] ∈ {111}
+    [5] ∈ {0}
+    [6] ∈ {97}
+    [7] ∈ {119}
+    [8] ∈ {111}
+    [9] ∈ {114}
+    [10] ∈ {108}
+    [11] ∈ {100}
+    [12] ∈ {0}
+  s5 ∈ {{ "tutu" ; "hello" }}
+  s6 ∈ {{ "tutu" ; "tutu" ; "hello" }}
+  cc ∈ {116}
+  Q ∈ {0}
+  R ∈ {0; 84}
+  S ∈ {0}
+  T ∈ {0; 101}
+  U ∈ {0}
+  V ∈ {0}
+  W ∈ {0}
+  X ∈ {0; 1}
+  Y ∈ {0; 1}
+  Z ∈ {0; 1}
+[from] Computing for function strcmp
+[from] Done for function strcmp
+[from] Computing for function long_chain
+[from] Computing for function assigns <-long_chain
+[from] Done for function assigns
+[from] Done for function long_chain
+[from] Computing for function strcpy
+[from] Non-terminating function strcpy (no dependencies)
+[from] Done for function strcpy
+[from] Computing for function string_writes
+[from] Done for function string_writes
+[from] Computing for function strlen
+[from] Done for function strlen
+[from] Computing for function string_comparison
+[from] Computing for function u <-string_comparison
+[from] Done for function u
+[from] Done for function string_comparison
+[from] Computing for function string_reads
+[from] Done for function string_reads
+[from] Computing for function wide_string_comparison
+[from] Done for function wide_string_comparison
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function assigns:
+  tc[0..29] FROM nondet
+[from] Function strcmp:
+  \result FROM s1_0; s2_0; tc[0..29]; long_chain_0[0..30]
+[from] Function long_chain:
+  \result FROM nondet
+[from] Function strcpy:
+  NON TERMINATING - NO EFFECTS
+[from] Function string_writes:
+  s5 FROM nondet; s3
+  s6 FROM nondet; s3
+  R FROM nondet; s3
+  \result FROM s4
+[from] Function strlen:
+  \result FROM s1[0..4]; s
+[from] Function u:
+  \result FROM \nothing
+[from] Function string_comparison:
+  s5 FROM s3; s8
+  s6 FROM s3; s4; s8
+  cc FROM \nothing
+  Q FROM s7 (and SELF)
+  R FROM s3; s4 (and SELF)
+  S FROM \nothing (and SELF)
+  T FROM s3 (and SELF)
+  U FROM s7; s8 (and SELF)
+  V FROM s4; s7 (and SELF)
+  W FROM s7; s8 (and SELF)
+  X FROM s3 (and SELF)
+  Y FROM s3; s8 (and SELF)
+  Z FROM s3; s4; s8 (and SELF)
+  \result FROM \nothing
+[from] Function string_reads:
+  s1{[3]; [6]} FROM cc
+  R FROM \nothing (and SELF)
+  S FROM \nothing (and SELF)
+  T FROM s1[1] (and SELF)
+  \result FROM s1{[0..2]; [4]}; cc
+[from] Function wide_string_comparison:
+  \result FROM \nothing
+[from] Function main:
+  s1{[3]; [6]} FROM cc
+  s5 FROM s3; s8
+  s6 FROM s3; s4; s8
+  cc FROM \nothing
+  Q FROM s7 (and SELF)
+  R FROM nondet; s3; s4
+  S FROM \nothing (and SELF)
+  T FROM s1[1]; s3 (and SELF)
+  U FROM s7; s8 (and SELF)
+  V FROM s4; s7 (and SELF)
+  W FROM s7; s8 (and SELF)
+  X FROM s3 (and SELF)
+  Y FROM s3; s8 (and SELF)
+  Z FROM s3; s4; s8 (and SELF)
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function strcmp:
+    s1_0; s2_0; tmp; tmp_0; __retres
+[inout] Inputs for function strcmp:
+    tc[0..29]; long_chain_0[0..30]
+[inout] Out (internal) for function long_chain:
+    tc[0..29]; long_chain_0[0..31]; x
+[inout] Inputs for function long_chain:
+    nondet
+[inout] Out (internal) for function strcpy:
+    src; ldst; b[0..4]; tmp_unfold_46; tmp_1_unfold_46; tmp_0_unfold_46;
+    tmp_unfold_49; tmp_1_unfold_49; tmp_0_unfold_49; tmp_unfold_52;
+    tmp_1_unfold_52; tmp_0_unfold_52; tmp_unfold_55; tmp_1_unfold_55;
+    tmp_0_unfold_55; tmp_unfold_58; tmp_1_unfold_58; tmp_0_unfold_58;
+    tmp_unfold_61; tmp_1_unfold_61; tmp_0_unfold_61
+[inout] Inputs for function strcpy:
+    a[0..5]
+[inout] Out (internal) for function string_writes:
+    s5; s6; R; c; tmp; __retres
+[inout] Inputs for function string_writes:
+    nondet; s3; s4; s5; s6; cc
+[inout] Out (internal) for function strlen:
+    s; l; tmp_unfold_106; tmp_unfold_109; tmp_unfold_112; tmp_unfold_115;
+    tmp_unfold_118; tmp_unfold_121
+[inout] Inputs for function strlen:
+    s1[0..5]
+[inout] Out (internal) for function string_comparison:
+    s5; s6; cc; Q; R; S; T; U; V; W; X; Y; Z; s; tmp; tmp_0; tmp_1; tmp_2;
+    tmp_3; tmp_4; tmp_5; tmp_6; tmp_7; tmp_8; tmp_9; tmp_10; tmp_11; tmp_12;
+    tmp_13; tmp_14; __retres
+[inout] Inputs for function string_comparison:
+    s3; s4; s5; s6; s7; s8; cc
+[inout] Out (internal) for function string_reads:
+    s1{[3]; [6]}; R; S; T; p; tmp; tmp_0; tmp_1; tmp_2; a[0..9]; b[0..4];
+    tmp_3; tmp_4; __retres
+[inout] Inputs for function string_reads:
+    s1[0..5]; cc
+[inout] Out (internal) for function wide_string_comparison:
+    w1; w2; w3; res
+[inout] Inputs for function wide_string_comparison:
+    \nothing
+[inout] Out (internal) for function main:
+    s1{[3]; [6]}; s5; s6; cc; Q; R; S; T; U; V; W; X; Y; Z
+[inout] Inputs for function main:
+    nondet; s1[0..5]; s3; s4; s5; s6; s7; s8; cc

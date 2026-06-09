@@ -1,0 +1,414 @@
+/* -------------------------------------------------------------------------- */
+/* --- Properties                                                         --- */
+/* -------------------------------------------------------------------------- */
+
+.code-column {
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    text-overflow: ellipsis;
+}
+
+.properties-section-names .dome-xSideBarSection-content label {
+    display: none;
+}
+
+.properties-section-names .dome-xSideBarSection-content .dome-xForm-field{
+    padding: 5px 10px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Lightweight Text Markers                                           --- */
+/* -------------------------------------------------------------------------- */
+
+.kernel-text {
+    white-space: pre;
+}
+
+.kernel-text-marker {
+   color: var(--text-highlighted);
+}
+
+.kernel-text-marker:hover {
+    cursor: pointer;
+    background: var(--code-hover);
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- AST View                                                           --- */
+/* -------------------------------------------------------------------------- */
+
+.highlighted-marker {
+    background-color: var(--highlighted-marker);
+}
+
+.hovered-marker {
+    background-color: var(--code-hover);
+}
+
+.dead-code {
+    background-color: var(--dead-code);
+    border-bottom: solid 0.1em var(--dead-code);
+}
+
+.non-terminating {
+    border-bottom: solid 0.2em var(--non-terminating);
+}
+
+/* More contrasted color for thinner icons. */
+.titlebar-thin-icon {
+    fill: var(--text);
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Status Bullets                                                     --- */
+/* -------------------------------------------------------------------------- */
+
+.bullet {
+    width: 60%;
+    aspect-ratio: 1 / 1;
+    text-align: center;
+    border-radius: 50%;
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    margin-left: 20%;
+    margin-top: 25%;
+}
+
+.bullet.dead {
+    background: var(--status-dead);
+}
+
+.bullet.valid {
+    background: var(--status-valid);
+}
+
+.bullet.invalid {
+    background: var(--status-invalid);
+}
+
+.bullet.unknown {
+    background: var(--status-unknown);
+}
+
+.bullet.never_tried {
+    background: var(--status-never-tried);
+}
+
+.bullet.inconsistent {
+    background: var(--status-inconsistent);
+}
+
+.bullet.valid_but_dead {
+    background: var(--status-valid-but-dead);
+}
+
+.bullet.invalid_but_dead {
+    background: var(--status-invalid-but-dead);
+}
+
+.bullet.unknown_but_dead {
+    background: var(--status-unknown-but-dead);
+}
+
+.bullet.valid_under_hyp {
+    background: var(--status-valid-under-hyp);
+}
+
+.bullet.considered_valid {
+    background: var(--status-considered-valid);
+}
+
+.bullet.invalid_under_hyp {
+    background: var(--status-invalid-under-hyp);
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Globals                                                            --- */
+/* -------------------------------------------------------------------------- */
+
+.globals-scrollable-area {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.globals-info {
+    color: var(--info-text-discrete);
+    font-style: italic;
+    padding-left: 20px;
+    padding-right: 10px;
+    display: block;
+}
+
+.globals-main label {
+    text-decoration: underline;
+}
+
+.globals-stdlib label {
+    font-style: italic;
+}
+
+.globals-attr {
+    font-size: smaller;
+    font-weight: lighter;
+    color: var(--info-text);
+}
+
+.globals-section {
+    padding-right: 3px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Information                                                       --- */
+/* -------------------------------------------------------------------------- */
+
+.astinfo-section {
+    position: relative;
+    overflow: auto;
+    padding-top: 1px;
+    padding-bottom: 2px;
+}
+
+.astinfo-section.selected {
+    background: var(--code-select);
+}
+
+.astinfo-section.hovered {
+    background: var(--code-hover);
+}
+
+.astinfo-section.selected.hovered {
+    background: var(--code-select-hover);
+}
+
+.astinfo-folderbutton {
+    flex: 0 0 auto;
+}
+
+.astinfo-markerbar {
+    display: flex;
+    overflow: hidden;
+    padding-left: 4px;
+}
+
+.astinfo-markerkind {
+    background: var(--selected-element);
+    position: relative;
+    top: -1px;
+    border-radius: 2px;
+    font-size: 7pt;
+    padding: 2px;
+    color: var(--text);
+    user-select: none;
+    margin-right: 3pt;
+}
+
+.astinfo-markercode {
+    flex: 1 1 auto;
+    text-overflow: ellipsis;
+    cursor: default;
+}
+
+.astinfo-markerbutton {
+    flex: 0 1 auto;
+    margin: 0px;
+    padding-left: 4px;
+    padding-right: 4px;
+    position: relative;
+}
+
+.astinfo-infos {
+    display: flex ;
+    margin-top: 1px ;
+    margin-bottom: 1px ;
+}
+
+.astinfo-kind {
+    flex: 0 1 50px;
+    text-align: center;
+    margin-top: 1px;
+    margin-left: 8px;
+    color: var(--info-text);
+    font-size: smaller;
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Messages                                                           --- */
+/* -------------------------------------------------------------------------- */
+
+.message-search {
+    padding: 4px 4px 4px 4px;
+}
+
+.message-search .dome-xForm-section {
+    margin-top: 6px ;
+    left: auto; /* Cancel dome left placement */
+}
+
+.message-search .dome-xForm-label {
+    display: none; /* Hide label, only use placeholder */
+}
+
+.message-search .dome-xForm-field {
+    margin: 2px 4px 0;
+    min-width: 110px;
+    justify-self: stretch;
+}
+
+.message-search .message-emitter-category {
+    margin-bottom: 10px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Messages                                                           --- */
+/* -------------------------------------------------------------------------- */
+
+.message-cell {
+    user-select: text;
+    cursor: default;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 98%;
+}
+
+.message-page {
+    user-select: text;
+    white-space: pre-line;
+    background-color: var(--background-report);
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Server Logs                                                       --- */
+/* -------------------------------------------------------------------------- */
+
+.server-logs-tab {
+    padding: 8px 12px;
+    border-right: 1px solid var(--splitter);
+}
+
+.server-logs-tab-active {
+    background-color: var(--background-report);
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Locations                                                        --- */
+/* -------------------------------------------------------------------------- */
+
+label.locations {
+    padding-top: 2px;
+    padding-bottom: 4px;
+    text-align: center;
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Pivot table                                                        --- */
+/* -------------------------------------------------------------------------- */
+
+.pivot-centered {
+    user-select: text;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    height: 80%;
+}
+
+.pivot-centered .part {
+    user-select: text;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.pivot-centered .dome-xButton-led {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Projects                                                           --- */
+/* -------------------------------------------------------------------------- */
+
+.projects-title-actions {
+    gap: 5px;
+    margin-right: 5px;
+}
+
+.project-error {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    svg { bottom: -1px !important; }
+}
+
+.project-field {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 1.1em;
+
+    input {
+        color: var(--text);
+        padding: 5px 12px;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Sidebar Files                                                      --- */
+/* -------------------------------------------------------------------------- */
+
+.sidebar-files-tree {
+  .dome-xTree-node {
+      font-size: 1.05em;
+      font-weight: bold;
+    }
+}
+
+.sidebar-files-tools {
+    display: block;
+    padding: 5px;
+    background-color: var(--background-sidebar);
+
+    .sidebar-files-tools-filter {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        flex-shrink: 1;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--background-sidebar);
+
+        & > .dome-xBoxes-hbox {
+          flex-shrink: 1;
+          flex-wrap: wrap;
+        }
+    }
+
+    .dome-xForm-field {
+        display: flex;
+        padding: 3px 5px;
+        border-radius: 5px;
+        background-color: var(--background-block-form);
+
+        .dome-xForm-text-field {
+            flex-grow: 1;
+            flex-shrink:1;
+            min-width: 0;
+        }
+    }
+
+    .dome-xForm-label {
+        display: none;
+    }
+}
+
+/* -------------------------------------------------------------------------- */

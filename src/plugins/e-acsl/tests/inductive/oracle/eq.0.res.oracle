@@ -1,0 +1,27 @@
+[e-acsl] beginning translation.
+[e-acsl:analysis:inductive] no valid mode found for: eqA
+[e-acsl] Warning: Unable to extract executable code from inductive definition of eqA.
+  See language reference manual for details on the supported forms.
+[e-acsl:analysis:inductive] no valid mode found for: eqB
+[e-acsl] Warning: Unable to extract executable code from inductive definition of eqB.
+  See language reference manual for details on the supported forms.
+[e-acsl:analysis:inductive] 
+  extracting predicate from eqC using mode: incomplete in 2
+[e-acsl:analysis:inductive] 
+  extracting function from eqC with mode: incomplete in 2
+[e-acsl] Warning: Negative verdicts of eqC might be unsound
+[e-acsl] eq.c:33: Warning: 
+  E-ACSL construct
+  `inductive definitions outside of subset described in the reference manual'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] eq.c:34: Warning: 
+  E-ACSL construct
+  `inductive definitions outside of subset described in the reference manual'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] eq.c:33: Warning: assertion got status unknown.
+[eva:alarm] eq.c:34: Warning: assertion got status unknown.
+[eva:alarm] eq.c:35: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.

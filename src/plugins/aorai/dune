@@ -1,0 +1,52 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;  SPDX-License-Identifier LGPL-2.1                                          ;;
+;;  Copyright (C)                                                             ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)      ;;
+;;  INRIA (Institut National de Recherche en Informatique et en Automatique)  ;;
+;;  INSA (Institut National des Sciences Appliquees)                          ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "Aorai:" %{lib-available:frama-c-aorai.core} "\n")
+          (echo "  - (optional) Eva:" %{lib-available:frama-c-eva.core} "\n")
+  )
+  )
+)
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-aorai.core})))
+ (action (echo "WARNING: Aorai disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+( library
+  (name aorai)
+  (optional)
+  (public_name frama-c-aorai.core)
+  (flags -open Frama_c_kernel :standard -w -9)
+ (libraries frama-c.kernel
+  (select aorai_eva_analysis.ml from
+   (frama-c-eva.core -> aorai_eva_analysis.enabled.ml)
+   (  -> aorai_eva_analysis.disabled.ml)
+  )
+ )
+ (instrumentation (backend landmarks))
+ (instrumentation (backend bisect_ppx))
+)
+
+(ocamllex yalexer)
+(menhir
+  (modules yaparser)
+  ; "--fixed-exception" fixes compatibility with ocamlyacc Parsing.Parse_error
+  (flags --fixed-exception --explain --dump --comment)
+)
+
+(plugin (optional) (name aorai) (libraries frama-c-aorai.core) (site (frama-c plugins)))

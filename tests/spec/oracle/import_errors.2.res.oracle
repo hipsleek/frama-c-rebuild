@@ -1,0 +1,6 @@
+[test-import] Linking.
+[kernel] Parsing import_errors.c (with preprocessing)
+[kernel:extension-unknown] import_errors.c:40: User Error: 
+  Ignoring unregistered module importer extension 'toto' of plug-in myplugin1
+[kernel] User Error: There were parsing errors in import_errors.c
+[kernel] Frama-C aborted: invalid user input.

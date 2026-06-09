@@ -1,0 +1,313 @@
+# frama-c -wp [...]
+[kernel] Parsing sum_types.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] 3 goals scheduled
+---------------------------------------------
+--- Context 'typed' Cluster 'A_A' 
+---------------------------------------------
+theory A_A
+  
+  (* use why3.BuiltIn.BuiltIn *)
+  
+  (* use bool.Bool *)
+  
+  (* use int.Int *)
+  
+  (* use int.ComputerDivision *)
+  
+  (* use real.RealInfix *)
+  
+  (* use frama_c_wp.qed.Qed *)
+  
+  (* use map.Map *)
+  
+  type A_InAxiomatic =
+    | C_IAu int
+    | C_IAc int
+    | C_IAi int
+  
+  (* use frama_c_wp.cint.Cint *)
+  
+  inductive is_InAxiomatic A_InAxiomatic =
+    | Q_is_InAxiomatic_IAu :
+        forall p:int. is_uint32 p -> is_InAxiomatic (C_IAu p)
+    | Q_is_InAxiomatic_IAc :
+        forall p:int. is_sint8 p -> is_InAxiomatic (C_IAc p)
+    | Q_is_InAxiomatic_IAi : forall p:int. is_InAxiomatic (C_IAi p)
+  
+  predicate P_P A_InAxiomatic
+  
+end
+[wp:print-generated] 
+  theory WP
+    
+    (* use why3.BuiltIn.BuiltIn *)
+    
+    (* use bool.Bool *)
+    
+    (* use int.Int *)
+    
+    (* use int.ComputerDivision *)
+    
+    (* use real.RealInfix *)
+    
+    (* use frama_c_wp.qed.Qed *)
+    
+    (* use map.Map *)
+    
+    (* use A_A *)
+    
+    goal wp_goal : forall i:A_InAxiomatic. is_InAxiomatic i -> P_P i
+    
+  end
+---------------------------------------------
+--- Context 'typed' Cluster 'Axiomatic1' 
+---------------------------------------------
+theory Axiomatic1
+  
+  (* use why3.BuiltIn.BuiltIn *)
+  
+  (* use bool.Bool *)
+  
+  (* use int.Int *)
+  
+  (* use int.ComputerDivision *)
+  
+  (* use real.RealInfix *)
+  
+  (* use frama_c_wp.qed.Qed *)
+  
+  (* use map.Map *)
+  
+  type A_AtTopLevel =
+    | C_TLu int
+    | C_TLc int
+    | C_TLi int
+  
+  (* use frama_c_wp.cint.Cint *)
+  
+  inductive is_AtTopLevel A_AtTopLevel =
+    | Q_is_AtTopLevel_TLu :
+        forall p:int. is_uint32 p -> is_AtTopLevel (C_TLu p)
+    | Q_is_AtTopLevel_TLc :
+        forall p:int. is_sint8 p -> is_AtTopLevel (C_TLc p)
+    | Q_is_AtTopLevel_TLi : forall p:int. is_AtTopLevel (C_TLi p)
+  
+  (* use A_A *)
+  
+  lemma Q_LA : forall a:A_InAxiomatic. is_InAxiomatic a -> P_P a
+  
+end
+---------------------------------------------
+--- Context 'typed' Cluster 'A_X' 
+---------------------------------------------
+theory A_X
+  
+  (* use why3.BuiltIn.BuiltIn *)
+  
+  (* use bool.Bool *)
+  
+  (* use int.Int *)
+  
+  (* use int.ComputerDivision *)
+  
+  (* use real.RealInfix *)
+  
+  (* use frama_c_wp.qed.Qed *)
+  
+  (* use map.Map *)
+  
+  (* use Axiomatic1 *)
+  
+  predicate P_Q A_AtTopLevel
+  
+end
+[wp:print-generated] 
+  theory WP1
+    
+    (* use why3.BuiltIn.BuiltIn *)
+    
+    (* use bool.Bool *)
+    
+    (* use int.Int *)
+    
+    (* use int.ComputerDivision *)
+    
+    (* use real.RealInfix *)
+    
+    (* use frama_c_wp.qed.Qed *)
+    
+    (* use map.Map *)
+    
+    (* use Axiomatic1 *)
+    
+    (* use A_X *)
+    
+    goal wp_goal : forall a:A_AtTopLevel. is_AtTopLevel a -> P_Q a
+    
+  end
+---------------------------------------------
+--- Context 'typed' Cluster 'Axiomatic2' 
+---------------------------------------------
+theory Axiomatic2
+  
+  (* use why3.BuiltIn.BuiltIn *)
+  
+  (* use bool.Bool *)
+  
+  (* use int.Int *)
+  
+  (* use int.ComputerDivision *)
+  
+  (* use real.RealInfix *)
+  
+  (* use frama_c_wp.qed.Qed *)
+  
+  (* use map.Map *)
+  
+  type A_Rec =
+    | C_Nil
+    | C_C int A_Rec
+  
+  (* use frama_c_wp.cint.Cint *)
+  
+  inductive is_Rec A_Rec =
+    | Q_is_Rec_Nil : is_Rec C_Nil
+    | Q_is_Rec_C :
+        forall p:int, p1:A_Rec. is_Rec p1 -> is_sint32 p -> is_Rec (C_C p p1)
+  
+  (* use Axiomatic1 *)
+  
+  (* use A_X *)
+  
+  lemma Q_LB : forall a:A_AtTopLevel. is_AtTopLevel a -> P_Q a
+  
+end
+---------------------------------------------
+--- Context 'typed' Cluster 'A_Y' 
+---------------------------------------------
+theory A_Y
+  
+  (* use why3.BuiltIn.BuiltIn *)
+  
+  (* use bool.Bool *)
+  
+  (* use int.Int *)
+  
+  (* use int.ComputerDivision *)
+  
+  (* use real.RealInfix *)
+  
+  (* use frama_c_wp.qed.Qed *)
+  
+  (* use map.Map *)
+  
+  (* use Axiomatic2 *)
+  
+  predicate P_R A_Rec
+  
+end
+[wp:print-generated] 
+  theory WP2
+    
+    (* use why3.BuiltIn.BuiltIn *)
+    
+    (* use bool.Bool *)
+    
+    (* use int.Int *)
+    
+    (* use int.ComputerDivision *)
+    
+    (* use real.RealInfix *)
+    
+    (* use frama_c_wp.qed.Qed *)
+    
+    (* use map.Map *)
+    
+    (* use Axiomatic2 *)
+    
+    (* use A_Y *)
+    
+    goal wp_goal : forall r:A_Rec. is_Rec r -> P_R r
+    
+  end
+[wp] 3 goals generated
+------------------------------------------------------------
+  Global
+------------------------------------------------------------
+
+Cluster A_A {
+  
+  Type InAxiomatic = | IAu int | IAc int | IAi int
+  
+  Predicate P_P (a_0 : A_InAxiomatic)
+  
+  Inductive is_InAxiomatic
+    (v_0 : A_InAxiomatic) =
+    Axiom IAu:
+      forall p_0: int.
+      (is_uint32 p_0) -> (is_InAxiomatic (C_IAu p_0))
+    Axiom IAc:
+      forall p_1: int.
+      (is_sint8 p_1) -> (is_InAxiomatic (C_IAc p_1))
+    Axiom IAi: forall p_2: int. (is_InAxiomatic (C_IAi p_2))
+  
+}
+
+Cluster A_X { Predicate P_Q (a_0 : A_AtTopLevel) }
+
+Cluster A_Y { Predicate P_R (a_0 : A_Rec) }
+
+Cluster Axiomatic1 {
+  
+  Type AtTopLevel = | TLu int | TLc int | TLi int
+  
+  Inductive is_AtTopLevel
+    (v_0 : A_AtTopLevel) =
+    Axiom TLu:
+      forall p_0: int.
+      (is_uint32 p_0) -> (is_AtTopLevel (C_TLu p_0))
+    Axiom TLc: forall p_1: int. (is_sint8 p_1) -> (is_AtTopLevel (C_TLc p_1))
+    Axiom TLi: forall p_2: int. (is_AtTopLevel (C_TLi p_2))
+  
+  Lemma LA: forall a_0: A_InAxiomatic. (is_InAxiomatic a_0) -> (P_P a_0)
+  
+}
+
+Cluster Axiomatic2 {
+  
+  Type Rec = | Nil | C int A_Rec
+  
+  Inductive is_Rec
+    (v_0 : A_Rec) =
+    Axiom Nil: (is_Rec C_Nil)
+    Axiom C:
+      forall p_0: int.
+      forall p_1: A_Rec.
+      (is_Rec p_1) -> (is_sint32 p_0) -> (is_Rec (C_C p_0 p_1))
+  
+  Lemma LB: forall a_0: A_AtTopLevel. (is_AtTopLevel a_0) -> (P_Q a_0)
+  
+}
+
+Cluster Axiomatic3 { Lemma LC: forall a_0: A_Rec. (is_Rec a_0) -> (P_R a_0) }
+
+Goal Lemma 'LA':
+Assume { Have: is_InAxiomatic(a). }
+Prove: P_P(a).
+
+------------------------------------------------------------
+
+Goal Lemma 'LB':
+Assume Lemmas: 'LA'
+Assume { Have: is_AtTopLevel(a). }
+Prove: P_Q(a).
+
+------------------------------------------------------------
+
+Goal Lemma 'LC':
+Assume Lemmas: 'LB' 'LA'
+Assume { Have: is_Rec(a). }
+Prove: P_R(a).
+
+------------------------------------------------------------

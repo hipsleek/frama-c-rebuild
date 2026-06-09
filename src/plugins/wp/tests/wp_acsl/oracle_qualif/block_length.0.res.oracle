@@ -1,0 +1,39 @@
+# frama-c -wp [...]
+[kernel] Parsing block_length.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal f_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal f_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal g_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal g_terminates (Cfg) (Trivial)
+[wp] 20 goals scheduled
+[wp] [Valid] typed_f_ensures_Pt (Qed)
+[wp] [Valid] typed_f_ensures_Psiz1 (Qed)
+[wp] [Valid] typed_f_ensures_Pmat1 (Qed)
+[wp] [Valid] typed_f_ensures_Psiz2 (Qed)
+[wp] [Valid] typed_f_ensures_Pmat2 (Qed)
+[wp] [Valid] typed_f_ensures_Ps (Qed)
+[wp] [Valid] typed_f_ensures_Pts (Qed)
+[wp] [Valid] typed_f_ensures_Pt1 (Qed)
+[wp] [Valid] typed_f_ensures_Pmat12 (Qed)
+[wp] [Valid] typed_f_ensures_Pts1 (Qed)
+[wp] [Valid] typed_g_ensures_Pt (Alt-Ergo) (Cached)
+[wp] [Valid] typed_g_ensures_Psiz1 (Qed)
+[wp] [Valid] typed_g_ensures_Pmat1 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_g_ensures_Psiz2 (Qed)
+[wp] [Valid] typed_g_ensures_Pmat2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_g_ensures_Ps (Alt-Ergo) (Cached)
+[wp] [Valid] typed_g_ensures_Pts (Alt-Ergo) (Cached)
+[wp] [Valid] typed_g_ensures_Pt1 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_g_ensures_Pmat12 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_g_ensures_Pts1 (Alt-Ergo) (Cached)
+[wp] Proved goals:   24 / 24
+  Terminating:     2
+  Unreachable:     2
+  Qed:            12
+  Alt-Ergo:        8
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  f                        12        -       12       100%
+  g                         4        8       12       100%
+------------------------------------------------------------

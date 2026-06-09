@@ -1,0 +1,12 @@
+[kernel] Parsing very_large_integers.c (with preprocessing)
+[kernel:too-large-array] very_large_integers.c:62: User Error: 
+  Array length is too large.
+[kernel] very_large_integers.c:62: User Error: 
+  Array length 9999999999999999999U is too big: no explicit initializer allowed.
+  60    
+  61    #ifdef INIT_DESIGNATOR
+  62    int arr2[9999999999999999999U] = { [9999999999999999999U] = 42 };
+                 ^^^^^^^^^^^^^^^^^^^^
+  63    #endif
+  64
+[kernel] Frama-C aborted: invalid user input.

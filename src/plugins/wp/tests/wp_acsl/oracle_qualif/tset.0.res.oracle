@@ -1,0 +1,21 @@
+# frama-c -wp [...]
+[kernel] Parsing tset.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] 10 goals scheduled
+[wp] [Valid] typed_lemma_INTER_EMPTY (Qed)
+[wp] [Valid] typed_lemma_INTER_EQ (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_INTER_RANGE (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_UNION_DESCR (Qed)
+[wp] [Valid] typed_lemma_UNION_DESCR_LIFT_BOTH (Qed)
+[wp] [Valid] typed_lemma_UNION_DESCR_LIFT_LEFT (Qed)
+[wp] [Valid] typed_lemma_UNION_DESCR_LIFT_RIGHT (Qed)
+[wp] [Valid] typed_lemma_UNION_EQ (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_UNION_LIFT (Qed)
+[wp] [Valid] typed_lemma_UNION_RANGE (Alt-Ergo) (Cached)
+[wp] Proved goals:   10 / 10
+  Qed:             6
+  Alt-Ergo:        4
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Lemma                     6        4       10       100%
+------------------------------------------------------------

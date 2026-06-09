@@ -1,0 +1,50 @@
+# frama-c -wp [...]
+[kernel] Parsing clusters.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal callee_no_r_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] clusters.i:16: Warning: 
+  Missing decreases clause on recursive function simpl_rf, call must be unreachable
+[wp] clusters.i:29: Warning: 
+  Missing decreases clause on recursive function mutual_1, call must be unreachable
+[wp] clusters.i:36: Warning: No decreases clause for mutual_1
+[wp] clusters.i:63: Warning: 
+  Missing decreases clause on recursive function fp, call must be unreachable
+[wp] clusters.i:55: Warning: No decreases clause for fp
+[wp] clusters.i:71: Warning: 
+  Missing decreases clause on recursive function no_decr_ok_term, call must be unreachable
+[wp] 17 goals scheduled
+[wp] [Valid] typed_simpl_r_terminates (Qed)
+[wp] [Valid] typed_simpl_r_variant (Alt-Ergo) (Cached)
+[wp] [Valid] typed_simpl_rf_terminates_part1 (Qed)
+[wp] [Unsuccess] typed_simpl_rf_terminates_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_mutual_1_terminates_part1 (Qed)
+[wp] [Unsuccess] typed_mutual_1_terminates_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_mutual_2_terminates (Qed)
+[wp] [Unsuccess] typed_mutual_2_variant (Alt-Ergo) (Cached) (Degenerated)
+[wp] [Valid] typed_caller_no_cluster_terminates (Qed)
+[wp] [Valid] typed_fp_call_point_function_s41 (Qed)
+[wp] [Valid] typed_fp_terminates_part1 (Qed)
+[wp] [Unsuccess] typed_fp_terminates_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_function_terminates (Qed)
+[wp] [Unsuccess] typed_function_variant (Alt-Ergo) (Cached) (Degenerated)
+[wp] [Valid] typed_function_call_fp_requires (Qed)
+[wp] [Valid] typed_no_decr_ok_term_terminates_part1 (Qed)
+[wp] [Valid] typed_no_decr_ok_term_terminates_part2 (Qed)
+[wp] Proved goals:   13 / 18
+  Terminating:     1
+  Qed:            11
+  Alt-Ergo:        1
+  Unsuccess:       5
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  simpl_r                   1        1        2       100%
+  simpl_rf                  1        -        2      50.0%
+  mutual_1                  1        -        2      50.0%
+  mutual_2                  1        -        2      50.0%
+  callee_no_r               1        -        1       100%
+  caller_no_cluster         1        -        1       100%
+  fp                        2        -        3      66.7%
+  function                  2        -        3      66.7%
+  no_decr_ok_term           2        -        2       100%
+------------------------------------------------------------

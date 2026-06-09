@@ -1,0 +1,36 @@
+[kernel] Parsing mixed_headers.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+[eva:progress] mixed_headers.c:11: Call to builtin malloc
+[eva:malloc:new] mixed_headers.c:11: allocating variable __malloc_main_l11
+[eva:progress] mixed_headers.c:12: Call to builtin malloc
+[eva:malloc:new] mixed_headers.c:12: allocating variable __malloc_main_l12
+[eva:progress] 
+  computing for function memcmp <- main.
+  Called from mixed_headers.c:13.
+[eva] using specification for function memcmp
+[eva:alarm] mixed_headers.c:13: Warning: 
+  function memcmp: precondition 'valid_s1' got status invalid.
+[eva:progress] mixed_headers.c:13: 
+  function memcmp: no state left, precondition 'valid_s2' got status valid.
+[eva:progress] mixed_headers.c:13: 
+  function memcmp: no state left, precondition 'initialization,s1' got status valid.
+[eva:progress] mixed_headers.c:13: 
+  function memcmp: no state left, precondition 'initialization,s2' got status valid.
+[eva:progress] mixed_headers.c:13: 
+  function memcmp: no state left, precondition 'danglingness,s1' got status valid.
+[eva:progress] mixed_headers.c:13: 
+  function memcmp: no state left, precondition 'danglingness,s2' got status valid.
+[eva:progress] Done for function memcmp
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  __fc_heap_status ∈ [--..--]
+  __fc_errno ∈ [--..--]
+  p ∈ {{ &__malloc_main_l11[0] }}
+  q ∈ {{ &__malloc_main_l12[0] }}
+  __retres ∈ {0}

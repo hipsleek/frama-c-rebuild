@@ -1,0 +1,15 @@
+(subdir
+ result_qualif/bitmask0x8000.0.session_qualif/script
+ (copy_files ../../../bitmask0x8000.0.session_qualif/script/*))
+
+(subdir
+ result_qualif/fallback.0.session_qualif/script
+ (copy_files ../../../fallback.0.session_qualif/script/*))
+
+(subdir
+ result_qualif/unroll.0.session_qualif/script
+ (copy_files ../../../unroll.0.session_qualif/script/*))
+
+(subdir
+ result_qualif/unsigned.0.session_qualif/script
+ (copy_files ../../../unsigned.0.session_qualif/script/*))

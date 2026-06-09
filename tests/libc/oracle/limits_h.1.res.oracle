@@ -1,0 +1,59 @@
+[kernel] Parsing limits_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] limits_h.c:18: assertion got status valid.
+[eva:progress] limits_h.c:20: assertion got status valid.
+[eva:progress] limits_h.c:21: assertion got status valid.
+[eva:progress] limits_h.c:22: assertion got status valid.
+[eva:progress] limits_h.c:23: assertion got status valid.
+[eva:progress] limits_h.c:24: assertion got status valid.
+[eva:progress] limits_h.c:25: assertion got status valid.
+[eva:progress] limits_h.c:26: assertion got status valid.
+[eva:progress] limits_h.c:27: assertion got status valid.
+[eva:progress] limits_h.c:28: assertion got status valid.
+[eva:progress] limits_h.c:29: assertion got status valid.
+[eva:progress] limits_h.c:30: assertion got status valid.
+[eva:progress] limits_h.c:31: assertion got status valid.
+[eva:progress] limits_h.c:32: assertion got status valid.
+[eva:progress] limits_h.c:33: assertion got status valid.
+[eva:progress] limits_h.c:34: assertion got status valid.
+[eva:progress] limits_h.c:35: assertion got status valid.
+[eva:progress] limits_h.c:36: assertion got status valid.
+[eva:progress] limits_h.c:37: assertion got status valid.
+[eva:progress] limits_h.c:38: assertion got status valid.
+[eva:progress] limits_h.c:39: assertion got status valid.
+[eva:progress] limits_h.c:40: assertion got status valid.
+[eva:progress] limits_h.c:51: assertion 'posix_compliance' got status valid.
+[eva:progress] limits_h.c:53: assertion 'posix_compliance' got status valid.
+[eva:progress] limits_h.c:55: assertion 'posix_compliance' got status valid.
+[eva:progress] limits_h.c:57: assertion 'posix_compliance' got status valid.
+[eva:progress] limits_h.c:59: assertion 'posix_compliance' got status valid.
+[eva:progress] limits_h.c:61: assertion 'posix_compliance' got status valid.
+[eva:progress] limits_h.c:63: assertion 'posix_compliance' got status valid.
+[eva:progress] limits_h.c:65: assertion 'posix_compliance' got status valid.
+[eva:progress] limits_h.c:67: assertion 'posix_compliance' got status valid.
+[eva:progress] limits_h.c:69: assertion 'posix_compliance' got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[scope:rm_asserts] removing 7 assertion(s)
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  size_max ∈ {4294967295}
+  ssize_max ∈ {2147483647}
+  intptr_max ∈ {2147483647}
+  intptr_min ∈ {-2147483648}
+  uintptr_max ∈ {4294967295}
+  uintmax_max ∈ {18446744073709551615}
+  bc_base_max ∈ {99}
+  bc_dim_max ∈ {2048}
+  bs_scale_max ∈ {99}
+  bc_string_max ∈ {1000}
+  charclass_name_max ∈ {14}
+  coll_weights_max ∈ {2}
+  expr_nest_max ∈ {32}
+  line_max ∈ {2048}
+  ngroups_max ∈ {8}
+  re_dup_max ∈ {255}

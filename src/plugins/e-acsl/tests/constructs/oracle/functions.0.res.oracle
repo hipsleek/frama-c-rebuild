@@ -1,0 +1,68 @@
+[kernel:CERT:MSC:37] functions.c:169: Warning: 
+  Body of function f5 falls-through. Adding a return statement
+[kernel:CERT:MSC:37] functions.c:173: Warning: 
+  Body of function test_f5 falls-through. Adding a return statement
+[e-acsl] beginning translation.
+[e-acsl] functions.c:112: Warning: 
+  E-ACSL construct `function application' is not yet supported.
+  Ignoring annotation.
+[e-acsl] functions.c:111: Warning: 
+  E-ACSL construct `function application' is not yet supported.
+  Ignoring annotation.
+[e-acsl] functions.c:94: Warning: 
+  E-ACSL construct `function application' is not yet supported.
+  Ignoring annotation.
+[e-acsl] functions.c:118: Warning: 
+  no assigns clause generated for function f6 because pointers as arguments is not yet supported
+[e-acsl] functions.c:123: Warning: 
+  E-ACSL construct `predicate with labels' is not yet supported.
+  Ignoring annotation.
+[e-acsl] functions.c:124: Warning: 
+  E-ACSL construct `logic functions with labels' is not yet supported.
+  Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] functions.c:91: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] functions.c:95: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] functions.c:96: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] functions.c:111: Warning: assertion got status unknown.
+[eva:alarm] functions.c:37: Warning: 
+  assertion 'E_ACSL,division by zero' got status unknown.
+[eva:alarm] functions.c:117: Warning: 
+  non-finite double value. assert \is_finite(__gen_e_acsl__8);
+[eva:alarm] functions.c:117: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] functions.c:118: Warning: 
+  non-finite double value. assert \is_finite(__gen_e_acsl__11);
+[eva:alarm] functions.c:118: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] functions.c:119: Warning: assertion got status unknown.
+[eva:alarm] functions.c:47: Warning: 
+  assertion 'E_ACSL,division by zero' got status unknown.
+[eva:alarm] functions.c:121: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] functions.c:123: Warning: assertion got status unknown.
+[eva:alarm] functions.c:124: Warning: assertion got status unknown.
+[eva:alarm] functions.c:129: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] functions.c:132: Warning: assertion got status unknown.
+[eva:alarm] functions.c:133: Warning: assertion got status unknown.
+[eva:alarm] functions.c:134: Warning: assertion got status unknown.
+[eva:alarm] functions.c:135: Warning: assertion got status unknown.
+[eva:alarm] functions.c:136: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] functions.c:136: Warning: assertion got status unknown.
+[eva:alarm] functions.c:137: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] functions.c:137: Warning: assertion got status unknown.
+[eva:alarm] functions.c:73: Warning: 
+  assertion 'E_ACSL,division by zero' got status unknown.
+[eva:alarm] functions.c:139: Warning: assertion got status unknown.
+[eva:alarm] functions.c:141: Warning: assertion got status unknown.
+[eva:alarm] functions.c:143: Warning: assertion got status unknown.
+[eva:alarm] functions.c:145: Warning: assertion got status unknown.
+[eva:alarm] functions.c:147: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] functions.c:147: Warning: assertion got status unknown.

@@ -1,0 +1,54 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing annot2.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  global_p ∈ {{ NULL ; &S_global_p[0] }}
+  global_pp ∈ {{ NULL ; &S_global_pp[0] }}
+  global_arr[0..19] ∈ [--..--]
+  arr_2d[0..2][0..3] ∈ [--..--]
+  global_p_arr[0] ∈ {{ NULL ; &S_0_global_p_arr[0] }}
+              [1] ∈ {{ NULL ; &S_1_global_p_arr[0] }}
+              [2..9] ∈
+              {{ NULL ; &S_0_global_p_arr[0] ; &S_1_global_p_arr[0] }}
+  x ∈ [--..--]
+  y ∈ [--..--]
+  S_global_p[0..1] ∈ [--..--]
+  S_global_pp[0] ∈ {{ NULL ; &S_0_S_global_pp[0] }}
+             [1] ∈ {{ NULL ; &S_1_S_global_pp[0] }}
+  S_0_S_global_pp[0..1] ∈ [--..--]
+  S_1_S_global_pp[0..1] ∈ [--..--]
+  S_0_global_p_arr[0..1] ∈ [--..--]
+  S_1_global_p_arr[0..1] ∈ [--..--]
+[eva:secure-flow:direct] annot2.c:29: Warning: 
+  direct non-interference violation on {a}
+[eva:alarm] annot2.c:33: Warning: assertion got status unknown.
+[eva:alarm] annot2.c:35: Warning: assertion got status unknown.
+[eva:alarm] annot2.c:38: Warning: assertion got status unknown.
+[eva:alarm] annot2.c:39: Warning: assertion got status unknown.
+[eva:progress] annot2.c:43: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  global_p ∈ {{ &global_arr[0] }}
+  global_pp ∈ {{ &global_p_arr[0] }}
+  a ∈ [--..--]
+  b ∈ [--..--]
+  c ∈ [--..--]
+  local_p ∈ {{ &c }}
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  global_p FROM \nothing
+  global_pp FROM \nothing
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    global_p; global_pp; a; b; c; local_p; __retres
+[inout] Inputs for function main:
+    x; y

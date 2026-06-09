@@ -1,0 +1,35 @@
+[kernel] Parsing fb_SORT.i (no preprocessing)
+[region] Function job:
+  R0001: -R-- fb (FB *) 64b (*R0002) (singleton) ;
+  R0002: ---- 704b
+    {
+      .prm: R0003;
+      (inp1-inp3): R0006[3];
+      (out1-out3): R000a[3];
+      (idx1-idx3): R000e[3];
+      .sum: R0012;
+    } ;
+  R0003: -R-- (struct N *) 64b (*R0004) ;
+  R0004: ---- 128b { .v: R0005; #64b; } ;
+  R0005: -R-- (double) 64b ;
+  R0006: -R-A INP: (struct N *) 64b (*R0007) ;
+  R0007: ---- 128b { .v: R0008; .s: R0009; #32b; } ;
+  R0008: -R-- (double) 64b ;
+  R0009: -R-- (int) 32b ;
+  R000a: -R-A OUT: (struct N *) 64b (*R000b) ;
+  R000b: ---- 128b { .v: R000c; .s: R000d; #32b; } ;
+  R000c: -RW- (double) 64b ;
+  R000d: --W- (int) 32b ;
+  R000e: -R-A IDX: (struct L *) 64b (*R000f) ;
+  R000f: ---- 64b { .v: R0010; .s: R0011; } ;
+  R0010: --W- (int) 32b ;
+  R0011: --W- (int) 32b ;
+  R0012: -R-- (struct N *) 64b (*R0013) ;
+  R0013: ---- 128b { .v: R0014; .s: R0015; #32b; } ;
+  R0014: --W- (double) 64b ;
+  R0015: --W- (int) 32b ;
+  R0016: IR-- inp (SN *) 64b (*R0006) (singleton) (allocated) ;
+  R0017: IR-- out (SN *) 64b (*R000a) (singleton) (allocated) ;
+  R0018: IR-- idx (SL *) 64b (*R000e) (singleton) (allocated) ;
+  R0019: IRW- i (int) 32b (singleton) (allocated) ;
+[region] annotating function job

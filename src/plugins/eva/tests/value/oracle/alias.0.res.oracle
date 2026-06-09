@@ -1,0 +1,158 @@
+[kernel] Parsing alias.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  A ∈ {0}
+  B ∈ {0}
+  C ∈ {0}
+  D ∈ {0}
+  E ∈ {0}
+  F ∈ {0}
+  G ∈ {0}
+  p[0..4] ∈ {0}
+  q[0] ∈ {1}
+   [1] ∈ {2}
+   [2] ∈ {3}
+   [3] ∈ {4}
+   [4] ∈ {5}
+  p2[0..4] ∈ {0}
+  q2[0] ∈ {1}
+    [1] ∈ {2}
+    [2] ∈ {3}
+    [3] ∈ {4}
+    [4] ∈ {5}
+  p3[0..4] ∈ {0}
+  t ∈ {0}
+  u ∈ {0}
+  v ∈ {0}
+  w ∈ {0}
+  x ∈ {0}
+  y ∈ {0}
+  z ∈ {0}
+  t2 ∈ {0}
+  v2 ∈ {0}
+  PTR1 ∈ {0}
+  PTR2 ∈ {0}
+  PTR3 ∈ {0}
+  PTR4 ∈ {0}
+  PTR5 ∈ {0}
+  PTR6 ∈ {0}
+  c ∈ [--..--]
+  c1 ∈ [--..--]
+  c2 ∈ [--..--]
+  c3 ∈ [--..--]
+  c4 ∈ [--..--]
+  e ∈ {0}
+  g ∈ {0}
+  h ∈ {0}
+  i ∈ {0}
+  tz1 ∈ {0}
+  tz2 ∈ {0}
+  tz3 ∈ {0}
+  tx ∈ {0}
+  ty ∈ {0}
+  tz ∈ {0}
+  U ∈ {0}
+  char1 ∈ {0}
+  ll1 ∈ {0}
+[eva:progress] 
+  computing for function f <- main.
+  Called from alias.i:45:3-18.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] 
+  computing for function f <- main.
+  Called from alias.i:46:3-18.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] 
+  computing for function f <- main.
+  Called from alias.i:47:3-18.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:show] alias.i:82: Frama_C_show_each_d0: [-2147483648..2147483647]
+[eva:show] alias.i:84: Frama_C_show_each_d2: [-2147483648..2147483647]
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+Cannot filter: dumping raw memory (including unchanged variables)
+  A ∈ {516}
+  B ∈ {4}
+  C ∈ {0}
+  D ∈ {0}
+  E ∈ {0}
+  F ∈ {0}
+  G ∈ {0}
+  p[0][bits 0 to 15]# ∈ {1} repeated %8 
+   {[0][bits 16 to 31]; [1..4]} ∈ {0}
+  q[0] ∈ {1}
+   [1] ∈ {2}
+   [2] ∈ {3}
+   [3] ∈ {4}
+   [4] ∈ {5}
+  p2[0] ∈ {0; 7}
+    [1] ∈ {0; 6}
+    [2..4] ∈ {0}
+  q2[0] ∈ {1}
+    [1] ∈ {2; 7}
+    [2] ∈ {3; 6}
+    [3] ∈ {4}
+    [4] ∈ {5}
+  p3[0] ∈ {0}
+    [1] ∈ [--..--]
+    [2..4] ∈ {0}
+  t ∈ {1; 2; 4}
+  u ∈ {2; 3; 4; 5}
+  v ∈ {1; 2; 4; 5}
+  w ∈ {1; 2; 4; 5}
+  x ∈ {1; 4}
+  y ∈ {2; 4; 5}
+  z ∈ {3; 5}
+  t2 ∈ {0; 3; 6}
+  v2 ∈ {0; 2; 7}
+  PTR1 ∈ {{ &x ; &y }}
+  PTR2 ∈ {{ &y ; &z }}
+  PTR3 ∈ {{ &x ; &y }}
+  PTR4 ∈ {{ &p2[1] ; &q2[2] }}
+  PTR5 ∈ {0}
+  PTR6 ∈ {0}
+  c ∈ [--..--]
+  c1 ∈ [--..--]
+  c2 ∈ [--..--]
+  c3 ∈ [--..--]
+  c4 ∈ [--..--]
+  vol ∈ [--..--]
+  e ∈ {0}
+  g ∈ {0}
+  h ∈ {0}
+  i ∈ {0}
+  tz1 ∈ {0}
+  tz2 ∈ {0}
+  tz3 ∈ {0}
+  tx ∈ {0}
+  ty ∈ {0}
+  tz ∈ {0}
+  U ∈ {0}
+  char1 ∈ {0}
+  ll1 ∈ {0}
+[from] Computing for function f
+[from] Done for function f
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  FROMTOP
+[from] Function main:
+  FROMTOP
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function f:
+    ANYTHING(origin:Unknown)
+[inout] Inputs for function f:
+    ANYTHING(origin:Unknown)
+[inout] Out (internal) for function main:
+    ANYTHING(origin:Unknown)
+[inout] Inputs for function main:
+    ANYTHING(origin:Unknown)

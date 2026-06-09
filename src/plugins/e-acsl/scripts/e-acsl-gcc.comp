@@ -1,0 +1,49 @@
+##########################################################################
+#                                                                        #
+#  SPDX-License-Identifier LGPL-2.1                                      #
+#  Copyright (C)                                                         #
+#  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  #
+#                                                                        #
+##########################################################################
+
+# Bash completion for e-acsl-gcc
+
+_eacsl_gcc() {
+  local cur prev words cwords opts
+  _init_completion || return
+
+  opts="
+    -C -d -o -O -v -V -f -E -L -M -l -e -g -q -s -F -m -D -I -G -X -a
+    -h -c -n -T -k
+    --verbose= --debug= --logfile= --quiet --rt-debug --help
+    --rt-verbose --check --then --keep-going --fail-with-code --external-assert=
+    --assert-print-data --no-assert-print-data --external-print-value=
+    --no-trace
+    --ocode= --oexec= --oexec-e-acsl=
+    --ld-flags= --cpp-flags= --extra-cpp-args=
+    --frama-c-extra= --frama-c= --gcc= --ar= --ranlib= --mbits=
+    --e-acsl-share= --memory-model= --e-acsl-extra=
+    --compile --no-compile --compile-only --print-mmodels --frama-c-only
+    --instrumented-only --gmp --full-mtracking --rte= --rte-select=
+    --frama-c-stdlib --libc-replacements
+    --temporal --free-valid-address --weak-validity --validate-format-strings
+    --zone-sizes=
+    --with-dlmalloc --dlmalloc-from-sources --dlmalloc-compile-only
+    --dlmalloc-compile-flags --odlmalloc"
+
+  if [[ $cur == = ]]; then
+    # We just found an option that ends with '=', reset the 'cur' variable
+    # and use files and directories completions
+    cur=
+    _filedir
+  elif [[ $cur != -* ]]; then
+    # We are not adding a parameter, use files and directories completions
+    _filedir
+  else
+    # We started an option, use e-acsl-gcc completions
+    COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+    # If the option ends with '=', do not add a space after the option
+    [[ $COMPREPLY == *= ]] && compopt -o nospace
+  fi
+} &&
+  complete -F _eacsl_gcc e-acsl-gcc

@@ -1,0 +1,8 @@
+
+SPDX-License-Identifier LGPL-2.1
+Copyright (C)
+2004-2012 Sylvain Conchon, Jean-Christophe Filliâtre and Julien Signoles
+Modified by
+CEA (Commissariat à l'énergie atomique et aux énergies alternatives).
+This file is originally part of
+Ocamlgraph: a generic graph library for OCaml

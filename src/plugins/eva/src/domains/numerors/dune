@@ -1,0 +1,20 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(include_subdirs no)
+
+(library
+ (optional)
+ (name numerors)
+ (public_name frama-c-eva.numerors.core)
+ (libraries frama-c.kernel frama-c-eva.core)
+ (flags -open Frama_c_kernel -open Eva__Private :standard -w -9)
+ (instrumentation (backend landmarks))
+ (instrumentation (backend bisect_ppx))
+ (preprocess (pps frama-c.ppx_z_literals))
+)

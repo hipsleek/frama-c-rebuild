@@ -1,0 +1,26 @@
+86a87,111
+> [eva:partition] octagons-pointers.c:44: starting to merge loop iterations
+> [eva:show] octagons-pointers.c:47: 
+>   Frama_C_dump_each:
+>   # octagon:
+>   {[ buffer - cmd ∈ [-436..-6]
+>      cmd->cmdLen + index ∈ [--..434]
+>       ]}
+>   ==END OF DUMP==
+> [eva:progress] octagons-pointers.c:48: Reusing old results for call to cmdRead
+> [eva:show] octagons-pointers.c:47: 
+>   Frama_C_dump_each:
+>   # octagon:
+>   {[ buffer - cmd ∈ [-436..-6]
+>      cmd->cmdLen + index ∈ [--..434]
+>       ]}
+>   ==END OF DUMP==
+> [eva:progress] octagons-pointers.c:48: Reusing old results for call to cmdRead
+> [eva:show] octagons-pointers.c:47: 
+>   Frama_C_dump_each:
+>   # octagon:
+>   {[ buffer - cmd ∈ [-436..-6]
+>      cmd->cmdLen + index ∈ [--..434]
+>       ]}
+>   ==END OF DUMP==
+> [eva:progress] octagons-pointers.c:48: Reusing old results for call to cmdRead

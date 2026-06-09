@@ -1,0 +1,4 @@
+[kernel] Parsing alignas_typing_constrains.c (with preprocessing)
+[kernel] alignas_typing_constrains.c:192: User Error: 
+  Storage, inline or _Alignas specifier not allowed in typedef
+[kernel] Frama-C aborted: invalid user input.

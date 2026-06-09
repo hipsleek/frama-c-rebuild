@@ -1,0 +1,11 @@
+[kernel] Parsing stmt_attributes.c (with preprocessing)
+[kernel] stmt_attributes.c:14: 
+  syntax error:
+  Location: "stmt_attributes.c", line 14, before or at token: ;
+  12    
+  13      #ifdef TOO_MANY_ATTRIBUTES
+  14      __attribute__((assume(42))) __attribute__((fallthrough));
+                                                                  ^
+  15      #endif
+  16    }
+[kernel] Frama-C aborted: invalid user input.

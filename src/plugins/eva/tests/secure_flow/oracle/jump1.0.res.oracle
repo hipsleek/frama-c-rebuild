@@ -1,0 +1,42 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing jump1.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+[eva:progress] jump1.c:16: assertion got status valid.
+[eva:progress] 
+  computing for function compute <- main.
+  Called from jump1.c:17.
+[eva:secure-flow:condition] jump1.c:8: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:progress] Recording results for compute
+[eva:progress] Done for function compute
+[eva:alarm] jump1.c:18: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function compute:
+  __retres ∈ {0; 1}
+[eva:final-states] Values at end of function main:
+  result ∈ {0; 1}
+[from] Computing for function compute
+[from] Done for function compute
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function compute:
+  \result FROM secret; n
+[from] Function main:
+  \result FROM secret
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function compute:
+    __retres
+[inout] Inputs for function compute:
+    secret
+[inout] Out (internal) for function main:
+    result
+[inout] Inputs for function main:
+    secret

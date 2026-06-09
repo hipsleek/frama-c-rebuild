@@ -1,0 +1,70 @@
+# frama-c -wp -wp-steps 50 [...]
+[kernel] Parsing precedence.i (no preprocessing)
+[kernel:annot-error] precedence.i:90: Warning: unexpected token ';'
+[kernel:annot-error] precedence.i:135: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:134: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:133: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:132: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:130: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:129: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:128: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:127: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:125: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:124: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:123: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:122: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:120: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:119: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:118: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:175: Warning: 
+  R is not a logic variable. Ignoring code annotation
+[kernel:annot-error] precedence.i:176: Warning: 
+  P is not a logic variable. Ignoring code annotation
+[wp] Running WP plugin...
+[wp] Warning: Missing RTE guards
+[wp] 37 goals scheduled
+[wp] [Unsuccess] typed_predicate_ensures_ko_l_precedence_xor_and (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_r_precedence_xor_and (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_l_precedence_or_xor (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_r_precedence_or_xor (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_l_precedence_implies_or (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_l_assoc_implies (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_r_precedence_equiv_implies (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_l_precedence_equiv_implies (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_r_precedence_ite_equiv (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_l_precedence_ite_equiv (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_l_assoc_ite (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_r_precedence_forall_ite (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_m_precedence_forall_ite (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_l_precedence_forall_ite (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_r_assoc_forall (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_r_precedence_exists_ite (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_m_precedence_exists_ite (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_l_precedence_exists_ite (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_r_assoc_exist (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_r_precedence_let_ite (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_m_precedence_let_ite (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_l_precedence_let_ite (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_predicate_ensures_ko_l_assoc_naming (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_comparison_ensures_ko_r_precedence_and_eq (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_comparison_ensures_ko_l_precedence_and_eq (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_comparison_ensures_ko_l_nonassoc_eq (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_comparison_ensures_ko_r_nonassoc_eq (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_comparison_ensures_ko_r_precedence_and_neq (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_comparison_ensures_ko_l_precedence_and_neq (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_bitwise_ensures_ko_l_precedence_xor_and (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_bitwise_ensures_ko_r_precedence_xor_and (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_bitwise_ensures_ko_l_precedence_or_xor (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_bitwise_ensures_ko_r_precedence_or_xor (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_bitwise_ensures_ko_l_precedence_implies_or (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_bitwise_ensures_ko_l_assoc_implies (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_bitwise_ensures_ko_r_precedence_equiv_implies (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_bitwise_ensures_ko_l_precedence_equiv_implies (Alt-Ergo) (Cached)
+[wp] Proved goals:    0 / 37
+  Unsuccess:      37
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  predicate                 -        -       23       0.0%
+  comparison                -        -        6       0.0%
+  bitwise                   -        -        8       0.0%
+------------------------------------------------------------

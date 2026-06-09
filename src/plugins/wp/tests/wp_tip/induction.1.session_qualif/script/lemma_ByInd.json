@@ -1,0 +1,10 @@
+[ { "header": "Induction", "tactic": "Wp.induction",
+    "params": { "base": { "select": "kint", "val": "0" } },
+    "select": { "select": "inside-goal", "occur": 0, "target": "x_0",
+                "pattern": "$x" },
+    "children": { "Base": [ { "prover": "Alt-Ergo:2.6.2",
+                              "verdict": "timeout", "time": 1. } ],
+                  "Induction (sup)": [ { "prover": "Alt-Ergo:2.6.2",
+                                         "verdict": "timeout", "time": 1. } ],
+                  "Induction (inf)": [ { "prover": "Alt-Ergo:2.6.2",
+                                         "verdict": "timeout", "time": 1. } ] } } ]

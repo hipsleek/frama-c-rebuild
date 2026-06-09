@@ -1,0 +1,7 @@
+[e-acsl] beginning translation.
+[e-acsl] translation done in project "e-acsl".
+[kernel] objects.c:25: Warning: using size of 'void'
+[eva:locals-escaping] objects.c:67: Warning: 
+  locals {l} escaping the scope of a block of dangling through p
+[eva:alarm] objects.c:70: Warning: 
+  accessing left-value that contains escaping addresses. assert !\dangling(&p);

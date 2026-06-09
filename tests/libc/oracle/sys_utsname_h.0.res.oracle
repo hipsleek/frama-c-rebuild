@@ -1,0 +1,21 @@
+[kernel] Parsing sys_utsname_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function uname <- main.
+  Called from sys_utsname_h.c:6.
+[eva] using specification for function uname
+[eva:progress] sys_utsname_h.c:6: 
+  function uname: precondition 'valid_name' got status valid.
+[eva:progress] Done for function uname
+[eva:progress] sys_utsname_h.c:7: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  n ∈ [--..--]
+  r ∈ [-1..2147483647]
+  __retres ∈ {0}

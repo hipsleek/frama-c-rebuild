@@ -1,0 +1,16 @@
+[kernel] Parsing init_call_ko.c (with preprocessing)
+[kernel] init_call_ko.c:8: User Error: 
+  Array initializer must be an initializer list or string literal
+[kernel] init_call_ko.c:9: User Error: 
+  Array initializer must be an initializer list or string literal
+[kernel] init_call_ko.c:10: User Error: 
+  Array initializer must be an initializer list or string literal
+[kernel] init_call_ko.c:11: User Error: 
+  'extern' local variable cannot have an initializer
+[kernel] init_call_ko.c:12: User Error: 
+  variable f with array type needs an explicit size or an initializer
+[kernel] init_call_ko.c:13: User Error: 
+  variable n with array type needs an explicit size or an initializer
+[kernel] User Error: stopping on file "init_call_ko.c" that has errors. Add '-kernel-msg-key pp'
+  for preprocessing command.
+[kernel] Frama-C aborted: invalid user input.

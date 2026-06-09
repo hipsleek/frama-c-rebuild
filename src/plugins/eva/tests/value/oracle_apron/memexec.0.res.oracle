@@ -1,0 +1,62 @@
+29,34c29,58
+< [eva:progress] memexec.c:13: Reusing old results for call to f11
+< [eva:progress] memexec.c:14: Reusing old results for call to f11
+< [eva:progress] memexec.c:16: Reusing old results for call to f11
+< [eva:progress] memexec.c:18: Reusing old results for call to f11
+< [eva:progress] memexec.c:20: Reusing old results for call to f11
+< [eva:progress] memexec.c:21: Reusing old results for call to f11
+---
+> [eva:progress] 
+>   computing for function f11 <- f1 <- main.
+>   Called from memexec.c:13.
+> [eva:progress] Recording results for f11
+> [eva:progress] Done for function f11
+> [eva:progress] 
+>   computing for function f11 <- f1 <- main.
+>   Called from memexec.c:14.
+> [eva:progress] Recording results for f11
+> [eva:progress] Done for function f11
+> [eva:progress] 
+>   computing for function f11 <- f1 <- main.
+>   Called from memexec.c:16.
+> [eva:progress] Recording results for f11
+> [eva:progress] Done for function f11
+> [eva:progress] 
+>   computing for function f11 <- f1 <- main.
+>   Called from memexec.c:18.
+> [eva:progress] Recording results for f11
+> [eva:progress] Done for function f11
+> [eva:progress] 
+>   computing for function f11 <- f1 <- main.
+>   Called from memexec.c:20.
+> [eva:progress] Recording results for f11
+> [eva:progress] Done for function f11
+> [eva:progress] 
+>   computing for function f11 <- f1 <- main.
+>   Called from memexec.c:21.
+> [eva:progress] Recording results for f11
+> [eva:progress] Done for function f11
+122c146,150
+< [eva:progress] memexec.c:113: Reusing old results for call to f5_aux
+---
+> [eva:progress] 
+>   computing for function f5_aux <- f5 <- main.
+>   Called from memexec.c:113.
+> [eva:progress] Recording results for f5_aux
+> [eva:progress] Done for function f5_aux
+150c178,182
+< [eva:progress] memexec.c:137: Reusing old results for call to f7_1
+---
+> [eva:progress] 
+>   computing for function f7_1 <- f7 <- main.
+>   Called from memexec.c:137.
+> [eva:progress] Recording results for f7_1
+> [eva:progress] Done for function f7_1
+168c200,204
+< [eva:progress] memexec.c:150: Reusing old results for call to f8_1
+---
+> [eva:progress] 
+>   computing for function f8_1 <- f8 <- main.
+>   Called from memexec.c:150.
+> [eva:progress] Recording results for f8_1
+> [eva:progress] Done for function f8_1

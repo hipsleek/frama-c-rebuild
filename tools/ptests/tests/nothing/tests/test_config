@@ -1,0 +1,3 @@
+MACRO: frama-c-exe echo frama-c
+MACRO: PTEST_DEFAULT_OPTIONS default-options:=@PTEST_DEFAULT_OPTIONS@:=
+FILTER: sed "s:add-symbolic-path=.*/_build:add-symbolic-path=<path-to-frama-c-ptests-project>/_build:"

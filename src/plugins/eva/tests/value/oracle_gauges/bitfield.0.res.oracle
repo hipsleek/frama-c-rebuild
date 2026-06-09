@@ -1,0 +1,17 @@
+154a155,170
+> [eva:show] bitfield.i:71: 
+>   Frama_C_show_each:
+>   {{ garbled mix of &{b} (origin: Misaligned read {bitfield.i:70:7-15}) }}
+> [eva:show] bitfield.i:73: 
+>   Frama_C_show_each:
+>   {{ garbled mix of &{b} (origin: Misaligned read {bitfield.i:70:7-15}) }}
+> [eva:progress] 
+>   computing for function leaf <- imprecise_bts_1671 <- main.
+>   Called from bitfield.i:70:7-15.
+> [eva:progress] Done for function leaf
+> [eva:show] bitfield.i:71: 
+>   Frama_C_show_each:
+>   {{ garbled mix of &{b} (origin: Misaligned read {bitfield.i:70:7-15}) }}
+> [eva:show] bitfield.i:73: 
+>   Frama_C_show_each:
+>   {{ garbled mix of &{b} (origin: Misaligned read {bitfield.i:70:7-15}) }}

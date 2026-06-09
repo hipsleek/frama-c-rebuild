@@ -1,0 +1,97 @@
+# frama-c -wp [...]
+[kernel] Parsing precedence.i (no preprocessing)
+[kernel:annot-error] precedence.i:90: Warning: unexpected token ';'
+[kernel:annot-error] precedence.i:135: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:134: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:133: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:132: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:130: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:129: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:128: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:127: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:125: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:124: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:123: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:122: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:120: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:119: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:118: Warning: Inconsistent relation chain.
+[kernel:annot-error] precedence.i:175: Warning: 
+  R is not a logic variable. Ignoring code annotation
+[kernel:annot-error] precedence.i:176: Warning: 
+  P is not a logic variable. Ignoring code annotation
+[wp] Running WP plugin...
+[wp] [Valid] Goal bitwise_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bitwise_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal comparison_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal comparison_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal predicate_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal predicate_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal predicate_bitwise_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal predicate_bitwise_terminates (Cfg) (Trivial)
+[wp] 52 goals scheduled
+[wp] [Valid] typed_predicate_ensures_r_precedence_and_xor (Qed)
+[wp] [Valid] typed_predicate_ensures_l_precedence_and_xor (Qed)
+[wp] [Valid] typed_predicate_ensures_r_precedence_xor_or (Qed)
+[wp] [Valid] typed_predicate_ensures_l_precedence_xor_or (Qed)
+[wp] [Valid] typed_predicate_ensures_r_precedence_or_implies (Qed)
+[wp] [Valid] typed_predicate_ensures_l_precedence_or_implies (Qed)
+[wp] [Valid] typed_predicate_ensures_ok_r_precedence_implies_or (Alt-Ergo) (Cached)
+[wp] [Valid] typed_predicate_ensures_ok_since (Qed)
+[wp] [Valid] typed_predicate_ensures_r_assoc_implies (Qed)
+[wp] [Valid] typed_predicate_ensures_r_precedence_implies_equiv (Qed)
+[wp] [Valid] typed_predicate_ensures_l_precedence_implies_equiv (Qed)
+[wp] [Valid] typed_predicate_ensures_r_precedence_equiv_ite (Qed)
+[wp] [Valid] typed_predicate_ensures_m_precedence_equiv_ite (Qed)
+[wp] [Valid] typed_predicate_ensures_l_precedence_equiv_ite (Qed)
+[wp] [Valid] typed_predicate_ensures_r_assoc_ite (Qed)
+[wp] [Valid] typed_predicate_ensures_r_precedence_ite_forall (Qed)
+[wp] [Valid] typed_predicate_ensures_m_precedence_ite_forall (Qed)
+[wp] [Valid] typed_predicate_ensures_l_precedence_ite_forall (Qed)
+[wp] [Valid] typed_predicate_ensures_r_assoc_forall (Qed)
+[wp] [Valid] typed_predicate_ensures_r_precedence_ite_exists (Qed)
+[wp] [Valid] typed_predicate_ensures_m_precedence_ite_exists (Qed)
+[wp] [Valid] typed_predicate_ensures_l_precedence_ite_exists (Qed)
+[wp] [Valid] typed_predicate_ensures_r_assoc_exist (Qed)
+[wp] [Valid] typed_predicate_ensures_r_precedence_ite_let (Qed)
+[wp] [Valid] typed_predicate_ensures_m_precedence_ite_let (Qed)
+[wp] [Valid] typed_predicate_ensures_l_precedence_ite_let (Qed)
+[wp] [Valid] typed_predicate_ensures_r_assoc_let (Qed)
+[wp] [Valid] typed_predicate_ensures_scope_let (Qed)
+[wp] [Valid] typed_predicate_ensures_scope_let_2 (Qed)
+[wp] [Valid] typed_predicate_ensures_r_precedence_ite_naming (Qed)
+[wp] [Valid] typed_comparison_ensures_chainable_lt_lt (Qed)
+[wp] [Valid] typed_comparison_ensures_chainable_le_le (Qed)
+[wp] [Valid] typed_comparison_ensures_chainable_gt_gt (Qed)
+[wp] [Valid] typed_comparison_ensures_chainable_ge_ge (Qed)
+[wp] [Valid] typed_comparison_ensures_chainable_eq_eq (Qed)
+[wp] [Valid] typed_comparison_ensures_r_precedence_eq_and (Qed)
+[wp] [Valid] typed_comparison_ensures_l_precedence_eq_and (Qed)
+[wp] [Valid] typed_comparison_ensures_r_precedence_neq_and (Qed)
+[wp] [Valid] typed_comparison_ensures_l_precedence_neq_and (Qed)
+[wp] [Valid] typed_bitwise_ensures_r_precedence_and_xor (Qed)
+[wp] [Valid] typed_bitwise_ensures_l_precedence_and_xor (Qed)
+[wp] [Valid] typed_bitwise_ensures_r_precedence_xor_or (Qed)
+[wp] [Valid] typed_bitwise_ensures_l_precedence_xor_or (Qed)
+[wp] [Valid] typed_bitwise_ensures_r_precedence_or_implies (Qed)
+[wp] [Valid] typed_bitwise_ensures_l_precedence_or_implies (Qed)
+[wp] [Valid] typed_bitwise_ensures_ok_r_precedence_implies_or (Qed)
+[wp] [Valid] typed_bitwise_ensures_ok_since (Qed)
+[wp] [Valid] typed_bitwise_ensures_r_assoc_implies (Qed)
+[wp] [Valid] typed_bitwise_ensures_r_precedence_implies_equiv (Qed)
+[wp] [Valid] typed_bitwise_ensures_l_precedence_implies_equiv (Qed)
+[wp] [Valid] typed_predicate_bitwise_ensures_r_precedence_equiv_Pand (Qed)
+[wp] [Valid] typed_predicate_bitwise_ensures_l_precedence_equiv_Pand (Qed)
+[wp] Proved goals:   60 / 60
+  Terminating:     4
+  Unreachable:     4
+  Qed:            51
+  Alt-Ergo:        1
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  predicate                31        1       32       100%
+  comparison               11        -       11       100%
+  bitwise                  13        -       13       100%
+  predicate_bitwise         4        -        4       100%
+------------------------------------------------------------

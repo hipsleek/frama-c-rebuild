@@ -1,0 +1,4 @@
+[kernel] Parsing vla_multidim.c (with preprocessing)
+[kernel] vla_multidim.c:24: Frama-C aborted: unimplemented feature.
+  You may send a feature request at https://git.frama-c.com/pub/frama-c/issues with:
+  '[Frama-C] For multi-dimensional arrays, variable length is only supported on the first dimension'.

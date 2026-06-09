@@ -1,0 +1,5 @@
+[kernel] Parsing const-assignments.c (with preprocessing)
+[kernel:typing:incompatible-types-call] const-assignments.c:110: Failure: 
+  expected 'int *' but got argument of type 'int const *': & (s->z[0])->y
+[kernel] User Error: warning typing:incompatible-types-call treated as fatal error.
+[kernel] Frama-C aborted: invalid user input.

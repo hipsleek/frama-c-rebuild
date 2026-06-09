@@ -1,0 +1,5 @@
+[kernel] Parsing force_posix.c (with preprocessing)
+[kernel] User Error: failed to run: gcc -C -E -I. -I/tmp/TEMPNAME -IFC_HOME/install/default/share/frama-c/share/libc -U__STDC_IEC_559_COMPLEX__ -U__STDC_IEC_60559_COMPLEX__ -U__STDC_ISO_10646__ -U__STDC_UTF16__ -U__STDC_UTF32__ -D__FRAMAC__ -dD -nostdinc -undef -imacros __fc_builtin_macros.h -std=c11 -Wno-builtin-macro-redefined -Wno-unknown-warning-option -D__FC_FORCE_POSIX_C_SOURCE= 'FC_HOME/default/tests/syntax/result/force_posix.c' -o '/tmp/TEMPNAME
+  (PWD: FC_HOME/default/tests/syntax/result)
+  See chapter "Preparing the Sources" in the Frama-C user manual for more details.
+[kernel] Frama-C aborted: invalid user input.

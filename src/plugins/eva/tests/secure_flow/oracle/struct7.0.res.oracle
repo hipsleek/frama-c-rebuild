@@ -1,0 +1,33 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing struct7.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+[eva:secure-flow:condition] struct7.c:17: Warning: 
+  non-interference violation on condition involving {secret; i}
+[eva:secure-flow:condition] struct7.c:17: Warning: 
+  non-interference violation on condition involving {i}
+[eva:partition] struct7.c:17: starting to merge loop iterations
+[eva:alarm] struct7.c:21: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  i ∈ [0..10]
+  s.a[0] ∈ {0}
+   .a[1..9] ∈ [0..9]
+   .b ∈ {0}
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    i; s; __retres
+[inout] Inputs for function main:
+    secret

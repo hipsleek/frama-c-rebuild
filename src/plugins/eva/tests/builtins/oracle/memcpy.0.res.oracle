@@ -1,0 +1,1659 @@
+[kernel] Parsing memcpy.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  i ∈ [--..--]
+  src[0..19] ∈ {0}
+  dst1[0..19] ∈ {0}
+  dst2[0..19] ∈ {0}
+  dst3[0..19] ∈ {0}
+  dst4[0..19] ∈ {0}
+  dst5[0..99] ∈ {0}
+  maybe ∈ [--..--]
+  tm[0..999] ∈ {0}
+  um[0..999] ∈ {0}
+  ttyp[0..999] ∈ {0}
+  v1 ∈ {0}
+  v2 ∈ {0}
+  v3 ∈ {0}
+  v4 ∈ {0}
+  v5 ∈ {0}
+  t[0..3] ∈ {0}
+[eva:progress] 
+  computing for function test <- main.
+  Called from memcpy.c:227.
+[eva:progress] 
+  computing for function buggy <- test <- main.
+  Called from memcpy.c:65.
+[eva:progress] memcpy.c:32: Call to builtin memcpy
+[eva:alarm] memcpy.c:32: Warning: 
+  function memcpy: precondition 'valid_dest' got status unknown.
+[eva:progress] memcpy.c:32: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:32: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:134: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function memcmp
+[eva:progress] Recording results for buggy
+[from] Computing for function buggy
+[from] Done for function buggy
+[eva:progress] Done for function buggy
+[eva:progress] 
+  computing for function many <- test <- main.
+  Called from memcpy.c:67.
+[eva:alarm] memcpy.c:48: Warning: assertion got status unknown.
+[eva:progress] memcpy.c:51: Call to builtin memcpy
+[eva:progress] memcpy.c:51: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:51: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:51: 
+  function memcpy: precondition 'separation' got status valid.
+[kernel:approximation] memcpy.c:51: 
+  too many locations to update in array. Approximating.
+[eva:progress] memcpy.c:53: Call to builtin memcpy
+[eva:progress] memcpy.c:53: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:53: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:53: 
+  function memcpy: precondition 'separation' got status valid.
+[kernel:approximation] memcpy.c:53: 
+  too many locations to update in array. Approximating.
+[kernel:approximation] memcpy.c:53: 
+  more than 150(1000) locations to update in array. Approximating.
+[eva:progress] memcpy.c:57: Call to builtin memcpy
+[eva:progress] memcpy.c:57: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:57: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:57: 
+  function memcpy: precondition 'separation' got status valid.
+[kernel:approximation] memcpy.c:57: 
+  too many locations to update in array. Approximating.
+[eva:progress] Recording results for many
+[from] Computing for function many
+[from] Done for function many
+[eva:progress] Done for function many
+[eva:progress] 
+  computing for function init <- test <- main.
+  Called from memcpy.c:69.
+[eva:partition] memcpy.c:24: Trace partitioning superposing up to 100 states
+[eva:progress] Recording results for init
+[from] Computing for function init
+[from] Done for function init
+[eva:progress] Done for function init
+[eva:alarm] memcpy.c:71: Warning: assertion got status unknown.
+[eva:progress] memcpy.c:72: Call to builtin memcpy
+[eva:progress] memcpy.c:72: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:72: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:72: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:progress] memcpy.c:74: Call to builtin memcpy
+[eva:alarm] memcpy.c:74: Warning: 
+  function memcpy: precondition 'valid_dest' got status unknown.
+[eva:alarm] memcpy.c:74: Warning: 
+  function memcpy: precondition 'valid_src' got status unknown.
+[eva:progress] memcpy.c:74: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:alarm] memcpy.c:76: Warning: assertion got status unknown.
+[eva:progress] memcpy.c:77: Call to builtin memcpy
+[eva:progress] memcpy.c:77: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:77: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:77: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:progress] memcpy.c:79: Call to builtin memcpy
+[eva:alarm] memcpy.c:79: Warning: 
+  function memcpy: precondition 'valid_dest' got status unknown.
+[eva:alarm] memcpy.c:79: Warning: 
+  function memcpy: precondition 'valid_src' got status unknown.
+[eva:progress] memcpy.c:79: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:progress] memcpy.c:87: Call to builtin memcpy
+[eva:progress] memcpy.c:87: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:87: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:87: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:progress] memcpy.c:89: Call to builtin memcpy
+[eva:progress] memcpy.c:89: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:89: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:89: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:alarm] memcpy.c:91: Warning: 
+  pointer downcast. assert (unsigned int)(&(t[0])) ≤ 2147483647;
+[eva:garbled-mix:write] memcpy.c:91: 
+  Assigning imprecise value to src
+  because of arithmetic operation on addresses.
+[eva:progress] memcpy.c:91: Call to builtin memcpy
+[eva:progress] memcpy.c:91: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:alarm] memcpy.c:91: Warning: 
+  function memcpy: precondition 'valid_src' got status unknown.
+[eva:progress] memcpy.c:91: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:garbled-mix:write] memcpy.c:91: 
+  Builtin memcpy: assigning imprecise value to v3
+  because of misaligned read of addresses.
+[eva:alarm] memcpy.c:93: Warning: 
+  pointer downcast. assert (unsigned int)(&v4) ≤ 2147483647;
+[eva:garbled-mix:write] memcpy.c:93: 
+  Assigning imprecise value to dest
+  because of arithmetic operation on addresses.
+[eva:progress] memcpy.c:93: Call to builtin memcpy
+[eva:alarm] memcpy.c:93: Warning: 
+  function memcpy: precondition 'valid_dest' got status unknown.
+[eva:progress] memcpy.c:93: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:93: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:alarm] memcpy.c:94: Warning: 
+  pointer downcast. assert (unsigned int)(&(t[0])) ≤ 2147483647;
+[eva:alarm] memcpy.c:95: Warning: 
+  pointer downcast. assert (unsigned int)(&v5) ≤ 2147483647;
+[eva:garbled-mix:write] memcpy.c:95: 
+  Assigning imprecise value to dest
+  because of arithmetic operation on addresses.
+[eva:progress] memcpy.c:95: Call to builtin memcpy
+[eva:alarm] memcpy.c:95: Warning: 
+  function memcpy: precondition 'valid_dest' got status unknown.
+[eva:progress] memcpy.c:95: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:95: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:progress] memcpy.c:100: Call to builtin memcpy
+[eva:alarm] memcpy.c:100: Warning: 
+  function memcpy: precondition 'valid_dest' got status unknown.
+[eva:alarm] memcpy.c:100: Warning: 
+  function memcpy: precondition 'valid_src' got status unknown.
+[eva:alarm] memcpy.c:100: Warning: 
+  function memcpy: precondition 'separation' got status unknown.
+[eva:imprecision] memcpy.c:100: 
+  In memcpy builtin: too many sizes to enumerate, possible loss of precision
+[eva:partition] memcpy.c:99: starting to merge loop iterations
+[eva:progress] memcpy.c:100: Call to builtin memcpy
+[eva:progress] memcpy.c:105: Call to builtin memcpy
+[eva:progress] memcpy.c:105: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:105: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:105: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:alarm] memcpy.c:107: Warning: assertion got status unknown.
+[eva:progress] memcpy.c:109: Call to builtin memcpy
+[eva:progress] memcpy.c:109: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:109: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:109: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:imprecision] memcpy.c:109: 
+  In memcpy builtin: too many sizes to enumerate, possible loss of precision
+[eva:alarm] memcpy.c:113: Warning: 
+  unaligned pointer creation. assert \aligned(&(ptop1[0]),alignof(int));
+[eva:alarm] memcpy.c:115: Warning: 
+  unaligned pointer creation. assert \aligned(pptop,alignof(int));
+[eva:partition] memcpy.c:114: starting to merge loop iterations
+[eva:alarm] memcpy.c:118: Warning: 
+  unaligned pointer creation. assert \aligned(pptop,alignof(int));
+[eva:progress] memcpy.c:118: Call to builtin memcpy
+[eva:alarm] memcpy.c:118: Warning: 
+  function memcpy: precondition 'valid_dest' got status unknown.
+[eva:progress] memcpy.c:118: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:118: 
+  function memcpy: precondition 'separation' got status valid.
+[kernel:approximation] memcpy.c:118: 
+  too many locations to update in array. Approximating.
+[eva:alarm] memcpy.c:121: Warning: 
+  unaligned pointer creation. assert \aligned(&ptop2[750],alignof(int));
+[eva:alarm] memcpy.c:123: Warning: 
+  unaligned pointer creation. assert \aligned(pptop,alignof(int));
+[eva:partition] memcpy.c:122: starting to merge loop iterations
+[eva:alarm] memcpy.c:126: Warning: 
+  unaligned pointer creation. assert \aligned(pptop,alignof(int));
+[eva:progress] memcpy.c:126: Call to builtin memcpy
+[eva:alarm] memcpy.c:126: Warning: 
+  function memcpy: precondition 'valid_dest' got status unknown.
+[eva:progress] memcpy.c:126: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:126: 
+  function memcpy: precondition 'separation' got status valid.
+[kernel:approximation] memcpy.c:126: 
+  too many locations to update in array. Approximating.
+[eva:alarm] memcpy.c:129: Warning: 
+  unaligned pointer creation. assert \aligned(&ptop3[2],alignof(int));
+[eva:alarm] memcpy.c:131: Warning: 
+  unaligned pointer creation. assert \aligned(pptop,alignof(int));
+[eva:alarm] memcpy.c:132: Warning: 
+  unaligned pointer creation. assert \aligned(pptop,alignof(int));
+[eva:partition] memcpy.c:130: starting to merge loop iterations
+[eva:alarm] memcpy.c:135: Warning: 
+  unaligned pointer creation. assert \aligned(pptop,alignof(int));
+[eva:progress] memcpy.c:135: Call to builtin memcpy
+[eva:alarm] memcpy.c:135: Warning: 
+  function memcpy: precondition 'valid_dest' got status unknown.
+[eva:progress] memcpy.c:135: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:135: 
+  function memcpy: precondition 'separation' got status valid.
+[kernel:approximation] memcpy.c:135: 
+  too many locations to update in array. Approximating.
+[eva:alarm] memcpy.c:138: Warning: 
+  unaligned pointer creation. assert \aligned(&ptop4[2],alignof(int));
+[eva:alarm] memcpy.c:140: Warning: 
+  unaligned pointer creation. assert \aligned(pptop,alignof(int));
+[eva:alarm] memcpy.c:141: Warning: 
+  unaligned pointer creation. assert \aligned(pptop,alignof(int));
+[eva:partition] memcpy.c:139: starting to merge loop iterations
+[eva:alarm] memcpy.c:144: Warning: 
+  unaligned pointer creation. assert \aligned(pptop,alignof(int));
+[eva:progress] memcpy.c:144: Call to builtin memcpy
+[eva:alarm] memcpy.c:144: Warning: 
+  function memcpy: precondition 'valid_dest' got status unknown.
+[eva:progress] memcpy.c:144: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:144: 
+  function memcpy: precondition 'separation' got status valid.
+[kernel:approximation] memcpy.c:144: 
+  too many locations to update in array. Approximating.
+[eva:alarm] memcpy.c:148: Warning: 
+  unaligned pointer creation. assert \aligned(&garbledsize[10],alignof(int));
+[eva:alarm] memcpy.c:149: Warning: 
+  unaligned pointer creation. assert \aligned(pgarbledsize,alignof(int));
+[eva:progress] memcpy.c:149: Call to builtin memcpy
+[eva:alarm] memcpy.c:149: Warning: 
+  function memcpy: precondition 'valid_dest' got status unknown.
+[eva:alarm] memcpy.c:149: Warning: 
+  function memcpy: precondition 'valid_src' got status unknown.
+[eva:progress] memcpy.c:149: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:imprecision] memcpy.c:149: 
+  In memcpy builtin: too many sizes to enumerate, possible loss of precision
+[eva:alarm] memcpy.c:154: Warning: assertion got status unknown.
+[eva:progress] memcpy.c:155: Call to builtin memcpy
+[eva:alarm] memcpy.c:155: Warning: 
+  function memcpy: precondition 'valid_dest' got status unknown.
+[eva:alarm] memcpy.c:155: Warning: 
+  function memcpy: precondition 'valid_src' got status unknown.
+[eva:progress] memcpy.c:155: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:imprecision] memcpy.c:155: 
+  In memcpy builtin: too many sizes to enumerate, possible loss of precision
+[eva:alarm] memcpy.c:156: Warning: assertion got status unknown.
+[eva:progress] memcpy.c:157: Call to builtin memcpy
+[eva:progress] memcpy.c:157: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:157: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:157: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:progress] Recording results for test
+[from] Computing for function test
+[from] Done for function test
+[eva:progress] Done for function test
+[eva:progress] 
+  computing for function test_uninit <- main.
+  Called from memcpy.c:228.
+[eva:progress] memcpy.c:176: Call to builtin memcpy
+[eva:progress] memcpy.c:176: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:176: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:176: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:imprecision] memcpy.c:176: 
+  In memcpy builtin: precise copy of indeterminate values.
+[eva:progress] memcpy.c:177: assertion got status valid.
+[eva:progress] 
+  computing for function itv <- test_uninit <- main.
+  Called from memcpy.c:178.
+[eva] using specification for function itv
+[eva:progress] Done for function itv
+[eva:progress] memcpy.c:178: Call to builtin memcpy
+[eva:progress] memcpy.c:178: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:178: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:178: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:imprecision] memcpy.c:178: 
+  In memcpy builtin: too many sizes to enumerate, possible loss of precision
+[eva:imprecision] memcpy.c:178: 
+  In memcpy builtin: imprecise copy of indeterminate values.
+[eva:progress] memcpy.c:179: assertion got status valid.
+[eva:progress] 
+  computing for function make_unknown <- test_uninit <- main.
+  Called from memcpy.c:182.
+[eva] using specification for function make_unknown
+[eva:progress] memcpy.c:182: 
+  function make_unknown: precondition got status valid.
+[eva:progress] Done for function make_unknown
+[eva:progress] memcpy.c:183: Call to builtin memcpy
+[eva:progress] memcpy.c:183: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:183: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:183: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:progress] memcpy.c:184: assertion got status valid.
+[eva:progress] 
+  computing for function itv <- test_uninit <- main.
+  Called from memcpy.c:185.
+[eva:progress] Done for function itv
+[eva:progress] memcpy.c:185: Call to builtin memcpy
+[eva:progress] memcpy.c:185: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:185: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:185: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:imprecision] memcpy.c:185: 
+  In memcpy builtin: too many sizes to enumerate, possible loss of precision
+[eva:imprecision] memcpy.c:185: 
+  In memcpy builtin: imprecise copy of indeterminate values.
+[eva:alarm] memcpy.c:186: Warning: 
+  accessing uninitialized left-value. assert \initialized(&b[11]);
+[eva:progress] 
+  computing for function make_unknown <- test_uninit <- main.
+  Called from memcpy.c:189.
+[eva:progress] memcpy.c:189: 
+  function make_unknown: precondition got status valid.
+[eva:progress] Done for function make_unknown
+[eva:progress] memcpy.c:191: Call to builtin memcpy
+[eva:progress] memcpy.c:191: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:191: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:191: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:imprecision] memcpy.c:191: 
+  In memcpy builtin: precise copy of indeterminate values.
+[eva:progress] memcpy.c:192: assertion got status valid.
+[eva:progress] 
+  computing for function itv <- test_uninit <- main.
+  Called from memcpy.c:194.
+[eva:progress] Done for function itv
+[eva:progress] memcpy.c:194: Call to builtin memcpy
+[eva:progress] memcpy.c:194: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:194: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:194: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:imprecision] memcpy.c:194: 
+  In memcpy builtin: too many sizes to enumerate, possible loss of precision
+[eva:imprecision] memcpy.c:194: 
+  In memcpy builtin: imprecise copy of indeterminate values.
+[eva:progress] memcpy.c:195: assertion got status valid.
+[eva:alarm] memcpy.c:196: Warning: 
+  accessing uninitialized left-value. assert \initialized(&b[8]);
+[eva:progress] 
+  computing for function make_unknown <- test_uninit <- main.
+  Called from memcpy.c:200.
+[eva:progress] memcpy.c:200: 
+  function make_unknown: precondition got status valid.
+[eva:progress] Done for function make_unknown
+[eva:progress] 
+  computing for function make_unknown <- test_uninit <- main.
+  Called from memcpy.c:201.
+[eva:progress] memcpy.c:201: 
+  function make_unknown: precondition got status valid.
+[eva:progress] Done for function make_unknown
+[eva:progress] memcpy.c:202: Call to builtin memcpy
+[eva:progress] memcpy.c:202: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:202: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:202: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:progress] memcpy.c:203: assertion got status valid.
+[eva:progress] 
+  computing for function itv <- test_uninit <- main.
+  Called from memcpy.c:204.
+[eva:progress] Done for function itv
+[eva:progress] memcpy.c:204: Call to builtin memcpy
+[eva:progress] memcpy.c:204: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:204: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:204: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:imprecision] memcpy.c:204: 
+  In memcpy builtin: too many sizes to enumerate, possible loss of precision
+[eva:imprecision] memcpy.c:204: 
+  In memcpy builtin: imprecise copy of indeterminate values.
+[eva:alarm] memcpy.c:205: Warning: 
+  accessing uninitialized left-value. assert \initialized(&b[11]);
+[eva:progress] Recording results for test_uninit
+[from] Computing for function test_uninit
+[from] Done for function test_uninit
+[eva:progress] Done for function test_uninit
+[eva:progress] 
+  computing for function test_local <- main.
+  Called from memcpy.c:229.
+[eva:progress] memcpy.c:213: Call to builtin memcpy
+[eva:progress] memcpy.c:213: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] memcpy.c:213: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:213: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:locals-escaping] memcpy.c:214: Warning: 
+  locals {y} escaping the scope of a block of test_local through p
+[eva:show] memcpy.c:216: 
+  Frama_C_dump_each:
+  # cvalue:
+  __fc_heap_status ∈ [--..--]
+  __fc_strtok_ptr ∈ {0}
+  i ∈ [--..--]
+  src[0..19] ∈ {0}
+  dst1[0..19] ∈ {0}
+  dst2[0..19] ∈ {0}
+  dst3[0..19] ∈ {0}
+  dst4[0..19] ∈ {0}
+  dst5[0..99] ∈ {0}
+  maybe ∈ [--..--]
+  tm[0..999] ∈ {0}
+  um[0..999] ∈ {0}
+  ttyp[0..999] ∈ {0}
+  v1 ∈ {0}
+  v2 ∈ {0}
+  v3 ∈ {0}
+  v4 ∈ {0}
+  v5 ∈ {0}
+  t[0..3] ∈ {0}
+  p ∈ ESCAPINGADDR
+  q ∈ {0}
+  ==END OF DUMP==
+[eva:progress] Recording results for test_local
+[from] Computing for function test_local
+[from] Done for function test_local
+[eva:progress] Done for function test_local
+[eva:progress] 
+  computing for function copy_0 <- main.
+  Called from memcpy.c:230.
+[eva:progress] memcpy.c:221: Call to builtin memcpy
+[eva:alarm] memcpy.c:221: Warning: 
+  function memcpy: precondition 'valid_dest' got status invalid.
+[eva:progress] memcpy.c:221: 
+  function memcpy: no state left, precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:221: 
+  function memcpy: no state left, precondition 'separation' got status valid.
+[eva:progress] memcpy.c:222: Call to builtin memcpy
+[eva:progress] memcpy.c:222: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:alarm] memcpy.c:222: Warning: 
+  function memcpy: precondition 'valid_src' got status invalid.
+[eva:progress] memcpy.c:222: 
+  function memcpy: no state left, precondition 'separation' got status valid.
+[eva:progress] Recording results for copy_0
+[from] Computing for function copy_0
+[from] Done for function copy_0
+[eva:progress] Done for function copy_0
+[eva:progress] Recording results for main
+[from] Computing for function main
+[from] Done for function main
+[eva:progress] Done for function main
+[scope:rm_asserts] removing 1 assertion(s)
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function init:
+  src[0] ∈ {1}
+     [1] ∈ {2}
+     [2] ∈ {3}
+     [3] ∈ {4}
+     [4] ∈ {5}
+     [5] ∈ {6}
+     [6] ∈ {7}
+     [7] ∈ {8}
+     [8] ∈ {9}
+     [9] ∈ {10}
+     [10] ∈ {11}
+     [11] ∈ {12}
+     [12] ∈ {13}
+     [13] ∈ {14}
+     [14] ∈ {15}
+     [15] ∈ {16}
+     [16] ∈ {17}
+     [17] ∈ {18}
+     [18] ∈ {19}
+     [19] ∈ {20}
+  dst1[0..19] ∈ {-1}
+  dst2[0..19] ∈ {-1}
+  dst3[0..19] ∈ {-1}
+  dst4[0..19] ∈ {-1}
+  dst5[0..99] ∈ {-1}
+  j ∈ {100}
+[eva:final-states] Values at end of function buggy:
+  c ∈ {100}
+  p ∈ {{ &c ; "abc" }}
+[eva:final-states] Values at end of function copy_0:
+  
+[eva:final-states] Values at end of function many:
+  tm[0..999] ∈ {0; 1684234849}
+  um{[0..998]#; [999][bits 0 to 15]} ∈ {0; 25185} repeated %16 
+    [999][bits 16 to 31] ∈ {0}
+  ttyp[0].ts ∈ [--..--]
+      [0].[bits 16 to 31]# ∈ {0; 8589934593}%64, bits 16 to 31 
+      [0].ti ∈ [--..--]
+      [1..999]{.ts#; .ti#; .[bits 16 to 31]#} ∈ {0; 8589934593} repeated %64 
+  s[0] ∈ {97}
+   [1] ∈ {98}
+   [2] ∈ {99}
+   [3] ∈ {100}
+   [4] ∈ {0}
+  p ∈ [0..999]
+  ty.ts ∈ {1}
+    .[bits 16 to 31] ∈ {0}
+    .ti ∈ {2}
+[eva:final-states] Values at end of function test:
+  src[0] ∈ {1}
+     [1] ∈ {2}
+     [2] ∈ {3}
+     [3] ∈ {4}
+     [4] ∈ {5}
+     [5] ∈ {6}
+     [6] ∈ {7}
+     [7] ∈ {8}
+     [8] ∈ {9}
+     [9] ∈ {10}
+     [10] ∈ {11}
+     [11] ∈ {12}
+     [12] ∈ {13}
+     [13] ∈ {14}
+     [14] ∈ {15}
+     [15] ∈ {16}
+     [16] ∈ {17}
+     [17] ∈ {18}
+     [18] ∈ {19}
+     [19] ∈ {20}
+  dst1[0] ∈ {-1}
+      [1] ∈ {3}
+      [2] ∈ {4}
+      [3] ∈ {5}
+      [4] ∈ {6}
+      [5] ∈ {7}
+      [6] ∈ {-1; 8}
+      [7] ∈ {-1; 9}
+      [8] ∈ {-1; 10}
+      [9] ∈ {-1; 11}
+      [10] ∈ {-1; 12}
+      [11] ∈ {-1; 13}
+      [12] ∈ {-1; 14}
+      [13] ∈ {-1; 15}
+      [14] ∈ {-1; 16}
+      [15] ∈ {-1; 17}
+      [16..19] ∈ {-1}
+  dst2[0] ∈ {-1}
+      [1] ∈ {3}
+      [2] ∈ {4}
+      [3] ∈ {5}
+      [4] ∈ {6}
+      [5] ∈ {7}
+      [6] ∈ {8}
+      [7] ∈ {9}
+      [8] ∈ {10}
+      [9] ∈ {11}
+      [10] ∈ {12}
+      [11] ∈ {-1; 13}
+      [12] ∈ {-1; 14}
+      [13] ∈ {-1; 15}
+      [14] ∈ {-1; 16}
+      [15] ∈ {-1; 17}
+      [16] ∈ {-1; 18}
+      [17] ∈ {-1; 19}
+      [18] ∈ {-1; 20}
+      [19] ∈ {-1}
+  dst3[0..4] ∈ {-1}
+      [5] ∈ {3}
+      [6] ∈ {4}
+      [7] ∈ {5}
+      [8] ∈ {6}
+      [9] ∈ {7}
+      [10] ∈ {-1; 8}
+      [11] ∈ {-1; 9}
+      [12] ∈ {-1; 10}
+      [13] ∈ {-1; 11}
+      [14] ∈ {-1; 12}
+      [15] ∈ {-1; 13}
+      [16] ∈ {-1; 14}
+      [17] ∈ {-1; 15}
+      [18] ∈ {-1; 16}
+      [19] ∈ {-1}
+  dst4[0..4] ∈ {-1}
+      [5] ∈ {3}
+      [6] ∈ {4}
+      [7] ∈ {5}
+      [8] ∈ {6}
+      [9] ∈ {7}
+      [10] ∈ {8}
+      [11] ∈ {9}
+      [12] ∈ {10}
+      [13] ∈ {11}
+      [14] ∈ {12}
+      [15] ∈ {-1; 13}
+      [16] ∈ {-1; 14}
+      [17] ∈ {-1; 15}
+      [18] ∈ {-1; 16}
+      [19] ∈ {-1}
+  dst5[0] ∈ {-1; 1}
+      [1] ∈ {-1; 2}
+      [2] ∈ {-1; 3}
+      [3] ∈ {-1; 4}
+      [4] ∈ {-1; 5}
+      [5] ∈ {-1; 6}
+      [6] ∈ {-1; 7}
+      [7] ∈ {-1; 8}
+      [8] ∈ {-1; 9}
+      [9] ∈ {-1; 10}
+      [10] ∈ {-1; 11}
+      [11] ∈ {-1; 12}
+      [12] ∈ {-1; 13}
+      [13] ∈ {-1; 14}
+      [14..19] ∈ {-1}
+      [20] ∈ {-1; 1}
+      [21] ∈ {-1; 2}
+      [22] ∈ {-1; 3}
+      [23] ∈ {-1; 4}
+      [24] ∈ {-1; 5}
+      [25] ∈ {-1; 6}
+      [26] ∈ {-1; 7}
+      [27] ∈ {-1; 8}
+      [28] ∈ {-1; 9}
+      [29] ∈ {-1; 10}
+      [30] ∈ {-1; 11}
+      [31] ∈ {-1; 12}
+      [32] ∈ {-1; 13}
+      [33] ∈ {-1; 14}
+      [34..39] ∈ {-1}
+      [40] ∈ {-1; 1}
+      [41..88] ∈ [-1..19]
+      [89..99] ∈ {-1}
+  tm[0..999] ∈ {0; 1684234849}
+  um{[0..998]#; [999][bits 0 to 15]} ∈ {0; 25185} repeated %16 
+    [999][bits 16 to 31] ∈ {0}
+  ttyp[0].ts ∈ [--..--]
+      [0].[bits 16 to 31]# ∈ {0; 8589934593}%64, bits 16 to 31 
+      [0].ti ∈ [--..--]
+      [1..999]{.ts#; .ti#; .[bits 16 to 31]#} ∈ {0; 8589934593} repeated %64 
+  v1.x ∈ {5}
+    .y ∈ {7}
+    {.p; .padding[0..23]} ∈ {0}
+  v2.x ∈ {5}
+    .y ∈ {7}
+    {.p; .padding[0..23]} ∈ {0}
+  v3 ∈ {{ garbled mix of &{v1} (origin: Misaligned read {memcpy.c:91}) }}
+  v4.x[bits 0 to 7]# ∈ {0; 5}%32, bits 0 to 7 
+    .x[bits 8 to 31] ∈ [--..--]
+    .y ∈ {{ (int)&t }}
+    {.p; .padding[0..14]} ∈ [--..--]
+    .padding[15]# ∈ {0; 7}%32, bits 24 to 31 
+    .padding[16..23] ∈ {0}
+  v5.x[bits 0 to 7]# ∈ {0; 5}%32, bits 0 to 7 
+    .x[bits 8 to 31] ∈ [--..--]
+    .y[bits 0 to 7]# ∈ {{ NULL + [--..--] ; (? *)&t }}%32, bits 0 to 7 
+    {.y[bits 8 to 31]; .p; .padding[0..14]} ∈
+    {{ garbled mix of &{t} (origin: Merge {memcpy.c:95}) }}
+    .padding[15]# ∈ {{ NULL + [--..--] ; (? *)&t }}%32, bits 24 to 31 
+    .padding[16..23] ∈ [--..--]
+  t{[0]; [1]{.x; .y}} ∈ {0}
+   [1].p ∈ {{ &v1.y }}
+   {[1].padding[0..23]; [2]; [3]{.x; .y}} ∈ {0}
+   [3].p ∈ {{ NULL ; &v1.y }}
+   [3].padding[0..23] ∈ {0}
+  b ∈ [1..19]
+  p ∈ {{ &dst5{[40], [70]} }}
+  ptop1[0..3] ∈ UNINITIALIZED
+       [bits 32 to 6399]# ∈ {67305985} or UNINITIALIZED repeated %32 
+  pptop ∈ {{ &ptop4 + [--..--],2%4 }}
+  ptop2[0..1] ∈ UNINITIALIZED
+       [bits 16 to 5999]# ∈ {84148994} or UNINITIALIZED repeated %32 
+       [750..799] ∈ UNINITIALIZED
+  ptop3[0..1] ∈ UNINITIALIZED
+       [bits 16 to 6383]# ∈ {100992003} or UNINITIALIZED repeated %32 
+       [798..799] ∈ UNINITIALIZED
+  ptop4[0..1] ∈ UNINITIALIZED
+       [2..798] ∈ [--..--] or UNINITIALIZED
+       [799] ∈ UNINITIALIZED
+  garbledsize[0..9] ∈ UNINITIALIZED
+             [10..99] ∈ [1..20] or UNINITIALIZED
+  pgarbledsize ∈ {{ (int *)&garbledsize[10] }}
+  dstmaybesize1[0..14] ∈ [1..20] or UNINITIALIZED
+  dstmaybesize2[0] ∈ {1} or UNINITIALIZED
+               [1] ∈ {2} or UNINITIALIZED
+               [2] ∈ {3} or UNINITIALIZED
+               [3] ∈ {4} or UNINITIALIZED
+               [4] ∈ {5} or UNINITIALIZED
+               [5] ∈ {6} or UNINITIALIZED
+               [6..149] ∈ UNINITIALIZED
+  maybesize ∈ {0; 1; 2; 3; 4; 5; 6}
+[eva:final-states] Values at end of function test_local:
+  p ∈ ESCAPINGADDR
+  q ∈ {0}
+[eva:final-states] Values at end of function test_uninit:
+  a[0..9] ∈ [--..--] or UNINITIALIZED
+   [10..49] ∈ UNINITIALIZED
+  b[0..24] ∈ [--..--] or UNINITIALIZED
+   [25..49] ∈ UNINITIALIZED
+  r ∈ [0..255]
+[eva:final-states] Values at end of function main:
+  NON TERMINATING FUNCTION
+[from] ====== DISPLAYING CALLWISE DEPENDENCIES ======
+[from] call to memcpy at memcpy.c:32 (by buggy):
+  c FROM "d"[0]
+  \result FROM dest
+[from] call to memcpy at memcpy.c:221 (by copy_0):
+  \result FROM dest
+[from] call to memcpy at memcpy.c:222 (by copy_0):
+  \result FROM dest
+[from] call to memcpy at memcpy.c:51 (by many):
+  tm[0..999] FROM s[0..3] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:53 (by many):
+  um{[0..998]; [999][bits 0 to 15]} FROM s[0..1] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:57 (by many):
+  ttyp[0..999] FROM ty (and SELF)
+  \result FROM dest
+[from] call to buggy at memcpy.c:65 (by test):
+  NO EFFECTS
+[from] call to many at memcpy.c:67 (by test):
+  tm[0] FROM "abcd"[0..4]
+    [1..999] FROM "abcd"[0..4] (and SELF)
+  um[0] FROM "abcd"[0..4]
+    {[1..998]; [999][bits 0 to 15]} FROM "abcd"[0..4] (and SELF)
+  ttyp[0] FROM \nothing
+      [1..999] FROM \nothing (and SELF)
+[from] call to init at memcpy.c:69 (by test):
+  src[0..19] FROM \nothing (and SELF)
+  dst1[0..19] FROM \nothing (and SELF)
+  dst2[0..19] FROM \nothing (and SELF)
+  dst3[0..19] FROM \nothing (and SELF)
+  dst4[0..19] FROM \nothing (and SELF)
+  dst5[0..99] FROM \nothing (and SELF)
+[from] call to memcpy at memcpy.c:72 (by test):
+  dst1[1..5] FROM src[2..6]
+      [6..15] FROM src[7..16] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:74 (by test):
+  dst2[1..10] FROM src[2..11]
+      [11..19] FROM src[12..19] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:77 (by test):
+  dst3[5..9] FROM src[2..6]
+      [10..18] FROM src[7..15] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:79 (by test):
+  dst4[5..14] FROM src[2..11]
+      [15..19] FROM src[12..19] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:87 (by test):
+  v2 FROM v1
+  \result FROM dest
+[from] call to memcpy at memcpy.c:89 (by test):
+  t[2] FROM t[0]
+   [3] FROM t[1] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:91 (by test):
+  v3 FROM t[0..3]
+  \result FROM dest
+[from] call to memcpy at memcpy.c:93 (by test):
+  v4 FROM v1{.x; .y; .p; .padding[0..3]} (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:95 (by test):
+  v5 FROM v4{.x; .y; .p; .padding[0..3]} (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:100 (by test):
+  x FROM x (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:105 (by test):
+  dst5[0..4] FROM src[0..4] (and SELF)
+      {[5..19]; [25..33]} FROM src[5..13] (and SELF)
+      [20..24] FROM src[0..13] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:109 (by test):
+  dst5[40] FROM src[0] (and SELF)
+      {[41..69]; [71..88]} FROM src[1..18] (and SELF)
+      [70] FROM src[0..18] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:118 (by test):
+  ptop1[4..799] FROM src[0..3] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:126 (by test):
+  ptop2[2..749] FROM src[1..4] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:135 (by test):
+  ptop3[2..797] FROM src[2..5] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:144 (by test):
+  ptop4[2..798] FROM src[2..6] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:149 (by test):
+  garbledsize[10..99] FROM src[0..19] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:155 (by test):
+  dstmaybesize1[0..14] FROM src[0..19] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:157 (by test):
+  dstmaybesize2[0..5] FROM src[0..5] (and SELF)
+  \result FROM dest
+[from] call to memcpy at memcpy.c:213 (by test_local):
+  p FROM q
+  \result FROM dest
+[from] call to Frama_C_dump_each at memcpy.c:216 (by test_local):
+  \result FROM \nothing
+[from] call to memcpy at memcpy.c:176 (by test_uninit):
+  b[0..9] FROM a[0..9]
+  \result FROM dest
+[from] call to memcpy at memcpy.c:178 (by test_uninit):
+  b[0..24] FROM a[0..24] (and SELF)
+  \result FROM dest
+[from] call to itv at memcpy.c:178 (by test_uninit):
+  \result FROM l; u
+[from] call to make_unknown at memcpy.c:182 (by test_uninit):
+  a[0..9] FROM maybe
+[from] call to memcpy at memcpy.c:183 (by test_uninit):
+  b[0..9] FROM a[0..9]
+  \result FROM dest
+[from] call to memcpy at memcpy.c:185 (by test_uninit):
+  b[0..24] FROM a[0..24] (and SELF)
+  \result FROM dest
+[from] call to itv at memcpy.c:185 (by test_uninit):
+  \result FROM l; u
+[from] call to make_unknown at memcpy.c:189 (by test_uninit):
+  b[0..9] FROM maybe
+[from] call to memcpy at memcpy.c:191 (by test_uninit):
+  b[0..9] FROM a[0..9]
+  \result FROM dest
+[from] call to memcpy at memcpy.c:194 (by test_uninit):
+  b[0..24] FROM a[0..24] (and SELF)
+  \result FROM dest
+[from] call to itv at memcpy.c:194 (by test_uninit):
+  \result FROM l; u
+[from] call to make_unknown at memcpy.c:200 (by test_uninit):
+  a[0..9] FROM maybe
+[from] call to make_unknown at memcpy.c:201 (by test_uninit):
+  b[0..9] FROM maybe
+[from] call to memcpy at memcpy.c:202 (by test_uninit):
+  b[0..9] FROM a[0..9]
+  \result FROM dest
+[from] call to memcpy at memcpy.c:204 (by test_uninit):
+  b[0..24] FROM a[0..24] (and SELF)
+  \result FROM dest
+[from] call to itv at memcpy.c:204 (by test_uninit):
+  \result FROM l; u
+[from] call to test at memcpy.c:227 (by main):
+  src[0..19] FROM \nothing (and SELF)
+  dst1{[0]; [16..19]} FROM \nothing (and SELF)
+      [1..5] FROM src[2..6]
+      [6..15] FROM src[7..16] (and SELF)
+  dst2[0] FROM \nothing (and SELF)
+      [1..10] FROM src[2..11]
+      [11..19] FROM src[12..19] (and SELF)
+  dst3{[0..4]; [19]} FROM \nothing (and SELF)
+      [5..9] FROM src[2..6]
+      [10..18] FROM src[7..15] (and SELF)
+  dst4[0..4] FROM \nothing (and SELF)
+      [5..14] FROM src[2..11]
+      [15..19] FROM src[12..19] (and SELF)
+  dst5[0..4] FROM src[0..4] (and SELF)
+      {[5..19]; [25..33]} FROM src[5..13] (and SELF)
+      [20..24] FROM src[0..13] (and SELF)
+      {[34..39]; [89..99]} FROM \nothing (and SELF)
+      [40] FROM src[0] (and SELF)
+      {[41..69]; [71..88]} FROM src[1..18] (and SELF)
+      [70] FROM src[0..18] (and SELF)
+  tm[0] FROM "abcd"[0..4]
+    [1..999] FROM "abcd"[0..4] (and SELF)
+  um[0] FROM "abcd"[0..4]
+    {[1..998]; [999][bits 0 to 15]} FROM "abcd"[0..4] (and SELF)
+  ttyp[0] FROM \nothing
+      [1..999] FROM \nothing (and SELF)
+  v1{.x; .y} FROM \nothing
+  v2 FROM v1{.p; .padding[0..23]}
+  v3 FROM v2; t{[0]; [3]}
+  v4{.x; {.p; .padding[0..23]}} FROM v1{.p; .padding[0..3]} (and SELF)
+    .y FROM \nothing
+  v5 FROM v1{.p; .padding[0..3]}; v4{.x; {.p; .padding[0..3]}} (and SELF)
+  t[1] FROM v2
+   [2] FROM t[0]
+   [3] FROM v2 (and SELF)
+[from] call to test_uninit at memcpy.c:228 (by main):
+  NO EFFECTS
+[from] call to test_local at memcpy.c:229 (by main):
+  NO EFFECTS
+[from] call to copy_0 at memcpy.c:230 (by main):
+  NO EFFECTS
+[from] entry point:
+  NON TERMINATING - NO EFFECTS
+[from] ====== END OF CALLWISE DEPENDENCIES ======
+[inout] Out (internal) for function init:
+    src[0..19]; dst1[0..19]; dst2[0..19]; dst3[0..19]; dst4[0..19];
+    dst5[0..99]; j
+[inout] Inputs for function init:
+    \nothing
+[inout] InOut (internal) for function init:
+  Operational inputs:
+    \nothing
+  Operational inputs on termination:
+    \nothing
+  Sure outputs:
+    j
+[inout] Out (internal) for function buggy:
+    c; p; tmp
+[inout] Inputs for function buggy:
+    maybe
+[inout] InOut (internal) for function buggy:
+  Operational inputs:
+    maybe
+  Operational inputs on termination:
+    maybe
+  Sure outputs:
+    c; p; tmp
+[inout] Out (internal) for function copy_0:
+    \nothing
+[inout] Inputs for function copy_0:
+    i
+[inout] InOut (internal) for function copy_0:
+  Operational inputs:
+    i
+  Operational inputs on termination:
+    i
+  Sure outputs:
+    \nothing
+[inout] Out (internal) for function many:
+    tm[0..999]; um{[0..998]; [999][bits 0 to 15]}; ttyp[0..999]; s[0..4]; 
+    p; ty{.ts; .ti}
+[inout] Inputs for function many:
+    maybe
+[inout] InOut (internal) for function many:
+  Operational inputs:
+    maybe; "abcd"[0..4]; ty.[bits 16 to 31]
+  Operational inputs on termination:
+    maybe; "abcd"[0..4]; ty.[bits 16 to 31]
+  Sure outputs:
+    tm[0]; um[0]; ttyp[0]; s[0..4]; p; ty{.ts; .ti}
+[inout] Out (internal) for function test:
+    src[0..19]; dst1[0..19]; dst2[0..19]; dst3[0..19]; dst4[0..19];
+    dst5[0..99]; tm[0..999]; um{[0..998]; [999][bits 0 to 15]}; ttyp[0..999];
+    v1{.x; .y}; v2; v3; v4; v5; t[1..3]; b; x; p; ptop1[4..799]; pptop;
+    ptop2[2..749]; ptop3[2..797]; ptop4[2..798]; garbledsize[10..99];
+    pgarbledsize; dstmaybesize1[0..14]; dstmaybesize2[0..5]; maybesize
+[inout] Inputs for function test:
+    i; src[0..19]; maybe; v1; v2; v4{.x; .y; .p; .padding[0..3]}; t[0..3]
+[inout] InOut (internal) for function test:
+  Operational inputs:
+    i; src[0..19]; maybe; "abcd"[0..4]; v1{.p; .padding[0..23]}; v2;
+    v4{.x; {.p; .padding[0..3]}}; t{[0]; [3]}; a; b
+  Operational inputs on termination:
+    src[0..19]; maybe; "abcd"[0..4]; v1{.p; .padding[0..23]}; v2;
+    v4{.x; {.p; .padding[0..3]}}; t{[0]; [3]}; a; b
+  Sure outputs:
+    dst1[1..5]; dst2[1..10]; dst3[5..9]; dst4[5..14]; tm[0]; um[0]; ttyp[0];
+    v1{.x; .y}; v2; v3; v4.y; t[1..2]; b; p; pptop; pgarbledsize; maybesize
+[inout] Out (internal) for function test_local:
+    p; q
+[inout] Inputs for function test_local:
+    \nothing
+[inout] InOut (internal) for function test_local:
+  Operational inputs:
+    \nothing
+  Operational inputs on termination:
+    \nothing
+  Sure outputs:
+    p; q
+[inout] Out (internal) for function test_uninit:
+    a[0..9]; b[0..24]; r; tmp; tmp_0; tmp_1; tmp_2
+[inout] Inputs for function test_uninit:
+    maybe
+[inout] InOut (internal) for function test_uninit:
+  Operational inputs:
+    maybe; a[0..24]; b[11]
+  Operational inputs on termination:
+    maybe; a[0..24]; b[11]
+  Sure outputs:
+    r
+[inout] Out (internal) for function main:
+    src[0..19]; dst1[0..19]; dst2[0..19]; dst3[0..19]; dst4[0..19];
+    dst5[0..99]; tm[0..999]; um{[0..998]; [999][bits 0 to 15]}; ttyp[0..999];
+    v1{.x; .y}; v2; v3; v4; v5; t[1..3]
+[inout] Inputs for function main:
+    i; src[0..19]; maybe; v1; v2; v4{.x; .y; .p; .padding[0..3]}; t[0..3]
+[inout] InOut (internal) for function main:
+  Operational inputs:
+    i; src[0..19]; maybe; "abcd"[0..4]; v1{.p; .padding[0..23]}; v2;
+    v4{.x; {.p; .padding[0..3]}}; t{[0]; [3]}
+  Operational inputs on termination:
+    \nothing
+  Sure outputs:
+    ANYTHING(origin:Unknown)
+[report] Computing properties status...
+--------------------------------------------------------------------------------
+--- Global Properties
+--------------------------------------------------------------------------------
+
+[  Valid  ] Axiomatic 'MemChr'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'MemCmp'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'MemSet'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'StrChr'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'StrCmp'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'StrLen'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'StrNCmp'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'WMemChr'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'WcsChr'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'WcsCmp'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'WcsLen'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'WcsNCmp'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'dynamic_allocation'
+            by Frama-C kernel.
+[ Extern  ] Axiom 'memchr_def'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'memcmp_strlen_left'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'memcmp_strlen_right'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'memcmp_strlen_shift_left'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'memcmp_strlen_shift_right'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'memcmp_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'memset_def'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'never_allocable'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strchr_def'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strcmp_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_at_null'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_before_null'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_create'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_create_shift'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_neg'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_not_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_pos_or_null'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_shift'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_sup'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strncmp_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcschr_def'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcscmp_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_at_null'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_before_null'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_create'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_create_shift'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_neg'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_not_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_pos_or_null'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_shift'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_sup'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcsncmp_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wmemchr_def'
+            Unverifiable but considered Valid.
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'memcpy'
+--------------------------------------------------------------------------------
+
+[  Alarm  ] Pre-condition 'valid_dest'
+            By Call Preconditions, with pending:
+             - Unreachable call 'memcpy' ("memcpy.c", line 221)
+             - Instance of 'Pre-condition 'valid_dest'' of 'buggy' at call 'memcpy' ("memcpy.c", line 32)
+
+             - Instance of 'Pre-condition 'valid_dest'' of 'test' at call 'memcpy' ("memcpy.c", line 74)
+
+             - Instance of 'Pre-condition 'valid_dest'' of 'test' at call 'memcpy' ("memcpy.c", line 79)
+
+             - Instance of 'Pre-condition 'valid_dest'' of 'test' at call 'memcpy' ("memcpy.c", line 93)
+
+             - Instance of 'Pre-condition 'valid_dest'' of 'test' at call 'memcpy' ("memcpy.c", line 95)
+
+             - Instance of 'Pre-condition 'valid_dest'' of 'test' at call 'memcpy' ("memcpy.c", line 100)
+
+             - Instance of 'Pre-condition 'valid_dest'' of 'test' at call 'memcpy' ("memcpy.c", line 118)
+
+             - Instance of 'Pre-condition 'valid_dest'' of 'test' at call 'memcpy' ("memcpy.c", line 126)
+
+             - Instance of 'Pre-condition 'valid_dest'' of 'test' at call 'memcpy' ("memcpy.c", line 135)
+
+             - Instance of 'Pre-condition 'valid_dest'' of 'test' at call 'memcpy' ("memcpy.c", line 144)
+
+             - Instance of 'Pre-condition 'valid_dest'' of 'test' at call 'memcpy' ("memcpy.c", line 149)
+
+             - Instance of 'Pre-condition 'valid_dest'' of 'test' at call 'memcpy' ("memcpy.c", line 155)
+
+[  Alarm  ] Pre-condition 'valid_src'
+            By Call Preconditions, with pending:
+             - Unreachable call 'memcpy' ("memcpy.c", line 222)
+             - Instance of 'Pre-condition 'valid_src'' of 'test' at call 'memcpy' ("memcpy.c", line 74)
+
+             - Instance of 'Pre-condition 'valid_src'' of 'test' at call 'memcpy' ("memcpy.c", line 79)
+
+             - Instance of 'Pre-condition 'valid_src'' of 'test' at call 'memcpy' ("memcpy.c", line 91)
+
+             - Instance of 'Pre-condition 'valid_src'' of 'test' at call 'memcpy' ("memcpy.c", line 100)
+
+             - Instance of 'Pre-condition 'valid_src'' of 'test' at call 'memcpy' ("memcpy.c", line 149)
+
+             - Instance of 'Pre-condition 'valid_src'' of 'test' at call 'memcpy' ("memcpy.c", line 155)
+
+[    -    ] Pre-condition 'separation'
+            tried with Call Preconditions.
+[ Extern  ] Post-condition 'copied_contents'
+            Unverifiable but considered Valid.
+[ Extern  ] Post-condition 'result_ptr'
+            Unverifiable but considered Valid.
+[ Extern  ] Assigns ("FRAMAC_SHARE/libc/string.h", line 132)
+            Unverifiable but considered Valid.
+[ Extern  ] Froms ("FRAMAC_SHARE/libc/string.h", line 132)
+            Unverifiable but considered Valid.
+[ Extern  ] Froms ("FRAMAC_SHARE/libc/string.h", line 133)
+            Unverifiable but considered Valid.
+[  Valid  ] Default behavior
+            by Frama-C kernel.
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'buggy'
+--------------------------------------------------------------------------------
+
+[    -    ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 32)
+
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 32)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 32)
+
+            by Eva.
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'many'
+--------------------------------------------------------------------------------
+
+[    -    ] Assertion ("memcpy.c", line 48)
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 51)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 51)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 51)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 53)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 53)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 53)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 57)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 57)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 57)
+
+            by Eva.
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'test'
+--------------------------------------------------------------------------------
+
+[    -    ] Assertion ("memcpy.c", line 71)
+            tried with Eva.
+[    -    ] Assertion ("memcpy.c", line 76)
+            tried with Eva.
+[    -    ] Assertion ("memcpy.c", line 107)
+            tried with Eva.
+[    -    ] Assertion ("memcpy.c", line 154)
+            tried with Eva.
+[    -    ] Assertion ("memcpy.c", line 156)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_downcast' ("memcpy.c", line 91)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_downcast' ("memcpy.c", line 93)
+            tried with Eva.
+[ Partial ] Assertion 'Eva,pointer_downcast' ("memcpy.c", line 94)
+            By RedundantAlarms, with pending:
+             - Assertion 'Eva,pointer_downcast' ("memcpy.c", line 91)
+[    -    ] Assertion 'Eva,pointer_downcast' ("memcpy.c", line 95)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 113)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 115)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 118)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 121)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 123)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 126)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 129)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 131)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 132)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 135)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 138)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 140)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 141)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 144)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 148)
+            tried with Eva.
+[    -    ] Assertion 'Eva,pointer_alignment' ("memcpy.c", line 149)
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 72)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 72)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 72)
+
+            by Eva.
+[    -    ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 74)
+
+            tried with Eva.
+[    -    ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 74)
+
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 74)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 77)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 77)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 77)
+
+            by Eva.
+[    -    ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 79)
+
+            tried with Eva.
+[    -    ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 79)
+
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 79)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 87)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 87)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 87)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 89)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 89)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 89)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 91)
+
+            by Eva.
+[    -    ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 91)
+
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 91)
+
+            by Eva.
+[    -    ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 93)
+
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 93)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 93)
+
+            by Eva.
+[    -    ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 95)
+
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 95)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 95)
+
+            by Eva.
+[    -    ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 100)
+
+            tried with Eva.
+[    -    ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 100)
+
+            tried with Eva.
+[    -    ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 100)
+
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 105)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 105)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 105)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 109)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 109)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 109)
+
+            by Eva.
+[    -    ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 118)
+
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 118)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 118)
+
+            by Eva.
+[    -    ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 126)
+
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 126)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 126)
+
+            by Eva.
+[    -    ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 135)
+
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 135)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 135)
+
+            by Eva.
+[    -    ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 144)
+
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 144)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 144)
+
+            by Eva.
+[    -    ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 149)
+
+            tried with Eva.
+[    -    ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 149)
+
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 149)
+
+            by Eva.
+[    -    ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 155)
+
+            tried with Eva.
+[    -    ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 155)
+
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 155)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 157)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 157)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 157)
+
+            by Eva.
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'itv'
+--------------------------------------------------------------------------------
+
+[ Extern  ] Post-condition ("memcpy.c", line 162)
+            Unverifiable but considered Valid.
+[ Extern  ] Assigns nothing
+            Unverifiable but considered Valid.
+[ Extern  ] Froms ("memcpy.c", line 161)
+            Unverifiable but considered Valid.
+[  Valid  ] Default behavior
+            by Frama-C kernel.
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'make_unknown'
+--------------------------------------------------------------------------------
+
+[  Valid  ] Pre-condition ("memcpy.c", line 165)
+            by Call Preconditions.
+[ Extern  ] Post-condition ("memcpy.c", line 167)
+            Unverifiable but considered Valid.
+[ Extern  ] Assigns ("memcpy.c", line 166)
+            Unverifiable but considered Valid.
+[ Extern  ] Froms ("memcpy.c", line 166)
+            Unverifiable but considered Valid.
+[  Valid  ] Default behavior
+            by Frama-C kernel.
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'test_uninit'
+--------------------------------------------------------------------------------
+
+[  Valid  ] Assertion ("memcpy.c", line 177)
+            by Eva.
+[  Valid  ] Assertion ("memcpy.c", line 179)
+            by Eva.
+[  Valid  ] Assertion ("memcpy.c", line 184)
+            by Eva.
+[  Valid  ] Assertion ("memcpy.c", line 192)
+            by Eva.
+[  Valid  ] Assertion ("memcpy.c", line 195)
+            by Eva.
+[  Valid  ] Assertion ("memcpy.c", line 203)
+            by Eva.
+[    -    ] Assertion 'Eva,initialization' ("memcpy.c", line 186)
+            tried with Eva.
+[    -    ] Assertion 'Eva,initialization' ("memcpy.c", line 196)
+            tried with Eva.
+[    -    ] Assertion 'Eva,initialization' ("memcpy.c", line 205)
+            tried with Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 176)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 176)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 176)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 178)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 178)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 178)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition ("memcpy.c", line 165)' at call 'make_unknown' ("memcpy.c", line 182)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 183)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 183)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 183)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 185)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 185)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 185)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition ("memcpy.c", line 165)' at call 'make_unknown' ("memcpy.c", line 189)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 191)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 191)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 191)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 194)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 194)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 194)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition ("memcpy.c", line 165)' at call 'make_unknown' ("memcpy.c", line 200)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition ("memcpy.c", line 165)' at call 'make_unknown' ("memcpy.c", line 201)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 202)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 202)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 202)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 204)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 204)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 204)
+
+            by Eva.
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'test_local'
+--------------------------------------------------------------------------------
+
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 213)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 213)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 213)
+
+            by Eva.
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'copy_0'
+--------------------------------------------------------------------------------
+
+[  Alarm  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 221)
+
+            By Eva, with pending:
+             - Unreachable call 'memcpy' ("memcpy.c", line 221)
+[  Valid  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 221)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 221)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition 'valid_dest'' at call 'memcpy' ("memcpy.c", line 222)
+
+            by Eva.
+[  Alarm  ] Instance of 'Pre-condition 'valid_src'' at call 'memcpy' ("memcpy.c", line 222)
+
+            By Eva, with pending:
+             - Unreachable call 'memcpy' ("memcpy.c", line 222)
+[  Valid  ] Instance of 'Pre-condition 'separation'' at call 'memcpy' ("memcpy.c", line 222)
+
+            by Eva.
+
+--------------------------------------------------------------------------------
+--- Status Report Summary
+--------------------------------------------------------------------------------
+   108 Completely validated
+     1 Locally validated
+    46 Considered valid
+    48 To be validated
+     4 Alarms emitted
+   207 Total
+--------------------------------------------------------------------------------

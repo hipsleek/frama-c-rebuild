@@ -1,0 +1,6 @@
+(library
+ (name E_ACSL_test)
+ (modules E_ACSL_test)
+ (libraries frama-c.init frama-c.boot frama-c.kernel frama-c-e-acsl.core)
+ (flags -open Frama_c_kernel)
+)

@@ -1,0 +1,6 @@
+[kernel] Parsing alignas_typing_constrains.c (with preprocessing)
+[kernel] alignas_typing_constrains.c:196: User Error: 
+  Storage, inline or alignas specifier in type only
+[kernel] alignas_typing_constrains.c:196: User Error: 
+  sizeof on incomplete type 'struct only'
+[kernel] Frama-C aborted: invalid user input.

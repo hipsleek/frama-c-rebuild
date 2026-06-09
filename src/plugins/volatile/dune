@@ -1,0 +1,37 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "Volatile:" %{lib-available:frama-c-volatile.core} "\n")
+          (echo " - Frama-C:" %{lib-available:frama-c.kernel} "\n")
+          (echo " - WP:" %{lib-available:frama-c-wp.core} "\n"))))
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-volatile.core})))
+ (action (echo "WARNING: Volatile disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+(library
+ (optional)
+ (name volatile)
+ (public_name frama-c-volatile.core)
+ (flags -open Frama_c_kernel :standard -w -9)
+ (libraries frama-c.kernel frama-c-wp.core)
+ (instrumentation (backend landmarks))
+ (instrumentation (backend bisect_ppx)))
+
+(plugin
+ (optional)
+ (name volatile) (libraries frama-c-volatile.core) (site (frama-c plugins)))

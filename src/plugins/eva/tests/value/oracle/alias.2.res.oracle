@@ -1,0 +1,120 @@
+[kernel] Parsing alias.i (no preprocessing)
+[eva] Analyzing a complete application starting at main4
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  NULL[rbits 0 to 2047] ∈ [--..--]
+  A ∈ {0}
+  B ∈ {0}
+  C ∈ {0}
+  D ∈ {0}
+  E ∈ {0}
+  F ∈ {0}
+  G ∈ {0}
+  p[0..4] ∈ {0}
+  q[0] ∈ {1}
+   [1] ∈ {2}
+   [2] ∈ {3}
+   [3] ∈ {4}
+   [4] ∈ {5}
+  p2[0..4] ∈ {0}
+  q2[0] ∈ {1}
+    [1] ∈ {2}
+    [2] ∈ {3}
+    [3] ∈ {4}
+    [4] ∈ {5}
+  p3[0..4] ∈ {0}
+  t ∈ {0}
+  u ∈ {0}
+  v ∈ {0}
+  w ∈ {0}
+  x ∈ {0}
+  y ∈ {0}
+  z ∈ {0}
+  t2 ∈ {0}
+  v2 ∈ {0}
+  PTR1 ∈ {0}
+  PTR2 ∈ {0}
+  PTR3 ∈ {0}
+  PTR4 ∈ {0}
+  PTR5 ∈ {0}
+  PTR6 ∈ {0}
+  c ∈ [--..--]
+  c1 ∈ [--..--]
+  c2 ∈ [--..--]
+  c3 ∈ [--..--]
+  c4 ∈ [--..--]
+  e ∈ {0}
+  g ∈ {0}
+  h ∈ {0}
+  i ∈ {0}
+  tz1 ∈ {0}
+  tz2 ∈ {0}
+  tz3 ∈ {0}
+  tx ∈ {0}
+  ty ∈ {0}
+  tz ∈ {0}
+  U ∈ {0}
+  char1 ∈ {0}
+  ll1 ∈ {0}
+[eva:alarm] alias.i:142: Warning: signed overflow. assert c + 1 ≤ 2147483647;
+[eva:alarm] alias.i:142: Warning: signed overflow. assert c + 2 ≤ 2147483647;
+[eva:alarm] alias.i:144: Warning: signed overflow. assert c + 3 ≤ 2147483647;
+[eva:alarm] alias.i:144: Warning: signed overflow. assert c + 4 ≤ 2147483647;
+[eva:progress] Recording results for main4
+[eva:progress] Done for function main4
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main4:
+  u ∈ {0; 1; 2}
+  v ∈ {1; 2; 3}
+  x ∈ {1; 2; 5}
+  y ∈ {1; 2; 5}
+  z ∈ {-5; -4; -3; -2; -1; 0; 1; 1000}
+  p_0 ∈ {{ &t1.s2 ; &t2_0.s3 }}
+  s.a ∈ {4; 27; 777}
+   .b ∈ {5; 28}
+   .c ∈ {6; 29}
+  ss ∈ [--..--]
+  sss.a ∈ {4; 27; 777}
+     .b ∈ {5; 28; 888}
+     .c ∈ {6; 29}
+  pt ∈ {0}
+  t1.s1.a ∈ {1}
+    .s1.b ∈ {2}
+    .s1.c ∈ {3}
+    .s2.a ∈ {4; 777}
+    .s2.b ∈ {5; 888}
+    .s2.c ∈ {6}
+    .s3.a ∈ {7}
+    .s3.b ∈ {8}
+    .s3.c ∈ {9}
+    .s4.a ∈ {10}
+    .s4.b ∈ {11}
+    .s4.c ∈ {12}
+  t2_0.s1.a ∈ {21}
+      .s1.b ∈ {22}
+      .s1.c ∈ {23}
+      .s2.a ∈ {24}
+      .s2.b ∈ {25}
+      .s2.c ∈ {26}
+      .s3.a ∈ {27; 777}
+      .s3.b ∈ {28; 888}
+      .s3.c ∈ {29}
+      .s4.a ∈ {30}
+      .s4.b ∈ {31}
+      .s4.c ∈ {32}
+[from] Computing for function main4
+[from] Done for function main4
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main4:
+  u FROM c
+  v FROM c
+  x FROM c
+  y FROM c
+  z FROM c
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main4:
+    u; v; x; y; z; p_0; s; ss; sss; pt; t1; t2_0; tmp; tmp_0
+[inout] Inputs for function main4:
+    NULL[0..11]; u; v; x; y; c

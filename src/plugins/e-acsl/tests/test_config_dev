@@ -1,0 +1,42 @@
+NOFRAMAC: only the EXEC command below is useful in this config
+MACRO: EACSL_ERR @PTEST_NAME@.e-acsl.err.log
+
+COMMENT: Default options for `e-acsl-gcc`
+MACRO: ROOT_EACSL_GCC_MISC_OPTS -X
+
+COMMENT: Default options for the frama-c invocation
+MACRO: ROOT_EACSL_GCC_FC_EXTRA -verbose 1 -e-acsl-interlang
+
+COMMENT: Currently compilation assumes an x86_64 architecture
+ENABLED_IF: (= %{architecture} amd64)
+
+COMMENT: e-acsl-gcc is not currently compatible with macos' getopt
+ENABLED_IF: (<> %{system} macosx)
+
+PLUGIN: e-acsl eva,scope rtegen
+
+COMMENT: No need for explicit dependency towards the plugin share directory
+DEPS: @PTEST_SUITE_DIR@/../wrapper.sh @INCLUDED_HEADERS@
+
+EXECNOW: LOG @EACSL_ERR@ @PTEST_SUITE_DIR@/../wrapper.sh "@frama-c-exe@" "@PTEST_RESULT_DIR@" "@PTEST_NAME@" "@PTEST_FILE@" "@EACSL_ERR@" "@ROOT_EACSL_GCC_MISC_OPTS@ @ROOT_EACSL_GCC_OPTS_EXT@" "@PTEST_DEFAULT_OPTIONS@ @PTEST_LOAD_OPTIONS@ @ROOT_EACSL_GCC_FC_EXTRA@ @ROOT_EACSL_GCC_FC_EXTRA_EXT@" "@ROOT_EACSL_EXEC_EXIT_CODE@" "@ROOT_EACSL_EXEC_FILTER@"
+
+COMMENT: These next macros can be redefined in a test file
+
+COMMENT: Define the following macro in a test to pass extra options to the frama-c invocation
+MACRO: ROOT_EACSL_GCC_FC_EXTRA_EXT
+
+COMMENT: Define the following macro in a test to pass extra options to `e-acsl-gcc`
+MACRO: ROOT_EACSL_GCC_OPTS_EXT
+
+COMMENT: Define the following macro in a test to filter the output of the test execution
+COMMENT: You can chain several filters by separating commands with |. However sed cannot
+COMMENT: use | as a delimiter, please use / or another character instead.
+MACRO: ROOT_EACSL_EXEC_FILTER cat
+
+COMMENT: Define the following macro in a test to add custom header files to the
+COMMENT: dependencies of the test.
+MACRO: INCLUDED_HEADERS
+
+COMMENT: Define the following macro in a test to change the expected exit code
+COMMENT: of the execution of the resulting binary.
+MACRO: ROOT_EACSL_EXEC_EXIT_CODE 0

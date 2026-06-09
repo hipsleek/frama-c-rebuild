@@ -1,0 +1,5 @@
+########################
+# HEADER_SPEC: .ignore #
+########################
+
+/*/tests/**/* header_spec=.ignore

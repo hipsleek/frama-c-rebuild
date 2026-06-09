@@ -1,0 +1,56 @@
+%rubber: watch main.tdo main.cb wp.bbl wp.bib
+%rubber: depend swap1.log-file swap2.log-file swap3.log-file
+%rubber: depend ../../tests/wp_manual/working_dir/swap.c
+%rubber: depend ../../tests/wp_manual/working_dir/swap1.h
+%rubber: depend ../../tests/wp_manual/working_dir/swap2.h
+%rubber: depend wp-complete.png wp-gui-main.png wp-gui-run.png
+%rubber: depend wp-invalid.png  wp-unknown.png  wp-valid.png
+
+\documentclass{frama-c-book}
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{pifont}
+
+\input{fc-macros}
+
+\newcommand{\FCVERSION}{\input{VERSION}(\input{VERSION_CODENAME}\unskip)}
+
+\title{WP Plug-in Manual}
+\author{Patrick Baudin, François Bobot, Loïc Correnson, Zaynah Dargaye, Allan Blanchard}
+\fcversion{\FCVERSION}
+
+\cclicence{by}
+\copyrightstarts{2010}
+
+%\anticopyCEA{} % To comments for public version.
+\begin{document}
+\sloppy
+\emergencystretch 3em
+
+\maketitle
+\tableofcontents
+
+\chapter*{Foreword}
+\markright{}
+\addcontentsline{toc}{chapter}{Foreword}
+
+This is the user manual of the WP plug-in of \FramaC\footnote{\url{http://frama-c.com}}.
+The content of this document corresponds to the version \FCVERSION, released on \today, of
+\FramaC.
+
+\section*{Acknowledgements}
+
+\medskip
+
+\acknowledgeANR{the French ANR project U3CAT~(08-SEGI-021-01)}
+
+\input{wp_intro.tex}
+\input{wp_plugin.tex}
+\input{wp_models.tex}
+\input{wp_simplifier.tex}
+\input{wp_builtins.tex}
+
+\bibliographystyle{alpha}
+\bibliography{wp}
+
+\end{document}

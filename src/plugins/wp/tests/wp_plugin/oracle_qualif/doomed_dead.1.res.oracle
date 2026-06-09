@@ -1,0 +1,92 @@
+# frama-c -wp -wp-steps 100 [...]
+[kernel] Parsing doomed_dead.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] doomed_dead.i:24: Warning: 
+  Neither code nor explicit terminates for function exit, generating default
+  clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] doomed_dead.i:29: Warning: 
+  Neither code nor explicit exits and terminates for function call, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] [Valid] Goal f1_ok_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal f1_ok_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal f5_ko_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal f5_ko_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal f5_ok_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal f5_ok_terminates (Cfg) (Trivial)
+[wp] 56 goals scheduled
+[wp] [Passed] (Unsuccess) typed_f1_ok_wp_smoke_dead_code_s3 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_f1_ok_wp_smoke_dead_code_s7 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_f1_ok_wp_smoke_dead_code_s10 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f1_ok_assigns_part1 (Qed)
+[wp] [Valid] typed_f1_ok_assigns_part2 (Qed)
+[wp] [Valid] typed_f1_ok_assigns_part3 (Qed)
+[wp] [Passed] (Unsuccess) typed_exit_wp_smoke_dead_call_s14 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_f2_ok_wp_smoke_dead_code_s14 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_f2_ok_wp_smoke_dead_code_s16 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f2_ok_terminates (Qed)
+[wp] [Valid] typed_f2_ok_exits (Qed)
+[wp] [Valid] typed_f2_ok_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_f2_ok_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_f2_ok_assigns_normal_part3 (Qed)
+[wp] [Valid] typed_f2_ok_assigns_exit (Qed)
+[wp] [Passed] (Unsuccess) typed_exit_wp_smoke_dead_call_s22 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_f2_ko_wp_smoke_dead_code_s22 (Alt-Ergo) (Cached)
+[wp] [Failed] (Doomed) typed_f2_ko_wp_smoke_dead_code_s23 (Qed)
+[wp] doomed_dead.i:48: Warning: Failed smoke-test
+[wp] [Passed] (Unsuccess) typed_f2_ko_wp_smoke_dead_code_s26 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f2_ko_terminates (Qed)
+[wp] [Valid] typed_f2_ko_exits (Qed)
+[wp] [Valid] typed_f2_ko_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_f2_ko_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_f2_ko_assigns_exit (Qed)
+[wp] [Passed] (Unsuccess) typed_call_wp_smoke_dead_call_s30 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_f3_ok_wp_smoke_dead_code_s30 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_f3_ok_wp_smoke_dead_code_s31 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_f3_ok_wp_smoke_dead_code_s34 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f3_ok_terminates (Qed)
+[wp] [Valid] typed_f3_ok_exits (Qed)
+[wp] [Valid] typed_f3_ok_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_f3_ok_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_f3_ok_assigns_exit (Qed)
+[wp] [Passed] (Unsuccess) typed_exit_wp_smoke_dead_call_s38 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_f4_ok_wp_smoke_dead_code_s41 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f4_ok_terminates (Qed)
+[wp] [Valid] typed_f4_ok_exits (Qed)
+[wp] [Valid] typed_f4_ok_assert (Qed)
+[wp] [Valid] typed_f4_ok_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_f4_ok_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_f4_ok_assigns_normal_part3 (Qed)
+[wp] [Valid] typed_f4_ok_assigns_exit (Qed)
+[wp] [Passed] (Unsuccess) typed_f5_ok_wp_smoke_dead_code_s48 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_f5_ok_wp_smoke_dead_code_s50 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_f5_ok_wp_smoke_dead_code_s52 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f5_ok_assigns_part1 (Qed)
+[wp] [Valid] typed_f5_ok_assigns_part2 (Qed)
+[wp] [Valid] typed_f5_ok_assigns_part3 (Qed)
+[wp] [Passed] (Unsuccess) typed_f5_ko_wp_smoke_dead_code_s56 (Alt-Ergo) (Cached)
+[wp] [Failed] (Doomed) typed_f5_ko_wp_smoke_dead_code_s61 (Qed)
+[wp] doomed_dead.i:96: Warning: Failed smoke-test
+[wp] [Passed] (Unsuccess) typed_f5_ko_wp_smoke_dead_code_s63 (Alt-Ergo) (Cached)
+[wp] [Passed] (Unsuccess) typed_f5_ko_wp_smoke_dead_code_s65 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f5_ko_assigns_part1 (Qed)
+[wp] [Valid] typed_f5_ko_assigns_part2 (Qed)
+[wp] [Valid] typed_f5_ko_assigns_part3 (Qed)
+[wp] [Valid] typed_f5_ko_assigns_part4 (Qed)
+[wp] Proved goals:   60 / 62
+  Terminating:     3
+  Unreachable:     3
+  Qed:            33
+  Alt-Ergo:       21
+  Failed:          2
+  Smoke Tests:    21 / 23
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  f1_ok                     5        3        8       100%
+  f2_ok                     6        3        9       100%
+  f2_ko                     5        3        9      88.9%
+  f3_ok                     5        4        9       100%
+  f4_ok                     7        2        9       100%
+  f5_ok                     5        3        8       100%
+  f5_ko                     6        3       10      90.0%
+------------------------------------------------------------

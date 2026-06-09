@@ -1,0 +1,44 @@
+digraph G {
+  cp2 [label=<x>, shape=box, fillcolor="#AACCFF", color="#88AAFF",
+       style="filled,dotted,bold", ];
+  cp4 [label=<t14>, shape=box, fillcolor="#AACCFF", color="#88AAFF",
+       style="filled", ];
+  cp6 [label=<t13>, shape=box, fillcolor="#AACCFF", color="#88AAFF",
+       style="filled", ];
+  cp8 [label=<t12>, shape=box, fillcolor="#AACCFF", color="#88AAFF",
+       style="filled", ];
+  cp10 [label=<t11>, shape=box, fillcolor="#AACCFF", color="#88AAFF",
+        style="filled", ];
+  cp12 [label=<t10>, shape=box, fillcolor="#AACCFF", color="#88AAFF",
+        style="filled", ];
+  cp14 [label=<0>, shape=ellipse, ];
+  cp16 [label=<0>, shape=ellipse, ];
+  cp18 [label=<0>, shape=ellipse, ];
+  cp20 [label=<0>, shape=ellipse, ];
+  cp22 [label=<0>, shape=ellipse, ];
+  cp24 [label=<__retres>, shape=box, fillcolor="#AACCFF", color="#88AAFF",
+        style="filled,bold", ];
+  cp25 [label=<0>, shape=ellipse, ];
+  cp27 [label=<*(pt[x])>, shape=parallelogram, fillcolor="#AACCFF",
+        color="#88AAFF", style="filled,dotted", ];
+  
+  subgraph cluster_cs_1 { label=<many_writes>; cp22;cp20;cp18;cp16;cp14;cp12;cp10;cp8;cp6;cp4;cp2;
+     };
+  subgraph cluster_cs_2 { label=<many_values>; cp27;cp25;cp24;
+     };
+  
+  cp2 -> cp2 [style="bold", ];
+  cp4 -> cp2;
+  cp6 -> cp2;
+  cp8 -> cp2;
+  cp10 -> cp2;
+  cp12 -> cp2;
+  cp14 -> cp4;
+  cp16 -> cp6;
+  cp18 -> cp8;
+  cp20 -> cp10;
+  cp22 -> cp12;
+  cp25 -> cp24 [style="bold", ];
+  cp27 -> cp24;
+  
+  }

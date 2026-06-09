@@ -1,0 +1,62 @@
+# frama-c -wp [...]
+[kernel] Parsing assigned_initialized_memtyped.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] Warning: Missing RTE guards
+[wp] 42 goals scheduled
+[wp] [Valid] typed_initialize_loop_invariant_CHECK_established (Qed)
+[wp] [Valid] typed_initialize_loop_invariant_CHECK_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_initialize_check_CHECK (Alt-Ergo) (Cached)
+[wp] [Valid] typed_initialize_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_initialize_loop_assigns_part2 (Qed)
+[wp] [Valid] typed_initialize_loop_assigns_part3 (Qed)
+[wp] [Unsuccess] typed_range_check_FAILS (Alt-Ergo) (Cached)
+[wp] [Valid] typed_range_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_range_loop_assigns_part2 (Qed)
+[wp] [Valid] typed_range_loop_assigns_part3 (Qed)
+[wp] [Unsuccess] typed_field_check_FAILS (Alt-Ergo) (Cached)
+[wp] [Valid] typed_field_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_field_loop_assigns_part2 (Qed)
+[wp] [Unsuccess] typed_array_check_FAILS (Alt-Ergo) (Cached)
+[wp] [Valid] typed_array_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_array_loop_assigns_part2 (Qed)
+[wp] [Valid] typed_array_loop_assigns_part3 (Qed)
+[wp] [Unsuccess] typed_index_check_FAILS (Alt-Ergo) (Cached)
+[wp] [Valid] typed_index_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_index_loop_assigns_part2 (Qed)
+[wp] [Valid] typed_index_loop_assigns_part3 (Qed)
+[wp] [Unsuccess] typed_descr_check_FAILS (Alt-Ergo) (Cached)
+[wp] [Valid] typed_descr_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_descr_loop_assigns_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_descr_loop_assigns_part3 (Qed)
+[wp] [Valid] typed_descr_loop_assigns_part4 (Qed)
+[wp] [Valid] typed_descr_loop_assigns_part5 (Qed)
+[wp] [Unsuccess] typed_comp_check_FAILS (Alt-Ergo) (Cached)
+[wp] [Valid] typed_comp_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_comp_loop_assigns_part2 (Qed)
+[wp] [Valid] typed_comp_loop_assigns_part3 (Qed)
+[wp] [Unsuccess] typed_assigned_glob_check_FAILS (Alt-Ergo) (Cached)
+[wp] [Valid] typed_assigned_glob_loop_invariant_CHECK_established (Qed)
+[wp] [Valid] typed_assigned_glob_loop_invariant_CHECK_preserved (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_assigned_glob_check_FAILS_2 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_assigned_glob_check_FAILS_3 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_assigned_glob_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_assigned_glob_loop_assigns_part2 (Qed)
+[wp] [Valid] typed_assigned_glob_loop_assigns_part3 (Qed)
+[wp] [Valid] typed_assigned_glob_loop_assigns_2_part1 (Qed)
+[wp] [Valid] typed_assigned_glob_loop_assigns_2_part2 (Qed)
+[wp] [Valid] typed_assigned_glob_loop_assigns_2_part3 (Qed)
+[wp] Proved goals:   33 / 42
+  Qed:            29
+  Alt-Ergo:        4
+  Unsuccess:       9
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  initialize                4        2        6       100%
+  range                     3        -        4      75.0%
+  field                     2        -        3      66.7%
+  array                     3        -        4      75.0%
+  index                     3        -        4      75.0%
+  descr                     4        1        6      83.3%
+  comp                      3        -        4      75.0%
+  assigned_glob             7        1       11      72.7%
+------------------------------------------------------------

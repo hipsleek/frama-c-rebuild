@@ -1,0 +1,41 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing struct6.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  abc.a ∈ {42}
+     .b ∈ {42.}
+     .c ∈ {42.}
+  secret_abc ∈ {0}
+  secret_pointers ∈ {0}
+  pointers.p ∈ {{ &secret_abc.a }}
+          .q ∈ {{ &secret_abc.b }}
+          .r ∈ {{ &secret_abc.c }}
+  simple_arr_secret[0..1] ∈ {0}
+  simple_arr_initialized[0].x ∈ {0}
+                        [0].p ∈ {{ &secret_abc.a }}
+                        [1].x ∈ {1}
+                        [1].p ∈ {{ &secret_abc.a }}
+  public_simple_arr[0..1] ∈ {0}
+  n.pairs[0].p_a ∈ {0}
+   .pairs[0].p_b ∈ {{ &abc.b }}
+   .pairs[1].p_a ∈ {1}
+   .pairs[1].p_b ∈ {{ &secret_abc.b }}
+   .p ∈ {{ &pointers }}
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    __retres
+[inout] Inputs for function main:
+    \nothing

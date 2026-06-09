@@ -1,0 +1,22 @@
+  $ PTESTS_TESTING=1 frama-c-script heuristic-print-callgraph build-callgraph.c
+  build-callgraph.c:3: main -> strlen
+  build-callgraph.c:15: fn1 -> Frama_C_show_each_1
+  build-callgraph.c:16: fn1 -> Frama_C_show_each_2
+  build-callgraph.c:22: main1 -> fn1
+  build-callgraph.c:23: main1 -> fn2
+  build-callgraph.c:24: main1 -> Frama_C_show_each_d
+  build-callgraph.c:42: main3 -> not_a_function_call
+  build-callgraph.c:43: main3 -> yet_another_not_a_call
+  build-callgraph.c:48: main4 -> f
+  build-callgraph.c:56: main4 -> f
+  build-callgraph.c:48: main4 -> g
+  build-callgraph.c:57: main4 -> g
+  build-callgraph.c:48: main4 -> h
+  build-callgraph.c:48: main4 -> k
+  build-callgraph.c:48: main4 -> m
+  build-callgraph.c:48: main4 -> n
+  build-callgraph.c:49: main4 -> p
+  build-callgraph.c:60: main -> main1
+  build-callgraph.c:61: main -> main2
+  build-callgraph.c:62: main -> main3
+  build-callgraph.c:63: main -> main4

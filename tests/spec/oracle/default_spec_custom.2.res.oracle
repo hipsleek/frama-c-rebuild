@@ -1,0 +1,5 @@
+Registering an empty spec generation mode
+Registering a new spec generation mode
+[kernel] Parsing default_spec_custom.i (no preprocessing)
+[kernel] User Error: Mode notregisteredmode is not registered
+[kernel] Frama-C aborted: invalid user input.

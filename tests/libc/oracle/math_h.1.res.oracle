@@ -1,0 +1,1472 @@
+[kernel] Parsing math_h.c (with preprocessing)
+[kernel:parser:decimal-float] math_h.c:8: Warning: 
+  Floating-point constant 3.14159265358979323846264338327950288 is not represented exactly. Will use 0x1.921fb54442d18p1.
+  (warn-once: no further messages from category 'parser:decimal-float' will be emitted)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  pi ∈ {3.14159265359}
+  half_pi ∈ {1.57079632679}
+  e ∈ {2.71828182846}
+  top ∈ [--..--]
+  f_pi ∈ {3.14159274101}
+  f_half_pi ∈ {1.57079637051}
+  f_e ∈ {2.71828174591}
+  f_top ∈ [--..--]
+  ld_pi ∈ [3.14159265359 .. 3.14159265359]
+  ld_half_pi ∈ [1.57079632679 .. 1.57079632679]
+  ld_e ∈ {2.71828182846}
+  ld_top ∈ [--..--]
+  zero ∈ {0}
+  minus_zero ∈ {-0.}
+  one ∈ {1.}
+  minus_one ∈ {-1.}
+  large ∈ {1e+38}
+  f_pos_inf ∈ {inf}
+  pos_inf ∈ {inf}
+  ld_pos_inf ∈ {inf}
+  f_neg_inf ∈ {-inf}
+  neg_inf ∈ {-inf}
+  ld_neg_inf ∈ {-inf}
+  infinity ∈ {inf}
+  fp_ilogb0 ∈ {-2147483648.}
+  fp_ilogbnan ∈ {-2147483648.}
+  int_top ∈ [--..--]
+  nondet ∈ [--..--]
+[eva:progress] math_h.c:86: Call to builtin atan
+[eva:progress] math_h.c:86: 
+  function atan: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atan
+[eva:progress] math_h.c:86: 
+  function atan: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atan
+[eva:progress] math_h.c:86: 
+  function atan: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atan
+[eva:progress] math_h.c:86: 
+  function atan: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atan
+[eva:progress] math_h.c:86: 
+  function atan: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atan
+[eva:progress] math_h.c:86: 
+  function atan: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atan
+[eva:progress] math_h.c:86: 
+  function atan: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atan
+[eva:progress] math_h.c:86: 
+  function atan: precondition 'number_arg' got status valid.
+[eva:alarm] math_h.c:86: Warning: NaN double value. assert ¬\is_NaN(top);
+[eva:progress] math_h.c:86: Call to builtin atan
+[eva:progress] math_h.c:86: 
+  function atan: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atanf
+[eva:progress] math_h.c:86: 
+  function atanf: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atanf
+[eva:progress] math_h.c:86: 
+  function atanf: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atanf
+[eva:progress] math_h.c:86: 
+  function atanf: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atanf
+[eva:progress] math_h.c:86: 
+  function atanf: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atanf
+[eva:progress] math_h.c:86: 
+  function atanf: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atanf
+[eva:progress] math_h.c:86: 
+  function atanf: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atanf
+[eva:progress] math_h.c:86: 
+  function atanf: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atanf
+[eva:progress] math_h.c:86: 
+  function atanf: precondition 'number_arg' got status valid.
+[eva:alarm] math_h.c:86: Warning: NaN float value. assert ¬\is_NaN(f_top);
+[eva:progress] math_h.c:86: Call to builtin atanf
+[eva:progress] math_h.c:86: 
+  function atanf: precondition 'number_arg' got status valid.
+[eva:progress] 
+  computing for function atanl <- main.
+  Called from math_h.c:86.
+[eva] using specification for function atanl
+[eva:progress] math_h.c:86: 
+  function atanl: precondition 'number_arg' got status valid.
+[eva:progress] Done for function atanl
+[eva:progress] 
+  computing for function atanl <- main.
+  Called from math_h.c:86.
+[eva:progress] math_h.c:86: 
+  function atanl: precondition 'number_arg' got status valid.
+[eva:progress] Done for function atanl
+[eva:progress] 
+  computing for function atanl <- main.
+  Called from math_h.c:86.
+[eva:progress] math_h.c:86: 
+  function atanl: precondition 'number_arg' got status valid.
+[eva:progress] Done for function atanl
+[eva:progress] 
+  computing for function atanl <- main.
+  Called from math_h.c:86.
+[eva:progress] math_h.c:86: 
+  function atanl: precondition 'number_arg' got status valid.
+[eva:progress] Done for function atanl
+[eva:progress] 
+  computing for function atanl <- main.
+  Called from math_h.c:86.
+[eva:progress] math_h.c:86: 
+  function atanl: precondition 'number_arg' got status valid.
+[eva:progress] Done for function atanl
+[eva:progress] 
+  computing for function atanl <- main.
+  Called from math_h.c:86.
+[eva:progress] math_h.c:86: 
+  function atanl: precondition 'number_arg' got status valid.
+[eva:progress] Done for function atanl
+[eva:progress] 
+  computing for function atanl <- main.
+  Called from math_h.c:86.
+[eva:progress] math_h.c:86: 
+  function atanl: precondition 'number_arg' got status valid.
+[eva:progress] Done for function atanl
+[eva:progress] 
+  computing for function atanl <- main.
+  Called from math_h.c:86.
+[eva:progress] math_h.c:86: 
+  function atanl: precondition 'number_arg' got status valid.
+[eva:progress] Done for function atanl
+[eva:alarm] math_h.c:86: Warning: 
+  NaN long double value. assert ¬\is_NaN(ld_top);
+[eva:progress] 
+  computing for function atanl <- main.
+  Called from math_h.c:86.
+[eva:progress] math_h.c:86: 
+  function atanl: precondition 'number_arg' got status valid.
+[eva:progress] Done for function atanl
+[eva:progress] math_h.c:86: Call to builtin atan
+[eva:progress] math_h.c:86: 
+  function atan: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atan
+[eva:progress] math_h.c:86: 
+  function atan: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atanf
+[eva:progress] math_h.c:86: 
+  function atanf: precondition 'number_arg' got status valid.
+[eva:progress] math_h.c:86: Call to builtin atanf
+[eva:progress] math_h.c:86: 
+  function atanf: precondition 'number_arg' got status valid.
+[eva:progress] 
+  computing for function atanl <- main.
+  Called from math_h.c:86.
+[eva:progress] math_h.c:86: 
+  function atanl: precondition 'number_arg' got status valid.
+[eva:progress] Done for function atanl
+[eva:progress] 
+  computing for function atanl <- main.
+  Called from math_h.c:86.
+[eva:progress] math_h.c:86: 
+  function atanl: precondition 'number_arg' got status valid.
+[eva:progress] Done for function atanl
+[eva:progress] 
+  computing for function fabs <- main.
+  Called from math_h.c:87.
+[eva] using specification for function fabs
+[eva:progress] math_h.c:87: 
+  function fabs: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabs
+[eva:progress] 
+  computing for function fabs <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabs: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabs
+[eva:progress] 
+  computing for function fabs <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabs: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabs
+[eva:progress] 
+  computing for function fabs <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabs: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabs
+[eva:progress] 
+  computing for function fabs <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabs: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabs
+[eva:progress] 
+  computing for function fabs <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabs: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabs
+[eva:progress] 
+  computing for function fabs <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabs: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabs
+[eva:progress] 
+  computing for function fabs <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabs: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabs
+[eva:alarm] math_h.c:87: Warning: NaN double value. assert ¬\is_NaN(top);
+[eva:progress] 
+  computing for function fabs <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabs: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabs
+[eva:progress] 
+  computing for function fabsf <- main.
+  Called from math_h.c:87.
+[eva] using specification for function fabsf
+[eva:progress] math_h.c:87: 
+  function fabsf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsf
+[eva:progress] 
+  computing for function fabsf <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsf
+[eva:progress] 
+  computing for function fabsf <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsf
+[eva:progress] 
+  computing for function fabsf <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsf
+[eva:progress] 
+  computing for function fabsf <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsf
+[eva:progress] 
+  computing for function fabsf <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsf
+[eva:progress] 
+  computing for function fabsf <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsf
+[eva:progress] 
+  computing for function fabsf <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsf
+[eva:alarm] math_h.c:87: Warning: NaN float value. assert ¬\is_NaN(f_top);
+[eva:progress] 
+  computing for function fabsf <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsf
+[eva:progress] 
+  computing for function fabsl <- main.
+  Called from math_h.c:87.
+[eva] using specification for function fabsl
+[eva:progress] math_h.c:87: 
+  function fabsl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsl
+[eva:progress] 
+  computing for function fabsl <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsl
+[eva:progress] 
+  computing for function fabsl <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsl
+[eva:progress] 
+  computing for function fabsl <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsl
+[eva:progress] 
+  computing for function fabsl <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsl
+[eva:progress] 
+  computing for function fabsl <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsl
+[eva:progress] 
+  computing for function fabsl <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsl
+[eva:progress] 
+  computing for function fabsl <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsl
+[eva:alarm] math_h.c:87: Warning: 
+  NaN long double value. assert ¬\is_NaN(ld_top);
+[eva:progress] 
+  computing for function fabsl <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsl
+[eva:progress] 
+  computing for function fabs <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabs: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabs
+[eva:progress] 
+  computing for function fabs <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabs: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabs
+[eva:progress] 
+  computing for function fabsf <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsf
+[eva:progress] 
+  computing for function fabsf <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsf
+[eva:progress] 
+  computing for function fabsl <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsl
+[eva:progress] 
+  computing for function fabsl <- main.
+  Called from math_h.c:87.
+[eva:progress] math_h.c:87: 
+  function fabsl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function fabsl
+[eva:progress] 
+  computing for function tan <- main.
+  Called from math_h.c:88.
+[eva] using specification for function tan
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tan
+[eva:progress] 
+  computing for function tan <- main.
+  Called from math_h.c:88.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tan
+[eva:progress] 
+  computing for function tan <- main.
+  Called from math_h.c:88.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tan
+[eva:progress] 
+  computing for function tan <- main.
+  Called from math_h.c:88.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tan
+[eva:progress] 
+  computing for function tan <- main.
+  Called from math_h.c:88.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tan
+[eva:progress] 
+  computing for function tan <- main.
+  Called from math_h.c:88.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tan
+[eva:progress] 
+  computing for function tan <- main.
+  Called from math_h.c:88.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tan
+[eva:progress] 
+  computing for function tan <- main.
+  Called from math_h.c:88.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tan
+[eva:alarm] math_h.c:88: Warning: NaN double value. assert ¬\is_NaN(top);
+[eva:progress] 
+  computing for function tan <- main.
+  Called from math_h.c:88.
+[eva:alarm] math_h.c:88: Warning: 
+  function tan: precondition 'not_infinite_argument' got status unknown.
+[eva:progress] math_h.c:88: 
+  function tan: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tan
+[eva:progress] 
+  computing for function tanf <- main.
+  Called from math_h.c:88.
+[eva] using specification for function tanf
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tanf
+[eva:progress] 
+  computing for function tanf <- main.
+  Called from math_h.c:88.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tanf
+[eva:progress] 
+  computing for function tanf <- main.
+  Called from math_h.c:88.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tanf
+[eva:progress] 
+  computing for function tanf <- main.
+  Called from math_h.c:88.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tanf
+[eva:progress] 
+  computing for function tanf <- main.
+  Called from math_h.c:88.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tanf
+[eva:progress] 
+  computing for function tanf <- main.
+  Called from math_h.c:88.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tanf
+[eva:progress] 
+  computing for function tanf <- main.
+  Called from math_h.c:88.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tanf
+[eva:progress] 
+  computing for function tanf <- main.
+  Called from math_h.c:88.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_infinite_argument' got status valid.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tanf
+[eva:alarm] math_h.c:88: Warning: NaN float value. assert ¬\is_NaN(f_top);
+[eva:progress] 
+  computing for function tanf <- main.
+  Called from math_h.c:88.
+[eva:alarm] math_h.c:88: Warning: 
+  function tanf: precondition 'not_infinite_argument' got status unknown.
+[eva:progress] math_h.c:88: 
+  function tanf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tanf
+[eva:progress] 
+  computing for function tanl <- main.
+  Called from math_h.c:88.
+[eva] using specification for function tanl
+[eva:progress] Done for function tanl
+[eva:progress] 
+  computing for function tanl <- main.
+  Called from math_h.c:88.
+[eva:progress] Done for function tanl
+[eva:progress] 
+  computing for function tanl <- main.
+  Called from math_h.c:88.
+[eva:progress] Done for function tanl
+[eva:progress] 
+  computing for function tanl <- main.
+  Called from math_h.c:88.
+[eva:progress] Done for function tanl
+[eva:progress] 
+  computing for function tanl <- main.
+  Called from math_h.c:88.
+[eva:progress] Done for function tanl
+[eva:progress] 
+  computing for function tanl <- main.
+  Called from math_h.c:88.
+[eva:progress] Done for function tanl
+[eva:progress] 
+  computing for function tanl <- main.
+  Called from math_h.c:88.
+[eva:progress] Done for function tanl
+[eva:progress] 
+  computing for function tanl <- main.
+  Called from math_h.c:88.
+[eva:progress] Done for function tanl
+[eva:alarm] math_h.c:88: Warning: 
+  NaN long double value. assert ¬\is_NaN(ld_top);
+[eva:progress] 
+  computing for function tanl <- main.
+  Called from math_h.c:88.
+[eva:progress] Done for function tanl
+[eva:progress] 
+  computing for function tan <- main.
+  Called from math_h.c:88.
+[eva:alarm] math_h.c:88: Warning: 
+  function tan: precondition 'not_infinite_argument' got status invalid.
+[eva:progress] math_h.c:88: 
+  function tan: no state left, precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tan
+[eva:progress] 
+  computing for function tan <- main.
+  Called from math_h.c:88.
+[eva:alarm] math_h.c:88: Warning: 
+  function tan: precondition 'not_infinite_argument' got status invalid.
+[eva:progress] math_h.c:88: 
+  function tan: no state left, precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tan
+[eva:progress] 
+  computing for function tanf <- main.
+  Called from math_h.c:88.
+[eva:alarm] math_h.c:88: Warning: 
+  function tanf: precondition 'not_infinite_argument' got status invalid.
+[eva:progress] math_h.c:88: 
+  function tanf: no state left, precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tanf
+[eva:progress] 
+  computing for function tanf <- main.
+  Called from math_h.c:88.
+[eva:alarm] math_h.c:88: Warning: 
+  function tanf: precondition 'not_infinite_argument' got status invalid.
+[eva:progress] math_h.c:88: 
+  function tanf: no state left, precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function tanf
+[eva:progress] 
+  computing for function tanl <- main.
+  Called from math_h.c:88.
+[eva:progress] Done for function tanl
+[eva:progress] 
+  computing for function tanl <- main.
+  Called from math_h.c:88.
+[eva:progress] Done for function tanl
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva] using specification for function frexp
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] Done for function frexp
+[eva:alarm] math_h.c:90: Warning: NaN double value. assert ¬\is_NaN(top);
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:90: 
+  function frexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexp <- main.
+  Called from math_h.c:90.
+[eva:progress] Done for function frexp
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva] using specification for function frexpf
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] Done for function frexpf
+[eva:alarm] math_h.c:91: Warning: NaN float value. assert ¬\is_NaN(f_top);
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:91: 
+  function frexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpf <- main.
+  Called from math_h.c:91.
+[eva:progress] Done for function frexpf
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva] using specification for function frexpl
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] Done for function frexpl
+[eva:alarm] math_h.c:92: Warning: 
+  NaN long double value. assert ¬\is_NaN(ld_top);
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'valid_exp' got status valid.
+[eva:progress] math_h.c:92: 
+  function frexpl: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function frexpl <- main.
+  Called from math_h.c:92.
+[eva:progress] Done for function frexpl
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:93.
+[eva] using specification for function ldexp
+[eva:progress] math_h.c:93: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:93.
+[eva:progress] math_h.c:93: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:93.
+[eva:progress] math_h.c:93: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:93.
+[eva:progress] math_h.c:93: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:93.
+[eva:progress] math_h.c:93: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:93.
+[eva:progress] math_h.c:93: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:93.
+[eva:progress] math_h.c:93: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:93.
+[eva:progress] math_h.c:93: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:alarm] math_h.c:93: Warning: NaN double value. assert ¬\is_NaN(top);
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:93.
+[eva:progress] math_h.c:93: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:94.
+[eva] using specification for function ldexpf
+[eva:progress] math_h.c:94: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:94.
+[eva:progress] math_h.c:94: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:94.
+[eva:progress] math_h.c:94: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:94.
+[eva:progress] math_h.c:94: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:94.
+[eva:progress] math_h.c:94: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:94.
+[eva:progress] math_h.c:94: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:94.
+[eva:progress] math_h.c:94: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:94.
+[eva:progress] math_h.c:94: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:alarm] math_h.c:94: Warning: NaN float value. assert ¬\is_NaN(f_top);
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:94.
+[eva:progress] math_h.c:94: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:96.
+[eva:progress] math_h.c:96: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:96.
+[eva:progress] math_h.c:96: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:96.
+[eva:progress] math_h.c:96: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:96.
+[eva:progress] math_h.c:96: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:96.
+[eva:progress] math_h.c:96: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:96.
+[eva:progress] math_h.c:96: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:96.
+[eva:progress] math_h.c:96: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:96.
+[eva:progress] math_h.c:96: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:alarm] math_h.c:96: Warning: NaN double value. assert ¬\is_NaN(top);
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:96.
+[eva:progress] math_h.c:96: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:97.
+[eva:progress] math_h.c:97: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:97.
+[eva:progress] math_h.c:97: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:97.
+[eva:progress] math_h.c:97: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:97.
+[eva:progress] math_h.c:97: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:97.
+[eva:progress] math_h.c:97: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:97.
+[eva:progress] math_h.c:97: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:97.
+[eva:progress] math_h.c:97: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:97.
+[eva:progress] math_h.c:97: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:alarm] math_h.c:97: Warning: NaN float value. assert ¬\is_NaN(f_top);
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:97.
+[eva:progress] math_h.c:97: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:99.
+[eva:progress] math_h.c:99: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:99.
+[eva:progress] math_h.c:99: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:99.
+[eva:progress] math_h.c:99: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:99.
+[eva:progress] math_h.c:99: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:99.
+[eva:progress] math_h.c:99: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:99.
+[eva:progress] math_h.c:99: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:99.
+[eva:progress] math_h.c:99: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:99.
+[eva:progress] math_h.c:99: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:alarm] math_h.c:99: Warning: NaN double value. assert ¬\is_NaN(top);
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:99.
+[eva:progress] math_h.c:99: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:100.
+[eva:progress] math_h.c:100: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:100.
+[eva:progress] math_h.c:100: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:100.
+[eva:progress] math_h.c:100: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:100.
+[eva:progress] math_h.c:100: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:100.
+[eva:progress] math_h.c:100: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:100.
+[eva:progress] math_h.c:100: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:100.
+[eva:progress] math_h.c:100: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:100.
+[eva:progress] math_h.c:100: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:alarm] math_h.c:100: Warning: NaN float value. assert ¬\is_NaN(f_top);
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:100.
+[eva:progress] math_h.c:100: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:102.
+[eva:progress] math_h.c:102: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:102.
+[eva:progress] math_h.c:102: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:102.
+[eva:progress] math_h.c:102: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:102.
+[eva:progress] math_h.c:102: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:102.
+[eva:progress] math_h.c:102: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:102.
+[eva:progress] math_h.c:102: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:102.
+[eva:progress] math_h.c:102: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:102.
+[eva:progress] math_h.c:102: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:alarm] math_h.c:102: Warning: NaN double value. assert ¬\is_NaN(top);
+[eva:progress] 
+  computing for function ldexp <- main.
+  Called from math_h.c:102.
+[eva:progress] math_h.c:102: 
+  function ldexp: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexp
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:103.
+[eva:progress] math_h.c:103: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:103.
+[eva:progress] math_h.c:103: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:103.
+[eva:progress] math_h.c:103: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:103.
+[eva:progress] math_h.c:103: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:103.
+[eva:progress] math_h.c:103: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:103.
+[eva:progress] math_h.c:103: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:103.
+[eva:progress] math_h.c:103: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:103.
+[eva:progress] math_h.c:103: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:alarm] math_h.c:103: Warning: NaN float value. assert ¬\is_NaN(f_top);
+[eva:progress] 
+  computing for function ldexpf <- main.
+  Called from math_h.c:103.
+[eva:progress] math_h.c:103: 
+  function ldexpf: precondition 'not_nan_argument' got status valid.
+[eva:progress] Done for function ldexpf
+[eva:progress] 
+  computing for function __finite <- main.
+  Called from math_h.c:108.
+[eva] using specification for function __finite
+[eva:progress] Done for function __finite
+[eva:progress] math_h.c:109: assertion got status valid.
+[eva:progress] 
+  computing for function __finite <- main.
+  Called from math_h.c:110.
+[eva:progress] Done for function __finite
+[eva:progress] 
+  computing for function __finite <- main.
+  Called from math_h.c:110.
+[eva:progress] Done for function __finite
+[eva:progress] math_h.c:111: assertion got status valid.
+[eva:progress] 
+  computing for function __finitef <- main.
+  Called from math_h.c:112.
+[eva] using specification for function __finitef
+[eva:progress] Done for function __finitef
+[eva:progress] 
+  computing for function __finitef <- main.
+  Called from math_h.c:112.
+[eva:progress] Done for function __finitef
+[eva:progress] math_h.c:113: assertion got status valid.
+[eva:progress] 
+  computing for function __finite <- main.
+  Called from math_h.c:114.
+[eva:progress] Done for function __finite
+[eva:progress] 
+  computing for function __finite <- main.
+  Called from math_h.c:114.
+[eva:progress] Done for function __finite
+[eva:progress] math_h.c:115: assertion got status valid.
+[eva:progress] 
+  computing for function __finitef <- main.
+  Called from math_h.c:116.
+[eva:progress] Done for function __finitef
+[eva:progress] math_h.c:117: assertion got status valid.
+[eva:progress] 
+  computing for function __finitel <- main.
+  Called from math_h.c:118.
+[eva] using specification for function __finitel
+[eva:progress] Done for function __finitel
+[eva:progress] math_h.c:119: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from math_h.c:128.
+[eva] using specification for function __fc_fpclassify
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from math_h.c:128.
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] math_h.c:129: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from math_h.c:130.
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] math_h.c:131: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassifyf <- main.
+  Called from math_h.c:132.
+[eva] using specification for function __fc_fpclassifyf
+[eva:progress] Done for function __fc_fpclassifyf
+[eva:progress] math_h.c:133: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_signbitf <- main.
+  Called from math_h.c:136.
+[eva] using specification for function __fc_signbitf
+[eva:progress] Done for function __fc_signbitf
+[eva:progress] math_h.c:137: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_signbit <- main.
+  Called from math_h.c:138.
+[eva] using specification for function __fc_signbit
+[eva:progress] Done for function __fc_signbit
+[eva:alarm] math_h.c:139: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function __fc_signbit <- main.
+  Called from math_h.c:140.
+[eva:progress] Done for function __fc_signbit
+[eva:progress] math_h.c:141: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_signbitf <- main.
+  Called from math_h.c:142.
+[eva:progress] Done for function __fc_signbitf
+[eva:alarm] math_h.c:143: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function __fc_signbitf <- main.
+  Called from math_h.c:145.
+[eva:progress] Done for function __fc_signbitf
+[eva:progress] math_h.c:146: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_signbitf <- main.
+  Called from math_h.c:147.
+[eva:progress] Done for function __fc_signbitf
+[eva:alarm] math_h.c:148: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  __fc_errno ∈ [--..--]
+  exponent ∈ [--..--] or UNINITIALIZED
+  r ∈ [--..--]
+  __retres ∈ {0}

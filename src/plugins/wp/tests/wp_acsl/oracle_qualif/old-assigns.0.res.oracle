@@ -1,0 +1,18 @@
+# frama-c -wp [...]
+[kernel] Parsing old-assigns.c (with preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] old-assigns.c:4: Warning: 
+  Neither code nor explicit exits and terminates for function strcpy_OLD,
+  generating default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] 4 goals scheduled
+[wp] [Valid] typed_old_terminates (Qed)
+[wp] [Valid] typed_old_exits (Qed)
+[wp] [Valid] typed_old_assigns_normal (Qed)
+[wp] [Valid] typed_old_assigns_exit (Qed)
+[wp] Proved goals:    4 / 4
+  Qed:             4
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  old                       4        -        4       100%
+------------------------------------------------------------

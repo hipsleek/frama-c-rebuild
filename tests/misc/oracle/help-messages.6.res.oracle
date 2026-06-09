@@ -1,0 +1,64 @@
+Plug-in name: Dive
+Plug-in shortname: dive
+Description: An interactive imprecision graph generator for Eva.
+
+Most options of the form '-dive-option-name' and without any parameter
+have an opposite with the name '-dive-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-dive-depth-limit <N>  Build dependencies up to a depth of N.
+-dive-from-alarms <f1,...>  Build the graph from the alarms emitted in the
+                    given functions. (preferably use
+                    -dive-from-alarms="f1,...")
+-dive-from-variables <f::v,...>  Build the graph from these local variables.
+                    (preferably use -dive-from-variables="f::v,...")
+-dive-hide <f::v,...>  Defines the variables which must not be displayed in
+                    the graph. The dependencies for these bases are not
+                    computed either. (preferably use -dive-hide="f::v,...")
+-dive-output-dot <output.dot>  Outputs the built graph in DOT format to the
+                    specified file.
+-dive-output-json <output.json>  Outputs the built graph in JSON format to
+                    the specified.
+-dive-unfold <f::v,...>  Defines the composite variables which should be
+                    unfolded into individual cells. (preferably use
+                    -dive-unfold="f::v,...")
+
+*** DEBUG
+
+-dive-debug <n>     level of debug for plug-in Dive (default to 0)
+
+*** GETTING INFORMATION
+
+-dive-help          help of plug-in Dive
+-dive-h             alias for option -dive-help
+
+*** OUTPUT MESSAGES
+
+-dive-log <K_1:file_1,...>  copy log messages from Dive to a file. <K> is a
+                    combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -dive-log="K_1:file_1,...")
+-dive-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -dive-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -dive-msg-key="k1[,...,kn]")
+-dive-verbose <n>   level of verbosity for plug-in Dive (default to 1)
+-dive-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category <k1>
+                    to <s1>,...,<kn> to <sn>. Use -dive-warn-key help to get
+                    a list of available categories, and * to enable all
+                    categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -dive-warn-key="k1[=s1][,...,kn[=sn]]")

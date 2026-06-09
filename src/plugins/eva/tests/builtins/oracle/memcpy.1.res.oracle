@@ -1,0 +1,57 @@
+[kernel] Parsing memcpy.c (with preprocessing)
+[eva] Analyzing a complete application starting at copy_0
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  NULL[rbits 800000 to 800015] ∈ [--..--]
+  i ∈ [--..--]
+  src[0..19] ∈ {0}
+  dst1[0..19] ∈ {0}
+  dst2[0..19] ∈ {0}
+  dst3[0..19] ∈ {0}
+  dst4[0..19] ∈ {0}
+  dst5[0..99] ∈ {0}
+  maybe ∈ [--..--]
+  tm[0..999] ∈ {0}
+  um[0..999] ∈ {0}
+  ttyp[0..999] ∈ {0}
+  v1 ∈ {0}
+  v2 ∈ {0}
+  v3 ∈ {0}
+  v4 ∈ {0}
+  v5 ∈ {0}
+  t[0..3] ∈ {0}
+[eva:progress] memcpy.c:221: Call to builtin memcpy
+[eva:alarm] memcpy.c:221: Warning: 
+  function memcpy: precondition 'valid_dest' got status invalid.
+[eva:progress] memcpy.c:221: 
+  function memcpy: no state left, precondition 'valid_src' got status valid.
+[eva:progress] memcpy.c:221: 
+  function memcpy: no state left, precondition 'separation' got status valid.
+[eva:progress] memcpy.c:222: Call to builtin memcpy
+[eva:progress] memcpy.c:222: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:alarm] memcpy.c:222: Warning: 
+  function memcpy: precondition 'valid_src' got status invalid.
+[eva:progress] memcpy.c:222: 
+  function memcpy: no state left, precondition 'separation' got status valid.
+[eva:progress] Recording results for copy_0
+[eva:progress] Done for function copy_0
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function copy_0:
+  
+[from] Computing for function copy_0
+[from] Computing for function memcpy <-copy_0
+[from] Done for function memcpy
+[from] Done for function copy_0
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function memcpy:
+  \result FROM dest
+[from] Function copy_0:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function copy_0:
+    \nothing
+[inout] Inputs for function copy_0:
+    i

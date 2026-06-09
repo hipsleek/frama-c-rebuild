@@ -1,0 +1,15 @@
+[kernel] Parsing gzip124.c (with preprocessing)
+[alias] analysing function: main
+[alias] analysing instruction: short tmp_0 = (short)0;
+[alias] May-aliases after instruction  short tmp_0 = (short)0;  are  <none>
+[alias] analysing instruction: *(& prev[1] + 0) = tmp_0;
+[alias] May-aliases after instruction  *(& prev[1] + 0) = tmp_0;  are  <none>
+[alias] analysing instruction: prev[0] = (short)0;
+[alias] May-aliases after instruction  prev[0] = (short)0;  are  <none>
+[alias] analysing instruction: p = & prev[1] + (int)*p;
+[alias] May-aliases after instruction  p = & prev[1] + (int)*p;  are  { prev; p }
+[alias] analysing instruction: p = & prev[*p];
+[alias] May-aliases after instruction  p = & prev[*p];  are  { prev; p }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are  { prev; p }
+[alias] May-aliases at the end of function main: { prev; p }

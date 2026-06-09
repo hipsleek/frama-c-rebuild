@@ -1,0 +1,149 @@
+# frama-c -wp [...]
+[kernel] Parsing nth.i (no preprocessing)
+[wp] Running WP plugin...
+------------------------------------------------------------
+  Axiomatic 'Equality'
+------------------------------------------------------------
+
+Goal Check Lemma 'constructor_elt':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'left_shift_repeat1':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'left_shift_repeat2':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'left_unfold_repeat1':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'left_unfold_repeat2':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'not_nil_elt':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'repeat1':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'repeat2':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'right_shift_repeat1':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'right_shift_repeat2':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'right_unfold_repeat1':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'right_unfold_repeat2':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'subsequence1':
+Prove: true.
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Axiomatic 'MkRepeat'
+------------------------------------------------------------
+
+Goal Check Lemma 'negative_repeat':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'repeat_nil':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'repeat_one':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'repeat_repeated':
+Prove: true.
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Axiomatic 'Nth'
+------------------------------------------------------------
+
+Goal Lemma 'access_4_4':
+Assume { Have: 0 <= k. Have: k <= 3. }
+Prove: nth([ L_f(0), L_f(1), L_f(2), L_f(3) ], k) = L_f(k).
+
+------------------------------------------------------------
+
+Goal Lemma 'access_8_8':
+Assume Lemmas: 'access_4_4'
+Assume { Have: 0 <= k. Have: k <= 5. }
+Prove: nth([ L_f(0), L_f(1), L_f(2), L_f(3), L_f(4), L_f(5), L_f(6), L_f(7) ],
+         k) = L_f(k).
+
+------------------------------------------------------------
+
+Goal Lemma 'access_repeat_concat_3':
+Assume Lemmas: 'eq_repeat_concat_3' 'access_8_8' 'access_4_4'
+Assume { Have: 0 <= k. Have: k < (3 * length(L_S)). }
+Prove: nth(L_S ^ L_S ^ L_S, k) = nth((L_S *^ 3), k).
+
+------------------------------------------------------------
+
+Goal Lemma 'eq_repeat_concat_3':
+Assume Lemmas: 'access_8_8' 'access_4_4'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'nth_repeat_1':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'nth_repeat_2':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'nth_repeat_3':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'nth_repeat_4':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'nth_repeat_undefined_1':
+Let x = L_f(0). Prove: nth(([ x, L_f(1), L_f(2), L_f(3) ] *^ 3), 12) = x.
+
+------------------------------------------------------------

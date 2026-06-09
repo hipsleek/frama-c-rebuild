@@ -1,0 +1,29 @@
+# frama-c -wp [...]
+[kernel] Parsing terminates_call_options.c (with preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] FRAMAC_SHARE/libc/stdlib.h:929: Warning: 
+  Neither code nor explicit exits and terminates for function div, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] terminates_call_options.c:24: Warning: 
+  Missing terminates clause on call to declaration, defaults to \false
+[wp] terminates_call_options.c:29: Warning: 
+  Missing terminates clause on call to definition, defaults to \false
+[wp] 7 goals scheduled
+[wp] [Valid] typed_definition_assigns (Qed)
+[wp] [Unsuccess] typed_call_declaration_terminates (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_call_definition_terminates (Alt-Ergo) (Cached)
+[wp] [Valid] typed_libc_call_terminates_part1 (Qed)
+[wp] [Unsuccess] typed_libc_call_terminates_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_libc_call_call_div_requires_denom_nonzero (Qed)
+[wp] [Valid] typed_libc_call_call_div_requires_no_overflow (Qed)
+[wp] Proved goals:    4 / 7
+  Qed:             4
+  Unsuccess:       3
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  definition                1        -        1       100%
+  call_declaration          -        -        1       0.0%
+  call_definition           -        -        1       0.0%
+  libc_call                 3        -        4      75.0%
+------------------------------------------------------------

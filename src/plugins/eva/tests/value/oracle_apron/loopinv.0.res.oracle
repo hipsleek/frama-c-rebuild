@@ -1,0 +1,26 @@
+52,53c52
+< [eva:alarm] loopinv.c:45: Warning: signed overflow. assert j + 1 ≤ 2147483647;
+< [eva:show] loopinv.c:46: Frama_C_show_each: [0..99], [0..2147483647]
+---
+> [eva:show] loopinv.c:46: Frama_C_show_each: [0..99], [0..100]
+73,74c72
+< [eva:alarm] loopinv.c:69: Warning: loop invariant got status unknown.
+< [eva:show] loopinv.c:71: Frama_C_show_each: {0; 2; 4; 6; 8}, [1..107]
+---
+> [eva:show] loopinv.c:71: Frama_C_show_each: {0; 2; 4; 6; 8}, [1..106]
+78c76
+< [eva:alarm] loopinv.c:73: Warning: signed overflow. assert i + 1 ≤ 2147483647;
+---
+> [eva:alarm] loopinv.c:69: Warning: loop invariant got status unknown.
+155,156d152
+< [    -    ] Assertion 'Eva,signed_overflow' ("loopinv.c", line 45)
+<             tried with Eva.
+173,174d168
+< [    -    ] Assertion 'Eva,signed_overflow' ("loopinv.c", line 73)
+<             tried with Eva.
+180,181c174,175
+<      7 To be validated
+<     16 Total
+---
+>      5 To be validated
+>     14 Total

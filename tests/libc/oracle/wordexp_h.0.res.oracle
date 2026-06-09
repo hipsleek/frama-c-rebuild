@@ -1,0 +1,49 @@
+[kernel] Parsing wordexp_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function wordexp <- main.
+  Called from wordexp_h.c:11.
+[eva] using specification for function wordexp
+[eva] wordexp_h.c:11: Warning: ignoring unsupported allocates clause
+[eva:progress] Done for function wordexp
+[eva:alarm] wordexp_h.c:20: Warning: 
+  out of bounds read. assert \valid_read(options + i);
+[eva:progress] 
+  computing for function wordexp <- main.
+  Called from wordexp_h.c:21.
+[eva] wordexp_h.c:21: Warning: ignoring unsupported allocates clause
+[eva:progress] Done for function wordexp
+[eva:partition] wordexp_h.c:20: starting to merge loop iterations
+[eva:alarm] wordexp_h.c:21: Warning: 
+  out of bounds read. assert \valid_read(options + i);
+[eva:progress] 
+  computing for function wordexp <- main.
+  Called from wordexp_h.c:21.
+[eva:progress] Done for function wordexp
+[eva:progress] 
+  computing for function wordfree <- main.
+  Called from wordexp_h.c:22.
+[eva] using specification for function wordfree
+[eva] wordexp_h.c:22: Warning: ignoring unsupported allocates clause
+[eva:progress] Done for function wordfree
+[eva:progress] 
+  computing for function wordfree <- main.
+  Called from wordexp_h.c:27.
+[eva] wordexp_h.c:27: Warning: ignoring unsupported allocates clause
+[eva:progress] Done for function wordfree
+[eva:progress] 
+  computing for function wordfree <- main.
+  Called from wordexp_h.c:15.
+[eva] wordexp_h.c:15: Warning: ignoring unsupported allocates clause
+[eva:progress] Done for function wordfree
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[scope:rm_asserts] removing 1 assertion(s)
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  result ∈ [--..--] or UNINITIALIZED
+  __retres ∈ {-1; 0}

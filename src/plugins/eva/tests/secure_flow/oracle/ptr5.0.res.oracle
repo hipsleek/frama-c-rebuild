@@ -1,0 +1,47 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing ptr5.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  x[0..9] ∈ {0}
+  y[0..9] ∈ {0}
+  z[0..9] ∈ {0}
+  u[0..9] ∈ {0}
+  w ∈ {0}
+  a ∈ {0}
+[eva:progress] ptr5.c:28: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  x[0..1] ∈ {0}
+   [2] ∈ {1}
+   [3..9] ∈ {0}
+  y[0..2] ∈ {0}
+   [3] ∈ {{ &x[0] }}
+   [4..9] ∈ {0}
+  z[0..6] ∈ {0}
+   [7] ∈ {{ &y[0] }}
+   [8..9] ∈ {0}
+  u[0] ∈ {0}
+   [1] ∈ {{ &z[0] }}
+   [2..9] ∈ {0}
+  w ∈ {{ &u[0] }}
+  a ∈ {1}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  x[2] FROM \nothing
+  y[3] FROM \nothing
+  z[7] FROM \nothing
+  u[1] FROM \nothing
+  w FROM \nothing
+  a FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    x[2]; y[3]; z[7]; u[1]; w; a
+[inout] Inputs for function main:
+    x[2]; y[3]; z[7]; u[1]; w

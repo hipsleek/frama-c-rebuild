@@ -1,0 +1,86 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing funcall4.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+  x ∈ {0}
+  y ∈ {0}
+[eva:progress] funcall4.c:23: assertion got status valid.
+[eva:progress] funcall4.c:24: assertion got status valid.
+[eva:progress] 
+  computing for function set_x <- main.
+  Called from funcall4.c:25.
+[eva:secure-flow:condition] funcall4.c:17: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:progress] 
+  computing for function set_y <- set_x <- main.
+  Called from funcall4.c:18.
+[eva:progress] Recording results for set_y
+[eva:progress] Done for function set_y
+[eva:progress] Recording results for set_x
+[eva:progress] Done for function set_x
+[eva:progress] funcall4.c:26: assertion got status valid.
+[eva:alarm] funcall4.c:27: Warning: assertion got status unknown.
+[eva:progress] funcall4.c:29: assertion got status valid.
+[eva:secure-flow:condition] funcall4.c:30: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:progress] 
+  computing for function set_x <- main.
+  Called from funcall4.c:31.
+[eva:progress] funcall4.c:18: Reusing old results for call to set_y
+[eva:progress] Recording results for set_x
+[eva:progress] Done for function set_x
+[eva:alarm] funcall4.c:32: Warning: assertion got status unknown.
+[eva:alarm] funcall4.c:34: Warning: assertion got status unknown.
+[eva:alarm] funcall4.c:35: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function set_x <- main.
+  Called from funcall4.c:36.
+[eva:progress] funcall4.c:18: Reusing old results for call to set_y
+[eva:progress] Recording results for set_x
+[eva:progress] Done for function set_x
+[eva:progress] funcall4.c:37: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function set_y:
+  y ∈ {1}
+[eva:final-states] Values at end of function set_x:
+  x ∈ {1}
+  y ∈ {0; 1}
+[eva:final-states] Values at end of function main:
+  x ∈ {1}
+  y ∈ {0; 1}
+  __retres ∈ {0}
+[from] Computing for function set_y
+[from] Done for function set_y
+[from] Computing for function set_x
+[from] Done for function set_x
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function set_y:
+  y FROM \nothing
+[from] Function set_x:
+  x FROM \nothing
+  y FROM secret (and SELF)
+[from] Function main:
+  x FROM \nothing
+  y FROM secret
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function set_y:
+    y
+[inout] Inputs for function set_y:
+    \nothing
+[inout] Out (internal) for function set_x:
+    x; y
+[inout] Inputs for function set_x:
+    secret
+[inout] Out (internal) for function main:
+    x; y; __retres
+[inout] Inputs for function main:
+    secret

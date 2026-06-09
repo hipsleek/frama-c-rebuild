@@ -1,0 +1,26 @@
+\test::global_foo imported: \forall integer x; x < x + 1 ;
+
+\test::block_foo Imported {
+  \test::inner_block_foo test: \true;
+  \test::inner_block_foo test2: \true;
+}
+
+function f:
+  contract:
+    \test::foo imported: x == 0;
+    \test::bar imported: \result == 0;
+    \test::bla imported: \trace(x<10) || \trace(x>40);
+  at loop stmt 1:
+      loop \test::lfoo imported: i<=x;
+      loop \test::baz imported: \at(i,LoopEntry), 0;
+  at return:
+    \test::ca_foo imported: s == 0;
+function g:
+  contract:
+    behavior imported_test:
+      \test::foo imported: y == 1;
+      \test::bar imported: y + \result == 0;
+      \test::bla imported: \trace(y<42) && \trace(y>12);
+function k:
+  at L:
+      \test::ns_foo imported: \at(x, Post) == z + 1;

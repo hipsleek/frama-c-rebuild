@@ -1,0 +1,93 @@
+Plug-in name: ACSL importer
+Plug-in shortname: acsl-import
+Description: external ACSL files importer
+
+Most options of the form '-acsl-import-option-name' and without any parameter
+have an opposite with the name '-acsl-import-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-acsl-import <f1,...,fn>  ACSL files to import (preferably use
+                    -acsl-import="f1,...,fn")
+-acsl-import-addon-ensures-and-exits  adds ensures_and_exits extension clause
+                    (opposite option is
+                    -acsl-import-no-addon-ensures-and-exits)
+-acsl-import-addon-integer-cast  elucidates implicit and explicit casts from
+                    integers to C integral types (opposite option is
+                    -acsl-import-no-addon-integer-cast)
+-acsl-import-include-dirs <d1,...,dn>  directories for searching ACSL files
+                    to include (preferably use
+                    -acsl-import-include-dirs="d1,...,dn")
+-acsl-import-keep-unused-symbols  keeps unused C symbols (opposite option is
+                    -acsl-import-no-keep-unused-symbols)
+-acsl-import-parse-only  parses the ACSL files without typing nor imports
+                    (opposite option is -acsl-import-no-parse-only)
+-acsl-import-run    runs the plugin (other options just configure its
+                    parameters) (set by default, opposite option is
+                    -acsl-import-no-run)
+-acsl-import-type-only  parses and types the ACSL files without imports
+                    (opposite option is -acsl-import-no-type-only)
+-acsl-import-ulevel-spec <spec1,...,specs>  an unrolling specification
+                    <m@f:tag@n> adds a 'loop unfold "tag", <n>;' to the loop
+                    of the function <f> of occurrence <m>.
+                     An unrolling specification <c@f:tag@n> adds a 'loop
+                    unfold "tag", <n>;' to all loops of category <c> of the
+                    function <f> where allowed loop categories are: 'while',
+                    'for' and 'do-while'.
+                     The specification is considered as a set of elementary
+                    specifications: spec1,...,specs.
+                     Categories, function names and loop occurrence numbers
+                    can be omitted. The priority ordering used for choosing
+                    the ("tag", unrolling value <n>) pair is: m@f:tag@n >
+                    c@f:tag@n > f:tag@n > c:tag@n > :tag@n.
+                     The default value for optional tags is the empty string
+                    which leads to add a loop pragmas without tags.
+                     Nothing is done for loops having already a clause 'loop
+                    unfold ...'. (preferably use
+                    -acsl-import-ulevel-spec="spec1,...,specs")
+-acsl-import-unroll-loop-conditions  unrolls statements related to loop
+                    conditions (opposite option is
+                    -acsl-import-no-unroll-loop-conditions)
+
+*** DEBUG
+
+-acsl-import-debug <n>  level of debug for plug-in ACSL importer (default to
+                    0)
+
+*** GETTING INFORMATION
+
+-acsl-import-help   help of plug-in ACSL importer
+-acsl-import-h      alias for option -acsl-import-help
+
+*** OUTPUT MESSAGES
+
+-acsl-import-log <K_1:file_1,...>  copy log messages from ACSL importer to a
+                    file. <K> is a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -acsl-import-log="K_1:file_1,...")
+-acsl-import-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -acsl-import-msg-key help to get a
+                    list of available categories, and * to enable all
+                    categories (preferably use
+                    -acsl-import-msg-key="k1[,...,kn]")
+-acsl-import-verbose <n>  level of verbosity for plug-in ACSL importer
+                    (default to 1)
+-acsl-import-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for
+                    category <k1> to <s1>,...,<kn> to <sn>. Use
+                    -acsl-import-warn-key help to get a list of available
+                    categories, and * to enable all categories. Possible
+                    statuses are inactive, feedback, warning, error, abort,
+                    feedback-once, warning-once, error-once. Defaults to
+                    warning. (preferably use
+                    -acsl-import-warn-key="k1[=s1][,...,kn[=sn]]")

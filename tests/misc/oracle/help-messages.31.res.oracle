@@ -1,0 +1,48 @@
+Plug-in name: Studia
+Plug-in shortname: studia
+Description: Tools for Eva case studies
+
+Most options of the form '-studia-option-name' and without any parameter
+have an opposite with the name '-studia-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+
+*** DEBUG
+
+-studia-debug <n>   level of debug for plug-in Studia (default to 0)
+
+*** GETTING INFORMATION
+
+-studia-help        help of plug-in Studia
+-studia-h           alias for option -studia-help
+
+*** OUTPUT MESSAGES
+
+-studia-log <K_1:file_1,...>  copy log messages from Studia to a file. <K> is
+                    a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -studia-log="K_1:file_1,...")
+-studia-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -studia-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -studia-msg-key="k1[,...,kn]")
+-studia-verbose <n>  level of verbosity for plug-in Studia (default to 1)
+-studia-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category
+                    <k1> to <s1>,...,<kn> to <sn>. Use -studia-warn-key help
+                    to get a list of available categories, and * to enable
+                    all categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -studia-warn-key="k1[=s1][,...,kn[=sn]]")

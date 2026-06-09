@@ -1,0 +1,60 @@
+# frama-c -wp -wp-model 'Bytes' -wp-timeout 20 [...]
+[kernel] Parsing structs.c (with preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] structs.c:19: Warning: 
+  Neither code nor explicit exits and terminates for function callee,
+  generating default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal loader_test_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal loader_test_terminates (Cfg) (Trivial)
+[wp] 40 goals scheduled
+[wp] [Valid] bytes_caller_terminates (Qed)
+[wp] [Valid] bytes_caller_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_caller_exits (Qed)
+[wp] [Valid] bytes_caller_assigns_normal (Qed)
+[wp] [Valid] bytes_caller_assigns_exit (Qed)
+[wp] [Valid] bytes_loader_test_loop_invariant_established (Qed)
+[wp] [Valid] bytes_loader_test_loop_invariant_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_loop_invariant_2_established (Qed)
+[wp] [Valid] bytes_loader_test_loop_invariant_2_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_2 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_3 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_4 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_5 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_6 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_7 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_8 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_9 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_10 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_11 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_12 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_13 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_14 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_15 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_16 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_assert_17 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_check (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_check_2 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_check_3 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_check_4 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_check_5 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_check_6 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_check_7 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_check_8 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_check_9 (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_loader_test_loop_assigns_part1 (Qed)
+[wp] [Valid] bytes_loader_test_loop_assigns_part2 (Qed)
+[wp] [Valid] bytes_loader_test_loop_assigns_part3 (Qed)
+[wp] [Valid] bytes_loader_test_loop_variant_positive (Qed)
+[wp] [Valid] bytes_loader_test_loop_variant_decrease (Qed)
+[wp] Proved goals:   42 / 42
+  Terminating:     1
+  Unreachable:     1
+  Qed:            11
+  Alt-Ergo:       29
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  caller                    4        1        5       100%
+  loader_test               9       28       37       100%
+------------------------------------------------------------

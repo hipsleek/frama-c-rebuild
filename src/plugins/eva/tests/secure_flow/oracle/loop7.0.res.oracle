@@ -1,0 +1,32 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing loop7.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+[eva:loop-unroll:auto] loop7.c:13: Automatic loop unrolling.
+[eva:progress] loop7.c:14: assertion got status valid.
+[eva:loop-unroll:auto] loop7.c:18: Automatic loop unrolling.
+[eva:secure-flow:condition] loop7.c:19: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:loop-unroll:auto] loop7.c:24: Automatic loop unrolling.
+[eva:progress] loop7.c:26: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  i ∈ {10}
+  array[0..9] ∈ {0}
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    i; array[0..9]; __retres
+[inout] Inputs for function main:
+    secret

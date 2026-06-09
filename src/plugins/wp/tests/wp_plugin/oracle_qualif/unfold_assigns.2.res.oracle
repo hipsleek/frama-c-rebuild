@@ -1,0 +1,101 @@
+# frama-c -wp [...]
+[kernel] Parsing unfold_assigns.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] unfold_assigns.i:92: Warning: 
+  Neither code nor explicit exits and terminates for function
+  f_assigns_with_array, generating default clauses.
+  See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] unfold_assigns.i:17: Warning: 
+  Neither code nor explicit exits and terminates for function f, generating
+  default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] unfold_assigns.i:20: Warning: 
+  Neither code nor explicit exits and terminates for function g, generating
+  default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] unfold_assigns.i:73: Warning: 
+  Neither code nor explicit exits and terminates for function f_assigns_range,
+  generating default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] unfold_assigns.i:108: Warning: 
+  Neither code nor explicit exits and terminates for function
+  f_assigns_range_with_array, generating default clauses.
+  See -generated-spec-* options for more info.
+[wp] [Valid] Goal ASSIGN_NO_UNFOLD_KO_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal ASSIGN_NO_UNFOLD_KO_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal ASSIGN_NO_UNFOLD_OK_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal ASSIGN_NO_UNFOLD_OK_terminates (Cfg) (Trivial)
+[wp] 52 goals scheduled
+[wp] [Valid] typed_NO_UNFOLD_OK_1_terminates (Qed)
+[wp] [Valid] typed_NO_UNFOLD_OK_1_exits (Qed)
+[wp] [Valid] typed_NO_UNFOLD_OK_1_assigns_normal (Qed)
+[wp] [Valid] typed_NO_UNFOLD_OK_1_assigns_exit (Qed)
+[wp] [Valid] typed_NO_UNFOLD_OK_2_terminates (Qed)
+[wp] [Valid] typed_NO_UNFOLD_OK_2_exits (Qed)
+[wp] [Valid] typed_NO_UNFOLD_OK_2_assigns_normal (Qed)
+[wp] [Valid] typed_NO_UNFOLD_OK_2_assigns_exit (Qed)
+[wp] [Valid] typed_NO_UNFOLD_OK_3_terminates (Qed)
+[wp] [Valid] typed_NO_UNFOLD_OK_3_exits (Qed)
+[wp] [Valid] typed_NO_UNFOLD_OK_3_assigns_normal (Qed)
+[wp] [Valid] typed_NO_UNFOLD_OK_3_assigns_exit (Qed)
+[wp] [Valid] typed_NO_UNFOLD_KO_terminates (Qed)
+[wp] [Valid] typed_NO_UNFOLD_KO_exits (Qed)
+[wp] [Valid] typed_NO_UNFOLD_KO_assigns_normal (Qed)
+[wp] [Valid] typed_NO_UNFOLD_KO_assigns_exit (Qed)
+[wp] [Valid] typed_USE_ASSIGN_UNFOLD_OK_terminates (Qed)
+[wp] [Valid] typed_USE_ASSIGN_UNFOLD_OK_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_USE_ASSIGN_UNFOLD_OK_exits (Qed)
+[wp] [Valid] typed_USE_ASSIGN_UNFOLD_OK_assigns_normal (Qed)
+[wp] [Valid] typed_USE_ASSIGN_UNFOLD_OK_assigns_exit (Qed)
+[wp] [Valid] typed_USE_ASSIGN_UNFOLD_KO_terminates (Qed)
+[wp] [Valid] typed_USE_ASSIGN_UNFOLD_KO_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_USE_ASSIGN_UNFOLD_KO_exits (Qed)
+[wp] [Valid] typed_USE_ASSIGN_UNFOLD_KO_assigns_normal (Qed)
+[wp] [Valid] typed_USE_ASSIGN_UNFOLD_KO_assigns_exit (Qed)
+[wp] [Valid] typed_ASSIGN_NO_UNFOLD_OK_assigns (Qed)
+[wp] [Valid] typed_ASSIGN_NO_UNFOLD_KO_assigns (Qed)
+[wp] [Valid] typed_PARTIAL_ASSIGNS_STATIC_terminates (Qed)
+[wp] [Valid] typed_PARTIAL_ASSIGNS_STATIC_exits (Qed)
+[wp] [Valid] typed_PARTIAL_ASSIGNS_STATIC_assigns_normal (Alt-Ergo) (Cached)
+[wp] [Valid] typed_PARTIAL_ASSIGNS_STATIC_assigns_exit (Qed)
+[wp] [Valid] typed_PARTIAL_ASSIGNS_VARS_terminates (Qed)
+[wp] [Valid] typed_PARTIAL_ASSIGNS_VARS_exits (Qed)
+[wp] [Valid] typed_PARTIAL_ASSIGNS_VARS_assigns_normal (Alt-Ergo) (Cached)
+[wp] [Valid] typed_PARTIAL_ASSIGNS_VARS_assigns_exit (Qed)
+[wp] [Valid] typed_NESTED_ARRAY_STATIC_terminates (Qed)
+[wp] [Valid] typed_NESTED_ARRAY_STATIC_exits (Qed)
+[wp] [Unsuccess] typed_NESTED_ARRAY_STATIC_assigns_normal (Alt-Ergo) (Cached)
+[wp] [Valid] typed_NESTED_ARRAY_STATIC_assigns_exit (Qed)
+[wp] [Valid] typed_NESTED_ARRAY_VARS_terminates (Qed)
+[wp] [Valid] typed_NESTED_ARRAY_VARS_exits (Qed)
+[wp] [Unsuccess] typed_NESTED_ARRAY_VARS_assigns_normal (Alt-Ergo) (Cached)
+[wp] [Valid] typed_NESTED_ARRAY_VARS_assigns_exit (Qed)
+[wp] [Valid] typed_RANGE_NESTED_ARRAY_STATIC_terminates (Qed)
+[wp] [Valid] typed_RANGE_NESTED_ARRAY_STATIC_exits (Qed)
+[wp] [Unsuccess] typed_RANGE_NESTED_ARRAY_STATIC_assigns_normal (Alt-Ergo) (Cached)
+[wp] [Valid] typed_RANGE_NESTED_ARRAY_STATIC_assigns_exit (Qed)
+[wp] [Valid] typed_RANGE_NESTED_ARRAY_VARS_terminates (Qed)
+[wp] [Valid] typed_RANGE_NESTED_ARRAY_VARS_exits (Qed)
+[wp] [Unsuccess] typed_RANGE_NESTED_ARRAY_VARS_assigns_normal (Alt-Ergo) (Cached)
+[wp] [Valid] typed_RANGE_NESTED_ARRAY_VARS_assigns_exit (Qed)
+[wp] Proved goals:   52 / 56
+  Terminating:     2
+  Unreachable:     2
+  Qed:            44
+  Alt-Ergo:        4
+  Unsuccess:       4
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  NO_UNFOLD_OK_1            4        -        4       100%
+  NO_UNFOLD_OK_2            4        -        4       100%
+  NO_UNFOLD_OK_3            4        -        4       100%
+  NO_UNFOLD_KO              4        -        4       100%
+  USE_ASSIGN_UNFOLD_OK      4        1        5       100%
+  USE_ASSIGN_UNFOLD_KO      4        1        5       100%
+  ASSIGN_NO_UNFOLD_OK       3        -        3       100%
+  ASSIGN_NO_UNFOLD_KO       3        -        3       100%
+  PARTIAL_ASSIGNS_STATIC    3        1        4       100%
+  PARTIAL_ASSIGNS_VARS      3        1        4       100%
+  NESTED_ARRAY_STATIC       3        -        4      75.0%
+  NESTED_ARRAY_VARS         3        -        4      75.0%
+  RANGE_NESTED_ARRAY_STATIC   3      -        4      75.0%
+  RANGE_NESTED_ARRAY_VARS   3        -        4      75.0%
+------------------------------------------------------------

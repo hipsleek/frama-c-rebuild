@@ -1,0 +1,63 @@
+# frama-c -wp [...]
+[kernel] Parsing predicates_functions.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] 1 goal scheduled
+[wp:print-generated] 
+  theory WP
+    
+    (* use why3.BuiltIn.BuiltIn *)
+    
+    (* use bool.Bool *)
+    
+    (* use int.Int *)
+    
+    (* use int.ComputerDivision *)
+    
+    (* use real.RealInfix *)
+    
+    (* use frama_c_wp.qed.Qed *)
+    
+    (* use map.Map *)
+    
+    predicate P_P (i:int) = i = 42
+    
+    predicate P_RP int
+    
+    axiom P_RP_def :
+      forall i:int. i <= 0 \/ P_P i /\ P_RP ((- 1) + i) <-> P_RP i
+    
+    function L_F (i:int) : int = 2 * i
+    
+    function L_RF int : int
+    
+    axiom L_RF_def :
+      forall i:int. L_RF i = (if i <= 0 then 0 else L_F i + L_RF ((- 1) + i))
+    
+    goal wp_goal : forall i:int. 0 < i -> P_RP (L_RF i)
+    
+  end
+[wp] 1 goal generated
+------------------------------------------------------------
+  Global
+------------------------------------------------------------
+
+Cluster Axiomatic {
+  
+  Predicate P_RP (i_0 : int) = (i_0<=0) \/ ((P_P i_0) /\ (P_RP (i_0-1)))
+  
+  Predicate P_P (i_0 : int) = i_0=42
+  
+  Function L_RF (i_0 : int) : int
+    = if (i_0<=0) then 0 else ((L_F i_0)+(L_RF (i_0-1)))
+  
+  Function L_F (i_0 : int) : int = 2*i_0
+  
+  Lemma foo: forall i_0: int. (0<i_0) -> (P_RP (L_RF i_0))
+  
+}
+
+Goal Lemma 'foo':
+Assume { Have: 0 < i. }
+Prove: P_RP(L_RF(i)).
+
+------------------------------------------------------------

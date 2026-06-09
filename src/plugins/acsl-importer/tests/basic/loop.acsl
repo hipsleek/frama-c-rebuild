@@ -1,0 +1,10 @@
+function sum:
+at loop 1: invariant i <= a ;
+at loop body 2: invariant j <= b ;
+
+function while1:
+at loop 1:
+  invariant i>=0&&i<m ;
+
+function job:
+at loop 1: invariant i > 0 ;

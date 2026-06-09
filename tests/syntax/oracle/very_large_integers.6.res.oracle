@@ -1,0 +1,14 @@
+[kernel] Parsing very_large_integers.c (with preprocessing)
+[kernel] very_large_integers.c:70: User Error: 
+  integer constant too large in expression -9999999999999999999U
+[kernel] very_large_integers.c:70: User Error: 
+  integer constant too large in expression 9999999999999999999U
+[kernel] very_large_integers.c:70: User Error: 
+  INDEX_RANGE initialization designator is not a valid constant
+  68    
+  69    #ifdef RANGE_DESIGNATOR
+  70    int arr4[1] = { [-9999999999999999999U ... 9999999999999999999U] = 42 };
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  71    #endif
+  72
+[kernel] Frama-C aborted: invalid user input.

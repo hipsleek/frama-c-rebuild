@@ -1,0 +1,26 @@
+# frama-c -wp [...]
+[kernel] Parsing mvar.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] mvar.i:8: Warning: 
+  Neither code nor explicit exits, assigns and terminates for function Write,
+  generating default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] 3 goals scheduled
+[wp] [Valid] typed_Job_terminates (Qed)
+[wp] [Valid] typed_Job_ensures (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_Job_exits (Qed)
+[wp] Proved goals:    3 / 3
+  Qed:             2
+  Alt-Ergo:        1
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  Job                       2        1        3       100%
+------------------------------------------------------------
+[wp] mvar.i:8: Warning: 
+  Memory model hypotheses for function 'Write':
+  /*@
+     behavior wp_typed:
+       requires \separated(p + (..), &(A[0]) + (..));
+       requires \separated(p + (0 ..), &(A[0]) + (..));
+     */
+  extern void Write(char *p, int n);

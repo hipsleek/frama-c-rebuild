@@ -1,0 +1,256 @@
+[kernel] Parsing attribute-aligned.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  S ∈ {0}
+  A ∈ {0}
+  B ∈ {0}
+  struct_aligned1 ∈ {0}
+  struct_aligned2 ∈ {0}
+  struct_aligned3 ∈ {0}
+  var_aligned1 ∈ {0}
+  var_aligned2 ∈ {0}
+  var_aligned3 ∈ {0}
+[eva:progress] 
+  computing for function ct <- main.
+  Called from attribute-aligned.c:178.
+[eva:progress] Recording results for ct
+[eva:progress] Done for function ct
+[eva:progress] 
+  computing for function dt <- main.
+  Called from attribute-aligned.c:179.
+[eva:progress] Recording results for dt
+[eva:progress] Done for function dt
+[eva:progress] 
+  computing for function pt <- main.
+  Called from attribute-aligned.c:180.
+[eva:progress] Recording results for pt
+[eva:progress] Done for function pt
+[eva:progress] 
+  computing for function qt <- main.
+  Called from attribute-aligned.c:181.
+[eva:progress] Recording results for qt
+[eva:progress] Done for function qt
+[eva:progress] 
+  computing for function rt <- main.
+  Called from attribute-aligned.c:182.
+[eva:progress] Recording results for rt
+[eva:progress] Done for function rt
+[eva:progress] 
+  computing for function st <- main.
+  Called from attribute-aligned.c:183.
+[eva:progress] Recording results for st
+[eva:progress] Done for function st
+[eva:progress] 
+  computing for function tt <- main.
+  Called from attribute-aligned.c:184.
+[eva:progress] Recording results for tt
+[eva:progress] Done for function tt
+[eva:progress] 
+  computing for function typedef_with_aligned <- main.
+  Called from attribute-aligned.c:185.
+[eva:progress] attribute-aligned.c:100: check got status valid.
+[eva:progress] attribute-aligned.c:102: check got status valid.
+[eva:progress] Recording results for typedef_with_aligned
+[eva:progress] Done for function typedef_with_aligned
+[eva:progress] 
+  computing for function struct_aligned <- main.
+  Called from attribute-aligned.c:186.
+[eva:show] attribute-aligned.c:142: Frama_C_show_each_4: {4}, {4}, {4}
+[eva:show] attribute-aligned.c:146: Frama_C_show_each_1: {1}, {1}, {1}
+[eva:show] attribute-aligned.c:150: 
+  Frama_C_show_each_4: {4}, {4}, {4}, {4}, {4}, {4}
+[eva:alarm] attribute-aligned.c:165: Warning: 
+  unaligned pointer creation.
+  assert
+  \aligned(&struct_aligned1.c,alignof(int __attribute__((__aligned__(8)))));
+[eva:alarm] attribute-aligned.c:166: Warning: 
+  unaligned pointer creation.
+  assert
+  \aligned(&struct_aligned2.c,alignof(int __attribute__((__aligned__(8)))));
+[eva:alarm] attribute-aligned.c:167: Warning: 
+  unaligned pointer creation.
+  assert
+  \aligned(&struct_aligned3.c,alignof(int __attribute__((__aligned__(8)))));
+[eva:alarm] attribute-aligned.c:168: Warning: 
+  unaligned pointer creation.
+  assert
+  \aligned(&var_aligned1.c,alignof(int __attribute__((__aligned__(8)))));
+[eva:alarm] attribute-aligned.c:169: Warning: 
+  unaligned pointer creation.
+  assert
+  \aligned(&var_aligned1.c,alignof(int __attribute__((__aligned__(8)))));
+[eva:alarm] attribute-aligned.c:170: Warning: 
+  unaligned pointer creation.
+  assert
+  \aligned(&var_aligned1.c,alignof(int __attribute__((__aligned__(8)))));
+[eva:progress] Recording results for struct_aligned
+[eva:progress] Done for function struct_aligned
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[scope:rm_asserts] removing 2 assertion(s)
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function ct:
+  S ∈ {1}
+  A ∈ {0}
+[eva:final-states] Values at end of function dt:
+  S ∈ {4}
+  A ∈ {0}
+[eva:final-states] Values at end of function pt:
+  S ∈ {4}
+  A ∈ {0}
+[eva:final-states] Values at end of function qt:
+  S ∈ {4}
+  A ∈ {0}
+  B ∈ {1}
+[eva:final-states] Values at end of function rt:
+  S ∈ {8}
+  A ∈ {0}
+  B ∈ {4}
+[eva:final-states] Values at end of function st:
+  S ∈ {8}
+  A ∈ {0}
+  B ∈ {4}
+[eva:final-states] Values at end of function struct_aligned:
+  struct_aligned1.c ∈ {1}
+                 .[bits 8 to 31] ∈ {0}
+  struct_aligned2.c ∈ {2}
+                 .[bits 8 to 31] ∈ {0}
+  struct_aligned3.c ∈ {3}
+                 .[bits 8 to 31] ∈ {0}
+  var_aligned1.c ∈ {1}
+  var_aligned2.c ∈ {2}
+  var_aligned3.c ∈ {3}
+  ptr4 ∈ {{ (int *)&var_aligned1 }}
+  ptr8 ∈ {{ (int __attribute__((__aligned__(8))) *)&var_aligned1 }}
+[eva:final-states] Values at end of function tt:
+  S ∈ {4}
+  A ∈ {0}
+  B ∈ {4}
+[eva:final-states] Values at end of function typedef_with_aligned:
+  a ∈ {1}
+[eva:final-states] Values at end of function main:
+  S ∈ {4}
+  A ∈ {0}
+  B ∈ {4}
+  struct_aligned1.c ∈ {1}
+                 .[bits 8 to 31] ∈ {0}
+  struct_aligned2.c ∈ {2}
+                 .[bits 8 to 31] ∈ {0}
+  struct_aligned3.c ∈ {3}
+                 .[bits 8 to 31] ∈ {0}
+  var_aligned1.c ∈ {1}
+  var_aligned2.c ∈ {2}
+  var_aligned3.c ∈ {3}
+  __retres ∈ {0}
+[from] Computing for function ct
+[from] Done for function ct
+[from] Computing for function dt
+[from] Done for function dt
+[from] Computing for function pt
+[from] Done for function pt
+[from] Computing for function qt
+[from] Done for function qt
+[from] Computing for function rt
+[from] Done for function rt
+[from] Computing for function st
+[from] Done for function st
+[from] Computing for function struct_aligned
+[from] Done for function struct_aligned
+[from] Computing for function tt
+[from] Done for function tt
+[from] Computing for function typedef_with_aligned
+[from] Done for function typedef_with_aligned
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function ct:
+  S FROM \nothing
+  A FROM \nothing
+[from] Function dt:
+  S FROM \nothing
+  A FROM \nothing
+[from] Function pt:
+  S FROM \nothing
+  A FROM \nothing
+[from] Function qt:
+  S FROM \nothing
+  A FROM \nothing
+  B FROM \nothing
+[from] Function rt:
+  S FROM \nothing
+  A FROM \nothing
+  B FROM \nothing
+[from] Function st:
+  S FROM \nothing
+  A FROM \nothing
+  B FROM \nothing
+[from] Function struct_aligned:
+  struct_aligned1.c FROM \nothing
+  struct_aligned2.c FROM \nothing
+  struct_aligned3.c FROM \nothing
+  var_aligned1 FROM \nothing
+  var_aligned2 FROM \nothing
+  var_aligned3 FROM \nothing
+[from] Function tt:
+  S FROM \nothing
+  A FROM \nothing
+  B FROM \nothing
+[from] Function typedef_with_aligned:
+  NO EFFECTS
+[from] Function main:
+  S FROM \nothing
+  A FROM \nothing
+  B FROM \nothing
+  struct_aligned1.c FROM \nothing
+  struct_aligned2.c FROM \nothing
+  struct_aligned3.c FROM \nothing
+  var_aligned1 FROM \nothing
+  var_aligned2 FROM \nothing
+  var_aligned3 FROM \nothing
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function ct:
+    S; A
+[inout] Inputs for function ct:
+    \nothing
+[inout] Out (internal) for function dt:
+    S; A
+[inout] Inputs for function dt:
+    \nothing
+[inout] Out (internal) for function pt:
+    S; A
+[inout] Inputs for function pt:
+    \nothing
+[inout] Out (internal) for function qt:
+    S; A; B
+[inout] Inputs for function qt:
+    \nothing
+[inout] Out (internal) for function rt:
+    S; A; B
+[inout] Inputs for function rt:
+    \nothing
+[inout] Out (internal) for function st:
+    S; A; B
+[inout] Inputs for function st:
+    \nothing
+[inout] Out (internal) for function struct_aligned:
+    struct_aligned1.c; struct_aligned2.c; struct_aligned3.c; var_aligned1;
+    var_aligned2; var_aligned3; ptr4; ptr8
+[inout] Inputs for function struct_aligned:
+    \nothing
+[inout] Out (internal) for function tt:
+    S; A; B
+[inout] Inputs for function tt:
+    \nothing
+[inout] Out (internal) for function typedef_with_aligned:
+    a
+[inout] Inputs for function typedef_with_aligned:
+    \nothing
+[inout] Out (internal) for function main:
+    S; A; B; struct_aligned1.c; struct_aligned2.c; struct_aligned3.c;
+    var_aligned1; var_aligned2; var_aligned3; __retres
+[inout] Inputs for function main:
+    \nothing

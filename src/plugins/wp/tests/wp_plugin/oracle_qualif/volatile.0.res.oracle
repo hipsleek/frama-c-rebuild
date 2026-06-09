@@ -1,0 +1,38 @@
+# frama-c -wp [...]
+[kernel] Parsing volatile.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal default_init_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal default_init_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal job_assigns_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal job_assigns_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal job_read_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal job_read_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal job_struct_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal job_struct_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal job_struct_assigns_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal job_struct_assigns_terminates (Cfg) (Trivial)
+[wp] 5 goals scheduled
+[wp] [Unsuccess] typed_job_assigns_assert_KO_WHEN_VOLATILE (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_job_read_assert_KO_WHEN_VOLATILE (Alt-Ergo) (Cached)
+[wp] [Valid] typed_job_struct_assert_ok_dead_code (Qed)
+[wp] [Unsuccess] typed_job_struct_assigns_assert_KO_WHEN_VOLATILE (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_default_init_check_KO_WHEN_VOLATILE (Alt-Ergo) (Cached)
+[wp] Proved goals:   11 / 15
+  Terminating:     5
+  Unreachable:     5
+  Qed:             1
+  Unsuccess:       4
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  job_assigns               2        -        3      66.7%
+  job_read                  2        -        3      66.7%
+  job_struct                3        -        3       100%
+  job_struct_assigns        2        -        3      66.7%
+  default_init              2        -        3      66.7%
+------------------------------------------------------------
+[wp] volatile.i:33: Warning: 
+  Memory model hypotheses for function 'job_struct_assigns':
+  /*@ behavior wp_typed:
+        requires \separated(p, &sv); */
+  void job_struct_assigns(struct st_v *p);

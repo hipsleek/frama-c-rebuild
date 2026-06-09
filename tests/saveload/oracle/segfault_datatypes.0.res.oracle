@@ -1,0 +1,2 @@
+[kernel:project] Warning: 
+  1 state in saved file ignored. It is invalid in this Frama-C configuration.

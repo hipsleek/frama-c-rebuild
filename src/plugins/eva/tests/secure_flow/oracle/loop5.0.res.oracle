@@ -1,0 +1,41 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing loop5.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  user_input ∈ [--..--]
+  secret ∈ [--..--]
+[eva:progress] loop5.c:16: assertion got status valid.
+[eva:progress] loop5.c:21: assertion got status valid.
+[eva:secure-flow:condition] loop5.c:23: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:alarm] loop5.c:21: Warning: assertion got status unknown.
+[eva:progress] loop5.c:31: assertion got status valid.
+[eva:alarm] loop5.c:31: Warning: assertion got status unknown.
+[eva:alarm] loop5.c:32: Warning: assertion got status unknown.
+[eva:progress] loop5.c:32: assertion got status valid.
+[eva:progress] loop5.c:33: assertion got status valid.
+[eva:alarm] loop5.c:33: Warning: assertion got status unknown.
+[eva:alarm] loop5.c:34: Warning: assertion got status unknown.
+[eva:progress] loop5.c:34: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  x ∈ [100..2147483647]
+  y ∈ {0; 1}
+  loop_was_entered ∈ {0; 1}
+  after_first_iteration ∈ {0; 1}
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    x; y; loop_was_entered; after_first_iteration; __retres
+[inout] Inputs for function main:
+    user_input; secret

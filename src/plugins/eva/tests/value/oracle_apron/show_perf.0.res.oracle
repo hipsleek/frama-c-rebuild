@@ -1,0 +1,98 @@
+95c95,179
+< [eva:progress] show_perf.i:41: Reusing old results for call to collatz
+---
+> [eva:progress] 
+>   computing for function collatz <- print_collatz <- main.
+>   Called from show_perf.i:41:7-17.
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] 
+>   computing for function compute_next <- collatz <- print_collatz <- main.
+>   Called from show_perf.i:33:9-24.
+> [eva:progress] Recording results for compute_next
+> [eva:progress] Done for function compute_next
+> [eva:progress] Recording results for collatz
+> [eva:progress] Done for function collatz
+123,124c207,208
+<     | compute_next 16x ?s (?%) | self: ?s (?%)
+<   * compute_next: executed: 16x total: ?s
+---
+>     | compute_next 32x ?s (?%) | self: ?s (?%)
+>   * compute_next: executed: 32x total: ?s
+132c216
+<   | | | * compute_next: executed: 16x total: ?s
+---
+>   | | | * compute_next: executed: 32x total: ?s

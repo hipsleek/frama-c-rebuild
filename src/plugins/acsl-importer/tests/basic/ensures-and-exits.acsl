@@ -1,0 +1,3 @@
+function may_exits:
+contract:
+  \acsl_importer::ensures_and_exits p: c==0? \exit_status==1 : \result==1;

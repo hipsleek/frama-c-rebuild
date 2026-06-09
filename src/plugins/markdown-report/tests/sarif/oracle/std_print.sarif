@@ -1,0 +1,53 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/sarif-2.1/schema/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "frama-c",
+          "fullName": "frama-c-0+omitted-for-deterministic-output",
+          "version": "0+omitted-for-deterministic-output",
+          "downloadUri": "https://frama-c.com/download.html",
+          "informationUri": "https://frama-c.com"
+        }
+      },
+      "invocations": [
+        {
+          "commandLine": "frama-c -check -no-autoload-plugins -add-symbolic-path=PTEST_SESSION:. -load-plugin=eva,from,scope,inout,markdown-report std_print.c -eva -then -mdr-sarif-deterministic -mdr-gen sarif -mdr-out ./std_print.sarif.unfiltered",
+          "arguments": [
+            "-check", "-no-autoload-plugins",
+            "-add-symbolic-path=PTEST_SESSION:.",
+            "-load-plugin=eva,from,scope,inout,markdown-report",
+            "std_print.c", "-eva", "-then", "-mdr-sarif-deterministic",
+            "-mdr-gen", "sarif", "-mdr-out", "./std_print.sarif.unfiltered"
+          ],
+          "exitCode": 0,
+          "executionSuccessful": true
+        }
+      ],
+      "originalUriBaseIds": {
+        ".": { "uri": "file:///omitted-for-deterministic-output/" },
+        "FRAMAC_LIB": { "uri": "file:///omitted-for-deterministic-output/" },
+        "FRAMAC_PLUGIN": {
+          "uri": "file:///omitted-for-deterministic-output/"
+        },
+        "FRAMAC_SHARE": {
+          "uri": "file:///omitted-for-deterministic-output/"
+        },
+        "PWD": { "uri": "file:///omitted-for-deterministic-output/" }
+      },
+      "artifacts": [
+        {
+          "location": { "uri": "std_print.c", "uriBaseId": "PWD" },
+          "roles": [ "analysisTarget" ],
+          "mimeType": "text/x-csrc"
+        }
+      ],
+      "defaultSourceLanguage": "C",
+      "taxonomies": [
+        { "name": "frama-c", "contents": [ "nonLocalizedData" ] }
+      ]
+    }
+  ]
+}

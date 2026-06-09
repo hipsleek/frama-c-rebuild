@@ -1,0 +1,30 @@
+[kernel] Parsing function1_v2.c (with preprocessing)
+[alias] analysing global variable definition: __fc_heap_status = {};
+[alias] May-aliases after global variable definition  __fc_heap_status  are  <none>
+[alias] analysing global variable definition: __fc_errno = {};
+[alias] May-aliases after global variable definition  __fc_errno  are  <none>
+[alias] analysing global variable definition: __fc_rand_max =
+  (unsigned long)2147483647;
+[alias] May-aliases after global variable definition  __fc_rand_max  are  <none>
+[alias] analysing global variable definition: __fc_random48_init = {};
+[alias] May-aliases after global variable definition  __fc_random48_init  are  <none>
+[alias] analysing function: alias
+[alias] analysing instruction: *x = *y;
+[alias] May-aliases after instruction  *x = *y;  are  { *x; *y }  { x; y }
+[alias] May-aliases at the end of function alias: { *x; *y }  { x; y }
+[alias] analysing function: main
+[alias] analysing instruction: int *a = malloc(sizeof(int));
+[alias] May-aliases after instruction  int *a = malloc(sizeof(int));  are  <none>
+[alias] analysing instruction: *a = 0;
+[alias] May-aliases after instruction  *a = 0;  are  <none>
+[alias] analysing instruction: int *b = malloc(sizeof(int));
+[alias] May-aliases after instruction  int *b = malloc(sizeof(int));  are  <none>
+[alias] analysing instruction: *b = 42;
+[alias] May-aliases after instruction  *b = 42;  are  <none>
+[alias] analysing instruction: alias(& a,& b);
+[alias] May-aliases after instruction  alias(& a,& b);  are  { a; b }
+[alias] analysing instruction: *a = 7;
+[alias] May-aliases after instruction  *a = 7;  are  { a; b }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are  { a; b }
+[alias] May-aliases at the end of function main: { a; b }

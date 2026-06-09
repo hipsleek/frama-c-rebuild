@@ -1,0 +1,102 @@
+Plug-in name: Report
+Plug-in shortname: report
+Description: Properties Status Report
+
+Most options of the form '-report-option-name' and without any parameter
+have an opposite with the name '-report-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-report             display a summary of properties status (opposite option
+                    is -no-report)
+
+*** DEBUG
+
+-report-debug <n>   level of debug for plug-in Report (default to 0)
+
+*** GETTING INFORMATION
+
+-report-help        help of plug-in Report
+-report-h           alias for option -report-help
+
+*** MONITORING OF PROPERTIES, ERRORS AND WARNINGS
+
+-report-absolute-path  Report absolute path locations (opposite option is
+                    -report-no-absolute-path)
+-report-classify    Report classification of all properties, errors and
+                    warnings (opposite option is -report-no-classify)
+-report-exit        Exit on error (set by default, opposite option is
+                    -report-no-exit)
+-report-output <*.json>  Output -report-classify in JSON format
+-report-output-errors <file>  Output number of errors to <file>
+-report-output-reviews <file>  Output number of reviews to <file>
+-report-output-unclassified <file>  Output number of unclassified to <file>
+-report-rules <*.json,...>  Configure the rules to apply for
+                    classification,and start monitoring. (preferably use
+                    -report-rules="*.json,...")
+-report-status      Classify also property statuses (set by default, opposite
+                    option is -report-no-status)
+-report-stderr      Output detailed textual classification on stderr
+                    (opposite option is -report-no-stderr)
+-report-stdout      Force detailed textual classification on stdout (opposite
+                    option is -report-no-stdout)
+-report-unclassified-error <action>  Action to be taken on unclassified
+                    errors(default is: 'ERROR') (preferably use
+                    -report-unclassified-error="action")
+-report-unclassified-invalid <action>  Action to be taken on invalid
+                    properties(default is: 'ERROR') (preferably use
+                    -report-unclassified-invalid="action")
+-report-unclassified-unknown <action>  Action to be taken on unknown
+                    properties(default is: 'REVIEW') (preferably use
+                    -report-unclassified-unknown="action")
+-report-unclassified-untried <action>  Action to be taken on untried
+                    properties (default is: 'SKIP') (preferably use
+                    -report-unclassified-untried="action")
+-report-unclassified-warning <action>  Action to be taken on unclassified
+                    warnings(default is: 'REVIEW') (preferably use
+                    -report-unclassified-warning="action")
+
+*** OUTPUT MESSAGES
+
+-report-log <K_1:file_1,...>  copy log messages from Report to a file. <K> is
+                    a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -report-log="K_1:file_1,...")
+-report-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -report-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -report-msg-key="k1[,...,kn]")
+-report-verbose <n>  level of verbosity for plug-in Report (default to 1)
+-report-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category
+                    <k1> to <s1>,...,<kn> to <sn>. Use -report-warn-key help
+                    to get a list of available categories, and * to enable
+                    all categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -report-warn-key="k1[=s1][,...,kn[=sn]]")
+
+*** PRINTING PROPERTY REPORT
+
+-report-csv <name>  if set, output properties as a csv file of the given name
+-report-print-properties  print not only the locations, but also the
+                    properties themselves (opposite option is
+                    -report-no-print-properties)
+-report-proven      if set, output proven properties. Otherwise, only
+                    unproven ones are shown. (set by default, opposite option
+                    is -report-no-proven)
+-report-specialized  display properties that are auxiliary instances of other
+                    properties. (set by default, opposite option is
+                    -report-no-specialized)
+-report-untried     display properties which no plug-in tried to prove
+                    (opposite option is -report-no-untried)

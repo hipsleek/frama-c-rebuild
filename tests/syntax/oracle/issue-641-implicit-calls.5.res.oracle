@@ -1,0 +1,12 @@
+[kernel] Parsing issue-641-implicit-calls.c (with preprocessing)
+[kernel:typing:implicit-function-declaration] issue-641-implicit-calls.c:33: Warning: 
+  Calling undeclared function bar. Old style K&R code?
+[kernel] issue-641-implicit-calls.c:33: User Error: 
+  call to bar with a reference to itself in its own parameters
+  31    
+  32    #ifdef INCOMP6
+  33        void foo(unsigned x) { bar(&bar); }
+                                   ^^^^^^^^^
+  34    #endif
+  35
+[kernel] Frama-C aborted: invalid user input.

@@ -1,0 +1,20 @@
+; Test dependencies
+(rule
+ (alias frama-c-configure)
+ (deps
+  (universe)
+  (alias ../frama-c-configure-tests))
+ (action (progn
+            (echo "  - tests/libc/:" %{read:../../tests-libc-deps-available} "\n")
+            (echo "    - gcc:" %{bin-available:gcc} "\n")
+            (echo "    - has-c2y-option:" %{read:../../has-c2y-option} "\n")
+            (echo "    - python-3.10:" %{read:../../python-3.10-available} "\n")
+            ; If you add some dependencies here, do not forget to add them to
+            ; tests_configurator.ml
+  ))
+)
+
+(cram
+  (applies_to c2y)
+  (enabled_if %{read:../../has-c2y-option})
+)

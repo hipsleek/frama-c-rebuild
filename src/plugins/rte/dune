@@ -1,0 +1,40 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "Rtegen:" %{lib-available:frama-c-rtegen.core} "\n")
+  )
+  )
+)
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-rtegen.core})))
+ (action (echo "WARNING: Rtegen disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+(library
+  (name RteGen)
+  (optional)
+  (public_name frama-c-rtegen.core)
+  (flags -open Frama_c_kernel :standard -w -9)
+  (libraries frama-c.kernel
+   (select eva_analysis.ml from
+    (frama-c-eva.core -> eva_analysis.enabled.ml)
+    (                 -> eva_analysis.disabled.ml)))
+  (instrumentation (backend landmarks))
+  (instrumentation (backend bisect_ppx))
+)
+
+(plugin (optional) (name rtegen) (libraries frama-c-rtegen.core) (site (frama-c plugins)))

@@ -1,0 +1,467 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                             %
+%  This file is part of the Frama-C plug-in 'ACSL importer' (acsl-importer).  %
+%                                                                             %
+%  Copyright (C)                                                              %
+%    CEA (Commissariat à l'énergie atomique et aux énergies                   %
+%         alternatives)                                                       %
+%                                                                             %
+%  All rights reserved.                                                       %
+%  Contact CEA LIST for licensing.                                            %
+%                                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{frama-c-book}
+\usepackage{graphicx}
+\usepackage{calc}
+
+\input{fc-macros}
+
+\newcommand{\FCVERSION}{\input{VERSION}(\input{VERSION_CODENAME}\unskip)}
+
+\title{ACSL-importer Plug-in Manual}
+\author{Patrick Baudin}
+\fcversion{\FCVERSION}
+
+\cclicence{by}
+\copyrightstarts{2011}
+
+\makeindex
+
+\begin{document}
+\sloppy
+\emergencystretch 3em
+
+\maketitle
+\tableofcontents
+
+\include{macros}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Overview}
+
+This is the user manual of the \acsl\cite{acsl, acsl-implem} importer plug-in of
+\FramaC\footnote{\url{http://frama-c.com}}. The content of this document
+corresponds to the version \FCVERSION, released on \today, of \FramaC.
+
+This plug-in adds to \FramaC support for out of \C source files
+\acsl specification. Therefore it is useful only to people that
+intend to write \acsl specifications and do not want to write them
+inside comments of the \C source files as documented in \cite{acsl}.
+
+In addition, the plug-in allows to enter \acsl annotations directly via the
+Graphical User Interface.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Usage}
+You may refer to the user manual of \FramaC \cite{userman} for non
+specific options of \FramaC.
+
+After its installation, the plug-in is listed by \verb|frama-c -plugins|
+as \verb|ACSL importer|.
+
+All options of the plug-in are prefixed by \verb|-acsl-import|.
+
+The main options are:
+\begin{itemize}{}
+\item \verb|-acsl-import-help| lists all options specific to the plug-in
+\item \verb|-acsl-import <filename list>| analyzes the content of
+  files listed in its arguments and inserts the correctly typed
+  specifications in the abstract syntax tree of \FramaC for further processing.
+  The file name list is a comma separated list of file names.
+  It can be repeated many times and its effect is cumulative.
+\item \verb|-acsl-import-include-dirs <dirname list>| specifies the list of
+  directories where the relative file names mentioned in \verb|include|
+  directives are searched.
+\item \verb|-acsl-import-keep-unused-symbols| configures \FramaC kernel such that
+  unused C symbols aren't removed before the import.
+\item \verb|-acsl-import-no-run| doesn't run the plug-in, just configure its parameters.
+\item \verb|-acsl-import-parse-only| parses the ACSL files without typing nor imports.
+\item \verb|-acsl-import-typing-only| parses and types the ACSL files without imports.
+\end{itemize}
+
+For example if you want to check your specification written in the file
+named \verb|specif.acsl| for the program in \verb|example.c| using the
+value analysis plug-in\cite{value}, you may use the following command:
+\begin{shell}
+# frama-c -acsl-import specif.acsl example.c -then -eva
+\end{shell}
+The option \verb|-then| ensures that the specification is imported
+before running the value analysis.
+
+\section*{Grammar for external \acsl files}
+\markright{}
+\addcontentsline{toc}{section}{Grammar for external \acsl files}
+
+An external \acsl file is a text file containing any <specification> conforming to the grammar described in table \ref{grammar}.
+
+Non terminals starting with <acsl\_> correspond to non terminals without the <acsl\_> in the original \acsl grammar\cite{acsl}.
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{|lrl|}
+\hline
+<specification> & := & (("{\tt\/module}" <module\_name> "\verb+:+")* <module\_specification>)* ;\\
+           &    &\\
+<module\_specification> & := &  <global\_specification>* <fun\_specification>* ;\\
+           &    &\\
+<global\_specification> & := & <include\_directive> | <macro\_directive>\\
+           &  | & <acsl\_logical\_axiomatic> | <acsl\_logical\_type>\\
+           &  | & <acsl\_logical\_predicate> | <acsl\_logical\_function>\\
+           &  | & <acsl\_volatile\_clause> ;\\
+           &    &\\
+<include\_directive> & := & "\verb+include+" "\verb+"+"<file\_name>"\verb+"+" "\verb+;+" ;\\
+           &    &\\
+<macro\_directive> & := & ("\verb+global+" ?) \verb+let+" <identifier> "\verb+=+" <acsl\_term> "\verb+;+" ; \\
+           &    &\\
+<fun\_specification> & := & "{\tt\/function}" <fun\_name> "\verb+:+"\\
+           &    & (<fun\_spec> | <stmt\_spec> | <global\_specification>)* ;\\
+           &    &\\
+<fun\_spec> & := & "{\tt\/contract}" "\verb+:+" <acsl\_fun\_spec> ;\\
+           &    &\\
+<stmt\_spec> & := & <stmt\_ref> "\verb+:+" (<acsl\_loop\_annotation>\\
+           &  | &  <acsl\_code\_annotation>\\
+           &  | &  "{\tt\/contract}" "\verb+:+" <acsl\_stmt\_spec>) ;\\
+           &    &\\
+<stmt\_ref> & := & "{\tt\/at}" (<loop\_id>\\
+           &  | & <stmt\_id>  \\
+           &  | & <call\_id>) ;\\
+           &    &\\
+<loop\_id>  & := & "{\tt\/loop}" <number> \\
+           &   |& "{\tt\/loop}" "{\tt\/body}" <number>;\\
+           &   |& "{\tt\/loop}" "{\tt\/stmt}" <number>;\\
+           &    &\\
+<stmt\_id>  & := & <number> \\
+           &   |& "{\tt\/return}" \\
+           &   |& <label\_name> ;\\
+           &    &\\
+<call\_id>  & := &"{\tt\/asm}" <number> \\
+           &   |& "{\tt\/indirect\_call}" <number>* \\
+           &   |& "{\tt\/call}" <fun\_name> <number>*  \\
+           &   |& "{\tt\/call}" <number> ;\\
+
+\hline
+\end{tabular}
+\end{center}
+\caption{External \acsl grammar}
+\label{grammar}
+\end{table}
+
+The importation semantics is given by the following rules:
+\begin{itemize}
+  \item \verb|module f : <S>| means that the specification in \verb|S|
+    has to be imported into the \C file named \verb|f.c|
+  \item \verb|include "f.acsl"| means that the file named
+    \verb|f.acsl| has to be included verbatim into the current file,
+    as if its content was inlined.
+    The included file has to contain a valid \verb|<specification>|.
+    If \verb|f.acsl| is a relative filename the plug-in will look for
+    first inside the directory containing file containing the
+    \verb|include| directive and then in first directory of the list
+    of directories given to the option \verb|-acsl-import-include-dirs| that
+    contains \verb|f.acsl|.
+  \item \verb|let m = <T>;| defines a macro named \verb|m|. All
+    occurrences of the macro \verb|m| in current scope
+    will be expanded verbatim by the \acsl term \verb|T|. The
+    \verb|let| is untyped but each expansion of \verb|m| into \verb|T|
+    will be typed in its own context.
+    The considered scope is the whole file for macro defined before the
+    first \verb|module| markup, the current module before the first
+    \verb|function| markup and the current function otherwise.
+    Macros can be located into an included file to be shared between
+    specifications of different imported files.
+  \item \verb|global let m = <T>;| defines a macro named \verb|m|
+    within the file scope.
+  \item \verb|function f : contract : <S>| means that the
+    specification in \verb|S| has to be imported as a specification
+    for the \C function named \verb|f|
+  \item \verb|function f : <stmt_ref> : <S>| means that the
+    specification in \verb|S| has to be imported as a specification
+    for the statement denoted by \verb|stmt_ref| inside the body of
+    the \C function named \verb|f|
+  \item \verb|at loop <i>| denotes the loop of number \verb|i|,
+    inside the current function, counting from the top of the definition
+    of the function and starting from $1$.
+    The ACSL loop annotations refer to the loop statement itself,  whereas
+    ACSL code annotations and statement contracts refer to the loop body.
+  \item \verb|at loop stmt <i>| as previous, but denotes always the loop stmt
+    (notice that this statement never includes the initializer part of
+    \verb|for| loops),
+  \item \verb|at loop body <i>| as previous, but denotes always the loop stmt
+    (notice that this statement never includes the increment part of \verb|for|
+    loops),
+  \item \verb|at asm <i>| denotes the asm call of number \verb|i|,
+     inside the current function, counting from the top of the definition
+    of the function and starting from $1$.
+  \item \verb|at indirect_call <i>| denotes the indirect call (via function pointer) of number \verb|i|,
+    inside the current function, counting from the top of the definition
+    of the function and starting from $1$.
+    To refer to all indirect calls from the current function, do not give a value \verb|i|.
+  \item \verb|at call <fun_name> <i>| denotes the direct call to the function \verb|fun_name| of number \verb|i|,
+    inside the current function, counting from the top of the definition
+    of the function and starting from $1$.
+    To refer to all direct calls to  \verb|fun_name| from the current function, do not give a value \verb|i|.
+  \item \verb|at call <i>| denotes the direct call of number \verb|i|,
+    inside the current function, counting from the top of the definition
+    of the function and starting from $1$.
+  \item \verb|at <L>| denotes the statement designated by the \C label
+    \verb|L|, inside the current function. In addition to the \C
+    labels the special keyword \verb|return| is interpreted as
+    pointing to the \verb|return| statement of the \C function.
+  \item \verb|at <i>| denotes the statement of number \verb|i|, inside
+    the current function, counting from the top of the definition of the
+    function (in its internal form) and starting from $1$. Note that
+    this number may be counter-intuitive to compute and may
+    depend on the version of the \FramaC platform.
+\end{itemize}
+
+Here is a small example \C program contained in file \verb|demo.c|:
+\begin{shell}
+int f(int i);
+int g(int j);
+void job(int *t, int A) {
+  for(int i = 0; i < 50; i++) t[i] = f(i);
+  for(int j = A; j < 100; j++) t[j] = g(j);
+}
+\end{shell}
+and here is the content of the file \verb|demo.acsl|:
+\begin{shell}
+module demo :
+ axiomatic A {
+ type event = B | C(integer);
+ predicate P(integer x);
+ logic integer phi(event e);
+ }
+
+ function f:
+contract:
+  ensures P(phi(C(\result)));
+  assigns \nothing;
+
+function g:
+contract: assigns \nothing;
+
+function job:
+at 1: assert 50 <= A <= 100;
+at loop 1:
+  loop invariant 0 <= i <= 50;
+  loop invariant \forall integer k; 0 <= k < i ==> P(t[k]);
+  loop assigns i,t[0..49];
+at loop body 1:
+  contract:
+    ensures i == \old(i);
+at loop stmt 1:
+  contract:
+    requires i==0;
+    ensures  i==50;
+
+at loop 2:
+  loop invariant A <= j <= 100;
+  loop assigns j,t[A..99];
+
+at return:
+  assert \forall integer k; 0 <= k < 50 ==> P(t[k]);
+
+at call f:
+  contract:
+    ensures P(phi(C(t[i])));
+\end{shell}
+Here is the result of the \plugin{}:
+\begin{shell}
+# frama-c -acsl-import demo.acsl demo.c -print -no-unicode
+[kernel] Parsing demo.c (with preprocessing)
+[acsl-importer] Success for demo.acsl
+[acsl-importer] Done: 1 file.
+[kernel] Parsing demo.c (with preprocessing)
+[acsl-importer] Success for demo.acsl
+[acsl-importer] Done: 1 file.
+/* Generated by Frama-C */
+/*@
+axiomatic A {
+  type event = B | C(integer);
+  predicate P(integer x) ;
+  logic integer phi(event e) ;
+  }
+ */
+/*@ ensures P(phi(C(\result)));
+    assigns \nothing; */
+int f(int i);
+
+/*@ assigns \nothing; */
+int g(int j);
+
+void job(int *t, int A) {
+  /*@ assert 50 <= A <= 100; */
+  {
+    int i = 0;
+    /*@ requires i == 0;
+        ensures i == 50; */
+    /*@ loop invariant 0 <= i <= 50;
+        loop invariant \forall integer k; 0 <= k < i ==> P(*(t + k));
+        loop assigns i, *(t + (0 .. 49));
+    */
+    while (i < 50) {
+      /*@ ensures i == \old(i); */
+      {
+        /*@ ensures P(phi(C(*(t + i)))); */
+        *(t + i) = f(i);
+      }
+      i ++;
+    }
+  }
+  {
+    int j = A;
+    /*@ loop invariant A <= j <= 100;
+        loop assigns j, *(t + (A .. 99)); */
+    while (j < 100) {
+      {
+        *(t + j) = g(j);
+      }
+      j ++;
+    }
+  }
+  /*@ assert \forall integer k; 0 <= k < 50 ==> P(*(t + k)); */
+  return;
+}
+
+int T[100];
+void main(void) {
+  job(T,50);
+  return;
+}
+\end{shell}
+
+\section*{Adding properties from the Graphical User Interface}
+\markright{}
+\addcontentsline{toc}{section}{Adding properties from the Graphical User Interface}
+Contextual menus are added when selecting statements or function definitions.
+It is possible to insert \verb|acsl_logical_axiomatic|, \verb|acsl_logical_type|,
+           \verb|acsl_logical_predicate|, \verb|acsl_logical_function|,
+           \verb|acsl_volatile_clause|, \verb|acsl_stmt_spec|,
+           \verb|acsl_loop_annotation| and \verb|acsl_code_annotation|.
+Selection of such a menu opens a popup window allowing to type directly the corresponding annotation (i.e. \verb|ensures P(t[0]);|).
+
+\section*{Addons for \acsl}
+\markright{}
+\addcontentsline{toc}{section}{Addons for \acsl}
+The option \verb|-acsl-import-addon-ensures-and-exits| adds a new clause \verb|ensures_and_exits| to \acsl grammar. This keyword is syntactic sugar for writing two clauses (one \verb|ensures| and one \verb|exits|) in one.
+
+The option \verb|-acsl-import-addon-integer-cast| allows the introduction of casts from integer to C integral types. Warnings of the category \verb|annot:integer-cast| are emitted when introducing such casts.
+
+
+\section*{Addons for code transformations}
+\markright{}
+\addcontentsline{toc}{section}{Addons for code transformation}
+From \FramaC kernel, it is possible to identify two kinds of code transformations:
+\begin{itemize}
+\item transformations performed during the elaboration of the AST (Abstract Syntaxtic Tree) related to the parsed C files, and
+\item transformations performed over the AST.
+\end{itemize}
+
+The import of ACSL specification files can be viewed as a second class transformation adding to the ACSL annotation to the current AST.
+But, some imports need a code transformation of the first class for being performed (i.e. for identifying the statement body of the i$^{th}$ loop).
+All syntaxic code transformations of \FramaC kernel (including the deletion of unused C symbols) are processed before the import of ACSL specification files.
+
+The option \verb|-acsl-import-unroll-loop-conditions| transforms \verb|while| loops and and \verb|for| loops into \verb|do-while| loops when the initial loops have no loop annotation.
+
+The \verb|while| loop
+\begin{shell}
+  while (c)
+    //@ invariant I;
+    S;
+\end{shell}
+is transformed into :
+\begin{shell}
+  if (c)
+    do //@ invariant I;
+      S;
+    while (c);
+\end{shell}
+
+The \verb|for| loop
+\begin{shell}
+  for (init; c; incr)
+    //@ invariant I;
+    S;
+\end{shell}
+is transformed into :
+\begin{shell}
+  init ;
+  if (c)
+    do //@ invariant I;
+    { S;
+      incr;
+    } while (c);
+\end{shell}
+
+For \verb|do-while| loops, \verb|invariant| clauses set on their loop body are equivalent to \verb|loop| \verb|invariant| clauses.
+So, the importer is able to transform \verb|invariant| clauses set on every body of loops of every kind into \verb|loop invariant| clauses of \verb|do-while| loops.
+
+This transformation is a first class transformation processed before the loop unrolling related to the option \verb|-kernel-ulevel| \verb|<n>|.
+Since the code transformation processed by the option \verb|-kernel-ulevel| \verb|<n>| is also a first class transformation, the use of the options \verb|-kernel-ulevel| \verb|-1| {\tt <acsl-import-options>} \verb|-then| \verb|-acsl-import-run| \verb|-acsl-ulevel <n>| is required to perform loop unrolling after the import of ACSL specification files.
+
+The option \verb|-acsl-import-ulevel <n>| unrolls loops as \verb|-kernel-ulevel <n>| does at the parsing stage, except that is now a second class transformation.
+This means that a code annotation imported to a statement of the body of an unrolled loops can be duplicated using option \verb|-acsl-import-ulevel <n>| as if it was inside the C file and using the option \verb|-kernel-ulevel <n>| instead.
+These \verb|UNROLL| loop pragmas could be in the source code, imported from ACSL specification files or generated by the {\tt\/-acsl-import-ulevel-spec} option.
+
+The option {\tt\/-acsl-import-ulevel-spec <spec$_{1}$,...,spec$_{s}$>} adds \verb|UNROLL| loop pragmas that can be used by both  \verb|-acsl-import-ulevel| and \verb|-kernel-ulevel| transformations.
+An unrolling specification \verb|<m@f:tag@n>| adds an annotation '{\tt\/loop unfold "tag", <n>;}' to the {\tt m$_{th}$} loop of the function \verb|<f>|.
+An unrolling specification \verb|<c@f:tag@n>| adds an annotation '{\tt\/loop unfold "tag", <n>;}' to all loops of category \verb|<c>| of the function \verb|<f>|, where allowed loop categories are: \verb|while|, \verb|for| and \verb|do-while|.\\
+A specification is considered as a set of elementary specifications: {\tt\/spec$_{1}$}, ..., {\tt\/spec$_{s}$}.\\
+Categories, function names and loop occurrence numbers can be omitted.
+The priority ordering used for choosing the (\verb|"tag"| name, unrolling value \verb|<n>|) pair is: \verb|<m@f:tag@n>| > \verb|<c@f:tag@n>| > \verb|<f:tag@n>| > \verb|<c:tag@n>| > \verb|<:tag@n>|.\\
+The default value for optional tags is the empty string which leads to add unrolling loop pragmas without tags.\\
+Nothing is done for loops having already a clause '{\tt\/loop unfold} ...'.\\
+
+
+The command line
+\begin{shell}
+# frama-c -acsl-import-unroll-loop-conditions -ulevel-spec "fct:completely@2" file.c
+\end{shell}
+ will transforms the function
+\begin{shell}
+void fct (void) {
+  S1;
+  for (i=0; i<2; i++)
+    Si;
+  Sn ;
+}
+\end{shell}
+such that the remaining loop have to be {\sl death} code:
+\begin{shell}
+void fct (void) {
+  S1;
+  i=0;
+  if (i<2){ /*** loop condition unrolled ***/
+    Si;     /*** first unrolling ***/
+    i ++;
+    if (! (i < 2)) goto unrolling_2_loop;
+      Si;   /*** second unrolling ***/
+      i ++;
+      if (! (i < 2)) { goto unrolling_2_loop; }
+      /*** the loop should be death code since completely unrolled ***/
+      /*@ loop invariant \false;
+          loop unfold "completely", 2; */
+      while (1) {
+        Si;
+        i ++;
+        if (! (i < 2)) break;
+        }
+unrolling_2_loop:
+    }
+  Sn ;
+}
+\end{shell}
+
+\appendix
+\include{user-changes}
+
+\bibliographystyle{plain}
+\bibliography{bib}
+\addcontentsline{toc}{chapter}{\bibname}
+
+\cleardoublepage
+\end{document}

@@ -1,0 +1,40 @@
+[kernel] Parsing gcc_extensions.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function shiftr <- main.
+  Called from gcc_extensions.c:13.
+[eva:progress] Recording results for shiftr
+[eva:progress] Done for function shiftr
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function shiftr:
+  __retres ∈ {2305843009213693952}
+[eva:final-states] Values at end of function main:
+  u ∈ {340282366920938463463374607431768211455}
+  i ∈ {170141183460469231731687303715884105727}
+  m ∈ {9223372036854775808}
+  __retres ∈ {0}
+[from] Computing for function shiftr
+[from] Done for function shiftr
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function shiftr:
+  \result FROM x
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function shiftr:
+    __retres
+[inout] Inputs for function shiftr:
+    \nothing
+[inout] Out (internal) for function main:
+    u; i; m; tmp; __retres
+[inout] Inputs for function main:
+    \nothing

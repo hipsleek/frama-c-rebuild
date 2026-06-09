@@ -1,0 +1,15 @@
+(executable
+ (name mutable)
+ (libraries frama-c.init frama-c.kernel crowbar crowbar_utils)
+ (flags -open Frama_c_kernel :standard -w -9))
+
+(executables
+ (names mutable_const_fail mutable_mutable_fail)
+ (modes plugin)
+ (libraries frama-c.init frama-c.boot frama-c.kernel)
+ (flags -open Frama_c_kernel :standard -w -9))
+
+(rule
+ (alias runtest)
+ (target (dir failed_cases))
+ (action (run ./mutable.exe)))

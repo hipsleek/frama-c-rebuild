@@ -1,0 +1,55 @@
+93a94,102
+> [eva:show] builtins_split.c:107: 
+>   Frama_C_show_each_s_4: {{ &s5 + {4} }}, {{ &s3 + {4} }}, {{ &s1 }}, {1}
+> [eva:show] builtins_split.c:107: 
+>   Frama_C_show_each_s_4: {{ &s5 + {4} }}, {{ &s3 + {4} }}, {{ &s1 }}, {1}
+> [eva:show] builtins_split.c:107: 
+>   Frama_C_show_each_s_4: {{ &s5 + {4} }}, {{ &s3 + {4} }}, {{ &s1 }}, {1}
+> [eva:progress] builtins_split.c:112: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:112: Call to builtin Frama_C_builtin_split_all
+> [eva:progress] builtins_split.c:112: Call to builtin Frama_C_builtin_split_all
+112a122,165
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s5 + {4} }}, {{ &s3 + {4} }}, {{ &s1 }}, {1}
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s5 + {4} }}, {{ &s3 + {4} }}, {{ &s1 }}, {1}
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s5 + {4} }}, {{ &s3 + {4} }}, {{ &s1 }}, {1}
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5:
+>   {{ &s6 + {4} }}, {{ &s4 + {4} }}, {{ &s2 }}, [-2147483648..2147483647]
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s6 + {4} }}, {{ &s4 + {4} }}, {{ &s0 }}, {0}
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5:
+>   {{ &s6 + {4} }}, {{ &s4 + {4} }}, {{ &s2 }}, [-2147483648..2147483647]
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s6 + {4} }}, {{ &s4 + {4} }}, {{ &s0 }}, {0}
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s5 + {4} }}, {{ &s3 + {4} }}, {{ &s1 }}, {-1}
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s5 + {4} }}, {{ &s3 + {4} }}, {{ &s0 }}, {0}
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5:
+>   {{ &s5 + {4} }}, {{ &s4 + {4} }}, {{ &s2 }}, [-2147483648..2147483647]
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s5 + {4} }}, {{ &s4 + {4} }}, {{ &s0 }}, {0}
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5:
+>   {{ &s6 + {4} }}, {{ &s4 + {4} }}, {{ &s2 }}, [-2147483648..2147483647]
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s6 + {4} }}, {{ &s4 + {4} }}, {{ &s0 }}, {0}
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5:
+>   {{ &s6 + {4} }}, {{ &s4 + {4} }}, {{ &s2 }}, [-2147483648..2147483647]
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s6 + {4} }}, {{ &s4 + {4} }}, {{ &s0 }}, {0}
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s5 + {4} }}, {{ &s3 + {4} }}, {{ &s1 }}, {-1}
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s5 + {4} }}, {{ &s3 + {4} }}, {{ &s0 }}, {0}
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5:
+>   {{ &s5 + {4} }}, {{ &s4 + {4} }}, {{ &s2 }}, [-2147483648..2147483647]
+> [eva:show] builtins_split.c:114: 
+>   Frama_C_show_each_s_5: {{ &s5 + {4} }}, {{ &s4 + {4} }}, {{ &s0 }}, {0}

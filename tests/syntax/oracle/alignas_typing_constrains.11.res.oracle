@@ -1,0 +1,4 @@
+[kernel] Parsing alignas_typing_constrains.c (with preprocessing)
+[kernel] alignas_typing_constrains.c:142: User Error: 
+  Can't handle a value that big for _Alignas (1ull << 63)
+[kernel] Frama-C aborted: invalid user input.

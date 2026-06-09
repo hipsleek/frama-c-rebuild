@@ -1,0 +1,188 @@
+[kernel] Parsing builtins.c (with preprocessing)
+[kernel:parser:decimal-float] builtins.c:55: Warning: 
+  Floating-point constant 2.72 is not represented exactly. Will use 0x1.5c28f5c28f5c3p1.
+  (warn-once: no further messages from category 'parser:decimal-float' will be emitted)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  v ∈ [--..--]
+[eva:progress] 
+  computing for function Frama_C_float_interval <- main.
+  Called from builtins.c:12.
+[eva] using specification for function Frama_C_float_interval
+[eva:progress] builtins.c:12: 
+  function Frama_C_float_interval, behavior finite: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_float_interval
+[eva:progress] 
+  computing for function Frama_C_double_interval <- main.
+  Called from builtins.c:13.
+[eva] using specification for function Frama_C_double_interval
+[eva:progress] builtins.c:13: 
+  function Frama_C_double_interval, behavior finite: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_double_interval
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  Frama_C_entropy_source ∈ [--..--]
+  f ∈ [-1. .. 1.]
+  d ∈ [-1. .. 1.]
+[eva] Analyzing a complete application starting at main_log_exp
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  v ∈ [--..--]
+[eva:progress] builtins.c:51: Call to builtin log
+[eva:progress] builtins.c:51: 
+  function log: precondition 'finite_arg' got status valid.
+[eva:progress] builtins.c:51: 
+  function log: precondition 'arg_positive' got status valid.
+[eva:progress] builtins.c:52: Call to builtin log10
+[eva:progress] builtins.c:52: 
+  function log10: precondition 'finite_arg' got status valid.
+[eva:progress] builtins.c:52: 
+  function log10: precondition 'arg_positive' got status valid.
+[eva:progress] builtins.c:55: Call to builtin log
+[eva:progress] builtins.c:55: 
+  function log: precondition 'finite_arg' got status valid.
+[eva:progress] builtins.c:55: 
+  function log: precondition 'arg_positive' got status valid.
+[eva:progress] builtins.c:56: Call to builtin log10
+[eva:progress] builtins.c:56: 
+  function log10: precondition 'finite_arg' got status valid.
+[eva:progress] builtins.c:56: 
+  function log10: precondition 'arg_positive' got status valid.
+[eva:progress] builtins.c:59: Call to builtin log
+[eva:progress] builtins.c:59: 
+  function log: precondition 'finite_arg' got status valid.
+[eva:progress] builtins.c:59: 
+  function log: precondition 'arg_positive' got status valid.
+[eva:progress] builtins.c:60: Call to builtin log10
+[eva:progress] builtins.c:60: 
+  function log10: precondition 'finite_arg' got status valid.
+[eva:progress] builtins.c:60: 
+  function log10: precondition 'arg_positive' got status valid.
+[eva:alarm] builtins.c:63: Warning: assertion got status unknown.
+[eva:progress] builtins.c:64: Call to builtin log
+[eva:progress] builtins.c:64: 
+  function log: precondition 'finite_arg' got status valid.
+[eva:progress] builtins.c:64: 
+  function log: precondition 'arg_positive' got status valid.
+[eva:alarm] builtins.c:67: Warning: assertion got status unknown.
+[eva:progress] builtins.c:68: Call to builtin log10
+[eva:progress] builtins.c:68: 
+  function log10: precondition 'finite_arg' got status valid.
+[eva:progress] builtins.c:68: 
+  function log10: precondition 'arg_positive' got status valid.
+[eva:progress] builtins.c:72: Call to builtin log
+[eva:progress] builtins.c:72: 
+  function log: precondition 'finite_arg' got status valid.
+[eva:alarm] builtins.c:72: Warning: 
+  function log: precondition 'arg_positive' got status unknown.
+[eva:progress] builtins.c:75: Call to builtin log10
+[eva:progress] builtins.c:75: 
+  function log10: precondition 'finite_arg' got status valid.
+[eva:alarm] builtins.c:75: Warning: 
+  function log10: precondition 'arg_positive' got status unknown.
+[eva:progress] builtins.c:78: Call to builtin log
+[eva:progress] builtins.c:78: 
+  function log: precondition 'finite_arg' got status valid.
+[eva:alarm] builtins.c:78: Warning: 
+  function log: precondition 'arg_positive' got status invalid.
+[eva:progress] builtins.c:81: Call to builtin log10
+[eva:progress] builtins.c:81: 
+  function log10: precondition 'finite_arg' got status valid.
+[eva:alarm] builtins.c:81: Warning: 
+  function log10: precondition 'arg_positive' got status invalid.
+[eva:progress] builtins.c:85: Call to builtin exp
+[eva:progress] builtins.c:85: 
+  function exp: precondition 'not_overflow_argument' got status valid.
+[eva:progress] builtins.c:85: 
+  function exp: precondition 'not_pos_infinity_argument' got status valid.
+[eva:progress] builtins.c:85: 
+  function exp: precondition 'not_nan_argument' got status valid.
+[eva:progress] builtins.c:88: Call to builtin exp
+[eva:progress] builtins.c:88: 
+  function exp: precondition 'not_overflow_argument' got status valid.
+[eva:progress] builtins.c:88: 
+  function exp: precondition 'not_pos_infinity_argument' got status valid.
+[eva:progress] builtins.c:88: 
+  function exp: precondition 'not_nan_argument' got status valid.
+[eva:progress] builtins.c:91: Call to builtin exp
+[eva:progress] builtins.c:91: 
+  function exp: precondition 'not_overflow_argument' got status valid.
+[eva:progress] builtins.c:91: 
+  function exp: precondition 'not_pos_infinity_argument' got status valid.
+[eva:progress] builtins.c:91: 
+  function exp: precondition 'not_nan_argument' got status valid.
+[eva:alarm] builtins.c:94: Warning: assertion got status unknown.
+[eva:progress] builtins.c:95: Call to builtin exp
+[eva:alarm] builtins.c:95: Warning: 
+  function exp: precondition 'not_overflow_argument' got status unknown.
+[eva:progress] builtins.c:95: 
+  function exp: precondition 'not_pos_infinity_argument' got status valid.
+[eva:progress] builtins.c:95: 
+  function exp: precondition 'not_nan_argument' got status valid.
+[eva:progress] builtins.c:98: Call to builtin exp
+[eva:alarm] builtins.c:98: Warning: 
+  function exp: precondition 'not_overflow_argument' got status invalid.
+[eva:progress] builtins.c:98: 
+  function exp: no state left, precondition 'not_pos_infinity_argument' got status valid.
+[eva:progress] builtins.c:98: 
+  function exp: no state left, precondition 'not_nan_argument' got status valid.
+[eva:progress] builtins.c:102: Call to builtin log
+[eva:progress] builtins.c:102: 
+  function log: precondition 'finite_arg' got status valid.
+[eva:progress] builtins.c:102: 
+  function log: precondition 'arg_positive' got status valid.
+[eva:progress] builtins.c:103: assertion got status valid.
+[eva:progress] builtins.c:104: Call to builtin exp
+[eva:progress] builtins.c:104: 
+  function exp: precondition 'not_overflow_argument' got status valid.
+[eva:progress] builtins.c:104: 
+  function exp: precondition 'not_pos_infinity_argument' got status valid.
+[eva:progress] builtins.c:104: 
+  function exp: precondition 'not_nan_argument' got status valid.
+[eva:alarm] builtins.c:107: Warning: 
+  pointer downcast. assert (unsigned int)(&d) ≤ 2147483647;
+[eva:alarm] builtins.c:107: Warning: 
+  non-finite double value. assert \is_finite((double)((int)(&d)));
+[eva:garbled-mix:write] builtins.c:107: 
+  Assigning imprecise value to x because of arithmetic operation on addresses.
+[eva:progress] builtins.c:107: Call to builtin log
+[eva:alarm] builtins.c:107: Warning: 
+  function log: precondition 'finite_arg' got status unknown.
+[eva:alarm] builtins.c:107: Warning: 
+  function log: precondition 'arg_positive' got status unknown.
+[eva] builtins.c:107: function Frama_C_log applied to address
+[eva:alarm] builtins.c:111: Warning: 
+  accessing uninitialized left-value. assert \initialized(&x);
+[eva:progress] Recording results for main_log_exp
+[eva:progress] Done for function main_log_exp
+[eva] builtins.c:111: assertion 'Eva,initialization' got final status invalid.
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main_log_exp:
+  __fc_errno ∈ [--..--]
+  l1 ∈ {0} or UNINITIALIZED
+  l2 ∈ {1.00063188031} or UNINITIALIZED
+  l3 ∈ {1.09861228867} or UNINITIALIZED
+  l4 ∈ [2.30258509299 .. 4.60517018599] or UNINITIALIZED
+  l5 ∈ [-1.79769313486e+308 .. 709.782712893] or UNINITIALIZED
+  l6 ∈ UNINITIALIZED
+  l7 ∈
+    {{ garbled mix of &{d}
+     (origin: Arithmetic {builtins.c:107}) }} or UNINITIALIZED
+  l8 ∈ UNINITIALIZED
+  m1 ∈ {0} or UNINITIALIZED
+  m2 ∈ {1.} or UNINITIALIZED
+  m3 ∈ {1.30102999566} or UNINITIALIZED
+  m4 ∈ [1. .. 2.00432137378] or UNINITIALIZED
+  m5 ∈ [-1.79769313486e+308 .. 308.25471556] or UNINITIALIZED
+  m6 ∈ UNINITIALIZED
+  e1 ∈ {1.} or UNINITIALIZED
+  e2 ∈ {0} or UNINITIALIZED
+  e3 ∈ {2.68811714182e+43} or UNINITIALIZED
+  e4 ∈ [2.68811714182e+43 .. 1.79769313486e+308] or UNINITIALIZED
+  e5 ∈ UNINITIALIZED
+  e6 ∈ {1.79769313486e+308} or UNINITIALIZED

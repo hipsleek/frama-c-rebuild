@@ -1,0 +1,2 @@
+PLUGIN: loop-analysis
+OPT: -loop

@@ -1,0 +1,24 @@
+[e-acsl] beginning translation.
+[e-acsl] decrease.c:45: Warning: 
+  E-ACSL construct `loop variant using GMP' is not yet supported.
+  Ignoring annotation.
+[e-acsl] decrease.c:66: Warning: 
+  E-ACSL construct `decreases clause' is not yet supported.
+  Ignoring annotation.
+[e-acsl] decrease.c:63: Warning: 
+  E-ACSL construct `decreases clause' is not yet supported.
+  Ignoring annotation.
+[e-acsl] decrease.c:54: Warning: 
+  E-ACSL construct `decreases clause' is not yet supported.
+  Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] decrease.c:10: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] decrease.c:33: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] decrease.c:34: Warning: 
+  signed overflow. assert result * (int)(n - 1) <= 2147483647;
+[eva:alarm] decrease.c:90: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] decrease.c:93: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.

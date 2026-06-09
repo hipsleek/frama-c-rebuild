@@ -1,0 +1,11 @@
+[kernel] Parsing typedef_namespace_bts1500.c (with preprocessing)
+[kernel] typedef_namespace_bts1500.c:24: 
+  syntax error:
+  Location: "typedef_namespace_bts1500.c", line 24, before or at token: y
+  22      // error: digit is now a variable
+  23    #ifdef HIDING_TYPEDEF
+  24      digit y = 5;
+               ^
+  25    #endif
+  26      return x + digit+A;
+[kernel] Frama-C aborted: invalid user input.

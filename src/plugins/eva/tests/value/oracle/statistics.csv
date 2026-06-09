@@ -1,0 +1,16 @@
+alarm-count			1
+analysis-time			0.
+fun-coverage			1.
+iterations	f	statistics.i:16	8
+iterations	h	statistics.i:24	5
+iterations	h	statistics.i:26	25
+max-unrolling	h	statistics.i:24	4
+max-unrolling	h	statistics.i:26	5
+max-widenings	f	statistics.i:16	1
+memexec-hits	g		3
+memexec-misses	g		5
+memexec-misses	f		2
+memexec-misses	h		1
+memexec-misses	main		1
+partitioning-index-misses			162
+stmt-coverage			1.

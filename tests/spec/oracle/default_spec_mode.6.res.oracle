@@ -1,0 +1,4 @@
+[kernel] Parsing default_spec_mode.i (no preprocessing)
+[kernel] User Error: 'wrong_clause' is not a valid key for -generated-spec-custom.
+   Accepted keys are 'exits', 'assigns', 'requires', 'allocates' and 'terminates'.
+[kernel] Frama-C aborted: invalid user input.

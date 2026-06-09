@@ -1,0 +1,25 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing malloc7.c (with preprocessing)
+[from] Computing for function main
+[from] Computing for function realloc <-main
+[from] Done for function realloc
+[from] Computing for function free <-main
+[from] Done for function free
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function free:
+  __fc_heap_status FROM __fc_heap_status (and SELF)
+[from] Function realloc:
+  __fc_heap_status FROM __fc_heap_status (and SELF)
+  __fc_errno FROM __fc_heap_status; size
+  \result FROM __fc_heap_status; ptr; size
+[from] Function main:
+  __fc_heap_status FROM __fc_heap_status (and SELF)
+  __fc_errno FROM __fc_heap_status
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    p; q; __retres
+[inout] Inputs for function main:
+    __fc_heap_status

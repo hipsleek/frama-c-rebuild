@@ -1,0 +1,188 @@
+[kernel] Parsing value_rte.c (with preprocessing)
+[rte:annot] annotating function main
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function getchar <- main.
+  Called from value_rte.c:12.
+[eva] using specification for function getchar
+[eva:progress] Done for function getchar
+[eva:progress] value_rte.c:13: assertion 'rte,index_bound' got status valid.
+[eva:progress] value_rte.c:15: assertion 'rte,signed_overflow' got status valid.
+[eva:partition] value_rte.c:11: starting to merge loop iterations
+[eva:progress] 
+  computing for function getchar <- main.
+  Called from value_rte.c:12.
+[eva:progress] Done for function getchar
+[eva:progress] 
+  computing for function getchar <- main.
+  Called from value_rte.c:12.
+[eva:progress] Done for function getchar
+[eva:progress] 
+  computing for function getchar <- main.
+  Called from value_rte.c:12.
+[eva:progress] Done for function getchar
+[eva:progress] 
+  computing for function getchar <- main.
+  Called from value_rte.c:12.
+[eva:progress] Done for function getchar
+[eva:alarm] value_rte.c:13: Warning: 
+  assertion 'rte,index_bound' got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] value_rte.c:13: assertion 'rte,index_bound' got final status valid.
+[eva] value_rte.c:15: assertion 'rte,signed_overflow' got final status valid.
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  t[0] ∈ {1}
+   [1] ∈ {2}
+   [2] ∈ {3}
+   [3] ∈ {4}
+   [4] ∈ {5}
+  cpt ∈ {0; 1; 2; 3; 4}
+  tmp ∈ [-2147483648..4]
+  __retres ∈ {1}
+  S___fc_stdin[0..1] ∈ [--..--]
+[report] Computing properties status...
+--------------------------------------------------------------------------------
+--- Global Properties
+--------------------------------------------------------------------------------
+
+[  Valid  ] Axiomatic 'GetsLength'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'MemChr'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'MemCmp'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'MemSet'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'StrChr'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'StrCmp'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'StrLen'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'StrNCmp'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'WMemChr'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'WcsChr'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'WcsCmp'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'WcsLen'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'WcsNCmp'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'dynamic_allocation'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'format_length'
+            by Frama-C kernel.
+[  Valid  ] Axiomatic 'pipe_streams'
+            by Frama-C kernel.
+[ Extern  ] Axiom 'memchr_def'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'memcmp_strlen_left'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'memcmp_strlen_right'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'memcmp_strlen_shift_left'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'memcmp_strlen_shift_right'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'memcmp_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'memset_def'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'never_allocable'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strchr_def'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strcmp_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_at_null'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_before_null'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_create'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_create_shift'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_neg'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_not_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_pos_or_null'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_shift'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_sup'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strlen_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'strncmp_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcschr_def'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcscmp_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_at_null'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_before_null'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_create'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_create_shift'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_neg'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_not_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_pos_or_null'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_shift'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_sup'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcslen_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wcsncmp_zero'
+            Unverifiable but considered Valid.
+[ Extern  ] Axiom 'wmemchr_def'
+            Unverifiable but considered Valid.
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'getchar'
+--------------------------------------------------------------------------------
+
+[ Extern  ] Assigns ("FRAMAC_SHARE/libc/stdio.h", line 332)
+            Unverifiable but considered Valid.
+[ Extern  ] Froms ("FRAMAC_SHARE/libc/stdio.h", line 332)
+            Unverifiable but considered Valid.
+[ Extern  ] Froms ("FRAMAC_SHARE/libc/stdio.h", line 332)
+            Unverifiable but considered Valid.
+[  Valid  ] Default behavior
+            by Frama-C kernel.
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'main'
+--------------------------------------------------------------------------------
+
+[  Valid  ] Assertion 'rte,index_bound' ("value_rte.c", line 13)
+            by Eva.
+[    -    ] Assertion 'rte,index_bound' ("value_rte.c", line 13)
+            tried with Eva.
+[  Valid  ] Assertion 'rte,signed_overflow' ("value_rte.c", line 15)
+            by Eva.
+
+--------------------------------------------------------------------------------
+--- Status Report Summary
+--------------------------------------------------------------------------------
+    19 Completely validated
+    38 Considered valid
+     1 To be validated
+    58 Total
+--------------------------------------------------------------------------------

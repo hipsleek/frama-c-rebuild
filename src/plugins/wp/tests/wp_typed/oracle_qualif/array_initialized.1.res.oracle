@@ -1,0 +1,34 @@
+# frama-c -wp [...]
+[kernel] Parsing array_initialized.c (with preprocessing)
+[kernel] array_initialized.c:13: Warning: Too many initializers for array g
+[wp] Running WP plugin...
+[wp] [Valid] Goal main1_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal main1_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal main2_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal main2_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal main3_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal main3_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal main_pointer_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal main_pointer_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal simpl_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal simpl_terminates (Cfg) (Trivial)
+[wp] 5 goals scheduled
+[wp] [Valid] typed_main1_assert (Alt-Ergo) (Cached)
+[wp] [Valid] typed_main2_assert (Alt-Ergo) (Cached)
+[wp] [Valid] typed_main3_assert (Qed)
+[wp] [Valid] typed_main_pointer_assert (Alt-Ergo) (Cached)
+[wp] [Valid] typed_simpl_ensures (Alt-Ergo) (Cached)
+[wp] Proved goals:   15 / 15
+  Terminating:     5
+  Unreachable:     5
+  Qed:             1
+  Alt-Ergo:        4
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  main1                     2        1        3       100%
+  main2                     2        1        3       100%
+  main3                     3        -        3       100%
+  main_pointer              2        1        3       100%
+  simpl                     2        1        3       100%
+------------------------------------------------------------

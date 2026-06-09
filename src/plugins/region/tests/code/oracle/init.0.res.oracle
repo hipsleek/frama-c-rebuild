@@ -1,0 +1,18 @@
+[kernel] Parsing init.i (no preprocessing)
+[region] init.i:12: Warning: garbage has no object to apply on
+[region] Function job1:
+  R0001: ---- a s[4] 64b { .f: R0002; .g: R0003; } (allocated) ;
+  R0002: I--- (int) 32b (allocated) ;
+  R0003: I--- (int) 32b (allocated) ;
+[region] annotating function job1
+[region] Function job2:
+  R0001: ---- a s[4] 64b { .f: R0002; .g: R0003; } (allocated) (garbage) ;
+  R0002: I--- (int) 32b (allocated) (garbage) ;
+  R0003: I--- (int) 32b (allocated) (garbage) ;
+[region] annotating function job2
+[region] Function job3:
+  R0001: ---- a s[4] 64b { .f: R0002; .g: R0003; } (allocated) ;
+  R0002: I--- (int) 32b (allocated) ;
+  R0003: I--- (int) 32b (allocated) ;
+  R0004: ---- k 32b (singleton) ;
+[region] annotating function job3

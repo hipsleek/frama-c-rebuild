@@ -1,0 +1,19 @@
+# frama-c -wp -wp-model 'Typed (Ref)' [...]
+[kernel] Parsing bts788.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal main_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal main_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 3 goals scheduled
+[wp] [Valid] typed_ref_main_ensures_I0 (Qed)
+[wp] [Valid] typed_ref_main_ensures_I1 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ref_main_ensures_I2 (Alt-Ergo) (Cached)
+[wp] Proved goals:    5 / 5
+  Terminating:     1
+  Unreachable:     1
+  Qed:             1
+  Alt-Ergo:        2
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  main                      3        2        5       100%
+------------------------------------------------------------

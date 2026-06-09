@@ -1,0 +1,4 @@
+PLUGIN: rtegen
+MACRO: RTE_TEST -rte -no-warn-invalid-pointer
+
+OPT: @RTE_TEST@

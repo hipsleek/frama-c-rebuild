@@ -1,0 +1,18 @@
+###########################
+# HEADER_SPEC: AORAI_LGPL #
+###########################
+
+dune-project header_spec=AORAI_LGPL
+dune header_spec=AORAI_LGPL
+
+*.ml header_spec=AORAI_LGPL
+*.mli header_spec=AORAI_LGPL
+*.mll header_spec=AORAI_LGPL
+*.mly header_spec=AORAI_LGPL
+
+########################
+# HEADER_SPEC: .ignore #
+########################
+
+/VERSIONS.txt header_spec=.ignore
+/tests/**/* header_spec=.ignore

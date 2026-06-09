@@ -1,0 +1,146 @@
+.cg-graph-computing {
+  max-width: 90%;
+  max-height: 200px;
+  fill: var(--info-text-discrete);
+  margin: auto;
+}
+
+.cg-graph-container {
+  position: relative;
+  width: 100%;
+  height:100%;
+
+  .dome-xPanel-list {
+    width: 100%;
+  }
+
+  .cg-panel-element {
+    margin:5px;
+    background-color: var(--background-alterning-even);
+    overflow-x: hidden;
+    border-radius: 0 10px;
+
+    .cg-panel-element-name {
+      background-color: var(--background-alterning-odd);
+      font-weight: bold;
+      width: 100%;
+      padding: 5px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: var(--background-interaction);
+      }
+    }
+
+    .cg-panel-element-content {
+      padding: 4px;
+
+      .cg-panel-priority {
+        fill: var(--warning);
+      }
+
+      .cg-panel-taint {
+        padding: 2px;
+        margin-bottom: 5px;
+        border-radius: 7px;
+        background-color: var(--background-softer);
+      }
+
+      .cg-panel-errors {
+        display: flex;
+        flex-direction: column;
+        border-radius: 0 7px;
+
+        background-color: var(--background-softer);
+        .cg-panel-error {
+          display: flex;
+          flex-direction:row;
+          align-items: center;
+
+          &:hover,
+          &:hover label {
+            background-color: var(--background-profound);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .cg-filter-panel {
+    display: flex;
+
+    .dome-xToolBar-buttongroup button:first-child {
+      border-right: solid 1px rgb(from var(--text) r g b / .3);
+    }
+  }
+
+  .node-graph {
+    display: flex;
+    align-items: center;
+    background-color: rgb(from var(--background-profound) r g b / .5);
+    padding: .5em;
+    border-radius: .5em;
+    pointer-events: auto;
+
+    &:hover {
+      background-color: var(--background-softer);
+      cursor: pointer;
+    }
+
+    &.node-selected {
+      border: solid var(--activated-button-color) 2px;
+    }
+  }
+
+  .cg-display-mode {
+    display: flex;
+  }
+
+}
+
+div.cg-spinner {
+  padding-left: 5px;
+
+  .dome-xSpinner {
+    width: 60px;
+  }
+}
+
+.cg-three-states {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .cg-number-button {
+    display: flex;
+    flex-direction:row;
+    height: 22px;
+
+    .cg-plus-minus {
+      margin: 0;
+      padding: 2px;
+    }
+  }
+
+  .dome-xToolBar-control label:hover,
+  .dome-xToolBar-control:hover {
+    cursor: pointer;
+  }
+
+  .three-button-label,
+  .three-button-label:hover {
+    background: none;
+  }
+
+  .three-button-label:hover,
+  .three-button-label label:hover {
+    cursor: default;
+  }
+
+  .dome-xToolBar-buttongroup {
+    padding: 0;
+    margin: 0;
+    border-bottom: solid 1px var(--selected-button-img);
+  }
+}

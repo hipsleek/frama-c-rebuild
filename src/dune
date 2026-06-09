@@ -1,0 +1,66 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "Frama-C:" %{lib-available:frama-c.kernel} "\n")
+          (echo "  - str:" %{lib-available:str} "\n")
+          (echo "  - unix:" %{lib-available:unix} "\n")
+          (echo "  - zarith:" %{lib-available:zarith} "\n")
+          (echo "  - ocamlgraph:" %{lib-available:ocamlgraph} "\n")
+          (echo "  - dynlink:" %{lib-available:dynlink} "\n")
+          (echo "  - bytes:" %{lib-available:bytes} "\n")
+          (echo "  - yojson:" %{lib-available:yojson} "\n")
+          (echo "  - yaml.unix:" %{lib-available:yaml.unix} "\n")
+          (echo "  - fpath:" %{lib-available:fpath} "\n")
+          (echo "  - menhirLib:" %{lib-available:menhirLib} "\n")
+          (echo "  - dune-site:" %{lib-available:dune-site} "\n")
+          (echo "  - dune-site.plugins:" %{lib-available:dune-site.plugins} "\n")
+          (echo "  - ppx_deriving.eq:" %{lib-available:ppx_deriving.eq} "\n")
+          (echo "  - ppx_deriving.show:" %{lib-available:ppx_deriving.show} "\n")
+          (echo "  - ppx_deriving.ord:" %{lib-available:ppx_deriving.ord} "\n")
+          (echo "  - ppx_deriving.make:" %{lib-available:ppx_deriving.make} "\n")
+          (echo "  - ppx_deriving_yaml:" %{lib-available:ppx_deriving_yaml} "\n")
+          (echo "  - ppx_inline_test:" %{lib-available:ppx_inline_test} "\n")
+          (echo "  - ppx_z_literals:" %{lib-available:frama-c.ppx_z_literals} "\n")
+          (echo "  - camlzip:" %{lib-available:zip} "\n")
+  )
+  )
+)
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c.kernel})))
+ (action (echo "WARNING: Frama-C disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+(library
+  (name frama_c_kernel)
+  (public_name frama-c.kernel)
+  (foreign_stubs (language c) (names c_bindings floating_point))
+  (flags :standard -w -9)
+  (libraries frama-c.init fpath str unix zarith ocamlgraph dynlink bytes yaml.unix yojson menhirLib dune-site dune-site.plugins zip frama-c.fc_internal_z)
+  (instrumentation (backend landmarks))
+  (instrumentation (backend bisect_ppx))
+  (inline_tests (libraries frama-c.init))
+  (preprocess (pps ppx_deriving.eq ppx_deriving.show ppx_deriving.make ppx_deriving.ord ppx_deriving_yaml ppx_inline_test frama-c.ppx_z_literals))
+)
+
+(generate_sites_module (module config_data) (sites frama-c) (plugins (frama-c plugins)))
+
+(include_subdirs unqualified)
+
+(alias
+  (name all)
+  (deps (file frama_c_kernel.cma)(file frama_c_kernel.cmxa))
+)

@@ -1,0 +1,30 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing struct1.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+[eva:progress] struct1.c:24: assertion got status valid.
+[eva:alarm] struct1.c:26: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  s.s_x ∈ {42}
+   .s_f ∈ {42.}
+  a.a_arr[0] ∈ {0}
+   .a_arr[1] ∈ {1}
+   .a_arr[2] ∈ [--..--]
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    s; a; __retres
+[inout] Inputs for function main:
+    secret

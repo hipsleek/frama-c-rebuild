@@ -1,0 +1,11 @@
+[kernel] Parsing generic.c (with preprocessing)
+[kernel] generic.c:43: User Error: 
+  multiple compatible types in _Generic selection:
+  'my_uint' and 'unsigned int'
+  41    #ifdef TOO_MANY_COMPATIBLE
+  42      // compatibility via typedef
+  43      int a = _Generic(42, my_uint: 1, unsigned int: 2);
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  44    #endif
+  45    #ifdef TOO_MANY_COMPATIBLE2
+[kernel] Frama-C aborted: invalid user input.

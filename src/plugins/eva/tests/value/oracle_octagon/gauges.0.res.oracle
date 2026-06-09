@@ -1,0 +1,17 @@
+279,280d278
+< [eva:alarm] gauges.c:201: Warning: 
+<   signed overflow. assert -2147483648 ≤ numNonZero - 1;
+303,307d300
+< [eva:show] gauges.c:218: Frama_C_show_each:
+< [eva:show] gauges.c:218: Frama_C_show_each:
+< [eva:show] gauges.c:218: Frama_C_show_each:
+< [eva:alarm] gauges.c:220: Warning: 
+<   signed overflow. assert -2147483648 ≤ n - 1;
+743c736
+<   numNonZero ∈ [-2147483648..8]
+---
+>   numNonZero ∈ {-1}
+754c747
+<   n ∈ [-2147483648..99]
+---
+>   n ∈ {-1}

@@ -1,0 +1,14 @@
+[kernel] Parsing no_prototype.i (no preprocessing)
+[kernel:typing:no-proto] no_prototype.i:6: Warning: 
+  Function foo is declared without prototype.
+  Its formals will be inferred from actual arguments at first call.
+  Declare it as foo(void) if the function does not take any parameters.
+[kernel] no_prototype.i:11: User Error: 
+  Declaration of foo does not match previous declaration from no_prototype.i:6:6-9 (different number of arguments).
+  9         foo();
+  10    }
+  11    void foo(int a) {
+             ^^^
+  12      int i = a ;
+  13    }
+[kernel] Frama-C aborted: invalid user input.

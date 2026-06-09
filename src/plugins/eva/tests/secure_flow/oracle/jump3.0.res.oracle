@@ -1,0 +1,63 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing jump3.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+  one ∈ [--..--]
+  two ∈ [--..--]
+  three ∈ [--..--]
+[eva:progress] jump3.c:33: assertion got status valid.
+[eva:progress] 
+  computing for function compute <- main.
+  Called from jump3.c:34.
+[eva:secure-flow:condition] jump3.c:12: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:secure-flow:condition] jump3.c:16: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:secure-flow:condition] jump3.c:20: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:secure-flow:condition] jump3.c:23: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:progress] Recording results for compute
+[eva:progress] Done for function compute
+[eva:alarm] jump3.c:35: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function compute:
+  one ∈ [--..--]
+  two ∈ [--..--]
+  three ∈ [--..--]
+  __retres ∈ [--..--]
+[eva:final-states] Values at end of function main:
+  one ∈ [--..--]
+  two ∈ [--..--]
+  three ∈ [--..--]
+  result ∈ [--..--]
+[from] Computing for function compute
+[from] Done for function compute
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function compute:
+  one FROM n (and SELF)
+  two FROM n (and SELF)
+  three FROM n (and SELF)
+  \result FROM secret; one; two; n
+[from] Function main:
+  one FROM one (and SELF)
+  two FROM one (and SELF)
+  three FROM one (and SELF)
+  \result FROM secret; one; two
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function compute:
+    one; two; three; __retres
+[inout] Inputs for function compute:
+    secret; one; two
+[inout] Out (internal) for function main:
+    one; two; three; result
+[inout] Inputs for function main:
+    secret; one; two

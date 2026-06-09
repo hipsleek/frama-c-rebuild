@@ -1,0 +1,1049 @@
+# frama-c -wp -wp-model 'Region' [...]
+[kernel] Parsing compound_assigns.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal copy_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal copy_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal init_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal init_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal swap_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal swap_terminates (Cfg) (Trivial)
+------------------------------------------------------------
+  Function copy
+------------------------------------------------------------
+
+Cluster Compound {
+  
+  Function Load_R0003_Init_S1_A (p_1 : addr) (Minit_6 : bool[addr])
+    (Minit_7 : bool[addr]) : Init_S1_A
+    = {
+         Init_F1_A_f =
+           (Array_R0004_sint32_init (shiftfield_F1_A_f p_1) 4 Minit_6) ;
+         Init_F1_A_g = Minit_7[(shiftfield_F1_A_g p_1)]
+      }
+  
+  Function Array_R0004_sint32_init (p_1 : addr) (n_1 : int)
+    (Minit_3 : bool[addr]) : bool[]
+  
+  Function Load_R0003_S1_A (p_1 : addr) (M0004_sint32_0 : int[addr])
+    (M0005_float64_0 : f64[addr]) : S1_A
+    = {
+         F1_A_f =
+           (Array_R0004_sint32 (shiftfield_F1_A_f p_1) 4 M0004_sint32_0) ;
+         F1_A_g = M0005_float64_0[(shiftfield_F1_A_g p_1)]
+      }
+  
+  Function Array_R0004_sint32 (p_1 : addr) (n_1 : int)
+    (M0004_sint32_0 : int[addr]) : int[]
+  
+  Axiom Load_R0003_Init_S1_A_framed:
+    forall Minit_8: bool[addr].
+    forall Minit_9: bool[addr].
+    forall Minit_10: bool[addr].
+    forall Minit_11: bool[addr].
+    forall p_1: addr.
+    (eqmem Minit_8 Minit_10 p_1 24) -> (eqmem Minit_9 Minit_11 p_1 24)
+    -> ((Load_R0003_Init_S1_A p_1 Minit_10 Minit_11)=
+        (Load_R0003_Init_S1_A p_1 Minit_8 Minit_9))
+  
+  Axiom Array_R0004_sint32_init_framed:
+    forall Minit_4: bool[addr].
+    forall Minit_5: bool[addr].
+    forall n_1: int.
+    forall p_1: addr.
+    (eqmem Minit_4 Minit_5 p_1 (4*n_1))
+    -> ((Array_R0004_sint32_init p_1 n_1 Minit_5)=
+        (Array_R0004_sint32_init p_1 n_1 Minit_4))
+  
+  Axiom Array_R0004_sint32_init_access:
+    forall Minit_3: bool[addr].
+    forall i_1: int.
+    forall n_1: int.
+    forall p_1: addr.
+    [ (Array_R0004_sint32_init p_1 n_1 Minit_3)[i_1] ]
+    (0<=i_1) -> (i_1<n_1)
+    -> ((Array_R0004_sint32_init p_1 n_1 Minit_3)[i_1]=
+        Minit_3[(shift_sint32 p_1 i_1)])
+  
+  Axiom Load_R0003_S1_A_framed:
+    forall M0004_sint32_1: int[addr].
+    forall M0004_sint32_2: int[addr].
+    forall M0005_float64_1: f64[addr].
+    forall M0005_float64_2: f64[addr].
+    forall p_1: addr.
+    (eqmem M0004_sint32_1 M0004_sint32_2 p_1 24)
+    -> (eqmem M0005_float64_1 M0005_float64_2 p_1 24)
+    -> ((Load_R0003_S1_A p_1 M0004_sint32_2 M0005_float64_2)=
+        (Load_R0003_S1_A p_1 M0004_sint32_1 M0005_float64_1))
+  
+  Axiom Array_R0004_sint32_framed:
+    forall M0004_sint32_1: int[addr].
+    forall M0004_sint32_2: int[addr].
+    forall n_1: int.
+    forall p_1: addr.
+    (eqmem M0004_sint32_1 M0004_sint32_2 p_1 (4*n_1))
+    -> ((Array_R0004_sint32 p_1 n_1 M0004_sint32_2)=
+        (Array_R0004_sint32 p_1 n_1 M0004_sint32_1))
+  
+  Axiom Array_R0004_sint32_access:
+    forall M0004_sint32_0: int[addr].
+    forall i_1: int.
+    forall n_1: int.
+    forall p_1: addr.
+    [ (Array_R0004_sint32 p_1 n_1 M0004_sint32_0)[i_1] ]
+    (0<=i_1) -> (i_1<n_1)
+    -> ((Array_R0004_sint32 p_1 n_1 M0004_sint32_0)[i_1]=
+        M0004_sint32_0[(shift_sint32 p_1 i_1)])
+  
+}
+
+Cluster Globals {
+  
+  Function L_tmp_0_44 : int = 44
+  
+  Function L_s_43 : int = 43
+  
+  Function L_tmp_42 : int = 42
+  
+  Function L_w_41 : int = 41
+  
+  Function P_r_39 : int = 39
+  
+  Function P_q_38 : int = 38
+  
+  Function P_p_37 : int = 37
+  
+  Axiom L_tmp_0_44_is_pointer:
+    (statically_allocated L_tmp_0_44)
+    -> (is_uint64 (int_of_addr (global L_tmp_0_44)))
+  
+  Axiom L_tmp_0_44_linked:
+    forall t_0:int[]. (linked t_0) -> (t_0[L_tmp_0_44]=0)
+  
+  Axiom L_tmp_0_44_region: (region L_tmp_0_44)=1
+  
+  Axiom L_tmp_0_44_static_alloc: (statically_allocated L_tmp_0_44)
+  
+  Axiom L_s_43_is_pointer:
+    (statically_allocated L_s_43)
+    -> (is_uint64 (int_of_addr (global L_s_43)))
+  
+  Axiom L_s_43_linked: forall t_0:int[]. (linked t_0) -> (t_0[L_s_43]=0)
+  
+  Axiom L_s_43_region: (region L_s_43)=1
+  
+  Axiom L_s_43_static_alloc: (statically_allocated L_s_43)
+  
+  Axiom L_tmp_42_is_pointer:
+    (statically_allocated L_tmp_42)
+    -> (is_uint64 (int_of_addr (global L_tmp_42)))
+  
+  Axiom L_tmp_42_linked: forall t_0:int[]. (linked t_0) -> (t_0[L_tmp_42]=0)
+  
+  Axiom L_tmp_42_region: (region L_tmp_42)=1
+  
+  Axiom L_tmp_42_static_alloc: (statically_allocated L_tmp_42)
+  
+  Axiom L_w_41_is_pointer:
+    (statically_allocated L_w_41)
+    -> (is_uint64 (int_of_addr (global L_w_41)))
+  
+  Axiom L_w_41_linked: forall t_0:int[]. (linked t_0) -> (t_0[L_w_41]=0)
+  
+  Axiom L_w_41_region: (region L_w_41)=1
+  
+  Axiom L_w_41_static_alloc: (statically_allocated L_w_41)
+  
+  Axiom P_r_39_is_pointer:
+    (statically_allocated P_r_39)
+    -> (is_uint64 (int_of_addr (global P_r_39)))
+  
+  Axiom P_r_39_binit: (binit P_r_39)
+  
+  Axiom P_r_39_linked: forall t_0:int[]. (linked t_0) -> (t_0[P_r_39]=0)
+  
+  Axiom P_r_39_region: (region P_r_39)=2
+  
+  Axiom P_r_39_static_alloc: (statically_allocated P_r_39)
+  
+  Axiom P_q_38_is_pointer:
+    (statically_allocated P_q_38)
+    -> (is_uint64 (int_of_addr (global P_q_38)))
+  
+  Axiom P_q_38_binit: (binit P_q_38)
+  
+  Axiom P_q_38_linked: forall t_0:int[]. (linked t_0) -> (t_0[P_q_38]=0)
+  
+  Axiom P_q_38_region: (region P_q_38)=2
+  
+  Axiom P_q_38_static_alloc: (statically_allocated P_q_38)
+  
+  Axiom P_p_37_is_pointer:
+    (statically_allocated P_p_37)
+    -> (is_uint64 (int_of_addr (global P_p_37)))
+  
+  Axiom P_p_37_binit: (binit P_p_37)
+  
+  Axiom P_p_37_linked: forall t_0:int[]. (linked t_0) -> (t_0[P_p_37]=0)
+  
+  Axiom P_p_37_region: (region P_p_37)=2
+  
+  Axiom P_p_37_static_alloc: (statically_allocated P_p_37)
+  
+}
+
+Cluster Matrix {
+  
+  Predicate EqArray_int (n_0 : int) (T_0 : int[]) (T_1 : int[])
+    = forall i_0:int. (0<=i_0) -> (i_0<n_0) -> (T_1[i_0]=T_0[i_0])
+  
+  Predicate IsArray_sint32 (T_0 : int[])
+    = forall i_0:int. (is_sint32 T_0[i_0])
+  
+}
+
+Cluster MemBytes.PointersProperties {
+  
+  Predicate framed (m_0 : int[][])
+    = forall a_0:addr.
+      ((region (base a_0))<=0)
+      -> ((region (base (addr_of_int (read_uint64 m_0 a_0))))<=0)
+  
+  Axiom pointers_int_range:
+    forall a_1: addr.
+    (statically_allocated (base a_1)) -> (is_uint64 (int_of_addr a_1))
+  
+}
+
+Cluster S1_A {
+  
+  Type S1_A = { F1_A_f : int[]; F1_A_g : f64; }
+  
+  Predicate EqS1_A (S_0 : S1_A) (S_1 : S1_A)
+    = (S_1.F1_A_g=S_0.F1_A_g) /\ (EqArray_int 4 S_0.F1_A_f S_1.F1_A_f)
+  
+  Predicate IsS1_A (S_0 : S1_A) = (IsArray_sint32 S_0.F1_A_f)
+  
+}
+
+Cluster Shifts {
+  
+  Function shiftfield_F1_A_g (p_1 : addr) : addr = (shift p_1 16)
+  
+  Function shift_sint32 (p_0 : addr) (k_0 : int) : addr = (shift p_0 (4*k_0))
+  
+  Function shiftfield_F1_A_f (p_0 : addr) : addr = (shift p_0 0)
+  
+}
+
+Goal Termination-condition (<generated by kernel>) in 'copy':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'copy':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Assertion 'Kept' ("compound_assigns.i", line 70, characters 21-36):
+Let a = memcpy(M0004_sint32_0, tmp_0, M0004_sint32_0, p, 24).
+Let a_1 = memcpy(M0005_float64_0, tmp_0, M0005_float64_0, p, 24).
+Let a_2 = Load_R0003_S1_A(s, M0004_sint32_0, M0005_float64_0).
+Let a_3 = Load_R0003_S1_A(s, a, a_1).
+Assume {
+  Type: is_sint32(side_0) /\ IsS1_A(a_2) /\ IsS1_A(a_3).
+  (* Heap *)
+  Type: (region(p.base) <= 0) /\ (region(q.base) <= 0) /\
+      (region(r.base) <= 0) /\ (region(s.base) <= 0) /\
+      (region(tmp_0.base) <= 0).
+  (* Pre-condition *)
+  Have: separated(p, 24, q, 24) /\ separated(p, 24, r, 24) /\
+      separated(q, 24, r, 24).
+  If side_0 != 0
+  Then { Have: tmp_0 = r. }
+  Else { Have: tmp_0 = q. }
+  If side_0 != 0
+  Then { Have: s = q. }
+  Else { Have: s = r. }
+  Have: Load_R0003_S1_A(tmp_0, a, a_1) =
+      Load_R0003_S1_A(p, M0004_sint32_0, M0005_float64_0).
+}
+Prove: EqS1_A(a_3, a_2).
+
+------------------------------------------------------------
+
+Goal Assertion 'Kept' ("compound_assigns.i", line 72, characters 21-36):
+Let a = memcpy(M0004_sint32_0, tmp_0, M0004_sint32_0, p, 24).
+Let a_1 = memcpy(a, p, a, s, 24).
+Let a_2 = memcpy(M0005_float64_0, tmp_0, M0005_float64_0, p, 24).
+Let a_3 = memcpy(a_2, p, a_2, s, 24).
+Let a_4 = Load_R0003_S1_A(s, a, a_2).
+Let a_5 = Load_R0003_S1_A(s, M0004_sint32_0, M0005_float64_0).
+Let a_6 = Load_R0003_S1_A(s, a_1, a_3).
+Assume {
+  Type: is_sint32(side_0) /\ IsS1_A(a_5) /\ IsS1_A(a_4) /\ IsS1_A(a_6).
+  (* Heap *)
+  Type: (region(p.base) <= 0) /\ (region(q.base) <= 0) /\
+      (region(r.base) <= 0) /\ (region(s.base) <= 0) /\
+      (region(tmp_0.base) <= 0).
+  (* Pre-condition *)
+  Have: separated(p, 24, q, 24) /\ separated(p, 24, r, 24) /\
+      separated(q, 24, r, 24).
+  If side_0 != 0
+  Then { Have: tmp_0 = r. }
+  Else { Have: tmp_0 = q. }
+  If side_0 != 0
+  Then { Have: s = q. }
+  Else { Have: s = r. }
+  Have: Load_R0003_S1_A(tmp_0, a, a_2) =
+      Load_R0003_S1_A(p, M0004_sint32_0, M0005_float64_0).
+  (* Assertion 'Kept' *)
+  Have: a_4 = a_5.
+  Have: Load_R0003_S1_A(p, a_1, a_3) = a_4.
+}
+Prove: EqS1_A(a_6, a_5).
+
+------------------------------------------------------------
+
+Goal Assigns ("compound_assigns.i", line 52, characters 11-13) in 'copy' (1/6):
+Effect at line 66
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assigns ("compound_assigns.i", line 52, characters 11-13) in 'copy' (2/6):
+Effect at line 66
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assigns ("compound_assigns.i", line 52, characters 11-13) in 'copy' (3/6):
+Effect at line 67
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assigns ("compound_assigns.i", line 52, characters 11-13) in 'copy' (4/6):
+Effect at line 67
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assigns ("compound_assigns.i", line 52, characters 11-13) in 'copy' (5/6):
+Effect at line 69
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assigns ("compound_assigns.i", line 52, characters 11-13) in 'copy' (6/6):
+Effect at line 71
+Prove: true.
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function copy with behavior Left
+------------------------------------------------------------
+
+Goal Post-condition for 'Left' 'CopyQ' in 'copy':
+Let a = memcpy(M0004_sint32_0, r, M0004_sint32_0, p, 24).
+Let a_1 = memcpy(a, p, a, q, 24).
+Let a_2 = memcpy(M0005_float64_0, r, M0005_float64_0, p, 24).
+Let a_3 = memcpy(a_2, p, a_2, q, 24).
+Let a_4 = Load_R0003_S1_A(q, a_1, a_3).
+Let a_5 = Load_R0003_S1_A(q, M0004_sint32_0, M0005_float64_0).
+Let a_6 = Load_R0003_S1_A(p, a_1, a_3).
+Let a_7 = Load_R0003_S1_A(q, a, a_2).
+Let a_8 = Load_R0003_S1_A(p, M0004_sint32_0, M0005_float64_0).
+Assume {
+  Type: is_sint32(side_0) /\ IsS1_A(a_8) /\ IsS1_A(a_5) /\ IsS1_A(a_7) /\
+      IsS1_A(a_6) /\ IsS1_A(a_4) /\ IsS1_A(Load_R0003_S1_A(r, a_1, a_3)).
+  (* Heap *)
+  Type: (region(p.base) <= 0) /\ (region(q.base) <= 0) /\
+      (region(r.base) <= 0).
+  (* Pre-condition *)
+  Have: separated(p, 24, q, 24) /\ separated(p, 24, r, 24) /\
+      separated(q, 24, r, 24).
+  (* Pre-condition for 'Left' *)
+  Have: side_0 != 0.
+  Have: Load_R0003_S1_A(r, a, a_2) = a_8.
+  (* Assertion 'Kept' *)
+  Have: a_7 = a_5.
+  Have: a_6 = a_7.
+  (* Assertion 'Kept' *)
+  Have: a_4 = a_5.
+}
+Prove: EqS1_A(a_6, a_5).
+
+------------------------------------------------------------
+
+Goal Post-condition for 'Left' 'KeepQ' in 'copy':
+Let a = memcpy(M0004_sint32_0, r, M0004_sint32_0, p, 24).
+Let a_1 = memcpy(a, p, a, q, 24).
+Let a_2 = memcpy(M0005_float64_0, r, M0005_float64_0, p, 24).
+Let a_3 = memcpy(a_2, p, a_2, q, 24).
+Let a_4 = Load_R0003_S1_A(q, a_1, a_3).
+Let a_5 = Load_R0003_S1_A(q, M0004_sint32_0, M0005_float64_0).
+Let a_6 = Load_R0003_S1_A(p, a_1, a_3).
+Let a_7 = Load_R0003_S1_A(q, a, a_2).
+Let a_8 = Load_R0003_S1_A(p, M0004_sint32_0, M0005_float64_0).
+Assume {
+  Type: is_sint32(side_0) /\ IsS1_A(a_8) /\ IsS1_A(a_5) /\ IsS1_A(a_7) /\
+      IsS1_A(a_6) /\ IsS1_A(a_4) /\ IsS1_A(Load_R0003_S1_A(r, a_1, a_3)).
+  (* Heap *)
+  Type: (region(p.base) <= 0) /\ (region(q.base) <= 0) /\
+      (region(r.base) <= 0).
+  (* Pre-condition *)
+  Have: separated(p, 24, q, 24) /\ separated(p, 24, r, 24) /\
+      separated(q, 24, r, 24).
+  (* Pre-condition for 'Left' *)
+  Have: side_0 != 0.
+  Have: Load_R0003_S1_A(r, a, a_2) = a_8.
+  (* Assertion 'Kept' *)
+  Have: a_7 = a_5.
+  Have: a_6 = a_7.
+  (* Assertion 'Kept' *)
+  Have: a_4 = a_5.
+}
+Prove: EqS1_A(a_4, a_5).
+
+------------------------------------------------------------
+
+Goal Post-condition for 'Left' 'SaveR' in 'copy':
+Let a = memcpy(M0004_sint32_0, r, M0004_sint32_0, p, 24).
+Let a_1 = memcpy(a, p, a, q, 24).
+Let a_2 = memcpy(M0005_float64_0, r, M0005_float64_0, p, 24).
+Let a_3 = memcpy(a_2, p, a_2, q, 24).
+Let a_4 = Load_R0003_S1_A(q, a_1, a_3).
+Let a_5 = Load_R0003_S1_A(q, M0004_sint32_0, M0005_float64_0).
+Let a_6 = Load_R0003_S1_A(p, a_1, a_3).
+Let a_7 = Load_R0003_S1_A(q, a, a_2).
+Let a_8 = Load_R0003_S1_A(p, M0004_sint32_0, M0005_float64_0).
+Let a_9 = Load_R0003_S1_A(r, a_1, a_3).
+Assume {
+  Type: is_sint32(side_0) /\ IsS1_A(a_8) /\ IsS1_A(a_5) /\ IsS1_A(a_7) /\
+      IsS1_A(a_6) /\ IsS1_A(a_4) /\ IsS1_A(a_9).
+  (* Heap *)
+  Type: (region(p.base) <= 0) /\ (region(q.base) <= 0) /\
+      (region(r.base) <= 0).
+  (* Pre-condition *)
+  Have: separated(p, 24, q, 24) /\ separated(p, 24, r, 24) /\
+      separated(q, 24, r, 24).
+  (* Pre-condition for 'Left' *)
+  Have: side_0 != 0.
+  Have: Load_R0003_S1_A(r, a, a_2) = a_8.
+  (* Assertion 'Kept' *)
+  Have: a_7 = a_5.
+  Have: a_6 = a_7.
+  (* Assertion 'Kept' *)
+  Have: a_4 = a_5.
+}
+Prove: EqS1_A(a_9, a_8).
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function copy with behavior Right
+------------------------------------------------------------
+
+Goal Post-condition for 'Right' 'CopyR' in 'copy':
+Let a = memcpy(M0004_sint32_0, q, M0004_sint32_0, p, 24).
+Let a_1 = memcpy(a, p, a, r, 24).
+Let a_2 = memcpy(M0005_float64_0, q, M0005_float64_0, p, 24).
+Let a_3 = memcpy(a_2, p, a_2, r, 24).
+Let a_4 = Load_R0003_S1_A(r, a_1, a_3).
+Let a_5 = Load_R0003_S1_A(r, M0004_sint32_0, M0005_float64_0).
+Let a_6 = Load_R0003_S1_A(p, a_1, a_3).
+Let a_7 = Load_R0003_S1_A(r, a, a_2).
+Let a_8 = Load_R0003_S1_A(p, M0004_sint32_0, M0005_float64_0).
+Assume {
+  Type: IsS1_A(a_8) /\ IsS1_A(a_5) /\ IsS1_A(a_7) /\ IsS1_A(a_6) /\
+      IsS1_A(Load_R0003_S1_A(q, a_1, a_3)) /\ IsS1_A(a_4).
+  (* Heap *)
+  Type: (region(p.base) <= 0) /\ (region(q.base) <= 0) /\
+      (region(r.base) <= 0).
+  (* Pre-condition *)
+  Have: separated(p, 24, q, 24) /\ separated(p, 24, r, 24) /\
+      separated(q, 24, r, 24).
+  Have: Load_R0003_S1_A(q, a, a_2) = a_8.
+  (* Assertion 'Kept' *)
+  Have: a_7 = a_5.
+  Have: a_6 = a_7.
+  (* Assertion 'Kept' *)
+  Have: a_4 = a_5.
+}
+Prove: EqS1_A(a_6, a_5).
+
+------------------------------------------------------------
+
+Goal Post-condition for 'Right' 'SaveQ' in 'copy':
+Let a = memcpy(M0004_sint32_0, q, M0004_sint32_0, p, 24).
+Let a_1 = memcpy(a, p, a, r, 24).
+Let a_2 = memcpy(M0005_float64_0, q, M0005_float64_0, p, 24).
+Let a_3 = memcpy(a_2, p, a_2, r, 24).
+Let a_4 = Load_R0003_S1_A(r, a_1, a_3).
+Let a_5 = Load_R0003_S1_A(r, M0004_sint32_0, M0005_float64_0).
+Let a_6 = Load_R0003_S1_A(p, a_1, a_3).
+Let a_7 = Load_R0003_S1_A(r, a, a_2).
+Let a_8 = Load_R0003_S1_A(p, M0004_sint32_0, M0005_float64_0).
+Let a_9 = Load_R0003_S1_A(q, a_1, a_3).
+Assume {
+  Type: IsS1_A(a_8) /\ IsS1_A(a_5) /\ IsS1_A(a_7) /\ IsS1_A(a_6) /\
+      IsS1_A(a_9) /\ IsS1_A(a_4).
+  (* Heap *)
+  Type: (region(p.base) <= 0) /\ (region(q.base) <= 0) /\
+      (region(r.base) <= 0).
+  (* Pre-condition *)
+  Have: separated(p, 24, q, 24) /\ separated(p, 24, r, 24) /\
+      separated(q, 24, r, 24).
+  Have: Load_R0003_S1_A(q, a, a_2) = a_8.
+  (* Assertion 'Kept' *)
+  Have: a_7 = a_5.
+  Have: a_6 = a_7.
+  (* Assertion 'Kept' *)
+  Have: a_4 = a_5.
+}
+Prove: EqS1_A(a_9, a_8).
+
+------------------------------------------------------------
+
+Goal Post-condition for 'Right' 'KeepR' in 'copy':
+Let a = memcpy(M0004_sint32_0, q, M0004_sint32_0, p, 24).
+Let a_1 = memcpy(a, p, a, r, 24).
+Let a_2 = memcpy(M0005_float64_0, q, M0005_float64_0, p, 24).
+Let a_3 = memcpy(a_2, p, a_2, r, 24).
+Let a_4 = Load_R0003_S1_A(r, a_1, a_3).
+Let a_5 = Load_R0003_S1_A(r, M0004_sint32_0, M0005_float64_0).
+Let a_6 = Load_R0003_S1_A(p, a_1, a_3).
+Let a_7 = Load_R0003_S1_A(r, a, a_2).
+Let a_8 = Load_R0003_S1_A(p, M0004_sint32_0, M0005_float64_0).
+Assume {
+  Type: IsS1_A(a_8) /\ IsS1_A(a_5) /\ IsS1_A(a_7) /\ IsS1_A(a_6) /\
+      IsS1_A(Load_R0003_S1_A(q, a_1, a_3)) /\ IsS1_A(a_4).
+  (* Heap *)
+  Type: (region(p.base) <= 0) /\ (region(q.base) <= 0) /\
+      (region(r.base) <= 0).
+  (* Pre-condition *)
+  Have: separated(p, 24, q, 24) /\ separated(p, 24, r, 24) /\
+      separated(q, 24, r, 24).
+  Have: Load_R0003_S1_A(q, a, a_2) = a_8.
+  (* Assertion 'Kept' *)
+  Have: a_7 = a_5.
+  Have: a_6 = a_7.
+  (* Assertion 'Kept' *)
+  Have: a_4 = a_5.
+}
+Prove: EqS1_A(a_4, a_5).
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function init
+------------------------------------------------------------
+
+Cluster Compound {
+  
+  Function Load_R0002_Init_S1_A (p_2 : addr) (Minit_12 : bool[addr])
+    (Minit_13 : bool[addr]) : Init_S1_A
+    = {
+         Init_F1_A_f =
+           (Array_R0003_sint32_init (shiftfield_F1_A_f p_2) 4 Minit_12) ;
+         Init_F1_A_g = Minit_13[(shiftfield_F1_A_g p_2)]
+      }
+  
+  Function Array_R0003_sint32_init (p_2 : addr) (n_2 : int)
+    (Minit_6 : bool[addr]) : bool[]
+  
+  Function Load_R0002_S1_A (p_2 : addr) (M0004_float64_0 : f64[addr])
+    (M0003_sint32_0 : int[addr]) : S1_A
+    = {
+         F1_A_f =
+           (Array_R0003_sint32 (shiftfield_F1_A_f p_2) 4 M0003_sint32_0) ;
+         F1_A_g = M0004_float64_0[(shiftfield_F1_A_g p_2)]
+      }
+  
+  Function Array_R0003_sint32 (p_2 : addr) (n_2 : int)
+    (M0003_sint32_0 : int[addr]) : int[]
+  
+  Predicate IsInit_S1_A_R0002 (p_0 : addr) (Minit_0 : bool[addr])
+    (Minit_1 : bool[addr])
+    = (IsInitArray_R0003_sint32 (shiftfield_F1_A_f p_0) 4 Minit_0)
+      /\ Minit_1[(shiftfield_F1_A_g p_0)]
+  
+  Predicate IsInitArray_R0003_sint32 (p_0 : addr) (n_0 : int)
+    (Minit_0 : bool[addr])
+    = forall i_0:int.
+      (0<=i_0) -> (i_0<n_0) -> Minit_0[(shift_sint32 p_0 i_0)]
+  
+  Axiom Load_R0002_Init_S1_A_framed:
+    forall Minit_14: bool[addr].
+    forall Minit_15: bool[addr].
+    forall Minit_16: bool[addr].
+    forall Minit_17: bool[addr].
+    forall p_2: addr.
+    (eqmem Minit_14 Minit_16 p_2 24) -> (eqmem Minit_15 Minit_17 p_2 24)
+    -> ((Load_R0002_Init_S1_A p_2 Minit_16 Minit_17)=
+        (Load_R0002_Init_S1_A p_2 Minit_14 Minit_15))
+  
+  Axiom Array_R0003_sint32_init_framed:
+    forall Minit_7: bool[addr].
+    forall Minit_8: bool[addr].
+    forall n_2: int.
+    forall p_2: addr.
+    (eqmem Minit_7 Minit_8 p_2 (4*n_2))
+    -> ((Array_R0003_sint32_init p_2 n_2 Minit_8)=
+        (Array_R0003_sint32_init p_2 n_2 Minit_7))
+  
+  Axiom Array_R0003_sint32_init_access:
+    forall Minit_6: bool[addr].
+    forall i_2: int.
+    forall n_2: int.
+    forall p_2: addr.
+    [ (Array_R0003_sint32_init p_2 n_2 Minit_6)[i_2] ]
+    (0<=i_2) -> (i_2<n_2)
+    -> ((Array_R0003_sint32_init p_2 n_2 Minit_6)[i_2]=
+        Minit_6[(shift_sint32 p_2 i_2)])
+  
+  Axiom Load_R0002_S1_A_framed:
+    forall M0003_sint32_1: int[addr].
+    forall M0003_sint32_2: int[addr].
+    forall M0004_float64_1: f64[addr].
+    forall M0004_float64_2: f64[addr].
+    forall p_2: addr.
+    (eqmem M0003_sint32_1 M0003_sint32_2 p_2 24)
+    -> (eqmem M0004_float64_1 M0004_float64_2 p_2 24)
+    -> ((Load_R0002_S1_A p_2 M0004_float64_2 M0003_sint32_2)=
+        (Load_R0002_S1_A p_2 M0004_float64_1 M0003_sint32_1))
+  
+  Axiom Array_R0003_sint32_framed:
+    forall M0003_sint32_1: int[addr].
+    forall M0003_sint32_2: int[addr].
+    forall n_2: int.
+    forall p_2: addr.
+    (eqmem M0003_sint32_1 M0003_sint32_2 p_2 (4*n_2))
+    -> ((Array_R0003_sint32 p_2 n_2 M0003_sint32_2)=
+        (Array_R0003_sint32 p_2 n_2 M0003_sint32_1))
+  
+  Axiom Array_R0003_sint32_access:
+    forall M0003_sint32_0: int[addr].
+    forall i_2: int.
+    forall n_2: int.
+    forall p_2: addr.
+    [ (Array_R0003_sint32 p_2 n_2 M0003_sint32_0)[i_2] ]
+    (0<=i_2) -> (i_2<n_2)
+    -> ((Array_R0003_sint32 p_2 n_2 M0003_sint32_0)[i_2]=
+        M0003_sint32_0[(shift_sint32 p_2 i_2)])
+  
+  Axiom IsInit_S1_A_R0002_framed:
+    forall Minit_2: bool[addr].
+    forall Minit_3: bool[addr].
+    forall Minit_4: bool[addr].
+    forall Minit_5: bool[addr].
+    forall p_0: addr.
+    (eqmem Minit_2 Minit_4 p_0 24) -> (eqmem Minit_3 Minit_5 p_0 24)
+    -> ((IsInit_S1_A_R0002 p_0 Minit_4 Minit_5)
+        <-> (IsInit_S1_A_R0002 p_0 Minit_2 Minit_3))
+  
+  Axiom IsInitArray_R0003_sint32_framed:
+    forall Minit_1: bool[addr].
+    forall Minit_2: bool[addr].
+    forall n_0: int.
+    forall p_0: addr.
+    (eqmem Minit_1 Minit_2 p_0 (4*n_0))
+    -> ((IsInitArray_R0003_sint32 p_0 n_0 Minit_2)
+        <-> (IsInitArray_R0003_sint32 p_0 n_0 Minit_1))
+  
+}
+
+Cluster Globals {
+  
+  Function P_q_49 : int = 49
+  
+  Function P_p_48 : int = 48
+  
+  Axiom P_q_49_is_pointer:
+    (statically_allocated P_q_49)
+    -> (is_uint64 (int_of_addr (global P_q_49)))
+  
+  Axiom P_q_49_binit: (binit P_q_49)
+  
+  Axiom P_q_49_linked: forall t_0:int[]. (linked t_0) -> (t_0[P_q_49]=0)
+  
+  Axiom P_q_49_region: (region P_q_49)=2
+  
+  Axiom P_q_49_static_alloc: (statically_allocated P_q_49)
+  
+  Axiom P_p_48_is_pointer:
+    (statically_allocated P_p_48)
+    -> (is_uint64 (int_of_addr (global P_p_48)))
+  
+  Axiom P_p_48_binit: (binit P_p_48)
+  
+  Axiom P_p_48_linked: forall t_0:int[]. (linked t_0) -> (t_0[P_p_48]=0)
+  
+  Axiom P_p_48_region: (region P_p_48)=2
+  
+  Axiom P_p_48_static_alloc: (statically_allocated P_p_48)
+  
+}
+
+Cluster Matrix {
+  
+  Predicate EqArray_int (n_0 : int) (T_0 : int[]) (T_1 : int[])
+    = forall i_0:int. (0<=i_0) -> (i_0<n_0) -> (T_1[i_0]=T_0[i_0])
+  
+  Predicate IsArray_sint32 (T_0 : int[])
+    = forall i_0:int. (is_sint32 T_0[i_0])
+  
+}
+
+Cluster MemBytes.PointersProperties {
+  
+  Predicate framed (m_0 : int[][])
+    = forall a_0:addr.
+      ((region (base a_0))<=0)
+      -> ((region (base (addr_of_int (read_uint64 m_0 a_0))))<=0)
+  
+  Axiom pointers_int_range:
+    forall a_1: addr.
+    (statically_allocated (base a_1)) -> (is_uint64 (int_of_addr a_1))
+  
+}
+
+Cluster S1_A {
+  
+  Type S1_A = { F1_A_f : int[]; F1_A_g : f64; }
+  
+  Predicate EqS1_A (S_0 : S1_A) (S_1 : S1_A)
+    = (S_1.F1_A_g=S_0.F1_A_g) /\ (EqArray_int 4 S_0.F1_A_f S_1.F1_A_f)
+  
+  Predicate IsS1_A (S_0 : S1_A) = (IsArray_sint32 S_0.F1_A_f)
+  
+}
+
+Cluster Shifts {
+  
+  Function shiftfield_F1_A_g (p_1 : addr) : addr = (shift p_1 16)
+  
+  Function shift_sint32 (p_0 : addr) (k_0 : int) : addr = (shift p_0 (4*k_0))
+  
+  Function shiftfield_F1_A_f (p_0 : addr) : addr = (shift p_0 0)
+  
+}
+
+Goal Termination-condition (<generated by kernel>) in 'init':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition ("compound_assigns.i", line 79, characters 11-25) in 'init':
+Let a = Load_R0002_S1_A(p,
+          memcpy(M0004_float64_0, p, M0004_float64_0, q, 24),
+          memcpy(M0003_sint32_0, p, M0003_sint32_0, q, 24)).
+Let a_1 = Load_R0002_S1_A(q, M0004_float64_0, M0003_sint32_0).
+Assume {
+  Type: IsS1_A(a_1) /\ IsS1_A(a).
+  (* Heap *)
+  Type: (region(p.base) <= 0) /\ (region(q.base) <= 0).
+  (* Pre-condition *)
+  Have: separated(p, 24, q, 24).
+  Have: a = a_1.
+}
+Prove: EqS1_A(a, a_1).
+
+------------------------------------------------------------
+
+Goal Post-condition ("compound_assigns.i", line 80, characters 11-26) in 'init':
+Let a = memcpy(Minit_0, p, Minit_0, q, 24).
+Let a_1 = memcpy(Minit_1, p, Minit_1, q, 24).
+Let a_2 = Load_R0002_S1_A(p,
+            memcpy(M0004_float64_0, p, M0004_float64_0, q, 24),
+            memcpy(M0003_sint32_0, p, M0003_sint32_0, q, 24)).
+Let a_3 = Load_R0002_S1_A(q, M0004_float64_0, M0003_sint32_0).
+Assume {
+  Type: IsS1_A(a_3) /\ IsS1_A(a_2).
+  (* Heap *)
+  Type: (region(p.base) <= 0) /\ (region(q.base) <= 0).
+  (* Pre-condition *)
+  Have: IsInit_S1_A_R0002(q, Minit_0, Minit_1).
+  (* Pre-condition *)
+  Have: separated(p, 24, q, 24).
+  Have: (Load_R0002_Init_S1_A(p, a, a_1) =
+         Load_R0002_Init_S1_A(q, Minit_0, Minit_1)) /\ (a_2 = a_3).
+  (* Assertion 'PF,Z3_only' *)
+  Have: forall i : Z. ((0 <= i) -> ((i <= 3) ->
+      (a[shift_sint32(shiftfield_F1_A_f(p), i)]=true))).
+}
+Prove: IsInit_S1_A_R0002(p, a, a_1).
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'init':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Assertion 'PF,Z3_only' ("compound_assigns.i", line 87, characters 10-68):
+Let a = memcpy(Minit_0, p, Minit_0, q, 24).
+Let a_1 = Load_R0002_S1_A(p,
+            memcpy(M0004_float64_0, p, M0004_float64_0, q, 24),
+            memcpy(M0003_sint32_0, p, M0003_sint32_0, q, 24)).
+Let a_2 = Load_R0002_S1_A(q, M0004_float64_0, M0003_sint32_0).
+Assume {
+  Type: IsS1_A(a_2) /\ IsS1_A(a_1).
+  (* Heap *)
+  Type: (region(p.base) <= 0) /\ (region(q.base) <= 0).
+  (* Goal *)
+  When: (0 <= i) /\ (i <= 3).
+  (* Pre-condition *)
+  Have: IsInit_S1_A_R0002(q, Minit_0, Minit_1).
+  (* Pre-condition *)
+  Have: separated(p, 24, q, 24).
+  Have: (Load_R0002_Init_S1_A(p, a, memcpy(Minit_1, p, Minit_1, q, 24)) =
+         Load_R0002_Init_S1_A(q, Minit_0, Minit_1)) /\ (a_1 = a_2).
+}
+Prove: (a[shift_sint32(shiftfield_F1_A_f(p), i)]=true).
+
+------------------------------------------------------------
+
+Goal Assigns ("compound_assigns.i", line 78, characters 11-13) in 'init':
+Effect at line 84
+Prove: true.
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function swap
+------------------------------------------------------------
+
+Cluster Compound {
+  
+  Function Load_R0001_Init_S1_A (p_0 : addr) (Minit_0 : bool[addr])
+    (Minit_1 : bool[addr]) : Init_S1_A
+    = {
+         Init_F1_A_f =
+           (Array_R0002_sint32_init (shiftfield_F1_A_f p_0) 4 Minit_1) ;
+         Init_F1_A_g = Minit_0[(shiftfield_F1_A_g p_0)]
+      }
+  
+  Function Array_R0002_sint32_init (p_0 : addr) (n_0 : int)
+    (Minit_0 : bool[addr]) : bool[]
+  
+  Function Load_R0001_S1_A (p_0 : addr) (M0003_float64_0 : f64[addr])
+    (M0002_sint32_0 : int[addr]) : S1_A
+    = {
+         F1_A_f =
+           (Array_R0002_sint32 (shiftfield_F1_A_f p_0) 4 M0002_sint32_0) ;
+         F1_A_g = M0003_float64_0[(shiftfield_F1_A_g p_0)]
+      }
+  
+  Function Array_R0002_sint32 (p_0 : addr) (n_0 : int)
+    (M0002_sint32_0 : int[addr]) : int[]
+  
+  Axiom Load_R0001_Init_S1_A_framed:
+    forall Minit_2: bool[addr].
+    forall Minit_3: bool[addr].
+    forall Minit_4: bool[addr].
+    forall Minit_5: bool[addr].
+    forall p_0: addr.
+    (eqmem Minit_2 Minit_4 p_0 24) -> (eqmem Minit_3 Minit_5 p_0 24)
+    -> ((Load_R0001_Init_S1_A p_0 Minit_4 Minit_5)=
+        (Load_R0001_Init_S1_A p_0 Minit_2 Minit_3))
+  
+  Axiom Array_R0002_sint32_init_framed:
+    forall Minit_1: bool[addr].
+    forall Minit_2: bool[addr].
+    forall n_0: int.
+    forall p_0: addr.
+    (eqmem Minit_1 Minit_2 p_0 (4*n_0))
+    -> ((Array_R0002_sint32_init p_0 n_0 Minit_2)=
+        (Array_R0002_sint32_init p_0 n_0 Minit_1))
+  
+  Axiom Array_R0002_sint32_init_access:
+    forall Minit_0: bool[addr].
+    forall i_0: int.
+    forall n_0: int.
+    forall p_0: addr.
+    [ (Array_R0002_sint32_init p_0 n_0 Minit_0)[i_0] ]
+    (0<=i_0) -> (i_0<n_0)
+    -> ((Array_R0002_sint32_init p_0 n_0 Minit_0)[i_0]=
+        Minit_0[(shift_sint32 p_0 i_0)])
+  
+  Axiom Load_R0001_S1_A_framed:
+    forall M0002_sint32_1: int[addr].
+    forall M0002_sint32_2: int[addr].
+    forall M0003_float64_1: f64[addr].
+    forall M0003_float64_2: f64[addr].
+    forall p_0: addr.
+    (eqmem M0002_sint32_1 M0002_sint32_2 p_0 24)
+    -> (eqmem M0003_float64_1 M0003_float64_2 p_0 24)
+    -> ((Load_R0001_S1_A p_0 M0003_float64_2 M0002_sint32_2)=
+        (Load_R0001_S1_A p_0 M0003_float64_1 M0002_sint32_1))
+  
+  Axiom Array_R0002_sint32_framed:
+    forall M0002_sint32_1: int[addr].
+    forall M0002_sint32_2: int[addr].
+    forall n_0: int.
+    forall p_0: addr.
+    (eqmem M0002_sint32_1 M0002_sint32_2 p_0 (4*n_0))
+    -> ((Array_R0002_sint32 p_0 n_0 M0002_sint32_2)=
+        (Array_R0002_sint32 p_0 n_0 M0002_sint32_1))
+  
+  Axiom Array_R0002_sint32_access:
+    forall M0002_sint32_0: int[addr].
+    forall i_0: int.
+    forall n_0: int.
+    forall p_0: addr.
+    [ (Array_R0002_sint32 p_0 n_0 M0002_sint32_0)[i_0] ]
+    (0<=i_0) -> (i_0<n_0)
+    -> ((Array_R0002_sint32 p_0 n_0 M0002_sint32_0)[i_0]=
+        M0002_sint32_0[(shift_sint32 p_0 i_0)])
+  
+}
+
+Cluster Globals {
+  
+  Function P_q_26 : int = 26
+  
+  Function P_p_25 : int = 25
+  
+  Axiom P_q_26_is_pointer:
+    (statically_allocated P_q_26)
+    -> (is_uint64 (int_of_addr (global P_q_26)))
+  
+  Axiom P_q_26_binit: (binit P_q_26)
+  
+  Axiom P_q_26_linked: forall t_0:int[]. (linked t_0) -> (t_0[P_q_26]=0)
+  
+  Axiom P_q_26_region: (region P_q_26)=2
+  
+  Axiom P_q_26_static_alloc: (statically_allocated P_q_26)
+  
+  Axiom P_p_25_is_pointer:
+    (statically_allocated P_p_25)
+    -> (is_uint64 (int_of_addr (global P_p_25)))
+  
+  Axiom P_p_25_binit: (binit P_p_25)
+  
+  Axiom P_p_25_linked: forall t_0:int[]. (linked t_0) -> (t_0[P_p_25]=0)
+  
+  Axiom P_p_25_region: (region P_p_25)=2
+  
+  Axiom P_p_25_static_alloc: (statically_allocated P_p_25)
+  
+}
+
+Cluster Matrix {
+  
+  Predicate EqArray_int (n_0 : int) (T_0 : int[]) (T_1 : int[])
+    = forall i_0:int. (0<=i_0) -> (i_0<n_0) -> (T_1[i_0]=T_0[i_0])
+  
+  Predicate IsArray_sint32 (T_0 : int[])
+    = forall i_0:int. (is_sint32 T_0[i_0])
+  
+}
+
+Cluster MemBytes.PointersProperties {
+  
+  Predicate framed (m_0 : int[][])
+    = forall a_0:addr.
+      ((region (base a_0))<=0)
+      -> ((region (base (addr_of_int (read_uint64 m_0 a_0))))<=0)
+  
+  Axiom pointers_int_range:
+    forall a_1: addr.
+    (statically_allocated (base a_1)) -> (is_uint64 (int_of_addr a_1))
+  
+}
+
+Cluster S1_A {
+  
+  Type S1_A = { F1_A_f : int[]; F1_A_g : f64; }
+  
+  Predicate EqS1_A (S_0 : S1_A) (S_1 : S1_A)
+    = (S_1.F1_A_g=S_0.F1_A_g) /\ (EqArray_int 4 S_0.F1_A_f S_1.F1_A_f)
+  
+  Predicate IsS1_A (S_0 : S1_A) = (IsArray_sint32 S_0.F1_A_f)
+  
+}
+
+Cluster Shifts {
+  
+  Function shiftfield_F1_A_g (p_1 : addr) : addr = (shift p_1 16)
+  
+  Function shift_sint32 (p_0 : addr) (k_0 : int) : addr = (shift p_0 (4*k_0))
+  
+  Function shiftfield_F1_A_f (p_0 : addr) : addr = (shift p_0 0)
+  
+}
+
+Goal Termination-condition (<generated by kernel>) in 'swap':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'P' in 'swap':
+Let a = memcpy(M0003_float64_0, p, M0003_float64_0, q, 24).
+Let a_1 = memcpy(M0002_sint32_0, p, M0002_sint32_0, q, 24).
+Let a_2 = Load_R0001_S1_A(q, M0003_float64_0, M0002_sint32_0).
+Let a_3 = memcpy(a, q, M0003_float64_undef_0, q, 24).
+Let a_4 = memcpy(a_1, q, M0002_sint32_undef_0, q, 24).
+Let a_5 = Load_R0001_S1_A(q, a_3, a_4).
+Let a_6 = Load_R0001_S1_A(p, M0003_float64_0, M0002_sint32_0).
+Let a_7 = Load_R0001_S1_A(p, a_3, a_4).
+Assume {
+  Type: IsS1_A(a_6) /\ IsS1_A(a_2) /\ IsS1_A(a_7) /\ IsS1_A(a_5).
+  (* Heap *)
+  Type: (region(p.base) <= 0) /\ (region(q.base) <= 0).
+  (* Pre-condition *)
+  Have: (q = p) \/ separated(p, 24, q, 24).
+  (* Initializer *)
+  Init: a_5 = a_6.
+  Have: Load_R0001_S1_A(p, a, a_1) = a_2.
+}
+Prove: EqS1_A(a_7, a_2).
+
+------------------------------------------------------------
+
+Goal Post-condition 'Q' in 'swap':
+Let a = memcpy(M0003_float64_0, p, M0003_float64_0, q, 24).
+Let a_1 = memcpy(M0002_sint32_0, p, M0002_sint32_0, q, 24).
+Let a_2 = Load_R0001_S1_A(q, M0003_float64_0, M0002_sint32_0).
+Let a_3 = memcpy(a, q, M0003_float64_undef_0, q, 24).
+Let a_4 = memcpy(a_1, q, M0002_sint32_undef_0, q, 24).
+Let a_5 = Load_R0001_S1_A(q, a_3, a_4).
+Let a_6 = Load_R0001_S1_A(p, M0003_float64_0, M0002_sint32_0).
+Assume {
+  Type: IsS1_A(a_6) /\ IsS1_A(a_2) /\ IsS1_A(Load_R0001_S1_A(p, a_3, a_4)) /\
+      IsS1_A(a_5).
+  (* Heap *)
+  Type: (region(p.base) <= 0) /\ (region(q.base) <= 0).
+  (* Pre-condition *)
+  Have: (q = p) \/ separated(p, 24, q, 24).
+  (* Initializer *)
+  Init: a_5 = a_6.
+  Have: Load_R0001_S1_A(p, a, a_1) = a_2.
+}
+Prove: EqS1_A(a_5, a_6).
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'swap':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Assigns ("compound_assigns.i", line 37, characters 11-13) in 'swap' (1/2):
+Effect at line 45
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assigns ("compound_assigns.i", line 37, characters 11-13) in 'swap' (2/2):
+Effect at line 46
+Prove: true.
+
+------------------------------------------------------------

@@ -1,0 +1,47 @@
+[kernel] Parsing setjmp_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+  jbuf[0] ∈ [--..--]
+[eva:progress] 
+  computing for function come_from <- main.
+  Called from setjmp_h.c:29.
+[eva:progress] 
+  computing for function setjmp <- come_from <- main.
+  Called from setjmp_h.c:20.
+[eva] using specification for function setjmp
+[eva:progress] Done for function setjmp
+[eva:progress] 
+  computing for function sigsetjmp <- come_from <- main.
+  Called from setjmp_h.c:24.
+[eva] using specification for function sigsetjmp
+[eva:progress] Done for function sigsetjmp
+[eva:alarm] setjmp_h.c:25: Warning: 
+  signed overflow. assert -2147483648 ≤ res1 + res2;
+[eva:alarm] setjmp_h.c:25: Warning: 
+  signed overflow. assert res1 + res2 ≤ 2147483647;
+[eva:progress] Recording results for come_from
+[eva:progress] Done for function come_from
+[eva:progress] 
+  computing for function jump <- main.
+  Called from setjmp_h.c:32.
+[eva:progress] 
+  computing for function longjmp <- jump <- main.
+  Called from setjmp_h.c:15.
+[eva] using specification for function longjmp
+[eva:progress] Done for function longjmp
+[eva:progress] Recording results for jump
+[eva:progress] Done for function jump
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function jump:
+  NON TERMINATING FUNCTION
+[eva:final-states] Values at end of function come_from:
+  res1 ∈ [--..--]
+  res2 ∈ [--..--]
+  __retres ∈ [--..--]
+[eva:final-states] Values at end of function main:
+  __retres ∈ {0}

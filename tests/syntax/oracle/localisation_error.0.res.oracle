@@ -1,0 +1,10 @@
+[kernel] Parsing localisation_error.i (no preprocessing)
+[kernel] localisation_error.i:7: 
+  syntax error:
+  Location: "localisation_error.i", line 7, character 58, before or at token: /
+  5     int main() {
+  6       int b = 0;
+  7       //@ ghost int a = 2; /*@ assert a == 3; */ /* test */ */
+                                                                 ^
+  8     }
+[kernel] Frama-C aborted: invalid user input.

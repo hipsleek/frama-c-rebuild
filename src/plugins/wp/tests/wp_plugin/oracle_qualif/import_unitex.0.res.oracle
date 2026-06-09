@@ -1,0 +1,25 @@
+# frama-c -wp [...]
+[kernel] Parsing import_unitex.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] 15 goals scheduled
+[wp] [Valid] typed_lemma_L_compat_adt_1 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_lemma_L_compat_adt_2 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_lemma_L_compat_adt_3 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_lemma_L_compat_bool (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_L_compat_int_1 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_lemma_L_compat_int_2 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_lemma_L_compat_real_1 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_lemma_L_compat_real_2 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_lemma_L_f8 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_L_no_def (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_lemma_L_rg_1 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_L_rg_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_L_sym_1 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_L_sym_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_L_sym_3 (Alt-Ergo) (Cached)
+[wp] Proved goals:   15 / 15
+  Alt-Ergo:       15
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Lemma                     -       15       15       100%
+------------------------------------------------------------

@@ -1,0 +1,146 @@
+[kernel] Parsing partitioning-cases.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function test_builtin <- main.
+  Called from partitioning-cases.c:53.
+[eva:progress] partitioning-cases.c:12: Call to builtin malloc
+[eva:malloc:new] partitioning-cases.c:12: 
+  allocating variable __malloc_test_builtin_l12
+[eva:show] partitioning-cases.c:13: Frama_C_show_each: {0}
+[eva:show] partitioning-cases.c:13: 
+  Frama_C_show_each: {{ &__malloc_test_builtin_l12 }}
+[eva:progress] Recording results for test_builtin
+[eva:progress] Done for function test_builtin
+[eva:progress] 
+  computing for function test_spec <- main.
+  Called from partitioning-cases.c:54.
+[eva:progress] 
+  computing for function Frama_C_interval <- test_spec <- main.
+  Called from partitioning-cases.c:38.
+[eva] using specification for function Frama_C_interval
+[eva:progress] partitioning-cases.c:38: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function sgn_spec <- test_spec <- main.
+  Called from partitioning-cases.c:38.
+[eva] using specification for function sgn_spec
+[eva:progress] Done for function sgn_spec
+[eva:show] partitioning-cases.c:39: Frama_C_show_each: {0}
+[eva:show] partitioning-cases.c:39: Frama_C_show_each: {1}
+[eva:show] partitioning-cases.c:39: Frama_C_show_each: {-1}
+[eva:progress] 
+  computing for function Frama_C_interval <- test_spec <- main.
+  Called from partitioning-cases.c:40.
+[eva:progress] partitioning-cases.c:40: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- test_spec <- main.
+  Called from partitioning-cases.c:40.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- test_spec <- main.
+  Called from partitioning-cases.c:40.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function f_spec <- test_spec <- main.
+  Called from partitioning-cases.c:40.
+[eva] using specification for function f_spec
+[eva:progress] Done for function f_spec
+[eva:show] partitioning-cases.c:41: Frama_C_show_each: [-2147483648..-1]
+[eva:show] partitioning-cases.c:41: Frama_C_show_each: [1..2147483647]
+[eva:progress] Recording results for test_spec
+[eva:progress] Done for function test_spec
+[eva:progress] 
+  computing for function test_assert <- main.
+  Called from partitioning-cases.c:55.
+[eva:progress] 
+  computing for function Frama_C_interval <- test_assert <- main.
+  Called from partitioning-cases.c:46.
+[eva:progress] partitioning-cases.c:46: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] partitioning-cases.c:47: assertion got status valid.
+[eva:show] partitioning-cases.c:48: Frama_C_show_each: [0..49]
+[eva:show] partitioning-cases.c:48: Frama_C_show_each: [50..100]
+[eva:progress] Recording results for test_assert
+[eva:progress] Done for function test_assert
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function test_assert:
+  Frama_C_entropy_source ∈ [--..--]
+  nb ∈ [0..100]
+[eva:final-states] Values at end of function test_builtin:
+  __fc_heap_status ∈ [--..--]
+  __fc_errno ∈ [--..--]
+  p ∈ {{ NULL ; (int *)&__malloc_test_builtin_l12 }}
+[eva:final-states] Values at end of function test_spec:
+  Frama_C_entropy_source ∈ [--..--]
+  res ∈ [--..--]
+[eva:final-states] Values at end of function main:
+  __fc_heap_status ∈ [--..--]
+  Frama_C_entropy_source ∈ [--..--]
+  __fc_errno ∈ [--..--]
+[from] Computing for function test_assert
+[from] Computing for function Frama_C_interval <-test_assert
+[from] Done for function Frama_C_interval
+[from] Done for function test_assert
+[from] Computing for function test_builtin
+[from] Computing for function malloc <-test_builtin
+[from] Done for function malloc
+[from] Done for function test_builtin
+[from] Computing for function test_spec
+[from] Computing for function sgn_spec <-test_spec
+[from] Done for function sgn_spec
+[from] Computing for function f_spec <-test_spec
+[from] Done for function f_spec
+[from] Done for function test_spec
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function Frama_C_interval:
+  Frama_C_entropy_source FROM Frama_C_entropy_source (and SELF)
+  \result FROM Frama_C_entropy_source; min; max
+[from] Function f_spec:
+  \result FROM x
+[from] Function malloc:
+  __fc_heap_status FROM __fc_heap_status; size (and SELF)
+  __fc_errno FROM __fc_heap_status; size
+  \result FROM __fc_heap_status; size
+[from] Function sgn_spec:
+  \result FROM nb
+[from] Function test_assert:
+  Frama_C_entropy_source FROM Frama_C_entropy_source (and SELF)
+[from] Function test_builtin:
+  __fc_heap_status FROM __fc_heap_status (and SELF)
+  __fc_errno FROM __fc_heap_status
+[from] Function test_spec:
+  Frama_C_entropy_source FROM Frama_C_entropy_source (and SELF)
+[from] Function main:
+  __fc_heap_status FROM __fc_heap_status (and SELF)
+  Frama_C_entropy_source FROM Frama_C_entropy_source (and SELF)
+  __fc_errno FROM __fc_heap_status
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function test_assert:
+    Frama_C_entropy_source; nb
+[inout] Inputs for function test_assert:
+    Frama_C_entropy_source
+[inout] Out (internal) for function test_builtin:
+    __fc_heap_status; __fc_errno; p
+[inout] Inputs for function test_builtin:
+    __fc_heap_status
+[inout] Out (internal) for function test_spec:
+    Frama_C_entropy_source; res; tmp; tmp_0; tmp_1
+[inout] Inputs for function test_spec:
+    Frama_C_entropy_source
+[inout] Out (internal) for function main:
+    __fc_heap_status; Frama_C_entropy_source; __fc_errno
+[inout] Inputs for function main:
+    __fc_heap_status; Frama_C_entropy_source

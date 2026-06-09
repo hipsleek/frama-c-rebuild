@@ -1,0 +1,58 @@
+# frama-c -wp [...]
+[kernel] Parsing init_value.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal fa1_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal fa1_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal fa2_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal fa2_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal fa3_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal fa3_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal fs1_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal fs1_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal main_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal main_terminates (Cfg) (Trivial)
+[wp:union] init_value.i:61: Warning: 
+  Accessing union fields with Hoare model might be unsound.
+  Please refer to WP manual.
+[wp:union] init_value.i:40: Warning: 
+  Accessing union fields with Hoare model might be unsound.
+  Please refer to WP manual.
+[wp] 24 goals scheduled
+[wp] [Valid] typed_main_requires_qed_ok_Struct_Simple_a (Qed)
+[wp] [Valid] typed_main_requires_qed_ok_Struct_Simple_b (Qed)
+[wp] [Valid] typed_main_requires_qed_ok_Simple_Array_0 (Qed)
+[wp] [Valid] typed_main_requires_qed_ok_Simple_Array_1 (Qed)
+[wp] [Valid] typed_main_requires_qed_ok_With_Array_Struct_5 (Qed)
+[wp] [Valid] typed_main_requires_qed_ok_With_Array_Struct_3 (Qed)
+[wp] [Valid] typed_main_requires_qed_ok_Sc_eq (Alt-Ergo) (Cached)
+[wp] [Valid] typed_main_requires_qed_ok_Sc_t (Qed)
+[wp] [Valid] typed_main_requires_qed_ok_Sc_t_2 (Qed)
+[wp] [Valid] typed_main_requires_qed_ok_Sc_c_2 (Qed)
+[wp] [Valid] typed_main_requires_qed_ok_Sc_c_3 (Qed)
+[wp] [Valid] typed_main_requires_qed_ok_Tab_no_init (Qed)
+[wp] [Valid] typed_main_requires_qed_ok_Tab_todo (Alt-Ergo) (Cached)
+[wp] [Valid] typed_main_requires_qed_ok (Qed)
+[wp] [Valid] typed_main_requires_qed_ok_2 (Qed)
+[wp] [Valid] typed_main_requires_qed_ok_3 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_main_requires_qed_ok_todo (Qed)
+[wp] [Valid] typed_main_requires_qed_ok_4 (Qed)
+[wp] [Valid] typed_main_requires_qed_ok_5 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_main_requires_qed_ok_direct_init_union (Qed)
+[wp] [Valid] typed_fa1_ensures_qed_ok (Qed)
+[wp] [Valid] typed_fa2_ensures_qed_ok (Qed)
+[wp] [Valid] typed_fa3_ensures_qed_ok (Qed)
+[wp] [Valid] typed_fs1_ensures_qed_ok (Alt-Ergo) (Cached)
+[wp] Proved goals:   34 / 34
+  Terminating:     5
+  Unreachable:     5
+  Qed:            19
+  Alt-Ergo:        5
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  main                     18        4       22       100%
+  fa1                       3        -        3       100%
+  fa2                       3        -        3       100%
+  fa3                       3        -        3       100%
+  fs1                       2        1        3       100%
+------------------------------------------------------------

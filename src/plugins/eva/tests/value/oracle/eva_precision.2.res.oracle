@@ -1,0 +1,48 @@
+[kernel] Parsing eva_precision.i (no preprocessing)
+[eva:precision-settings] 
+  Option -eva-precision 3 detected, automatic configuration of the analysis:
+    option -eva-min-loop-unroll set to 0 (default value).
+    option -eva-auto-loop-unroll already set to 20 (not modified).
+    option -eva-widening-delay set to 2.
+    option -eva-partition-history set to 0 (default value).
+    option -eva-slevel already set to 0 (not modified).
+    option -eva-ilevel set to 24.
+    option -eva-plevel set to 70.
+    option -eva-subdivide-non-linear set to 60.
+    option -eva-remove-redundant-alarms set to true (default value).
+    option -eva-domains already set to '@default,octagon' (not modified).
+    option -eva-split-return set to '' (default value).
+    option -eva-equality-through-calls set to 'none'.
+    option -eva-octagon-through-calls set to false (default value).
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+[eva:partition] eva_precision.i:23: starting to merge loop iterations
+[eva:alarm] eva_precision.i:28: Warning: 
+  accessing uninitialized left-value. assert \initialized(&t[index]);
+[eva:alarm] eva_precision.i:32: Warning: 
+  accessing uninitialized left-value. assert \initialized(&t[index]);
+[eva:show] eva_precision.i:33: Frama_C_show_each_42: [0..99]
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[scope:rm_asserts] removing 1 assertion(s)
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  t[0..63] ∈ [0..99] or UNINITIALIZED
+  index ∈ [0..63]
+  r ∈ [0..99]
+  k ∈ [0..162]
+  diff ∈ [0..63]
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    t[0..63]; i; index; r; k; diff
+[inout] Inputs for function main:
+    nondet

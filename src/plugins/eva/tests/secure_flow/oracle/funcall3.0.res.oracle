@@ -1,0 +1,55 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing funcall3.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+  x ∈ {0}
+  y ∈ {0}
+[eva:progress] funcall3.c:15: assertion got status valid.
+[eva:progress] 
+  computing for function set_x <- main.
+  Called from funcall3.c:16.
+[eva:progress] Recording results for set_x
+[eva:progress] Done for function set_x
+[eva:progress] funcall3.c:17: assertion got status valid.
+[eva:secure-flow:condition] funcall3.c:18: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:progress] 
+  computing for function set_x <- main.
+  Called from funcall3.c:19.
+[eva:progress] Recording results for set_x
+[eva:progress] Done for function set_x
+[eva:alarm] funcall3.c:20: Warning: assertion got status unknown.
+[eva:alarm] funcall3.c:22: Warning: assertion got status unknown.
+[eva:progress] funcall3.c:23: Reusing old results for call to set_x
+[eva:progress] funcall3.c:24: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function set_x:
+  x ∈ {1}
+[eva:final-states] Values at end of function main:
+  x ∈ {1}
+  __retres ∈ {0}
+[from] Computing for function set_x
+[from] Done for function set_x
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function set_x:
+  x FROM \nothing
+[from] Function main:
+  x FROM \nothing
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function set_x:
+    x
+[inout] Inputs for function set_x:
+    \nothing
+[inout] Out (internal) for function main:
+    x; __retres
+[inout] Inputs for function main:
+    secret

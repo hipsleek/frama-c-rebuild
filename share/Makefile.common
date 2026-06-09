@@ -1,0 +1,126 @@
+##########################################################################
+#                                                                        #
+#  SPDX-License-Identifier LGPL-2.1                                      #
+#  Copyright (C)                                                         #
+#  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  #
+#                                                                        #
+##########################################################################
+
+##########################################################################
+#                                                                        #
+# Define common stuff shared by makefiles.                               #
+#                                                                        #
+##########################################################################
+
+################
+# DUNE OPTIONS #
+################
+
+DUNE_BUILD_OPTS?=
+
+RELEASE?=no
+ifeq ($(RELEASE),yes)
+DUNE_BUILD_OPTS+=--release --promote-install-files=false
+endif
+
+# DUNE_DISPLAY: chose Dune build verbosity (see '--display' dune option)
+# Default: progress (same as dune default)
+# Recommend for tests: short
+DUNE_DISPLAY?=progress
+DUNE_BUILD_OPTS+=--display $(DUNE_DISPLAY)
+
+#############
+# Platform  #
+#############
+
+PLATFORM:=$(shell uname -s)
+
+#############
+# Install   #
+#############
+
+ifndef PREFIX
+ifdef FRAMAC_INSTALLDIR
+PREFIX=$(FRAMAC_INSTALLDIR)
+else
+ifdef OPAM_SWITCH_PREFIX
+PREFIX=$(OPAM_SWITCH_PREFIX)
+else
+PREFIX=/usr/local
+endif
+endif
+endif
+
+DESTDIR?=
+
+#############
+# Verbosing #
+#############
+
+VERBOSEMAKE?=no
+
+ifneq ($(VERBOSEMAKE),no) # Do not change to ifeq ($(VERBOSEMAKE),yes), as this
+                          # version makes it easier for the user to set the
+			  # option on the command-line to investigate
+			  # Makefile-related problems
+# ignore the PRINT_* materials but print all the other commands
+  PRINT = @true
+# prevent the warning "jobserver unavailable: using -j1".
+# see GNU make manual (section 5.7.1 and appendix B)
+  QUIET_MAKE:= + $(MAKE)
+# prevent the warning: "-jN forced in submake: disabling jobserver mode".
+# see GNU make manual (appendix B)
+  MAKE := MAKEFLAGS="$(patsubst j,,$(MAKEFLAGS))" $(MAKE)
+else
+# print the PRINT_* materials
+  PRINT = @echo
+# but silently execute all the other commands
+# fixed bug #637: do not write spaces between flags
+  OLDFLAGS:=r$(MAKEFLAGS)
+  MAKEFLAGS:=rs$(MAKEFLAGS)
+# do not silently execute other makefiles (e.g the one of why):
+# the redefinition of MAKE below is for this purpose
+# but use QUIET_MAKE in order to call silently the initial Makefile
+  QUIET_MAKE:= + $(MAKE)
+  MAKE := MAKEFLAGS="$(OLDFLAGS)" $(MAKE)
+endif
+
+##################
+# Shell commands #
+##################
+
+# prefer to use these commands and not directly "cp" or others
+
+CAT	= cat
+CHMOD	= chmod
+CHMOD_RO= chmod a-w
+CHMOD_RW= sh -c \
+'for f in "$$@"; do \
+  if test -e $$f; then chmod u+w $$f; fi \
+done' chmod_rw
+CP      = install
+CP_IF_DIFF = sh -c \
+  'if cmp -s $$1 $$2; \
+   then touch -r $$2 $$1; \
+   else echo "Generating  $$2"; install $$1 $$2; fi' cpifdiff
+#follow symbolic link
+CP_L    = cp -fL
+ECHO	= echo
+MKDIR   = mkdir -p
+MV	= mv
+ISED	= sh -c \
+'new_temp=`mktemp /tmp/frama-c.XXXXXXX` || exit 1; \
+sed "$$@" > $$new_temp; \
+eval last=\$${$$\#}; \
+mv $$new_temp $$last' sed_inplace
+SED	= LC_ALL=C sed
+RM	= rm -f
+TOUCH   = touch
+GIT	= git
+
+ifeq ($(PLATFORM),Darwin)
+TAR     = gtar
+else
+# Unix, Cygwin, Win32
+TAR     = tar
+endif

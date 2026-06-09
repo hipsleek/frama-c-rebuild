@@ -1,0 +1,10 @@
+[e-acsl] beginning translation.
+[e-acsl] stmt_contract.i:64: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] stmt_contract.i:35: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] stmt_contract.i:64: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] stmt_contract.i:59: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.

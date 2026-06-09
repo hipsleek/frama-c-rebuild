@@ -1,0 +1,39 @@
+[kernel] Parsing regex_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function match <- main.
+  Called from regex_h.c:22.
+[eva:progress] 
+  computing for function regcomp <- match <- main.
+  Called from regex_h.c:8.
+[eva] using specification for function regcomp
+[eva] regex_h.c:8: Warning: ignoring unsupported allocates clause
+[eva:progress] Done for function regcomp
+[eva:progress] 
+  computing for function regexec <- match <- main.
+  Called from regex_h.c:11.
+[eva] using specification for function regexec
+[eva:progress] Done for function regexec
+[eva:progress] 
+  computing for function regfree <- match <- main.
+  Called from regex_h.c:12.
+[eva] using specification for function regfree
+[eva] regex_h.c:12: Warning: ignoring unsupported allocates clause
+[eva:progress] Done for function regfree
+[eva:progress] Recording results for match
+[eva:progress] Done for function match
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function match:
+  status ∈ [--..--] or UNINITIALIZED
+  re ∈ [--..--] or UNINITIALIZED
+  __retres ∈ {0; 1}
+[eva:final-states] Values at end of function main:
+  str ∈ {{ "a haystack" }}
+  pattern ∈ {{ "hay" }}
+  r ∈ {0; 1}

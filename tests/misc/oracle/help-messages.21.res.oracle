@@ -1,0 +1,52 @@
+Plug-in name: Reduction
+Plug-in shortname: reduc
+Description: Generate ACSL annotations from Eva information
+
+Most options of the form '-reduc-option-name' and without any parameter
+have an opposite with the name '-reduc-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-reduc              Use reduc (opposite option is -no-reduc)
+-reduc-gen-annot <gen-annot-heuristic>  Heuristic to generate annotations
+                    from Eva (preferably use
+                    -reduc-gen-annot="gen-annot-heuristic")
+
+*** DEBUG
+
+-reduc-debug <n>    level of debug for plug-in Reduction (default to 0)
+
+*** GETTING INFORMATION
+
+-reduc-help         help of plug-in Reduction
+-reduc-h            alias for option -reduc-help
+
+*** OUTPUT MESSAGES
+
+-reduc-log <K_1:file_1,...>  copy log messages from Reduction to a file. <K>
+                    is a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -reduc-log="K_1:file_1,...")
+-reduc-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -reduc-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -reduc-msg-key="k1[,...,kn]")
+-reduc-verbose <n>  level of verbosity for plug-in Reduction (default to 1)
+-reduc-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category <k1>
+                    to <s1>,...,<kn> to <sn>. Use -reduc-warn-key help to get
+                    a list of available categories, and * to enable all
+                    categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -reduc-warn-key="k1[=s1][,...,kn[=sn]]")

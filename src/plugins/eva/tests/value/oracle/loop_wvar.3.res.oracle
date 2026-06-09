@@ -1,0 +1,14 @@
+[kernel] Parsing loop_wvar.i (no preprocessing)
+[eva] Analyzing a complete application starting at main_err2
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:partition] loop_wvar.i:35: starting to merge loop iterations
+[eva:progress] Recording results for main_err2
+[eva:progress] Done for function main_err2
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main_err2:
+  n ∈ {13}
+  i ∈ [13..2147483647]
+  j ∈ [7..55],3%4 or UNINITIALIZED

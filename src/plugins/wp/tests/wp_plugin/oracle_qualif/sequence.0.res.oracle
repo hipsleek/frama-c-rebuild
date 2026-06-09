@@ -1,0 +1,69 @@
+# frama-c -wp [...]
+[kernel] Parsing sequence.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] sequence.i:13: Warning: 
+  Neither code nor explicit exits and terminates for function f, generating
+  default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] sequence.i:19: Warning: 
+  Neither code nor explicit exits and terminates for function g, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal no_calls_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal no_calls_terminates (Cfg) (Trivial)
+[wp] 45 goals scheduled
+[wp] [Valid] typed_no_calls_ensures_ok_m1 (Qed)
+[wp] [Valid] typed_no_calls_ensures_ok_m2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_no_calls_ensures_ok_bug_why3_n1 (Qed)
+[wp] [Valid] typed_no_calls_ensures_ok_n2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_no_calls_ensures_ok_n3 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_no_calls_ensures_ok_bug_why3_n5 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_no_calls_ensures_ok_bug_why3_n6 (Qed)
+[wp] [Valid] typed_no_calls_ensures_ok_bug_why3_n5_ok (Alt-Ergo) (Cached)
+[wp] [Valid] typed_no_calls_ensures_ok_bug_why3_n6_ok (Qed)
+[wp] [Valid] typed_no_calls_assigns (Qed)
+[wp] [Valid] typed_sequence_terminates (Qed)
+[wp] [Valid] typed_sequence_exits (Qed)
+[wp] [Valid] typed_sequence_assigns_normal (Qed)
+[wp] [Valid] typed_sequence_assigns_exit (Qed)
+[wp] [Valid] typed_sequence_g_called_ensures_ok_o1 (Qed)
+[wp] [Valid] typed_sequence_g_called_ensures_ok_p1 (Qed)
+[wp] [Valid] typed_sequence_g_called_ensures_ok_p2 (Qed)
+[wp] [Valid] typed_sequence_g_called_ensures_ok_p3 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_sequence_g_not_called_ensures_ok_o2 (Qed)
+[wp] [Valid] typed_sequence_g_not_called_ensures_ok_q1 (Qed)
+[wp] [Valid] typed_sequence_g_not_called_ensures_ok_q2 (Qed)
+[wp] [Valid] typed_sequence_g_not_called_ensures_ok_q3 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_loops_terminates (Qed)
+[wp] [Valid] typed_loops_ensures_ok_first (Qed)
+[wp] [Valid] typed_loops_ensures_ok_last (Alt-Ergo) (Cached)
+[wp] [Valid] typed_loops_exits (Qed)
+[wp] [Valid] typed_loops_loop_invariant_ok_id_max_established (Qed)
+[wp] [Valid] typed_loops_loop_invariant_ok_id_max_preserved (Qed)
+[wp] [Valid] typed_loops_loop_invariant_ok_id_min_established (Qed)
+[wp] [Valid] typed_loops_loop_invariant_ok_id_min_preserved (Qed)
+[wp] [Valid] typed_loops_loop_invariant_ok_inv_established (Qed)
+[wp] [Valid] typed_loops_loop_invariant_ok_inv_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_loops_loop_assigns (Qed)
+[wp] [Valid] typed_loops_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_loops_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_loops_assigns_normal_part3 (Qed)
+[wp] [Valid] typed_loops_assigns_exit_part1 (Qed)
+[wp] [Valid] typed_loops_assigns_exit_part2 (Qed)
+[wp] [Valid] typed_loops_assigns_exit_part3 (Qed)
+[wp] [Valid] typed_loops_loop_variant_positive (Qed)
+[wp] [Valid] typed_loops_loop_variant_decrease (Qed)
+[wp] [Valid] typed_loops_g_called_ensures_ok_u1 (Qed)
+[wp] [Valid] typed_loops_g_called_ensures_ok_u2 (Qed)
+[wp] [Valid] typed_loops_g_not_called_ensures_ok_v1 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_loops_g_not_called_ensures_ok_v2 (Alt-Ergo) (Cached)
+[wp] Proved goals:   47 / 47
+  Terminating:     1
+  Unreachable:     1
+  Qed:            34
+  Alt-Ergo:       11
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  no_calls                  7        5       12       100%
+  sequence                 10        2       12       100%
+  loops                    19        4       23       100%
+------------------------------------------------------------

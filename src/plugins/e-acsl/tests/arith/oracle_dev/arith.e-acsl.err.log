@@ -1,0 +1,8 @@
+arith.i: In function 'main'
+arith.i:38: Error: Assertion failed:
+	The failing predicate is:
+	1 + (x + z) / (y - x) ≡ 0.
+	With values at failure point:
+	- y: 2
+	- z: 2
+	- x: -3

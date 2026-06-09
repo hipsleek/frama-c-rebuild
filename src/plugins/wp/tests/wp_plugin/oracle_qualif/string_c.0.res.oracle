@@ -1,0 +1,63 @@
+# frama-c -wp -wp-timeout 120 [...]
+[kernel] Parsing string_c.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal memcpy_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal memcpy_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 46 goals scheduled
+[wp] [Valid] typed_memcpy_ensures_copied_contents (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memcpy_ensures_result_ptr (Qed)
+[wp] [Valid] typed_memcpy_loop_invariant_no_eva_established (Qed)
+[wp] [Valid] typed_memcpy_loop_invariant_no_eva_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memcpy_loop_invariant_no_eva_2_established (Qed)
+[wp] [Valid] typed_memcpy_loop_invariant_no_eva_2_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memcpy_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_memcpy_loop_assigns_part2 (Qed)
+[wp] [Valid] typed_memcpy_loop_assigns_part3 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memcpy_assigns (Qed)
+[wp] [Valid] typed_memcpy_loop_variant_positive (Qed)
+[wp] [Valid] typed_memcpy_loop_variant_decrease (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memmove_terminates (Qed)
+[wp] [Valid] typed_memmove_ensures_copied_contents (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memmove_ensures_result_ptr (Qed)
+[wp] [Valid] typed_memmove_exits (Qed)
+[wp] [Valid] typed_memmove_loop_invariant_no_eva_established (Qed)
+[wp] [Valid] typed_memmove_loop_invariant_no_eva_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memmove_loop_invariant_no_eva_2_established (Qed)
+[wp] [Valid] typed_memmove_loop_invariant_no_eva_2_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memmove_loop_invariant_no_eva_3_established (Qed)
+[wp] [Valid] typed_memmove_loop_invariant_no_eva_3_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memmove_loop_invariant_no_eva_4_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memmove_loop_invariant_no_eva_4_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memmove_loop_invariant_no_eva_5_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memmove_loop_invariant_no_eva_5_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memmove_loop_invariant_no_eva_6_established (Qed)
+[wp] [Valid] typed_memmove_loop_invariant_no_eva_6_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memmove_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_memmove_loop_assigns_part2 (Qed)
+[wp] [Valid] typed_memmove_loop_assigns_part3 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memmove_loop_assigns_2_part1 (Qed)
+[wp] [Valid] typed_memmove_loop_assigns_2_part2 (Qed)
+[wp] [Valid] typed_memmove_loop_assigns_2_part3 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memmove_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_memmove_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_memmove_assigns_normal_part3 (Qed)
+[wp] [Valid] typed_memmove_assigns_normal_part4 (Qed)
+[wp] [Valid] typed_memmove_assigns_normal_part5 (Qed)
+[wp] [Valid] typed_memmove_assigns_normal_part6 (Qed)
+[wp] [Valid] typed_memmove_assigns_normal_part7 (Qed)
+[wp] [Valid] typed_memmove_assigns_exit (Qed)
+[wp] [Valid] typed_memmove_loop_variant_positive (Qed)
+[wp] [Valid] typed_memmove_loop_variant_decrease (Alt-Ergo) (Cached)
+[wp] [Valid] typed_memmove_loop_variant_2_positive (Qed)
+[wp] [Valid] typed_memmove_loop_variant_2_decrease (Alt-Ergo) (Cached)
+[wp] Proved goals:   48 / 48
+  Terminating:     1
+  Unreachable:     1
+  Qed:            28
+  Alt-Ergo:       18
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  memcpy                    9        5       14       100%
+  memmove                  21       13       34       100%
+------------------------------------------------------------

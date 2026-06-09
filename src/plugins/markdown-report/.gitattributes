@@ -1,0 +1,5 @@
+#########################
+# HEADER_SPEC: CEA_LGPL #
+#########################
+
+*.xml header_spec=CEA_LGPL

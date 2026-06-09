@@ -1,0 +1,3 @@
+79a80,81
+> [kernel:approximation] widen_non_constant.i:90: 
+>   imprecise size for variable sub (Undefined sizeof on a function.)

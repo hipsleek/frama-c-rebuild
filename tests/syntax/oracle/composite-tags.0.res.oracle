@@ -1,0 +1,10 @@
+[kernel] Parsing composite-tags.i (no preprocessing)
+[kernel] composite-tags.i:10: User Error: 
+  Declaration of f does not match previous declaration from composite-tags.i:9:5-6 (structs with different tags).
+  8     
+  9     int f (struct s1);
+  10    int f (struct s2);
+            ^
+  11    
+  12    union u1 { int a; };
+[kernel] Frama-C aborted: invalid user input.

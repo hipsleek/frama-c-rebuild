@@ -1,0 +1,265 @@
+[kernel] Parsing bts1768.i (no preprocessing)
+[slicing] slicing requests in progress...
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  choix ∈ {0}
+  state ∈ {1}
+  cumul ∈ {0}
+  step ∈ {0}
+[eva:progress] 
+  computing for function lecture <- main.
+  Called from bts1768.i:45:3-12.
+[kernel:annot:missing-spec] bts1768.i:18: Warning: 
+  Neither code nor explicit assigns for function choisir, generating default
+  clauses. See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function choisir <- lecture <- main.
+  Called from bts1768.i:18:9-18.
+[eva] using specification for function choisir
+[eva:progress] Done for function choisir
+[eva:progress] Recording results for lecture
+[eva:progress] Done for function lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:partition] bts1768.i:44: starting to merge loop iterations
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:alarm] bts1768.i:51: Warning: 
+  signed overflow. assert step + 1 ≤ 2147483647;
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] bts1768.i:45: Reusing old results for call to lecture
+[eva:progress] 
+  computing for function fsm_transition <- main.
+  Called from bts1768.i:46:5-21.
+[eva:alarm] bts1768.i:25: Warning: 
+  signed overflow. assert cumul + 2 ≤ 2147483647;
+[eva:alarm] bts1768.i:29: Warning: 
+  signed overflow. assert cumul + 1 ≤ 2147483647;
+[eva:alarm] bts1768.i:35: Warning: 
+  signed overflow. assert cumul + 1 ≤ 2147483647;
+[eva:alarm] bts1768.i:35: Warning: 
+  signed overflow. assert cumul + 1 ≤ 2147483647;
+[eva:progress] Recording results for fsm_transition
+[eva:progress] Done for function fsm_transition
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[slicing] initializing slicing ...
+[slicing] interpreting slicing requests from the command line...
+[pdg] computing for function main
+[from] Computing for function lecture
+[from] Computing for function choisir <-lecture
+[from] Done for function choisir
+[from] Done for function lecture
+[from] Computing for function fsm_transition
+[from] Done for function fsm_transition
+[pdg] done for function main
+[slicing] Nothing to select for an unreachable stmt of main
+[slicing] Nothing to select for an unreachable stmt of main
+[slicing] Nothing to select for an unreachable stmt of main
+[slicing] Nothing to select for an unreachable stmt of main
+[slicing] Nothing to select for an unreachable stmt of main
+[slicing] Nothing to select for an unreachable stmt of main
+[slicing] Nothing to select for an unreachable stmt of main
+[slicing] Nothing to select for an unreachable stmt of main
+[slicing] Nothing to select for an unreachable stmt of main
+[slicing] Nothing to select for an unreachable stmt of main
+[slicing] applying all slicing requests...
+[slicing] applying 0 actions...
+[slicing] applying all slicing requests...
+[slicing] applying 1 actions...
+[slicing] applying actions: 1/1...
+[pdg] computing for function fsm_transition
+[pdg] done for function fsm_transition
+[pdg] computing for function lecture
+[pdg] done for function lecture
+[slicing] exporting project to 'Slicing export'...
+[slicing] applying all slicing requests...
+[slicing] applying 0 actions...
+[sparecode] remove unused global declarations from project 'Slicing export tmp'
+[sparecode] removed unused global declarations in new project 'Slicing export'
+/* Generated by Frama-C */
+int choix;
+int state = 1;
+int step = 0;
+/*@ ensures \result ≡ 0 ∨ \result ≡ 1 ∨ \result ≡ 2; */
+int choisir(void);
+
+void lecture_slice_1(void)
+{
+  choix = choisir();
+  return;
+}
+
+void fsm_transition_slice_1(void)
+{
+  switch (state) {
+    case 1: ;
+    if (choix == 2) state = 2;
+    break;
+    case 2: ;
+    if (step == 50) 
+      if (choix == 1) state = 3;
+    break;
+    case 3: ;
+    default: ;
+  }
+  return;
+}
+
+void main(void)
+{
+  lecture_slice_1();
+  fsm_transition_slice_1();
+  step ++;
+  lecture_slice_1();
+  fsm_transition_slice_1();
+  step ++;
+  lecture_slice_1();
+  fsm_transition_slice_1();
+  step ++;
+  lecture_slice_1();
+  fsm_transition_slice_1();
+  step ++;
+  lecture_slice_1();
+  fsm_transition_slice_1();
+  step ++;
+  lecture_slice_1();
+  fsm_transition_slice_1();
+  step ++;
+  lecture_slice_1();
+  fsm_transition_slice_1();
+  step ++;
+  lecture_slice_1();
+  fsm_transition_slice_1();
+  step ++;
+  lecture_slice_1();
+  fsm_transition_slice_1();
+  step ++;
+  lecture_slice_1();
+  fsm_transition_slice_1();
+  step ++;
+  /*@ loop unfold "done", 10; */
+  while (1) {
+    lecture_slice_1();
+    fsm_transition_slice_1();
+    if (state == 3) {
+      /*@ \slicing::slice_preserve_ctrl ; */ ;
+      break;
+    }
+    step ++;
+  }
+  return;
+}
+
+
+[kernel] Parsing ocode_0_bts1768.i (no preprocessing)

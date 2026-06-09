@@ -1,0 +1,55 @@
+[kernel] Parsing resolv_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function Frama_C_interval <- main.
+  Called from resolv_h.c:15.
+[eva] using specification for function Frama_C_interval
+[eva:progress] resolv_h.c:15: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function __res_state <- main.
+  Called from resolv_h.c:16.
+[eva] using specification for function __res_state
+[eva:garbled-mix:assigns] resolv_h.c:16: 
+  The specification of function __res_state
+  has generated a garbled mix of addresses for assigns clause \result.
+[eva:progress] Done for function __res_state
+[eva:alarm] resolv_h.c:16: Warning: 
+  unaligned pointer creation.
+  assert \aligned(tmp_0,alignof(struct __res_state));
+  (tmp_0 from __res_state())
+[eva:alarm] resolv_h.c:16: Warning: 
+  out of bounds read.
+  assert \valid_read(&tmp_0->options);
+  (tmp_0 from __res_state())
+[eva:progress] 
+  computing for function res_init <- main.
+  Called from resolv_h.c:16.
+[eva] using specification for function res_init
+[eva:progress] Done for function res_init
+[eva:progress] 
+  computing for function res_send <- main.
+  Called from resolv_h.c:17.
+[eva] using specification for function res_send
+[eva:progress] Done for function res_send
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva:garbled-mix:summary] 
+  Origins of garbled mix generated during analysis:
+    resolv_h.c:16: assigns clause on addresses
+      (read in 1 statement, propagated through 1 statement)
+      garbled mix of &{__fc_resolv}
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  Frama_C_entropy_source ∈ [--..--]
+  __fc_resolv ∈ [--..--]
+  abuf[0..511] ∈ [--..--] or UNINITIALIZED
+  n ∈ [--..--] or UNINITIALIZED
+  i ∈ [0..512]
+  len ∈ {512}
+  __retres ∈ {0; 1}

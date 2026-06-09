@@ -1,0 +1,3 @@
+Checking libc metrics...
+warning: expected 'Extern' global variables > 10, but got 6
+Finished checking libc metrics.

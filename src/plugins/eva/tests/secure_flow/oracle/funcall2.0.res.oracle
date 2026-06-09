@@ -1,0 +1,48 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing funcall2.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  internal_result ∈ {0}
+  a ∈ [--..--]
+  b ∈ [--..--]
+[eva:progress] 
+  computing for function add <- main.
+  Called from funcall2.c:16.
+[eva:progress] funcall2.c:16: function add: precondition got status valid.
+[eva:progress] funcall2.c:7: function add: postcondition got status valid.
+[eva:progress] Recording results for add
+[eva:progress] Done for function add
+[eva:alarm] funcall2.c:17: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function add:
+  internal_result ∈ [--..--]
+  __retres ∈ {{ &internal_result }}
+[eva:final-states] Values at end of function main:
+  internal_result ∈ [--..--]
+  sum ∈ {{ &internal_result }}
+  __retres ∈ {0}
+[from] Computing for function add
+[from] Done for function add
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function add:
+  internal_result FROM a; b; x; y
+  \result FROM \nothing
+[from] Function main:
+  internal_result FROM a; b
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function add:
+    internal_result; __retres
+[inout] Inputs for function add:
+    a; b
+[inout] Out (internal) for function main:
+    internal_result; sum; __retres
+[inout] Inputs for function main:
+    a; b

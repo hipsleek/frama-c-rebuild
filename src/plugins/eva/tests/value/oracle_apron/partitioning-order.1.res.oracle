@@ -1,0 +1,28 @@
+25,26c25,34
+< [eva:progress] partitioning-order.i:31: Reusing old results for call to incr_g
+< [eva:progress] partitioning-order.i:31: Reusing old results for call to incr_g
+---
+> [eva:progress] 
+>   computing for function incr_g <- check_split_order <- main.
+>   Called from partitioning-order.i:31:3-11.
+> [eva:progress] Recording results for incr_g
+> [eva:progress] Done for function incr_g
+> [eva:progress] 
+>   computing for function incr_g <- check_split_order <- main.
+>   Called from partitioning-order.i:31:3-11.
+> [eva:progress] Recording results for incr_g
+> [eva:progress] Done for function incr_g
+57,58c65,74
+< [eva:progress] partitioning-order.i:47: Reusing old results for call to incr_g
+< [eva:progress] partitioning-order.i:47: Reusing old results for call to incr_g
+---
+> [eva:progress] 
+>   computing for function incr_g <- check_history_order <- main.
+>   Called from partitioning-order.i:47:3-11.
+> [eva:progress] Recording results for incr_g
+> [eva:progress] Done for function incr_g
+> [eva:progress] 
+>   computing for function incr_g <- check_history_order <- main.
+>   Called from partitioning-order.i:47:3-11.
+> [eva:progress] Recording results for incr_g
+> [eva:progress] Done for function incr_g

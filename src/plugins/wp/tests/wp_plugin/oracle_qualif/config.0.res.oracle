@@ -1,0 +1,8 @@
+----------------------------------------------------------
+WP Requirements for Qualif Tests
+----------------------------------------------------------
+1. The Alt-Ergo theorem prover, version v2.6.2
+2. The Why3 platform, version 1.8.2
+3. The environment variable FRAMAC_WP_CACHEDIR is defined
+4. The environment variable FRAMAC_WP_CACHE is defined
+----------------------------------------------------------

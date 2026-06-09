@@ -1,0 +1,13 @@
+# frama-c -wp [...]
+[kernel] Parsing unroll.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] Warning: Missing RTE guards
+[wp] unroll.i:21: Warning: Missing assigns clause (assigns 'everything' instead)
+[wp] 1 goal scheduled
+[wp] [Valid] typed_unrolled_loop_ensures_zero (Tactics 2) (Qed 18/18)
+[wp] Proved goals:    1 / 1
+  Script:          1 (Tactics 2) (Qed 18/18)
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  unrolled_loop             -        -        1       100%
+------------------------------------------------------------

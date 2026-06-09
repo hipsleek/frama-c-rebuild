@@ -1,0 +1,12 @@
+{
+  "profile": [],
+  "proofs": {
+    "Memory": {
+      "eqmem_included": { "prover": "alt-ergo", "time": 0.012 },
+      "eqmem_memcpy": { "prover": "alt-ergo", "time": 0.012 },
+      "eqmem_single": { "prover": "alt-ergo", "time": 0.012 },
+      "eqmem_sym": { "prover": "alt-ergo", "time": 0.012 },
+      "eqmem_update": { "prover": "alt-ergo", "time": 0.014 }
+    }
+  }
+}

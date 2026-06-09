@@ -1,0 +1,1 @@
+electron@^40 electron-builder@^26 electron-vite@^5 electron-devtools-installer @types/lodash@^4 @types/react@^18 @types/node@^24 @types/react-dom@^18 @types/react-virtualized@^9.21.8 @types/diff@^5 @types/d3-selection @types/d3-graphviz typescript@^5

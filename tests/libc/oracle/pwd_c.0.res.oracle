@@ -1,0 +1,347 @@
+[kernel] Parsing pwd_c.c (with preprocessing)
+[eva:precision-settings] 
+  Option -eva-precision 1 detected, automatic configuration of the analysis:
+    option -eva-min-loop-unroll set to 0 (default value).
+    option -eva-auto-loop-unroll set to 16.
+    option -eva-widening-delay set to 1.
+    option -eva-partition-history set to 0 (default value).
+    option -eva-slevel set to 10.
+    option -eva-ilevel set to 12.
+    option -eva-plevel set to 20.
+    option -eva-subdivide-non-linear set to 20.
+    option -eva-remove-redundant-alarms set to true (default value).
+    option -eva-domains set to 'cvalue,symbolic-locations'.
+    option -eva-split-return already set to 'full' (not modified).
+    option -eva-equality-through-calls set to 'none'.
+    option -eva-octagon-through-calls set to false (default value).
+[eva:split-return] 
+  Splitting return states on:
+    \full_split(@all)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  uid ∈ [--..--]
+[eva:progress] 
+  computing for function getpwuid_r <- main.
+  Called from pwd_c.c:14.
+[eva:progress] 
+  computing for function __fc_getpw_r <- getpwuid_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:100.
+[eva:progress] 
+  computing for function Frama_C_make_unknown <- __fc_getpw_r <- getpwuid_r <- 
+                          main.
+  Called from FRAMAC_SHARE/libc/pwd.c:54.
+[eva] using specification for function Frama_C_make_unknown
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:54: 
+  function Frama_C_make_unknown: precondition 'valid_p' got status valid.
+[eva:progress] Done for function Frama_C_make_unknown
+[eva:progress] 
+  computing for function Frama_C_make_unknown <- __fc_getpw_r <- getpwuid_r <- 
+                          main.
+  Called from FRAMAC_SHARE/libc/pwd.c:56.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:56: 
+  function Frama_C_make_unknown: precondition 'valid_p' got status valid.
+[eva:progress] Done for function Frama_C_make_unknown
+[eva:progress] 
+  computing for function Frama_C_make_unknown <- __fc_getpw_r <- getpwuid_r <- 
+                          main.
+  Called from FRAMAC_SHARE/libc/pwd.c:58.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:58: 
+  function Frama_C_make_unknown: precondition 'valid_p' got status valid.
+[eva:progress] Done for function Frama_C_make_unknown
+[eva:progress] 
+  computing for function Frama_C_make_unknown <- __fc_getpw_r <- getpwuid_r <- 
+                          main.
+  Called from FRAMAC_SHARE/libc/pwd.c:60.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:60: 
+  function Frama_C_make_unknown: precondition 'valid_p' got status valid.
+[eva:progress] Done for function Frama_C_make_unknown
+[eva:progress] 
+  computing for function Frama_C_make_unknown <- __fc_getpw_r <- getpwuid_r <- 
+                          main.
+  Called from FRAMAC_SHARE/libc/pwd.c:62.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:62: 
+  function Frama_C_make_unknown: precondition 'valid_p' got status valid.
+[eva:progress] Done for function Frama_C_make_unknown
+[eva:progress] 
+  computing for function Frama_C_interval <- __fc_getpw_r <- getpwuid_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:67.
+[eva] using specification for function Frama_C_interval
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:67: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- __fc_getpw_r <- getpwuid_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:70.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:70: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- __fc_getpw_r <- getpwuid_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:71.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:71: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- __fc_getpw_r <- getpwuid_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:72.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:72: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:80: Call to builtin strlen
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:80: 
+  function strlen: precondition 'valid_string_s' got status valid.
+[eva:progress] 
+  computing for function strcpy <- __fc_getpw_r <- getpwuid_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:80.
+[eva] using specification for function strcpy
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:80: 
+  function strcpy: precondition 'valid_string_src' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:80: 
+  function strcpy: precondition 'room_string' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:80: 
+  function strcpy: precondition 'separation' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:440: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function strcmp
+[eva:progress] Done for function strcpy
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:81: Call to builtin strlen
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:81: 
+  function strlen: precondition 'valid_string_s' got status valid.
+[eva:progress] 
+  computing for function strcpy <- __fc_getpw_r <- getpwuid_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:81.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:81: 
+  function strcpy: precondition 'valid_string_src' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:81: 
+  function strcpy: precondition 'room_string' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:81: 
+  function strcpy: precondition 'separation' got status valid.
+[eva:progress] Done for function strcpy
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:82: Call to builtin strlen
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:82: 
+  function strlen: precondition 'valid_string_s' got status valid.
+[eva:progress] 
+  computing for function strcpy <- __fc_getpw_r <- getpwuid_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:82.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:82: 
+  function strcpy: precondition 'valid_string_src' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:82: 
+  function strcpy: precondition 'room_string' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:82: 
+  function strcpy: precondition 'separation' got status valid.
+[eva:progress] Done for function strcpy
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:83: Call to builtin strlen
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:83: 
+  function strlen: precondition 'valid_string_s' got status valid.
+[eva:progress] 
+  computing for function strcpy <- __fc_getpw_r <- getpwuid_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:83.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:83: 
+  function strcpy: precondition 'valid_string_src' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:83: 
+  function strcpy: precondition 'room_string' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:83: 
+  function strcpy: precondition 'separation' got status valid.
+[eva:progress] Done for function strcpy
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:84: Call to builtin strlen
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:84: 
+  function strlen: precondition 'valid_string_s' got status valid.
+[eva:progress] 
+  computing for function strcpy <- __fc_getpw_r <- getpwuid_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:84.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:84: 
+  function strcpy: precondition 'valid_string_src' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:84: 
+  function strcpy: precondition 'room_string' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:84: 
+  function strcpy: precondition 'separation' got status valid.
+[eva:progress] Done for function strcpy
+[eva:progress] 
+  computing for function Frama_C_unsigned_int_interval <- __fc_getpw_r <- 
+                          getpwuid_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:85.
+[eva] using specification for function Frama_C_unsigned_int_interval
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:85: 
+  function Frama_C_unsigned_int_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_unsigned_int_interval
+[eva:progress] 
+  computing for function Frama_C_unsigned_int_interval <- __fc_getpw_r <- 
+                          getpwuid_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:86.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:86: 
+  function Frama_C_unsigned_int_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_unsigned_int_interval
+[eva:progress] Recording results for __fc_getpw_r
+[eva:progress] Done for function __fc_getpw_r
+[eva:progress] Recording results for getpwuid_r
+[eva:progress] Done for function getpwuid_r
+[eva:progress] pwd_c.c:16: assertion got status valid.
+[eva:progress] pwd_c.c:17: assertion got status valid.
+[eva:progress] pwd_c.c:18: assertion got status valid.
+[eva:alarm] pwd_c.c:20: Warning: assertion got status unknown.
+[eva:alarm] pwd_c.c:21: Warning: assertion got status unknown.
+[eva:alarm] pwd_c.c:22: Warning: assertion got status unknown.
+[eva:alarm] pwd_c.c:23: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function getpwnam_r <- main.
+  Called from pwd_c.c:27.
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:94: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_getpw_r <- getpwnam_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:95.
+[eva:progress] 
+  computing for function Frama_C_interval <- __fc_getpw_r <- getpwnam_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:67.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- __fc_getpw_r <- getpwnam_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:70.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- __fc_getpw_r <- getpwnam_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:71.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- __fc_getpw_r <- getpwnam_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:72.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:80: Call to builtin strlen
+[eva:progress] 
+  computing for function strcpy <- __fc_getpw_r <- getpwnam_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:80.
+[eva:progress] Done for function strcpy
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:81: Call to builtin strlen
+[eva:progress] 
+  computing for function strcpy <- __fc_getpw_r <- getpwnam_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:81.
+[eva:progress] Done for function strcpy
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:82: Call to builtin strlen
+[eva:progress] 
+  computing for function strcpy <- __fc_getpw_r <- getpwnam_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:82.
+[eva:progress] Done for function strcpy
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:83: Call to builtin strlen
+[eva:progress] 
+  computing for function strcpy <- __fc_getpw_r <- getpwnam_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:83.
+[eva:progress] Done for function strcpy
+[eva:progress] FRAMAC_SHARE/libc/pwd.c:84: Call to builtin strlen
+[eva:progress] 
+  computing for function strcpy <- __fc_getpw_r <- getpwnam_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:84.
+[eva:progress] Done for function strcpy
+[eva:progress] 
+  computing for function Frama_C_unsigned_int_interval <- __fc_getpw_r <- 
+                          getpwnam_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:85.
+[eva:progress] Done for function Frama_C_unsigned_int_interval
+[eva:progress] 
+  computing for function Frama_C_unsigned_int_interval <- __fc_getpw_r <- 
+                          getpwnam_r <- main.
+  Called from FRAMAC_SHARE/libc/pwd.c:86.
+[eva:progress] Done for function Frama_C_unsigned_int_interval
+[eva:progress] Recording results for __fc_getpw_r
+[eva:progress] Done for function __fc_getpw_r
+[eva:progress] Recording results for getpwnam_r
+[eva:progress] Done for function getpwnam_r
+[eva:progress] pwd_c.c:29: assertion got status valid.
+[eva:progress] pwd_c.c:30: assertion got status valid.
+[eva:progress] pwd_c.c:31: assertion got status valid.
+[eva:alarm] pwd_c.c:33: Warning: assertion 'unknown_for_now' got status unknown.
+[eva:alarm] pwd_c.c:34: Warning: assertion 'unknown_for_now' got status unknown.
+[eva:alarm] pwd_c.c:35: Warning: assertion 'unknown_for_now' got status unknown.
+[eva:alarm] pwd_c.c:36: Warning: assertion 'unknown_for_now' got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function __fc_getpw_r:
+  Frama_C_entropy_source ∈ [--..--]
+  __fc_getpw_pw_name[0..62] ∈ [--..--]
+                    [63] ∈ {0}
+  __fc_getpw_pw_passwd[0..62] ∈ [--..--]
+                      [63] ∈ {0}
+  __fc_getpw_pw_gecos[0..62] ∈ [--..--]
+                     [63] ∈ {0}
+  __fc_getpw_pw_dir[0..62] ∈ [--..--]
+                   [63] ∈ {0}
+  __fc_getpw_pw_shell[0..62] ∈ [--..--]
+                     [63] ∈ {0}
+  buf ∈ {{ &buf + [0..320] }}
+  pwd_out.pw_name ∈ {{ &buf[0] }} or UNINITIALIZED
+         .pw_passwd ∈ {{ &buf + [1..64] }} or UNINITIALIZED
+         {.pw_uid; .pw_gid} ∈ [--..--] or UNINITIALIZED
+         .pw_gecos ∈ {{ &buf + [2..128] }} or UNINITIALIZED
+         .pw_dir ∈ {{ &buf + [3..192] }} or UNINITIALIZED
+         .pw_shell ∈ {{ &buf + [4..256] }} or UNINITIALIZED
+  result ∈ {{ NULL ; &pwd_out ; &pwd_out2 }}
+  buf[0..319] ∈ [--..--] or UNINITIALIZED
+  pwd_out2.pw_name ∈ {{ &buf[0] }} or UNINITIALIZED
+          .pw_passwd ∈ {{ &buf + [1..64] }} or UNINITIALIZED
+          {.pw_uid; .pw_gid} ∈ [--..--] or UNINITIALIZED
+          .pw_gecos ∈ {{ &buf + [2..128] }} or UNINITIALIZED
+          .pw_dir ∈ {{ &buf + [3..192] }} or UNINITIALIZED
+          .pw_shell ∈ {{ &buf + [4..256] }} or UNINITIALIZED
+  __fc_getpw_init ∈ {1}
+  __retres ∈ {0; 5; 23; 24}
+[eva:final-states] Values at end of function getpwnam_r:
+  Frama_C_entropy_source ∈ [--..--]
+  result ∈ {{ NULL ; &pwd_out2 }}
+  buf[0..319] ∈ [--..--] or UNINITIALIZED
+  pwd_out2.pw_name ∈ {{ &buf[0] }} or UNINITIALIZED
+          .pw_passwd ∈ {{ &buf + [1..64] }} or UNINITIALIZED
+          {.pw_uid; .pw_gid} ∈ [--..--] or UNINITIALIZED
+          .pw_gecos ∈ {{ &buf + [2..128] }} or UNINITIALIZED
+          .pw_dir ∈ {{ &buf + [3..192] }} or UNINITIALIZED
+          .pw_shell ∈ {{ &buf + [4..256] }} or UNINITIALIZED
+[eva:final-states] Values at end of function getpwuid_r:
+  Frama_C_entropy_source ∈ [--..--]
+  __fc_getpw_pw_name[0..62] ∈ [--..--]
+                    [63] ∈ {0}
+  __fc_getpw_pw_passwd[0..62] ∈ [--..--]
+                      [63] ∈ {0}
+  __fc_getpw_pw_gecos[0..62] ∈ [--..--]
+                     [63] ∈ {0}
+  __fc_getpw_pw_dir[0..62] ∈ [--..--]
+                   [63] ∈ {0}
+  __fc_getpw_pw_shell[0..62] ∈ [--..--]
+                     [63] ∈ {0}
+  pwd_out.pw_name ∈ {{ &buf[0] }} or UNINITIALIZED
+         .pw_passwd ∈ {{ &buf + [1..64] }} or UNINITIALIZED
+         {.pw_uid; .pw_gid} ∈ [--..--] or UNINITIALIZED
+         .pw_gecos ∈ {{ &buf + [2..128] }} or UNINITIALIZED
+         .pw_dir ∈ {{ &buf + [3..192] }} or UNINITIALIZED
+         .pw_shell ∈ {{ &buf + [4..256] }} or UNINITIALIZED
+  result ∈ {{ NULL ; &pwd_out }}
+  buf[0..319] ∈ [--..--] or UNINITIALIZED
+  __fc_getpw_init ∈ {1}
+[eva:final-states] Values at end of function main:
+  Frama_C_entropy_source ∈ [--..--]
+  __fc_getpw_pw_name[0..62] ∈ [--..--]
+                    [63] ∈ {0}
+  __fc_getpw_pw_passwd[0..62] ∈ [--..--]
+                      [63] ∈ {0}
+  __fc_getpw_pw_gecos[0..62] ∈ [--..--]
+                     [63] ∈ {0}
+  __fc_getpw_pw_dir[0..62] ∈ [--..--]
+                   [63] ∈ {0}
+  __fc_getpw_pw_shell[0..62] ∈ [--..--]
+                     [63] ∈ {0}
+  pwd_out.pw_name ∈ {{ &buf[0] }} or UNINITIALIZED
+         .pw_passwd ∈ {{ &buf + [1..64] }} or UNINITIALIZED
+         {.pw_uid; .pw_gid} ∈ [--..--] or UNINITIALIZED
+         .pw_gecos ∈ {{ &buf + [2..128] }} or UNINITIALIZED
+         .pw_dir ∈ {{ &buf + [3..192] }} or UNINITIALIZED
+         .pw_shell ∈ {{ &buf + [4..256] }} or UNINITIALIZED
+  result ∈ {{ NULL ; &pwd_out2 }}
+  buf[0..319] ∈ [--..--] or UNINITIALIZED
+  buflen ∈ {320}
+  res ∈ {0; 5; 23; 24}
+  pwd_out2.pw_name ∈ {{ &buf[0] }} or UNINITIALIZED
+          .pw_passwd ∈ {{ &buf + [1..64] }} or UNINITIALIZED
+          {.pw_uid; .pw_gid} ∈ [--..--] or UNINITIALIZED
+          .pw_gecos ∈ {{ &buf + [2..128] }} or UNINITIALIZED
+          .pw_dir ∈ {{ &buf + [3..192] }} or UNINITIALIZED
+          .pw_shell ∈ {{ &buf + [4..256] }} or UNINITIALIZED
+  __fc_getpw_init ∈ {1}
+  __retres ∈ {0}

@@ -1,0 +1,4 @@
+[1m[kernel] [22mParsing tty.i (no preprocessing)
+[1m[kernel:parser:decimal-float] tty.i:6: [38;5;208mWarning:[39m [22m
+  Floating-point constant 3.14 is not represented exactly. Will use 0x1.91eb851eb851fp1.
+  (warn-once: no further messages from category 'parser:decimal-float' will be emitted)

@@ -1,0 +1,8 @@
+26c26,30
+< [eva:progress] funcall3.c:23: Reusing old results for call to set_x
+---
+> [eva:progress] 
+>   computing for function set_x <- main.
+>   Called from funcall3.c:23.
+> [eva:progress] Recording results for set_x
+> [eva:progress] Done for function set_x

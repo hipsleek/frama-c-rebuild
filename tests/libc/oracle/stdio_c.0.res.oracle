@@ -1,0 +1,532 @@
+[kernel] Parsing stdio_c.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+[eva:progress] 
+  computing for function fopen <- main.
+  Called from stdio_c.c:16.
+[eva] using specification for function fopen
+[eva:progress] stdio_c.c:16: 
+  function fopen: precondition 'valid_filename' got status valid.
+[eva:progress] stdio_c.c:16: 
+  function fopen: precondition 'valid_mode' got status valid.
+[eva:progress] Done for function fopen
+[eva:progress] 
+  computing for function getline <- main.
+  Called from stdio_c.c:18.
+[eva:progress] 
+  computing for function ferror <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:48.
+[eva] using specification for function ferror
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:48: 
+  function ferror: precondition 'valid_stream' got status valid.
+[eva:progress] Done for function ferror
+[eva:progress] 
+  computing for function feof <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:48.
+[eva] using specification for function feof
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:48: 
+  function feof: precondition 'valid_stream' got status valid.
+[eva:progress] Done for function feof
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:53: Call to builtin malloc
+[eva:malloc:new] FRAMAC_SHARE/libc/stdio.c:53: 
+  allocating variable __malloc_getline_l53
+[eva:progress] 
+  computing for function ferror <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:62: 
+  function ferror: precondition 'valid_stream' got status valid.
+[eva:progress] Done for function ferror
+[eva:progress] 
+  computing for function feof <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:62: 
+  function feof: precondition 'valid_stream' got status valid.
+[eva:progress] Done for function feof
+[eva:progress] 
+  computing for function fgetc <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:64.
+[eva:progress] 
+  computing for function Frama_C_interval <- fgetc <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:159.
+[eva] using specification for function Frama_C_interval
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:159: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- fgetc <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:170.
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:170: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- fgetc <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:175.
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:175: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_unsigned_char_interval <- fgetc <- getline <- 
+                          main.
+  Called from FRAMAC_SHARE/libc/stdio.c:178.
+[eva] using specification for function Frama_C_unsigned_char_interval
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:178: 
+  function Frama_C_unsigned_char_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_unsigned_char_interval
+[eva:progress] Recording results for fgetc
+[eva:progress] Done for function fgetc
+[eva:partition] FRAMAC_SHARE/libc/stdio.c:63: starting to merge loop iterations
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:84: Call to builtin realloc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:84: 
+  function realloc: precondition 'freeable' got status valid.
+[eva:malloc:new] FRAMAC_SHARE/libc/stdio.c:84: 
+  allocating variable __realloc_getline_l84
+[eva:partition] FRAMAC_SHARE/libc/stdio.c:62: starting to merge loop iterations
+[eva:progress] 
+  computing for function ferror <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function ferror
+[eva:progress] 
+  computing for function feof <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function feof
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:84: Call to builtin realloc
+[eva:progress] 
+  computing for function ferror <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function ferror
+[eva:progress] 
+  computing for function feof <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function feof
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:alarm] FRAMAC_SHARE/libc/stdio.c:70: Warning: 
+  out of bounds write. assert \valid(*lineptr + tmp_2);
+                       (tmp_2 from cur++)
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:84: Call to builtin realloc
+[eva:progress] 
+  computing for function ferror <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function ferror
+[eva:progress] 
+  computing for function feof <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function feof
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:84: Call to builtin realloc
+[eva:progress] 
+  computing for function ferror <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function ferror
+[eva:progress] 
+  computing for function feof <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function feof
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:84: Call to builtin realloc
+[eva:alarm] FRAMAC_SHARE/libc/stdio.c:73: Warning: 
+  out of bounds write. assert \valid(*lineptr + cur);
+[eva:progress] Recording results for getline
+[eva:progress] Done for function getline
+[eva:alarm] stdio_c.c:19: Warning: assertion 'read_ok' got status unknown.
+[eva:progress] stdio_c.c:20: Call to builtin strlen
+[eva:alarm] stdio_c.c:20: Warning: 
+  function strlen: precondition 'valid_string_s' got status unknown.
+[eva:alarm] stdio_c.c:21: Warning: assertion 'read_bytes' got status unknown.
+[eva:alarm] stdio_c.c:22: Warning: 
+  assertion 'allocated_enough' got status unknown.
+[eva:partition] stdio_c.c:18: starting to merge loop iterations
+[eva:progress] 
+  computing for function getline <- main.
+  Called from stdio_c.c:18.
+[eva:progress] 
+  computing for function ferror <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:48.
+[eva:progress] Done for function ferror
+[eva:progress] 
+  computing for function feof <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:48.
+[eva:progress] Done for function feof
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:53: Call to builtin malloc
+[eva:progress] 
+  computing for function ferror <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function ferror
+[eva:progress] 
+  computing for function feof <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function feof
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:84: Call to builtin realloc
+[eva:progress] 
+  computing for function ferror <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function ferror
+[eva:progress] 
+  computing for function feof <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function feof
+[eva:progress] Recording results for getline
+[eva:progress] Done for function getline
+[eva:progress] stdio_c.c:20: Call to builtin strlen
+[eva:progress] 
+  computing for function getline <- main.
+  Called from stdio_c.c:18.
+[eva:progress] 
+  computing for function ferror <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:48.
+[eva:progress] Done for function ferror
+[eva:progress] 
+  computing for function feof <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:48.
+[eva:progress] Done for function feof
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:53: Call to builtin malloc
+[eva:progress] 
+  computing for function ferror <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function ferror
+[eva:progress] 
+  computing for function feof <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function feof
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:84: Call to builtin realloc
+[eva:progress] 
+  computing for function ferror <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function ferror
+[eva:progress] 
+  computing for function feof <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function feof
+[eva:progress] Recording results for getline
+[eva:progress] Done for function getline
+[eva:progress] stdio_c.c:20: Call to builtin strlen
+[eva:progress] 
+  computing for function getline <- main.
+  Called from stdio_c.c:18.
+[eva:progress] 
+  computing for function ferror <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:48.
+[eva:progress] Done for function ferror
+[eva:progress] 
+  computing for function feof <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:48.
+[eva:progress] Done for function feof
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:53: Call to builtin malloc
+[eva:progress] 
+  computing for function ferror <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function ferror
+[eva:progress] 
+  computing for function feof <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function feof
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:64: 
+  Reusing old results for call to fgetc
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:84: Call to builtin realloc
+[eva:progress] 
+  computing for function ferror <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function ferror
+[eva:progress] 
+  computing for function feof <- getline <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:62.
+[eva:progress] Done for function feof
+[eva:progress] Recording results for getline
+[eva:progress] Done for function getline
+[eva:progress] stdio_c.c:20: Call to builtin strlen
+[eva:progress] stdio_c.c:24: Call to builtin free
+[eva:progress] stdio_c.c:24: 
+  function free: precondition 'freeable' got status valid.
+[eva:progress] 
+  computing for function fclose <- main.
+  Called from stdio_c.c:25.
+[eva] using specification for function fclose
+[eva:progress] stdio_c.c:25: 
+  function fclose: precondition 'valid_stream' got status valid.
+[eva:progress] Done for function fclose
+[eva:progress] 
+  computing for function asprintf <- main.
+  Called from stdio_c.c:31.
+[eva:progress] 
+  computing for function vasprintf <- asprintf <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:115.
+[eva:progress] 
+  computing for function Frama_C_interval <- vasprintf <- asprintf <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:101.
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:101: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:102: Call to builtin malloc
+[eva:malloc:new] FRAMAC_SHARE/libc/stdio.c:102: 
+  allocating variable __malloc_vasprintf_l102
+[eva:progress] 
+  computing for function Frama_C_make_unknown <- vasprintf <- asprintf <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:107.
+[eva] using specification for function Frama_C_make_unknown
+[eva:alarm] FRAMAC_SHARE/libc/stdio.c:107: Warning: 
+  function Frama_C_make_unknown: precondition 'valid_p' got status unknown.
+[eva:progress] Done for function Frama_C_make_unknown
+[eva:alarm] FRAMAC_SHARE/libc/stdio.c:108: Warning: 
+  out of bounds write. assert \valid(*strp + (size_t)(len - 1U));
+[eva:progress] Recording results for vasprintf
+[eva:progress] Done for function vasprintf
+[eva:progress] Recording results for asprintf
+[eva:progress] Done for function asprintf
+[eva:progress] 
+  computing for function printf_va_1 <- main.
+  Called from stdio_c.c:33.
+[eva] using specification for function printf
+[eva:alarm] stdio_c.c:33: Warning: 
+  function printf_va_1: precondition valid_read_string(param0) got status unknown.
+[eva:progress] stdio_c.c:33: 
+  function printf_va_1: precondition valid_read_string(format) got status valid.
+[eva:progress] Done for function printf_va_1
+[eva:progress] stdio_c.c:34: Call to builtin free
+[eva:progress] stdio_c.c:34: 
+  function free: precondition 'freeable' got status valid.
+[eva:progress] 
+  computing for function fmemopen <- main.
+  Called from stdio_c.c:42.
+[eva:progress] 
+  computing for function is_valid_mode <- fmemopen <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:191.
+[eva:progress] Recording results for is_valid_mode
+[eva:progress] Done for function is_valid_mode
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:209: Call to builtin malloc
+[eva:malloc:new] FRAMAC_SHARE/libc/stdio.c:209: 
+  allocating variable __malloc_fmemopen_l209
+[eva:progress] 
+  computing for function Frama_C_interval <- fmemopen <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:217.
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:217: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- fmemopen <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:222.
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:222: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] Recording results for fmemopen
+[eva:progress] Done for function fmemopen
+[eva:progress] 
+  computing for function fwrite <- main.
+  Called from stdio_c.c:45.
+[eva] using specification for function fwrite
+[eva:progress] stdio_c.c:45: 
+  function fwrite: precondition 'valid_ptr_block' got status valid.
+[eva:progress] stdio_c.c:45: 
+  function fwrite: precondition 'valid_stream' got status valid.
+[eva:progress] Done for function fwrite
+[eva:progress] stdio_c.c:46: assertion got status valid.
+[eva:progress] 
+  computing for function getchar <- main.
+  Called from stdio_c.c:49.
+[eva:progress] 
+  computing for function fgetc <- getchar <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:183.
+[eva:progress] 
+  computing for function Frama_C_interval <- fgetc <- getchar <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:159.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- fgetc <- getchar <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:170.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- fgetc <- getchar <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:175.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_unsigned_char_interval <- fgetc <- getchar <- 
+                          main.
+  Called from FRAMAC_SHARE/libc/stdio.c:178.
+[eva:progress] Done for function Frama_C_unsigned_char_interval
+[eva:progress] Recording results for fgetc
+[eva:progress] Done for function fgetc
+[eva:progress] Recording results for getchar
+[eva:progress] Done for function getchar
+[eva:show] stdio_c.c:50: Frama_C_show_each_getchar: [-1..255]
+[eva:progress] stdio_c.c:51: Reusing old results for call to fgetc
+[eva:show] stdio_c.c:52: Frama_C_show_each_fgetc: [-1..255]
+[eva:progress] 
+  computing for function fgets <- main.
+  Called from stdio_c.c:54.
+[eva:progress] 
+  computing for function Frama_C_interval <- fgets <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:121.
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:121: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- fgets <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:132.
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:132: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- fgets <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:139.
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:139: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- fgets <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:145.
+[eva:progress] FRAMAC_SHARE/libc/stdio.c:145: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:partition] FRAMAC_SHARE/libc/stdio.c:136: starting to merge loop iterations
+[eva:progress] 
+  computing for function Frama_C_interval <- fgets <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:139.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- fgets <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:145.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- fgets <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:139.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- fgets <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:145.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- fgets <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:139.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- fgets <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:145.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- fgets <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:139.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- fgets <- main.
+  Called from FRAMAC_SHARE/libc/stdio.c:145.
+[eva:progress] Done for function Frama_C_interval
+[eva:alarm] FRAMAC_SHARE/libc/stdio.c:154: Warning: 
+  out of bounds write. assert \valid(s + i);
+[eva:progress] Recording results for fgets
+[eva:progress] Done for function fgets
+[eva:alarm] stdio_c.c:56: Warning: 
+  assertion 'at_least_one_char' got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function fgetc:
+  __fc_errno ∈ [--..--]
+  Frama_C_entropy_source ∈ [--..--]
+  __retres ∈ [-1..255]
+[eva:final-states] Values at end of function fgets:
+  __fc_errno ∈ [--..--]
+  Frama_C_entropy_source ∈ [--..--]
+  i ∈ [0..9] or UNINITIALIZED
+  buf[0..8] ∈ [--..--] or UNINITIALIZED
+     [9] ∈ {0} or UNINITIALIZED
+  __retres ∈ {{ NULL ; &buf[0] }}
+[eva:final-states] Values at end of function getchar:
+  __fc_errno ∈ [--..--]
+  Frama_C_entropy_source ∈ [--..--]
+[eva:final-states] Values at end of function is_valid_mode:
+  __retres ∈ {1}
+[eva:final-states] Values at end of function fmemopen:
+  __fc_heap_status ∈ [--..--]
+  __fc_errno ∈ [--..--]
+  Frama_C_entropy_source ∈ [--..--]
+  buf ∈ {{ NULL ; (void *)&__malloc_fmemopen_l209 }}
+  __retres ∈ {{ NULL ; &__fc_fopen + [0..120],0%8 }}
+[eva:final-states] Values at end of function getline:
+  __fc_heap_status ∈ [--..--]
+  __fc_errno ∈ [--..--]
+  Frama_C_entropy_source ∈ [--..--]
+  cur ∈ [0..2147483647] or UNINITIALIZED
+  line ∈
+      {{ NULL ; &__malloc_w_getline_l53[0] ; &__realloc_w_getline_l84[0] }}
+  len ∈ [0..2147483647]
+  __retres ∈ [-1..2147483646]
+  __malloc_w_getline_l53[0..1] ∈ [--..--] or UNINITIALIZED
+  __realloc_w_getline_l84[0..2147483645] ∈ [--..--] or UNINITIALIZED
+                         [2147483646] ∈ {0} or UNINITIALIZED
+[eva:final-states] Values at end of function vasprintf:
+  __fc_heap_status ∈ [--..--]
+  __fc_errno ∈ [--..--]
+  Frama_C_entropy_source ∈ [--..--]
+  len ∈ [1..256]
+  s ∈ {{ NULL ; &__malloc_vasprintf_l102[0] }}
+  __retres ∈ [-1..256]
+  __malloc_vasprintf_l102[0..254] ∈ [--..--] or UNINITIALIZED
+                         [255] ∈ {0} or UNINITIALIZED
+[eva:final-states] Values at end of function asprintf:
+  __fc_heap_status ∈ [--..--]
+  __fc_errno ∈ [--..--]
+  Frama_C_entropy_source ∈ [--..--]
+  args ∈ {{ &__va_args[0] }}
+  res ∈ [-1..256]
+  s ∈ {{ NULL ; &__malloc_vasprintf_l102[0] }}
+  __malloc_vasprintf_l102[0..254] ∈ [--..--] or UNINITIALIZED
+                         [255] ∈ {0} or UNINITIALIZED
+[eva:final-states] Values at end of function main:
+  __fc_heap_status ∈ [--..--]
+  __fc_errno ∈ [--..--]
+  Frama_C_entropy_source ∈ [--..--]
+  __fc_fopen[0..15] ∈ [--..--]
+  __fc_initial_stdout.__fc_FILE_id ∈ {1}
+                     .__fc_FILE_data ∈ [--..--]
+  stream ∈ {{ NULL ; &__fc_fopen + [0..120],0%8 }}
+  line ∈
+      {{ NULL ; &__malloc_w_getline_l53[0] ; &__realloc_w_getline_l84[0] }} or ESCAPINGADDR
+  len ∈ [0..2147483647]
+  total_len ∈ [--..--]
+  read ∈ {-1} or UNINITIALIZED
+  c ∈ [-1..255] or UNINITIALIZED
+  buf[0..8] ∈ [--..--] or UNINITIALIZED
+     [9] ∈ {0} or UNINITIALIZED
+  r_1 ∈ {{ NULL ; &buf[0] }} or UNINITIALIZED
+  __retres ∈ {0; 1}
+  __malloc_w_getline_l53[0..1] ∈ [--..--] or UNINITIALIZED
+  __realloc_w_getline_l84[0..2147483645] ∈ [--..--] or UNINITIALIZED
+                         [2147483646] ∈ {0} or UNINITIALIZED
+  __malloc_vasprintf_l102[0..254] ∈ [--..--] or UNINITIALIZED
+                         [255] ∈ {0} or UNINITIALIZED

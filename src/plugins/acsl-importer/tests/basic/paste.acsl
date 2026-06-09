@@ -1,0 +1,22 @@
+module paste:
+include "file1.acsl";
+volatile z reads rd_z;
+function rd_z:
+contract:
+requires p == &z;
+assigns rd_z_cpt;
+ensures rd_z_cpt == \old(rd_z_cpt) + 1;
+ensures \result == \old(rd_z_tab[rd_z_cpt]);
+function main:
+contract:
+requires pre : \false || \true ;
+requires pre : x>0;
+ensures returns_1 : \result >= 1 ;
+ensures returns_1 : \result <= 1 ;
+
+at l: assert at_l: x>0 ;
+at l1: assert at_l1: x>0 && x == \at(x,Pre);
+at l11: assert at_l11: x>0 && \at(x,Pre) == \at(x,l1);
+at l2: assert at_l2: x>0 && x == \at(x,Pre);
+at l21: assert at_l21: x>0 && x == \at(x,Pre);
+at return: assert at_return: x>0 && \at(&x,Pre) != \at(&x,l2);

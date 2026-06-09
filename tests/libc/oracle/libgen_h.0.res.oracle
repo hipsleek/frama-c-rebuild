@@ -1,0 +1,52 @@
+[kernel] Parsing libgen_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function basename <- main.
+  Called from libgen_h.c:9.
+[eva] using specification for function basename
+[eva:progress] libgen_h.c:9: 
+  function basename: precondition 'null_or_valid_string_path' got status valid.
+[eva:progress] Done for function basename
+[eva:alarm] libgen_h.c:10: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function basename <- main.
+  Called from libgen_h.c:11.
+[eva:progress] libgen_h.c:11: 
+  function basename: precondition 'null_or_valid_string_path' got status valid.
+[eva:assigns:invalid-location] libgen_h.c:11: 
+  Completely invalid destination for assigns clause *(path + (0 ..)). Ignoring.
+[eva:progress] Done for function basename
+[eva:alarm] libgen_h.c:12: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function dirname <- main.
+  Called from libgen_h.c:14.
+[eva] using specification for function dirname
+[eva:alarm] libgen_h.c:14: Warning: 
+  function dirname: precondition 'null_or_valid_string_path' got status unknown.
+[eva:progress] Done for function dirname
+[eva:alarm] libgen_h.c:15: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function dirname <- main.
+  Called from libgen_h.c:16.
+[eva:progress] libgen_h.c:16: 
+  function dirname: precondition 'null_or_valid_string_path' got status valid.
+[eva:assigns:invalid-location] libgen_h.c:16: 
+  Completely invalid destination for assigns clause *(path + (0 ..)). Ignoring.
+[eva:progress] Done for function dirname
+[eva:alarm] libgen_h.c:17: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  __fc_basename[0..4095] ∈ [--..--]
+  __fc_dirname[0..4095] ∈ [--..--]
+  path[0..127] ∈ [--..--]
+  base ∈ {{ &__fc_basename + [0..4095] ; &path[0] }}
+  base2 ∈ {{ &__fc_basename + [0..4095] }}
+  dir ∈ {{ &__fc_dirname + [0..4095] ; &path[0] }}
+  dir2 ∈ {{ &__fc_dirname + [0..4095] }}
+  __retres ∈ {0}

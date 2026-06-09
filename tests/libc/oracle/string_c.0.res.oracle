@@ -1,0 +1,1413 @@
+[kernel] Parsing string_c.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  v ∈ [--..--]
+[eva:progress] 
+  computing for function test_memcpy <- main.
+  Called from string_c.c:293.
+[eva:progress] 
+  computing for function memcpy <- test_memcpy <- main.
+  Called from string_c.c:10.
+[eva:progress] string_c.c:10: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] string_c.c:10: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] string_c.c:10: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:134: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function memcmp
+[eva:alarm] FRAMAC_SHARE/libc/string.h:134: Warning: 
+  function memcpy: postcondition 'copied_contents' got status unknown.
+[eva:progress] FRAMAC_SHARE/libc/string.h:135: 
+  function memcpy: postcondition 'result_ptr' got status valid.
+[eva:progress] Recording results for memcpy
+[eva:progress] Done for function memcpy
+[eva:progress] string_c.c:11: assertion got status valid.
+[eva:progress] string_c.c:12: assertion got status valid.
+[eva:progress] string_c.c:13: assertion got status valid.
+[eva:progress] string_c.c:14: assertion got status valid.
+[eva:progress] 
+  computing for function memcpy <- test_memcpy <- main.
+  Called from string_c.c:16.
+[eva:progress] string_c.c:16: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] string_c.c:16: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] string_c.c:16: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:progress] Recording results for memcpy
+[eva:progress] Done for function memcpy
+[eva:progress] string_c.c:17: assertion got status valid.
+[eva:progress] string_c.c:18: assertion got status valid.
+[eva:progress] 
+  computing for function memcpy <- test_memcpy <- main.
+  Called from string_c.c:19.
+[eva:progress] string_c.c:19: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:alarm] string_c.c:19: Warning: 
+  function memcpy: precondition 'valid_src' got status invalid.
+[eva:progress] string_c.c:19: 
+  function memcpy: no state left, precondition 'separation' got status valid.
+[eva:progress] Recording results for memcpy
+[eva:progress] Done for function memcpy
+[eva:progress] 
+  computing for function memcpy <- test_memcpy <- main.
+  Called from string_c.c:20.
+[eva:alarm] string_c.c:20: Warning: 
+  function memcpy: precondition 'valid_dest' got status invalid.
+[eva:progress] string_c.c:20: 
+  function memcpy: no state left, precondition 'valid_src' got status valid.
+[eva:progress] string_c.c:20: 
+  function memcpy: no state left, precondition 'separation' got status valid.
+[eva:progress] Recording results for memcpy
+[eva:progress] Done for function memcpy
+[eva:progress] 
+  computing for function memcpy <- test_memcpy <- main.
+  Called from string_c.c:23.
+[eva:progress] string_c.c:23: 
+  function memcpy: precondition 'valid_dest' got status valid.
+[eva:progress] string_c.c:23: 
+  function memcpy: precondition 'valid_src' got status valid.
+[eva:progress] string_c.c:23: 
+  function memcpy: precondition 'separation' got status valid.
+[eva:progress] Recording results for memcpy
+[eva:progress] Done for function memcpy
+[eva:progress] string_c.c:24: assertion got status valid.
+[eva:progress] string_c.c:25: assertion got status valid.
+[eva:progress] Recording results for test_memcpy
+[eva:progress] Done for function test_memcpy
+[eva:progress] 
+  computing for function test_memmove <- main.
+  Called from string_c.c:294.
+[eva:show] string_c.c:34: Frama_C_show_each_s0: {1}
+[eva:show] string_c.c:35: Frama_C_show_each_s0: {2}
+[eva:show] string_c.c:36: Frama_C_show_each_s0: {3}
+[eva:show] string_c.c:37: Frama_C_show_each_s0: {4}
+[eva:show] string_c.c:38: Frama_C_show_each_s0: {3}
+[eva:show] string_c.c:39: Frama_C_show_each_s0: {4}
+[eva:show] string_c.c:40: Frama_C_show_each_s0: {5}
+[eva:show] string_c.c:41: Frama_C_show_each_s0: {6}
+[eva:progress] 
+  computing for function memmove <- test_memmove <- main.
+  Called from string_c.c:42.
+[eva:progress] string_c.c:42: 
+  function memmove: precondition 'valid_dest' got status valid.
+[eva:progress] string_c.c:42: 
+  function memmove: precondition 'valid_src' got status valid.
+[eva:progress] 
+  computing for function memoverlap <- memmove <- test_memmove <- main.
+  Called from FRAMAC_SHARE/libc/string.c:79.
+[eva:progress] FRAMAC_SHARE/libc/string.c:61: 
+  function memoverlap, behavior not_separated_gt: postcondition 'result_p_after_q' got status valid.
+[eva:progress] Recording results for memoverlap
+[eva:progress] Done for function memoverlap
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:157: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function memcmp
+[eva:alarm] FRAMAC_SHARE/libc/string.h:157: Warning: 
+  function memmove: postcondition 'copied_contents' got status unknown.
+[eva:progress] FRAMAC_SHARE/libc/string.h:158: 
+  function memmove: postcondition 'result_ptr' got status valid.
+[eva:progress] Recording results for memmove
+[eva:progress] Done for function memmove
+[eva:progress] string_c.c:43: assertion got status valid.
+[eva:progress] string_c.c:44: assertion got status valid.
+[eva:progress] 
+  computing for function memmove <- test_memmove <- main.
+  Called from string_c.c:49.
+[eva:progress] string_c.c:49: 
+  function memmove: precondition 'valid_dest' got status valid.
+[eva:progress] string_c.c:49: 
+  function memmove: precondition 'valid_src' got status valid.
+[eva:progress] 
+  computing for function memoverlap <- memmove <- test_memmove <- main.
+  Called from FRAMAC_SHARE/libc/string.c:79.
+[eva:progress] FRAMAC_SHARE/libc/string.c:57: 
+  function memoverlap, behavior not_separated_lt: postcondition 'result_p_before_q' got status valid.
+[eva:progress] Recording results for memoverlap
+[eva:progress] Done for function memoverlap
+[eva:progress] Recording results for memmove
+[eva:progress] Done for function memmove
+[eva:progress] string_c.c:50: assertion got status valid.
+[eva:progress] 
+  computing for function memmove <- test_memmove <- main.
+  Called from string_c.c:52.
+[eva:progress] string_c.c:52: 
+  function memmove: precondition 'valid_dest' got status valid.
+[eva:progress] string_c.c:52: 
+  function memmove: precondition 'valid_src' got status valid.
+[eva:progress] 
+  computing for function memoverlap <- memmove <- test_memmove <- main.
+  Called from FRAMAC_SHARE/libc/string.c:79.
+[eva:progress] Recording results for memoverlap
+[eva:progress] Done for function memoverlap
+[eva:progress] Recording results for memmove
+[eva:progress] Done for function memmove
+[eva:progress] string_c.c:53: assertion got status valid.
+[eva:progress] 
+  computing for function memmove <- test_memmove <- main.
+  Called from string_c.c:56.
+[eva:progress] string_c.c:56: 
+  function memmove: precondition 'valid_dest' got status valid.
+[eva:progress] string_c.c:56: 
+  function memmove: precondition 'valid_src' got status valid.
+[eva:progress] 
+  computing for function memoverlap <- memmove <- test_memmove <- main.
+  Called from FRAMAC_SHARE/libc/string.c:79.
+[eva:progress] FRAMAC_SHARE/libc/string.c:53: 
+  function memoverlap, behavior separated: postcondition 'result_no_overlap' got status valid.
+[eva:progress] Recording results for memoverlap
+[eva:progress] Done for function memoverlap
+[eva:progress] Recording results for memmove
+[eva:progress] Done for function memmove
+[eva:progress] string_c.c:57: assertion got status valid.
+[eva:progress] Recording results for test_memmove
+[eva:progress] Done for function test_memmove
+[eva:progress] 
+  computing for function test_strlen <- main.
+  Called from string_c.c:295.
+[eva:progress] 
+  computing for function strlen <- test_strlen <- main.
+  Called from string_c.c:64.
+[eva:progress] string_c.c:64: 
+  function strlen: precondition 'valid_string_s' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.h:176: 
+  function strlen: postcondition 'acsl_c_equiv' got status valid.
+[eva:progress] Recording results for strlen
+[eva:progress] Done for function strlen
+[eva:progress] string_c.c:65: assertion got status valid.
+[eva:progress] 
+  computing for function strlen <- test_strlen <- main.
+  Called from string_c.c:66.
+[eva:progress] string_c.c:66: 
+  function strlen: precondition 'valid_string_s' got status valid.
+[eva:progress] Recording results for strlen
+[eva:progress] Done for function strlen
+[eva:progress] string_c.c:67: assertion got status valid.
+[eva:progress] 
+  computing for function strlen <- test_strlen <- main.
+  Called from string_c.c:68.
+[eva:progress] string_c.c:68: 
+  function strlen: precondition 'valid_string_s' got status valid.
+[eva:progress] Recording results for strlen
+[eva:progress] Done for function strlen
+[eva:progress] string_c.c:69: assertion got status valid.
+[eva:progress] Recording results for test_strlen
+[eva:progress] Done for function test_strlen
+[eva:progress] 
+  computing for function test_strnlen <- main.
+  Called from string_c.c:296.
+[eva:progress] 
+  computing for function strnlen <- test_strnlen <- main.
+  Called from string_c.c:75.
+[eva:progress] string_c.c:75: 
+  function strnlen: precondition 'valid_string_s' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.h:182: 
+  function strnlen: postcondition 'result_bounded' got status valid.
+[eva:progress] Recording results for strnlen
+[eva:progress] Done for function strnlen
+[eva:progress] string_c.c:76: assertion got status valid.
+[eva:progress] 
+  computing for function strnlen <- test_strnlen <- main.
+  Called from string_c.c:77.
+[eva:progress] string_c.c:77: 
+  function strnlen: precondition 'valid_string_s' got status valid.
+[eva:progress] Recording results for strnlen
+[eva:progress] Done for function strnlen
+[eva:progress] string_c.c:78: assertion got status valid.
+[eva:progress] 
+  computing for function strnlen <- test_strnlen <- main.
+  Called from string_c.c:79.
+[eva:progress] string_c.c:79: 
+  function strnlen: precondition 'valid_string_s' got status valid.
+[eva:progress] Recording results for strnlen
+[eva:progress] Done for function strnlen
+[eva:progress] string_c.c:80: assertion got status valid.
+[eva:progress] 
+  computing for function strnlen <- test_strnlen <- main.
+  Called from string_c.c:81.
+[eva:progress] string_c.c:81: 
+  function strnlen: precondition 'valid_string_s' got status valid.
+[eva:progress] Recording results for strnlen
+[eva:progress] Done for function strnlen
+[eva:progress] string_c.c:82: assertion got status valid.
+[eva:progress] 
+  computing for function strnlen <- test_strnlen <- main.
+  Called from string_c.c:83.
+[eva:progress] string_c.c:83: 
+  function strnlen: precondition 'valid_string_s' got status valid.
+[eva:progress] Recording results for strnlen
+[eva:progress] Done for function strnlen
+[eva:progress] string_c.c:84: assertion got status valid.
+[eva:progress] 
+  computing for function strnlen <- test_strnlen <- main.
+  Called from string_c.c:85.
+[eva:progress] string_c.c:85: 
+  function strnlen: precondition 'valid_string_s' got status valid.
+[eva:progress] Recording results for strnlen
+[eva:progress] Done for function strnlen
+[eva:progress] string_c.c:86: assertion got status valid.
+[eva:progress] Recording results for test_strnlen
+[eva:progress] Done for function test_strnlen
+[eva:progress] 
+  computing for function test_memset <- main.
+  Called from string_c.c:297.
+[eva:progress] 
+  computing for function memset <- test_memset <- main.
+  Called from string_c.c:92.
+[eva:progress] string_c.c:92: 
+  function memset: precondition 'valid_s' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:167: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function memset
+[eva:alarm] FRAMAC_SHARE/libc/string.h:167: Warning: 
+  function memset: postcondition 'acsl_c_equiv' got status unknown.
+[eva:progress] FRAMAC_SHARE/libc/string.h:168: 
+  function memset: postcondition 'result_ptr' got status valid.
+[eva:progress] Recording results for memset
+[eva:progress] Done for function memset
+[eva:progress] string_c.c:93: assertion got status valid.
+[eva:progress] string_c.c:94: assertion got status valid.
+[eva:progress] string_c.c:95: assertion got status valid.
+[eva:progress] 
+  computing for function memset <- test_memset <- main.
+  Called from string_c.c:96.
+[eva:progress] string_c.c:96: 
+  function memset: precondition 'valid_s' got status valid.
+[eva:progress] Recording results for memset
+[eva:progress] Done for function memset
+[eva:progress] string_c.c:97: assertion got status valid.
+[eva:progress] Recording results for test_memset
+[eva:progress] Done for function test_memset
+[eva:progress] 
+  computing for function test_strcmp <- main.
+  Called from string_c.c:298.
+[eva:progress] 
+  computing for function strcmp <- test_strcmp <- main.
+  Called from string_c.c:104.
+[eva:progress] string_c.c:104: 
+  function strcmp: precondition 'valid_string_s1' got status valid.
+[eva:progress] string_c.c:104: 
+  function strcmp: precondition 'valid_string_s2' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:190: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function strcmp
+[eva:alarm] FRAMAC_SHARE/libc/string.h:190: Warning: 
+  function strcmp: postcondition 'acsl_c_equiv' got status unknown.
+[eva:progress] Recording results for strcmp
+[eva:progress] Done for function strcmp
+[eva:progress] string_c.c:105: assertion got status valid.
+[eva:progress] 
+  computing for function strcmp <- test_strcmp <- main.
+  Called from string_c.c:106.
+[eva:progress] string_c.c:106: 
+  function strcmp: precondition 'valid_string_s1' got status valid.
+[eva:progress] string_c.c:106: 
+  function strcmp: precondition 'valid_string_s2' got status valid.
+[eva:progress] Recording results for strcmp
+[eva:progress] Done for function strcmp
+[eva:progress] string_c.c:107: assertion got status valid.
+[eva:progress] 
+  computing for function strcmp <- test_strcmp <- main.
+  Called from string_c.c:108.
+[eva:progress] string_c.c:108: 
+  function strcmp: precondition 'valid_string_s1' got status valid.
+[eva:progress] string_c.c:108: 
+  function strcmp: precondition 'valid_string_s2' got status valid.
+[eva:progress] Recording results for strcmp
+[eva:progress] Done for function strcmp
+[eva:progress] string_c.c:109: assertion got status valid.
+[eva:progress] 
+  computing for function strcmp <- test_strcmp <- main.
+  Called from string_c.c:110.
+[eva:progress] string_c.c:110: 
+  function strcmp: precondition 'valid_string_s1' got status valid.
+[eva:progress] string_c.c:110: 
+  function strcmp: precondition 'valid_string_s2' got status valid.
+[eva:progress] Recording results for strcmp
+[eva:progress] Done for function strcmp
+[eva:progress] string_c.c:111: assertion got status valid.
+[eva:progress] 
+  computing for function strcmp <- test_strcmp <- main.
+  Called from string_c.c:112.
+[eva:progress] string_c.c:112: 
+  function strcmp: precondition 'valid_string_s1' got status valid.
+[eva:progress] string_c.c:112: 
+  function strcmp: precondition 'valid_string_s2' got status valid.
+[eva:progress] Recording results for strcmp
+[eva:progress] Done for function strcmp
+[eva:progress] string_c.c:113: assertion got status valid.
+[eva:progress] 
+  computing for function strcmp <- test_strcmp <- main.
+  Called from string_c.c:114.
+[eva:progress] string_c.c:114: 
+  function strcmp: precondition 'valid_string_s1' got status valid.
+[eva:progress] string_c.c:114: 
+  function strcmp: precondition 'valid_string_s2' got status valid.
+[eva:progress] Recording results for strcmp
+[eva:progress] Done for function strcmp
+[eva:progress] string_c.c:115: assertion got status valid.
+[eva:progress] 
+  computing for function strcmp <- test_strcmp <- main.
+  Called from string_c.c:116.
+[eva:progress] string_c.c:116: 
+  function strcmp: precondition 'valid_string_s1' got status valid.
+[eva:progress] string_c.c:116: 
+  function strcmp: precondition 'valid_string_s2' got status valid.
+[eva:progress] Recording results for strcmp
+[eva:progress] Done for function strcmp
+[eva:progress] string_c.c:117: assertion got status valid.
+[eva:progress] Recording results for test_strcmp
+[eva:progress] Done for function test_strcmp
+[eva:progress] 
+  computing for function test_strncmp <- main.
+  Called from string_c.c:299.
+[eva:progress] 
+  computing for function strncmp <- test_strncmp <- main.
+  Called from string_c.c:166.
+[eva:progress] string_c.c:166: 
+  function strncmp: precondition 'valid_string_s1' got status valid.
+[eva:progress] string_c.c:166: 
+  function strncmp: precondition 'valid_string_s2' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:197: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function strncmp
+[eva:alarm] FRAMAC_SHARE/libc/string.h:197: Warning: 
+  function strncmp: postcondition 'acsl_c_equiv' got status unknown.
+[eva:progress] Recording results for strncmp
+[eva:progress] Done for function strncmp
+[eva:progress] string_c.c:167: assertion got status valid.
+[eva:progress] 
+  computing for function strncmp <- test_strncmp <- main.
+  Called from string_c.c:168.
+[eva:progress] string_c.c:168: 
+  function strncmp: precondition 'valid_string_s1' got status valid.
+[eva:progress] string_c.c:168: 
+  function strncmp: precondition 'valid_string_s2' got status valid.
+[eva:progress] Recording results for strncmp
+[eva:progress] Done for function strncmp
+[eva:progress] string_c.c:169: assertion got status valid.
+[eva:progress] 
+  computing for function strncmp <- test_strncmp <- main.
+  Called from string_c.c:171.
+[eva:progress] string_c.c:171: 
+  function strncmp: precondition 'valid_string_s1' got status valid.
+[eva:progress] string_c.c:171: 
+  function strncmp: precondition 'valid_string_s2' got status valid.
+[eva:progress] Recording results for strncmp
+[eva:progress] Done for function strncmp
+[eva:progress] string_c.c:172: assertion got status valid.
+[eva:progress] 
+  computing for function strncmp <- test_strncmp <- main.
+  Called from string_c.c:173.
+[eva:progress] string_c.c:173: 
+  function strncmp: precondition 'valid_string_s1' got status valid.
+[eva:progress] string_c.c:173: 
+  function strncmp: precondition 'valid_string_s2' got status valid.
+[eva:progress] Recording results for strncmp
+[eva:progress] Done for function strncmp
+[eva:progress] string_c.c:174: assertion got status valid.
+[eva:progress] 
+  computing for function strncmp <- test_strncmp <- main.
+  Called from string_c.c:175.
+[eva:progress] string_c.c:175: 
+  function strncmp: precondition 'valid_string_s1' got status valid.
+[eva:progress] string_c.c:175: 
+  function strncmp: precondition 'valid_string_s2' got status valid.
+[eva:progress] Recording results for strncmp
+[eva:progress] Done for function strncmp
+[eva:progress] string_c.c:176: assertion got status valid.
+[eva:progress] 
+  computing for function strncmp <- test_strncmp <- main.
+  Called from string_c.c:177.
+[eva:progress] string_c.c:177: 
+  function strncmp: precondition 'valid_string_s1' got status valid.
+[eva:progress] string_c.c:177: 
+  function strncmp: precondition 'valid_string_s2' got status valid.
+[eva:progress] Recording results for strncmp
+[eva:progress] Done for function strncmp
+[eva:progress] string_c.c:178: assertion got status valid.
+[eva:progress] 
+  computing for function strncmp <- test_strncmp <- main.
+  Called from string_c.c:179.
+[eva:progress] string_c.c:179: 
+  function strncmp: precondition 'valid_string_s1' got status valid.
+[eva:progress] string_c.c:179: 
+  function strncmp: precondition 'valid_string_s2' got status valid.
+[eva:progress] Recording results for strncmp
+[eva:progress] Done for function strncmp
+[eva:progress] string_c.c:180: assertion got status valid.
+[eva:progress] 
+  computing for function strncmp <- test_strncmp <- main.
+  Called from string_c.c:181.
+[eva:progress] string_c.c:181: 
+  function strncmp: precondition 'valid_string_s1' got status valid.
+[eva:progress] string_c.c:181: 
+  function strncmp: precondition 'valid_string_s2' got status valid.
+[eva:progress] Recording results for strncmp
+[eva:progress] Done for function strncmp
+[eva:progress] string_c.c:182: assertion got status valid.
+[eva:progress] Recording results for test_strncmp
+[eva:progress] Done for function test_strncmp
+[eva:progress] 
+  computing for function test_memcmp <- main.
+  Called from string_c.c:300.
+[eva:progress] 
+  computing for function memcmp <- test_memcmp <- main.
+  Called from string_c.c:187.
+[eva:progress] string_c.c:187: 
+  function memcmp: precondition 'valid_s1' got status valid.
+[eva:progress] string_c.c:187: 
+  function memcmp: precondition 'valid_s2' got status valid.
+[eva:progress] string_c.c:187: 
+  function memcmp: precondition 'initialization,s1' got status valid.
+[eva:progress] string_c.c:187: 
+  function memcmp: precondition 'initialization,s2' got status valid.
+[eva:progress] string_c.c:187: 
+  function memcmp: precondition 'danglingness,s1' got status valid.
+[eva:progress] string_c.c:187: 
+  function memcmp: precondition 'danglingness,s2' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:63: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function memcmp
+[eva:alarm] FRAMAC_SHARE/libc/string.h:63: Warning: 
+  function memcmp: postcondition 'logic_spec' got status unknown.
+[eva:progress] Recording results for memcmp
+[eva:progress] Done for function memcmp
+[eva:progress] string_c.c:188: assertion got status valid.
+[eva:progress] 
+  computing for function memcmp <- test_memcmp <- main.
+  Called from string_c.c:189.
+[eva:progress] string_c.c:189: 
+  function memcmp: precondition 'valid_s1' got status valid.
+[eva:progress] string_c.c:189: 
+  function memcmp: precondition 'valid_s2' got status valid.
+[eva:progress] string_c.c:189: 
+  function memcmp: precondition 'initialization,s1' got status valid.
+[eva:progress] string_c.c:189: 
+  function memcmp: precondition 'initialization,s2' got status valid.
+[eva:progress] string_c.c:189: 
+  function memcmp: precondition 'danglingness,s1' got status valid.
+[eva:progress] string_c.c:189: 
+  function memcmp: precondition 'danglingness,s2' got status valid.
+[eva:progress] Recording results for memcmp
+[eva:progress] Done for function memcmp
+[eva:progress] string_c.c:190: assertion got status valid.
+[eva:progress] 
+  computing for function memcmp <- test_memcmp <- main.
+  Called from string_c.c:191.
+[eva:progress] string_c.c:191: 
+  function memcmp: precondition 'valid_s1' got status valid.
+[eva:progress] string_c.c:191: 
+  function memcmp: precondition 'valid_s2' got status valid.
+[eva:progress] string_c.c:191: 
+  function memcmp: precondition 'initialization,s1' got status valid.
+[eva:progress] string_c.c:191: 
+  function memcmp: precondition 'initialization,s2' got status valid.
+[eva:progress] string_c.c:191: 
+  function memcmp: precondition 'danglingness,s1' got status valid.
+[eva:progress] string_c.c:191: 
+  function memcmp: precondition 'danglingness,s2' got status valid.
+[eva:progress] Recording results for memcmp
+[eva:progress] Done for function memcmp
+[eva:progress] string_c.c:192: assertion got status valid.
+[eva:progress] 
+  computing for function memcmp <- test_memcmp <- main.
+  Called from string_c.c:193.
+[eva:progress] string_c.c:193: 
+  function memcmp: precondition 'valid_s1' got status valid.
+[eva:progress] string_c.c:193: 
+  function memcmp: precondition 'valid_s2' got status valid.
+[eva:progress] string_c.c:193: 
+  function memcmp: precondition 'initialization,s1' got status valid.
+[eva:progress] string_c.c:193: 
+  function memcmp: precondition 'initialization,s2' got status valid.
+[eva:progress] string_c.c:193: 
+  function memcmp: precondition 'danglingness,s1' got status valid.
+[eva:progress] string_c.c:193: 
+  function memcmp: precondition 'danglingness,s2' got status valid.
+[eva:progress] Recording results for memcmp
+[eva:progress] Done for function memcmp
+[eva:progress] string_c.c:194: assertion got status valid.
+[eva:progress] Recording results for test_memcmp
+[eva:progress] Done for function test_memcmp
+[eva:progress] 
+  computing for function test_strcat <- main.
+  Called from string_c.c:301.
+[eva:progress] 
+  computing for function strcat <- test_strcat <- main.
+  Called from string_c.c:124.
+[eva:progress] string_c.c:124: 
+  function strcat: precondition 'valid_string_src' got status valid.
+[eva:progress] string_c.c:124: 
+  function strcat: precondition 'valid_string_dest' got status valid.
+[eva:progress] string_c.c:124: 
+  function strcat: precondition 'room_string' got status valid.
+[eva:progress] string_c.c:124: 
+  function strcat: precondition 'separation' got status valid.
+[eva:progress] 
+  computing for function strlen <- strcat <- test_strcat <- main.
+  Called from FRAMAC_SHARE/libc/string.c:187.
+[eva:progress] FRAMAC_SHARE/libc/string.c:187: 
+  function strlen: precondition 'valid_string_s' got status valid.
+[eva:progress] Recording results for strlen
+[eva:progress] Done for function strlen
+[eva:progress] FRAMAC_SHARE/libc/string.h:498: 
+  function strcat: postcondition 'sum_of_lengths' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.h:501: 
+  function strcat: postcondition 'initialization,dest' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.h:502: 
+  function strcat: postcondition 'dest_null_terminated' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.h:503: 
+  function strcat: postcondition 'result_ptr' got status valid.
+[eva:progress] Recording results for strcat
+[eva:progress] Done for function strcat
+[eva:progress] string_c.c:125: assertion got status valid.
+[eva:progress] string_c.c:126: assertion got status valid.
+[eva:progress] 
+  computing for function strcat <- test_strcat <- main.
+  Called from string_c.c:131.
+[eva:progress] string_c.c:131: 
+  function strcat: precondition 'valid_string_src' got status valid.
+[eva:progress] string_c.c:131: 
+  function strcat: precondition 'valid_string_dest' got status valid.
+[eva:progress] string_c.c:131: 
+  function strcat: precondition 'room_string' got status valid.
+[eva:progress] string_c.c:131: 
+  function strcat: precondition 'separation' got status valid.
+[eva:progress] 
+  computing for function strlen <- strcat <- test_strcat <- main.
+  Called from FRAMAC_SHARE/libc/string.c:187.
+[eva:progress] Recording results for strlen
+[eva:progress] Done for function strlen
+[eva:progress] Recording results for strcat
+[eva:progress] Done for function strcat
+[eva:progress] string_c.c:132: assertion got status valid.
+[eva:progress] 
+  computing for function strcat <- test_strcat <- main.
+  Called from string_c.c:133.
+[eva:progress] string_c.c:133: 
+  function strcat: precondition 'valid_string_src' got status valid.
+[eva:progress] string_c.c:133: 
+  function strcat: precondition 'valid_string_dest' got status valid.
+[eva:progress] string_c.c:133: 
+  function strcat: precondition 'room_string' got status valid.
+[eva:progress] string_c.c:133: 
+  function strcat: precondition 'separation' got status valid.
+[eva:progress] 
+  computing for function strlen <- strcat <- test_strcat <- main.
+  Called from FRAMAC_SHARE/libc/string.c:187.
+[eva:progress] Recording results for strlen
+[eva:progress] Done for function strlen
+[eva:progress] Recording results for strcat
+[eva:progress] Done for function strcat
+[eva:progress] 
+  computing for function strcat <- test_strcat <- main.
+  Called from string_c.c:134.
+[eva:progress] string_c.c:134: 
+  function strcat: precondition 'valid_string_src' got status valid.
+[eva:progress] string_c.c:134: 
+  function strcat: precondition 'valid_string_dest' got status valid.
+[eva:progress] string_c.c:134: 
+  function strcat: precondition 'room_string' got status valid.
+[eva:progress] string_c.c:134: 
+  function strcat: precondition 'separation' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.c:187: 
+  Reusing old results for call to strlen
+[eva:progress] Recording results for strcat
+[eva:progress] Done for function strcat
+[eva:progress] string_c.c:135: assertion got status valid.
+[eva:progress] Recording results for test_strcat
+[eva:progress] Done for function test_strcat
+[eva:progress] 
+  computing for function test_strcpy <- main.
+  Called from string_c.c:303.
+[eva:progress] 
+  computing for function strcpy <- test_strcpy <- main.
+  Called from string_c.c:141.
+[eva:progress] string_c.c:141: 
+  function strcpy: precondition 'valid_string_src' got status valid.
+[eva:progress] string_c.c:141: 
+  function strcpy: precondition 'room_string' got status valid.
+[eva:progress] string_c.c:141: 
+  function strcpy: precondition 'separation' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:440: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function strcmp
+[eva:alarm] FRAMAC_SHARE/libc/string.h:440: Warning: 
+  function strcpy: postcondition 'equal_contents' got status unknown.
+[eva:progress] FRAMAC_SHARE/libc/string.h:441: 
+  function strcpy: postcondition 'result_ptr' got status valid.
+[eva:progress] Recording results for strcpy
+[eva:progress] Done for function strcpy
+[eva:progress] string_c.c:142: assertion got status valid.
+[eva:progress] string_c.c:143: assertion got status valid.
+[eva:progress] 
+  computing for function strcpy <- test_strcpy <- main.
+  Called from string_c.c:144.
+[eva:progress] string_c.c:144: 
+  function strcpy: precondition 'valid_string_src' got status valid.
+[eva:progress] string_c.c:144: 
+  function strcpy: precondition 'room_string' got status valid.
+[eva:progress] string_c.c:144: 
+  function strcpy: precondition 'separation' got status valid.
+[eva:progress] Recording results for strcpy
+[eva:progress] Done for function strcpy
+[eva:progress] string_c.c:145: assertion got status valid.
+[eva:progress] 
+  computing for function strcpy <- test_strcpy <- main.
+  Called from string_c.c:146.
+[eva:progress] string_c.c:146: 
+  function strcpy: precondition 'valid_string_src' got status valid.
+[eva:progress] string_c.c:146: 
+  function strcpy: precondition 'room_string' got status valid.
+[eva:progress] string_c.c:146: 
+  function strcpy: precondition 'separation' got status valid.
+[eva:progress] Recording results for strcpy
+[eva:progress] Done for function strcpy
+[eva:progress] string_c.c:147: assertion got status valid.
+[eva:progress] Recording results for test_strcpy
+[eva:progress] Done for function test_strcpy
+[eva:progress] 
+  computing for function test_strncpy <- main.
+  Called from string_c.c:304.
+[eva:progress] 
+  computing for function strncpy <- test_strncpy <- main.
+  Called from string_c.c:153.
+[eva:progress] string_c.c:153: 
+  function strncpy: precondition 'valid_nstring_src' got status valid.
+[eva:progress] string_c.c:153: 
+  function strncpy: precondition 'room_nstring' got status valid.
+[eva:progress] string_c.c:153: 
+  function strncpy: precondition 'separation' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.h:452: 
+  function strncpy: postcondition 'result_ptr' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.h:453: 
+  function strncpy: postcondition 'initialization' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:456: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function strcmp
+[eva:alarm] FRAMAC_SHARE/libc/string.h:456: Warning: 
+  function strncpy, behavior complete: postcondition 'equal_after_copy' got status unknown.
+[eva:progress] Recording results for strncpy
+[eva:progress] Done for function strncpy
+[eva:progress] string_c.c:154: assertion got status valid.
+[eva:progress] string_c.c:155: assertion got status valid.
+[eva:progress] 
+  computing for function strncpy <- test_strncpy <- main.
+  Called from string_c.c:156.
+[eva:progress] string_c.c:156: 
+  function strncpy: precondition 'valid_nstring_src' got status valid.
+[eva:progress] string_c.c:156: 
+  function strncpy: precondition 'room_nstring' got status valid.
+[eva:progress] string_c.c:156: 
+  function strncpy: precondition 'separation' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:459: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function memcmp
+[eva:alarm] FRAMAC_SHARE/libc/string.h:459: Warning: 
+  function strncpy, behavior partial: postcondition 'equal_prefix' got status unknown.
+[eva:progress] Recording results for strncpy
+[eva:progress] Done for function strncpy
+[eva:progress] string_c.c:157: assertion got status valid.
+[eva:progress] 
+  computing for function strncpy <- test_strncpy <- main.
+  Called from string_c.c:158.
+[eva:progress] string_c.c:158: 
+  function strncpy: precondition 'valid_nstring_src' got status valid.
+[eva:progress] string_c.c:158: 
+  function strncpy: precondition 'room_nstring' got status valid.
+[eva:progress] string_c.c:158: 
+  function strncpy: precondition 'separation' got status valid.
+[eva:progress] Recording results for strncpy
+[eva:progress] Done for function strncpy
+[eva:progress] string_c.c:159: assertion got status valid.
+[eva:progress] 
+  computing for function strncpy <- test_strncpy <- main.
+  Called from string_c.c:160.
+[eva:progress] string_c.c:160: 
+  function strncpy: precondition 'valid_nstring_src' got status valid.
+[eva:progress] string_c.c:160: 
+  function strncpy: precondition 'room_nstring' got status valid.
+[eva:progress] string_c.c:160: 
+  function strncpy: precondition 'separation' got status valid.
+[eva:progress] Recording results for strncpy
+[eva:progress] Done for function strncpy
+[eva:progress] string_c.c:161: assertion got status valid.
+[eva:progress] Recording results for test_strncpy
+[eva:progress] Done for function test_strncpy
+[eva:progress] 
+  computing for function test_strchr <- main.
+  Called from string_c.c:305.
+[eva:progress] 
+  computing for function strchr <- test_strchr <- main.
+  Called from string_c.c:200.
+[eva:progress] string_c.c:200: 
+  function strchr: precondition 'valid_string_s' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.h:213: 
+  function strchr, behavior found: postcondition 'result_valid_string' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.h:214: 
+  function strchr, behavior found: postcondition 'result_char' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.h:215: 
+  function strchr, behavior found: postcondition 'result_same_base' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.h:216: 
+  function strchr, behavior found: postcondition 'result_in_length' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:218: 
+  cannot evaluate ACSL term, unsupported logic var p
+[eva:alarm] FRAMAC_SHARE/libc/string.h:218: Warning: 
+  function strchr, behavior found: postcondition 'result_first_occurrence' got status unknown.
+[eva:progress] Recording results for strchr
+[eva:progress] Done for function strchr
+[eva:progress] string_c.c:201: assertion got status valid.
+[eva:progress] 
+  computing for function strchr <- test_strchr <- main.
+  Called from string_c.c:202.
+[eva:progress] string_c.c:202: 
+  function strchr: precondition 'valid_string_s' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.h:221: 
+  function strchr, behavior not_found: postcondition 'result_null' got status valid.
+[eva:progress] Recording results for strchr
+[eva:progress] Done for function strchr
+[eva:progress] string_c.c:203: assertion got status valid.
+[eva:progress] 
+  computing for function strchr <- test_strchr <- main.
+  Called from string_c.c:204.
+[eva:progress] string_c.c:204: 
+  function strchr: precondition 'valid_string_s' got status valid.
+[eva:progress] Recording results for strchr
+[eva:progress] Done for function strchr
+[eva:progress] string_c.c:205: assertion got status valid.
+[eva:progress] 
+  computing for function strchr <- test_strchr <- main.
+  Called from string_c.c:206.
+[eva:progress] string_c.c:206: 
+  function strchr: precondition 'valid_string_s' got status valid.
+[eva:progress] Recording results for strchr
+[eva:progress] Done for function strchr
+[eva:progress] string_c.c:207: assertion got status valid.
+[eva:progress] Recording results for test_strchr
+[eva:progress] Done for function test_strchr
+[eva:progress] 
+  computing for function test_strrchr <- main.
+  Called from string_c.c:306.
+[eva:progress] 
+  computing for function strrchr <- test_strrchr <- main.
+  Called from string_c.c:213.
+[eva:progress] string_c.c:213: 
+  function strrchr: precondition 'valid_string_s' got status valid.
+[eva:progress] 
+  computing for function strlen <- strrchr <- test_strrchr <- main.
+  Called from FRAMAC_SHARE/libc/string.c:252.
+[eva:progress] FRAMAC_SHARE/libc/string.c:252: 
+  function strlen: precondition 'valid_string_s' got status valid.
+[eva:progress] Recording results for strlen
+[eva:progress] Done for function strlen
+[eva:progress] FRAMAC_SHARE/libc/string.h:239: 
+  function strrchr: postcondition 'result_null_or_same_base' got status valid.
+[eva:progress] Recording results for strrchr
+[eva:progress] Done for function strrchr
+[eva:progress] string_c.c:214: assertion got status valid.
+[eva:progress] 
+  computing for function strrchr <- test_strrchr <- main.
+  Called from string_c.c:215.
+[eva:progress] string_c.c:215: 
+  function strrchr: precondition 'valid_string_s' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.c:252: 
+  Reusing old results for call to strlen
+[eva:progress] Recording results for strrchr
+[eva:progress] Done for function strrchr
+[eva:progress] string_c.c:216: assertion got status valid.
+[eva:progress] 
+  computing for function strrchr <- test_strrchr <- main.
+  Called from string_c.c:217.
+[eva:progress] string_c.c:217: 
+  function strrchr: precondition 'valid_string_s' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.c:252: 
+  Reusing old results for call to strlen
+[eva:progress] Recording results for strrchr
+[eva:progress] Done for function strrchr
+[eva:progress] string_c.c:218: assertion got status valid.
+[eva:progress] 
+  computing for function strrchr <- test_strrchr <- main.
+  Called from string_c.c:219.
+[eva:progress] string_c.c:219: 
+  function strrchr: precondition 'valid_string_s' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.c:252: 
+  Reusing old results for call to strlen
+[eva:progress] Recording results for strrchr
+[eva:progress] Done for function strrchr
+[eva:progress] string_c.c:220: assertion got status valid.
+[eva:progress] Recording results for test_strrchr
+[eva:progress] Done for function test_strrchr
+[eva:progress] 
+  computing for function test_memchr <- main.
+  Called from string_c.c:307.
+[eva:progress] 
+  computing for function memchr <- test_memchr <- main.
+  Called from string_c.c:226.
+[eva:progress] string_c.c:226: 
+  function memchr: precondition 'valid' got status valid.
+[eva:progress] string_c.c:226: 
+  function memchr: precondition 'initialization' got status valid.
+[eva:progress] string_c.c:226: 
+  function memchr: precondition 'danglingness' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:78: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function memchr
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:86: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function memchr
+[eva:progress] FRAMAC_SHARE/libc/string.h:79: 
+  function memchr, behavior found: postcondition 'result_valid_read' got status valid. (Behavior may be inactive, no reduction performed.)
+[eva:progress] FRAMAC_SHARE/libc/string.h:80: 
+  function memchr, behavior found: postcondition 'result_same_base' got status valid. (Behavior may be inactive, no reduction performed.)
+[eva:progress] FRAMAC_SHARE/libc/string.h:81: 
+  function memchr, behavior found: postcondition 'result_char' got status valid. (Behavior may be inactive, no reduction performed.)
+[eva:progress] FRAMAC_SHARE/libc/string.h:82: 
+  function memchr, behavior found: postcondition 'result_in_str' got status valid. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] FRAMAC_SHARE/libc/string.h:87: Warning: 
+  function memchr, behavior not_found: postcondition 'result_null' got status invalid. (Behavior may be inactive, no reduction performed.)
+[eva:progress] Recording results for memchr
+[eva:progress] Done for function memchr
+[eva:progress] string_c.c:227: assertion got status valid.
+[eva:progress] 
+  computing for function memchr <- test_memchr <- main.
+  Called from string_c.c:228.
+[eva:progress] string_c.c:228: 
+  function memchr: precondition 'valid' got status valid.
+[eva:progress] string_c.c:228: 
+  function memchr: precondition 'initialization' got status valid.
+[eva:progress] string_c.c:228: 
+  function memchr: precondition 'danglingness' got status valid.
+[eva:alarm] FRAMAC_SHARE/libc/string.h:79: Warning: 
+  function memchr, behavior found: postcondition 'result_valid_read' got status invalid. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] FRAMAC_SHARE/libc/string.h:80: Warning: 
+  function memchr, behavior found: postcondition 'result_same_base' got status invalid. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] FRAMAC_SHARE/libc/string.h:81: Warning: 
+  function memchr, behavior found: postcondition 'result_char' got status unknown. (Behavior may be inactive, no reduction performed.)
+[eva:progress] FRAMAC_SHARE/libc/string.h:87: 
+  function memchr, behavior not_found: postcondition 'result_null' got status valid. (Behavior may be inactive, no reduction performed.)
+[eva:progress] Recording results for memchr
+[eva:progress] Done for function memchr
+[eva:progress] string_c.c:229: assertion got status valid.
+[eva:progress] 
+  computing for function memchr <- test_memchr <- main.
+  Called from string_c.c:230.
+[eva:progress] string_c.c:230: 
+  function memchr: precondition 'valid' got status valid.
+[eva:progress] string_c.c:230: 
+  function memchr: precondition 'initialization' got status valid.
+[eva:progress] string_c.c:230: 
+  function memchr: precondition 'danglingness' got status valid.
+[eva:alarm] FRAMAC_SHARE/libc/string.h:82: Warning: 
+  function memchr, behavior found: postcondition 'result_in_str' got status unknown. (Behavior may be inactive, no reduction performed.)
+[eva:progress] Recording results for memchr
+[eva:progress] Done for function memchr
+[eva:progress] string_c.c:231: assertion got status valid.
+[eva:progress] 
+  computing for function memchr <- test_memchr <- main.
+  Called from string_c.c:232.
+[eva:progress] string_c.c:232: 
+  function memchr: precondition 'valid' got status valid.
+[eva:progress] string_c.c:232: 
+  function memchr: precondition 'initialization' got status valid.
+[eva:progress] string_c.c:232: 
+  function memchr: precondition 'danglingness' got status valid.
+[eva:progress] Recording results for memchr
+[eva:progress] Done for function memchr
+[eva:progress] string_c.c:233: assertion got status valid.
+[eva:progress] 
+  computing for function memchr <- test_memchr <- main.
+  Called from string_c.c:234.
+[eva:progress] string_c.c:234: 
+  function memchr: precondition 'valid' got status valid.
+[eva:progress] string_c.c:234: 
+  function memchr: precondition 'initialization' got status valid.
+[eva:progress] string_c.c:234: 
+  function memchr: precondition 'danglingness' got status valid.
+[eva:progress] Recording results for memchr
+[eva:progress] Done for function memchr
+[eva:progress] string_c.c:235: assertion got status valid.
+[eva:progress] 
+  computing for function memchr <- test_memchr <- main.
+  Called from string_c.c:236.
+[eva:progress] string_c.c:236: 
+  function memchr: precondition 'valid' got status valid.
+[eva:progress] string_c.c:236: 
+  function memchr: precondition 'initialization' got status valid.
+[eva:progress] string_c.c:236: 
+  function memchr: precondition 'danglingness' got status valid.
+[eva:progress] Recording results for memchr
+[eva:progress] Done for function memchr
+[eva:progress] string_c.c:237: assertion got status valid.
+[eva:progress] Recording results for test_memchr
+[eva:progress] Done for function test_memchr
+[eva:progress] 
+  computing for function test_memrchr <- main.
+  Called from string_c.c:308.
+[eva:progress] 
+  computing for function memrchr <- test_memrchr <- main.
+  Called from string_c.c:243.
+[eva:progress] string_c.c:243: 
+  function memrchr: precondition 'valid' got status valid.
+[eva:progress] string_c.c:243: 
+  function memrchr: precondition 'initialization' got status valid.
+[eva:progress] string_c.c:243: 
+  function memrchr: precondition 'danglingness' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:99: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function memchr
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:103: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function memchr
+[eva:progress] FRAMAC_SHARE/libc/string.h:100: 
+  function memrchr, behavior found: postcondition 'result_valid_read' got status valid. (Behavior may be inactive, no reduction performed.)
+[eva:progress] FRAMAC_SHARE/libc/string.h:101: 
+  function memrchr, behavior found: postcondition 'result_same_base' got status valid. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] FRAMAC_SHARE/libc/string.h:104: Warning: 
+  function memrchr, behavior not_found: postcondition 'result_null' got status invalid. (Behavior may be inactive, no reduction performed.)
+[eva:progress] Recording results for memrchr
+[eva:progress] Done for function memrchr
+[eva:progress] string_c.c:244: assertion got status valid.
+[eva:progress] 
+  computing for function memrchr <- test_memrchr <- main.
+  Called from string_c.c:245.
+[eva:progress] string_c.c:245: 
+  function memrchr: precondition 'valid' got status valid.
+[eva:progress] string_c.c:245: 
+  function memrchr: precondition 'initialization' got status valid.
+[eva:progress] string_c.c:245: 
+  function memrchr: precondition 'danglingness' got status valid.
+[eva:alarm] FRAMAC_SHARE/libc/string.h:100: Warning: 
+  function memrchr, behavior found: postcondition 'result_valid_read' got status invalid. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] FRAMAC_SHARE/libc/string.h:101: Warning: 
+  function memrchr, behavior found: postcondition 'result_same_base' got status invalid. (Behavior may be inactive, no reduction performed.)
+[eva:progress] FRAMAC_SHARE/libc/string.h:104: 
+  function memrchr, behavior not_found: postcondition 'result_null' got status valid. (Behavior may be inactive, no reduction performed.)
+[eva:progress] Recording results for memrchr
+[eva:progress] Done for function memrchr
+[eva:progress] string_c.c:246: assertion got status valid.
+[eva:progress] 
+  computing for function memrchr <- test_memrchr <- main.
+  Called from string_c.c:247.
+[eva:progress] string_c.c:247: 
+  function memrchr: precondition 'valid' got status valid.
+[eva:progress] string_c.c:247: 
+  function memrchr: precondition 'initialization' got status valid.
+[eva:progress] string_c.c:247: 
+  function memrchr: precondition 'danglingness' got status valid.
+[eva:progress] Recording results for memrchr
+[eva:progress] Done for function memrchr
+[eva:progress] string_c.c:248: assertion got status valid.
+[eva:progress] 
+  computing for function memrchr <- test_memrchr <- main.
+  Called from string_c.c:249.
+[eva:progress] string_c.c:249: 
+  function memrchr: precondition 'valid' got status valid.
+[eva:progress] string_c.c:249: 
+  function memrchr: precondition 'initialization' got status valid.
+[eva:progress] string_c.c:249: 
+  function memrchr: precondition 'danglingness' got status valid.
+[eva:progress] Recording results for memrchr
+[eva:progress] Done for function memrchr
+[eva:progress] string_c.c:250: assertion got status valid.
+[eva:progress] 
+  computing for function memrchr <- test_memrchr <- main.
+  Called from string_c.c:251.
+[eva:progress] string_c.c:251: 
+  function memrchr: precondition 'valid' got status valid.
+[eva:progress] string_c.c:251: 
+  function memrchr: precondition 'initialization' got status valid.
+[eva:progress] string_c.c:251: 
+  function memrchr: precondition 'danglingness' got status valid.
+[eva:progress] Recording results for memrchr
+[eva:progress] Done for function memrchr
+[eva:progress] string_c.c:252: assertion got status valid.
+[eva:progress] 
+  computing for function memrchr <- test_memrchr <- main.
+  Called from string_c.c:253.
+[eva:progress] string_c.c:253: 
+  function memrchr: precondition 'valid' got status valid.
+[eva:progress] string_c.c:253: 
+  function memrchr: precondition 'initialization' got status valid.
+[eva:progress] string_c.c:253: 
+  function memrchr: precondition 'danglingness' got status valid.
+[eva:progress] Recording results for memrchr
+[eva:progress] Done for function memrchr
+[eva:progress] string_c.c:254: assertion got status valid.
+[eva:progress] Recording results for test_memrchr
+[eva:progress] Done for function test_memrchr
+[eva:progress] 
+  computing for function test_strstr <- main.
+  Called from string_c.c:309.
+[eva:progress] 
+  computing for function strstr <- test_strstr <- main.
+  Called from string_c.c:260.
+[eva:progress] string_c.c:260: 
+  function strstr: precondition 'valid_string_haystack' got status valid.
+[eva:progress] string_c.c:260: 
+  function strstr: precondition 'valid_string_needle' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:282: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function memcmp
+[eva:alarm] FRAMAC_SHARE/libc/string.h:279: Warning: 
+  function strstr: postcondition 'result_null_or_in_haystack' got status unknown.
+[eva:progress] Recording results for strstr
+[eva:progress] Done for function strstr
+[eva:progress] string_c.c:261: assertion got status valid.
+[eva:progress] 
+  computing for function strstr <- test_strstr <- main.
+  Called from string_c.c:262.
+[eva:progress] string_c.c:262: 
+  function strstr: precondition 'valid_string_haystack' got status valid.
+[eva:progress] string_c.c:262: 
+  function strstr: precondition 'valid_string_needle' got status valid.
+[eva:progress] Recording results for strstr
+[eva:progress] Done for function strstr
+[eva:progress] string_c.c:263: assertion got status valid.
+[eva:progress] 
+  computing for function strstr <- test_strstr <- main.
+  Called from string_c.c:264.
+[eva:progress] string_c.c:264: 
+  function strstr: precondition 'valid_string_haystack' got status valid.
+[eva:progress] string_c.c:264: 
+  function strstr: precondition 'valid_string_needle' got status valid.
+[eva:progress] FRAMAC_SHARE/libc/string.h:279: 
+  function strstr: postcondition 'result_null_or_in_haystack' got status valid.
+[eva:progress] Recording results for strstr
+[eva:progress] Done for function strstr
+[eva:progress] string_c.c:265: assertion got status valid.
+[eva:progress] 
+  computing for function strstr <- test_strstr <- main.
+  Called from string_c.c:266.
+[eva:progress] string_c.c:266: 
+  function strstr: precondition 'valid_string_haystack' got status valid.
+[eva:progress] string_c.c:266: 
+  function strstr: precondition 'valid_string_needle' got status valid.
+[eva:progress] Recording results for strstr
+[eva:progress] Done for function strstr
+[eva:progress] string_c.c:267: assertion got status valid.
+[eva:progress] 
+  computing for function strstr <- test_strstr <- main.
+  Called from string_c.c:268.
+[eva:progress] string_c.c:268: 
+  function strstr: precondition 'valid_string_haystack' got status valid.
+[eva:progress] string_c.c:268: 
+  function strstr: precondition 'valid_string_needle' got status valid.
+[eva:progress] Recording results for strstr
+[eva:progress] Done for function strstr
+[eva:progress] string_c.c:269: assertion got status valid.
+[eva:progress] 
+  computing for function strstr <- test_strstr <- main.
+  Called from string_c.c:270.
+[eva:progress] string_c.c:270: 
+  function strstr: precondition 'valid_string_haystack' got status valid.
+[eva:progress] string_c.c:270: 
+  function strstr: precondition 'valid_string_needle' got status valid.
+[eva:progress] Recording results for strstr
+[eva:progress] Done for function strstr
+[eva:progress] string_c.c:271: assertion got status valid.
+[eva:progress] 
+  computing for function strstr <- test_strstr <- main.
+  Called from string_c.c:272.
+[eva:progress] string_c.c:272: 
+  function strstr: precondition 'valid_string_haystack' got status valid.
+[eva:progress] string_c.c:272: 
+  function strstr: precondition 'valid_string_needle' got status valid.
+[eva:progress] Recording results for strstr
+[eva:progress] Done for function strstr
+[eva:progress] string_c.c:273: assertion got status valid.
+[eva:progress] 
+  computing for function strstr <- test_strstr <- main.
+  Called from string_c.c:274.
+[eva:progress] string_c.c:274: 
+  function strstr: precondition 'valid_string_haystack' got status valid.
+[eva:progress] string_c.c:274: 
+  function strstr: precondition 'valid_string_needle' got status valid.
+[eva:progress] Recording results for strstr
+[eva:progress] Done for function strstr
+[eva:progress] string_c.c:275: assertion got status valid.
+[eva:progress] Recording results for test_strstr
+[eva:progress] Done for function test_strstr
+[eva:progress] 
+  computing for function test_mempcpy <- main.
+  Called from string_c.c:313.
+[eva:progress] 
+  computing for function mempcpy <- test_mempcpy <- main.
+  Called from string_c.c:281.
+[eva:progress] string_c.c:281: 
+  function mempcpy: precondition 'valid_dest' got status valid.
+[eva:progress] string_c.c:281: 
+  function mempcpy: precondition 'valid_src' got status valid.
+[eva:progress] string_c.c:281: 
+  function mempcpy: precondition 'separation' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/string.h:147: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function memcmp
+[eva:alarm] FRAMAC_SHARE/libc/string.h:147: Warning: 
+  function mempcpy: postcondition 'copied_contents' got status unknown.
+[kernel] FRAMAC_SHARE/libc/string.c:43: Warning: using size of 'void'
+[eva:alarm] FRAMAC_SHARE/libc/string.h:148: Warning: 
+  function mempcpy: postcondition 'result_next_byte' got status unknown.
+[eva:progress] Recording results for mempcpy
+[eva:progress] Done for function mempcpy
+[eva:progress] string_c.c:282: assertion got status valid.
+[eva:progress] string_c.c:283: assertion got status valid.
+[eva:progress] 
+  computing for function mempcpy <- test_mempcpy <- main.
+  Called from string_c.c:285.
+[eva:progress] string_c.c:285: 
+  function mempcpy: precondition 'valid_dest' got status valid.
+[eva:progress] string_c.c:285: 
+  function mempcpy: precondition 'valid_src' got status valid.
+[eva:progress] string_c.c:285: 
+  function mempcpy: precondition 'separation' got status valid.
+[eva:progress] Recording results for mempcpy
+[eva:progress] Done for function mempcpy
+[eva:progress] string_c.c:286: assertion got status valid.
+[eva:progress] 
+  computing for function mempcpy <- test_mempcpy <- main.
+  Called from string_c.c:287.
+[eva:progress] string_c.c:287: 
+  function mempcpy: precondition 'valid_dest' got status valid.
+[eva:progress] string_c.c:287: 
+  function mempcpy: precondition 'valid_src' got status valid.
+[eva:progress] string_c.c:287: 
+  function mempcpy: precondition 'separation' got status valid.
+[eva:progress] Recording results for mempcpy
+[eva:progress] Done for function mempcpy
+[eva:progress] string_c.c:288: assertion got status valid.
+[eva:progress] Recording results for test_mempcpy
+[eva:progress] Done for function test_mempcpy
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function memchr:
+  ch ∈ {1; 2; 5}
+  ss ∈ {{ (unsigned char const *)&s }}
+  __retres ∈ {{ NULL ; (void *)&s{[0], [1]} }}
+[eva:final-states] Values at end of function memcmp:
+  p1 ∈
+    {{ (unsigned char const *)"hallo" ; (unsigned char const *)"hallo" ;
+       (unsigned char const *)"a\000b" ; (unsigned char const *)"a\000b" }}
+  p2 ∈
+    {{ (unsigned char const *)&hello ; (unsigned char const *)"a\000c" ;
+       (unsigned char const *)"a\000c" }}
+  __retres ∈ {-4; -1; 0}
+[eva:final-states] Values at end of function memcpy:
+  dest[0] ∈ {65; 97; 104}
+      [1] ∈ {0; 56; 101}
+      [2] ∈ {9; 98; 108}
+      [3] ∈ {0; 18; 108}
+      [4] ∈ {0; 111}
+      [5] ∈ {0}
+[eva:final-states] Values at end of function memoverlap:
+  p1 ∈ {{ (unsigned int)&buf{[0], [2], [3]} }}
+  p2 ∈ {{ (unsigned int)&buf{[4], [6]} }}
+  q1 ∈ {{ (unsigned int)&buf{[0], [2]} }}
+  q2 ∈ {{ (unsigned int)&buf{[3], [4], [6]} }}
+  __retres ∈ {-1; 0; 1}
+[eva:final-states] Values at end of function memmove:
+  s ∈ {{ &buf{[0], [2]} }}
+  d ∈ {{ &buf{[0], [2], [3]} }}
+  buf[0] ∈ {1; 3}
+     [1] ∈ {2; 4}
+     [2] ∈ {1; 5}
+     [3] ∈ {2; 3; 6}
+     [4] ∈ {3; 4; 5}
+     [5] ∈ {4; 5; 6}
+  __retres ∈ {{ (void *)&buf{[0], [2], [3]} }}
+[eva:final-states] Values at end of function mempcpy:
+  i ∈ {0; 3; 6}
+  dest[0] ∈ {97; 104}
+      [1] ∈ {0; 101}
+      [2] ∈ {98; 108}
+      [3] ∈ {108}
+      [4] ∈ {111}
+      [5] ∈ {0}
+  __retres ∈ {{ (void *)&dest{[0], [3], [6]} }}
+[eva:final-states] Values at end of function memrchr:
+  ch ∈ {1; 2; 5}
+  ss ∈ {{ (unsigned char const *)&s }}
+  __retres ∈ {{ NULL ; (void *)&s{[0], [3], [4]} }}
+[eva:final-states] Values at end of function memset:
+  p ∈ {{ (unsigned char *)&dest }}
+  dest[0..2] ∈ {42}
+      [3] ∈ {0}
+[eva:final-states] Values at end of function strchr:
+  ch ∈ {0; 72; 104; 108}
+  i ∈ {0; 2; 5}
+  __retres ∈ {{ NULL ; "hello"{[0], [2], [5]} }}
+[eva:final-states] Values at end of function strcmp:
+  i ∈ {0; 1; 4; 5}
+  __retres ∈ {-111; -104; -32; 0; 111}
+[eva:final-states] Values at end of function strcpy:
+  i ∈ {0; 5; 6}
+  s[0] ∈ {0; 54; 104}
+   [1] ∈ {53; 101}
+   [2] ∈ {52; 108}
+   [3] ∈ {51; 108}
+   [4] ∈ {50; 111}
+   [5] ∈ {0; 49}
+   [6] ∈ {0} or UNINITIALIZED
+[eva:final-states] Values at end of function strlen:
+  i ∈ {0; 2; 4; 5; 6}
+[eva:final-states] Values at end of function strcat:
+  i ∈ {0; 1; 2; 5}
+  n ∈ {0; 4; 6}
+  s[0] ∈ {104}
+   [1] ∈ {101}
+   [2..3] ∈ {108}
+   [4] ∈ {108; 111}
+   [5] ∈ {0; 111}
+   [6] ∈ {0; 120} or UNINITIALIZED
+   [7] ∈ {0; 108} or UNINITIALIZED
+   [8] ∈ {111} or UNINITIALIZED
+   [9] ∈ {0} or UNINITIALIZED
+[eva:final-states] Values at end of function strncmp:
+  __retres ∈ {-104; -4; 0; 111}
+[eva:final-states] Values at end of function strncpy:
+  i ∈ {0; 3; 5; 7}
+  s[0] ∈ {97; 98; 104}
+   [1] ∈ {98; 101; 121}
+   [2] ∈ {0; 101; 108}
+   [3] ∈ {0; 108}
+   [4] ∈ {0; 111}
+   [5..6] ∈ {0}
+[eva:final-states] Values at end of function strnlen:
+  i ∈ {0; 2; 4; 5}
+[eva:final-states] Values at end of function strrchr:
+  ch ∈ {0; 72; 104; 108}
+  __retres ∈ {{ NULL ; "hello"{[0], [3], [5]} }}
+[eva:final-states] Values at end of function strstr:
+  __retres ∈ {{ NULL ; "hello"{[0], [2], [3]} }}
+[eva:final-states] Values at end of function test_memchr:
+  s[0] ∈ {1}
+   [1] ∈ {2}
+   [2] ∈ {3}
+   [3] ∈ {1}
+   [4] ∈ {2}
+   [5] ∈ {4}
+  p ∈ {{ &s[0] }}
+[eva:final-states] Values at end of function test_memcmp:
+  hello[0] ∈ {104}
+       [1] ∈ {101}
+       [2..3] ∈ {108}
+       [4] ∈ {111}
+       [5] ∈ {0}
+  res1 ∈ {-4}
+  res2 ∈ {0}
+  res3 ∈ {0}
+  res4 ∈ {-1}
+[eva:final-states] Values at end of function test_memcpy:
+  dest[0] ∈ {65}
+      [1] ∈ {56}
+      [2] ∈ {9}
+      [3] ∈ {18}
+      [4..5] ∈ {0}
+  src[0] ∈ {104}
+     [1] ∈ {101}
+     [2..3] ∈ {108}
+     [4] ∈ {111}
+     [5] ∈ {0}
+  p ∈ {{ &dest[0] }}
+  src2[0] ∈ {97}
+      [1] ∈ {0}
+      [2] ∈ {98}
+      [3..4] ∈ {0}
+  x ∈ {302594113}
+[eva:final-states] Values at end of function test_memmove:
+  buf[0] ∈ {3}
+     [1] ∈ {4}
+     [2] ∈ {5}
+     [3] ∈ {3}
+     [4] ∈ {4}
+     [5] ∈ {5}
+  s ∈ {{ &buf[0] }}
+  d ∈ {{ &buf[3] }}
+  p ∈ {{ &buf[2] }}
+[eva:final-states] Values at end of function test_mempcpy:
+  dest[0] ∈ {97}
+      [1] ∈ {0}
+      [2] ∈ {98}
+      [3] ∈ {108}
+      [4] ∈ {111}
+      [5] ∈ {0}
+  src[0] ∈ {104}
+     [1] ∈ {101}
+     [2..3] ∈ {108}
+     [4] ∈ {111}
+     [5] ∈ {0}
+  p ∈ {{ &dest[0] }}
+  src2[0] ∈ {97}
+      [1] ∈ {0}
+      [2] ∈ {98}
+      [3..4] ∈ {0}
+[eva:final-states] Values at end of function test_memrchr:
+  s[0] ∈ {1}
+   [1] ∈ {2}
+   [2] ∈ {3}
+   [3] ∈ {1}
+   [4] ∈ {2}
+   [5] ∈ {4}
+  p ∈ {{ &s[0] }}
+[eva:final-states] Values at end of function test_memset:
+  dest[0..2] ∈ {42}
+      [3] ∈ {0}
+  p ∈ {{ &dest[0] }}
+[eva:final-states] Values at end of function test_strcat:
+  s[0] ∈ {104}
+   [1] ∈ {101}
+   [2..4] ∈ {108}
+   [5] ∈ {111}
+   [6] ∈ {120}
+   [7] ∈ {0}
+   [8] ∈ {111}
+   [9] ∈ {0}
+  p ∈ {{ &s[0] }}
+[eva:final-states] Values at end of function test_strchr:
+  s ∈ {{ "hello" }}
+  p ∈ {{ "hello"[5] }}
+[eva:final-states] Values at end of function test_strcmp:
+  hello[0] ∈ {104}
+       [1] ∈ {97}
+       [2..3] ∈ {108}
+       [4] ∈ {111}
+       [5] ∈ {0}
+  res ∈ {0}
+  res2 ∈ {-111}
+  res3 ∈ {111}
+  res4 ∈ {-32}
+  res5 ∈ {-104}
+  res6 ∈ {0}
+  res7 ∈ {0}
+[eva:final-states] Values at end of function test_strcpy:
+  s[0] ∈ {0}
+   [1] ∈ {53}
+   [2] ∈ {52}
+   [3] ∈ {51}
+   [4] ∈ {50}
+   [5] ∈ {49}
+   [6] ∈ {0}
+  p ∈ {{ &s[0] }}
+[eva:final-states] Values at end of function test_strlen:
+  s ∈ {{ "hello" }}
+  n ∈ {0}
+[eva:final-states] Values at end of function test_strncmp:
+  hello[0] ∈ {104}
+       [1] ∈ {97}
+       [2..3] ∈ {108}
+       [4] ∈ {111}
+       [5] ∈ {0}
+  res1 ∈ {-4}
+  res2 ∈ {0}
+  res3 ∈ {0}
+  res4 ∈ {111}
+  res5 ∈ {0}
+  res6 ∈ {-104}
+  res7 ∈ {0}
+  res8 ∈ {0}
+[eva:final-states] Values at end of function test_strncpy:
+  s[0] ∈ {97}
+   [1] ∈ {98}
+   [2..6] ∈ {0}
+  p ∈ {{ &s[0] }}
+[eva:final-states] Values at end of function test_strnlen:
+  s ∈ {{ "hello" }}
+  n ∈ {0}
+[eva:final-states] Values at end of function test_strrchr:
+  s ∈ {{ "hello" }}
+  p ∈ {{ "hello"[5] }}
+[eva:final-states] Values at end of function test_strstr:
+  s ∈ {{ "hello" }}
+  p ∈ {{ "hello" }}
+[eva:final-states] Values at end of function main:
+  __retres ∈ {0}

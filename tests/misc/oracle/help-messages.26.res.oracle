@@ -1,0 +1,56 @@
+Plug-in name: Security-slicing
+Plug-in shortname: security-slicing
+Description: security slicing (experimental, undocumented)
+
+Most options of the form '-security-slicing-option-name'
+and without any parameter
+have an opposite with the name '-security-slicing-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-security-slicing   perform the security slicing analysis (opposite option is
+                    -no-security-slicing)
+
+*** DEBUG
+
+-security-slicing-debug <n>  level of debug for plug-in Security-slicing
+                    (default to 0)
+
+*** GETTING INFORMATION
+
+-security-slicing-help  help of plug-in Security-slicing
+-security-slicing-h  alias for option -security-slicing-help
+
+*** OUTPUT MESSAGES
+
+-security-slicing-log <K_1:file_1,...>  copy log messages from
+                    Security-slicing to a file. <K> is a combination of these
+                    characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -security-slicing-log="K_1:file_1,...")
+-security-slicing-msg-key <k1[,...,kn]>  enables message display for
+                    categories <k1>,...,<kn>. Use -security-slicing-msg-key
+                    help to get a list of available categories, and * to
+                    enable all categories (preferably use
+                    -security-slicing-msg-key="k1[,...,kn]")
+-security-slicing-verbose <n>  level of verbosity for plug-in
+                    Security-slicing (default to 1)
+-security-slicing-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for
+                    category <k1> to <s1>,...,<kn> to <sn>. Use
+                    -security-slicing-warn-key help to get a list of
+                    available categories, and * to enable all categories.
+                    Possible statuses are inactive, feedback, warning, error,
+                    abort, feedback-once, warning-once, error-once. Defaults
+                    to warning. (preferably use
+                    -security-slicing-warn-key="k1[=s1][,...,kn[=sn]]")

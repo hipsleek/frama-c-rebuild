@@ -1,0 +1,8 @@
+[kernel] Parsing index.c (with preprocessing)
+[region] Function f:
+  R0001: -R-- k (int) 32b (singleton) ;
+  R0002: ---- s 192b { .x: R0003; #32b; .z: R0004[4]; } (singleton) (allocated)
+    (garbage) ;
+  R0003: --W- (int) 32b (singleton) (allocated) (garbage) ;
+  R0004: --W- (int) 32b (allocated) (garbage) ;
+[region] annotating function f

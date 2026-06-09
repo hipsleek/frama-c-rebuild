@@ -1,0 +1,1 @@
+CMD tests/test_config1 tests/test_config2-redefined tests/test_config3-redef test#4

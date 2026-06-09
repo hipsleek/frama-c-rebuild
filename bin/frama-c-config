@@ -1,0 +1,11 @@
+#!/bin/sh
+##########################################################################
+#                                                                        #
+#  SPDX-License-Identifier LGPL-2.1                                      #
+#  Copyright (C)                                                         #
+#  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  #
+#                                                                        #
+##########################################################################
+
+>&2 echo "Warning: frama-c-config is deprecated, use 'frama-c' or 'frama-c -no-autoload-plugins' instead."
+exec $(dirname $0)/frama-c -no-autoload-plugins "$@"

@@ -1,0 +1,99 @@
+Plug-in name: Server
+Plug-in shortname: server
+Description: Frama-C Request Server (experimental)
+
+Most options of the form '-server-option-name' and without any parameter
+have an opposite with the name '-server-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-server-auto-log    Start monitoring logs before server is running (default
+                    is false) (opposite option is -server-no-auto-log)
+-server-polling <ms>  Server polling time period, in milliseconds (default
+                    50ms)
+
+*** DEBUG
+
+-server-debug <n>   level of debug for plug-in Server (default to 0)
+
+*** GETTING INFORMATION
+
+-server-help        help of plug-in Server
+-server-h           alias for option -server-help
+
+*** OUTPUT MESSAGES
+
+-server-log <K_1:file_1,...>  copy log messages from Server to a file. <K> is
+                    a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -server-log="K_1:file_1,...")
+-server-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -server-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -server-msg-key="k1[,...,kn]")
+-server-verbose <n>  level of verbosity for plug-in Server (default to 1)
+-server-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category
+                    <k1> to <s1>,...,<kn> to <sn>. Use -server-warn-key help
+                    to get a list of available categories, and * to enable
+                    all categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -server-warn-key="k1[=s1][,...,kn[=sn]]")
+
+*** PROTOCOL BATCH
+
+-server-batch <file.json,...>  Executes all requests in each <file.json>, and
+                    save the associated results in <file.out.json>.
+                    (preferably use -server-batch="file.json,...")
+-server-batch-output-dir <path>  Outputs the results of -server-batch in
+                    <path> instead of the input directory. (preferably use
+                    -server-batch-output-dir="path")
+
+*** PROTOCOL ZEROMQ
+
+-server-gui <cmd>   Launch the ZeroMQ client (as a child process).
+                    If not started by -server-zmq <url>, the ZeroMQ server
+                    is established with a local 'ipc://<tmp>' address.
+                    The specified <cmd> is passed the actual server <url>
+                    as first and unique argument. (preferably use
+                    -server-gui="cmd") [unsafe in sandbox mode]
+-server-zmq <url>   Launch the ZeroMQ server (in background).
+                    The server can handle GET requests during the
+                    execution of the frama-c command line.
+                    Finally, the server is executed until shutdown.
+                    (preferably use -server-zmq="url")
+
+*** SERVER DOC GENERATION
+
+-server-doc <dir>   Output a markdown documentation of the server in <dir>
+
+*** SOCKETS
+
+-server-socket <url>  Launch the Socket server (in background).
+                    The server can handle GET requests during the
+                    execution of the frama-c command line.
+                    Finally, the server is executed until shutdown.
+                    For the Internet socket domain, the default url is
+                    '127.0.0.1'. (preferably use -server-socket="url")
+-server-socket-domain <unix|internet>  Socket domain to be used: 'unix' or
+                    'internet'.
+                    'unix' is faster, but does not work on Windows
+                    nor between different machines. (preferably use
+                    -server-socket-domain="unix|internet")
+-server-socket-port <n>  Socket port to be used, if the
+                    domain
+                    (-server-socket-domain) is 'internet'.
+                    The default port is 9225 (9-22-5, I-V-E).
+-server-socket-size <n>  Control the size of socket buffers (in ko, default
+                    256).

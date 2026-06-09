@@ -1,0 +1,97 @@
+[kernel] Parsing dead_statuses.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function f <- main.
+  Called from dead_statuses.i:9:3-6.
+[eva] using specification for function f
+[eva:progress] dead_statuses.i:9: function f: precondition got status valid.
+[eva:progress] Done for function f
+[eva:progress] 
+  computing for function f <- main.
+  Called from dead_statuses.i:11:5-8.
+[eva:progress] dead_statuses.i:11: function f: precondition got status valid.
+[eva:progress] Done for function f
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  
+[from] Computing for function main
+[from] Computing for function f <-main
+[from] Done for function f
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  NO EFFECTS
+[from] Function main:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    \nothing
+[inout] Inputs for function main:
+    \nothing
+[report] Computing properties status...
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'f'
+--------------------------------------------------------------------------------
+
+[  Valid  ] Pre-condition ("dead_statuses.i", line 5, characters 14-19)
+            by Call Preconditions.
+[ Extern  ] Assigns nothing
+            Unverifiable but considered Valid.
+[  Valid  ] Default behavior
+            by Frama-C kernel.
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'main'
+--------------------------------------------------------------------------------
+
+[  Dead   ] Pre-condition ("dead_statuses.i", line 18, characters 22-28) at instruction ("dead_statuses.i", line 19, characters 14-15)
+            Locally valid, but unreachable.
+            By Eva because:
+             - Unreachable instruction ("dead_statuses.i", line 19, characters 14-15)
+[  Dead   ] Assertion ("dead_statuses.i", line 15, characters 18-24)
+            Locally valid, but unreachable.
+            By Eva because:
+             - Unreachable program point ("dead_statuses.i", line 15, character 25)
+[  Dead   ] Invariant ("dead_statuses.i", line 16, characters 27-33)
+            Locally valid, but unreachable.
+            By Eva because:
+             - Unreachable loop ("dead_statuses.i", lines 17-20)
+[  Valid  ] Default behavior at instruction ("dead_statuses.i", line 19, characters 14-15)
+            by Frama-C kernel.
+[Unreachable] Unreachable call 'f' ("dead_statuses.i", line 13, characters 7-11)
+            by Eva.
+[Unreachable] Unreachable program point ("dead_statuses.i", line 15, character 25)
+            by Eva.
+[Unreachable] Unreachable loop ("dead_statuses.i", lines 17-20)
+            by Eva.
+[Unreachable] Unreachable instruction ("dead_statuses.i", line 19, characters 14-15)
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition ("dead_statuses.i", line 5, characters 14-19)' at call 'f' ("dead_statuses.i", line 9, characters 3-6)
+
+            by Eva.
+[  Valid  ] Instance of 'Pre-condition ("dead_statuses.i", line 5, characters 14-19)' at call 'f' ("dead_statuses.i", line 11, characters 5-8)
+
+            by Eva.
+[  Dead   ] Instance of 'Pre-condition ("dead_statuses.i", line 5, characters 14-19)' at call 'f' ("dead_statuses.i", line 13, characters 7-11)
+
+            Locally valid, but unreachable.
+            By Eva because:
+             - Unreachable call 'f' ("dead_statuses.i", line 13, characters 7-11)
+
+--------------------------------------------------------------------------------
+--- Status Report Summary
+--------------------------------------------------------------------------------
+     5 Completely validated
+     1 Considered valid
+     4 Dead properties
+     4 Unreachable
+    14 Total
+--------------------------------------------------------------------------------

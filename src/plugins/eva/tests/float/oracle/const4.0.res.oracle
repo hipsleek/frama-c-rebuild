@@ -1,0 +1,18 @@
+[kernel] Parsing const4.i (no preprocessing)
+[kernel:parser:decimal-float] const4.i:8: Warning: 
+  Floating-point constant 3.4e38f is not represented exactly. Will use 0x1.ff933c0000000p127.
+[kernel:parser:decimal-float] const4.i:9: Warning: 
+  Floating-point constant 3.405e38f is not represented exactly. Will use inf.
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:alarm] const4.i:9: Warning: 
+  non-finite float value. assert \is_finite(3.405e38f);
+[eva] const4.i:9: Warning: evaluation of initializer '(double)3.405e38f' failed
+[eva:progress] Initial state computed
+[eva] User Error: Eva not started because globals initialization is not computable.
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] ====== END OF DEPENDENCIES ======
+[eva] Deferred error message was emitted during execution:
+  Eva not started because globals initialization is not computable.
+[kernel] Plug-in eva aborted: invalid user input.

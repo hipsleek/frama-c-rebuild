@@ -1,0 +1,83 @@
+[kernel] Parsing use_spec.i (no preprocessing)
+[eva:assigns:missing] User Error: 
+  No assigns specified for function 'f' for which option -eva-use-spec is set. Generating potentially incorrect assigns.
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  w ∈ {0}
+  x ∈ {0}
+  y ∈ {0}
+  z ∈ {0}
+[eva:progress] 
+  computing for function f <- main.
+  Called from use_spec.i:25:3-8.
+[eva] using specification for function f
+[eva:progress] Done for function f
+[kernel:annot:missing-spec] use_spec.i:26: Warning: 
+  Neither code nor specification for function g, generating default assigns.
+  See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function g <- main.
+  Called from use_spec.i:26:3-8.
+[eva] using specification for function g
+[eva:progress] Done for function g
+[eva:progress] 
+  computing for function h <- main.
+  Called from use_spec.i:27:3-8.
+[eva] using specification for function h
+[eva:progress] Done for function h
+[eva:progress] 
+  computing for function i <- main.
+  Called from use_spec.i:28:3-8.
+[eva] using specification for function i
+[eva:progress] Done for function i
+[eva:progress] Recording results for main
+[from] Computing for function main
+[from] Done for function main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  w ∈ [--..--]
+  x ∈ [--..--]
+  y ∈ [--..--]
+  z ∈ [--..--]
+[from] ====== DISPLAYING CALLWISE DEPENDENCIES ======
+[from] call to f at use_spec.i:25:3-8 (by main):
+  x FROM x (and SELF)
+[from] call to g at use_spec.i:26:3-8 (by main):
+  y FROM y (and SELF)
+[from] call to h at use_spec.i:27:3-8 (by main):
+  z FROM \nothing
+[from] call to i at use_spec.i:28:3-8 (by main):
+  w FROM \nothing
+[from] entry point:
+  w FROM \nothing
+  x FROM x (and SELF)
+  y FROM y (and SELF)
+  z FROM \nothing
+[from] ====== END OF CALLWISE DEPENDENCIES ======
+[inout] InOut (internal) for function f:
+  Operational inputs:
+    x
+  Operational inputs on termination:
+    x
+  Sure outputs:
+    \nothing
+[inout] InOut (internal) for function h:
+  Operational inputs:
+    \nothing
+  Operational inputs on termination:
+    \nothing
+  Sure outputs:
+    z
+[inout] InOut (internal) for function main:
+  Operational inputs:
+    x; y
+  Operational inputs on termination:
+    x; y
+  Sure outputs:
+    w; z
+[eva] Deferred error: warning as error assigns:missing:
+  No assigns specified for function 'f' for which option -eva-use-spec is set. Generating potentially incorrect assigns.
+[kernel] Plug-in eva aborted: invalid user input.

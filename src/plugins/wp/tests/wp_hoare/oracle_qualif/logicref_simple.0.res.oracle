@@ -1,0 +1,34 @@
+# frama-c -wp -wp-model 'Typed (Ref)' [...]
+[kernel] Parsing logicref_simple.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal fsimple_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal fsimple_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal fsimple_array_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal fsimple_array_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal ftwo_star_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal ftwo_star_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal fvpositive_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal fvpositive_terminates (Cfg) (Trivial)
+[wp] 9 goals scheduled
+[wp] [Valid] typed_ref_fsimple_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ref_fsimple_assigns (Qed)
+[wp] [Valid] typed_ref_fsimple_array_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ref_fsimple_array_assigns (Qed)
+[wp] [Valid] typed_ref_ftwo_star_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ref_ftwo_star_assigns (Qed)
+[wp] [Valid] typed_ref_fvpositive_ensures (Qed)
+[wp] [Valid] typed_ref_fvpositive_assert_OK (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ref_fvpositive_assigns (Qed)
+[wp] Proved goals:   17 / 17
+  Terminating:     4
+  Unreachable:     4
+  Qed:             5
+  Alt-Ergo:        4
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  fsimple                   3        1        4       100%
+  fsimple_array             3        1        4       100%
+  ftwo_star                 3        1        4       100%
+  fvpositive                4        1        5       100%
+------------------------------------------------------------

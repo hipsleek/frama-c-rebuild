@@ -1,0 +1,235 @@
+[kernel] Parsing calls_annotation.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+  funs[0] ∈ {{ &incr }}
+      [1] ∈ {{ &decr }}
+      [2] ∈ {{ &square }}
+      [3] ∈ {{ &error }}
+[eva:progress] calls_annotation.i:49: calls annotation got status valid.
+[eva:progress] 
+  computing for function decr <- main.
+  Called from calls_annotation.i:49:8-21.
+[eva:progress] Recording results for decr
+[eva:progress] Done for function decr
+[eva:progress] calls_annotation.i:52: calls annotation got status valid.
+[eva:progress] 
+  computing for function incr <- main.
+  Called from calls_annotation.i:52:8-21.
+[eva:progress] Recording results for incr
+[eva:progress] Done for function incr
+[eva:progress] 
+  computing for function decr <- main.
+  Called from calls_annotation.i:52:8-21.
+[eva:progress] Recording results for decr
+[eva:progress] Done for function decr
+[eva:progress] 
+  computing for function square <- main.
+  Called from calls_annotation.i:52:8-21.
+[eva:progress] Recording results for square
+[eva:progress] Done for function square
+[eva:progress] calls_annotation.i:54: calls annotation got status valid.
+[eva:progress] 
+  computing for function incr <- main.
+  Called from calls_annotation.i:54:8-21.
+[eva:progress] Recording results for incr
+[eva:progress] Done for function incr
+[eva:progress] 
+  computing for function decr <- main.
+  Called from calls_annotation.i:54:8-21.
+[eva:progress] Recording results for decr
+[eva:progress] Done for function decr
+[eva:progress] 
+  computing for function square <- main.
+  Called from calls_annotation.i:54:8-21.
+[eva:progress] Recording results for square
+[eva:progress] Done for function square
+[eva:alarm] calls_annotation.i:59: Warning: calls annotation got status unknown.
+[eva:progress] 
+  computing for function incr <- main.
+  Called from calls_annotation.i:59:8-21.
+[eva:progress] Recording results for incr
+[eva:progress] Done for function incr
+[eva:progress] 
+  computing for function decr <- main.
+  Called from calls_annotation.i:59:8-21.
+[eva:progress] Recording results for decr
+[eva:progress] Done for function decr
+[eva:show] calls_annotation.i:60: Frama_C_show_each_0_1: {0; 1}
+[eva:alarm] calls_annotation.i:65: Warning: 
+  calls annotation got status invalid (stopping propagation).
+[eva:alarm] calls_annotation.i:71: Warning: 
+  calls annotation got status invalid (stopping propagation).
+[eva:progress] calls_annotation.i:80: calls annotation got status valid.
+[eva:progress] calls_annotation.i:80: Reusing old results for call to incr
+[eva:progress] calls_annotation.i:82: calls annotation got status valid.
+[eva:progress] 
+  computing for function incr <- main.
+  Called from calls_annotation.i:82:10-27.
+[eva:progress] Recording results for incr
+[eva:progress] Done for function incr
+[eva:progress] calls_annotation.i:85: calls annotation got status valid.
+[eva:progress] 
+  computing for function incr <- main.
+  Called from calls_annotation.i:85:10-23.
+[eva:progress] Recording results for incr
+[eva:progress] Done for function incr
+[eva:progress] calls_annotation.i:88: calls annotation got status valid.
+[eva:progress] 
+  computing for function incr <- main.
+  Called from calls_annotation.i:88:12-25.
+[eva:progress] Recording results for incr
+[eva:progress] Done for function incr
+[eva:progress] 
+  computing for function apply <- main.
+  Called from calls_annotation.i:92:11-28.
+[eva:progress] calls_annotation.i:38: calls annotation got status valid.
+[eva:progress] 
+  computing for function incr <- apply <- main.
+  Called from calls_annotation.i:38:8-16.
+[eva:progress] Recording results for incr
+[eva:progress] Done for function incr
+[eva:progress] calls_annotation.i:40: calls annotation got status valid.
+[eva:progress] 
+  computing for function incr <- apply <- main.
+  Called from calls_annotation.i:40:8-16.
+[eva:progress] Recording results for incr
+[eva:progress] Done for function incr
+[eva:progress] Recording results for apply
+[eva:progress] Done for function apply
+[eva:alarm] calls_annotation.i:97: Warning: 
+  calls annotation got status invalid (stopping propagation).
+[eva:progress] calls_annotation.i:80: Reusing old results for call to incr
+[eva:progress] calls_annotation.i:82: Reusing old results for call to decr
+[eva:progress] calls_annotation.i:85: Reusing old results for call to incr
+[eva:progress] calls_annotation.i:85: Reusing old results for call to decr
+[eva:progress] 
+  computing for function decr <- main.
+  Called from calls_annotation.i:88:12-25.
+[eva:progress] Recording results for decr
+[eva:progress] Done for function decr
+[eva:progress] 
+  computing for function apply <- main.
+  Called from calls_annotation.i:92:11-28.
+[eva:progress] 
+  computing for function decr <- apply <- main.
+  Called from calls_annotation.i:38:8-16.
+[eva:progress] Recording results for decr
+[eva:progress] Done for function decr
+[eva:progress] 
+  computing for function decr <- apply <- main.
+  Called from calls_annotation.i:40:8-16.
+[eva:progress] Recording results for decr
+[eva:progress] Done for function decr
+[eva:progress] Recording results for apply
+[eva:progress] Done for function apply
+[eva:progress] calls_annotation.i:80: Reusing old results for call to incr
+[eva:progress] calls_annotation.i:82: Reusing old results for call to incr
+[eva:progress] calls_annotation.i:85: Reusing old results for call to incr
+[eva:progress] 
+  computing for function decr <- main.
+  Called from calls_annotation.i:85:10-23.
+[eva:progress] Recording results for decr
+[eva:progress] Done for function decr
+[eva:progress] 
+  computing for function square <- main.
+  Called from calls_annotation.i:85:10-23.
+[eva:progress] Recording results for square
+[eva:progress] Done for function square
+[eva:progress] 
+  computing for function square <- main.
+  Called from calls_annotation.i:88:12-25.
+[eva:progress] Recording results for square
+[eva:progress] Done for function square
+[eva:progress] 
+  computing for function apply <- main.
+  Called from calls_annotation.i:92:11-28.
+[eva:progress] 
+  computing for function square <- apply <- main.
+  Called from calls_annotation.i:38:8-16.
+[eva:progress] Recording results for square
+[eva:progress] Done for function square
+[eva:progress] 
+  computing for function square <- apply <- main.
+  Called from calls_annotation.i:40:8-16.
+[eva:progress] Recording results for square
+[eva:progress] Done for function square
+[eva:progress] Recording results for apply
+[eva:progress] Done for function apply
+[eva:progress] calls_annotation.i:80: Reusing old results for call to incr
+[eva:progress] calls_annotation.i:82: Reusing old results for call to decr
+[eva:alarm] calls_annotation.i:85: Warning: calls annotation got status unknown.
+[eva:progress] calls_annotation.i:85: Reusing old results for call to incr
+[eva:progress] calls_annotation.i:85: Reusing old results for call to decr
+[eva:progress] calls_annotation.i:85: Reusing old results for call to square
+[eva:alarm] calls_annotation.i:88: Warning: 
+  calls annotation got status invalid (stopping propagation).
+[eva:progress] 
+  computing for function apply <- main.
+  Called from calls_annotation.i:92:11-28.
+[eva:alarm] calls_annotation.i:38: Warning: 
+  calls annotation got status invalid (stopping propagation).
+[eva:progress] Recording results for apply
+[eva:progress] Done for function apply
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function decr:
+  __retres ∈ {-4; -3; -2; -1; 0; 1}
+[eva:final-states] Values at end of function incr:
+  __retres ∈ {-1; 0; 1; 2; 3; 4; 5; 6}
+[eva:final-states] Values at end of function square:
+  __retres ∈ [-1..65536]
+[eva:final-states] Values at end of function apply:
+  x ∈ [-4..65536]
+[eva:final-states] Values at end of function main:
+  a ∈ {-1; 0; 1}
+  i ∈ {0; 1; 2}
+[from] Computing for function decr
+[from] Done for function decr
+[from] Computing for function incr
+[from] Done for function incr
+[from] Computing for function square
+[from] Done for function square
+[from] Computing for function apply
+[from] Computing for function error <-apply
+[from] Non-terminating function error (no dependencies)
+[from] Done for function error
+[from] Done for function apply
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function decr:
+  \result FROM x
+[from] Function incr:
+  \result FROM x
+[from] Function square:
+  \result FROM x
+[from] Function apply:
+  \result FROM fp; a
+[from] Function main:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function decr:
+    __retres
+[inout] Inputs for function decr:
+    \nothing
+[inout] Out (internal) for function incr:
+    __retres
+[inout] Inputs for function incr:
+    \nothing
+[inout] Out (internal) for function square:
+    __retres
+[inout] Inputs for function square:
+    \nothing
+[inout] Out (internal) for function apply:
+    x
+[inout] Inputs for function apply:
+    \nothing
+[inout] Out (internal) for function main:
+    a; i; j
+[inout] Inputs for function main:
+    nondet; funs[0..3]

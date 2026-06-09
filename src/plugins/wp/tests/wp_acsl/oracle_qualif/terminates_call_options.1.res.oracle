@@ -1,0 +1,40 @@
+# frama-c -wp [...]
+[kernel] Parsing terminates_call_options.c (with preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] terminates_call_options.c:17: Warning: 
+  Neither code nor explicit exits and terminates for function declaration,
+  generating default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] FRAMAC_SHARE/libc/stdlib.h:929: Warning: 
+  Neither code nor explicit exits and terminates for function div, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal definition_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal definition_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal no_spec_generates_goal_exits (Cfg) (Unreachable)
+[wp] terminates_call_options.c:33: Warning: 
+  Missing assigns clause (assigns 'everything' instead)
+[wp] 11 goals scheduled
+[wp] [Valid] typed_definition_assigns (Qed)
+[wp] [Valid] typed_call_declaration_terminates (Qed)
+[wp] [Valid] typed_call_declaration_exits (Qed)
+[wp] [Valid] typed_call_definition_terminates (Qed)
+[wp] [Valid] typed_call_definition_exits (Qed)
+[wp] [Unsuccess] typed_no_spec_generates_goal_terminates (Alt-Ergo) (Cached)
+[wp] [Valid] typed_libc_call_terminates_part1 (Qed)
+[wp] [Unsuccess] typed_libc_call_terminates_part2 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_libc_call_exits (Alt-Ergo) (Cached)
+[wp] [Valid] typed_libc_call_call_div_requires_denom_nonzero (Qed)
+[wp] [Valid] typed_libc_call_call_div_requires_no_overflow (Qed)
+[wp] Proved goals:   11 / 14
+  Terminating:     1
+  Unreachable:     2
+  Qed:             8
+  Unsuccess:       3
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  definition                3        -        3       100%
+  call_declaration          2        -        2       100%
+  call_definition           2        -        2       100%
+  no_spec_generates_goal    1        -        2      50.0%
+  libc_call                 3        -        5      60.0%
+------------------------------------------------------------

@@ -1,0 +1,35 @@
+[kernel] Expanding arguments from mthread_test_options.txt
+[mt] Preparing sources for Mthread with builtins only
+[kernel] Parsing FRAMAC_SHARE/mt/mthread.c (with preprocessing)
+[kernel] Parsing init.c (with preprocessing)
+[mt] Warning: Mthread is an experimental plugin and is still in development.
+[mt] ******* Starting mthread
+[eva] Found concurrency builtins: enabling mthread domain
+[mt] *** Computing value analysis for main thread
+[eva] Analyzing a complete application starting at main
+[mt] New thread: <main>, fun main
+[mt] init.c:22: Initializing mutex locks[0]
+[mt] init.c:22: Initializing mutex locks[1]
+[mt] init.c:22: Initializing mutex locks[2]
+[mt] init.c:25: Initializing mutex mu1
+[mt] init.c:25: Initializing mutex mu2
+[mt] init.c:25: Initializing mutex mu3
+[mt] init.c:29: Initializing mutex 0
+[mt] init.c:29: Warning: 
+  Trying to initialize mutex 0, but it might already be unlocked (and initialized).
+[eva] init.c:15: Warning: The mutex 0 is already registered.
+[mt] *** First value analysis for main thread done.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] ******* Starting to iterate
+[mt] ******* Analysis performed, 0 iterations

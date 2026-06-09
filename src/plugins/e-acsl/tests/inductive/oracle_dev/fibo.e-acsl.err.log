@@ -1,0 +1,18 @@
+fibo.c: In function 'main'
+fibo.c:56: Warning: no sound verdict for Assertion (guess: ok).
+	the considered predicate is:
+	¬fibo(7, 12)
+	With values at failure point:
+	- fibo(7, 12): 0
+fibo.c: In function 'main'
+fibo.c:57: Warning: no sound verdict for Assertion (guess: ok).
+	the considered predicate is:
+	¬fibo2(7, 12)
+	With values at failure point:
+	- fibo2(7, 12): 0
+fibo.c: In function 'main'
+fibo.c:58: Warning: no sound verdict for Assertion (guess: ok).
+	the considered predicate is:
+	¬lucas(4, 5)
+	With values at failure point:
+	- lucas(4, 5): 0

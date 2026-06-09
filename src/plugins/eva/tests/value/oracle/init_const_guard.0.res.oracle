@@ -1,0 +1,270 @@
+[kernel] Parsing init_const_guard.i (no preprocessing)
+[eva] Analyzing a complete application starting at f
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  x ∈ {0}
+  q ∈ {{ &x }}
+  p ∈ {{ &x }}
+  v ∈ [--..--]
+[eva:progress] init_const_guard.i:14: 
+  function f: postcondition 'Const' got status valid.
+[eva:progress] init_const_guard.i:15: 
+  function f: postcondition 'Pointed_Valid' got status valid.
+[eva:progress] init_const_guard.i:16: 
+  function f: postcondition 'Q_ReadOnly' got status valid.
+[eva:progress] init_const_guard.i:17: 
+  function f: postcondition 'Q_NotWrite' got status valid.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function f:
+  __retres ∈ {0}
+[from] Computing for function f
+[from] Done for function f
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function f:
+    __retres
+[inout] Inputs for function f:
+    \nothing
+[report] Computing properties status...
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'f'
+--------------------------------------------------------------------------------
+
+[  Valid  ] Post-condition 'Const'
+            by Eva.
+[  Valid  ] Post-condition 'Pointed_Valid'
+            by Eva.
+[  Valid  ] Post-condition 'Q_ReadOnly'
+            by Eva.
+[  Valid  ] Post-condition 'Q_NotWrite'
+            by Eva.
+[  Valid  ] Default behavior
+            by Frama-C kernel.
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'g'
+--------------------------------------------------------------------------------
+
+[  Dead   ] Assertion 'Read' ("init_const_guard.i", line 32, characters 20-34)
+            Locally valid, but unreachable.
+            By Eva because:
+             - Unreachable program point ("init_const_guard.i", line 32, character 35)
+[  Dead   ] Assertion 'Guard_against_Const' ("init_const_guard.i", line 33, characters 36-46)
+            Locally valid, but unreachable.
+            By Eva because:
+             - Unreachable program point ("init_const_guard.i", line 33, character 47)
+[Unreachable] Unreachable program point ("init_const_guard.i", line 32, character 35)
+            by Eva.
+[Unreachable] Unreachable program point ("init_const_guard.i", line 33, character 47)
+            by Eva.
+
+--------------------------------------------------------------------------------
+--- Status Report Summary
+--------------------------------------------------------------------------------
+     5 Completely validated
+     2 Dead properties
+     2 Unreachable
+     9 Total
+--------------------------------------------------------------------------------
+[eva] Analyzing a complete application starting at g
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  x ∈ {0}
+  q ∈ {{ &x }}
+  p ∈ {{ &x }}
+  v ∈ [--..--]
+[eva:progress] init_const_guard.i:32: assertion 'Read' got status valid.
+[eva:progress] init_const_guard.i:33: 
+  assertion 'Guard_against_Const' got status valid.
+[eva:progress] init_const_guard.i:27: 
+  function g: postcondition 'P_not_Const' got status valid.
+[eva:progress] Recording results for g
+[eva:progress] Done for function g
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function g:
+  x ∈ {0; 2}
+  p ∈ {{ &x }}
+[from] Computing for function g
+[from] Done for function g
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function g:
+  x FROM v (and SELF)
+  p FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function g:
+    x; p
+[inout] Inputs for function g:
+    p; v
+[report] Computing properties status...
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'f'
+--------------------------------------------------------------------------------
+
+[ Partial ] Default behavior
+            By Frama-C kernel, with pending:
+             - Post-condition 'Const'
+             - Post-condition 'Pointed_Valid'
+             - Post-condition 'Q_ReadOnly'
+             - Post-condition 'Q_NotWrite'
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'g'
+--------------------------------------------------------------------------------
+
+[  Valid  ] Post-condition 'P_not_Const'
+            by Eva.
+[  Valid  ] Assertion 'Read' ("init_const_guard.i", line 32, characters 20-34)
+            by Eva.
+[  Valid  ] Assertion 'Guard_against_Const' ("init_const_guard.i", line 33, characters 36-46)
+            by Eva.
+[  Valid  ] Default behavior
+            by Frama-C kernel.
+
+--------------------------------------------------------------------------------
+--- Status Report Summary
+--------------------------------------------------------------------------------
+     4 Completely validated
+     1 Locally validated
+     5 Total
+--------------------------------------------------------------------------------
+[eva] Analyzing an incomplete application starting at f
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  x ∈ [--..--]
+  q ∈ {{ &x }}
+  p ∈ {{ NULL ; &S_p[0] }}
+  v ∈ [--..--]
+  S_p[0..1] ∈ [--..--]
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function f:
+  __retres ∈ {0}
+[from] Computing for function f
+[from] Done for function f
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function f:
+    __retres
+[inout] Inputs for function f:
+    \nothing
+[report] Computing properties status...
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'f'
+--------------------------------------------------------------------------------
+
+[  Valid  ] Post-condition 'Const'
+            by Eva.
+[  Valid  ] Post-condition 'Pointed_Valid'
+            by Eva.
+[  Valid  ] Post-condition 'Q_ReadOnly'
+            by Eva.
+[  Valid  ] Post-condition 'Q_NotWrite'
+            by Eva.
+[  Valid  ] Default behavior
+            by Frama-C kernel.
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'g'
+--------------------------------------------------------------------------------
+
+[  Dead   ] Assertion 'Read' ("init_const_guard.i", line 32, characters 20-34)
+            Locally valid, but unreachable.
+            By Eva because:
+             - Unreachable program point ("init_const_guard.i", line 32, character 35)
+[  Dead   ] Assertion 'Guard_against_Const' ("init_const_guard.i", line 33, characters 36-46)
+            Locally valid, but unreachable.
+            By Eva because:
+             - Unreachable program point ("init_const_guard.i", line 33, character 47)
+[ Partial ] Default behavior
+            By Frama-C kernel, with pending:
+             - Post-condition 'P_not_Const'
+[Unreachable] Unreachable program point ("init_const_guard.i", line 32, character 35)
+            by Eva.
+[Unreachable] Unreachable program point ("init_const_guard.i", line 33, character 47)
+            by Eva.
+
+--------------------------------------------------------------------------------
+--- Status Report Summary
+--------------------------------------------------------------------------------
+     5 Completely validated
+     1 Locally validated
+     2 Dead properties
+     2 Unreachable
+    10 Total
+--------------------------------------------------------------------------------
+[eva] Analyzing an incomplete application starting at g
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  x ∈ [--..--]
+  q ∈ {{ &x }}
+  p ∈ {{ NULL ; &S_p_0[0] }}
+  v ∈ [--..--]
+  S_p_0[0..1] ∈ [--..--]
+[eva:progress] Recording results for g
+[eva:progress] Done for function g
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function g:
+  x ∈ [--..--]
+  p ∈ {{ &x }}
+[from] Computing for function g
+[from] Done for function g
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function g:
+  x FROM v (and SELF)
+  p FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function g:
+    x; p
+[inout] Inputs for function g:
+    p; v
+[report] Computing properties status...
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'f'
+--------------------------------------------------------------------------------
+
+[ Partial ] Default behavior
+            By Frama-C kernel, with pending:
+             - Post-condition 'Const'
+             - Post-condition 'Pointed_Valid'
+             - Post-condition 'Q_ReadOnly'
+             - Post-condition 'Q_NotWrite'
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'g'
+--------------------------------------------------------------------------------
+
+[  Valid  ] Post-condition 'P_not_Const'
+            by Eva.
+[  Valid  ] Assertion 'Read' ("init_const_guard.i", line 32, characters 20-34)
+            by Eva.
+[  Valid  ] Assertion 'Guard_against_Const' ("init_const_guard.i", line 33, characters 36-46)
+            by Eva.
+[  Valid  ] Default behavior
+            by Frama-C kernel.
+
+--------------------------------------------------------------------------------
+--- Status Report Summary
+--------------------------------------------------------------------------------
+     4 Completely validated
+     1 Locally validated
+     5 Total
+--------------------------------------------------------------------------------

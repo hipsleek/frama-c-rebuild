@@ -1,0 +1,2 @@
+DEFAULT_SUITES = acsl-rte arith bts builtin concurrency constructs examples format full-mtracking gmp-only inductive memory libc special temporal
+dev_SUITES = acsl-rte arith bts builtin concurrency constructs examples format full-mtracking gmp-only inductive libc memory special temporal

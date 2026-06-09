@@ -1,0 +1,86 @@
+# frama-c -wp [...]
+[kernel] Parsing find.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal find_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal find_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal find_ptr_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal find_ptr_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal iter_ptr_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal iter_ptr_terminates (Cfg) (Trivial)
+[wp] 41 goals scheduled
+[wp] [Valid] typed_find_complete_found_not_found (Qed)
+[wp] [Valid] typed_find_disjoint_found_not_found (Qed)
+[wp] [Valid] typed_find_ensures_Range (Qed)
+[wp] [Valid] typed_find_ensures_NoneBefore (Qed)
+[wp] [Valid] typed_find_loop_invariant_NotFound_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_loop_invariant_NotFound_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_loop_invariant_Range_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_loop_invariant_Range_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_loop_invariant_Valid_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_loop_invariant_Valid_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_loop_assigns (Qed)
+[wp] [Valid] typed_find_loop_variant_positive (Qed)
+[wp] [Valid] typed_find_loop_variant_decrease (Qed)
+[wp] [Valid] typed_find_not_found_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_found_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_found_ensures_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_ptr_complete_found_not_found (Qed)
+[wp] [Valid] typed_find_ptr_disjoint_found_not_found (Qed)
+[wp] [Valid] typed_find_ptr_ensures_Range (Qed)
+[wp] [Valid] typed_find_ptr_ensures_NoneBefore (Qed)
+[wp] [Valid] typed_find_ptr_loop_invariant_NotFound_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_ptr_loop_invariant_NotFound_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_ptr_loop_invariant_Range_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_ptr_loop_invariant_Range_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_ptr_loop_invariant_Valid_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_ptr_loop_invariant_Valid_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_ptr_assert_Hack (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_ptr_loop_assigns (Qed)
+[wp] [Valid] typed_find_ptr_loop_variant_positive (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_ptr_loop_variant_decrease (Qed)
+[wp] [Valid] typed_find_ptr_not_found_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_ptr_found_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_ptr_found_ensures_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_iter_ptr_ensures_Last (Alt-Ergo) (Cached)
+[wp] [Valid] typed_iter_ptr_loop_invariant_Range_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_iter_ptr_loop_invariant_Range_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_iter_ptr_loop_invariant_Valid_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_iter_ptr_loop_invariant_Valid_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_iter_ptr_loop_assigns (Qed)
+[wp] [Valid] typed_iter_ptr_loop_variant_positive (Alt-Ergo) (Cached)
+[wp] [Valid] typed_iter_ptr_loop_variant_decrease (Qed)
+[wp] Proved goals:   47 / 47
+  Terminating:     3
+  Unreachable:     3
+  Qed:            15
+  Alt-Ergo:       26
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  find                      9        9       18       100%
+  find_ptr                  8       11       19       100%
+  iter_ptr                  4        6       10       100%
+------------------------------------------------------------
+[wp] Running WP plugin...
+[wp] Warning: Skipped RTE guards: unaligned pointers (\aligned not supported)
+[wp] Warning: Skipped RTE guards: invalid function pointer calls (\valid_function not supported)
+[rte:annot] annotating function find
+[rte:annot] annotating function find_ptr
+[rte:annot] annotating function iter_ptr
+[wp] [Valid] Goal find_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal find_ptr_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal iter_ptr_terminates (Cfg) (Trivial)
+[wp] 3 goals scheduled
+[wp] [Valid] typed_find_assert_rte_mem_access (Alt-Ergo) (Cached)
+[wp] [Valid] typed_find_assert_rte_signed_overflow (Qed)
+[wp] [Valid] typed_find_ptr_assert_rte_mem_access (Alt-Ergo) (Cached)
+[wp] Proved goals:    6 / 6
+  Terminating:     3
+  Qed:             1
+  Alt-Ergo:        2
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  find                     10       10       20       100%
+  find_ptr                  8       12       20       100%
+  iter_ptr                  4        6       10       100%
+------------------------------------------------------------

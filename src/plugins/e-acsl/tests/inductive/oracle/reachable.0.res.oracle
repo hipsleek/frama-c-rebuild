@@ -1,0 +1,17 @@
+[e-acsl] beginning translation.
+[e-acsl:analysis:inductive] 
+  extracting predicate from reachable using mode: complete
+[e-acsl:analysis:inductive] no valid mode found for: same_elements
+[e-acsl] Warning: Unable to extract executable code from inductive definition of same_elements.
+  See language reference manual for details on the supported forms.
+[e-acsl] reachable.c:58: Warning: 
+  no assigns clause generated for function reachable because pointers as arguments is not yet supported
+[e-acsl] reachable.c:62: Warning: 
+  E-ACSL construct
+  `inductive definitions outside of subset described in the reference manual'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] reachable.c:58: Warning: assertion got status unknown.
+[eva:alarm] reachable.c:59: Warning: assertion got status unknown.
+[eva:alarm] reachable.c:62: Warning: assertion got status unknown.

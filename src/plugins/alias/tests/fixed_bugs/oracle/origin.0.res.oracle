@@ -1,0 +1,18 @@
+[kernel] Parsing origin.c (with preprocessing)
+[kernel:typing:int-conversion] origin.c:8: Warning: 
+  Conversion from a pointer to an integer without an explicit cast
+[alias] analysing global variable definition: v = {};
+[alias] May-aliases after global variable definition  v  are  <none>
+[alias] analysing function: f
+[alias] analysing instruction: tmp = & f;
+[alias] May-aliases after instruction  tmp = & f;  are  <none>
+[alias] analysing instruction: tmp = (void (*)(void))*((char *)(v.t));
+[alias:unsafe-cast] origin.c:8: Warning: 
+  unsafe cast from char to void (*)(void); analysis may be unsound
+[alias] May-aliases after instruction  tmp = (void (*)(void))*((char *)(v.t));  are
+  { v.t[0..]; tmp }
+[alias] analysing instruction: int g = (int)tmp;
+[alias:unsafe-cast] origin.c:8: Warning: 
+  unsafe cast from void (*)(void) to int; analysis may be unsound
+[alias] May-aliases after instruction  int g = (int)tmp;  are  { v.t[0..]; tmp }
+[alias] May-aliases at the end of function f: { v.t[0..]; tmp }

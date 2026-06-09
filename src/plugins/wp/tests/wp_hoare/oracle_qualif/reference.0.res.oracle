@@ -1,0 +1,83 @@
+# frama-c -wp -wp-model 'Typed (Ref)' [...]
+[kernel] Parsing reference.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] reference.i:30: Warning: 
+  Neither code nor explicit exits and terminates for function f2, generating
+  default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] reference.i:14: Warning: 
+  Neither code nor explicit exits and terminates for function f, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal write_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal write_terminates (Cfg) (Trivial)
+[wp] 29 goals scheduled
+[wp] [Valid] typed_ref_g_terminates (Qed)
+[wp] [Valid] typed_ref_g_ensures (Qed)
+[wp] [Valid] typed_ref_g_exits (Qed)
+[wp] [Valid] typed_ref_g_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_ref_g_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_ref_g_assigns_normal_part3 (Qed)
+[wp] [Valid] typed_ref_g_assigns_exit_part1 (Qed)
+[wp] [Valid] typed_ref_g_assigns_exit_part2 (Qed)
+[wp] [Valid] typed_ref_g_call_f_requires (Qed)
+[wp] [Valid] typed_ref_call_f2_terminates (Qed)
+[wp] [Valid] typed_ref_call_f2_ensures (Qed)
+[wp] [Valid] typed_ref_call_f2_exits (Qed)
+[wp] [Valid] typed_ref_call_f2_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_ref_call_f2_assigns_normal_part2 (Qed)
+[wp] [Unsuccess] typed_ref_call_f2_assigns_normal_part3 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ref_call_f2_assigns_normal_part4 (Qed)
+[wp] [Valid] typed_ref_call_f2_assigns_exit_part1 (Qed)
+[wp] [Valid] typed_ref_call_f2_assigns_exit_part2 (Qed)
+[wp] [Unsuccess] typed_ref_call_f2_assigns_exit_part3 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ref_call_f2_call_f2_requires (Qed)
+[wp] [Valid] typed_ref_call_global_terminates (Qed)
+[wp] [Valid] typed_ref_call_global_ensures (Qed)
+[wp] [Valid] typed_ref_call_global_exits (Qed)
+[wp] [Valid] typed_ref_call_global_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_ref_call_global_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_ref_call_global_assigns_exit (Qed)
+[wp] [Valid] typed_ref_call_global_call_f_requires (Qed)
+[wp] [Valid] typed_ref_write_ensures (Qed)
+[wp] [Valid] typed_ref_write_assigns (Qed)
+[wp] Proved goals:   29 / 31
+  Terminating:     1
+  Unreachable:     1
+  Qed:            27
+  Unsuccess:       2
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  g                         9        -        9       100%
+  call_f2                   9        -       11      81.8%
+  call_global               7        -        7       100%
+  write                     4        -        4       100%
+------------------------------------------------------------
+[wp] reference.i:14: Warning: 
+  Memory model hypotheses for function 'f':
+  /*@ behavior wp_typed_ref:
+        requires \valid(p); */
+  int f(int *p);
+[wp] reference.i:30: Warning: 
+  Memory model hypotheses for function 'f2':
+  /*@
+     behavior wp_typed_ref:
+       requires \valid(p2);
+       requires \valid(q);
+       requires \separated(p2, q);
+     */
+  int f2(int *p2, int *q);
+[wp] reference.i:37: Warning: 
+  Memory model hypotheses for function 'call_f2':
+  /*@ behavior wp_typed_ref:
+        requires \valid(ptr); */
+  int call_f2(int *ptr, int y);
+[wp] reference.i:48: Warning: 
+  Memory model hypotheses for function 'call_global':
+  /*@ behavior wp_typed_ref:
+        requires \valid(gl); */
+  int call_global(void);
+[wp] reference.i:60: Warning: 
+  Memory model hypotheses for function 'write':
+  /*@ behavior wp_typed_ref:
+        requires \valid(pa); */
+  void write(int kb, int *pa);

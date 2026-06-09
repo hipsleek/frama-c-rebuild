@@ -1,0 +1,44 @@
+# frama-c -wp [...]
+[kernel] Parsing cvc4_ce.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal wrong_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal wrong_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 3 goals scheduled
+[wp] [Unsuccess] typed_check_lemma_wrong (CVC4) (Model)
+[wp] [Unsuccess] typed_wrong_ensures (CVC4) (Model)
+[wp] [Valid] typed_wrong_assigns (Qed)
+[wp] Proved goals:    3 / 5
+  Terminating:     1
+  Unreachable:     1
+  Qed:             1
+  Unsuccess:       2
+------------------------------------------------------------
+  Global
+------------------------------------------------------------
+
+Goal Check Lemma 'wrong':
+Assume { Probe x = x. }
+Prove: IAbs.abs(x) = x.
+Prover CVC4 returns Unsuccess (Model)
+Model x = -1
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function wrong
+------------------------------------------------------------
+
+Goal Post-condition ("cvc4_ce.i", line 11, characters 13-31) in 'wrong':
+Assume { Type: is_sint32(wrong_0). Probe x = wrong_0. }
+Prove: IAbs.abs(wrong_0) = wrong_0.
+Prover CVC4 returns Unsuccess (Model)
+Model x = -1
+
+------------------------------------------------------------
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Lemma                     -        -        1       0.0%
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  wrong                     3        -        4      75.0%
+------------------------------------------------------------

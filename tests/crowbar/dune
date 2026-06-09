@@ -1,0 +1,21 @@
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action
+  (progn
+   (echo "Crowbar Tests:" %{lib-available:crowbar} "\n")
+   (echo "  - Crowbar Utils:" %{lib-available:crowbar_utils} "\n")
+   (echo "  - Inout:" %{lib-available:frama-c-inout.core} "\n")
+   (echo "  - Eva:" %{lib-available:frama-c-eva.core} "\n"))))
+
+(cram
+  (enabled_if (<> %{env:CROWBAR=false} "false"))
+  (deps ../../src/init/boot/empty_file.exe (package frama-c) (package crowbar_utils))
+)
+
+(cram
+  (applies_to constfold)
+  (deps
+    (package frama-c-eva)
+    (package frama-c-inout))
+)

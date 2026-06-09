@@ -1,0 +1,85 @@
+[kernel] Parsing bool.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  rand ∈ [--..--]
+[eva:progress] 
+  computing for function valid_bool <- main.
+  Called from bool.i:71:3-16.
+[eva:show] bool.i:12: Frama_C_show_each: {0}
+[eva:show] bool.i:14: Frama_C_show_each: {1}
+[eva:show] bool.i:16: Frama_C_show_each: {1}, {2}
+[eva:show] bool.i:18: Frama_C_show_each: {1}
+[eva:show] bool.i:20: Frama_C_show_each: {1}
+[eva:show] bool.i:22: Frama_C_show_each: {1}
+[eva:show] bool.i:24: Frama_C_show_each: {0}
+[eva:show] bool.i:26: Frama_C_show_each: {1}
+[eva:show] bool.i:28: Frama_C_show_each: {0}
+[eva:show] bool.i:30: Frama_C_show_each: {1}
+[eva:progress] Recording results for valid_bool
+[eva:progress] Done for function valid_bool
+[eva:progress] 
+  computing for function invalid_bool <- main.
+  Called from bool.i:72:3-18.
+[eva:alarm] bool.i:43: Warning: 
+  trap representation of a _Bool lvalue. assert ub.b ≡ 0 ∨ ub.b ≡ 1;
+[eva:show] bool.i:46: Frama_C_show_each_zero: {0}
+[eva:show] bool.i:49: Frama_C_show_each_one: {1}
+[eva:alarm] bool.i:52: Warning: 
+  trap representation of a _Bool lvalue. assert ub.b ≡ 0 ∨ ub.b ≡ 1;
+[eva:alarm] bool.i:55: Warning: 
+  trap representation of a _Bool lvalue. assert ub.b ≡ 0 ∨ ub.b ≡ 1;
+[eva:show] bool.i:56: Frama_C_show_each_zero_or_one: {0; 1}
+[eva:show] bool.i:59: Frama_C_show_each_one: {1}
+[eva:alarm] bool.i:62: Warning: 
+  trap representation of a _Bool lvalue. assert b ≡ 0 ∨ b ≡ 1;
+[eva:alarm] bool.i:66: Warning: 
+  trap representation of a _Bool lvalue. assert *p ≡ 0 ∨ *p ≡ 1;
+[eva:show] bool.i:67: Frama_C_show_each_zero_or_one: {0; 1}
+[eva:progress] Recording results for invalid_bool
+[eva:progress] Done for function invalid_bool
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] bool.i:43: assertion 'Eva,bool_value' got final status invalid.
+[eva] bool.i:52: assertion 'Eva,bool_value' got final status invalid.
+[eva] bool.i:62: assertion 'Eva,bool_value' got final status invalid.
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function invalid_bool:
+  ub{.b; .c; .s[bits 0 to 7]} ∈ {0; 1}
+    {.b[bits 8 to 15]; .c[bits 8 to 15]; .s[bits 8 to 15]} ∈ [--..--]
+  b ∈ {0; 1}
+  c ∈ {0; 1}
+  p ∈ {{ (_Bool *)&c }}
+[eva:final-states] Values at end of function valid_bool:
+  x ∈ {1}
+  y ∈ {2}
+[eva:final-states] Values at end of function main:
+  
+[from] Computing for function invalid_bool
+[from] Done for function invalid_bool
+[from] Computing for function valid_bool
+[from] Done for function valid_bool
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function invalid_bool:
+  NO EFFECTS
+[from] Function valid_bool:
+  \result FROM \nothing
+[from] Function main:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function invalid_bool:
+    ub; b; c; p
+[inout] Inputs for function invalid_bool:
+    rand
+[inout] Out (internal) for function valid_bool:
+    x; y
+[inout] Inputs for function valid_bool:
+    \nothing
+[inout] Out (internal) for function main:
+    \nothing
+[inout] Inputs for function main:
+    rand

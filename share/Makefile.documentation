@@ -1,0 +1,63 @@
+##########################################################################
+#                                                                        #
+#  SPDX-License-Identifier LGPL-2.1                                      #
+#  Copyright (C)                                                         #
+#  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  #
+#                                                                        #
+##########################################################################
+
+##########################################################################
+#                                                                        #
+# Frama-C Documentation targets                                          #
+#                                                                        #
+##########################################################################
+
+.PHONY: doc
+
+doc:
+	dune build @doc
+	@echo "Generated Documentation:"
+	@echo "   file:///$(PWD)/_build/default/_doc/_html/index.html"
+
+ifneq (${DOCDIR},)
+
+install:: doc
+	@mkdir -p ${DOCDIR}/frama-c
+	@cp -r _build/default/_doc/_html/* ${DOCDIR}/frama-c
+
+endif
+
+##########################################################################
+#                                                                        #
+# Generate Documentation for Server Requests and Protocols.              #
+#                                                                        #
+##########################################################################
+
+.PHONY: server-doc-md server-doc-html server-doc
+
+ifeq (${NO_BUILD_FRAMAC},yes)
+# Make sure that Frama-C is not rebuilt essentially for CI purpose
+server-doc-md:
+else
+server-doc-md: all
+endif
+	$(PRINT) 'Generating Markdown server documentation'
+	@rm -fr doc/server
+	@mkdir -p doc/server
+	./bin/frama-c -server-doc doc/server
+
+server-doc-html: server-doc-md
+	$(PRINT) 'Generating HTML server documentation'
+	@find doc/server -name "*.md" -print -exec pandoc \
+			--standalone --toc --toc-depth=2 --to html \
+			--template doc/pandoc/template.html \
+			--metadata-file {}.json \
+			--lua-filter doc/pandoc/href.lua \
+			{} -o {}.html \;
+	@cp -f doc/pandoc/style.css doc/server/
+	$(PRINT) 'Server Documentation Generated'
+	$(PRINT) '  file://$(PWD)/doc/server/readme.md.html'
+
+server-doc: server-doc-html
+
+##########################################################################

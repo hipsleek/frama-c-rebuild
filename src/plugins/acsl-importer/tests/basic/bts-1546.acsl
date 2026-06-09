@@ -1,0 +1,17 @@
+function f:
+contract:
+terminates \true;
+ensures p1: x==E0 ==> \result == E0;
+ensures p2: \result == x;
+
+function g0:
+contract:
+behavior x:
+assumes b: s == u;
+ensures p: \result == (unsigned)E0;
+
+function g1:
+contract:
+behavior x:
+assumes b: s == u;
+ensures p: \result == (unsigned)E1;

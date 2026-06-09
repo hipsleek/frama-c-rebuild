@@ -1,0 +1,11 @@
+[kernel] Parsing binary_op.c (with preprocessing)
+[kernel] binary_op.c:41: User Error: 
+  operand of operator '+' with non-object (function) pointer type 'int (*)
+  (void)'
+  39    #ifdef ADD2
+  40    // Only GCC allows function pointers here
+  41    int x(void) { return x + 0; }
+                             ^
+  42    #endif
+  43
+[kernel] Frama-C aborted: invalid user input.

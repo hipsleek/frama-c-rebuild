@@ -1,0 +1,23 @@
+# frama-c -wp -wp-model 'Bytes' [...]
+[kernel] Parsing diff.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal f_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal f_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal g_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal g_terminates (Cfg) (Trivial)
+[wp] 4 goals scheduled
+[wp] [Valid] bytes_f_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_f_assigns (Qed)
+[wp] [Valid] bytes_g_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] bytes_g_assigns (Qed)
+[wp] Proved goals:    8 / 8
+  Terminating:     2
+  Unreachable:     2
+  Qed:             2
+  Alt-Ergo:        2
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  f                         3        1        4       100%
+  g                         3        1        4       100%
+------------------------------------------------------------

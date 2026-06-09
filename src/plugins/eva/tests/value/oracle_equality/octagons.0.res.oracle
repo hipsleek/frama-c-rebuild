@@ -1,0 +1,8 @@
+73c73
+<   Frama_C_show_each_unreduced_char: [-128..127], [-128..127]
+---
+>   Frama_C_show_each_unreduced_char: [-118..114], [6..127]
+407c407
+<   ct ∈ [--..--] or UNINITIALIZED
+---
+>   ct ∈ [6..127] or UNINITIALIZED

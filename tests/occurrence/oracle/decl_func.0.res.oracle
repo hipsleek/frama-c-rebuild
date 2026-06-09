@@ -1,0 +1,36 @@
+[kernel] Parsing decl_func.i (no preprocessing)
+[occurrence] beginning analysis
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  x ∈ {0}
+  y ∈ {0}
+[eva:progress] 
+  computing for function f <- main.
+  Called from decl_func.i:16:11-15.
+[eva] using specification for function f
+[eva:progress] Done for function f
+[eva:progress] 
+  computing for function f <- main.
+  Called from decl_func.i:17:7-11.
+[eva:progress] Done for function f
+[eva:progress] 
+  computing for function f <- main.
+  Called from decl_func.i:18:10-14.
+[eva:progress] Done for function f
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[occurrence] analysis done
+[occurrence] variable x (global):
+    global: x
+  variable y (global):
+    global: y
+  variable x (parameter of f):
+    specification of f: x
+  variable y_0 (local of main):
+    sid 2: y_0
+  variable z (local of main):
+    sid 3: z
+  variable tmp_0 (local of main):
+    sid 4: tmp_0

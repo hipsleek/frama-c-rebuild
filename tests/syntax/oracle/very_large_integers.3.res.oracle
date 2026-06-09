@@ -1,0 +1,13 @@
+[kernel] Parsing very_large_integers.c (with preprocessing)
+[kernel] very_large_integers.c:57: User Error: 
+  Case range too large
+          case 0 ... 10000000U:;
+          ^^^^^^^^^^^^^^^^^^^^^^
+  in code pre-processed from the original source
+  55    void case_range2() {
+  56      switch (nondet)
+  57      case 0 ... 10000000U:;
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  58    }
+  59    #endif
+[kernel] Frama-C aborted: invalid user input.

@@ -1,0 +1,20 @@
+2d1
+< [eva:experimental] Warning: The taint domain is experimental.
+144c143,148
+< [eva:progress] secureflow.c:141: Reusing old results for call to set_y
+---
+> [eva:progress] 
+>   computing for function set_y <- set_xy <- indirect_interference_fun_call <- 
+>                           main.
+>   Called from secureflow.c:141.
+> [eva:progress] Recording results for set_y
+> [eva:progress] Done for function set_y
+153c157,162
+< [eva:progress] secureflow.c:141: Reusing old results for call to set_y
+---
+> [eva:progress] 
+>   computing for function set_y <- set_xy <- indirect_interference_fun_call <- 
+>                           main.
+>   Called from secureflow.c:141.
+> [eva:progress] Recording results for set_y
+> [eva:progress] Done for function set_y

@@ -1,0 +1,28 @@
+# frama-c -wp [...]
+[kernel] Parsing frame.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal compound_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal compound_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal formal_region_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal formal_region_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal local_region_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal local_region_terminates (Cfg) (Trivial)
+[wp] 6 goals scheduled
+[wp] [Valid] typed_compound_assert_SEP (Alt-Ergo) (Cached)
+[wp] [Valid] typed_compound_assert_RES (Alt-Ergo) (Cached)
+[wp] [Valid] typed_local_region_assert_A_X (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_local_region_assert_A_Y (Alt-Ergo) (Cached)
+[wp] [Valid] typed_formal_region_assert_A_X (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_formal_region_assert_A_Y (Alt-Ergo) (Cached)
+[wp] Proved goals:   10 / 12
+  Terminating:     3
+  Unreachable:     3
+  Alt-Ergo:        4
+  Unsuccess:       2
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  compound                  2        2        4       100%
+  local_region              2        1        4      75.0%
+  formal_region             2        1        4      75.0%
+------------------------------------------------------------

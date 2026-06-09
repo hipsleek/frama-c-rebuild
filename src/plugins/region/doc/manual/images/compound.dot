@@ -1,0 +1,11 @@
+digraph {
+  rankdir="LR"; bgcolor="none"; width=0.5; node [ style="filled" ]; margin=0;
+  S [ fontname="Courier"; shape="record";
+      label="<F> .f | … | <G> .g";
+      fontcolor="black"; fillcolor="#Ffffff" ;
+  ];
+  F [ label="" ; fillcolor="white" ; shape="ellipse"; width=0.45; height=0.3 ] ;
+  G [ label="" ; fillcolor="white" ; shape="ellipse"; width=0.45; height=0.3 ] ;
+  S:F -> F [ dir="none"; style="dashed"; arrowhead="none"; arrowtail="none" ];
+  S:G -> G [ dir="none"; style="dashed"; arrowhead="none"; arrowtail="none" ];
+}

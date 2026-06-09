@@ -1,0 +1,151 @@
+[kernel] Parsing fpclassify.c (with preprocessing)
+[kernel:parser:decimal-float] fpclassify.c:13: Warning: 
+  Floating-point constant 0.1 is not represented exactly. Will use 0x1.999999999999ap-4.
+  (warn-once: no further messages from category 'parser:decimal-float' will be emitted)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  v ∈ [--..--]
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from fpclassify.c:14.
+[eva] using specification for function __fc_fpclassify
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] fpclassify.c:15: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from fpclassify.c:16.
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] fpclassify.c:17: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_isinf <- main.
+  Called from fpclassify.c:18.
+[eva] using specification for function __fc_isinf
+[eva:progress] Done for function __fc_isinf
+[eva:progress] fpclassify.c:19: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from fpclassify.c:20.
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] fpclassify.c:21: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from fpclassify.c:24.
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] fpclassify.c:25: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from fpclassify.c:26.
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] fpclassify.c:27: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from fpclassify.c:29.
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] fpclassify.c:30: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from fpclassify.c:31.
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] fpclassify.c:32: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_isinf <- main.
+  Called from fpclassify.c:33.
+[eva:progress] Done for function __fc_isinf
+[eva:progress] fpclassify.c:34: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from fpclassify.c:35.
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] fpclassify.c:36: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from fpclassify.c:39.
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] fpclassify.c:40: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from fpclassify.c:41.
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] fpclassify.c:42: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from fpclassify.c:44.
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] fpclassify.c:45: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from fpclassify.c:46.
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] fpclassify.c:47: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassifyf <- main.
+  Called from fpclassify.c:49.
+[eva] using specification for function __fc_fpclassifyf
+[eva:progress] Done for function __fc_fpclassifyf
+[eva:progress] fpclassify.c:50: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassifyf <- main.
+  Called from fpclassify.c:51.
+[eva:progress] Done for function __fc_fpclassifyf
+[eva:progress] fpclassify.c:52: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassifyf <- main.
+  Called from fpclassify.c:54.
+[eva:progress] Done for function __fc_fpclassifyf
+[eva:progress] fpclassify.c:55: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_isinff <- main.
+  Called from fpclassify.c:56.
+[eva] using specification for function __fc_isinff
+[eva:progress] Done for function __fc_isinff
+[eva:progress] fpclassify.c:57: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassifyf <- main.
+  Called from fpclassify.c:58.
+[eva:progress] Done for function __fc_fpclassifyf
+[eva:progress] fpclassify.c:59: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassify <- main.
+  Called from fpclassify.c:62.
+[eva:progress] Done for function __fc_fpclassify
+[eva:progress] fpclassify.c:63: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassifyf <- main.
+  Called from fpclassify.c:66.
+[eva:progress] Done for function __fc_fpclassifyf
+[eva:progress] fpclassify.c:67: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassifyf <- main.
+  Called from fpclassify.c:70.
+[eva:progress] Done for function __fc_fpclassifyf
+[eva:progress] 
+  computing for function __fc_fpclassifyl <- main.
+  Called from fpclassify.c:74.
+[eva] using specification for function __fc_fpclassifyl
+[eva:progress] Done for function __fc_fpclassifyl
+[eva:progress] fpclassify.c:75: assertion got status valid.
+[eva:progress] 
+  computing for function __fc_fpclassifyl <- main.
+  Called from fpclassify.c:76.
+[eva:progress] Done for function __fc_fpclassifyl
+[eva:alarm] fpclassify.c:77: Warning: assertion 'unknown' got status unknown.
+[eva:progress] 
+  computing for function __fc_fpclassifyl <- main.
+  Called from fpclassify.c:78.
+[eva:progress] Done for function __fc_fpclassifyl
+[eva:progress] fpclassify.c:79: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  d ∈ [-1e-309 .. 0.]
+  f ∈ [9.99999993382e+36 .. inf]
+  classd ∈ {2; 3}
+  classf ∈ {1; 4}
+  is_nan ∈ {1}
+  is_inf ∈ {1}
+  is_normal ∈ {0}
+  ld ∈ {42.}
+  classld ∈ {0}

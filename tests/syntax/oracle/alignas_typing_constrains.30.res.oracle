@@ -1,0 +1,15 @@
+[kernel] Parsing alignas_typing_constrains.c (with preprocessing)
+[kernel] Parsing alignas_typing_constrains_companion.c (with preprocessing)
+[kernel] User Error: Incompatible declaration for get_UAlF:
+  Definitions of union UAlF are not isomorphic. Reason follows:
+  incompatible _Alignas specification
+  union UAlF {
+     int field _Alignas(16) ;
+  };
+  union UAlF {
+     int field _Alignas(8) ;
+  };
+  
+  First declaration was at alignas_typing_constrains.c:334
+  Current declaration is at alignas_typing_constrains_companion.c:17-19
+[kernel] Frama-C aborted: invalid user input.

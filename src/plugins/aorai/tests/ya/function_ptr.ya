@@ -1,0 +1,14 @@
+%init: i;
+%accept: ok;
+%deterministic;
+
+i: { CALL(main) } -> s1;
+
+s1: { f() } -> f_called
+  | { g() } -> g_called;
+
+f_called: { g() } -> ok;
+
+g_called: { f() } -> ok;
+
+ok: { RETURN(main) } -> ok;

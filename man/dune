@@ -1,0 +1,26 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (target frama-c.1.generated)
+ (deps frama-c.1.md)
+ (enabled_if %{bin-available:pandoc})
+ (action (run pandoc -s -t man %{deps} -o %{target}))
+)
+
+(rule
+ (alias check-man)
+ (deps frama-c.1 frama-c.1.generated)
+ (action (diff frama-c.1 frama-c.1.generated))
+)
+
+(install
+ (package frama-c)
+ (section man)
+ (files frama-c.1)
+)

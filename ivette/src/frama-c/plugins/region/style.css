@@ -1,0 +1,32 @@
+/* -------------------------------------------------------------------------- */
+/* --- CSS for Region Views                                               --- */
+/* -------------------------------------------------------------------------- */
+
+table.wp-access-list {
+  background: var(--background-report);
+  border-spacing: 0px;
+  padding: 4px 8px;
+}
+
+.wp-access-list .dimmed {
+  color: var(--dead-code);
+}
+
+.wp-access-list tr.selected {
+  background: var(--code-select);
+}
+
+.wp-access-list tr:hover {
+  background: var(--selected-element);
+  cursor: pointer;
+}
+
+.wp-access-list tr.selected:hover {
+  background: var(--code-select-hover);
+}
+
+.wp-region-lcd {
+  margin-top: 4px;
+  min-width: 160px;
+  text-align: center;
+}

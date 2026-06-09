@@ -1,0 +1,12 @@
+/VERSION
+/VERSION_CODENAME
+/acsl-importer.pdf
+/*.log-file
+/main.pdf
+/main.fdb_latexmk
+/logos
+/anr-logo.png
+/fc-macros.tex
+.make-class
+/frama-c-book.cls
+/*.fls

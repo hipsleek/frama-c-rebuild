@@ -1,0 +1,89 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/sarif-2.1/schema/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "frama-c",
+          "fullName": "frama-c-0+omitted-for-deterministic-output",
+          "version": "0+omitted-for-deterministic-output",
+          "downloadUri": "https://frama-c.com/download.html",
+          "informationUri": "https://frama-c.com"
+        }
+      },
+      "invocations": [
+        {
+          "commandLine": "frama-c -check -no-autoload-plugins -add-symbolic-path=PTEST_SESSION:. -load-plugin=eva,from,scope,inout,markdown-report -eva -eva-no-results -mdr-gen sarif -mdr-sarif-deterministic libc.c -mdr-no-print-libc -mdr-out ./without-libc.sarif.unfiltered",
+          "arguments": [
+            "-check", "-no-autoload-plugins",
+            "-add-symbolic-path=PTEST_SESSION:.",
+            "-load-plugin=eva,from,scope,inout,markdown-report", "-eva",
+            "-eva-no-results", "-mdr-gen", "sarif",
+            "-mdr-sarif-deterministic", "libc.c", "-mdr-no-print-libc",
+            "-mdr-out", "./without-libc.sarif.unfiltered"
+          ],
+          "exitCode": 0,
+          "executionSuccessful": true
+        }
+      ],
+      "originalUriBaseIds": {
+        ".": { "uri": "file:///omitted-for-deterministic-output/" },
+        "FRAMAC_LIB": { "uri": "file:///omitted-for-deterministic-output/" },
+        "FRAMAC_PLUGIN": {
+          "uri": "file:///omitted-for-deterministic-output/"
+        },
+        "FRAMAC_SHARE": {
+          "uri": "file:///omitted-for-deterministic-output/"
+        },
+        "PWD": { "uri": "file:///omitted-for-deterministic-output/" }
+      },
+      "artifacts": [
+        {
+          "location": { "uri": "libc.c", "uriBaseId": "PWD" },
+          "roles": [ "analysisTarget" ],
+          "mimeType": "text/x-csrc"
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "user-spec",
+          "kind": "pass",
+          "level": "none",
+          "message": {
+            "text": "specialization of valid_string_s at stmt 2."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": { "uri": "libc.c", "uriBaseId": "PWD" },
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 11,
+                  "endLine": 16,
+                  "endColumn": 20,
+                  "byteLength": 9
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "defaultSourceLanguage": "C",
+      "taxonomies": [
+        {
+          "name": "frama-c",
+          "rules": [
+            {
+              "id": "user-spec",
+              "shortDescription": {
+                "text": "User-written ACSL specification."
+              }
+            }
+          ],
+          "contents": [ "nonLocalizedData" ]
+        }
+      ]
+    }
+  ]
+}

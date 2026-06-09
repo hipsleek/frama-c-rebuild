@@ -1,0 +1,7 @@
+[e-acsl] beginning translation.
+[e-acsl] functions_contiki.c:29: Warning: 
+  no assigns clause generated for function length because pointers as arguments is not yet supported
+[e-acsl] functions_contiki.c:20: Warning: 
+  no assigns clause generated for function length_aux because pointers as arguments is not yet supported
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] functions_contiki.c:29: Warning: assertion got status unknown.

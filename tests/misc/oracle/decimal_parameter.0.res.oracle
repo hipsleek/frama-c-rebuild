@@ -1,0 +1,4 @@
+[kernel] Warning: -test-deprecated-option is a deprecated alias
+  for option -test-decimal-option. Please use -test-decimal-option instead.
+[kernel] Parsing decimal_parameter.i (no preprocessing)
+[test] -test-decimal-option set to 0.120000

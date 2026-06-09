@@ -1,0 +1,21 @@
+{
+  "defined-functions": [
+    { "bar": { "calls": 1, "address_taken": false } },
+    { "f": { "calls": 0, "address_taken": false } },
+    { "foo": { "calls": 1, "address_taken": false } },
+    { "g": { "calls": 0, "address_taken": true } },
+    { "getopt": { "calls": 1, "address_taken": false } },
+    { "h": { "calls": 1, "address_taken": false } },
+    { "main": { "calls": 0, "address_taken": false } }
+  ],
+  "specified-only-functions": [
+    { "getchar": { "calls": 1, "address_taken": false } },
+    { "isalpha": { "calls": 1, "address_taken": false } },
+    { "isblank": { "calls": 1, "address_taken": false } }
+  ],
+  "undefined-functions": [],
+  "extern-global-vars": [
+    "__fc_heap_status", "__fc_stdin", "optarg", "opterr", "optind", "optopt"
+  ],
+  "entry-points": [ "f", "main" ]
+}

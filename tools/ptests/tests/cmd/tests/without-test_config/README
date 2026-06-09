@@ -1,0 +1,2 @@
+A test suite in a directory that have no ./test_config file.
+The ../test_config has to be used as if it was in this directory.

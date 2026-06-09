@@ -1,0 +1,69 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing funcall6.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+  x ∈ {0}
+  y ∈ {0}
+  funcs[0].f ∈ {{ &write_x }}
+       [1].f ∈ {{ &write_y }}
+[eva:progress] 
+  computing for function write_x <- main.
+  Called from funcall6.c:26.
+[eva:progress] Recording results for write_x
+[eva:progress] Done for function write_x
+[eva:progress] 
+  computing for function write_y <- main.
+  Called from funcall6.c:27.
+[eva:progress] Recording results for write_y
+[eva:progress] Done for function write_y
+[eva:alarm] funcall6.c:29: Warning: assertion got status unknown.
+[eva:progress] funcall6.c:30: assertion got status valid.
+[eva:progress] funcall6.c:37: Reusing old results for call to write_x
+[eva:progress] funcall6.c:38: Reusing old results for call to write_y
+[eva:alarm] funcall6.c:40: Warning: assertion got status unknown.
+[eva:progress] funcall6.c:41: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function write_x:
+  x ∈ [--..--]
+[eva:final-states] Values at end of function write_y:
+  y ∈ {42}
+[eva:final-states] Values at end of function main:
+  x ∈ [--..--]
+  y ∈ {42}
+  p ∈ {{ &write_x }}
+  q ∈ {{ &write_y }}
+  __retres ∈ {0}
+[from] Computing for function write_x
+[from] Done for function write_x
+[from] Computing for function write_y
+[from] Done for function write_y
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function write_x:
+  x FROM x_arg
+[from] Function write_y:
+  y FROM y_arg
+[from] Function main:
+  x FROM secret
+  y FROM \nothing
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function write_x:
+    x
+[inout] Inputs for function write_x:
+    \nothing
+[inout] Out (internal) for function write_y:
+    y
+[inout] Inputs for function write_y:
+    \nothing
+[inout] Out (internal) for function main:
+    x; y; p; q; __retres
+[inout] Inputs for function main:
+    secret; y; funcs[0..1]

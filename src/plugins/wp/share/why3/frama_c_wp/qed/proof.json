@@ -1,0 +1,19 @@
+{
+  "profile": [],
+  "proofs": {
+    "Qed": {
+      "c_euclidian": { "prover": "alt-ergo", "time": 0.011 },
+      "cdiv_closed_remainder": {
+        "tactic": "split_vc",
+        "children": [
+          { "prover": "alt-ergo", "time": 0.012 },
+          null,
+          { "prover": "alt-ergo", "time": 0.017 }
+        ]
+      },
+      "cdiv_inv": null,
+      "cdiv_neutral": { "prover": "alt-ergo", "time": 0.01 },
+      "cmod_remainder": { "prover": "alt-ergo", "time": 0.016 }
+    }
+  }
+}

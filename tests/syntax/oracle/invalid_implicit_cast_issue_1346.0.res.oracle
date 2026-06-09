@@ -1,0 +1,10 @@
+[kernel] Parsing invalid_implicit_cast_issue_1346.i (no preprocessing)
+[kernel] invalid_implicit_cast_issue_1346.i:14: User Error: 
+  implicit cast: cannot cast from int to T
+  
+  12    
+  13    void f(FILE *file) {
+  14      (*(T*)&B) = 0; // error: implicit cast: cannot cast from int to T
+                      ^
+  15    }
+[kernel] Frama-C aborted: invalid user input.

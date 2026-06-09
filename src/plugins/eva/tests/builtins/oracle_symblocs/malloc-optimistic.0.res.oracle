@@ -1,0 +1,250 @@
+511,512d510
+< [eva:alarm] malloc-optimistic.c:79: Warning: 
+<   accessing uninitialized left-value. assert \initialized(p + i);
+534c532
+<   k ∈ {-2; -1}
+---
+>   k ∈ {-1}
+570c568
+<   k ∈ {-1; 0}
+---
+>   k ∈ {0}
+608c606
+<   k ∈ {0; 1}
+---
+>   k ∈ {1}
+648c646
+<   k ∈ {1; 2}
+---
+>   k ∈ {2}
+690c688
+<   k ∈ {2; 3}
+---
+>   k ∈ {3}
+734c732
+<   k ∈ {3; 4}
+---
+>   k ∈ {4}
+780c778
+<   k ∈ {4; 5}
+---
+>   k ∈ {5}
+828c826
+<   k ∈ {5; 6}
+---
+>   k ∈ {6}
+878c876
+<   k ∈ {6; 7}
+---
+>   k ∈ {7}
+1774,1775d1771
+< [eva:alarm] malloc-optimistic.c:92: Warning: 
+<   accessing uninitialized left-value. assert \initialized(p + i);
+1963,1964d1958
+< [eva:alarm] malloc-optimistic.c:105: Warning: 
+<   accessing uninitialized left-value. assert \initialized(p + i);
+1997c1991
+<   k ∈ {-2; -1}
+---
+>   k ∈ {-1}
+2056c2050
+<   k ∈ {-1; 0}
+---
+>   k ∈ {0}
+2117c2111
+<   k ∈ {0; 1}
+---
+>   k ∈ {1}
+2180c2174
+<   k ∈ {1; 2}
+---
+>   k ∈ {2}
+2245c2239
+<   k ∈ {2; 3}
+---
+>   k ∈ {3}
+2312c2306
+<   k ∈ {3; 4}
+---
+>   k ∈ {4}
+2381c2375
+<   k ∈ {4; 5}
+---
+>   k ∈ {5}
+2452c2446
+<   k ∈ {5; 6}
+---
+>   k ∈ {6}
+2525c2519
+<   k ∈ {6; 7}
+---
+>   k ∈ {7}
+2600c2594
+<   k ∈ {7; 8}
+---
+>   k ∈ {8}
+2677c2671
+<   k ∈ {8; 9}
+---
+>   k ∈ {9}
+2756c2750
+<   k ∈ {9; 10}
+---
+>   k ∈ {10}
+2837c2831
+<   k ∈ {10; 11}
+---
+>   k ∈ {11}
+2920c2914
+<   k ∈ {11; 12}
+---
+>   k ∈ {12}
+2963c2957
+<   k ∈ {12; 13}
+---
+>   k ∈ {13}
+3009c3003
+<   k ∈ {12; 13; 14}
+---
+>   k ∈ {13; 14}
+3054c3048
+<   k ∈ {12; 13; 14; 15}
+---
+>   k ∈ {13; 14; 15}
+3099c3093
+<   k ∈ [12..97]
+---
+>   k ∈ [13..97]
+3158c3152
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {-20; 1}
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {1}
+3167c3161
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {-20; 1; 2}
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {2}
+3176c3170
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {-20; 1; 2; 3}
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {3}
+3185c3179
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {-20; 1; 2; 3; 4}
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {4}
+3194c3188
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {-20; 1; 2; 3; 4; 5}
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {5}
+3203c3197
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {-20; 1; 2; 3; 4; 5; 6}
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {6}
+3212,3213c3206
+< [eva:show] malloc-optimistic.c:122: 
+<   Frama_C_show_each: {-20; 1; 2; 3; 4; 5; 6; 7}
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {7}
+3222c3215
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..8]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {8}
+3231c3224
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..9]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {9}
+3240c3233
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..10]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {10}
+3249c3242
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..11]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {11}
+3258c3251
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..12]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {12}
+3267c3260
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..13]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {13}
+3276c3269
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..14]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {14}
+3285c3278
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..15]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {15}
+3294c3287
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..16]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {16}
+3303c3296
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..17]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {17}
+3312c3305
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..18]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {18}
+3321c3314
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..19]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {19}
+3330c3323
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..20]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {20}
+3339c3332
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..21]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {21}
+3348c3341
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..22]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {22}
+3357c3350
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..23]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {23}
+3366c3359
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..24]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {24}
+3375c3368
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..25]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {25}
+3384c3377
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..26]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {26}
+3393c3386
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..27]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {27}
+3402c3395
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..28]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {28}
+3411c3404
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..29]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {29}
+3420c3413
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..30]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {30}
+3430c3423
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..31]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {30; 31}
+3439c3432
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..32]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: {30; 31; 32}
+3448c3441
+< [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [-20..99]
+---
+> [eva:show] malloc-optimistic.c:122: Frama_C_show_each: [30..99]

@@ -1,0 +1,3 @@
+[kernel] Parsing switch-float.i (no preprocessing)
+[kernel] switch-float.i:8: User Error: Switch on a non-integer expression.
+[kernel] Frama-C aborted: invalid user input.

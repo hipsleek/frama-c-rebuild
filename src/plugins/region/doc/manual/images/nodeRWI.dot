@@ -1,0 +1,4 @@
+digraph {
+  rankdir="LR"; bgcolor="none"; width=0.5; node [ style="filled" ]; margin=0;
+  R [ fontname="sans-serif"; label="RWI(t)"; fontcolor="black"; fillcolor="lime"; ];
+}

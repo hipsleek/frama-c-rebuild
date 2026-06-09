@@ -1,0 +1,125 @@
+[kernel] Parsing alarms.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  u1 ∈ {0}
+  u2 ∈ {0}
+  f ∈ {0}
+  d ∈ {0}
+  big ∈ {0}
+  ull ∈ {0}
+  rand ∈ [--..--]
+[eva:progress] 
+  computing for function main1 <- main.
+  Called from alarms.i:70:3-11.
+[eva:show] alarms.i:19: 
+  Frama_C_dump_each:
+  # cvalue:
+  u1 ∈ [--..--]
+  u2 ∈ [--..--]
+  f ∈ [-inf .. inf] ∪ {NaN}
+  d ∈ [-inf .. inf] ∪ {NaN}
+  big ∈ {0}
+  ull ∈ {0}
+  rand ∈ [--..--]
+  l ∈ [--..--]
+  vf ∈ UNINITIALIZED
+  tmp ∈ UNINITIALIZED
+  vd ∈ UNINITIALIZED
+  i ∈ UNINITIALIZED
+  j ∈ UNINITIALIZED
+  mvd ∈ UNINITIALIZED
+  l ∈ [--..--]
+  ==END OF DUMP==
+[kernel:annot:missing-spec] alarms.i:21: Warning: 
+  Neither code nor specification for function fd, generating default assigns.
+  See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function fd <- main1 <- main.
+  Called from alarms.i:21:14-18.
+[eva] using specification for function fd
+[eva:progress] Done for function fd
+[eva:progress] 
+  computing for function fd <- main1 <- main.
+  Called from alarms.i:22:15-19.
+[eva:progress] Done for function fd
+[eva:alarm] alarms.i:23: Warning: 
+  non-finite double value. assert \is_finite(vd);
+[eva:alarm] alarms.i:23: Warning: 
+  overflow in conversion from floating-point to integer.
+  assert -9223372036854775809 < vd;
+[eva:alarm] alarms.i:23: Warning: 
+  overflow in conversion from floating-point to integer.
+  assert vd < 9223372036854775808;
+[eva:alarm] alarms.i:24: Warning: non-finite float value. assert \is_finite(vf);
+[eva:alarm] alarms.i:24: Warning: 
+  overflow in conversion from floating-point to integer.
+  assert -9223372036854775809 < vf;
+[eva:alarm] alarms.i:24: Warning: 
+  overflow in conversion from floating-point to integer.
+  assert vf < 9223372036854775808;
+[eva:progress] 
+  computing for function fd <- main1 <- main.
+  Called from alarms.i:25:8-12.
+[eva:progress] Done for function fd
+[eva:progress] Recording results for main1
+[eva:progress] Done for function main1
+[eva:progress] 
+  computing for function main2 <- main.
+  Called from alarms.i:71:3-10.
+[eva:progress] alarms.i:41: assertion got status valid.
+[eva:progress] alarms.i:42: assertion got status valid.
+[eva:alarm] alarms.i:43: Warning: assertion got status unknown.
+[eva:alarm] alarms.i:44: Warning: assertion got status unknown.
+[eva:progress] alarms.i:47: assertion got status valid.
+[eva:alarm] alarms.i:51: Warning: 
+  assertion got status invalid (stopping propagation).
+[eva:progress] Recording results for main2
+[eva:progress] Done for function main2
+[eva:progress] 
+  computing for function main3 <- main.
+  Called from alarms.i:72:3-10.
+[eva:progress] 
+  computing for function fd <- main3 <- main.
+  Called from alarms.i:64:14-18.
+[eva:progress] Done for function fd
+[eva:progress] 
+  computing for function fabs <- main3 <- main.
+  Called from alarms.i:65:14-21.
+[eva:progress] Recording results for fabs
+[eva:progress] Done for function fabs
+[eva:progress] Recording results for main3
+[eva:progress] Done for function main3
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function fabs:
+  __retres ∈ [0. .. inf] ∪ {NaN}
+[eva:final-states] Values at end of function main1:
+  u1 ∈ [--..--]
+  u2 ∈ [--..--]
+  f ∈ [-inf .. inf] ∪ {NaN}
+  d ∈ [-inf .. inf] ∪ {NaN}
+  big ∈ {1.38350580553e+19}
+  ull ∈ {13835058055282163712}
+  vf ∈ [-9.22337203685e+18 .. 9.2233714871e+18]
+  vd ∈ [-inf .. inf] ∪ {NaN}
+  i ∈ [-9223372036854775808..9223372036854774784]
+  j ∈ [-9223372036854775808..9223371487098961920]
+  mvd ∈ [-inf .. inf] ∪ {NaN}
+[eva:final-states] Values at end of function main2:
+  f_0 ∈ [-3. .. 17.]
+  f_infinity ∈ [-3. .. inf]
+  f_nan ∈ [-3. .. 17.]
+  f_infinity_nan ∈ [-3. .. inf]
+[eva:final-states] Values at end of function main3:
+  d_0 ∈ [-inf .. inf] ∪ {NaN}
+  r ∈ [0. .. inf] ∪ {NaN}
+[eva:final-states] Values at end of function main:
+  u1 ∈ [--..--]
+  u2 ∈ [--..--]
+  f ∈ [-inf .. inf] ∪ {NaN}
+  d ∈ [-inf .. inf] ∪ {NaN}
+  big ∈ {1.38350580553e+19}
+  ull ∈ {13835058055282163712}

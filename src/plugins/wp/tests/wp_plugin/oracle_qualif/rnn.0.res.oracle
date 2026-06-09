@@ -1,0 +1,32 @@
+# frama-c -wp -wp-model 'Typed (Real)' [...]
+[kernel] Parsing rnn.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal rnn_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal rnn_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 16 goals scheduled
+[wp] [Valid] typed_real_rnn_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_real_rnn_loop_invariant_established (Qed)
+[wp] [Valid] typed_real_rnn_loop_invariant_preserved (Qed)
+[wp] [Valid] typed_real_rnn_loop_invariant_Hidden_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_real_rnn_loop_invariant_Hidden_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_real_rnn_loop_invariant_Output_established (Qed)
+[wp] [Valid] typed_real_rnn_loop_invariant_Output_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_real_rnn_assert (Alt-Ergo) (Cached)
+[wp] [Valid] typed_real_rnn_assert_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_real_rnn_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_real_rnn_loop_assigns_part2 (Qed)
+[wp] [Valid] typed_real_rnn_loop_assigns_part3 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_real_rnn_loop_assigns_part4 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_real_rnn_assigns (Qed)
+[wp] [Valid] typed_real_rnn_loop_variant_positive (Qed)
+[wp] [Valid] typed_real_rnn_loop_variant_decrease (Qed)
+[wp] Proved goals:   18 / 18
+  Terminating:     1
+  Unreachable:     1
+  Qed:             8
+  Alt-Ergo:        8
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  rnn                      10        8       18       100%
+------------------------------------------------------------

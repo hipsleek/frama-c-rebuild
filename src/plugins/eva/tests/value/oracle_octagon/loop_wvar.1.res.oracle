@@ -1,0 +1,7 @@
+11,12d10
+< [eva:alarm] loop_wvar.i:53: Warning: 
+<   signed overflow. assert next + 1 ≤ 2147483647;
+39c37
+<   next ∈ [0..2147483647]
+---
+>   next ∈ [0..25]

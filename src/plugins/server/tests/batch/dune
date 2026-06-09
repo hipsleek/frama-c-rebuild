@@ -1,0 +1,6 @@
+; Generic dependencies for all Server cram tests
+(cram
+  (deps
+    (package frama-c-server)
+  )
+)

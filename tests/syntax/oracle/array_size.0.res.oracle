@@ -1,0 +1,5 @@
+[kernel] Parsing array_size.c (with preprocessing)
+[kernel] array_size.c:12: User Error: Array length is negative.
+[kernel] User Error: stopping on file "array_size.c" that has errors. Add '-kernel-msg-key pp'
+  for preprocessing command.
+[kernel] Frama-C aborted: invalid user input.

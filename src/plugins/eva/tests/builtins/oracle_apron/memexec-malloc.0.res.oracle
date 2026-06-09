@@ -1,0 +1,16 @@
+18c18,22
+< [eva:progress] memexec-malloc.c:25: Reusing old results for call to f
+---
+> [eva:progress] 
+>   computing for function f <- main.
+>   Called from memexec-malloc.c:25.
+> [eva:progress] Recording results for f
+> [eva:progress] Done for function f
+22c26,30
+< [eva:progress] memexec-malloc.c:29: Reusing old results for call to f
+---
+> [eva:progress] 
+>   computing for function f <- main.
+>   Called from memexec-malloc.c:29.
+> [eva:progress] Recording results for f
+> [eva:progress] Done for function f

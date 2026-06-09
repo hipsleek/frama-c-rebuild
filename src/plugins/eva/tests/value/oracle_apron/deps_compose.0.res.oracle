@@ -1,0 +1,8 @@
+25c25,29
+< [eva:progress] deps_compose.i:26: Reusing old results for call to f
+---
+> [eva:progress] 
+>   computing for function f <- main.
+>   Called from deps_compose.i:26:3-6.
+> [eva:progress] Recording results for f
+> [eva:progress] Done for function f

@@ -1,0 +1,9 @@
+(executable
+ (name complete_type)
+ (libraries frama-c.init frama-c.kernel crowbar crowbar_utils)
+ (flags -open Frama_c_kernel :standard -w -9))
+
+(rule
+ (alias runtest)
+ (target (dir failed_cases))
+ (action (run ./complete_type.exe)))

@@ -1,0 +1,6 @@
+e-acsl-external-print-value.c: In function 'main'
+e-acsl-external-print-value.c:7: Error: Assertion failed:
+	The failing predicate is:
+	\let x = value; \false.
+	With values at failure point:
+	- custom print for value

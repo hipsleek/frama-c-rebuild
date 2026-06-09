@@ -1,0 +1,14 @@
+[kernel] Parsing func_locs.i (no preprocessing)
+[kernel] func_locs.i:20: Warning: 
+  found two contracts (old location: func_locs.i:13-17). Merging them
+[kernel:typing:no-proto] func_locs.i:25: Warning: 
+  Function decl_no_spec is declared without prototype.
+  Its formals will be inferred from actual arguments at first call.
+  Declare it as decl_no_spec(void) if the function does not take any parameters.
+func_locs.i, line 31, character 4 - func_locs.i, line 36, character 2 -> main
+func_locs.i, line 27, character 5 - func_locs.i, line 29, character 2 -> def_no_spec
+func_locs.i, line 25, character 25 - func_locs.i, line 25, character 27 -> id
+func_locs.i, line 25, character 5 - func_locs.i, line 25, character 17 -> decl_no_spec
+func_locs.i, line 20, character 4 - func_locs.i, line 23, character 7 -> id
+func_locs.i, line 13, character 4 - func_locs.i, line 18, character 7 -> id
+func_locs.i, line 7, character 4 - func_locs.i, line 9, character 2 -> with_spec

@@ -1,0 +1,59 @@
+#########################
+# HEADER_SPEC: CEA_LGPL #
+#########################
+
+*.mlw header_spec=CEA_LGPL
+*.driver header_spec=CEA_LGPL
+*.v header_spec=CEA_LGPL
+*.css header_spec=CEA_LGPL
+
+Makefile header_spec=CEA_LGPL
+Makefile.resources header_spec=CEA_LGPL
+MakeDoc header_spec=CEA_LGPL
+
+#######################
+# HEADER_SPEC: others #
+#######################
+
+# If these files are removed, do not forget to remove corresponding header
+# files in 'headers' since they are only used here.
+
+/doc/coqdoc/coq2tex/*.mll header_spec=XL_COMPCERT
+
+/share/coqwp/BuiltIn.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/HighOrd.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/bool/Bool.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/int/Abs.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/int/ComputerDivision.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/int/EuclideanDivision.v header_spec=MODIFIED_WHY3
+/share/coqwp/int/Exponentiation.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/int/Int.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/int/MinMax.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/int/Power.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/int/ComputerOfEuclideanDivision.v header_spec=MODIFIED_WHY3
+/share/coqwp/map/Map.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/map/Const.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/real/Abs.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/real/FromInt.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/real/ExpLog.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/real/MinMax.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/real/PowerReal.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/real/Real.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/real/RealInfix.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/real/Square.v header_spec=UNMODIFIED_WHY3
+/share/coqwp/real/Trigonometry.v header_spec=UNMODIFIED_WHY3
+
+########################
+# HEADER_SPEC: .ignore #
+########################
+
+/doc/coqdoc/coq2tex/coq2html.js header_spec=.ignore
+/doc/coqdoc/coq2tex/*.css header_spec=.ignore
+/doc/coqdoc/coq2tex/*.html header_spec=.ignore
+/doc/coqdoc/*.tex header_spec=.ignore
+
+/doc/manual/nullable.c header_spec=.ignore
+/doc/manual/*.tex header_spec=.ignore
+
+/share/why3/frama_c_wp/Wp.header header_spec=.ignore
+/tests/**/* header_spec=.ignore

@@ -1,0 +1,9 @@
+[kernel] Parsing comp.i (no preprocessing)
+[region] Function f:
+  R0001: ---- s 192b { .x: R0002; #32b; .z: R0003; .arr: R0005[4]; }
+    (singleton) (allocated) (garbage) ;
+  R0002: --W- (int) 32b (singleton) (allocated) (garbage) ;
+  R0003: --W- (int *) 64b (*R0004) (singleton) (allocated) (garbage) ;
+  R0004: IR-- a (int) 32b (singleton) (allocated) ;
+  R0005: --W- (short) 16b (allocated) (garbage) ;
+[region] annotating function f

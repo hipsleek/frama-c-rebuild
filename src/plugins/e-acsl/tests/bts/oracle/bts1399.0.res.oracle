@@ -1,0 +1,16 @@
+[e-acsl] beginning translation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] bts1399.c:16: Warning: 
+  unaligned pointer creation. assert \aligned(state,alignof(spongeState));
+[eva:alarm] bts1399.c:16: Warning: 
+  unaligned pointer creation. assert \aligned(state,alignof(spongeState));
+[eva:alarm] bts1399.c:19: Warning: 
+  unaligned pointer creation. assert \aligned(state,alignof(spongeState));
+[eva:alarm] bts1399.c:19: Warning: 
+  unaligned pointer creation. assert \aligned(state,alignof(spongeState));
+[eva:alarm] bts1399.c:19: Warning: 
+  unaligned pointer creation. assert \aligned(state,alignof(spongeState));
+[eva:alarm] bts1399.c:19: Warning: 
+  unaligned pointer creation. assert \aligned(state,alignof(spongeState));
+[eva:alarm] bts1399.c:22: Warning: 
+  unaligned pointer creation. assert \aligned(state,alignof(spongeState));

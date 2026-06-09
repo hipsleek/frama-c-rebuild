@@ -1,0 +1,47 @@
+##########################################################################
+#                                                                        #
+#  SPDX-License-Identifier LGPL-2.1                                      #
+#  Copyright (C)                                                         #
+#  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  #
+#                                                                        #
+##########################################################################
+
+# Default font for all widgets The first existing font is used.
+style "general 1" 
+{
+        font_name = "DejaVu Sans"
+}
+style "general 2" 
+{
+        font_name = "Lucida Sans Unicode"
+}
+style "general 3" 
+{
+        font_name = "Sans"
+}
+widget "*" style "general 3"
+widget "*" style "general 2"
+widget "*" style "general 1"
+
+# Style for widgets displaying source code. The first existing font is used.
+style "monospace 1" 
+{
+        font_name = "Menlo"
+}
+style "monospace 2" 
+{
+        font_name = "DejaVu Sans Mono"
+}
+style "monospace 3" 
+{
+        font_name = "Lucida Sans Mono Unicode"
+}
+style "monospace 4" 
+{
+        font_name = "Monospace"
+}
+widget "*source" style "monospace 4"
+widget "*source" style "monospace 3"
+widget "*source" style "monospace 2"
+#widget "*source" style "monospace 1"
+

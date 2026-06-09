@@ -1,0 +1,85 @@
+[kernel] Parsing termios.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function __va_open_void <- main.
+  Called from termios.c:10.
+[eva] using specification for function __va_open_void
+[eva:progress] termios.c:10: 
+  function __va_open_void: precondition 'valid_filename' got status valid.
+[eva:progress] termios.c:10: 
+  function __va_open_void: precondition 'flag_not_CREAT' got status valid.
+[eva:progress] Done for function __va_open_void
+[eva:progress] 
+  computing for function tcgetattr <- main.
+  Called from termios.c:11.
+[eva] using specification for function tcgetattr
+[eva:progress] termios.c:11: 
+  function tcgetattr: precondition 'valid_termios_p' got status valid.
+[eva:progress] Done for function tcgetattr
+[eva:progress] 
+  computing for function tcgetattr <- main.
+  Called from termios.c:11.
+[eva:progress] Done for function tcgetattr
+[eva:alarm] termios.c:13: Warning: 
+  accessing uninitialized left-value. assert \initialized(&tio.c_cflag);
+[eva:progress] 
+  computing for function cfsetispeed <- main.
+  Called from termios.c:19.
+[eva] using specification for function cfsetispeed
+[eva:progress] termios.c:19: 
+  function cfsetispeed: precondition 'valid_termios_p' got status valid.
+[eva:progress] Done for function cfsetispeed
+[eva:progress] 
+  computing for function cfsetospeed <- main.
+  Called from termios.c:21.
+[eva] using specification for function cfsetospeed
+[eva:progress] termios.c:21: 
+  function cfsetospeed: precondition 'valid_termios_p' got status valid.
+[eva:progress] Done for function cfsetospeed
+[eva:progress] 
+  computing for function cfgetispeed <- main.
+  Called from termios.c:23.
+[eva] using specification for function cfgetispeed
+[eva:progress] termios.c:23: 
+  function cfgetispeed: precondition 'valid_termios_p' got status valid.
+[eva:progress] Done for function cfgetispeed
+[eva:progress] 
+  computing for function cfgetospeed <- main.
+  Called from termios.c:24.
+[eva] using specification for function cfgetospeed
+[eva:progress] termios.c:24: 
+  function cfgetospeed: precondition 'valid_termios_p' got status valid.
+[eva:progress] Done for function cfgetospeed
+[eva:progress] 
+  computing for function tcflush <- main.
+  Called from termios.c:25.
+[eva] using specification for function tcflush
+[eva:progress] termios.c:25: 
+  function tcflush: precondition 'valid_queue_selector' got status valid.
+[eva:progress] Done for function tcflush
+[eva:progress] 
+  computing for function tcsetattr <- main.
+  Called from termios.c:26.
+[eva] using specification for function tcsetattr
+[eva:progress] termios.c:26: 
+  function tcsetattr: precondition 'valid_termios_p' got status valid.
+[eva:progress] Done for function tcsetattr
+[eva:progress] 
+  computing for function tcsetattr <- main.
+  Called from termios.c:26.
+[eva:progress] Done for function tcsetattr
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  Frama_C_entropy_source ∈ [--..--]
+  fd ∈ [-1..1023]
+  tio ∈ [--..--] or UNINITIALIZED
+  res ∈ {-1; 0}
+  sp1 ∈ [--..--] or UNINITIALIZED
+  sp2 ∈ [--..--] or UNINITIALIZED
+  __retres ∈ {-1; 0; 1; 8}

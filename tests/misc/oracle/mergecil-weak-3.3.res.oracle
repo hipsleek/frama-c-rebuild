@@ -1,0 +1,7 @@
+[kernel] Parsing mergecil-weak-3.i (no preprocessing)
+[kernel] Parsing mergecil-weak-1.i (no preprocessing)
+[kernel] Parsing mergecil-weak-2.i (no preprocessing)
+[kernel] mergecil-weak-2.i:5: User Error: 
+  weak definition at mergecil-weak-3.i:9:5-6 cannot be overridden with this non-weak definition. 
+  Please exchange command-line arguments to put 'mergecil-weak-2.i' before 'mergecil-weak-3.i'.
+[kernel] Frama-C aborted: invalid user input.

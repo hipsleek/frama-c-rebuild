@@ -1,0 +1,3 @@
+-no-autoload-plugins
+src_empty.c
+-save saved_in_commands_file.sav

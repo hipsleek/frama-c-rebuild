@@ -1,0 +1,145 @@
+[kernel:parser:decimal-float] printf.c:99: Warning: 
+  Floating-point constant 0.2 is not represented exactly. Will use 0x1.999999999999ap-3.
+  (warn-once: no further messages from category 'parser:decimal-float' will be emitted)
+[e-acsl] beginning translation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:434: Warning: 
+  no assigns clause generated for function valid_read_string because pointers as arguments is not yet supported
+[e-acsl] FRAMAC_SHARE/libc/__fc_string_axiomatic.h:282: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:435: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:437: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:437: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:437: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:434: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:440: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/__fc_string_axiomatic.h:282: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:212: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:220: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:208: Warning: 
+  Some assumes clauses could not be translated.
+  Ignoring complete and disjoint behaviors annotations.
+[e-acsl] FRAMAC_SHARE/libc/string.h:208: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/__fc_string_axiomatic.h:282: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:216: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:218: Warning: 
+  E-ACSL construct
+  `non integer variable p in quantification
+  found: result_first_occurrence:
+    \forall char *p; \old(s) <= p < \result ==> *p != (char)\old(c)'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/__fc_string_axiomatic.h:282: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:174: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:176: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/unistd.h:899: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/sys/wait.h:71: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/sys/wait.h:71: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/stdlib.h:739: Warning: 
+  E-ACSL construct `terminates clause' is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/stdlib.h:739: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/stdlib.h:742: Warning: 
+  E-ACSL construct `abnormal termination case in behavior'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/stdlib.h:725: Warning: 
+  E-ACSL construct `terminates clause' is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/stdlib.h:725: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/stdlib.h:728: Warning: 
+  E-ACSL construct `abnormal termination case in behavior'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] printf.c:61: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/string.h:434: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/string.h:440: Warning: 
+  function __gen_e_acsl_strcpy: postcondition 'equal_contents' got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/string.h:221: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] FRAMAC_SHARE/libc/string.h:218: Warning: 
+  function __gen_e_acsl_strchr, behavior found: postcondition 'result_first_occurrence' got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/string.h:214: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] FRAMAC_SHARE/libc/string.h:214: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/string.h:214: Warning: 
+  function __gen_e_acsl_strchr, behavior found: postcondition 'result_char' got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/string.h:214: Warning: 
+  out of bounds read. assert \valid_read(__retres);
+[eva:alarm] FRAMAC_SHARE/libc/string.h:221: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/string.h:213: Warning: 
+  function __gen_e_acsl_strchr, behavior found: postcondition 'result_valid_string' got status invalid. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] FRAMAC_SHARE/libc/string.h:214: Warning: 
+  function __gen_e_acsl_strchr, behavior found: postcondition 'result_char' got status unknown. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] FRAMAC_SHARE/libc/string.h:215: Warning: 
+  function __gen_e_acsl_strchr, behavior found: postcondition 'result_same_base' got status invalid. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] FRAMAC_SHARE/libc/string.h:216: Warning: 
+  function __gen_e_acsl_strchr, behavior found: postcondition 'result_in_length' got status invalid. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] FRAMAC_SHARE/libc/string.h:218: Warning: 
+  function __gen_e_acsl_strchr, behavior found: postcondition 'result_first_occurrence' got status unknown. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] FRAMAC_SHARE/libc/string.h:221: Warning: 
+  function __gen_e_acsl_strchr, behavior not_found: postcondition 'result_null' got status invalid. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] FRAMAC_SHARE/libc/string.h:213: Warning: 
+  function __gen_e_acsl_strchr, behavior found: postcondition 'result_valid_string' got status unknown. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] FRAMAC_SHARE/libc/string.h:215: Warning: 
+  function __gen_e_acsl_strchr, behavior found: postcondition 'result_same_base' got status unknown. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] FRAMAC_SHARE/libc/string.h:216: Warning: 
+  function __gen_e_acsl_strchr, behavior found: postcondition 'result_in_length' got status unknown. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] FRAMAC_SHARE/libc/string.h:221: Warning: 
+  function __gen_e_acsl_strchr, behavior not_found: postcondition 'result_null' got status unknown. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] utils/signalled.h:17: Warning: 
+  signed overflow. assert testno + 1 <= 2147483647;
+[eva:alarm] printf.c:548: Warning: 
+  accessing uninitialized left-value. assert \initialized(&s2);
+[eva:alarm] printf.c:593: Warning: 
+  unaligned pointer creation. assert \aligned(pstr,alignof(int));

@@ -1,0 +1,42 @@
+[
+  {
+    "selector": "node",
+    "style": {
+      "shape": "round-rectangle",
+      "background-color": "#666",
+      "label": "data(name)",
+      "color": "white",
+      "text-outline-width": 2,
+      "text-outline-color": "#666",
+      "text-valign" : "center",
+      "padding" : "6px",
+      "border-width": 1,
+      "text-wrap" : "wrap"
+    }
+  },
+  {
+    "selector": "node[?is_root]",
+    "style": {
+      "border-width": "2px"
+    }
+  },
+  {
+    "selector": "edge",
+    "style": {
+      "width": 2,
+      "line-color": "#888",
+      "curve-style": "bezier",
+      "target-arrow-shape": "vee",
+      "target-arrow-color": "#888",
+      "arrow-scale": 2.0
+    }
+  },
+  {
+    "selector": ".callstack-selected",
+    "style": {
+      "overlay-color": "#8bf",
+      "overlay-padding": "8px",
+      "overlay-opacity": 0.4
+    }
+  }
+]

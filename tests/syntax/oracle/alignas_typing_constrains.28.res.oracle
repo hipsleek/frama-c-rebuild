@@ -1,0 +1,4 @@
+[kernel] Parsing alignas_typing_constrains.c (with preprocessing)
+[kernel] alignas_typing_constrains.c:293: User Error: 
+  k was previously declared with incompatible _Alignas(4) at alignas_typing_constrains.c:292
+[kernel] Frama-C aborted: invalid user input.

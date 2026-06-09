@@ -1,0 +1,60 @@
+##########################################################################
+#                                                                        #
+#  SPDX-License-Identifier LGPL-2.1                                      #
+#  Copyright (C)                                                         #
+#  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  #
+#                                                                        #
+##########################################################################
+
+# --------------------------------------------------------------------------
+# --- OPAM Installation
+# --------------------------------------------------------------------------
+
+FILTER= \
+	--exclude-vcs \
+	--exclude "doc" \
+	--exclude "dist" \
+	--exclude "tests" \
+	--exclude "_build" \
+	--exclude "out" \
+	--exclude "node_modules" \
+
+OS?=
+
+ifndef PREFIX
+then
+install::
+	@echo "Warning: not target for Ivette"
+	@echo "  (no PREFIX, nor OPAM_SWITCH_PREFIX)"
+else
+
+ifeq ($(OS),Windows_NT)
+# On Windows, convert every \ to / so that the \ do not need to be escaped
+TMP_PREFIX=$(subst \,/,$(PREFIX))
+TMP_DESTDIR=$(subst \,/,$(DESTDIR))
+else
+TMP_PREFIX=$(PREFIX)
+TMP_DESTDIR=$(DESTDIR)
+endif
+
+FULLPREFIX := $(if ${TMP_DESTDIR},$(patsubst %/,%,${TMP_DESTDIR})/${TMP_PREFIX},${TMP_PREFIX})
+install:: ivette-api
+	@echo "Installing Ivette to ${FULLPREFIX}"
+	@mkdir -p "${FULLPREFIX}/bin"
+	@install ivette/ivette-bootstrap.sh "${FULLPREFIX}/bin/frama-c-gui"
+	@mkdir -p "${FULLPREFIX}/lib/frama-c"
+ifeq ($(OS),Windows_NT)
+	@tar zcf "$$(cygpath ${FULLPREFIX}/lib/frama-c/ivette.tgz)" ${FILTER} ivette
+else
+	@tar zcf "${FULLPREFIX}/lib/frama-c/ivette.tgz" ${FILTER} ivette
+endif
+
+uninstall::
+	@echo "Removing Ivette"
+	@rm -f  "${FULLPREFIX}/bin/frama-c-gui"
+	@rm -f  "${FULLPREFIX}/bin/ivette"
+	@rm -f  "${FULLPREFIX}/lib/frama-c/ivette.tgz"
+	@rm -fr "${FULLPREFIX}/lib/frama-c/Ivette.app"
+	@rm -fr "${FULLPREFIX}/lib/frama-c/ivette"
+
+endif

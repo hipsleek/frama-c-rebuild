@@ -1,0 +1,8 @@
+124c124,128
+< [eva:progress] domains_function.c:64: Reusing old results for call to use
+---
+> [eva:progress] 
+>   computing for function use <- test_propagation <- main.
+>   Called from domains_function.c:64.
+> [eva:progress] Recording results for use
+> [eva:progress] Done for function use

@@ -1,0 +1,18 @@
+[kernel] Parsing errorloc-omitted-range.i (no preprocessing)
+[kernel] errorloc-omitted-range.i:9: User Error: 
+  Invalid left operand for ASSIGN
+  7         // This syntax error is reported on a long line range. Some lines will
+  8         // be omitted.
+  
+  9         1 = 
+  10        // 1
+  11        // 2
+  12        // 3
+  13-16 [... omitted ...]
+  17        // 8
+  18        // 9
+  19        // 10
+  20        2;
+  
+  21    }
+[kernel] Frama-C aborted: invalid user input.

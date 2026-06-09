@@ -1,0 +1,301 @@
+# frama-c -wp [...]
+[kernel] Parsing multi_matrix_types.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal job_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal job_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 1 goal scheduled
+---------------------------------------------
+--- Context 'typed_job' Cluster 'Matrix' 
+---------------------------------------------
+theory Matrix
+  
+  (* use why3.BuiltIn.BuiltIn *)
+  
+  (* use bool.Bool *)
+  
+  (* use int.Int *)
+  
+  (* use int.ComputerDivision *)
+  
+  (* use real.RealInfix *)
+  
+  (* use frama_c_wp.qed.Qed *)
+  
+  (* use map.Map *)
+  
+  (* use frama_c_wp.cint.Cint *)
+  
+  predicate IsArray_uint32 (t:int -> int) = forall i:int. is_uint32 (get t i)
+  
+  predicate IsArray_sint64 (t:int -> int) = forall i:int. is_sint64 (get t i)
+  
+  predicate EqArray_int (n:int) (t:int -> int) (t1:int -> int) =
+    forall i:int. 0 <= i -> i < n -> get t1 i = get t i
+  
+end
+---------------------------------------------
+--- Context 'typed_job' Cluster 'S1_S' 
+---------------------------------------------
+theory S1_S
+  
+  (* use why3.BuiltIn.BuiltIn *)
+  
+  (* use bool.Bool *)
+  
+  (* use int.Int *)
+  
+  (* use int.ComputerDivision *)
+  
+  (* use real.RealInfix *)
+  
+  (* use frama_c_wp.qed.Qed *)
+  
+  (* use map.Map *)
+  
+  type S1_S =
+    | S1_S1 (F1_S_f:int) (F1_S_a:int -> int) (F1_S_b:int -> int)
+  
+  (* use Matrix *)
+  
+  predicate IsS1_S (s:S1_S) =
+    (IsArray_sint64 (F1_S_b s) /\ IsArray_uint32 (F1_S_a s)) /\
+    is_sint32 (F1_S_f s)
+  
+  predicate EqS1_S (s:S1_S) (s1:S1_S) =
+    (F1_S_f s1 = F1_S_f s /\ EqArray_int 5 (F1_S_a s) (F1_S_a s1)) /\
+    EqArray_int 5 (F1_S_b s) (F1_S_b s1)
+  
+end
+---------------------------------------------
+--- Context 'typed_job' Cluster 'Compound' 
+---------------------------------------------
+theory Compound
+  
+  (* use why3.BuiltIn.BuiltIn *)
+  
+  (* use bool.Bool *)
+  
+  (* use int.Int *)
+  
+  (* use int.ComputerDivision *)
+  
+  (* use real.RealInfix *)
+  
+  (* use frama_c_wp.qed.Qed *)
+  
+  (* use map.Map *)
+  
+  (* use frama_c_wp.memaddr.MemAddr *)
+  
+  function shiftfield_F1_S_f (p:addr) : addr = shift p 0
+  
+  function shiftfield_F1_S_a (p:addr) : addr = shift p 1
+  
+  function shift_uint32 (p:addr) (k:int) : addr = shift p k
+  
+  function Array_uint32 addr int (addr -> int) : int -> int
+  
+  function shiftfield_F1_S_b (p:addr) : addr = shift p 6
+  
+  function shift_sint64 (p:addr) (k:int) : addr = shift p k
+  
+  function Array_sint64 addr int (addr -> int) : int -> int
+  
+  (* use S1_S *)
+  
+  function Load_S1_S (p:addr) (mint:addr -> int) (mint1:addr -> int) (mint2:
+    addr -> int) : S1_S =
+    S1_S1 (get mint1 (shiftfield_F1_S_f p))
+    (Array_uint32 (shiftfield_F1_S_a p) 5 mint)
+    (Array_sint64 (shiftfield_F1_S_b p) 5 mint2)
+  
+  axiom Q_Array_uint32_access :
+    forall mint:addr -> int, i:int, n:int, p:addr
+     [get (Array_uint32 p n mint) i].
+     0 <= i ->
+     i < n -> get (Array_uint32 p n mint) i = get mint (shift_uint32 p i)
+  
+  (* use frama_c_wp.memory.Memory *)
+  
+  axiom Q_Array_uint32_framed :
+    forall mint:addr -> int, mint1:addr -> int, n:int, p:addr.
+     eqmem mint mint1 p n -> Array_uint32 p n mint1 = Array_uint32 p n mint
+  
+  axiom Q_Array_sint64_access :
+    forall mint:addr -> int, i:int, n:int, p:addr
+     [get (Array_sint64 p n mint) i].
+     0 <= i ->
+     i < n -> get (Array_sint64 p n mint) i = get mint (shift_sint64 p i)
+  
+  axiom Q_Array_sint64_framed :
+    forall mint:addr -> int, mint1:addr -> int, n:int, p:addr.
+     eqmem mint mint1 p n -> Array_sint64 p n mint1 = Array_sint64 p n mint
+  
+  axiom Q_Load_S1_S_framed :
+    forall mint:addr -> int, mint1:addr -> int, mint2:addr -> int, mint3:addr
+     -> int, mint4:addr -> int, mint5:addr -> int, p:addr.
+     eqmem mint mint3 p 11 ->
+     eqmem mint1 mint4 p 11 ->
+     eqmem mint2 mint5 p 11 ->
+     Load_S1_S p mint3 mint4 mint5 = Load_S1_S p mint mint1 mint2
+  
+end
+[wp:print-generated] 
+  theory WP
+    
+    (* use why3.BuiltIn.BuiltIn *)
+    
+    (* use bool.Bool *)
+    
+    (* use int.Int *)
+    
+    (* use int.ComputerDivision *)
+    
+    (* use real.RealInfix *)
+    
+    (* use frama_c_wp.qed.Qed *)
+    
+    (* use map.Map *)
+    
+    (* use frama_c_wp.memaddr.MemAddr *)
+    
+    (* use S1_S *)
+    
+    (* use Compound *)
+    
+    goal wp_goal :
+      forall t:addr -> int, t1:addr -> int, t2:addr -> int, a:addr, i:int.
+       let a1 = Load_S1_S a t t2 t1 in
+       let a2 = Load_S1_S a t (set t2 (shiftfield_F1_S_f a) i) t1 in
+       region (a.base) <= 0 -> IsS1_S a1 -> IsS1_S a2 -> EqS1_S a2 a1
+    
+  end
+[wp] 1 goal generated
+------------------------------------------------------------
+  Function job
+------------------------------------------------------------
+
+Cluster Compound {
+  
+  Function Load_S1_S (p_0 : addr) (Mint_0 : int[addr]) (Mint_1 : int[addr])
+    (Mint_2 : int[addr]) : S1_S
+    = {
+         F1_S_f = Mint_1[(shiftfield_F1_S_f p_0)] ;
+         F1_S_a = (Array_uint32 (shiftfield_F1_S_a p_0) 5 Mint_0) ;
+         F1_S_b = (Array_sint64 (shiftfield_F1_S_b p_0) 5 Mint_2)
+      }
+  
+  Function Array_sint64 (p_1 : addr) (n_1 : int) (Mint_3 : int[addr]) : int[]
+  
+  Function shift_sint64 (p_1 : addr) (k_1 : int) : addr = (shift p_1 k_1)
+  
+  Function shiftfield_F1_S_b (p_2 : addr) : addr = (shift p_2 6)
+  
+  Function Array_uint32 (p_0 : addr) (n_0 : int) (Mint_0 : int[addr]) : int[]
+  
+  Function shift_uint32 (p_0 : addr) (k_0 : int) : addr = (shift p_0 k_0)
+  
+  Function shiftfield_F1_S_a (p_1 : addr) : addr = (shift p_1 1)
+  
+  Function shiftfield_F1_S_f (p_0 : addr) : addr = (shift p_0 0)
+  
+  Axiom Load_S1_S_framed:
+    forall Mint_3: int[addr].
+    forall Mint_4: int[addr].
+    forall Mint_5: int[addr].
+    forall Mint_6: int[addr].
+    forall Mint_7: int[addr].
+    forall Mint_8: int[addr].
+    forall p_0: addr.
+    (eqmem Mint_3 Mint_6 p_0 11) -> (eqmem Mint_4 Mint_7 p_0 11)
+    -> (eqmem Mint_5 Mint_8 p_0 11)
+    -> ((Load_S1_S p_0 Mint_6 Mint_7 Mint_8)=
+        (Load_S1_S p_0 Mint_3 Mint_4 Mint_5))
+  
+  Axiom Array_sint64_framed:
+    forall Mint_4: int[addr].
+    forall Mint_5: int[addr].
+    forall n_1: int.
+    forall p_1: addr.
+    (eqmem Mint_4 Mint_5 p_1 n_1)
+    -> ((Array_sint64 p_1 n_1 Mint_5)=(Array_sint64 p_1 n_1 Mint_4))
+  
+  Axiom Array_sint64_access:
+    forall Mint_3: int[addr].
+    forall i_1: int.
+    forall n_1: int.
+    forall p_1: addr.
+    [ (Array_sint64 p_1 n_1 Mint_3)[i_1] ]
+    (0<=i_1) -> (i_1<n_1)
+    -> ((Array_sint64 p_1 n_1 Mint_3)[i_1]=Mint_3[(shift_sint64 p_1 i_1)])
+  
+  Axiom Array_uint32_framed:
+    forall Mint_1: int[addr].
+    forall Mint_2: int[addr].
+    forall n_0: int.
+    forall p_0: addr.
+    (eqmem Mint_1 Mint_2 p_0 n_0)
+    -> ((Array_uint32 p_0 n_0 Mint_2)=(Array_uint32 p_0 n_0 Mint_1))
+  
+  Axiom Array_uint32_access:
+    forall Mint_0: int[addr].
+    forall i_0: int.
+    forall n_0: int.
+    forall p_0: addr.
+    [ (Array_uint32 p_0 n_0 Mint_0)[i_0] ]
+    (0<=i_0) -> (i_0<n_0)
+    -> ((Array_uint32 p_0 n_0 Mint_0)[i_0]=Mint_0[(shift_uint32 p_0 i_0)])
+  
+}
+
+Cluster Matrix {
+  
+  Predicate EqArray_int (n_0 : int) (T_0 : int[]) (T_1 : int[])
+    = forall i_0:int. (0<=i_0) -> (i_0<n_0) -> (T_1[i_0]=T_0[i_0])
+  
+  Predicate IsArray_sint64 (T_0 : int[])
+    = forall i_0:int. (is_sint64 T_0[i_0])
+  
+  Predicate IsArray_uint32 (T_0 : int[])
+    = forall i_0:int. (is_uint32 T_0[i_0])
+  
+}
+
+Cluster S1_S {
+  
+  Type S1_S = { F1_S_f : int; F1_S_a : int[]; F1_S_b : int[]; }
+  
+  Predicate EqS1_S (S_0 : S1_S) (S_1 : S1_S)
+    = (S_1.F1_S_f=S_0.F1_S_f) /\ (EqArray_int 5 S_0.F1_S_a S_1.F1_S_a)
+      /\ (EqArray_int 5 S_0.F1_S_b S_1.F1_S_b)
+  
+  Predicate IsS1_S (S_0 : S1_S)
+    = (IsArray_sint64 S_0.F1_S_b) /\ (IsArray_uint32 S_0.F1_S_a)
+      /\ (is_sint32 S_0.F1_S_f)
+  
+}
+
+Goal Termination-condition (<generated by kernel>) in 'job':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition ("multi_matrix_types.i", line 10, characters 13-27) in 'job':
+Let a = Load_S1_S(p, Mint_0, Mint_1, Mint_2).
+Let a_1 = Load_S1_S(p, Mint_0, Mint_1[shiftfield_F1_S_f(p) <- v], Mint_2).
+Assume {
+  Type: IsS1_S(a) /\ IsS1_S(a_1).
+  (* Heap *)
+  Type: region(p.base) <= 0.
+}
+Prove: EqS1_S(a_1, a).
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'job':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------

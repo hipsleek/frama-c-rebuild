@@ -1,0 +1,12 @@
+# frama-c -wp [...]
+[kernel] Parsing import_inductive.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] 2 goals scheduled
+[wp] [Valid] typed_lemma_L2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_L3 (Alt-Ergo) (Cached)
+[wp] Proved goals:    2 / 2
+  Alt-Ergo:        2
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Lemma                     -        2        2       100%
+------------------------------------------------------------

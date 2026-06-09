@@ -1,0 +1,18 @@
+93,104d92
+< [eva:alarm] period.c:53: Warning: 
+<   pointer downcast. assert (unsigned int)(&g) ≤ 2147483647;
+< [eva:alarm] period.c:53: Warning: 
+<   unaligned pointer creation.
+<   assert \aligned((&g + (int)(&g)) - (int)(&g),alignof(int));
+< [eva:garbled-mix:write] period.c:53: 
+<   Assigning imprecise value to p because of arithmetic operation on addresses.
+< [eva:alarm] period.c:54: Warning: 
+<   unaligned pointer creation. assert \aligned(p,alignof(int));
+< [eva:alarm] period.c:54: Warning: out of bounds read. assert \valid_read(p);
+< [eva:alarm] period.c:55: Warning: 
+<   unaligned pointer creation. assert \aligned(p,alignof(int));
+114,117d101
+<     period.c:53: arithmetic operation on addresses
+<       (read in 1 statement, propagated through 1 statement) garbled mix of &
+<       {g}
+< [scope:rm_asserts] removing 3 assertion(s)

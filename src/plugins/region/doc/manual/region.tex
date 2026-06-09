@@ -1,0 +1,59 @@
+\documentclass{frama-c-book}
+\usepackage{amsmath}
+\usepackage{imakeidx}
+% LTeX: enabled=off
+\input{fc-macros}
+\newcommand{\FCVERSION}{\input{VERSION}(\input{VERSION_CODENAME}\unskip)}
+
+\title{Region Plug-in Manual}
+\author{Loïc Correnson, Cécile Ruet-Cros}
+\fcversion{\FCVERSION}
+
+\cclicence{by}
+\copyrightstarts{2025}
+\makeindex[intoc]
+
+\begin{document}
+\sloppy
+\emergencystretch 3em
+%% --------------------------------------------------------------------------
+%% -- Cover Pages
+%% --------------------------------------------------------------------------
+\maketitle
+\tableofcontents
+
+\chapter*{Foreword}
+\markright{}
+\addcontentsline{toc}{chapter}{Foreword}
+
+This is the user manual of the Region plug-in of
+\FramaC\footnote{\url{http://frama-c.com}}. The content of this document
+corresponds to the \FramaC version \FCVERSION, released on \today.
+
+\section*{Acknowledgements}
+\hbadness=20000
+\medskip
+\acknowledgeANR{%
+the French National Agency for Research (ANR).\\%
+Project \textsf{CoMeMoV} (ANR-22-CE25-0018)%
+}
+\hbadness=10000
+
+\newcommand{\TODO}[1]{\fbox{\color{red}\textbf{TODO} #1}}
+\newcommand{\Region}{\plugin{Region}}
+
+%% --------------------------------------------------------------------------
+%% -- Main Document
+%% --------------------------------------------------------------------------
+\input{region/intro}
+\input{region/plugin}
+\input{region/reference}
+
+%% --------------------------------------------------------------------------
+%% -- Bibliography, Index
+%% --------------------------------------------------------------------------
+%%\bibliographystyle{alpha}
+%%\bibliography{region}
+\printindex
+
+\end{document}

@@ -1,0 +1,52 @@
+{
+  "profile": [],
+  "proofs": {
+    "Vlist": {
+      "concat_cons": { "prover": "alt-ergo", "time": 0.01 },
+      "concat_tail": { "prover": "alt-ergo", "time": 0.021 },
+      "eq_assoc_concat": { "prover": "alt-ergo", "time": 0.013 },
+      "eq_cons_concat": { "prover": "alt-ergo", "time": 0.014 },
+      "eq_nil_concat": { "prover": "alt-ergo", "time": 0.013 },
+      "eq_repeat_concat": { "prover": "alt-ergo", "time": 0.024 },
+      "eq_repeat_one": { "prover": "alt-ergo", "time": 0.014 },
+      "extensionality": {
+        "tactic": "split_vc",
+        "children": [
+          { "prover": "alt-ergo", "time": 0.012 },
+          { "prover": "alt-ergo", "time": 0.013 },
+          { "prover": "alt-ergo", "time": 0.012 },
+          { "prover": "alt-ergo", "time": 0.022 },
+          { "prover": "alt-ergo", "time": 0.02 }
+        ]
+      },
+      "head": { "prover": "alt-ergo", "time": 0.011 },
+      "head_concat": { "prover": "alt-ergo", "time": 0.014 },
+      "length_concat": { "prover": "alt-ergo", "time": 0.011 },
+      "length_cons": { "prover": "alt-ergo", "time": 0.011 },
+      "length_nil": { "prover": "alt-ergo", "time": 0.011 },
+      "length_nil_bis": { "prover": "alt-ergo", "time": 0.011 },
+      "length_not_nil": { "prover": "alt-ergo", "time": 0.011 },
+      "length_pos": { "prover": "alt-ergo", "time": 0.01 },
+      "length_repeat": { "prover": "alt-ergo", "time": 0.015 },
+      "length_tail": { "prover": "alt-ergo", "time": 0.012 },
+      "nth_concat": { "prover": "alt-ergo", "time": 0.027 },
+      "nth_cons": { "prover": "alt-ergo", "time": 0.014 },
+      "nth_head": { "prover": "alt-ergo", "time": 0.013 },
+      "nth_repeat": { "prover": "alt-ergo", "time": 0.047 },
+      "nth_tail": { "prover": "alt-ergo", "time": 0.011 },
+      "repeat_more": { "prover": "alt-ergo", "time": 0.028 },
+      "rw_cons_concat": { "prover": "alt-ergo", "time": 0.011 },
+      "rw_nil_concat_left": { "prover": "alt-ergo", "time": 0.011 },
+      "rw_nil_concat_right": { "prover": "alt-ergo", "time": 0.011 },
+      "rw_nil_cons_concat": { "prover": "alt-ergo", "time": 0.013 },
+      "rw_nil_repeat": { "prover": "alt-ergo", "time": 0.012 },
+      "rw_repeat_after": { "prover": "alt-ergo", "time": 0.012 },
+      "rw_repeat_before": { "prover": "alt-ergo", "time": 0.012 },
+      "rw_repeat_concat": { "prover": "alt-ergo", "time": 0.058 },
+      "rw_repeat_one": { "prover": "alt-ergo", "time": 0.012 },
+      "rw_repeat_zero": { "prover": "alt-ergo", "time": 0.011 },
+      "singleton_tail": { "prover": "alt-ergo", "time": 0.011 },
+      "tail": { "prover": "alt-ergo", "time": 0.011 }
+    }
+  }
+}

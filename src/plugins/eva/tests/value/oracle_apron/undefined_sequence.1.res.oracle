@@ -1,0 +1,8 @@
+35c35,39
+< [eva:progress] undefined_sequence.i:54: Reusing old results for call to g
+---
+> [eva:progress] 
+>   computing for function g <- main.
+>   Called from undefined_sequence.i:54:10-14.
+> [eva:progress] Recording results for g
+> [eva:progress] Done for function g

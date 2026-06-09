@@ -1,0 +1,7 @@
+#include "assert.h"
+
+extern int test; /* initialized into file foo.c */
+
+int main () {
+  assert(test);
+}

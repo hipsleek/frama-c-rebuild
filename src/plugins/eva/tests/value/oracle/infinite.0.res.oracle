@@ -1,0 +1,35 @@
+[kernel] Parsing infinite.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  G ∈ {0}
+[kernel:annot:missing-spec] infinite.i:9: Warning: 
+  Neither code nor specification for function pause, generating default
+  assigns. See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function pause <- main.
+  Called from infinite.i:9:7-15.
+[eva] using specification for function pause
+[eva:progress] Done for function pause
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  NON TERMINATING FUNCTION
+[from] Computing for function main
+[from] Computing for function pause <-main
+[from] Done for function pause
+[from] Non-terminating function main (no dependencies)
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function pause:
+  NO EFFECTS
+[from] Function main:
+  NON TERMINATING - NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    G
+[inout] Inputs for function main:
+    G

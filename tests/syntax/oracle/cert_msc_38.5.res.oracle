@@ -1,0 +1,12 @@
+[kernel] Parsing cert_msc_38.c (with preprocessing)
+[kernel:CERT:MSC:38] cert_msc_38.c:51: User Error: 
+  va_arg is a standard macro. Its definition cannot be suppressed, see CERT C coding rules MSC38-C
+[kernel] cert_msc_38.c:51: User Error: 
+  Cannot resolve variable va_arg
+  49    
+  50    #ifdef TEST_VAARG
+  51    void* (*test3)() = &(va_arg);
+                             ^^^^^^
+  52    #endif
+  53
+[kernel] Frama-C aborted: invalid user input.

@@ -1,0 +1,49 @@
+.sandbox-item {
+    background: var(--lcd-button-background);
+    border-radius: 4px;
+    padding: 2px;
+    margin: 2px;
+    width: 100px;
+    text-align: center;
+}
+
+.decoration {
+    color: red;
+    font-style: italic;
+}
+
+.cm-global-box .line-decoration {
+    background: lightgreen;
+}
+
+.cm-global-box .hover {
+    background: yellow;
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Sandbox Tree                                                       --- */
+/* -------------------------------------------------------------------------- */
+
+.sandbox-xTree-separator {
+    border-bottom: 1px solid ;
+    width: 80%;
+    border-bottom: 1px solid var(--background-softer);
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+.sandbox-tree-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+    font-size: 1.1em;
+    width: 100%;
+
+    &>.sandbox-xTree-actions{margin-left: 4em;}
+    svg { bottom: 0 !important;}
+}
+
+.sandbox-xTree-folding-position svg{
+    rotate: -90deg;
+}

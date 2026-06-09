@@ -1,0 +1,16 @@
+[kernel] Parsing keep-defs-on-incompatibility.i (no preprocessing)
+[kernel] Parsing keep-defs-on-incompatibility-companion.i (no preprocessing)
+[kernel] User Error: Incompatible declaration for get_S:
+  Definitions of struct S are not isomorphic. Reason follows:
+  different integer types:
+  'char' and 'int'
+  struct S {
+     char field ;
+  };
+  struct S {
+     int field ;
+  };
+  
+  First declaration was at keep-defs-on-incompatibility.i:10:10-15
+  Current declaration is at keep-defs-on-incompatibility-companion.i:9-11
+[kernel] Frama-C aborted: invalid user input.

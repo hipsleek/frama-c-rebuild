@@ -1,0 +1,586 @@
+[kernel] Parsing stdlib_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  putenv_buf[0] ∈ {80}
+            [1] ∈ {65}
+            [2] ∈ {84}
+            [3] ∈ {72}
+            [4] ∈ {51}
+            [5] ∈ {61}
+            [6] ∈ {47}
+            [7] ∈ {58}
+            [8] ∈ {47}
+            [9] ∈ {102}
+            [10..11] ∈ {111}
+            [12] ∈ {58}
+            [13] ∈ {47}
+            [14] ∈ {98}
+            [15] ∈ {97}
+            [16] ∈ {114}
+            [17] ∈ {58}
+            [18..29] ∈ {0}
+  nondet ∈ [--..--]
+[eva:progress] 
+  computing for function strtol <- main.
+  Called from stdlib_h.c:23.
+[eva] using specification for function strtol
+[eva:progress] stdlib_h.c:23: 
+  function strtol: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:23: 
+  function strtol: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:23: 
+  function strtol: precondition 'base_range' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:168: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:176: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:187: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:201: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:206: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:progress] stdlib_h.c:23: 
+  function strtol, behavior in_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] stdlib_h.c:23: 
+  function strtol, behavior out_of_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] Done for function strtol
+[eva:progress] 
+  computing for function strtol <- main.
+  Called from stdlib_h.c:26.
+[eva:progress] stdlib_h.c:26: 
+  function strtol: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:26: 
+  function strtol: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:26: 
+  function strtol: precondition 'base_range' got status valid.
+[eva:progress] stdlib_h.c:26: 
+  function strtol, behavior in_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] stdlib_h.c:26: 
+  function strtol, behavior out_of_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] Done for function strtol
+[eva:progress] 
+  computing for function strtol <- main.
+  Called from stdlib_h.c:29.
+[eva:progress] stdlib_h.c:29: 
+  function strtol: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:29: 
+  function strtol: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:29: 
+  function strtol: precondition 'base_range' got status valid.
+[eva:progress] Done for function strtol
+[eva:progress] 
+  computing for function strtol <- main.
+  Called from stdlib_h.c:32.
+[eva:progress] stdlib_h.c:32: 
+  function strtol: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:32: 
+  function strtol: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:32: 
+  function strtol: precondition 'base_range' got status valid.
+[eva:progress] Done for function strtol
+[eva:progress] 
+  computing for function strtoll <- main.
+  Called from stdlib_h.c:38.
+[eva] using specification for function strtoll
+[eva:progress] stdlib_h.c:38: 
+  function strtoll: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:38: 
+  function strtoll: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:38: 
+  function strtoll: precondition 'base_range' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:235: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:243: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:254: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:268: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:273: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:progress] stdlib_h.c:38: 
+  function strtoll, behavior in_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] stdlib_h.c:38: 
+  function strtoll, behavior out_of_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] Done for function strtoll
+[eva:progress] 
+  computing for function strtoll <- main.
+  Called from stdlib_h.c:41.
+[eva:progress] stdlib_h.c:41: 
+  function strtoll: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:41: 
+  function strtoll: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:41: 
+  function strtoll: precondition 'base_range' got status valid.
+[eva:progress] stdlib_h.c:41: 
+  function strtoll, behavior in_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] stdlib_h.c:41: 
+  function strtoll, behavior out_of_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] Done for function strtoll
+[eva:progress] 
+  computing for function strtoll <- main.
+  Called from stdlib_h.c:44.
+[eva:progress] stdlib_h.c:44: 
+  function strtoll: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:44: 
+  function strtoll: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:44: 
+  function strtoll: precondition 'base_range' got status valid.
+[eva:progress] Done for function strtoll
+[eva:progress] 
+  computing for function strtoul <- main.
+  Called from stdlib_h.c:50.
+[eva] using specification for function strtoul
+[eva:progress] stdlib_h.c:50: 
+  function strtoul: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:50: 
+  function strtoul: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:50: 
+  function strtoul: precondition 'base_range' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:302: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:310: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:321: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:335: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:340: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:progress] stdlib_h.c:50: 
+  function strtoul, behavior in_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] stdlib_h.c:50: 
+  function strtoul, behavior out_of_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] Done for function strtoul
+[eva:progress] 
+  computing for function strtoul <- main.
+  Called from stdlib_h.c:53.
+[eva:progress] stdlib_h.c:53: 
+  function strtoul: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:53: 
+  function strtoul: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:53: 
+  function strtoul: precondition 'base_range' got status valid.
+[eva:progress] stdlib_h.c:53: 
+  function strtoul, behavior in_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] stdlib_h.c:53: 
+  function strtoul, behavior out_of_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] Done for function strtoul
+[eva:progress] 
+  computing for function strtoul <- main.
+  Called from stdlib_h.c:56.
+[eva:progress] stdlib_h.c:56: 
+  function strtoul: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:56: 
+  function strtoul: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:56: 
+  function strtoul: precondition 'base_range' got status valid.
+[eva:progress] Done for function strtoul
+[eva:progress] 
+  computing for function strtoull <- main.
+  Called from stdlib_h.c:62.
+[eva] using specification for function strtoull
+[eva:progress] stdlib_h.c:62: 
+  function strtoull: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:62: 
+  function strtoull: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:62: 
+  function strtoull: precondition 'base_range' got status valid.
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:369: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:377: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:388: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:402: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:acsl:unsupported] FRAMAC_SHARE/libc/stdlib.h:407: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function str_to_integer
+[eva:progress] stdlib_h.c:62: 
+  function strtoull, behavior in_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] stdlib_h.c:62: 
+  function strtoull, behavior out_of_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] Done for function strtoull
+[eva:progress] 
+  computing for function strtoull <- main.
+  Called from stdlib_h.c:65.
+[eva:progress] stdlib_h.c:65: 
+  function strtoull: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:65: 
+  function strtoull: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:65: 
+  function strtoull: precondition 'base_range' got status valid.
+[eva:progress] stdlib_h.c:65: 
+  function strtoull, behavior in_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] stdlib_h.c:65: 
+  function strtoull, behavior out_of_range_nonnull_endptr: precondition 'valid_endptr' got status valid.
+[eva:progress] Done for function strtoull
+[eva:progress] 
+  computing for function strtoull <- main.
+  Called from stdlib_h.c:68.
+[eva:progress] stdlib_h.c:68: 
+  function strtoull: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:68: 
+  function strtoull: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:68: 
+  function strtoull: precondition 'base_range' got status valid.
+[eva:progress] Done for function strtoull
+[eva:progress] 
+  computing for function strtod <- main.
+  Called from stdlib_h.c:75.
+[eva] using specification for function strtod
+[eva:progress] stdlib_h.c:75: 
+  function strtod: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:75: 
+  function strtod: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:75: 
+  function strtod, behavior store_position: precondition 'valid_endptr' got status valid.
+[eva:progress] Done for function strtod
+[eva:progress] 
+  computing for function strtod <- main.
+  Called from stdlib_h.c:76.
+[eva:progress] stdlib_h.c:76: 
+  function strtod: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:76: 
+  function strtod: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:76: 
+  function strtod, behavior store_position: precondition 'valid_endptr' got status valid.
+[eva:progress] Done for function strtod
+[eva:progress] 
+  computing for function strtod <- main.
+  Called from stdlib_h.c:77.
+[eva:progress] stdlib_h.c:77: 
+  function strtod: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:77: 
+  function strtod: precondition 'separation' got status valid.
+[eva:progress] Done for function strtod
+[eva:progress] 
+  computing for function strtold <- main.
+  Called from stdlib_h.c:81.
+[eva] using specification for function strtold
+[eva:progress] stdlib_h.c:81: 
+  function strtold: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:81: 
+  function strtold: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:81: 
+  function strtold, behavior store_position: precondition 'valid_endptr' got status valid.
+[eva:progress] Done for function strtold
+[eva:progress] 
+  computing for function strtold <- main.
+  Called from stdlib_h.c:82.
+[eva:progress] stdlib_h.c:82: 
+  function strtold: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:82: 
+  function strtold: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:82: 
+  function strtold, behavior store_position: precondition 'valid_endptr' got status valid.
+[eva:progress] Done for function strtold
+[eva:progress] 
+  computing for function strtold <- main.
+  Called from stdlib_h.c:83.
+[eva:progress] stdlib_h.c:83: 
+  function strtold: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:83: 
+  function strtold: precondition 'separation' got status valid.
+[eva:progress] Done for function strtold
+[eva:progress] 
+  computing for function strtof <- main.
+  Called from stdlib_h.c:87.
+[eva] using specification for function strtof
+[eva:progress] stdlib_h.c:87: 
+  function strtof: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:87: 
+  function strtof: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:87: 
+  function strtof, behavior store_position: precondition 'valid_endptr' got status valid.
+[eva:progress] Done for function strtof
+[eva:progress] 
+  computing for function strtof <- main.
+  Called from stdlib_h.c:88.
+[eva:progress] stdlib_h.c:88: 
+  function strtof: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:88: 
+  function strtof: precondition 'separation' got status valid.
+[eva:progress] stdlib_h.c:88: 
+  function strtof, behavior store_position: precondition 'valid_endptr' got status valid.
+[eva:progress] Done for function strtof
+[eva:progress] 
+  computing for function strtof <- main.
+  Called from stdlib_h.c:89.
+[eva:progress] stdlib_h.c:89: 
+  function strtof: precondition 'valid_string_nptr' got status valid.
+[eva:progress] stdlib_h.c:89: 
+  function strtof: precondition 'separation' got status valid.
+[eva:progress] Done for function strtof
+[eva:progress] 
+  computing for function bsearch <- main.
+  Called from stdlib_h.c:93.
+[eva] using specification for function bsearch
+[eva:progress] stdlib_h.c:93: 
+  function bsearch: precondition 'valid_function_compar' got status valid.
+[eva:progress] Done for function bsearch
+[eva:alarm] stdlib_h.c:94: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function bsearch <- main.
+  Called from stdlib_h.c:96.
+[eva:progress] stdlib_h.c:96: 
+  function bsearch: precondition 'valid_function_compar' got status valid.
+[eva:progress] Done for function bsearch
+[eva:alarm] stdlib_h.c:97: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function mkstemp <- main.
+  Called from stdlib_h.c:111.
+[eva] using specification for function mkstemp
+[eva:progress] stdlib_h.c:111: 
+  function mkstemp: precondition 'valid_template' got status valid.
+[eva:progress] stdlib_h.c:111: 
+  function mkstemp: precondition 'template_len' got status valid.
+[eva:progress] Done for function mkstemp
+[eva:progress] 
+  computing for function drand48 <- main.
+  Called from stdlib_h.c:115.
+[eva] using specification for function drand48
+[eva:alarm] stdlib_h.c:115: Warning: 
+  function drand48: precondition 'random48_initialized' got status invalid.
+[eva:progress] Done for function drand48
+[eva:progress] 
+  computing for function lrand48 <- main.
+  Called from stdlib_h.c:119.
+[eva] using specification for function lrand48
+[eva:alarm] stdlib_h.c:119: Warning: 
+  function lrand48: precondition 'random48_initialized' got status invalid.
+[eva:progress] Done for function lrand48
+[eva:progress] 
+  computing for function mrand48 <- main.
+  Called from stdlib_h.c:123.
+[eva] using specification for function mrand48
+[eva:alarm] stdlib_h.c:123: Warning: 
+  function mrand48: precondition 'random48_initialized' got status invalid.
+[eva:progress] Done for function mrand48
+[eva:progress] 
+  computing for function erand48 <- main.
+  Called from stdlib_h.c:128.
+[eva] using specification for function erand48
+[eva:progress] stdlib_h.c:128: 
+  function erand48: precondition 'valid_xsubi' got status valid.
+[eva:alarm] stdlib_h.c:128: Warning: 
+  function erand48: precondition 'initialization,initialized_xsubi' got status invalid.
+[eva:progress] Done for function erand48
+[eva:progress] 
+  computing for function erand48 <- main.
+  Called from stdlib_h.c:133.
+[eva:progress] stdlib_h.c:133: 
+  function erand48: precondition 'valid_xsubi' got status valid.
+[eva:progress] stdlib_h.c:133: 
+  function erand48: precondition 'initialization,initialized_xsubi' got status valid.
+[eva:progress] Done for function erand48
+[eva:progress] stdlib_h.c:134: assertion got status valid.
+[eva:progress] 
+  computing for function jrand48 <- main.
+  Called from stdlib_h.c:135.
+[eva] using specification for function jrand48
+[eva:progress] stdlib_h.c:135: 
+  function jrand48: precondition 'valid_xsubi' got status valid.
+[eva:progress] stdlib_h.c:135: 
+  function jrand48: precondition 'initialization,initialized_xsubi' got status valid.
+[eva:progress] Done for function jrand48
+[eva:progress] stdlib_h.c:136: assertion got status valid.
+[eva:progress] 
+  computing for function nrand48 <- main.
+  Called from stdlib_h.c:137.
+[eva] using specification for function nrand48
+[eva:progress] stdlib_h.c:137: 
+  function nrand48: precondition 'valid_xsubi' got status valid.
+[eva:progress] stdlib_h.c:137: 
+  function nrand48: precondition 'initialization,initialized_xsubi' got status valid.
+[eva:progress] Done for function nrand48
+[eva:progress] stdlib_h.c:138: assertion got status valid.
+[eva:progress] 
+  computing for function srand48 <- main.
+  Called from stdlib_h.c:140.
+[eva] using specification for function srand48
+[eva:progress] Done for function srand48
+[eva:progress] 
+  computing for function seed48 <- main.
+  Called from stdlib_h.c:142.
+[eva] using specification for function seed48
+[eva:progress] stdlib_h.c:142: 
+  function seed48: precondition 'valid_seed16v' got status valid.
+[eva:progress] stdlib_h.c:142: 
+  function seed48: precondition 'initialization,initialized_seed16v' got status valid.
+[eva:progress] Done for function seed48
+[eva:progress] 
+  computing for function lcong48 <- main.
+  Called from stdlib_h.c:144.
+[eva] using specification for function lcong48
+[eva:progress] stdlib_h.c:144: 
+  function lcong48: precondition 'valid_param' got status valid.
+[eva:progress] stdlib_h.c:144: 
+  function lcong48: precondition 'initialization,initialized_param' got status valid.
+[eva:progress] Done for function lcong48
+[eva:progress] 
+  computing for function drand48 <- main.
+  Called from stdlib_h.c:146.
+[eva:progress] stdlib_h.c:146: 
+  function drand48: precondition 'random48_initialized' got status valid.
+[eva:progress] Done for function drand48
+[eva:progress] stdlib_h.c:147: assertion got status valid.
+[eva:progress] 
+  computing for function mrand48 <- main.
+  Called from stdlib_h.c:148.
+[eva:progress] stdlib_h.c:148: 
+  function mrand48: precondition 'random48_initialized' got status valid.
+[eva:progress] Done for function mrand48
+[eva:progress] stdlib_h.c:149: assertion got status valid.
+[eva:progress] 
+  computing for function lrand48 <- main.
+  Called from stdlib_h.c:150.
+[eva:progress] stdlib_h.c:150: 
+  function lrand48: precondition 'random48_initialized' got status valid.
+[eva:progress] Done for function lrand48
+[eva:progress] stdlib_h.c:151: assertion got status valid.
+[eva:progress] 
+  computing for function getenv <- main.
+  Called from stdlib_h.c:153.
+[eva] using specification for function getenv
+[eva:libc:unsupported-spec] stdlib_h.c:153: Warning: 
+  The specification of function 'getenv' is currently not supported by Eva.
+  Consider adding 'FRAMAC_SHARE/libc/stdlib.c' to the analyzed source files.
+[eva:progress] stdlib_h.c:153: 
+  function getenv: precondition 'valid_name' got status valid.
+[eva:progress] Done for function getenv
+[eva:alarm] stdlib_h.c:155: Warning: check 'imprecise' got status unknown.
+[eva:progress] 
+  computing for function setenv <- main.
+  Called from stdlib_h.c:157.
+[eva] using specification for function setenv
+[eva:libc:unsupported-spec] stdlib_h.c:157: Warning: 
+  The specification of function 'setenv' is currently not supported by Eva.
+  Consider adding 'FRAMAC_SHARE/libc/stdlib.c' to the analyzed source files.
+[eva] stdlib_h.c:157: Warning: ignoring unsupported allocates clause
+[eva:progress] stdlib_h.c:157: 
+  function setenv: precondition 'valid_name' got status valid.
+[eva:progress] stdlib_h.c:157: 
+  function setenv: precondition 'valid_value' got status valid.
+[eva:garbled-mix:assigns] stdlib_h.c:157: 
+  The specification of function setenv has generated a garbled mix of addresses
+  for assigns clause __fc_env[0 ..].
+[eva:progress] Done for function setenv
+[eva:progress] stdlib_h.c:158: check got status valid.
+[eva:progress] 
+  computing for function putenv <- main.
+  Called from stdlib_h.c:159.
+[eva] using specification for function putenv
+[eva:libc:unsupported-spec] stdlib_h.c:159: Warning: 
+  The specification of function 'putenv' is currently not supported by Eva.
+  Consider adding 'FRAMAC_SHARE/libc/stdlib.c' to the analyzed source files.
+[eva:progress] stdlib_h.c:159: 
+  function putenv: precondition 'valid_string' got status valid.
+[eva:progress] Done for function putenv
+[eva:progress] 
+  computing for function div <- main.
+  Called from stdlib_h.c:163.
+[eva] using specification for function div
+[eva:alarm] stdlib_h.c:163: Warning: 
+  function div: precondition 'denom_nonzero' got status invalid.
+[eva:progress] stdlib_h.c:163: 
+  function div: no state left, precondition 'no_overflow' got status valid.
+[eva:progress] Done for function div
+[eva:progress] 
+  computing for function div <- main.
+  Called from stdlib_h.c:167.
+[eva:progress] stdlib_h.c:167: 
+  function div: precondition 'denom_nonzero' got status valid.
+[eva:alarm] stdlib_h.c:167: Warning: 
+  function div: precondition 'no_overflow' got status invalid.
+[eva:progress] Done for function div
+[eva:progress] 
+  computing for function div <- main.
+  Called from stdlib_h.c:170.
+[eva:progress] stdlib_h.c:170: 
+  function div: precondition 'denom_nonzero' got status valid.
+[eva:progress] stdlib_h.c:170: 
+  function div: precondition 'no_overflow' got status valid.
+[eva:progress] Done for function div
+[eva:progress] 
+  computing for function ldiv <- main.
+  Called from stdlib_h.c:172.
+[eva] using specification for function ldiv
+[eva:progress] stdlib_h.c:172: 
+  function ldiv: precondition 'denom_nonzero' got status valid.
+[eva:progress] stdlib_h.c:172: 
+  function ldiv: precondition 'no_overflow' got status valid.
+[eva:progress] Done for function ldiv
+[eva:progress] 
+  computing for function lldiv <- main.
+  Called from stdlib_h.c:173.
+[eva] using specification for function lldiv
+[eva:progress] stdlib_h.c:173: 
+  function lldiv: precondition 'denom_nonzero' got status valid.
+[eva:progress] stdlib_h.c:173: 
+  function lldiv: precondition 'no_overflow' got status valid.
+[eva:progress] Done for function lldiv
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  __fc_errno ∈
+            {{ garbled mix of &{S_0___fc_env; S_1___fc_env}
+             (origin: Library function {stdlib_h.c:157}) }}
+  __fc_random48_init ∈ {0; 1}
+  __fc_random48_counter[0..2] ∈ [--..--]
+  __fc_env[0..4095] ∈
+          {{ garbled mix of &{putenv_buf; S_0___fc_env; S_1___fc_env}
+           (origin: Library function {stdlib_h.c:157}) }}
+  base ∈ {0; 2; 36}
+  sl ∈ {{ "12 34 -56" }}
+  s ∈ {{ "12 34 -56" ; " 3.14 0x1.2p2" }}
+  pl ∈ {{ "12 34 -56" + [0..9] }} or UNINITIALIZED
+  q ∈ {{ "12 34 -56" + [0..9] ; " 3.14 0x1.2p2" + [0..13] }} or UNINITIALIZED
+  l ∈ [--..--]
+  pll ∈ {{ "12 34 -56" + [0..9] }} or UNINITIALIZED
+  ll ∈ [--..--] or UNINITIALIZED
+  pul ∈ {{ "12 34 -56" + [0..9] }} or UNINITIALIZED
+  ul ∈ [--..--] or UNINITIALIZED
+  pull ∈ {{ "12 34 -56" + [0..9] }} or UNINITIALIZED
+  ull ∈ [--..--] or UNINITIALIZED
+  sd ∈ {{ " 3.14 0x1.2p2" }} or UNINITIALIZED
+  pd ∈ {{ " 3.14 0x1.2p2" + [0..13] }} or UNINITIALIZED
+  d ∈ [-0. .. 1.] or UNINITIALIZED
+  pld ∈ {{ " 3.14 0x1.2p2" + [0..13] }} or UNINITIALIZED
+  ld ∈ [-inf .. inf] ∪ {NaN} or UNINITIALIZED
+  pf ∈ {{ " 3.14 0x1.2p2" + [0..13] }} or UNINITIALIZED
+  f ∈ [-inf .. inf] ∪ {NaN} or UNINITIALIZED
+  ai[0] ∈ {1} or UNINITIALIZED
+    [1] ∈ {-1} or UNINITIALIZED
+    [2] ∈ {50000} or UNINITIALIZED
+    [3] ∈ {20} or UNINITIALIZED
+  key ∈ {-1} or UNINITIALIZED
+  p ∈ {{ &ai[1] }} or UNINITIALIZED
+  tempFilename[0..9] ∈ [--..--] or UNINITIALIZED
+  r ∈ [-1..15] or UNINITIALIZED
+  xsubi[0..2] ∈ {42} or UNINITIALIZED
+  seed48v[0] ∈ {0} or UNINITIALIZED
+         [1] ∈ {4} or UNINITIALIZED
+         [2] ∈ {2} or UNINITIALIZED
+  res ∈ {{ &__fc_random48_counter[0] }} or UNINITIALIZED
+  param[0] ∈ {0} or UNINITIALIZED
+       [1] ∈ {4} or UNINITIALIZED
+       [2] ∈ {2} or UNINITIALIZED
+       [3] ∈ {0} or UNINITIALIZED
+       [4] ∈ {4} or UNINITIALIZED
+       [5] ∈ {2} or UNINITIALIZED
+       [6] ∈ {0} or UNINITIALIZED
+  path ∈
+      {{ NULL ; &S_0___fc_env{[0], [1]} ; &S_1___fc_env{[0], [1]} }} or UNINITIALIZED
+  setenv_res ∈ {-1; 0} or UNINITIALIZED
+  putenv_res ∈ [--..--] or UNINITIALIZED
+  div_res ∈ [--..--] or UNINITIALIZED
+  ldiv_res ∈ [--..--] or UNINITIALIZED
+  lldiv_res ∈ [--..--] or UNINITIALIZED
+  __retres ∈ {0; 1}
+  S_0___fc_env[0..1] ∈ [--..--]
+  S_1___fc_env[0..1] ∈ [--..--]

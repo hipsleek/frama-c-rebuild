@@ -1,0 +1,27 @@
+# frama-c -wp -wp-model 'Region' [...]
+[kernel] Parsing swap.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal swap_aliased_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal swap_aliased_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal swap_separated_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal swap_separated_terminates (Cfg) (Trivial)
+[wp] 8 goals scheduled
+[wp] [Valid] region_swap_separated_ensures (Qed)
+[wp] [Valid] region_swap_separated_ensures_2 (Qed)
+[wp] [Valid] region_swap_separated_assigns_part1 (Qed)
+[wp] [Valid] region_swap_separated_assigns_part2 (Qed)
+[wp] [Valid] region_swap_aliased_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] region_swap_aliased_ensures_2 (Qed)
+[wp] [Valid] region_swap_aliased_assigns_part1 (Qed)
+[wp] [Valid] region_swap_aliased_assigns_part2 (Qed)
+[wp] Proved goals:   12 / 12
+  Terminating:     2
+  Unreachable:     2
+  Qed:             7
+  Alt-Ergo:        1
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  swap_separated            6        -        6       100%
+  swap_aliased              5        1        6       100%
+------------------------------------------------------------

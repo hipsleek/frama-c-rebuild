@@ -1,0 +1,36 @@
+[kernel] Parsing time_c.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  v ∈ [--..--]
+[eva:progress] 
+  computing for function ctime <- main.
+  Called from time_c.c:8.
+[eva:progress] FRAMAC_SHARE/libc/time.c:18: assertion got status valid.
+[eva:alarm] FRAMAC_SHARE/libc/time.c:19: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function Frama_C_make_unknown <- ctime <- main.
+  Called from FRAMAC_SHARE/libc/time.c:20.
+[eva] using specification for function Frama_C_make_unknown
+[eva:progress] FRAMAC_SHARE/libc/time.c:20: 
+  function Frama_C_make_unknown: precondition 'valid_p' got status valid.
+[eva:progress] Done for function Frama_C_make_unknown
+[eva:progress] Recording results for ctime
+[eva:progress] Done for function ctime
+[eva:progress] time_c.c:9: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function ctime:
+  __fc_ctime[0..24] ∈ [--..--]
+            [25] ∈ {0}
+  Frama_C_entropy_source ∈ [--..--]
+  __retres ∈ {{ &__fc_ctime[0] }}
+[eva:final-states] Values at end of function main:
+  __fc_ctime[0..24] ∈ [--..--]
+            [25] ∈ {0}
+  Frama_C_entropy_source ∈ [--..--]
+  t ∈ {42}
+  s ∈ {{ &__fc_ctime[0] }}
+  __retres ∈ {0}

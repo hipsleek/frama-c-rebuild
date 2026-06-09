@@ -1,0 +1,15 @@
+; Test dependencies
+(rule
+ (alias frama-c-configure)
+ (deps
+  (universe)
+  (alias ../frama-c-configure-tests))
+ (action (progn
+            (echo "  - tests/spec/:" %{read:../../tests-spec-deps-available} "\n")
+            (echo "    - gcc:" %{bin-available:gcc} "\n")
+            (echo "    - unix2dos:" %{bin-available:unix2dos} "\n")
+            ; If you add some dependencies here, do not forget to add them to
+            ; tests_configurator.ml
+  ))
+)
+

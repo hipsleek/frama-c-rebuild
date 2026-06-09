@@ -1,0 +1,49 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; BUILD LIBDLMALLOC
+(data_only_dirs contrib)
+
+(rule
+ (deps (source_tree contrib))
+ (targets libeacsl-dlmalloc.a)
+ (action
+ (with-stdout-to libeacsl-dlmalloc.log ;keep errors visible but redirect stdout
+ (no-infer
+  (progn
+   (chdir contrib/libdlmalloc (run make))
+   (copy contrib/libdlmalloc/libeacsl-dlmalloc.a libeacsl-dlmalloc.a))))))
+
+
+; CONTRIB FILE
+(install
+ (package frama-c-e-acsl)
+ (section
+  (site
+   (frama-c-e-acsl contrib)))
+ (files
+  (contrib/libdlmalloc/dlmalloc.c as libdlmalloc/dlmalloc.c)))
+
+; LIB DLMALLOC
+(install
+ (package frama-c-e-acsl)
+ (section lib)
+ (files
+  (libeacsl-dlmalloc.a as libeacsl-dlmalloc.a)))
+
+; SCRIPT
+(install
+ (package frama-c-e-acsl)
+ (section bin)
+ (files
+  (scripts/e-acsl-gcc as e-acsl-gcc)))
+
+(install
+ (package frama-c-e-acsl)
+ (section (site (frama-c share)))
+ (source_trees (share/e-acsl as e-acsl)))

@@ -1,0 +1,3 @@
+(subdir
+ result/includes
+ (copy_files ../../includes/*))

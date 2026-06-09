@@ -1,0 +1,35 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing loop8.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+[eva:partition] loop8.c:13: starting to merge loop iterations
+[eva:secure-flow:condition] loop8.c:18: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:partition] loop8.c:17: starting to merge loop iterations
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  i ∈ {10}
+  array[0] ∈ {0}
+       [1] ∈ {1; 2}
+       [2..3] ∈ {0; 1}
+       [4] ∈ {0; 1; 2}
+       [5..6] ∈ {0; 1}
+       [7] ∈ {0; 1; 2}
+       [8..9] ∈ {0; 1}
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    i; array[0..9]; __retres
+[inout] Inputs for function main:
+    secret

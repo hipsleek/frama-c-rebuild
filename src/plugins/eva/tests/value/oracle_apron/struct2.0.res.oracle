@@ -1,0 +1,7 @@
+79,82d78
+<   accessing out of bounds index. assert 0 ≤ (int)(i + j);
+< [eva:alarm] struct2.i:185: Warning: 
+<   accessing out of bounds index. assert (int)(i + j) < 2;
+< [eva:alarm] struct2.i:185: Warning: 
+100d95
+< [scope:rm_asserts] removing 2 assertion(s)

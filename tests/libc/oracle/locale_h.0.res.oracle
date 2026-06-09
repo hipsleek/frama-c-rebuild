@@ -1,0 +1,21 @@
+[kernel] Parsing locale_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function localeconv <- main.
+  Called from locale_h.c:4.
+[eva] using specification for function localeconv
+[eva:progress] Done for function localeconv
+[eva:alarm] locale_h.c:5: Warning: 
+  out of bounds read. assert \valid_read(&lc->decimal_point);
+[eva:alarm] locale_h.c:5: Warning: 
+  out of bounds read. assert \valid_read(lc->decimal_point + 0);
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  lc ∈ {{ &S___fc_locale[0] }}
+  __retres ∈ [-128..127]

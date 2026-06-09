@@ -1,0 +1,41 @@
+[kernel] Parsing depend2.i (no preprocessing)
+[impact] beginning analysis
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function apply <- main.
+  Called from depend2.i:11:11-23.
+[eva:progress] 
+  computing for function find <- apply <- main.
+  Called from depend2.i:7:33-40.
+[eva:progress] Recording results for find
+[eva:progress] Done for function find
+[eva:progress] Recording results for apply
+[eva:progress] Done for function apply
+[eva:progress] 
+  computing for function apply <- main.
+  Called from depend2.i:13:11-23.
+[eva:progress] 
+  computing for function find <- apply <- main.
+  Called from depend2.i:7:33-40.
+[eva:progress] Recording results for find
+[eva:progress] Done for function find
+[eva:progress] Recording results for apply
+[eva:progress] Done for function apply
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[pdg] computing for function main
+[from] Computing for function apply
+[from] Computing for function find <-apply
+[from] Done for function find
+[from] Done for function apply
+[pdg] done for function main
+[pdg] computing for function apply
+[pdg] done for function apply
+[impact] impacted statements of stmt(s) 11 are:
+    depend2.i:14:3-15 (sid 13): __retres = a + b;
+    depend2.i:14:3-15 (sid 18): return __retres;
+[impact] analysis done

@@ -1,0 +1,49 @@
+# frama-c -wp [...]
+[kernel] Parsing terminates_variant_option.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal f1_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal f1_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal fails_decreases_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal fails_decreases_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal fails_positive_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal fails_positive_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal trivial_variant_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal trivial_variant_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal trivial_variant_default_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal trivial_variant_default_terminates (Cfg) (Trivial)
+[wp] 20 goals scheduled
+[wp] [Valid] typed_fails_positive_loop_invariant_established (Qed)
+[wp] [Valid] typed_fails_positive_loop_invariant_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_fails_positive_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_fails_positive_loop_assigns_part2 (Qed)
+[wp] [Unsuccess] typed_fails_positive_loop_variant_positive (Alt-Ergo) (Cached)
+[wp] [Valid] typed_fails_positive_loop_variant_decrease (Qed)
+[wp] [Valid] typed_fails_decreases_loop_assigns (Qed)
+[wp] [Valid] typed_fails_decreases_loop_variant_positive (Qed)
+[wp] [Unsuccess] typed_fails_decreases_loop_variant_decrease (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f1_loop_invariant_established (Qed)
+[wp] [Valid] typed_f1_loop_invariant_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f1_loop_assigns (Qed)
+[wp] [Valid] typed_f1_loop_variant_positive (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_f1_loop_variant_decrease (Alt-Ergo) (Cached)
+[wp] [Valid] typed_trivial_variant_loop_assigns (Qed)
+[wp] [Unsuccess] typed_trivial_variant_loop_variant_positive (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_trivial_variant_loop_variant_decrease (Alt-Ergo) (Cached)
+[wp] [Valid] typed_trivial_variant_default_loop_assigns (Qed)
+[wp] [Unsuccess] typed_trivial_variant_default_loop_variant_positive (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_trivial_variant_default_loop_variant_decrease (Alt-Ergo) (Cached)
+[wp] Proved goals:   23 / 30
+  Terminating:     5
+  Unreachable:     5
+  Qed:            10
+  Alt-Ergo:        3
+  Unsuccess:       7
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  fails_positive            6        1        8      87.5%
+  fails_decreases           4        -        5      80.0%
+  f1                        4        2        7      85.7%
+  trivial_variant           3        -        5      60.0%
+  trivial_variant_default   3        -        5      60.0%
+------------------------------------------------------------

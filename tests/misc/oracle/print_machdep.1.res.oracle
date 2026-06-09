@@ -1,0 +1,2 @@
+[kernel] supported machines are avr_16 avr_8 gcc_x86_16 gcc_x86_32 gcc_x86_64
+  macos_arm msvc_x86_64 ppc_32 x86_16 x86_32 x86_64 (default is x86_64).

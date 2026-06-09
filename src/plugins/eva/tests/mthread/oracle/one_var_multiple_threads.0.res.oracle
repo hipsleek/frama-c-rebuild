@@ -1,0 +1,1041 @@
+[kernel] Expanding arguments from mthread_test_options.txt
+[mt] Preparing sources for Mthread with lib pthreads
+[kernel] Parsing FRAMAC_SHARE/mt/mthread.c (with preprocessing)
+[kernel] Parsing FRAMAC_SHARE/mt/mthread_pthread.c (with preprocessing)
+[kernel] Parsing one_var_multiple_threads.c (with preprocessing)
+[kernel:CERT:MSC:37] one_var_multiple_threads.c:33: Warning: 
+  Body of function g falls-through. Adding a return statement
+[mt] Warning: Mthread is an experimental plugin and is still in development.
+[mt] ******* Starting mthread
+[eva] Found concurrency builtins: enabling mthread domain
+[mt] *** Computing value analysis for main thread
+[eva] Analyzing a complete application starting at main
+[mt] New thread: <main>, fun main
+[mt] one_var_multiple_threads.c:38: Initializing mutex lock1
+[mt] one_var_multiple_threads.c:39: Initializing mutex lock2
+[mt] one_var_multiple_threads.c:42: 
+  New thread: jobs, fun f, parent <main>, args {0}
+[mt] one_var_multiple_threads.c:42: Start thread jobs
+[mt] one_var_multiple_threads.c:44: 
+  New thread: jobs, fun g, parent <main>, args {0}
+[mt] one_var_multiple_threads.c:44: Start thread jobs
+[mt] one_var_multiple_threads.c:42: Thread jobs, fun f, parent <main>, args {0}
+[mt] one_var_multiple_threads.c:42: 
+  New context for jobs, fun f, parent <main>, args {0}
+[eva] FRAMAC_SHARE/mt/mthread_pthread.c:17: Warning: 
+  The thread jobs is already registered.
+[eva] FRAMAC_SHARE/mt/mthread_pthread.c:20: Warning: 
+  The thread jobs is already running.
+[mt] one_var_multiple_threads.c:44: Thread jobs, fun g, parent <main>, args {0}
+[mt] one_var_multiple_threads.c:44: 
+  New context for jobs, fun g, parent <main>, args {0}
+[mt] one_var_multiple_threads.c:49: Lock lock1
+[mt] one_var_multiple_threads.c:52: Release lock1
+[mt] one_var_multiple_threads.c:53: Lock lock2
+[mt] one_var_multiple_threads.c:56: Release lock2
+[mt] *** First value analysis for main thread done.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s1.data: read by <main> at one_var_multiple_threads.c:50 <- main
+  s1.data2: read by <main> at one_var_multiple_threads.c:51 <- main
+  s2.data: read by <main> at one_var_multiple_threads.c:54 <- main
+  s2.data2: read by <main> at one_var_multiple_threads.c:55 <- main
+  jobs:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: one_var_multiple_threads.c:42 <- main
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: one_var_multiple_threads.c:44 <- main
+  lock1:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:49 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:52 <- main
+  lock2:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:53 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:56 <- main
+  nondet: read by <main> at one_var_multiple_threads.c:41 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] ******* Starting to iterate
+[mt] ***** Iteration 1
+[mt] *** Computing thread jobs, iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs
+[eva] Analyzing a complete application starting at f
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of f for thread jobs
+[mt] one_var_multiple_threads.c:21: Lock lock1
+[mt] one_var_multiple_threads.c:24: Release lock1
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s1.data:
+    read by jobs at one_var_multiple_threads.c:22 <- f
+    write by jobs at one_var_multiple_threads.c:22 <- f
+  s1.data2:
+    read by jobs at one_var_multiple_threads.c:23 <- f
+    write by jobs at one_var_multiple_threads.c:23 <- f
+  lock1:
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:21 <- f
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:24 <- f
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs computed
+[mt] *** Computing thread jobs, iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs
+[eva] Analyzing a complete application starting at g
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of g for thread jobs
+[mt] one_var_multiple_threads.c:29: Lock lock2
+[mt] one_var_multiple_threads.c:32: Release lock2
+[eva:alarm] one_var_multiple_threads.c:33: Warning: 
+  assertion 'missing_return' got status invalid (stopping propagation).
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s2.data:
+    read by jobs at one_var_multiple_threads.c:30 <- g
+    write by jobs at one_var_multiple_threads.c:30 <- g
+  s2.data2:
+    read by jobs at one_var_multiple_threads.c:31 <- g
+    write by jobs at one_var_multiple_threads.c:31 <- g
+  lock2:
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:29 <- g
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:32 <- g
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs computed
+[mt] ***** Threads computed for iteration 1.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: s1; s2
+[mt] Concurrent imprecise accesses have changed: before
+    \nothing
+  vs.
+    s1; s2
+[mt] Possible read/write data races:
+  none
+[mt] Shared memory: \nothing
+[mt] Mutexes for concurrent accesses:
+[mt] Detailed shared zones protections
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 2
+[mt] *** Computing thread <main>, iteration 2 (potential shared vars changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[mt] Thread <main>, fun main
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s1.data: read by <main> at one_var_multiple_threads.c:50 <- main
+  s1.data2: read by <main> at one_var_multiple_threads.c:51 <- main
+  s2.data: read by <main> at one_var_multiple_threads.c:54 <- main
+  s2.data2: read by <main> at one_var_multiple_threads.c:55 <- main
+  jobs:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: one_var_multiple_threads.c:42 <- main
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: one_var_multiple_threads.c:44 <- main
+  lock1:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:49 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:52 <- main
+  lock2:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:53 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:56 <- main
+  nondet: read by <main> at one_var_multiple_threads.c:41 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {s1, s2}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread jobs, iteration 2 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs
+[eva] Analyzing a complete application starting at f
+[eva] Initial state supplied by user
+[eva:interferences] one_var_multiple_threads.c:22: 
+  inject threads interferences at this point
+[eva:interferences] one_var_multiple_threads.c:23: 
+  inject threads interferences at this point
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s1.data:
+    read by jobs at one_var_multiple_threads.c:22 <- f
+    write by jobs at one_var_multiple_threads.c:22 <- f
+  s1.data2:
+    read by jobs at one_var_multiple_threads.c:23 <- f
+    write by jobs at one_var_multiple_threads.c:23 <- f
+  lock1:
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:21 <- f
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:24 <- f
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs
+    concurrent writes:
+      (s1.data) ++; one_var_multiple_threads.c:22 <- f
+      s1.data2 += 3; one_var_multiple_threads.c:23 <- f
+    shared bases: {s1, s2}
+    interferences by location:
+      one_var_multiple_threads.c:22:
+        # cvalue: s1.data ∈ {1}
+                    .data2 ∈ {0}
+                  s2 ∈ {0} 
+      one_var_multiple_threads.c:23:
+        # cvalue: s1.data ∈ {1}
+                    .data2 ∈ {3}
+                  s2 ∈ {0} 
+    interferences by mutexes:
+      { lock1 }:
+        # cvalue: s1.data ∈ {1}
+                    .data2 ∈ {0; 3}
+                  s2 ∈ {0}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs computed
+[mt] *** Computing thread jobs, iteration 2 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs
+[eva] Analyzing a complete application starting at g
+[eva] Initial state supplied by user
+[eva:interferences] one_var_multiple_threads.c:30: 
+  inject threads interferences at this point
+[eva:interferences] one_var_multiple_threads.c:31: 
+  inject threads interferences at this point
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s2.data:
+    read by jobs at one_var_multiple_threads.c:30 <- g
+    write by jobs at one_var_multiple_threads.c:30 <- g
+  s2.data2:
+    read by jobs at one_var_multiple_threads.c:31 <- g
+    write by jobs at one_var_multiple_threads.c:31 <- g
+  lock2:
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:29 <- g
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:32 <- g
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs
+    concurrent writes:
+      (s2.data) ++; one_var_multiple_threads.c:30 <- g
+      s2.data2 += 3; one_var_multiple_threads.c:31 <- g
+    shared bases: {s1, s2}
+    interferences by location:
+      one_var_multiple_threads.c:30:
+        # cvalue: s1.data ∈ {0; 1}
+                    .data2 ∈ {0; 3}
+                  s2.data ∈ {1}
+                    .data2 ∈ {0} 
+      one_var_multiple_threads.c:31:
+        # cvalue: s1.data ∈ {0; 1}
+                    .data2 ∈ {0; 3}
+                  s2.data ∈ {1}
+                    .data2 ∈ {3} 
+    interferences by mutexes:
+      { lock2 }:
+        # cvalue: s1.data ∈ {0; 1}
+                    .data2 ∈ {0; 3}
+                  s2.data ∈ {1}
+                    .data2 ∈ {0; 3}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs computed
+[mt] ***** Threads computed for iteration 2.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: s1; s2
+[mt] <main> reads  s1.data ∈ {0}  // one_var_multiple_threads.c:50 main
+[mt] jobs reads  s1.data ∈ {0}  // one_var_multiple_threads.c:22 f
+[mt] <main> reads  s1.data2 ∈ {0}  // one_var_multiple_threads.c:51 main
+[mt] jobs reads  s1.data2 ∈ {0}  // one_var_multiple_threads.c:23 f
+[mt] <main> reads  s2.data ∈ {0}  // one_var_multiple_threads.c:54 main
+[mt] jobs reads  s2.data ∈ {0}  // one_var_multiple_threads.c:30 g
+[mt] <main> reads  s2.data2 ∈ {0}  // one_var_multiple_threads.c:55 main
+[mt] jobs reads  s2.data2 ∈ {0}  // one_var_multiple_threads.c:31 g
+[mt] jobs writes  s1.data ∈ {1}  // one_var_multiple_threads.c:22 f
+[mt] jobs writes  s1.data2 ∈ {3}  // one_var_multiple_threads.c:23 f
+[mt] jobs writes  s2.data ∈ {1}  // one_var_multiple_threads.c:30 g
+[mt] jobs writes  s2.data2 ∈ {3}  // one_var_multiple_threads.c:31 g
+[mt] Possible read/write data races:
+  s2.data2:
+    read by <main> at one_var_multiple_threads.c:55, protected by lock2
+    read by jobs at one_var_multiple_threads.c:31, protected by lock2
+    write by jobs at one_var_multiple_threads.c:31, protected by lock2
+  s2.data:
+    read by <main> at one_var_multiple_threads.c:54, protected by lock2
+    read by jobs at one_var_multiple_threads.c:30, protected by lock2
+    write by jobs at one_var_multiple_threads.c:30, protected by lock2
+  s1.data2:
+    read by <main> at one_var_multiple_threads.c:51, protected by lock1
+    read by jobs at one_var_multiple_threads.c:23, protected by lock1
+    write by jobs at one_var_multiple_threads.c:23, protected by lock1
+  s1.data:
+    read by <main> at one_var_multiple_threads.c:50, protected by lock1
+    read by jobs at one_var_multiple_threads.c:22, protected by lock1
+    write by jobs at one_var_multiple_threads.c:22, protected by lock1
+[mt] Shared memory: s1; s2
+[mt] Concurrent precise var accesses have changed: before
+    \nothing
+  vs.
+    s1; s2
+[mt] Write summary for jobs (updated): s1.data ∈ {1}
+                                      .data2 ∈ {3}
+[mt] Write summary for jobs (updated): s2.data ∈ {1}
+                                      .data2 ∈ {3}
+[mt] Mutexes for concurrent accesses:
+  s1  protected by lock1
+  s2  protected by lock2
+[mt] Detailed shared zones protections
+  s2.data2: Read by <main>, Write by jobs: protected by lock2
+  s2.data: Read by <main>, Write by jobs: protected by lock2
+  s1.data2: Read by <main>, Write by jobs: protected by lock1
+  s1.data: Read by <main>, Write by jobs: protected by lock1
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 3
+[mt] *** Computing thread <main>, iteration 3 (shared vars values changed and
+    interferences changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[eva:interferences] one_var_multiple_threads.c:50: 
+  inject threads interferences at this point
+[eva:interferences] one_var_multiple_threads.c:51: 
+  inject threads interferences at this point
+[eva:interferences] one_var_multiple_threads.c:54: 
+  inject threads interferences at this point
+[eva:interferences] one_var_multiple_threads.c:55: 
+  inject threads interferences at this point
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s1.data: read by <main> at one_var_multiple_threads.c:50 <- main
+  s1.data2: read by <main> at one_var_multiple_threads.c:51 <- main
+  s2.data: read by <main> at one_var_multiple_threads.c:54 <- main
+  s2.data2: read by <main> at one_var_multiple_threads.c:55 <- main
+  jobs:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: one_var_multiple_threads.c:42 <- main
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: one_var_multiple_threads.c:44 <- main
+  lock1:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:49 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:52 <- main
+  lock2:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:53 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:56 <- main
+  nondet: read by <main> at one_var_multiple_threads.c:41 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {s1, s2}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread jobs, iteration 3 (thread initial memory state changed
+    and interferences changed)
+[mt] * Computing value analysis for thread jobs
+[eva] Analyzing a complete application starting at f
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s1.data:
+    read by jobs at one_var_multiple_threads.c:22 <- f
+    write by jobs at one_var_multiple_threads.c:22 <- f
+  s1.data2:
+    read by jobs at one_var_multiple_threads.c:23 <- f
+    write by jobs at one_var_multiple_threads.c:23 <- f
+  lock1:
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:21 <- f
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:24 <- f
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs
+    concurrent writes:
+      (s1.data) ++; one_var_multiple_threads.c:22 <- f
+      s1.data2 += 3; one_var_multiple_threads.c:23 <- f
+    shared bases: {s1, s2}
+    interferences by location:
+      one_var_multiple_threads.c:22:
+        # cvalue:
+        s1.data ∈ {1; 2}
+          .data2 ∈ {0; 3}
+        s2.data ∈ {0; 1}
+          .data2 ∈ {0; 3} 
+      one_var_multiple_threads.c:23:
+        # cvalue:
+        s1.data ∈ {1; 2}
+          .data2 ∈ {3; 6}
+        s2.data ∈ {0; 1}
+          .data2 ∈ {0; 3} 
+    interferences by mutexes:
+      { lock1 }:
+        # cvalue:
+        s1.data ∈ {1; 2}
+          .data2 ∈ {0; 3; 6}
+        s2.data ∈ {0; 1}
+          .data2 ∈ {0; 3}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs computed
+[mt] *** Computing thread jobs, iteration 3 (thread initial memory state changed
+    and interferences changed)
+[mt] * Computing value analysis for thread jobs
+[eva] Analyzing a complete application starting at g
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s2.data:
+    read by jobs at one_var_multiple_threads.c:30 <- g
+    write by jobs at one_var_multiple_threads.c:30 <- g
+  s2.data2:
+    read by jobs at one_var_multiple_threads.c:31 <- g
+    write by jobs at one_var_multiple_threads.c:31 <- g
+  lock2:
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:29 <- g
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:32 <- g
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs
+    concurrent writes:
+      (s2.data) ++; one_var_multiple_threads.c:30 <- g
+      s2.data2 += 3; one_var_multiple_threads.c:31 <- g
+    shared bases: {s1, s2}
+    interferences by location:
+      one_var_multiple_threads.c:30:
+        # cvalue:
+        s1.data ∈ {0; 1; 2}
+          .data2 ∈ {0; 3; 6}
+        s2.data ∈ {1; 2}
+          .data2 ∈ {0; 3} 
+      one_var_multiple_threads.c:31:
+        # cvalue:
+        s1.data ∈ {0; 1; 2}
+          .data2 ∈ {0; 3; 6}
+        s2.data ∈ {1; 2}
+          .data2 ∈ {3; 6} 
+    interferences by mutexes:
+      { lock2 }:
+        # cvalue:
+        s1.data ∈ {0; 1; 2}
+          .data2 ∈ {0; 3; 6}
+        s2.data ∈ {1; 2}
+          .data2 ∈ {0; 3; 6}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs computed
+[mt] ***** Threads computed for iteration 3.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: s1; s2
+[mt] <main> reads  s1.data ∈ {0; 1}  // one_var_multiple_threads.c:50 main
+[mt] jobs reads  s1.data ∈ {0; 1}  // one_var_multiple_threads.c:22 f
+[mt] <main> reads  s1.data2 ∈ {0; 3}  // one_var_multiple_threads.c:51 main
+[mt] jobs reads  s1.data2 ∈ {0; 3}  // one_var_multiple_threads.c:23 f
+[mt] <main> reads  s2.data ∈ {0; 1}  // one_var_multiple_threads.c:54 main
+[mt] jobs reads  s2.data ∈ {0; 1}  // one_var_multiple_threads.c:30 g
+[mt] <main> reads  s2.data2 ∈ {0; 3}  // one_var_multiple_threads.c:55 main
+[mt] jobs reads  s2.data2 ∈ {0; 3}  // one_var_multiple_threads.c:31 g
+[mt] jobs writes  s1.data ∈ {1; 2}  // one_var_multiple_threads.c:22 f
+[mt] jobs writes  s1.data2 ∈ {3; 6}  // one_var_multiple_threads.c:23 f
+[mt] jobs writes  s2.data ∈ {1; 2}  // one_var_multiple_threads.c:30 g
+[mt] jobs writes  s2.data2 ∈ {3; 6}  // one_var_multiple_threads.c:31 g
+[mt] Possible read/write data races:
+  s2.data2:
+    read by <main> at one_var_multiple_threads.c:55, protected by lock2
+    read by jobs at one_var_multiple_threads.c:31, protected by lock2
+    write by jobs at one_var_multiple_threads.c:31, protected by lock2
+  s2.data:
+    read by <main> at one_var_multiple_threads.c:54, protected by lock2
+    read by jobs at one_var_multiple_threads.c:30, protected by lock2
+    write by jobs at one_var_multiple_threads.c:30, protected by lock2
+  s1.data2:
+    read by <main> at one_var_multiple_threads.c:51, protected by lock1
+    read by jobs at one_var_multiple_threads.c:23, protected by lock1
+    write by jobs at one_var_multiple_threads.c:23, protected by lock1
+  s1.data:
+    read by <main> at one_var_multiple_threads.c:50, protected by lock1
+    read by jobs at one_var_multiple_threads.c:22, protected by lock1
+    write by jobs at one_var_multiple_threads.c:22, protected by lock1
+[mt] Shared memory: s1; s2
+[mt] Write summary for jobs (updated): s1.data ∈ {1; 2}
+                                      .data2 ∈ {3; 6}
+[mt] Write summary for jobs (updated): s2.data ∈ {1; 2}
+                                      .data2 ∈ {3; 6}
+[mt] Mutexes for concurrent accesses:
+  s1  protected by lock1
+  s2  protected by lock2
+[mt] Detailed shared zones protections
+  s2.data2: Read by <main>, Write by jobs: protected by lock2
+  s2.data: Read by <main>, Write by jobs: protected by lock2
+  s1.data2: Read by <main>, Write by jobs: protected by lock1
+  s1.data: Read by <main>, Write by jobs: protected by lock1
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 4
+[mt] *** Computing thread <main>, iteration 4 (shared vars values changed and
+    interferences changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s1.data: read by <main> at one_var_multiple_threads.c:50 <- main
+  s1.data2: read by <main> at one_var_multiple_threads.c:51 <- main
+  s2.data: read by <main> at one_var_multiple_threads.c:54 <- main
+  s2.data2: read by <main> at one_var_multiple_threads.c:55 <- main
+  jobs:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: one_var_multiple_threads.c:42 <- main
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: one_var_multiple_threads.c:44 <- main
+  lock1:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:49 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:52 <- main
+  lock2:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:53 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:56 <- main
+  nondet: read by <main> at one_var_multiple_threads.c:41 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {s1, s2}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread jobs, iteration 4 (thread initial memory state changed
+    and interferences changed)
+[mt] * Computing value analysis for thread jobs
+[eva] Analyzing a complete application starting at f
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s1.data:
+    read by jobs at one_var_multiple_threads.c:22 <- f
+    write by jobs at one_var_multiple_threads.c:22 <- f
+  s1.data2:
+    read by jobs at one_var_multiple_threads.c:23 <- f
+    write by jobs at one_var_multiple_threads.c:23 <- f
+  lock1:
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:21 <- f
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:24 <- f
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs
+    concurrent writes:
+      (s1.data) ++; one_var_multiple_threads.c:22 <- f
+      s1.data2 += 3; one_var_multiple_threads.c:23 <- f
+    shared bases: {s1, s2}
+    interferences by location:
+      one_var_multiple_threads.c:22:
+        # cvalue:
+        s1.data ∈ {1; 2; 3}
+          .data2 ∈ {0; 3; 6}
+        s2.data ∈ {0; 1; 2}
+          .data2 ∈ {0; 3; 6} 
+      one_var_multiple_threads.c:23:
+        # cvalue:
+        s1.data ∈ {1; 2; 3}
+          .data2 ∈ {3; 6; 9}
+        s2.data ∈ {0; 1; 2}
+          .data2 ∈ {0; 3; 6} 
+    interferences by mutexes:
+      { lock1 }:
+        # cvalue:
+        s1.data ∈ {1; 2; 3}
+          .data2 ∈ {0; 3; 6; 9}
+        s2.data ∈ {0; 1; 2}
+          .data2 ∈ {0; 3; 6}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs computed
+[mt] *** Computing thread jobs, iteration 4 (thread initial memory state changed
+    and interferences changed)
+[mt] * Computing value analysis for thread jobs
+[eva] Analyzing a complete application starting at g
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s2.data:
+    read by jobs at one_var_multiple_threads.c:30 <- g
+    write by jobs at one_var_multiple_threads.c:30 <- g
+  s2.data2:
+    read by jobs at one_var_multiple_threads.c:31 <- g
+    write by jobs at one_var_multiple_threads.c:31 <- g
+  lock2:
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:29 <- g
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:32 <- g
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs
+    concurrent writes:
+      (s2.data) ++; one_var_multiple_threads.c:30 <- g
+      s2.data2 += 3; one_var_multiple_threads.c:31 <- g
+    shared bases: {s1, s2}
+    interferences by location:
+      one_var_multiple_threads.c:30:
+        # cvalue:
+        s1.data ∈ {0; 1; 2; 3}
+          .data2 ∈ {0; 3; 6; 9}
+        s2.data ∈ {1; 2; 3}
+          .data2 ∈ {0; 3; 6} 
+      one_var_multiple_threads.c:31:
+        # cvalue:
+        s1.data ∈ {0; 1; 2; 3}
+          .data2 ∈ {0; 3; 6; 9}
+        s2.data ∈ {1; 2; 3}
+          .data2 ∈ {3; 6; 9} 
+    interferences by mutexes:
+      { lock2 }:
+        # cvalue:
+        s1.data ∈ {0; 1; 2; 3}
+          .data2 ∈ {0; 3; 6; 9}
+        s2.data ∈ {1; 2; 3}
+          .data2 ∈ {0; 3; 6; 9}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs computed
+[mt] ***** Threads computed for iteration 4.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: s1; s2
+[mt] <main> reads  s1.data ∈ {0; 1; 2}  // one_var_multiple_threads.c:50 main
+[mt] jobs reads  s1.data ∈ {0; 1; 2}  // one_var_multiple_threads.c:22 f
+[mt] <main> reads  s1.data2 ∈ {0; 3; 6}  // one_var_multiple_threads.c:51 main
+[mt] jobs reads  s1.data2 ∈ {0; 3; 6}  // one_var_multiple_threads.c:23 f
+[mt] <main> reads  s2.data ∈ {0; 1; 2}  // one_var_multiple_threads.c:54 main
+[mt] jobs reads  s2.data ∈ {0; 1; 2}  // one_var_multiple_threads.c:30 g
+[mt] <main> reads  s2.data2 ∈ {0; 3; 6}  // one_var_multiple_threads.c:55 main
+[mt] jobs reads  s2.data2 ∈ {0; 3; 6}  // one_var_multiple_threads.c:31 g
+[mt] jobs writes  s1.data ∈ {1; 2; 3}  // one_var_multiple_threads.c:22 f
+[mt] jobs writes  s1.data2 ∈ {3; 6; 9}  // one_var_multiple_threads.c:23 f
+[mt] jobs writes  s2.data ∈ {1; 2; 3}  // one_var_multiple_threads.c:30 g
+[mt] jobs writes  s2.data2 ∈ {3; 6; 9}  // one_var_multiple_threads.c:31 g
+[mt] Possible read/write data races:
+  s2.data2:
+    read by <main> at one_var_multiple_threads.c:55, protected by lock2
+    read by jobs at one_var_multiple_threads.c:31, protected by lock2
+    write by jobs at one_var_multiple_threads.c:31, protected by lock2
+  s2.data:
+    read by <main> at one_var_multiple_threads.c:54, protected by lock2
+    read by jobs at one_var_multiple_threads.c:30, protected by lock2
+    write by jobs at one_var_multiple_threads.c:30, protected by lock2
+  s1.data2:
+    read by <main> at one_var_multiple_threads.c:51, protected by lock1
+    read by jobs at one_var_multiple_threads.c:23, protected by lock1
+    write by jobs at one_var_multiple_threads.c:23, protected by lock1
+  s1.data:
+    read by <main> at one_var_multiple_threads.c:50, protected by lock1
+    read by jobs at one_var_multiple_threads.c:22, protected by lock1
+    write by jobs at one_var_multiple_threads.c:22, protected by lock1
+[mt] Shared memory: s1; s2
+[mt] Write summary for jobs (updated):
+  s1.data ∈ [1..2147483647]
+    .data2 ∈ [3..2147483646],0%3
+[mt] Write summary for jobs (updated):
+  s2.data ∈ [1..2147483647]
+    .data2 ∈ [3..2147483646],0%3
+[mt] Mutexes for concurrent accesses:
+  s1  protected by lock1
+  s2  protected by lock2
+[mt] Detailed shared zones protections
+  s2.data2: Read by <main>, Write by jobs: protected by lock2
+  s2.data: Read by <main>, Write by jobs: protected by lock2
+  s1.data2: Read by <main>, Write by jobs: protected by lock1
+  s1.data: Read by <main>, Write by jobs: protected by lock1
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 5
+[mt] *** Computing thread <main>, iteration 5 (shared vars values changed and
+    interferences changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[eva:alarm] one_var_multiple_threads.c:51: Warning: 
+  signed overflow. assert t + s1.data2 ≤ 2147483647;
+[eva:alarm] one_var_multiple_threads.c:54: Warning: 
+  signed overflow. assert t + s2.data ≤ 2147483647;
+[eva:alarm] one_var_multiple_threads.c:55: Warning: 
+  signed overflow. assert t + s2.data2 ≤ 2147483647;
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s1.data: read by <main> at one_var_multiple_threads.c:50 <- main
+  s1.data2: read by <main> at one_var_multiple_threads.c:51 <- main
+  s2.data: read by <main> at one_var_multiple_threads.c:54 <- main
+  s2.data2: read by <main> at one_var_multiple_threads.c:55 <- main
+  jobs:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: one_var_multiple_threads.c:42 <- main
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: one_var_multiple_threads.c:44 <- main
+  lock1:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:49 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:52 <- main
+  lock2:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:53 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:56 <- main
+  nondet: read by <main> at one_var_multiple_threads.c:41 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {s1, s2}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread jobs, iteration 5 (thread initial memory state changed
+    and interferences changed)
+[mt] * Computing value analysis for thread jobs
+[eva] Analyzing a complete application starting at f
+[eva] Initial state supplied by user
+[eva:alarm] one_var_multiple_threads.c:22: Warning: 
+  signed overflow. assert s1.data + 1 ≤ 2147483647;
+[eva:alarm] one_var_multiple_threads.c:23: Warning: 
+  signed overflow. assert s1.data2 + 3 ≤ 2147483647;
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s1.data:
+    read by jobs at one_var_multiple_threads.c:22 <- f
+    write by jobs at one_var_multiple_threads.c:22 <- f
+  s1.data2:
+    read by jobs at one_var_multiple_threads.c:23 <- f
+    write by jobs at one_var_multiple_threads.c:23 <- f
+  lock1:
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:21 <- f
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:24 <- f
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs
+    concurrent writes:
+      /*@ assert Eva: signed_overflow: s1.data + 1 ≤ 2147483647; */
+      (s1.data) ++; one_var_multiple_threads.c:22 <- f
+      /*@ assert Eva: signed_overflow: s1.data2 + 3 ≤ 2147483647; */
+      s1.data2 += 3; one_var_multiple_threads.c:23 <- f
+    shared bases: {s1, s2}
+    interferences by location:
+      one_var_multiple_threads.c:22:
+        # cvalue:
+        s1.data ∈ [1..2147483647]
+          .data2 ∈ [0..2147483646],0%3
+        s2.data ∈ [0..2147483647]
+          .data2 ∈ [0..2147483646],0%3 
+      one_var_multiple_threads.c:23:
+        # cvalue:
+        s1.data ∈ [1..2147483647]
+          .data2 ∈ [3..2147483646],0%3
+        s2.data ∈ [0..2147483647]
+          .data2 ∈ [0..2147483646],0%3 
+    interferences by mutexes:
+      { lock1 }:
+        # cvalue:
+        s1.data ∈ [1..2147483647]
+          .data2 ∈ [0..2147483646],0%3
+        s2.data ∈ [0..2147483647]
+          .data2 ∈ [0..2147483646],0%3
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs computed
+[mt] *** Computing thread jobs, iteration 5 (thread initial memory state changed
+    and interferences changed)
+[mt] * Computing value analysis for thread jobs
+[eva] Analyzing a complete application starting at g
+[eva] Initial state supplied by user
+[eva:alarm] one_var_multiple_threads.c:30: Warning: 
+  signed overflow. assert s2.data + 1 ≤ 2147483647;
+[eva:alarm] one_var_multiple_threads.c:31: Warning: 
+  signed overflow. assert s2.data2 + 3 ≤ 2147483647;
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s2.data:
+    read by jobs at one_var_multiple_threads.c:30 <- g
+    write by jobs at one_var_multiple_threads.c:30 <- g
+  s2.data2:
+    read by jobs at one_var_multiple_threads.c:31 <- g
+    write by jobs at one_var_multiple_threads.c:31 <- g
+  lock2:
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:29 <- g
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:32 <- g
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs
+    concurrent writes:
+      /*@ assert Eva: signed_overflow: s2.data + 1 ≤ 2147483647; */
+      (s2.data) ++; one_var_multiple_threads.c:30 <- g
+      /*@ assert Eva: signed_overflow: s2.data2 + 3 ≤ 2147483647; */
+      s2.data2 += 3; one_var_multiple_threads.c:31 <- g
+    shared bases: {s1, s2}
+    interferences by location:
+      one_var_multiple_threads.c:30:
+        # cvalue:
+        s1.data ∈ [0..2147483647]
+          .data2 ∈ [0..2147483646],0%3
+        s2.data ∈ [1..2147483647]
+          .data2 ∈ [0..2147483646],0%3 
+      one_var_multiple_threads.c:31:
+        # cvalue:
+        s1.data ∈ [0..2147483647]
+          .data2 ∈ [0..2147483646],0%3
+        s2.data ∈ [1..2147483647]
+          .data2 ∈ [3..2147483646],0%3 
+    interferences by mutexes:
+      { lock2 }:
+        # cvalue:
+        s1.data ∈ [0..2147483647]
+          .data2 ∈ [0..2147483646],0%3
+        s2.data ∈ [1..2147483647]
+          .data2 ∈ [0..2147483646],0%3
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs computed
+[mt] ***** Threads computed for iteration 5.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: s1; s2
+[mt] <main> reads  s1.data ∈ [0..2147483647]  // one_var_multiple_threads.c:50
+  main
+[mt] jobs reads  s1.data ∈ [0..2147483647]  // one_var_multiple_threads.c:22 f
+[mt] <main> reads  s1.data2 ∈ [0..2147483646],0%3 
+  // one_var_multiple_threads.c:51 main
+[mt] jobs reads  s1.data2 ∈ [0..2147483646],0%3  // one_var_multiple_threads.c:23
+  f
+[mt] <main> reads  s2.data ∈ [0..2147483647]  // one_var_multiple_threads.c:54
+  main
+[mt] jobs reads  s2.data ∈ [0..2147483647]  // one_var_multiple_threads.c:30 g
+[mt] <main> reads  s2.data2 ∈ [0..2147483646],0%3 
+  // one_var_multiple_threads.c:55 main
+[mt] jobs reads  s2.data2 ∈ [0..2147483646],0%3  // one_var_multiple_threads.c:31
+  g
+[mt] jobs writes  s1.data ∈ [1..2147483647]  // one_var_multiple_threads.c:22 f
+[mt] jobs writes  s1.data2 ∈ [3..2147483646],0%3  // one_var_multiple_threads.c:23
+  f
+[mt] jobs writes  s2.data ∈ [1..2147483647]  // one_var_multiple_threads.c:30 g
+[mt] jobs writes  s2.data2 ∈ [3..2147483646],0%3  // one_var_multiple_threads.c:31
+  g
+[mt] Possible read/write data races:
+  s2.data2:
+    read by <main> at one_var_multiple_threads.c:55, protected by lock2
+    read by jobs at one_var_multiple_threads.c:31, protected by lock2
+    write by jobs at one_var_multiple_threads.c:31, protected by lock2
+  s2.data:
+    read by <main> at one_var_multiple_threads.c:54, protected by lock2
+    read by jobs at one_var_multiple_threads.c:30, protected by lock2
+    write by jobs at one_var_multiple_threads.c:30, protected by lock2
+  s1.data2:
+    read by <main> at one_var_multiple_threads.c:51, protected by lock1
+    read by jobs at one_var_multiple_threads.c:23, protected by lock1
+    write by jobs at one_var_multiple_threads.c:23, protected by lock1
+  s1.data:
+    read by <main> at one_var_multiple_threads.c:50, protected by lock1
+    read by jobs at one_var_multiple_threads.c:22, protected by lock1
+    write by jobs at one_var_multiple_threads.c:22, protected by lock1
+[mt] Shared memory: s1; s2
+[mt] Write summary for jobs: s1.data ∈ [1..2147483647]
+                            .data2 ∈ [3..2147483646],0%3
+[mt] Write summary for jobs: s2.data ∈ [1..2147483647]
+                            .data2 ∈ [3..2147483646],0%3
+[mt] Mutexes for concurrent accesses:
+  s1  protected by lock1
+  s2  protected by lock2
+[mt] Detailed shared zones protections
+  s2.data2: Read by <main>, Write by jobs: protected by lock2
+  s2.data: Read by <main>, Write by jobs: protected by lock2
+  s1.data2: Read by <main>, Write by jobs: protected by lock1
+  s1.data: Read by <main>, Write by jobs: protected by lock1
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 6
+[mt] *** Computing thread <main>, iteration 6 (interferences changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s1.data: read by <main> at one_var_multiple_threads.c:50 <- main
+  s1.data2: read by <main> at one_var_multiple_threads.c:51 <- main
+  s2.data: read by <main> at one_var_multiple_threads.c:54 <- main
+  s2.data2: read by <main> at one_var_multiple_threads.c:55 <- main
+  jobs:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: one_var_multiple_threads.c:42 <- main
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: one_var_multiple_threads.c:44 <- main
+  lock1:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:49 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:52 <- main
+  lock2:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:53 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:56 <- main
+  nondet: read by <main> at one_var_multiple_threads.c:41 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {s1, s2}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread jobs, iteration 6 (interferences changed)
+[mt] * Computing value analysis for thread jobs
+[eva] Analyzing a complete application starting at f
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  s1.data:
+    read by jobs at one_var_multiple_threads.c:22 <- f
+    write by jobs at one_var_multiple_threads.c:22 <- f
+  s1.data2:
+    read by jobs at one_var_multiple_threads.c:23 <- f
+    write by jobs at one_var_multiple_threads.c:23 <- f
+  lock1:
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: one_var_multiple_threads.c:21 <- f
+    read by jobs at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: one_var_multiple_threads.c:24 <- f
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs
+    concurrent writes:
+      /*@ assert Eva: signed_overflow: s1.data + 1 ≤ 2147483647; */
+      (s1.data) ++; one_var_multiple_threads.c:22 <- f
+      /*@ assert Eva: signed_overflow: s1.data2 + 3 ≤ 2147483647; */
+      s1.data2 += 3; one_var_multiple_threads.c:23 <- f
+    shared bases: {s1, s2}
+    interferences by location:
+      one_var_multiple_threads.c:22:
+        # cvalue:
+        s1.data ∈ [1..2147483647]
+          .data2 ∈ [0..2147483646],0%3
+        s2.data ∈ [0..2147483647]
+          .data2 ∈ [0..2147483646],0%3 
+      one_var_multiple_threads.c:23:
+        # cvalue:
+        s1.data ∈ [1..2147483647]
+          .data2 ∈ [3..2147483646],0%3
+        s2.data ∈ [0..2147483647]
+          .data2 ∈ [0..2147483646],0%3 
+    interferences by mutexes:
+      { lock1 }:
+        # cvalue:
+        s1.data ∈ [1..2147483647]
+          .data2 ∈ [0..2147483646],0%3
+        s2.data ∈ [0..2147483647]
+          .data2 ∈ [0..2147483646],0%3
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs computed
+[mt] ***** Threads computed for iteration 6.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: s1; s2
+[mt] Possible read/write data races:
+  s2.data2:
+    read by jobs at one_var_multiple_threads.c:31, protected by lock2
+    read by <main> at one_var_multiple_threads.c:55, protected by lock2
+    write by jobs at one_var_multiple_threads.c:31, protected by lock2
+  s2.data:
+    read by jobs at one_var_multiple_threads.c:30, protected by lock2
+    read by <main> at one_var_multiple_threads.c:54, protected by lock2
+    write by jobs at one_var_multiple_threads.c:30, protected by lock2
+  s1.data2:
+    read by <main> at one_var_multiple_threads.c:51, protected by lock1
+    read by jobs at one_var_multiple_threads.c:23, protected by lock1
+    write by jobs at one_var_multiple_threads.c:23, protected by lock1
+  s1.data:
+    read by <main> at one_var_multiple_threads.c:50, protected by lock1
+    read by jobs at one_var_multiple_threads.c:22, protected by lock1
+    write by jobs at one_var_multiple_threads.c:22, protected by lock1
+[mt] Shared memory: s1; s2
+[mt] Write summary for jobs: s1.data ∈ [1..2147483647]
+                            .data2 ∈ [3..2147483646],0%3
+[mt] Write summary for jobs: s2.data ∈ [1..2147483647]
+                            .data2 ∈ [3..2147483646],0%3
+[mt] Mutexes for concurrent accesses:
+  s1  protected by lock1
+  s2  protected by lock2
+[mt] Detailed shared zones protections
+  s2.data2: Read by <main>, Write by jobs: protected by lock2
+  s2.data: Read by <main>, Write by jobs: protected by lock2
+  s1.data2: Read by <main>, Write by jobs: protected by lock1
+  s1.data: Read by <main>, Write by jobs: protected by lock1
+[mt] ***** Shared variables computed
+[mt] ******* Analysis performed, 6 iterations
+[mt] ******* Outputting model for html
+[mt] ******* Html output done.

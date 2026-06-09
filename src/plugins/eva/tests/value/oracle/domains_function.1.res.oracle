@@ -1,0 +1,120 @@
+[kernel] Parsing domains_function.c (with preprocessing)
+[eva] Analyzing a complete application starting at test_successive_runs
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  undet ∈ [--..--]
+  i ∈ {0}
+  result ∈ {0}
+  t[0..9] ∈ {0}
+[eva:progress] 
+  computing for function Frama_C_interval <- test_successive_runs.
+  Called from domains_function.c:141.
+[eva] using specification for function Frama_C_interval
+[eva:progress] domains_function.c:141: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- test_successive_runs.
+  Called from domains_function.c:142.
+[eva:progress] domains_function.c:142: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function need_octagon <- test_successive_runs.
+  Called from domains_function.c:143.
+[eva:progress] Recording results for need_octagon
+[eva:progress] Done for function need_octagon
+[eva:progress] 
+  computing for function need_symbolic_locations <- test_successive_runs.
+  Called from domains_function.c:144.
+[eva:progress] Recording results for need_symbolic_locations
+[eva:progress] Done for function need_symbolic_locations
+[eva:alarm] domains_function.c:145: Warning: check got status unknown.
+[eva:progress] Recording results for test_successive_runs
+[eva:progress] Done for function test_successive_runs
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function need_octagon:
+  __retres ∈ [-200..200]
+[eva:final-states] Values at end of function need_symbolic_locations:
+  p ∈ {{ &x ; &y }}
+  __retres ∈ [-200..200]
+[eva:final-states] Values at end of function test_successive_runs:
+  Frama_C_entropy_source ∈ [--..--]
+  a ∈ [-100..100]
+  b ∈ [-100..100]
+  abs_diff ∈ [-200..200]
+  bounded ∈ [-200..200]
+[eva] Analyzing a complete application starting at test_successive_runs
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  undet ∈ [--..--]
+  i ∈ {0}
+  result ∈ {0}
+  t[0..9] ∈ {0}
+[eva:progress] 
+  computing for function Frama_C_interval <- test_successive_runs.
+  Called from domains_function.c:141.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- test_successive_runs.
+  Called from domains_function.c:142.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function need_octagon <- test_successive_runs.
+  Called from domains_function.c:143.
+[eva:progress] Recording results for need_octagon
+[eva:progress] Done for function need_octagon
+[eva:progress] 
+  computing for function need_symbolic_locations <- test_successive_runs.
+  Called from domains_function.c:144.
+[eva:progress] Recording results for need_symbolic_locations
+[eva:progress] Done for function need_symbolic_locations
+[eva:progress] domains_function.c:145: check got status valid.
+[eva:progress] Recording results for test_successive_runs
+[eva:progress] Done for function test_successive_runs
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function need_octagon:
+  __retres ∈ [0..200]
+[eva:final-states] Values at end of function need_symbolic_locations:
+  p ∈ {{ &x ; &y }}
+  __retres ∈ [0..9]
+[eva:final-states] Values at end of function test_successive_runs:
+  Frama_C_entropy_source ∈ [--..--]
+  a ∈ [-100..100]
+  b ∈ [-100..100]
+  abs_diff ∈ [0..200]
+  bounded ∈ [0..9]
+[from] Computing for function need_octagon
+[from] Done for function need_octagon
+[from] Computing for function need_symbolic_locations
+[from] Done for function need_symbolic_locations
+[from] Computing for function test_successive_runs
+[from] Computing for function Frama_C_interval <-test_successive_runs
+[from] Done for function Frama_C_interval
+[from] Done for function test_successive_runs
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function Frama_C_interval:
+  Frama_C_entropy_source FROM Frama_C_entropy_source (and SELF)
+  \result FROM Frama_C_entropy_source; min; max
+[from] Function need_octagon:
+  \result FROM x; y
+[from] Function need_symbolic_locations:
+  \result FROM undet; x; y
+[from] Function test_successive_runs:
+  Frama_C_entropy_source FROM Frama_C_entropy_source (and SELF)
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function need_octagon:
+    __retres
+[inout] Inputs for function need_octagon:
+    \nothing
+[inout] Out (internal) for function need_symbolic_locations:
+    p; tmp; __retres
+[inout] Inputs for function need_symbolic_locations:
+    undet
+[inout] Out (internal) for function test_successive_runs:
+    Frama_C_entropy_source; a; b; abs_diff; bounded
+[inout] Inputs for function test_successive_runs:
+    Frama_C_entropy_source; undet

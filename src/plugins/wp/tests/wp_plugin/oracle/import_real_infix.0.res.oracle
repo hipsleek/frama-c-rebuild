@@ -1,0 +1,11 @@
+# frama-c -wp [...]
+[kernel] Parsing import_real_infix.i (no preprocessing)
+[wp] Running WP plugin...
+------------------------------------------------------------
+  Global
+------------------------------------------------------------
+
+Goal Lemma 'infix':
+Prove: real.RealInfix.infix <.(real.RealInfix.infix +.(.0, 1.0), 2.0).
+
+------------------------------------------------------------

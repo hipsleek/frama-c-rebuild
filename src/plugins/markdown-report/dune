@@ -1,0 +1,54 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "Markdown-report:" %{lib-available:frama-c-markdown-report.core} "\n")
+          (echo "  - ppx_deriving_yojson:" %{lib-available:ppx_deriving_yojson} "\n")
+  )
+  )
+)
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-markdown-report.core})))
+ (action (echo "WARNING: Markdown-report disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+( library
+  (name markdown_report)
+  (public_name frama-c-markdown-report.core)
+  (optional)
+  (flags -open Frama_c_kernel :standard -w -9)
+  (libraries frama-c.kernel)
+  (preprocess (pps ppx_deriving_yojson))
+  (instrumentation (backend landmarks))
+  (instrumentation (backend bisect_ppx))
+)
+
+(plugin (optional) (name markdown-report) (libraries frama-c-markdown-report.core) (site (frama-c plugins)))
+
+; Test dependencies
+(rule
+ (alias frama-c-configure)
+ (deps (universe)
+  (alias ../../../tests/frama-c-configure-tests))
+ (action (progn
+            (echo "  - Markdown-report:" %{read:../../../tests-markdown-report-deps-available} "\n")
+            (echo "    - check-jsonschema:" %{bin-available:check-jsonschema} "\n")
+            (echo "    - jq:" %{bin-available:jq} "\n")
+            ; If you add some dependencies here, do not forget to add them to
+            ; tests_configurator.ml
+  ))
+)
+

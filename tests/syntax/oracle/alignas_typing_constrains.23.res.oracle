@@ -1,0 +1,4 @@
+[kernel] Parsing alignas_typing_constrains.c (with preprocessing)
+[kernel] alignas_typing_constrains.c:230: User Error: 
+  _Alignas not allowed on function parameters
+[kernel] Frama-C aborted: invalid user input.

@@ -1,0 +1,7 @@
+MACRO: test_config1 tests/test_config1
+MACRO: test_config2 tests/test_config2
+
+CMD: echo tests/test_config:CMD @test_config1@ @test_config2@ @test_config3@ @PTEST_OPTIONS@
+
+MACRO: test_config2 tests/test_config2-redefined
+MACRO: test_config3 tests/test_config3

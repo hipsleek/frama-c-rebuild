@@ -1,0 +1,10 @@
+[kernel] Parsing type_branch_bts_1081.i (no preprocessing)
+[kernel] type_branch_bts_1081.i:10: User Error: 
+  invalid implicit conversion from void to signed char
+  8       foo ? (void)x : (signed char)y; 
+  9       // accepted (we drop the expressions, don't care about their types)
+  10      int z = foo ? (void)x: (signed char)y; // rejected
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11      return 0;
+  12    }
+[kernel] Frama-C aborted: invalid user input.

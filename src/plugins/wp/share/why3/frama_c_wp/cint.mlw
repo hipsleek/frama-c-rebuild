@@ -1,0 +1,307 @@
+(**************************************************************************)
+(*                                                                        *)
+(*  SPDX-License-Identifier LGPL-2.1                                      *)
+(*  Copyright (C)                                                         *)
+(*  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  *)
+(*                                                                        *)
+(**************************************************************************)
+
+(* -------------------------------------------------------------------------- *)
+(* --- C-Integer Arithmetics for Why-3                                    --- *)
+(* -------------------------------------------------------------------------- *)
+
+module Cint
+
+  use int.Int
+  use bool.Bool
+
+  (** * C-Integer bounds * **)
+
+  (** ** bounds are inlined into prover files ** **)
+
+  let constant max_uint8:  int = 0x100
+  let constant max_sint8:  int = 0x80
+  let constant max_uint16: int = 0x10000
+  let constant max_sint16: int = 0x8000
+  let constant max_uint32: int = 0x100000000
+  let constant max_sint32: int = 0x80000000
+  let constant max_uint64: int = 0x10000000000000000
+  let constant max_sint64: int = 0x8000000000000000
+  let constant max_uint128: int = 0x100000000000000000000000000000000
+  let constant max_sint128: int = 0x80000000000000000000000000000000
+
+  (** * C-Integer Ranges * **)
+
+  predicate is_bool(x:int) = x = 0 \/ x = 1
+  predicate is_uint8(x:int) = 0 <= x < max_uint8
+  predicate is_sint8(x:int) = -max_sint8 <= x < max_sint8
+  predicate is_uint16(x:int) = 0 <= x < max_uint16
+  predicate is_sint16(x:int) = -max_sint16 <= x < max_sint16
+  predicate is_uint32(x:int) = 0 <= x < max_uint32
+  predicate is_sint32(x:int) = -max_sint32 <= x < max_sint32
+  predicate is_uint64(x:int) = 0 <= x < max_uint64
+  predicate is_sint64(x:int) = -max_sint64 <= x < max_sint64
+  predicate is_uint128(x:int) = 0 <= x < max_uint128
+  predicate is_sint128(x:int) = -max_sint128 <= x < max_sint128
+
+  lemma is_bool0: is_bool(0)
+  lemma is_bool1: is_bool(1)
+
+  (** * C-Integer Conversion * **)
+
+  function to_bool ( x : int ) : int = if x = 0 then 0 else 1
+
+  let rec function to_uint8 (x: int) : int
+    variant { if x < 0 then max_uint8 - x else x }
+  = if x < 0
+    then to_uint8 (x + max_uint8)
+    else if x >= max_uint8
+    then to_uint8 (x - max_uint8)
+    else x
+
+  let rec function to_sint8 (x: int) : int
+    variant { if x < - max_sint8 then max_sint8 - x else x - max_sint8 }
+  = if x < -max_sint8
+    then to_sint8 (x + max_uint8)
+    else if x >= max_sint8
+    then to_sint8 (x - max_uint8)
+    else x
+
+  let rec function to_uint16 (x: int) : int
+    variant { if x < 0 then max_uint16 - x else x }
+  = if x < 0
+    then to_uint16 (x + max_uint16)
+    else if x >= max_uint16
+    then to_uint16 (x - max_uint16)
+    else x
+
+  let rec function to_sint16 (x: int) : int
+    variant { if x < - max_sint16 then max_sint16 - x else x - max_sint16 }
+  = if x < -max_sint16
+    then to_sint16 (x + max_uint16)
+    else if x >= max_sint16
+    then to_sint16 (x - max_uint16)
+    else x
+
+  let rec function to_uint32 (x: int) : int
+    variant { if x < 0 then max_uint32 - x else x }
+  = if x < 0
+    then to_uint32 (x + max_uint32)
+    else if x >= max_uint32
+    then to_uint32 (x - max_uint32)
+    else x
+
+  let rec function to_sint32 (x: int) : int
+    variant { if x < - max_sint32 then max_sint32 - x else x - max_sint32 }
+  = if x < -max_sint32
+    then to_sint32 (x + max_uint32)
+    else if x >= max_sint32
+    then to_sint32 (x - max_uint32)
+    else x
+
+  let rec function to_uint64 (x: int) : int
+    variant { if x < 0 then max_uint64 - x else x }
+  = if x < 0
+    then to_uint64 (x + max_uint64)
+    else if x >= max_uint64
+    then to_uint64 (x - max_uint64)
+    else x
+
+  let rec function to_sint64 (x: int) : int
+    variant { if x < - max_sint64 then max_sint64 - x else x - max_sint64 }
+  = if x < -max_sint64
+    then to_sint64 (x + max_uint64)
+    else if x >= max_sint64
+    then to_sint64 (x - max_uint64)
+    else x
+
+  let rec function to_uint128 (x: int) : int
+    variant { if x < 0 then max_uint128 - x else x }
+  = if x < 0
+    then to_uint128 (x + max_uint128)
+    else if x >= max_uint128
+    then to_uint128 (x - max_uint128)
+    else x
+
+  let rec function to_sint128 (x: int) : int
+    variant { if x < - max_sint128 then max_sint128 - x else x - max_sint128 }
+  = if x < -max_sint128
+    then to_sint128 (x + max_uint128)
+    else if x >= max_sint128
+    then to_sint128 (x - max_uint128)
+    else x
+
+  function two_power_abs  int : int
+
+  predicate is_uint (n:int) (x:int) = 0 <= x < two_power_abs n
+
+  (* * [n] is the number of significant bits (that doesn't include the sign bit). * *)
+  predicate is_sint (n:int) (x:int) = -(two_power_abs n) <= x < two_power_abs n
+
+  function to_uint int int : int
+  function to_sint int int : int
+
+  (** * C-Integer Conversions are in-range * **)
+
+  let rec lemma is_to_uint8 (x: int)
+    ensures { is_uint8 (to_uint8 x) }
+    variant { if x < 0 then max_uint8 - x else x }
+  = if x < 0
+    then is_to_uint8 (x + max_uint8)
+    else if x >= max_uint8
+    then is_to_uint8 (x - max_uint8)
+    else ()
+
+  let rec lemma is_to_sint8 (x: int)
+    ensures { is_sint8 (to_sint8 x) }
+    variant { if x < - max_sint8 then max_sint8 - x else x - max_sint8 }
+  = if x < -max_sint8
+    then is_to_sint8 (x + max_uint8)
+    else if x >= max_sint8
+    then is_to_sint8 (x - max_uint8)
+    else ()
+
+  let rec lemma is_to_uint16 (x: int)
+    ensures { is_uint16 (to_uint16 x) }
+    variant { if x < 0 then max_uint16 - x else x }
+  = if x < 0
+    then is_to_uint16 (x + max_uint16)
+    else if x >= max_uint16
+    then is_to_uint16 (x - max_uint16)
+    else ()
+
+  let rec lemma is_to_sint16 (x: int)
+    ensures { is_sint16 (to_sint16 x) }
+    variant { if x < - max_sint16 then max_sint16 - x else x - max_sint16 }
+  = if x < -max_sint16
+    then is_to_sint16 (x + max_uint16)
+    else if x >= max_sint16
+    then is_to_sint16 (x - max_uint16)
+    else ()
+
+  let rec lemma is_to_uint32 (x: int)
+    ensures { is_uint32 (to_uint32 x) }
+    variant { if x < 0 then max_uint32 - x else x }
+  = if x < 0
+    then is_to_uint32 (x + max_uint32)
+    else if x >= max_uint32
+    then is_to_uint32 (x - max_uint32)
+    else ()
+
+  let rec lemma is_to_sint32 (x: int)
+    ensures { is_sint32 (to_sint32 x) }
+    variant { if x < - max_sint32 then max_sint32 - x else x - max_sint32 }
+  = if x < -max_sint32
+    then is_to_sint32 (x + max_uint32)
+    else if x >= max_sint32
+    then is_to_sint32 (x - max_uint32)
+    else ()
+
+  let rec lemma is_to_uint64 (x: int)
+    ensures { is_uint64 (to_uint64 x) }
+    variant { if x < 0 then max_uint64 - x else x }
+  = if x < 0
+    then is_to_uint64 (x + max_uint64)
+    else if x >= max_uint64
+    then is_to_uint64 (x - max_uint64)
+    else ()
+
+  let rec lemma is_to_sint64 (x: int)
+    ensures { is_sint64 (to_sint64 x) }
+    variant { if x < - max_sint64 then max_sint64 - x else x - max_sint64 }
+  = if x < -max_sint64
+    then is_to_sint64 (x + max_uint64)
+    else if x >= max_sint64
+    then is_to_sint64 (x - max_uint64)
+    else ()
+
+  let rec lemma is_to_uint128 (x: int)
+    ensures { is_uint128 (to_uint128 x) }
+    variant { if x < 0 then max_uint128 - x else x }
+  = if x < 0
+    then is_to_uint128 (x + max_uint128)
+    else if x >= max_uint128
+    then is_to_uint128 (x - max_uint128)
+    else ()
+
+  let rec lemma is_to_sint128 (x: int)
+    ensures { is_sint128 (to_sint128 x) }
+    variant { if x < - max_sint128 then max_sint128 - x else x - max_sint128 }
+  = if x < -max_sint128
+    then is_to_sint128 (x + max_uint128)
+    else if x >= max_sint128
+    then is_to_sint128 (x - max_uint128)
+    else ()
+
+  (** * C-Integer Conversions are identity when in-range * **)
+
+  lemma id_uint8 : forall x:int [ to_uint8 x ]. is_uint8 x -> (to_uint8 x) = x
+  lemma id_sint8 : forall x:int [ to_sint8 x ]. is_sint8 x -> (to_sint8 x) = x
+  lemma id_uint16 : forall x:int [ to_uint16 x ]. is_uint16 x -> (to_uint16 x) = x
+  lemma id_sint16 : forall x:int [ to_sint16 x ]. is_sint16 x -> (to_sint16 x) = x
+  lemma id_uint32 : forall x:int [ to_uint32 x ]. is_uint32 x -> (to_uint32 x) = x
+  lemma id_sint32 : forall x:int [ to_sint32 x ]. is_sint32 x -> (to_sint32 x) = x
+  lemma id_uint64 : forall x:int [ to_uint64 x ]. is_uint64 x -> (to_uint64 x) = x
+  lemma id_sint64 : forall x:int [ to_sint64 x ]. is_sint64 x -> (to_sint64 x) = x
+  lemma id_uint128 : forall x:int [ to_uint128 x ]. is_uint128 x -> (to_uint128 x) = x
+  lemma id_sint128 : forall x:int [ to_sint128 x ]. is_sint128 x -> (to_sint128 x) = x
+
+  lemma id_uint8_inl : forall x: int [ to_uint8 x ].
+    0 <= x < max_uint8 -> (to_uint8 x) = x
+  lemma id_sint8_inl : forall x: int [ to_sint8 x ].
+    - max_sint8 <= x < max_sint8 -> (to_sint8 x) = x
+  lemma id_uint16_inl : forall x: int [ to_uint16 x ].
+    0 <= x < max_uint16 -> (to_uint16 x) = x
+  lemma id_sint16_inl : forall x: int [ to_sint16 x ].
+    - max_sint16 <= x < max_sint16 -> (to_sint16 x) = x
+  lemma id_uint32_inl : forall x: int [ to_uint32 x ].
+    0 <= x < max_uint32 -> (to_uint32 x) = x
+  lemma id_sint32_inl : forall x: int [ to_sint32 x ].
+    - max_sint32 <= x < max_sint32 -> (to_sint32 x) = x
+  lemma id_uint64_inl : forall x: int [ to_uint64 x ].
+    0 <= x < max_uint64 -> (to_uint64 x) = x
+  lemma id_sint64_inl : forall x: int [ to_sint64 x ].
+    - max_sint64 <= x < max_sint64 -> (to_sint64 x) = x
+  lemma id_uint128_inl : forall x: int [ to_uint128 x ].
+    0 <= x < max_uint128 -> (to_uint128 x) = x
+  lemma id_sint128_inl : forall x: int [ to_sint128 x ].
+    - max_sint128 <= x < max_sint128 -> (to_sint128 x) = x
+
+  (** * C-Integer Conversions are projections * **)
+
+  let rec lemma proj_int8 (x: int)
+    ensures { to_sint8(to_uint8 x) = to_sint8  x }
+    variant { if x < - max_sint8 then max_sint8 - x else x }
+  = if x < - max_sint8 then proj_int8 (x + max_uint8) else
+    if max_uint8 <= x then proj_int8 (x - max_uint8)
+    else ()
+
+  let rec lemma proj_int16 (x: int)
+    ensures { to_sint16(to_uint16 x) = to_sint16  x }
+    variant { if x < - max_sint16 then max_sint16 - x else x }
+  = if x < - max_sint16 then proj_int16 (x + max_uint16) else
+    if max_uint16 <= x then proj_int16 (x - max_uint16)
+    else ()
+
+  let rec lemma proj_int32 (x: int)
+    ensures { to_sint32(to_uint32 x) = to_sint32  x }
+    variant { if x < - max_sint32 then max_sint32 - x else x }
+  = if x < - max_sint32 then proj_int32 (x + max_uint32) else
+    if max_uint32 <= x then proj_int32 (x - max_uint32)
+    else ()
+
+  let rec lemma proj_int64 (x: int)
+    ensures { to_sint64(to_uint64 x) = to_sint64  x }
+    variant { if x < - max_sint64 then max_sint64 - x else x }
+  = if x < - max_sint64 then proj_int64 (x + max_uint64) else
+    if max_uint64 <= x then proj_int64 (x - max_uint64)
+    else ()
+
+  let rec lemma proj_int128 (x: int)
+    ensures { to_sint128(to_uint128 x) = to_sint128  x }
+    variant { if x < - max_sint128 then max_sint128 - x else x }
+  = if x < - max_sint128 then proj_int128 (x + max_uint128) else
+    if max_uint128 <= x then proj_int128 (x - max_uint128)
+    else ()
+
+end

@@ -1,0 +1,40 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing branch1.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  user_input ∈ [--..--]
+  secret ∈ [--..--]
+  x ∈ {0}
+  y ∈ {0}
+  z ∈ {0}
+[eva:secure-flow:condition] branch1.c:14: Warning: 
+  non-interference violation on condition involving {user_input; secret}
+[eva:alarm] branch1.c:16: Warning: assertion got status unknown.
+[eva:alarm] branch1.c:19: Warning: assertion got status unknown.
+[eva:progress] branch1.c:25: assertion got status valid.
+[eva:alarm] branch1.c:30: Warning: assertion got status unknown.
+[eva:alarm] branch1.c:31: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  x ∈ {1}
+  y ∈ {0; 1}
+  z ∈ {0; 1}
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  x FROM \nothing
+  y FROM user_input; secret (and SELF)
+  z FROM user_input; secret (and SELF)
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    x; y; z; __retres
+[inout] Inputs for function main:
+    user_input; secret

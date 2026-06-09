@@ -1,0 +1,2 @@
+DEFAULT_SUITES= ya
+prove_SUITES= ya

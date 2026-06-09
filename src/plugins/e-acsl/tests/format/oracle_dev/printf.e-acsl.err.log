@@ -1,0 +1,575 @@
+TEST 1: OK: Expected execution at printf.c:190
+TEST 2: OK: Expected execution at printf.c:193
+printf: directive 4 (%u) in format "%s - %s and say it %d or %u more times 
+" has no argument
+TEST 3: OK: Expected signal at printf.c:196
+TEST 4: OK: Expected execution at printf.c:199
+printf: invalid format string (unallocated or unterminated)
+TEST 5: OK: Expected signal at printf.c:204
+TEST 6: OK: Expected execution at printf.c:207
+printf: directive 4 (%4$s) in format "%4$s Say it %2$d or %1$u times 
+" has no argument
+TEST 7: OK: Expected signal at printf.c:209
+Format error: illegal format specifier '$'
+TEST 8: OK: Expected signal at printf.c:211
+Format error: "%s Say it %2$d or %3$u times 
+":  numbered and non-numbered directives cannot be mixed
+TEST 9: OK: Expected signal at printf.c:214
+TEST 10: OK: Expected execution at printf.c:216
+TEST 11: OK: Expected execution at printf.c:219
+TEST 12: OK: Expected execution at printf.c:219
+TEST 13: OK: Expected execution at printf.c:219
+TEST 14: OK: Expected execution at printf.c:219
+TEST 15: OK: Expected execution at printf.c:219
+TEST 16: OK: Expected execution at printf.c:219
+TEST 17: OK: Expected execution at printf.c:219
+TEST 18: OK: Expected execution at printf.c:219
+TEST 19: OK: Expected execution at printf.c:219
+TEST 20: OK: Expected execution at printf.c:219
+TEST 21: OK: Expected execution at printf.c:219
+TEST 22: OK: Expected execution at printf.c:219
+TEST 23: OK: Expected execution at printf.c:219
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of precision [.] to format specifier [c]
+TEST 24: OK: Expected signal at printf.c:219
+TEST 25: OK: Expected execution at printf.c:219
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of precision [.] to format specifier [p]
+TEST 26: OK: Expected signal at printf.c:219
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of precision [.] to format specifier [n]
+TEST 27: OK: Expected signal at printf.c:219
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of flag [#] to format specifier [d]
+TEST 28: OK: Expected signal at printf.c:225
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of flag [#] to format specifier [i]
+TEST 29: OK: Expected signal at printf.c:225
+TEST 30: OK: Expected execution at printf.c:225
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of flag [#] to format specifier [u]
+TEST 31: OK: Expected signal at printf.c:225
+TEST 32: OK: Expected execution at printf.c:225
+TEST 33: OK: Expected execution at printf.c:225
+TEST 34: OK: Expected execution at printf.c:225
+TEST 35: OK: Expected execution at printf.c:225
+TEST 36: OK: Expected execution at printf.c:225
+TEST 37: OK: Expected execution at printf.c:225
+TEST 38: OK: Expected execution at printf.c:225
+TEST 39: OK: Expected execution at printf.c:225
+TEST 40: OK: Expected execution at printf.c:225
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of flag [#] to format specifier [c]
+TEST 41: OK: Expected signal at printf.c:225
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of flag [#] to format specifier [s]
+TEST 42: OK: Expected signal at printf.c:225
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of flag [#] to format specifier [p]
+TEST 43: OK: Expected signal at printf.c:225
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of flag [#] to format specifier [n]
+TEST 44: OK: Expected signal at printf.c:225
+TEST 45: OK: Expected execution at printf.c:228
+TEST 46: OK: Expected execution at printf.c:228
+TEST 47: OK: Expected execution at printf.c:228
+TEST 48: OK: Expected execution at printf.c:228
+TEST 49: OK: Expected execution at printf.c:228
+TEST 50: OK: Expected execution at printf.c:228
+TEST 51: OK: Expected execution at printf.c:228
+TEST 52: OK: Expected execution at printf.c:228
+TEST 53: OK: Expected execution at printf.c:228
+TEST 54: OK: Expected execution at printf.c:228
+TEST 55: OK: Expected execution at printf.c:228
+TEST 56: OK: Expected execution at printf.c:228
+TEST 57: OK: Expected execution at printf.c:228
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of flag [0] to format specifier [c]
+TEST 58: OK: Expected signal at printf.c:228
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of flag [0] to format specifier [s]
+TEST 59: OK: Expected signal at printf.c:228
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of flag [0] to format specifier [p]
+TEST 60: OK: Expected signal at printf.c:228
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of flag [0] to format specifier [n]
+TEST 61: OK: Expected signal at printf.c:228
+TEST 62: OK: Expected execution at printf.c:234
+TEST 63: OK: Expected execution at printf.c:235
+Format error: illegal format specifier 'l'
+TEST 64: OK: Expected signal at printf.c:236
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [hh] to format specifier [f]
+TEST 65: OK: Expected signal at printf.c:242
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [hh] to format specifier [F]
+TEST 66: OK: Expected signal at printf.c:242
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [hh] to format specifier [e]
+TEST 67: OK: Expected signal at printf.c:242
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [hh] to format specifier [E]
+TEST 68: OK: Expected signal at printf.c:242
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [hh] to format specifier [g]
+TEST 69: OK: Expected signal at printf.c:242
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [hh] to format specifier [G]
+TEST 70: OK: Expected signal at printf.c:242
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [hh] to format specifier [a]
+TEST 71: OK: Expected signal at printf.c:242
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [hh] to format specifier [A]
+TEST 72: OK: Expected signal at printf.c:242
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [hh] to format specifier [c]
+TEST 73: OK: Expected signal at printf.c:242
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [hh] to format specifier [s]
+TEST 74: OK: Expected signal at printf.c:242
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [hh] to format specifier [p]
+TEST 75: OK: Expected signal at printf.c:242
+TEST 76: OK: Expected execution at printf.c:243
+TEST 77: OK: Expected execution at printf.c:244
+TEST 78: OK: Expected execution at printf.c:245
+TEST 79: OK: Expected execution at printf.c:246
+TEST 80: OK: Expected execution at printf.c:247
+TEST 81: OK: Expected execution at printf.c:248
+TEST 82: OK: Expected execution at printf.c:249
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [h] to format specifier [f]
+TEST 83: OK: Expected signal at printf.c:252
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [h] to format specifier [F]
+TEST 84: OK: Expected signal at printf.c:252
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [h] to format specifier [e]
+TEST 85: OK: Expected signal at printf.c:252
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [h] to format specifier [E]
+TEST 86: OK: Expected signal at printf.c:252
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [h] to format specifier [g]
+TEST 87: OK: Expected signal at printf.c:252
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [h] to format specifier [G]
+TEST 88: OK: Expected signal at printf.c:252
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [h] to format specifier [a]
+TEST 89: OK: Expected signal at printf.c:252
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [h] to format specifier [A]
+TEST 90: OK: Expected signal at printf.c:252
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [h] to format specifier [c]
+TEST 91: OK: Expected signal at printf.c:252
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [h] to format specifier [s]
+TEST 92: OK: Expected signal at printf.c:252
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [h] to format specifier [p]
+TEST 93: OK: Expected signal at printf.c:252
+TEST 94: OK: Expected execution at printf.c:253
+TEST 95: OK: Expected execution at printf.c:254
+TEST 96: OK: Expected execution at printf.c:255
+TEST 97: OK: Expected execution at printf.c:256
+TEST 98: OK: Expected execution at printf.c:257
+TEST 99: OK: Expected execution at printf.c:258
+TEST 100: OK: Expected execution at printf.c:259
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [l] to format specifier [p]
+TEST 101: OK: Expected signal at printf.c:262
+TEST 102: OK: Expected execution at printf.c:263
+TEST 103: OK: Expected execution at printf.c:264
+TEST 104: OK: Expected execution at printf.c:265
+TEST 105: OK: Expected execution at printf.c:266
+TEST 106: OK: Expected execution at printf.c:267
+TEST 107: OK: Expected execution at printf.c:268
+TEST 108: OK: Expected execution at printf.c:270
+TEST 109: OK: Expected execution at printf.c:271
+TEST 110: OK: Expected execution at printf.c:272
+TEST 111: OK: Expected execution at printf.c:273
+TEST 112: OK: Expected execution at printf.c:274
+TEST 113: OK: Expected execution at printf.c:275
+TEST 114: OK: Expected execution at printf.c:276
+TEST 115: OK: Expected execution at printf.c:277
+TEST 116: OK: Expected execution at printf.c:279
+TEST 117: OK: Expected execution at printf.c:282
+TEST 118: OK: Expected execution at printf.c:286
+TEST 119: OK: Expected execution at printf.c:287
+TEST 120: OK: Expected execution at printf.c:288
+TEST 121: OK: Expected execution at printf.c:289
+TEST 122: OK: Expected execution at printf.c:290
+TEST 123: OK: Expected execution at printf.c:291
+TEST 124: OK: Expected execution at printf.c:292
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [j] to format specifier [f]
+TEST 125: OK: Expected signal at printf.c:295
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [j] to format specifier [F]
+TEST 126: OK: Expected signal at printf.c:295
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [j] to format specifier [e]
+TEST 127: OK: Expected signal at printf.c:295
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [j] to format specifier [E]
+TEST 128: OK: Expected signal at printf.c:295
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [j] to format specifier [g]
+TEST 129: OK: Expected signal at printf.c:295
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [j] to format specifier [G]
+TEST 130: OK: Expected signal at printf.c:295
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [j] to format specifier [a]
+TEST 131: OK: Expected signal at printf.c:295
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [j] to format specifier [A]
+TEST 132: OK: Expected signal at printf.c:295
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [j] to format specifier [c]
+TEST 133: OK: Expected signal at printf.c:295
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [j] to format specifier [s]
+TEST 134: OK: Expected signal at printf.c:295
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [j] to format specifier [p]
+TEST 135: OK: Expected signal at printf.c:295
+TEST 136: OK: Expected execution at printf.c:296
+TEST 137: OK: Expected execution at printf.c:297
+TEST 138: OK: Expected execution at printf.c:298
+TEST 139: OK: Expected execution at printf.c:299
+TEST 140: OK: Expected execution at printf.c:300
+TEST 141: OK: Expected execution at printf.c:301
+TEST 142: OK: Expected execution at printf.c:302
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [z] to format specifier [f]
+TEST 143: OK: Expected signal at printf.c:305
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [z] to format specifier [F]
+TEST 144: OK: Expected signal at printf.c:305
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [z] to format specifier [e]
+TEST 145: OK: Expected signal at printf.c:305
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [z] to format specifier [E]
+TEST 146: OK: Expected signal at printf.c:305
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [z] to format specifier [g]
+TEST 147: OK: Expected signal at printf.c:305
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [z] to format specifier [G]
+TEST 148: OK: Expected signal at printf.c:305
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [z] to format specifier [a]
+TEST 149: OK: Expected signal at printf.c:305
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [z] to format specifier [A]
+TEST 150: OK: Expected signal at printf.c:305
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [z] to format specifier [c]
+TEST 151: OK: Expected signal at printf.c:305
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [z] to format specifier [s]
+TEST 152: OK: Expected signal at printf.c:305
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [z] to format specifier [p]
+TEST 153: OK: Expected signal at printf.c:305
+TEST 154: OK: Expected execution at printf.c:310
+TEST 155: OK: Expected execution at printf.c:311
+TEST 156: OK: Expected execution at printf.c:316
+TEST 157: OK: Expected execution at printf.c:317
+TEST 158: OK: Expected execution at printf.c:318
+TEST 159: OK: Expected execution at printf.c:319
+TEST 160: OK: Expected execution at printf.c:320
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [t] to format specifier [f]
+TEST 161: OK: Expected signal at printf.c:325
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [t] to format specifier [F]
+TEST 162: OK: Expected signal at printf.c:325
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [t] to format specifier [e]
+TEST 163: OK: Expected signal at printf.c:325
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [t] to format specifier [E]
+TEST 164: OK: Expected signal at printf.c:325
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [t] to format specifier [g]
+TEST 165: OK: Expected signal at printf.c:325
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [t] to format specifier [G]
+TEST 166: OK: Expected signal at printf.c:325
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [t] to format specifier [a]
+TEST 167: OK: Expected signal at printf.c:325
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [t] to format specifier [A]
+TEST 168: OK: Expected signal at printf.c:325
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [t] to format specifier [c]
+TEST 169: OK: Expected signal at printf.c:325
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [t] to format specifier [s]
+TEST 170: OK: Expected signal at printf.c:325
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [t] to format specifier [p]
+TEST 171: OK: Expected signal at printf.c:325
+TEST 172: OK: Expected execution at printf.c:327
+TEST 173: OK: Expected execution at printf.c:328
+TEST 174: OK: Expected execution at printf.c:329
+TEST 175: OK: Expected execution at printf.c:330
+TEST 176: OK: Expected execution at printf.c:337
+TEST 177: OK: Expected execution at printf.c:338
+TEST 178: OK: Expected execution at printf.c:339
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [L] to format specifier [d]
+TEST 179: OK: Expected signal at printf.c:342
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [L] to format specifier [i]
+TEST 180: OK: Expected signal at printf.c:342
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [L] to format specifier [o]
+TEST 181: OK: Expected signal at printf.c:342
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [L] to format specifier [u]
+TEST 182: OK: Expected signal at printf.c:342
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [L] to format specifier [x]
+TEST 183: OK: Expected signal at printf.c:342
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [L] to format specifier [c]
+TEST 184: OK: Expected signal at printf.c:342
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [L] to format specifier [s]
+TEST 185: OK: Expected signal at printf.c:342
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [L] to format specifier [p]
+TEST 186: OK: Expected signal at printf.c:342
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of length modifier [L] to format specifier [n]
+TEST 187: OK: Expected signal at printf.c:342
+TEST 188: OK: Expected execution at printf.c:343
+TEST 189: OK: Expected execution at printf.c:344
+TEST 190: OK: Expected execution at printf.c:345
+TEST 191: OK: Expected execution at printf.c:346
+TEST 192: OK: Expected execution at printf.c:347
+TEST 193: OK: Expected execution at printf.c:348
+TEST 194: OK: Expected execution at printf.c:349
+TEST 195: OK: Expected execution at printf.c:350
+Format error: illegal format specifier 'C'
+TEST 196: OK: Expected signal at printf.c:354
+Format error: illegal format specifier 'S'
+TEST 197: OK: Expected signal at printf.c:355
+Format error: illegal format specifier 'm'
+TEST 198: OK: Expected signal at printf.c:356
+TEST 199: OK: Expected execution at printf.c:359
+TEST 200: OK: Expected execution at printf.c:360
+TEST 201: OK: Expected execution at printf.c:361
+TEST 202: OK: Expected execution at printf.c:362
+TEST 203: OK: Expected execution at printf.c:363
+TEST 204: OK: Expected execution at printf.c:364
+printf: directive 1 ('%i') expects argument of type 'int' but the corresponding argument has type 'long'
+TEST 205: OK: Expected signal at printf.c:365
+printf: directive 1 ('%d') expects argument of type 'int' but the corresponding argument has type 'long'
+TEST 206: OK: Expected signal at printf.c:366
+printf: directive 1 ('%i') expects argument of type 'int' but the corresponding argument has type 'unsigned int'
+TEST 207: OK: Expected signal at printf.c:367
+printf: directive 1 ('%d') expects argument of type 'int' but the corresponding argument has type 'unsigned int'
+TEST 208: OK: Expected signal at printf.c:368
+printf: directive 1 ('%i') expects argument of type 'int' but the corresponding argument has type 'void*'
+TEST 209: OK: Expected signal at printf.c:369
+printf: directive 1 ('%d') expects argument of type 'int' but the corresponding argument has type 'void*'
+TEST 210: OK: Expected signal at printf.c:370
+printf: directive 1 ('%i') expects argument of type 'int' but the corresponding argument has type 'double'
+TEST 211: OK: Expected signal at printf.c:371
+printf: directive 1 ('%d') expects argument of type 'int' but the corresponding argument has type 'double'
+TEST 212: OK: Expected signal at printf.c:372
+TEST 213: OK: Expected execution at printf.c:375
+TEST 214: OK: Expected execution at printf.c:376
+TEST 215: OK: Expected execution at printf.c:377
+TEST 216: OK: Expected execution at printf.c:378
+TEST 217: OK: Expected execution at printf.c:379
+TEST 218: OK: Expected execution at printf.c:380
+TEST 219: OK: Expected execution at printf.c:381
+TEST 220: OK: Expected execution at printf.c:382
+TEST 221: OK: Expected execution at printf.c:384
+TEST 222: OK: Expected execution at printf.c:385
+TEST 223: OK: Expected execution at printf.c:390
+TEST 224: OK: Expected execution at printf.c:391
+TEST 225: OK: Expected execution at printf.c:394
+TEST 226: OK: Expected execution at printf.c:395
+TEST 227: OK: Expected execution at printf.c:396
+TEST 228: OK: Expected execution at printf.c:397
+printf: directive 1 ('%u') expects argument of type 'unsigned int' but the corresponding argument has type 'long'
+TEST 229: OK: Expected signal at printf.c:398
+printf: directive 1 ('%o') expects argument of type 'unsigned int' but the corresponding argument has type 'long'
+TEST 230: OK: Expected signal at printf.c:399
+printf: directive 1 ('%x') expects argument of type 'unsigned int' but the corresponding argument has type 'long'
+TEST 231: OK: Expected signal at printf.c:400
+printf: directive 1 ('%X') expects argument of type 'unsigned int' but the corresponding argument has type 'long'
+TEST 232: OK: Expected signal at printf.c:401
+printf: directive 1 ('%u') expects argument of type 'unsigned int' but the corresponding argument has type 'unsigned long'
+TEST 233: OK: Expected signal at printf.c:402
+printf: directive 1 ('%o') expects argument of type 'unsigned int' but the corresponding argument has type 'unsigned long'
+TEST 234: OK: Expected signal at printf.c:403
+printf: directive 1 ('%x') expects argument of type 'unsigned int' but the corresponding argument has type 'unsigned long'
+TEST 235: OK: Expected signal at printf.c:404
+printf: directive 1 ('%X') expects argument of type 'unsigned int' but the corresponding argument has type 'unsigned long'
+TEST 236: OK: Expected signal at printf.c:405
+printf: directive 1 ('%u') expects argument of type 'unsigned int' but the corresponding argument has type 'double'
+TEST 237: OK: Expected signal at printf.c:406
+printf: directive 1 ('%o') expects argument of type 'unsigned int' but the corresponding argument has type 'double'
+TEST 238: OK: Expected signal at printf.c:407
+printf: directive 1 ('%x') expects argument of type 'unsigned int' but the corresponding argument has type 'double'
+TEST 239: OK: Expected signal at printf.c:408
+printf: directive 1 ('%X') expects argument of type 'unsigned int' but the corresponding argument has type 'double'
+TEST 240: OK: Expected signal at printf.c:409
+printf: directive 1 ('%u') expects argument of type 'unsigned int' but the corresponding argument has type 'void*'
+TEST 241: OK: Expected signal at printf.c:410
+printf: directive 1 ('%o') expects argument of type 'unsigned int' but the corresponding argument has type 'void*'
+TEST 242: OK: Expected signal at printf.c:411
+printf: directive 1 ('%x') expects argument of type 'unsigned int' but the corresponding argument has type 'void*'
+TEST 243: OK: Expected signal at printf.c:412
+printf: directive 1 ('%X') expects argument of type 'unsigned int' but the corresponding argument has type 'void*'
+TEST 244: OK: Expected signal at printf.c:413
+printf: directive 1 ('%u') expects argument of type 'unsigned int' but the corresponding argument has type 'char*'
+TEST 245: OK: Expected signal at printf.c:414
+printf: directive 1 ('%o') expects argument of type 'unsigned int' but the corresponding argument has type 'char*'
+TEST 246: OK: Expected signal at printf.c:415
+printf: directive 1 ('%x') expects argument of type 'unsigned int' but the corresponding argument has type 'char*'
+TEST 247: OK: Expected signal at printf.c:416
+printf: directive 1 ('%X') expects argument of type 'unsigned int' but the corresponding argument has type 'char*'
+TEST 248: OK: Expected signal at printf.c:417
+TEST 249: OK: Expected execution at printf.c:420
+TEST 250: OK: Expected execution at printf.c:421
+TEST 251: OK: Expected execution at printf.c:422
+TEST 252: OK: Expected execution at printf.c:423
+TEST 253: OK: Expected execution at printf.c:424
+TEST 254: OK: Expected execution at printf.c:425
+TEST 255: OK: Expected execution at printf.c:426
+TEST 256: OK: Expected execution at printf.c:427
+TEST 257: OK: Expected execution at printf.c:429
+TEST 258: OK: Expected execution at printf.c:430
+TEST 259: OK: Expected execution at printf.c:431
+TEST 260: OK: Expected execution at printf.c:432
+TEST 261: OK: Expected execution at printf.c:434
+TEST 262: OK: Expected execution at printf.c:435
+TEST 263: OK: Expected execution at printf.c:436
+TEST 264: OK: Expected execution at printf.c:437
+TEST 265: OK: Expected execution at printf.c:438
+TEST 266: OK: Expected execution at printf.c:439
+TEST 267: OK: Expected execution at printf.c:440
+TEST 268: OK: Expected execution at printf.c:441
+TEST 269: OK: Expected execution at printf.c:442
+TEST 270: OK: Expected execution at printf.c:443
+TEST 271: OK: Expected execution at printf.c:444
+TEST 272: OK: Expected execution at printf.c:445
+TEST 273: OK: Expected execution at printf.c:447
+TEST 274: OK: Expected execution at printf.c:448
+TEST 275: OK: Expected execution at printf.c:449
+TEST 276: OK: Expected execution at printf.c:450
+TEST 277: OK: Expected execution at printf.c:454
+TEST 278: OK: Expected execution at printf.c:455
+printf: directive 1 ('%f') expects argument of type 'double' but the corresponding argument has type 'long double'
+TEST 279: OK: Expected signal at printf.c:456
+printf: directive 1 ('%F') expects argument of type 'double' but the corresponding argument has type 'long double'
+TEST 280: OK: Expected signal at printf.c:457
+printf: directive 1 ('%f') expects argument of type 'double' but the corresponding argument has type 'int'
+TEST 281: OK: Expected signal at printf.c:458
+printf: directive 1 ('%F') expects argument of type 'double' but the corresponding argument has type 'int'
+TEST 282: OK: Expected signal at printf.c:459
+printf: directive 1 ('%f') expects argument of type 'double' but the corresponding argument has type 'unsigned long'
+TEST 283: OK: Expected signal at printf.c:460
+printf: directive 1 ('%F') expects argument of type 'double' but the corresponding argument has type 'unsigned long'
+TEST 284: OK: Expected signal at printf.c:461
+TEST 285: OK: Expected execution at printf.c:462
+TEST 286: OK: Expected execution at printf.c:463
+printf: directive 1 ('%a') expects argument of type 'double' but the corresponding argument has type 'long double'
+TEST 287: OK: Expected signal at printf.c:464
+printf: directive 1 ('%A') expects argument of type 'double' but the corresponding argument has type 'long double'
+TEST 288: OK: Expected signal at printf.c:465
+printf: directive 1 ('%a') expects argument of type 'double' but the corresponding argument has type 'int'
+TEST 289: OK: Expected signal at printf.c:466
+printf: directive 1 ('%A') expects argument of type 'double' but the corresponding argument has type 'int'
+TEST 290: OK: Expected signal at printf.c:467
+printf: directive 1 ('%a') expects argument of type 'double' but the corresponding argument has type 'unsigned long'
+TEST 291: OK: Expected signal at printf.c:468
+printf: directive 1 ('%A') expects argument of type 'double' but the corresponding argument has type 'unsigned long'
+TEST 292: OK: Expected signal at printf.c:469
+TEST 293: OK: Expected execution at printf.c:470
+TEST 294: OK: Expected execution at printf.c:471
+printf: directive 1 ('%e') expects argument of type 'double' but the corresponding argument has type 'long double'
+TEST 295: OK: Expected signal at printf.c:472
+printf: directive 1 ('%E') expects argument of type 'double' but the corresponding argument has type 'long double'
+TEST 296: OK: Expected signal at printf.c:473
+printf: directive 1 ('%e') expects argument of type 'double' but the corresponding argument has type 'int'
+TEST 297: OK: Expected signal at printf.c:474
+printf: directive 1 ('%E') expects argument of type 'double' but the corresponding argument has type 'int'
+TEST 298: OK: Expected signal at printf.c:475
+printf: directive 1 ('%e') expects argument of type 'double' but the corresponding argument has type 'unsigned long'
+TEST 299: OK: Expected signal at printf.c:476
+printf: directive 1 ('%E') expects argument of type 'double' but the corresponding argument has type 'unsigned long'
+TEST 300: OK: Expected signal at printf.c:477
+TEST 301: OK: Expected execution at printf.c:478
+TEST 302: OK: Expected execution at printf.c:479
+printf: directive 1 ('%g') expects argument of type 'double' but the corresponding argument has type 'long double'
+TEST 303: OK: Expected signal at printf.c:480
+printf: directive 1 ('%G') expects argument of type 'double' but the corresponding argument has type 'long double'
+TEST 304: OK: Expected signal at printf.c:481
+printf: directive 1 ('%g') expects argument of type 'double' but the corresponding argument has type 'int'
+TEST 305: OK: Expected signal at printf.c:482
+printf: directive 1 ('%G') expects argument of type 'double' but the corresponding argument has type 'int'
+TEST 306: OK: Expected signal at printf.c:483
+printf: directive 1 ('%g') expects argument of type 'double' but the corresponding argument has type 'unsigned long'
+TEST 307: OK: Expected signal at printf.c:484
+printf: directive 1 ('%G') expects argument of type 'double' but the corresponding argument has type 'unsigned long'
+TEST 308: OK: Expected signal at printf.c:485
+printf: directive 1 ('%Lf') expects argument of type 'long double' but the corresponding argument has type 'double'
+TEST 309: OK: Expected signal at printf.c:488
+printf: directive 1 ('%LF') expects argument of type 'long double' but the corresponding argument has type 'double'
+TEST 310: OK: Expected signal at printf.c:489
+TEST 311: OK: Expected execution at printf.c:490
+TEST 312: OK: Expected execution at printf.c:491
+printf: directive 1 ('%Lf') expects argument of type 'long double' but the corresponding argument has type 'int'
+TEST 313: OK: Expected signal at printf.c:492
+printf: directive 1 ('%LF') expects argument of type 'long double' but the corresponding argument has type 'int'
+TEST 314: OK: Expected signal at printf.c:493
+printf: directive 1 ('%Lf') expects argument of type 'long double' but the corresponding argument has type 'unsigned long'
+TEST 315: OK: Expected signal at printf.c:494
+printf: directive 1 ('%LF') expects argument of type 'long double' but the corresponding argument has type 'unsigned long'
+TEST 316: OK: Expected signal at printf.c:495
+printf: directive 1 ('%La') expects argument of type 'long double' but the corresponding argument has type 'double'
+TEST 317: OK: Expected signal at printf.c:496
+printf: directive 1 ('%LA') expects argument of type 'long double' but the corresponding argument has type 'double'
+TEST 318: OK: Expected signal at printf.c:497
+TEST 319: OK: Expected execution at printf.c:498
+TEST 320: OK: Expected execution at printf.c:499
+printf: directive 1 ('%La') expects argument of type 'long double' but the corresponding argument has type 'int'
+TEST 321: OK: Expected signal at printf.c:500
+printf: directive 1 ('%LA') expects argument of type 'long double' but the corresponding argument has type 'int'
+TEST 322: OK: Expected signal at printf.c:501
+printf: directive 1 ('%La') expects argument of type 'long double' but the corresponding argument has type 'unsigned long'
+TEST 323: OK: Expected signal at printf.c:502
+printf: directive 1 ('%LA') expects argument of type 'long double' but the corresponding argument has type 'unsigned long'
+TEST 324: OK: Expected signal at printf.c:503
+printf: directive 1 ('%Le') expects argument of type 'long double' but the corresponding argument has type 'double'
+TEST 325: OK: Expected signal at printf.c:504
+printf: directive 1 ('%LE') expects argument of type 'long double' but the corresponding argument has type 'double'
+TEST 326: OK: Expected signal at printf.c:505
+TEST 327: OK: Expected execution at printf.c:506
+TEST 328: OK: Expected execution at printf.c:507
+printf: directive 1 ('%Le') expects argument of type 'long double' but the corresponding argument has type 'int'
+TEST 329: OK: Expected signal at printf.c:508
+printf: directive 1 ('%LE') expects argument of type 'long double' but the corresponding argument has type 'int'
+TEST 330: OK: Expected signal at printf.c:509
+printf: directive 1 ('%Le') expects argument of type 'long double' but the corresponding argument has type 'unsigned long'
+TEST 331: OK: Expected signal at printf.c:510
+printf: directive 1 ('%LE') expects argument of type 'long double' but the corresponding argument has type 'unsigned long'
+TEST 332: OK: Expected signal at printf.c:511
+printf: directive 1 ('%Lg') expects argument of type 'long double' but the corresponding argument has type 'double'
+TEST 333: OK: Expected signal at printf.c:512
+printf: directive 1 ('%LG') expects argument of type 'long double' but the corresponding argument has type 'double'
+TEST 334: OK: Expected signal at printf.c:513
+TEST 335: OK: Expected execution at printf.c:514
+TEST 336: OK: Expected execution at printf.c:515
+printf: directive 1 ('%Lg') expects argument of type 'long double' but the corresponding argument has type 'int'
+TEST 337: OK: Expected signal at printf.c:516
+printf: directive 1 ('%LG') expects argument of type 'long double' but the corresponding argument has type 'int'
+TEST 338: OK: Expected signal at printf.c:517
+printf: directive 1 ('%Lg') expects argument of type 'long double' but the corresponding argument has type 'unsigned long'
+TEST 339: OK: Expected signal at printf.c:518
+printf: directive 1 ('%LG') expects argument of type 'long double' but the corresponding argument has type 'unsigned long'
+TEST 340: OK: Expected signal at printf.c:519
+TEST 341: OK: Expected execution at printf.c:522
+TEST 342: OK: Expected execution at printf.c:523
+TEST 343: OK: Expected execution at printf.c:524
+printf: directive 1 ('%c') expects argument of type 'int' but the corresponding argument has type 'unsigned int'
+TEST 344: OK: Expected signal at printf.c:525
+printf: directive 1 ('%c') expects argument of type 'int' but the corresponding argument has type 'long'
+TEST 345: OK: Expected signal at printf.c:526
+printf: directive 1 ('%c') expects argument of type 'int' but the corresponding argument has type 'double'
+TEST 346: OK: Expected signal at printf.c:527
+printf: directive 1 ('%c') expects argument of type 'int' but the corresponding argument has type 'char*'
+TEST 347: OK: Expected signal at printf.c:528
+TEST 348: OK: Expected execution at printf.c:531
+printf: directive 1 ('%lc') expects argument of type 'unsigned int' but the corresponding argument has type 'long'
+TEST 349: OK: Expected signal at printf.c:532
+TEST 350: OK: Expected execution at printf.c:539
+TEST 351: OK: Expected execution at printf.c:540
+printf: directive 1 ('%s') expects argument of type 'char*' but the corresponding argument has type 'int'
+TEST 352: OK: Expected signal at printf.c:541
+printf: directive 1 ('%s') expects argument of type 'char*' but the corresponding argument has type 'void*'
+TEST 353: OK: Expected signal at printf.c:542
+printf: attempt to access unallocated memory via directive 1 ('%s')
+TEST 354: OK: Expected signal at printf.c:547
+printf: attempt to access unallocated memory via directive 1 ('%s')
+TEST 355: OK: Expected signal at printf.c:548
+TEST 356: OK: Expected execution at printf.c:551
+printf: unterminated string in directive 1 ('%s')
+TEST 357: OK: Expected signal at printf.c:553
+TEST 358: OK: Expected execution at printf.c:556
+TEST 359: OK: Expected execution at printf.c:557
+TEST 360: OK: Expected execution at printf.c:558
+TEST 361: OK: Expected execution at printf.c:559
+printf: attempt to access partially unallocated memory via directive 1 ('%.5s')
+TEST 362: OK: Expected signal at printf.c:560
+TEST 363: OK: Expected execution at printf.c:585
+printf: directive 1 ('%p') expects argument of type 'void*' but the corresponding argument has type 'char*'
+TEST 364: OK: Expected signal at printf.c:586
+printf: argument 1 of directive %p not allocated
+TEST 365: OK: Expected signal at printf.c:587
+TEST 366: OK: Expected execution at printf.c:590
+printf: directive 1 ('%n') expects argument of type 'int*' but the corresponding argument has type 'unsigned int*'
+TEST 367: OK: Expected signal at printf.c:591
+printf: directive 1 ('%n') expects argument of type 'int*' but the corresponding argument has type 'void*'
+TEST 368: OK: Expected signal at printf.c:592
+printf: argument 0 of directive %n not allocated or writeable
+TEST 369: OK: Expected signal at printf.c:593
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of flag ['] to format specifier [n]
+TEST 370: OK: Expected signal at printf.c:596
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of flag [0] to format specifier [n]
+TEST 371: OK: Expected signal at printf.c:597
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of flag [#] to format specifier [n]
+TEST 372: OK: Expected signal at printf.c:598
+Format error: one of more flags with [n] specifier
+TEST 373: OK: Expected signal at printf.c:599
+Format error: one of more flags with [n] specifier
+TEST 374: OK: Expected signal at printf.c:600
+Format error: one of more flags with [n] specifier
+TEST 375: OK: Expected signal at printf.c:601
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of precision [.] to format specifier [n]
+TEST 376: OK: Expected signal at printf.c:602
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of precision [.] to format specifier [n]
+TEST 377: OK: Expected signal at printf.c:603
+FRAMAC_SHARE/e-acsl/libc_replacements/e_acsl_stdio.c:549: Format error: wrong application of precision [.] to format specifier [n]
+TEST 378: OK: Expected signal at printf.c:604
+Format error: field width used with [n] specifier
+TEST 379: OK: Expected signal at printf.c:605
+Format error: in directive '%d - %'% - %u times 
+'.the complete conversion specification for '%' is '%%'
+TEST 380: OK: Expected signal at printf.c:608

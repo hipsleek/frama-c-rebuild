@@ -1,0 +1,15 @@
+[kernel:CERT:MSC:37] axiomatic.c:36: Warning: 
+  Body of function i falls-through. Adding a return statement
+[e-acsl] beginning translation.
+[e-acsl] axiomatic.c:29: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] axiomatic.c:11: Warning: 
+  E-ACSL construct
+  `logic functions or predicates with no definition nor reads clause'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] axiomatic.c:11: Warning: 
+  function __gen_e_acsl_f: postcondition got status unknown.

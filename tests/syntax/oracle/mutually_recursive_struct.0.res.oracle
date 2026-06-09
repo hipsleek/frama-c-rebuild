@@ -1,0 +1,18 @@
+[kernel] Parsing mutually_recursive_struct.i (no preprocessing)
+[kernel] mutually_recursive_struct.i:9: User Error: 
+  declaration of array of incomplete type 'struct S2`
+[kernel] mutually_recursive_struct.i:9: User Error: 
+  field 's2' is declared with incomplete type 'struct S2 [2]'
+[kernel] mutually_recursive_struct.i:11: User Error: 
+  declaration of array of incomplete type 'struct S1`
+[kernel] mutually_recursive_struct.i:11: User Error: 
+  field 's1' is declared with incomplete type 'struct S1 [2]'
+[kernel] mutually_recursive_struct.i:11: User Error: 
+  field s1 declaration contains a circular reference to type struct S2
+  9     struct S1 { struct S2 s2[2]; int x; };
+  10    
+  11    struct S2 { struct S1 s1[2]; int y; };
+                              ^^
+  12    
+  13    int main () {
+[kernel] Frama-C aborted: invalid user input.

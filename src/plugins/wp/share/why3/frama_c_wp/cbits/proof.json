@@ -1,0 +1,43 @@
+{
+  "profile": [],
+  "proofs": {
+    "Cbits": {
+      "is_sint16_land": { "prover": "alt-ergo", "time": 0.019 },
+      "is_sint16_lnot": { "prover": "alt-ergo", "time": 0.023 },
+      "is_sint16_lor": { "prover": "alt-ergo", "time": 0.02 },
+      "is_sint16_lsr": { "prover": "alt-ergo", "time": 0.022 },
+      "is_sint16_lxor": { "prover": "alt-ergo", "time": 0.022 },
+      "is_sint32_land": { "prover": "alt-ergo", "time": 0.026 },
+      "is_sint32_lnot": { "prover": "alt-ergo", "time": 0.019 },
+      "is_sint32_lor": { "prover": "alt-ergo", "time": 0.026 },
+      "is_sint32_lsr": { "prover": "alt-ergo", "time": 0.022 },
+      "is_sint32_lxor": { "prover": "alt-ergo", "time": 0.03 },
+      "is_sint64_land": { "prover": "alt-ergo", "time": 0.027 },
+      "is_sint64_lnot": { "prover": "alt-ergo", "time": 0.025 },
+      "is_sint64_lor": { "prover": "alt-ergo", "time": 0.026 },
+      "is_sint64_lsr": { "prover": "alt-ergo", "time": 0.026 },
+      "is_sint64_lxor": { "prover": "alt-ergo", "time": 0.029 },
+      "is_sint8_land": { "prover": "alt-ergo", "time": 0.023 },
+      "is_sint8_lnot": { "prover": "alt-ergo", "time": 0.024 },
+      "is_sint8_lor": { "prover": "alt-ergo", "time": 0.022 },
+      "is_sint8_lsr": { "prover": "alt-ergo", "time": 0.027 },
+      "is_sint8_lxor": { "prover": "alt-ergo", "time": 0.022 },
+      "is_uint16_land": { "prover": "alt-ergo", "time": 0.026 },
+      "is_uint16_lor": { "prover": "alt-ergo", "time": 0.021 },
+      "is_uint16_lsr": { "prover": "alt-ergo", "time": 0.023 },
+      "is_uint16_lxor": { "prover": "alt-ergo", "time": 0.02 },
+      "is_uint32_land": { "prover": "alt-ergo", "time": 0.037 },
+      "is_uint32_lor": { "prover": "alt-ergo", "time": 0.031 },
+      "is_uint32_lsr": { "prover": "alt-ergo", "time": 0.031 },
+      "is_uint32_lxor": { "prover": "alt-ergo", "time": 0.024 },
+      "is_uint64_land": { "prover": "alt-ergo", "time": 0.03 },
+      "is_uint64_lor": { "prover": "alt-ergo", "time": 0.039 },
+      "is_uint64_lsr": { "prover": "alt-ergo", "time": 0.02 },
+      "is_uint64_lxor": { "prover": "alt-ergo", "time": 0.031 },
+      "is_uint8_land": { "prover": "alt-ergo", "time": 0.028 },
+      "is_uint8_lor": { "prover": "alt-ergo", "time": 0.019 },
+      "is_uint8_lsr": { "prover": "alt-ergo", "time": 0.024 },
+      "is_uint8_lxor": { "prover": "alt-ergo", "time": 0.017 }
+    }
+  }
+}

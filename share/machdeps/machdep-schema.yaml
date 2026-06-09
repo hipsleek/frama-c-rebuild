@@ -1,0 +1,497 @@
+# Schema of the machine information required by Frama-C.
+
+alignof_aligned:
+
+  description: alignment of a type with 'aligned' attribute
+
+  type: integer
+
+alignof_double:
+
+  description: alignment of 'double' type
+
+  type: integer
+
+alignof_float:
+
+  description: alignment of 'float' type
+
+  type: integer
+
+alignof_fun:
+
+  description: (non-standard) alignment of a function type. Negative if unsupported
+
+  type: integer
+
+alignof_int:
+
+  description:  alignment of 'int' type
+
+  type: integer
+
+alignof_long:
+
+  description:  alignment of 'long' type
+
+  type: integer
+
+alignof_longdouble:
+
+  description:  alignment of 'long double' type
+
+  type: integer
+
+alignof_longlong:
+
+  description:  alignment of 'long long' type
+
+  type: integer
+
+alignof_max_align_t:
+
+  description:  alignment of 'max_align_t' type
+
+  type: integer
+
+alignof_ptr:
+
+  description:  alignment of 'void*' type
+
+  type: integer
+
+alignof_short:
+
+  description:  alignment of 'short' type
+
+  type: integer
+
+alignof_void:
+
+  description:  alignment of void. Negative if unsupported
+
+  type: integer
+
+max_align_t:
+
+  description: definition of 'max_align_t' (in stddef.h)
+
+  type: string
+
+max_extended_alignment:
+
+  description: maximal value that can be given to _Alignas.
+               0 if only standard alignments are supported.
+
+  type: integer
+
+gcc_alignof_aligned:
+
+  description: GCC __alignof__ a type with 'aligned' attribute
+
+  type: integer
+  optional: true
+
+gcc_alignof_double:
+
+  description: GCC __alignof__ 'double' type
+
+  type: integer
+  optional: true
+
+gcc_alignof_float:
+
+  description: GCC __alignof__ 'float' type
+
+  type: integer
+  optional: true
+
+gcc_alignof_fun:
+
+  description: (non-standard) GCC __alignof__ a function type. Negative if unsupported
+
+  type: integer
+  optional: true
+
+gcc_alignof_int:
+
+  description:  GCC __alignof__ 'int' type
+
+  type: integer
+  optional: true
+
+gcc_alignof_long:
+
+  description:  GCC __alignof__ 'long' type
+
+  type: integer
+  optional: true
+
+gcc_alignof_longdouble:
+
+  description:  GCC __alignof__ 'long double' type
+
+  type: integer
+  optional: true
+
+gcc_alignof_longlong:
+
+  description:  GCC __alignof__ 'long long' type
+
+  type: integer
+  optional: true
+
+gcc_alignof_max_align_t:
+
+  description:  GCC __alignof__ 'max_align_t' type
+
+  type: integer
+  optional: true
+
+gcc_alignof_ptr:
+
+  description:  GCC __alignof__ 'void*' type
+
+  type: integer
+  optional: true
+
+gcc_alignof_short:
+
+  description:  GCC __alignof__ 'short' type
+
+  type: integer
+  optional: true
+
+gcc_alignof_void:
+
+  description:  GCC __alignof__ void
+
+  type: integer
+  optional: true
+
+bufsiz:
+
+  description: value of 'BUFSIZ' macro
+
+  type: string
+
+char_is_unsigned:
+
+  description:  whether 'char' is unsigned
+
+  type: boolean
+
+compiler:
+
+  description:  compiler being used
+
+  type: string
+
+cpp_arch_flags:
+
+  description: |
+    arguments to be given to the compiler to select the corresponding
+    architecture (e.g. '-m32')
+
+  type: array
+
+  items:
+    type: string
+
+custom_defs:
+  description: |
+    builtin macros (and their definition) for the given architecture and
+    compiler
+  type: object
+  items:
+    type: object
+    properties: { } # an empty set of macros is admissible
+    additionalProperties:
+      type: string
+
+eof:
+
+  description: value of 'EOF' macro
+
+  type: string
+
+errno:
+
+  description: all error macros defined in errno.h
+
+  type: object
+  properties: { } #no error is OK
+  additionalProperties:
+    type: string
+
+filename_max:
+
+  description: value of 'FILENAME_MAX' macro
+
+  type: string
+
+fopen_max:
+
+  description: value of 'FOPEN_MAX' macro
+
+  type: string
+
+has__builtin_va_list:
+
+  description:  Whether '__builtin_va_list' is a known type
+
+  type: boolean
+
+host_name_max:
+
+  description: expansion of 'HOST_NAME_MAX' POSIX macro
+
+  type: string
+
+int_fast8_t:
+
+  description: definition of 'int_fast8_t'
+
+  type: string
+
+int_fast16_t:
+
+  description: definition of 'int_fast16_t'
+
+  type: string
+
+int_fast32_t:
+
+  description: definition of 'int_fast32_t'
+
+  type: string
+
+int_fast64_t:
+
+  description: definition of 'int_fast64_t'
+
+  type: string
+
+intptr_t:
+  description: definition of 'intptr_t'
+
+  type: string
+
+l_ctermid:
+
+  description: value of 'L_ctermid' macro
+
+  type: string
+
+l_tmpnam:
+
+  description: value of 'L_tmpnam' macro
+
+  type: string
+
+little_endian:
+
+  description:  whether the architecture is little-endian
+
+  type: boolean
+
+machdep_name:
+
+  description: |
+    name of the machdep. Will be used to define a macro allowing
+    to know during preprocessing which machdep has been selected.
+
+  type: string
+
+mb_cur_max:
+
+  description: expansion of 'MB_CUR_MAX' macro
+
+  type: string
+
+nsig:
+
+  description: number of possible signals (non standard macro, empty if undefined)
+
+  type: string
+
+path_max:
+
+  description: expansion of 'PATH_MAX' POSIX macro
+
+  type: string
+
+posix_c_source:
+  description: |
+    value of the macro '_POSIX_C_SOURCE'
+    leave empty for non-POSIX systems
+
+  type: string
+
+ptrdiff_t:
+
+  description:  definition of 'ptrdiff_t'
+
+  type: string
+
+rand_max:
+
+  description: expansion of 'RAND_MAX' macro
+
+  type: string
+
+sig_atomic_t:
+
+  description: representation of 'sig_atomic_t' (defined in signal.h)
+
+  type: string
+
+size_t:
+
+  description:  type of 'sizeof e'
+
+  type: string
+
+sizeof_double:
+
+  description:  size of 'double' type
+
+  type: integer
+
+sizeof_float:
+
+  description:  size of 'float' type
+
+  type: integer
+
+sizeof_fun:
+
+  description:  (non-standard) size of a function type. Negative if unsupported
+
+  type: integer
+
+sizeof_int:
+
+  description:  size of 'int' type
+
+  type: integer
+
+sizeof_long:
+
+  description:  size of 'long' type
+
+  type: integer
+
+sizeof_longdouble:
+
+  description:  size of 'long double' type
+
+  type: integer
+
+sizeof_longlong:
+
+  description:  size of 'long long' type
+
+  type: integer
+
+sizeof_ptr:
+
+  description:  size of 'void*' type
+
+  type: integer
+
+sizeof_short:
+
+  description:  size of 'short' type
+
+  type: integer
+
+sizeof_void:
+
+  description:  (non-standard) size of 'void' type. Negative if unsupported
+
+  type: integer
+
+ssize_t:
+
+  description: definition of 'ssize_t' (POSIX standard type)
+
+  type: string
+
+time_t:
+
+  description: definition of 'time_t' (in time.h)
+
+  type: string
+
+tmp_max:
+
+  description: value of 'TMP_MAX' macro
+
+  type: string
+
+tty_name_max:
+
+  description: value of 'TTY_NAME_MAX' POSIX macro
+
+  type: string
+
+uint_fast8_t:
+
+  description: definition of 'uint_fast8_t'
+
+  type: string
+
+uint_fast16_t:
+
+  description: definition of 'uint_fast16_t'
+
+  type: string
+
+uint_fast32_t:
+
+  description: definition of 'uint_fast32_t'
+
+  type: string
+
+uint_fast64_t:
+
+  description: definition of 'uint_fast64_t'
+
+  type: string
+
+uintptr_t:
+
+  description: definition of 'uintptr_t'
+
+  type: string
+
+version:
+
+  description:  information on this machdep
+
+  type: string
+
+wchar_t:
+
+  description:  definition of 'wchar_t'
+
+  type: string
+
+weof:
+
+  description: value of 'WEOF' macro
+
+  type: string
+
+wint_t:
+
+  description: definition of 'wint_t'
+
+  type: string
+
+wordsize:
+
+  description: value of "__WORDSIZE" macro
+
+  type: string

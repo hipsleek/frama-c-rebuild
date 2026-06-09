@@ -1,0 +1,65 @@
+# frama-c -wp [...]
+[kernel] Parsing initialized_memtyped.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal copy_struct_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal copy_struct_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal formal_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal formal_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal glob_arr_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal glob_arr_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal glob_var_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal glob_var_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal ptr_on_local_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal ptr_on_local_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal test_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal test_terminates (Cfg) (Trivial)
+[wp] 33 goals scheduled
+[wp] [Unsuccess] typed_test_check_unknown (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_test_check_unknown_2 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_test_check_unknown_3 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_test_check_qed_ok (Qed)
+[wp] [Valid] typed_test_check_qed_ok_2 (Qed)
+[wp] [Unsuccess] typed_test_check_unknown_4 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_test_check_unknown_5 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_test_check_qed_ok_3 (Qed)
+[wp] [Valid] typed_test_check_qed_ok_4 (Qed)
+[wp] [Valid] typed_test_check_provable (Alt-Ergo) (Cached)
+[wp] [Valid] typed_test_check_qed_ok_5 (Qed)
+[wp] [Unsuccess] typed_test_check_unknown_6 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_test_check_unknown_7 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_test_check_unknown_8 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_test_check_qed_ok_6 (Qed)
+[wp] [Unsuccess] typed_test_check_unknown_9 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_test_check_unknown_10 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_test_check_unknown_11 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_test_check_provable_2 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_test_check_unknown_12 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_test_check_provable_3 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_test_check_unknown_13 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_test_check_provable_4 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_glob_var_ensures_provable (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_glob_var_ensures_unknown (Alt-Ergo) (Cached)
+[wp] [Valid] typed_glob_arr_ensures_provable (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_glob_arr_ensures_unknown (Alt-Ergo) (Cached)
+[wp] [Valid] typed_formal_assert_provable (Alt-Ergo) (Cached)
+[wp] [Valid] typed_formal_assert_provable_2 (Qed)
+[wp] [Valid] typed_ptr_on_local_assert_provable (Alt-Ergo) (Cached)
+[wp] [Valid] typed_copy_struct_assert_provable (Alt-Ergo) (Cached)
+[wp] [Valid] typed_copy_struct_assert_provable_2 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_copy_struct_assert_not_provable (Alt-Ergo) (Cached)
+[wp] Proved goals:   29 / 45
+  Terminating:     6
+  Unreachable:     6
+  Qed:             7
+  Alt-Ergo:       10
+  Unsuccess:      16
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  test                      8        4       25      48.0%
+  glob_var                  2        1        4      75.0%
+  glob_arr                  2        1        4      75.0%
+  formal                    3        1        4       100%
+  ptr_on_local              2        1        3       100%
+  copy_struct               2        2        5      80.0%
+------------------------------------------------------------

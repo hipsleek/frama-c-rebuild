@@ -1,0 +1,165 @@
+[kernel] Parsing multi_taint.c (with preprocessing)
+[eva:experimental] Warning: The taint domain is experimental.
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  undet ∈ [--..--]
+[eva:progress] 
+  computing for function scanf_va_1 <- main.
+  Called from multi_taint.c:78.
+[eva] using specification for function scanf
+[eva:progress] multi_taint.c:78: 
+  function scanf_va_1: precondition \valid(param0) got status valid.
+[eva:progress] multi_taint.c:78: 
+  function scanf_va_1: precondition valid_read_string(format) got status valid.
+[eva:progress] Done for function scanf_va_1
+[eva:alarm] multi_taint.c:79: Warning: check got status unknown.
+[eva:progress] 
+  computing for function taint_simplify_singletons <- main.
+  Called from multi_taint.c:81.
+[eva:alarm] multi_taint.c:15: Warning: assertion got status unknown.
+[eva:progress] multi_taint.c:19: check got status valid.
+[eva:progress] multi_taint.c:20: check got status valid.
+[eva:progress] multi_taint.c:26: check got status valid.
+[eva:progress] multi_taint.c:27: check got status valid.
+[eva:progress] Recording results for taint_simplify_singletons
+[eva:progress] Done for function taint_simplify_singletons
+[eva:progress] multi_taint.c:82: check got status valid.
+[eva:progress] 
+  computing for function multi_taint_test <- main.
+  Called from multi_taint.c:84.
+[eva:alarm] multi_taint.c:35: Warning: check got status unknown.
+[eva:alarm] multi_taint.c:36: Warning: check got status unknown.
+[eva:progress] multi_taint.c:40: check got status valid.
+[eva:progress] multi_taint.c:44: check got status valid.
+[eva:progress] multi_taint.c:45: check got status valid.
+[eva:progress] multi_taint.c:46: check got status valid.
+[eva:progress] multi_taint.c:47: check got status valid.
+[eva:alarm] multi_taint.c:48: Warning: check got status unknown.
+[eva:progress] multi_taint.c:53: check got status valid.
+[eva:progress] multi_taint.c:54: check got status valid.
+[eva:alarm] multi_taint.c:56: Warning: check 'false' got status unknown.
+[eva:alarm] multi_taint.c:57: Warning: assertion got status unknown.
+[eva:progress] multi_taint.c:58: check 'true' got status valid.
+[eva:progress] 
+  computing for function Frama_C_interval <- multi_taint_test <- main.
+  Called from multi_taint.c:60.
+[eva] using specification for function Frama_C_interval
+[eva:progress] multi_taint.c:60: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- multi_taint_test <- main.
+  Called from multi_taint.c:61.
+[eva:progress] multi_taint.c:61: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] multi_taint.c:70: check 'true' got status valid.
+[eva:progress] multi_taint.c:71: check 'true' got status valid.
+[eva:show] multi_taint.c:73: 
+  Frama_C_dump_each:
+  # cvalue:
+  __fc_heap_status ∈ [--..--]
+  Frama_C_entropy_source ∈ [--..--]
+  __fc_stdin ∈ {{ NULL ; &S___fc_stdin[0] }}
+  undet ∈ [--..--]
+  taint_var ∈ {{ &taint_var }}
+  t ∈ [--..--]
+  y ∈ {2; 3}
+  i ∈ {0; 1; 2}
+  j ∈ {5; 6; 7}
+  buf[0] ∈ {0; 1; 2; 3}
+     [1..2] ∈ {1; 2; 3}
+     [3] ∈ {3}
+     [4] ∈ {4}
+     [5] ∈ {5; 6; 7; 8}
+     [6..7] ∈ {6; 7; 8}
+     [8] ∈ {8}
+     [9] ∈ {9}
+  taint_var ∈ [--..--]
+  __retres ∈ UNINITIALIZED
+  S___fc_stdin[0..1] ∈ [--..--]
+  # taint:
+  auto:
+    Locations (data): undet; t; taint_var
+    Locations (control): buf{[0..2]; [5..7]}
+  buf:
+    Locations (data): undet; buf[9]
+    Locations (control): buf{[0..2]; [5..7]}
+  test:
+    Locations (data): t; taint_var
+    Locations (control): y
+  ==END OF DUMP==
+[eva:progress] Recording results for multi_taint_test
+[eva:progress] Done for function multi_taint_test
+[eva:alarm] multi_taint.c:85: Warning: check got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[scope:rm_asserts] removing 1 assertion(s)
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function multi_taint_test:
+  Frama_C_entropy_source ∈ [--..--]
+  t ∈ [--..--]
+  y ∈ {2; 3}
+  i ∈ {0; 1; 2}
+  j ∈ {5; 6; 7}
+  buf[0] ∈ {0; 1; 2; 3}
+     [1..2] ∈ {1; 2; 3}
+     [3] ∈ {3}
+     [4] ∈ {4}
+     [5] ∈ {5; 6; 7; 8}
+     [6..7] ∈ {6; 7; 8}
+     [8] ∈ {8}
+     [9] ∈ {9}
+[eva:final-states] Values at end of function taint_simplify_singletons:
+  x ∈ {0}
+  y ∈ {4}
+  i ∈ {1}
+  t[0..1] ∈ {0}
+  z ∈ {0}
+[eva:final-states] Values at end of function main:
+  Frama_C_entropy_source ∈ [--..--]
+  taint_var ∈ [--..--]
+  __retres ∈ {0}
+  S___fc_stdin[0..1] ∈ [--..--]
+[from] Computing for function multi_taint_test
+[from] Computing for function Frama_C_interval <-multi_taint_test
+[from] Done for function Frama_C_interval
+[from] Done for function multi_taint_test
+[from] Computing for function taint_simplify_singletons
+[from] Done for function taint_simplify_singletons
+[from] Computing for function main
+[from] Computing for function scanf_va_1 <-main
+[from] Done for function scanf_va_1
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function Frama_C_interval:
+  Frama_C_entropy_source FROM Frama_C_entropy_source (and SELF)
+  \result FROM Frama_C_entropy_source; min; max
+[from] Function multi_taint_test:
+  Frama_C_entropy_source FROM Frama_C_entropy_source (and SELF)
+[from] Function scanf_va_1:
+  taint_var FROM S___fc_stdin[0]
+  S___fc_stdin[0].__fc_FILE_data FROM S___fc_stdin[0] (and SELF)
+  \result FROM S___fc_stdin[0]
+[from] Function taint_simplify_singletons:
+  NO EFFECTS
+[from] Function main:
+  Frama_C_entropy_source FROM Frama_C_entropy_source (and SELF)
+  S___fc_stdin[0].__fc_FILE_data FROM S___fc_stdin[0] (and SELF)
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function multi_taint_test:
+    Frama_C_entropy_source; t; y; i; j; buf[0..9]
+[inout] Inputs for function multi_taint_test:
+    Frama_C_entropy_source; undet; taint_var
+[inout] Out (internal) for function taint_simplify_singletons:
+    x; y; i; t[0..1]; z
+[inout] Inputs for function taint_simplify_singletons:
+    \nothing
+[inout] Out (internal) for function main:
+    Frama_C_entropy_source; taint_var; __retres; S___fc_stdin[0].__fc_FILE_data
+[inout] Inputs for function main:
+    Frama_C_entropy_source; undet; S___fc_stdin[0]

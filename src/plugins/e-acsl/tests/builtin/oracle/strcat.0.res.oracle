@@ -1,0 +1,56 @@
+[e-acsl] beginning translation.
+[e-acsl] FRAMAC_SHARE/libc/unistd.h:899: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/sys/wait.h:71: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/sys/wait.h:71: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/stdlib.h:739: Warning: 
+  E-ACSL construct `terminates clause' is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/stdlib.h:739: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/stdlib.h:742: Warning: 
+  E-ACSL construct `abnormal termination case in behavior'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] strcat.c:82: Warning: 
+  accessing left-value that contains escaping addresses.
+  assert !\dangling(&unalloc_str);
+[eva:alarm] strcat.c:83: Warning: 
+  accessing left-value that contains escaping addresses.
+  assert !\dangling(&unalloc_str);
+[eva:alarm] strcat.c:105: Warning: 
+  accessing left-value that contains escaping addresses.
+  assert !\dangling(&unalloc_str);
+[eva:alarm] strcat.c:106: Warning: 
+  accessing left-value that contains escaping addresses.
+  assert !\dangling(&unalloc_str);
+[eva:alarm] strcat.c:26: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] strcat.c:27: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] strcat.c:27: Warning: assertion got status unknown.
+[eva:alarm] strcat.c:31: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] strcat.c:32: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] strcat.c:38: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] strcat.c:39: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] strcat.c:39: Warning: assertion got status unknown.
+[eva:alarm] strcat.c:43: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] strcat.c:44: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] strcat.c:50: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] strcat.c:51: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] strcat.c:51: Warning: assertion got status unknown.
+[eva:alarm] strcat.c:55: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] strcat.c:56: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.

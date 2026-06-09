@@ -1,0 +1,7 @@
+[kernel] Parsing array_formals.c (with preprocessing)
+[kernel:attrs:unknown] array_formals.c:13: Warning: 
+  Ignoring unknown attribute: test
+[kernel] array_formals.c:24: User Error: invalid usage of 'restrict' qualifier
+[kernel] User Error: stopping on file "array_formals.c" that has errors. Add '-kernel-msg-key pp'
+  for preprocessing command.
+[kernel] Frama-C aborted: invalid user input.

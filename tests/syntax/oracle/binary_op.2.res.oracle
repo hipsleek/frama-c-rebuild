@@ -1,0 +1,10 @@
+[kernel] Parsing binary_op.c (with preprocessing)
+[kernel] binary_op.c:36: User Error: 
+  operand of operator '+' with non-integral type 'int *'
+  34    #ifdef ADD1
+  35    // ADD requires either both arithmetic, or a pointer and an integral
+  36    int x(void) { return ptr + ptr; }
+                                   ^^^
+  37    #endif
+  38
+[kernel] Frama-C aborted: invalid user input.

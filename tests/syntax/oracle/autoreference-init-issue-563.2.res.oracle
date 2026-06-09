@@ -1,0 +1,4 @@
+[kernel] Parsing autoreference-init-issue-563.c (with preprocessing)
+[kernel] autoreference-init-issue-563.c:63: Frama-C aborted: unimplemented feature.
+  You may send a feature request at https://git.frama-c.com/pub/frama-c/issues with:
+  '[Frama-C] Attempting to take arr_2 address ('& arr_2[1]') inside its own initialization with side effects (not supported by frama-c).'.

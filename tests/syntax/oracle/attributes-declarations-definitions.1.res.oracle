@@ -1,0 +1,62 @@
+[kernel] Parsing attributes-declarations-definitions.c (with preprocessing)
+[kernel:attrs:unknown] attributes-declarations-definitions.c:7: Warning: 
+  Ignoring unknown attribute: tret1
+[kernel:attrs:unknown] attributes-declarations-definitions.c:7: Warning: 
+  Ignoring unknown attribute: f1
+[kernel:attrs:unknown] attributes-declarations-definitions.c:7: Warning: 
+  Ignoring unknown attribute: arg1
+[kernel:attrs:unknown] attributes-declarations-definitions.c:10: Warning: 
+  Ignoring unknown attribute: tret2
+[kernel:attrs:unknown] attributes-declarations-definitions.c:10: Warning: 
+  Ignoring unknown attribute: f2
+[kernel:attrs:unknown] attributes-declarations-definitions.c:10: Warning: 
+  Ignoring unknown attribute: arg2
+[kernel:attrs:unknown] attributes-declarations-definitions.c:13: Warning: 
+  Ignoring unknown attribute: tret3
+[kernel:attrs:unknown] attributes-declarations-definitions.c:13: Warning: 
+  Ignoring unknown attribute: arg3
+[kernel] attributes-declarations-definitions.c:12: Warning: 
+  found two contracts (old location: attributes-declarations-definitions.c:6). Merging them
+[kernel:attrs:unknown] attributes-declarations-definitions.c:21: Warning: 
+  Ignoring unknown attribute: tret4
+[kernel:attrs:unknown] attributes-declarations-definitions.c:21: Warning: 
+  Ignoring unknown attribute: f4
+[kernel:attrs:unknown] attributes-declarations-definitions.c:21: Warning: 
+  Ignoring unknown attribute: arg4
+[kernel] attributes-declarations-definitions.c:21: Warning: 
+  found two contracts (old location: attributes-declarations-definitions.c:13-18). Merging them
+[kernel:attrs:unknown] attributes-declarations-definitions.c:23: Warning: 
+  Ignoring unknown attribute: tret5
+[kernel:attrs:unknown] attributes-declarations-definitions.c:23: Warning: 
+  Ignoring unknown attribute: f5
+[kernel:typing:no-proto] attributes-declarations-definitions.c:23: Warning: 
+  Function f is declared without prototype.
+  Its formals will be inferred from actual arguments at first call.
+  Declare it as f(void) if the function does not take any parameters.
+[kernel:attrs:unknown] attributes-declarations-definitions.c:25: Warning: 
+  Ignoring unknown attribute: a1
+[kernel:typing:no-proto] attributes-declarations-definitions.c:27: Warning: 
+  Function g is declared without prototype.
+  Its formals will be inferred from actual arguments at first call.
+  Declare it as g(void) if the function does not take any parameters.
+[kernel:attrs:unknown] attributes-declarations-definitions.c:33: Warning: 
+  Ignoring unknown attribute: a2
+[kernel:attrs:unknown] attributes-declarations-definitions.c:38: Warning: 
+  Ignoring unknown attribute: p1
+[kernel:attrs:unknown] attributes-declarations-definitions.c:38: Warning: 
+  Ignoring unknown attribute: p2
+[kernel:typing:no-proto] attributes-declarations-definitions.c:42: Warning: 
+  Function h is declared without prototype.
+  Its formals will be inferred from actual arguments at first call.
+  Declare it as h(void) if the function does not take any parameters.
+[kernel:attrs:unknown] attributes-declarations-definitions.c:54: Warning: 
+  Ignoring unknown attribute: o
+[kernel:attrs:unknown] attributes-declarations-definitions.c:56: Warning: 
+  Ignoring unknown attribute: _n
+[kernel:attrs:unknown] attributes-declarations-definitions.c:58: Warning: 
+  Ignoring unknown attribute: e_
+[kernel] attributes-declarations-definitions.c:62: User Error: 
+  Unsupported attribute: vector_size
+[kernel] User Error: stopping on file "attributes-declarations-definitions.c" that has errors. Add
+  '-kernel-msg-key pp' for preprocessing command.
+[kernel] Frama-C aborted: invalid user input.

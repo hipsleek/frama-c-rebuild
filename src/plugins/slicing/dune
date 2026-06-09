@@ -1,0 +1,43 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "Slicing:" %{lib-available:frama-c-slicing.core} "\n")
+          (echo "  - Pdg:" %{lib-available:frama-c-pdg.core} "\n")
+          (echo "  - Sparecode:" %{lib-available:frama-c-sparecode.core} "\n")
+          (echo "  - Inout" %{lib-available:frama-c-inout.core} "\n")
+          (echo "  - Server" %{lib-available:frama-c-server.core} "\n")
+  )
+  )
+)
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-slicing.core})))
+ (action (echo "WARNING: Slicing disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+( library
+  (name slicing)
+  (optional)
+  (public_name frama-c-slicing.core)
+  (flags -open Frama_c_kernel :standard -w -9)
+  (libraries
+    frama-c.kernel frama-c-inout.core frama-c-pdg.core frama-c-sparecode.core
+    frama-c-server.core)
+  (instrumentation (backend landmarks))
+  (instrumentation (backend bisect_ppx))
+)
+
+(plugin (optional) (name slicing) (libraries frama-c-slicing.core) (site (frama-c plugins)))

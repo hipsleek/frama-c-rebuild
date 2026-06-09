@@ -1,0 +1,79 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(install
+ (package frama-c)
+ (section (site (frama-c share)))
+ (source_trees emacs theme libc)
+ (files
+  ; Auto-Complete
+  (autocomplete_frama-c as autocomplete_frama-c)
+  (_frama-c as _frama-c)
+  ; Useful Makefiles
+  (Makefile.common as Makefile.common)
+  (Makefile.headers as Makefile.headers)
+  (Makefile.linting as Makefile.linting)
+  (Makefile.installation as Makefile.installation)
+  (Makefile.testing as Makefile.testing)
+  ; GUI Images
+  (frama-c.ico as frama-c.ico)
+  (frama-c.png as frama-c.png)
+  (unmark.png as unmark.png)
+  (switch-on.png as switch-on.png)
+  (switch-off.png as switch-off.png)))
+
+; Analysis scripts (executable files)
+(install
+ (package frama-c)
+ (section libexec)
+ (files
+  (glob_files (analysis-scripts/*.py with_prefix lib/analysis-scripts))
+  (glob_files (analysis-scripts/*.sh with_prefix lib/analysis-scripts))
+  (analysis-scripts/flamegraph.pl as lib/analysis-scripts/flamegraph.pl)
+))
+
+; Analysis scripts (non-executable files)
+(install
+ (package frama-c)
+ (section lib)
+ (files
+  (analysis-scripts/analysis.mk as lib/analysis-scripts/analysis.mk)
+  (analysis-scripts/epilogue.mk as lib/analysis-scripts/epilogue.mk)
+  (analysis-scripts/list_functions.ml as lib/analysis-scripts/list_functions.ml)
+  (analysis-scripts/prologue.mk as lib/analysis-scripts/prologue.mk)
+  (analysis-scripts/readme-graph.graphml as lib/analysis-scripts/readme-graph.graphml)
+  (analysis-scripts/readme-graph.svg as lib/analysis-scripts/readme-graph.svg)
+  (analysis-scripts/README.md as lib/analysis-scripts/README.md)
+  (analysis-scripts/template.mk as lib/analysis-scripts/template.mk)
+))
+
+; machdeps
+(install
+ (package frama-c)
+ (section share)
+ (files
+  (glob_files (machdeps/*.yaml with_prefix share/machdeps))
+  (glob_files (machdeps/*.json with_prefix share/machdeps))
+))
+
+; machdep generation script
+(install
+ (package frama-c)
+ (section libexec)
+ (files
+  (machdeps/make_machdep/make_machdep.py as lib/make_machdep/make_machdep.py))
+)
+
+; machdep generation auxiliary files
+(install
+ (package frama-c)
+ (section lib)
+ (files
+  (glob_files (machdeps/make_machdep/*.c with_prefix lib/make_machdep))
+  (machdeps/make_machdep/make_machdep_common.h as lib/make_machdep/make_machdep_common.h)
+))

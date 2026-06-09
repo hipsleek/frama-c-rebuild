@@ -1,0 +1,111 @@
+# frama-c -wp [...]
+[kernel] Parsing dynamic.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] dynamic.i:52: Warning: 
+  Neither code nor explicit exits and terminates for function h1, generating
+  default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] dynamic.i:56: Warning: 
+  Neither code nor explicit exits and terminates for function h2, generating
+  default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] dynamic.i:16: Warning: 
+  Neither code nor explicit exits and terminates for function f1, generating
+  default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] dynamic.i:19: Warning: 
+  Neither code nor explicit exits and terminates for function f2, generating
+  default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] dynamic.i:94: Warning: 
+  Neither code nor explicit terminates for function unreachable_g, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] dynamic.i:80: Warning: Missing 'calls' for default behavior
+[wp] dynamic.i:80: Warning: Unknown callee, considering non-terminating call
+[wp] dynamic.i:80: Warning: 
+  Missing decreases clause on recursive function some_behaviors, call must be unreachable
+[wp] 60 goals scheduled
+[wp] [Valid] typed_call_call_point_f1_f2_s3 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_call_terminates (Qed)
+[wp] [Valid] typed_call_ensures_part1 (Qed)
+[wp] [Valid] typed_call_ensures_part2 (Qed)
+[wp] [Valid] typed_call_exits_part1 (Qed)
+[wp] [Valid] typed_call_exits_part2 (Qed)
+[wp] [Valid] typed_call_call_f1_requires (Alt-Ergo) (Cached)
+[wp] [Valid] typed_behavior_call_point_h1_h2_s15 (Qed)
+[wp] [Valid] typed_behavior_bhv1_ensures_part1 (Qed)
+[wp] [Valid] typed_behavior_bhv1_ensures_part2 (Qed)
+[wp] [Valid] typed_behavior_bhv1_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_behavior_bhv1_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_behavior_bhv1_assigns_normal_part3 (Qed)
+[wp] [Valid] typed_behavior_bhv1_assigns_normal_part4 (Qed)
+[wp] [Valid] typed_behavior_bhv1_assigns_exit_part1 (Qed)
+[wp] [Valid] typed_behavior_bhv1_assigns_exit_part2 (Qed)
+[wp] [Unsuccess] typed_behavior_call_point_h1_h2_s15 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_behavior_terminates (Qed)
+[wp] [Valid] typed_behavior_exits_part1 (Qed)
+[wp] [Valid] typed_behavior_exits_part2 (Qed)
+[wp] [Valid] typed_some_behaviors_call_point_h1_h2_h0_for_bhv1_s20 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv1_ensures_part1 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv1_ensures_part2 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv1_ensures_part3 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv1_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv1_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv1_assigns_normal_part3 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv1_assigns_normal_part4 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv1_assigns_normal_part5 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv1_assigns_exit_part1 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv1_assigns_exit_part2 (Qed)
+[wp] [Valid] typed_some_behaviors_call_point_h1_h2_h0_for_bhv0_s20 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv0_ensures_part1 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv0_ensures_part2 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv0_ensures_part3 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv0_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv0_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv0_assigns_normal_part3 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv0_assigns_normal_part4 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv0_assigns_normal_part5 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv0_assigns_normal_part6 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv0_assigns_exit_part1 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv0_assigns_exit_part2 (Qed)
+[wp] [Valid] typed_some_behaviors_bhv0_assigns_exit_part3 (Qed)
+[wp] [Unsuccess] typed_some_behaviors_terminates_part1 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_some_behaviors_terminates_part2 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_some_behaviors_exits (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_missing_context_call_point_h1_s25 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_missing_context_terminates (Qed)
+[wp] [Valid] typed_missing_context_ensures (Qed)
+[wp] [Valid] typed_missing_context_exits (Qed)
+[wp] [Valid] typed_missing_context_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_missing_context_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_missing_context_assigns_exit (Qed)
+[wp] [Valid] typed_no_call_call_point_unreachable_g_s32 (Qed)
+[wp] [Valid] typed_no_call_terminates (Qed)
+[wp] [Valid] typed_no_call_ensures_part1 (Qed)
+[wp] [Valid] typed_no_call_ensures_part2 (Qed)
+[wp] [Valid] typed_no_call_exits (Qed)
+[wp] [Valid] typed_no_call_call_unreachable_g_requires (Qed)
+[wp] Proved goals:   55 / 60
+  Qed:            53
+  Alt-Ergo:        2
+  Unsuccess:       5
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  call                      5        2        7       100%
+  behavior                 12        -       13      92.3%
+  some_behaviors           24        -       27      88.9%
+  missing_context           6        -        7      85.7%
+  no_call                   6        -        6       100%
+------------------------------------------------------------
+[wp] dynamic.i:65: Warning: 
+  Memory model hypotheses for function 'behavior':
+  /*@ behavior wp_typed:
+        requires \separated(p, &X1); */
+  int behavior(int (*p)(void));
+[wp] dynamic.i:78: Warning: 
+  Memory model hypotheses for function 'some_behaviors':
+  /*@ behavior wp_typed:
+        requires \separated(p, &X1); */
+  int some_behaviors(int (*p)(void));
+[wp] dynamic.i:87: Warning: 
+  Memory model hypotheses for function 'missing_context':
+  /*@ behavior wp_typed:
+        requires \separated(p, &X1); */
+  int missing_context(int (*p)(void));

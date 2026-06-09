@@ -1,0 +1,6 @@
+-cpp-extra-args="-DTEST_QUOTED_1 -DTEST_QUOTED_2=2"
+-cpp-extra-args -DTEST_UNQUOTED_1 -DTEST_UNQUOTED_2=4
+-cpp-extra-args "-DTEST_QUOTED_STRING_1=\"test_quoted_string_1\""
+-cpp-extra-args -DTEST_QUOTED_STRING_2=\"test_quoted_string_2\"
+-cpp-extra-args=-DTEST_UNQUOTED_STRING_1="test_unquoted_string_1"
+-cpp-extra-args="-DTEST_UNQUOTED_STRING_2=test_unquoted_string_2"

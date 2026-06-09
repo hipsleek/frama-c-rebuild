@@ -1,0 +1,255 @@
+[kernel] Parsing spawn_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  environ ∈ {0}
+[eva:progress] 
+  computing for function getopt <- main.
+  Called from spawn_h.c:36.
+[eva] using specification for function getopt
+[eva:garbled-mix:assigns] spawn_h.c:36: 
+  The specification of function getopt has generated a garbled mix of addresses
+  for assigns clause \result.
+[eva:progress] Done for function getopt
+[eva:progress] 
+  computing for function posix_spawn_file_actions_init <- main.
+  Called from spawn_h.c:43.
+[eva] using specification for function posix_spawn_file_actions_init
+[eva:progress] Done for function posix_spawn_file_actions_init
+[eva:progress] 
+  computing for function posix_spawn_file_actions_addclose <- main.
+  Called from spawn_h.c:47-48.
+[eva] using specification for function posix_spawn_file_actions_addclose
+[eva:progress] Done for function posix_spawn_file_actions_addclose
+[eva:progress] 
+  computing for function posix_spawnattr_init <- main.
+  Called from spawn_h.c:60.
+[eva] using specification for function posix_spawnattr_init
+[eva:progress] Done for function posix_spawnattr_init
+[eva:progress] 
+  computing for function posix_spawnattr_setflags <- main.
+  Called from spawn_h.c:63.
+[eva] using specification for function posix_spawnattr_setflags
+[eva:progress] Done for function posix_spawnattr_setflags
+[eva:progress] 
+  computing for function sigfillset <- main.
+  Called from spawn_h.c:67.
+[eva] using specification for function sigfillset
+[eva:progress] spawn_h.c:67: 
+  function sigfillset: precondition 'valid_set' got status valid.
+[eva:progress] Done for function sigfillset
+[eva:progress] 
+  computing for function posix_spawnattr_setsigmask <- main.
+  Called from spawn_h.c:68.
+[eva] using specification for function posix_spawnattr_setsigmask
+[eva:progress] Done for function posix_spawnattr_setsigmask
+[eva:partition] spawn_h.c:36: starting to merge loop iterations
+[eva:progress] 
+  computing for function getopt <- main.
+  Called from spawn_h.c:36.
+[eva:progress] Done for function getopt
+[eva:progress] 
+  computing for function posix_spawn_file_actions_init <- main.
+  Called from spawn_h.c:43.
+[eva:progress] Done for function posix_spawn_file_actions_init
+[eva:progress] 
+  computing for function posix_spawn_file_actions_addclose <- main.
+  Called from spawn_h.c:47-48.
+[eva:progress] Done for function posix_spawn_file_actions_addclose
+[eva:progress] 
+  computing for function posix_spawnattr_init <- main.
+  Called from spawn_h.c:60.
+[eva:progress] Done for function posix_spawnattr_init
+[eva:progress] 
+  computing for function posix_spawnattr_setflags <- main.
+  Called from spawn_h.c:63.
+[eva:progress] Done for function posix_spawnattr_setflags
+[eva:progress] 
+  computing for function sigfillset <- main.
+  Called from spawn_h.c:67.
+[eva:progress] Done for function sigfillset
+[eva:progress] 
+  computing for function posix_spawnattr_setsigmask <- main.
+  Called from spawn_h.c:68.
+[eva:progress] Done for function posix_spawnattr_setsigmask
+[eva:progress] 
+  computing for function perror <- main.
+  Called from spawn_h.c:45.
+[eva] using specification for function perror
+[eva:progress] spawn_h.c:45: 
+  function perror: precondition 'valid_string_s' got status valid.
+[eva:progress] Done for function perror
+[eva:progress] 
+  computing for function exit <- main.
+  Called from spawn_h.c:45.
+[eva] using specification for function exit
+[eva:progress] Done for function exit
+[eva:progress] 
+  computing for function perror <- main.
+  Called from spawn_h.c:50.
+[eva:progress] spawn_h.c:50: 
+  function perror: precondition 'valid_string_s' got status valid.
+[eva:progress] Done for function perror
+[eva:progress] 
+  computing for function exit <- main.
+  Called from spawn_h.c:50.
+[eva:progress] Done for function exit
+[eva:progress] 
+  computing for function perror <- main.
+  Called from spawn_h.c:62.
+[eva:progress] spawn_h.c:62: 
+  function perror: precondition 'valid_string_s' got status valid.
+[eva:progress] Done for function perror
+[eva:progress] 
+  computing for function exit <- main.
+  Called from spawn_h.c:62.
+[eva:progress] Done for function exit
+[eva:progress] 
+  computing for function perror <- main.
+  Called from spawn_h.c:65.
+[eva:progress] spawn_h.c:65: 
+  function perror: precondition 'valid_string_s' got status valid.
+[eva:progress] Done for function perror
+[eva:progress] 
+  computing for function exit <- main.
+  Called from spawn_h.c:65.
+[eva:progress] Done for function exit
+[eva:progress] 
+  computing for function perror <- main.
+  Called from spawn_h.c:70.
+[eva:progress] spawn_h.c:70: 
+  function perror: precondition 'valid_string_s' got status valid.
+[eva:progress] Done for function perror
+[eva:progress] 
+  computing for function exit <- main.
+  Called from spawn_h.c:70.
+[eva:progress] Done for function exit
+[eva:alarm] spawn_h.c:82: Warning: 
+  unaligned pointer creation. assert \aligned(argv + optind,alignof(char *));
+[eva:alarm] spawn_h.c:82: Warning: 
+  out of bounds read. assert \valid_read(argv + optind);
+[eva:garbled-mix:write] spawn_h.c:82: 
+  Assigning imprecise value to file because of misaligned read of addresses.
+[eva:progress] 
+  computing for function posix_spawnp <- main.
+  Called from spawn_h.c:82-83.
+[eva] using specification for function posix_spawnp
+[eva:progress] Done for function posix_spawnp
+[eva:progress] 
+  computing for function perror <- main.
+  Called from spawn_h.c:85.
+[eva:progress] spawn_h.c:85: 
+  function perror: precondition 'valid_string_s' got status valid.
+[eva:progress] Done for function perror
+[eva:progress] 
+  computing for function exit <- main.
+  Called from spawn_h.c:85.
+[eva:progress] Done for function exit
+[eva:progress] 
+  computing for function posix_spawnattr_destroy <- main.
+  Called from spawn_h.c:90.
+[eva] using specification for function posix_spawnattr_destroy
+[eva:progress] Done for function posix_spawnattr_destroy
+[eva:progress] 
+  computing for function perror <- main.
+  Called from spawn_h.c:92.
+[eva:progress] spawn_h.c:92: 
+  function perror: precondition 'valid_string_s' got status valid.
+[eva:progress] Done for function perror
+[eva:progress] 
+  computing for function exit <- main.
+  Called from spawn_h.c:92.
+[eva:progress] Done for function exit
+[eva:progress] 
+  computing for function posix_spawn_file_actions_destroy <- main.
+  Called from spawn_h.c:96.
+[eva] using specification for function posix_spawn_file_actions_destroy
+[eva:progress] Done for function posix_spawn_file_actions_destroy
+[eva:progress] 
+  computing for function perror <- main.
+  Called from spawn_h.c:98.
+[eva:progress] spawn_h.c:98: 
+  function perror: precondition 'valid_string_s' got status valid.
+[eva:progress] Done for function perror
+[eva:progress] 
+  computing for function exit <- main.
+  Called from spawn_h.c:98.
+[eva:progress] Done for function exit
+[eva:alarm] spawn_h.c:101: Warning: 
+  accessing uninitialized left-value. assert \initialized(&child_pid);
+[eva:progress] 
+  computing for function printf_va_1 <- main.
+  Called from spawn_h.c:101.
+[eva] using specification for function printf
+[eva:progress] spawn_h.c:101: 
+  function printf_va_1: precondition got status valid.
+[eva:progress] Done for function printf_va_1
+[eva:progress] 
+  computing for function waitpid <- main.
+  Called from spawn_h.c:106.
+[eva] using specification for function waitpid
+[eva:progress] spawn_h.c:106: 
+  function waitpid, behavior stat_loc_non_null: precondition 'valid_stat_loc' got status valid.
+[eva:progress] Done for function waitpid
+[eva:progress] 
+  computing for function printf_va_2 <- main.
+  Called from spawn_h.c:110.
+[eva:progress] spawn_h.c:110: 
+  function printf_va_2: precondition got status valid.
+[eva:progress] Done for function printf_va_2
+[eva:alarm] spawn_h.c:111: Warning: 
+  accessing uninitialized left-value. assert \initialized(&status);
+[eva:progress] 
+  computing for function printf_va_3 <- main.
+  Called from spawn_h.c:112.
+[eva:progress] spawn_h.c:112: 
+  function printf_va_3: precondition got status valid.
+[eva:progress] Done for function printf_va_3
+[eva:progress] 
+  computing for function printf_va_4 <- main.
+  Called from spawn_h.c:114.
+[eva:progress] spawn_h.c:114: 
+  function printf_va_4: precondition got status valid.
+[eva:progress] Done for function printf_va_4
+[eva:progress] 
+  computing for function printf_va_5 <- main.
+  Called from spawn_h.c:116.
+[eva:progress] spawn_h.c:116: 
+  function printf_va_5: precondition got status valid.
+[eva:progress] Done for function printf_va_5
+[eva:progress] 
+  computing for function printf_va_6 <- main.
+  Called from spawn_h.c:118.
+[eva:progress] spawn_h.c:118: 
+  function printf_va_6: precondition got status valid.
+[eva:progress] Done for function printf_va_6
+[eva:partition] spawn_h.c:105: starting to merge loop iterations
+[eva:progress] 
+  computing for function waitpid <- main.
+  Called from spawn_h.c:106.
+[eva:progress] Done for function waitpid
+[eva:progress] 
+  computing for function perror <- main.
+  Called from spawn_h.c:108.
+[eva:progress] spawn_h.c:108: 
+  function perror: precondition 'valid_string_s' got status valid.
+[eva:progress] Done for function perror
+[eva:progress] 
+  computing for function exit <- main.
+  Called from spawn_h.c:108.
+[eva:progress] Done for function exit
+[eva:progress] 
+  computing for function exit <- main.
+  Called from spawn_h.c:122.
+[eva:progress] Done for function exit
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva:garbled-mix:summary] 
+  Origins of garbled mix generated during analysis:
+    spawn_h.c:36: assigns clause on addresses
+      (read in 3 statements, propagated through 2 statements)
+      garbled mix of &{S_argv; S_0_S_argv; S_1_S_argv}
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  NON TERMINATING FUNCTION

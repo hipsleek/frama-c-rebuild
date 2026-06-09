@@ -1,0 +1,8 @@
+%init: fst;
+%accept: ok;
+%deterministic;
+fst : { CALL(main) } -> b;
+b : { init() } -> c;
+c:  { find()+ } -> ok;
+ok: { RETURN(main) } -> ok;
+

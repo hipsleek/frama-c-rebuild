@@ -1,0 +1,3 @@
+function main:
+contract:
+requires file2:\true ;

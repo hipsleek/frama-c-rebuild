@@ -1,0 +1,41 @@
+[kernel] Parsing pointer2.i (no preprocessing)
+[eva] Analyzing a complete application starting at h
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  p ∈ {0}
+  q ∈ {0}
+  x ∈ {0}
+  y ∈ {0}
+  z ∈ {0}
+[eva:progress] 
+  computing for function f <- h.
+  Called from pointer2.i:18:7-12.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] Recording results for h
+[eva:progress] Done for function h
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function f:
+  
+[eva:final-states] Values at end of function h:
+  q ∈ {{ &y }}
+[from] Computing for function f
+[from] Done for function f
+[from] Computing for function h
+[from] Done for function h
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  \result FROM r
+[from] Function h:
+  q FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function f:
+    \nothing
+[inout] Inputs for function f:
+    \nothing
+[inout] Out (internal) for function h:
+    q
+[inout] Inputs for function h:
+    \nothing

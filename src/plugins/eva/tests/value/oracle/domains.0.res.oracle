@@ -1,0 +1,166 @@
+[kernel] Parsing domains.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+[eva:partition] domains.i:16: starting to merge loop iterations
+[eva:partition] domains.i:34: starting to merge loop iterations
+[eva:show] domains.i:50: 
+  Frama_C_domain_show_each:
+  a : # cvalue: {8}
+      # symbolic-locations: (not implemented)
+      # equality: 
+      # octagon: (not implemented)
+      # gauges: (not implemented)
+      # multidim: {8}
+      # bitwise: (not implemented)
+      # sign: +
+  i : # cvalue: [1..99]
+      # symbolic-locations: (not implemented)
+      # equality: 
+      # octagon: (not implemented)
+      # gauges: (not implemented)
+      # multidim: [1..99]
+      # bitwise: (not implemented)
+      # sign: +
+  j : # cvalue: [10..210]
+      # symbolic-locations: (not implemented)
+      # equality: 
+      # octagon: (not implemented)
+      # gauges: (not implemented)
+      # multidim: [10..210]
+      # bitwise: (not implemented)
+      # sign: +
+  k : # cvalue: [2..100]
+      # symbolic-locations: (not implemented)
+      # equality: {k = ((i - j) + 1) + j}
+      # octagon: (not implemented)
+      # gauges: (not implemented)
+      # multidim: [2..100]
+      # bitwise: (not implemented)
+      # sign: -0+
+  r : # cvalue: {1}
+      # symbolic-locations: (not implemented)
+      # equality: 
+      # octagon: (not implemented)
+      # gauges: (not implemented)
+      # multidim: {1}
+      # bitwise: (not implemented)
+      # sign: 0+
+[eva:show] domains.i:51: 
+  Frama_C_dump_each:
+  # cvalue:
+  nondet ∈ [--..--]
+  a ∈ {8}
+  i ∈ [1..99]
+  j ∈ [10..210]
+  k ∈ [2..100]
+  r ∈ {1}
+  t[0..63] ∈ [--..--] or UNINITIALIZED
+   [64] ∈ [--..--]
+   [65..99] ∈ [--..--] or UNINITIALIZED
+  b1 ∈ {0; 1}
+  b2 ∈ {0; 1}
+  scalar ∈ UNINITIALIZED
+  # symbolic-locations:
+  V: {[ t[i] -> [-2147483648..2147483647]
+        t[i] / i -> [-2147483648..2147483647]
+        i - j -> [-209..89]
+        t[k - 1] -> [-2147483648..2147483647] ]}
+  Z: {[ t[i] -> i; t[1..99]
+        t[i] / i -> i; t[1..99]
+        i - j -> i; j
+        t[k - 1] -> k; t[1..99] ]}
+  I: {[ i -> {t[i], t[i] / i, i - j}
+        j -> {i - j}
+        k -> {t[k - 1]}
+        t -> {t[i], t[i] / i, t[k - 1]} ]}
+  S: {[ i -> {t[i], t[i] / i, i - j}
+        j -> {i - j}
+        k -> {t[k - 1]}
+        t -> {t[i], t[i] / i, t[k - 1]} ]}
+  # equality:
+  {k = ((i - j) + 1) + j}
+  # octagon:
+  {[ i + j ∈ [11..309]
+     j + k ∈ [12..310]
+     j - k ∈ [-90..208]
+      ]}
+  # gauges:
+  V: [{[ a -> {8}
+         i -> [-2147483648..2147483647]
+         j -> [10..210]
+         k -> [-2147483847..2147483848]
+         r -> {1}
+         b1 -> {0; 1}
+         b2 -> {0; 1} ]}]
+  
+  # multidim:
+  ({[ a -> ({8}, {})
+      i -> ([1..99], {t})
+      j -> ([10..210], {})
+      k -> ([2..100], {t})
+      r -> ({1}, {})
+      t -> ({
+              [0 .. k - 2] = [-2147483648..2147483647],
+              [k - 1] = [-2147483648..2147483647],
+              [k .. 99] = [-2147483648..2147483647]
+            },
+              {})
+      b1 -> ({0; 1}, {})
+      b2 -> ({0; 1}, {})
+      scalar -> (UNINITIALIZED, {}) ]},
+     None)
+  # bitwise:
+  a[bits 0 to 2] ∈ {0}
+   [bits 3 to 3] ∈ {1}
+   [bits 4 to 31] ∈ {0}
+  # sign:
+  {[ a -> +
+     i -> +
+     j -> +
+     r -> 0+ ]}
+  ==END OF DUMP==
+[eva:show] domains.i:52: Dumping state in file 'domains_dump_0'
+[eva:show] domains.i:57: 
+  Frama_C_domain_show_each:
+  scalar : # cvalue: [bits 0 to 7]# ∈ {65537}%32, bits 0 to 7 
+                     [bits 8 to 15] ∈ {42}
+                     [bits 16 to 31]# ∈ {65537}%32, bits 16 to 31 
+                     This amounts to: {76289}
+           # symbolic-locations: (not implemented)
+           # equality: 
+           # octagon: (not implemented)
+           # gauges: (not implemented)
+           # multidim: T
+           # bitwise: (not implemented)
+           # sign: -0+
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  a ∈ {8}
+  i ∈ [1..99]
+  j ∈ [10..210]
+  k ∈ [2..100]
+  r ∈ {1}
+  t[0..63] ∈ [--..--] or UNINITIALIZED
+   [64] ∈ [--..--]
+   [65..99] ∈ [--..--] or UNINITIALIZED
+  b1 ∈ {0; 1}
+  b2 ∈ {0; 1}
+  scalar[bits 0 to 7]# ∈ {65537}%32, bits 0 to 7 
+        [bits 8 to 15] ∈ {42}
+        [bits 16 to 31]# ∈ {65537}%32, bits 16 to 31 
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    a; i; j; k; r; t[0..99]; b1; b2; scalar
+[inout] Inputs for function main:
+    nondet

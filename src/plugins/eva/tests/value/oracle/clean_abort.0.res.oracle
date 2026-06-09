@@ -1,0 +1,62 @@
+[kernel] Warning: ignoring source files specified on the command line while loading a global initial context.
+[from] Computing for function init
+[from] Done for function init
+[from] Computing for function partial
+[from] Non-terminating function partial (no dependencies)
+[from] Done for function partial
+[from] Computing for function main
+[from] Non-terminating function main (no dependencies)
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function init:
+  t[0..9] FROM nondet; x (and SELF)
+  g FROM nondet; t[1..9]; x
+[from] Function partial:
+  NON TERMINATING - NO EFFECTS
+[from] Function main:
+  NON TERMINATING - NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function init:
+    t[0..9]; g; i
+[inout] Inputs for function init:
+    nondet; t[1..9]
+[inout] Out (internal) for function partial:
+    g
+[inout] Inputs for function partial:
+    \nothing
+[inout] Out (internal) for function main:
+    t[0..9]; g
+[inout] Inputs for function main:
+    nondet; t[1..9]
+[report] Computing properties status...
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'init'
+--------------------------------------------------------------------------------
+
+[  Valid  ] Assertion 'valid' ("clean_abort.i", line 32, characters 21-28)
+            by Eva.
+[    -    ] Assertion 'Eva,division_by_zero' ("clean_abort.i", line 28, characters 21-22)
+            tried with Eva.
+[    -    ] Assertion 'Eva,index_bound' ("clean_abort.i", line 30, characters 9-10)
+            tried with Eva.
+[    -    ] Assertion 'Eva,index_bound' ("clean_abort.i", line 31, characters 21-22)
+            tried with Eva.
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'partial'
+--------------------------------------------------------------------------------
+
+[  Valid  ] Assertion 'valid' ("clean_abort.i", line 37, characters 21-27)
+            by Eva.
+[    -    ] Assertion 'Eva,division_by_zero' ("clean_abort.i", line 38, characters 14-15)
+            tried with Eva.
+
+--------------------------------------------------------------------------------
+--- Status Report Summary
+--------------------------------------------------------------------------------
+     2 Completely validated
+     4 To be validated
+     6 Total
+--------------------------------------------------------------------------------

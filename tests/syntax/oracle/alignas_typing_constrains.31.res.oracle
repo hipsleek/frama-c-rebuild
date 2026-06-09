@@ -1,0 +1,4 @@
+[kernel] Parsing alignas_typing_constrains.c (with preprocessing)
+[kernel] alignas_typing_constrains.c:342: User Error: 
+  alignof on incomplete type 'struct X'
+[kernel] Frama-C aborted: invalid user input.

@@ -1,0 +1,117 @@
+[kernel] Parsing partitioning-order.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+  g ∈ {0}
+[eva:progress] 
+  computing for function check_split_order <- main.
+  Called from partitioning-order.i:57:3-22.
+[eva:show] partitioning-order.i:27: Frama_C_show_each_split: {0}
+[eva:show] partitioning-order.i:27: Frama_C_show_each_split: {1}
+[eva:show] partitioning-order.i:27: Frama_C_show_each_split: {2}
+[eva:show] partitioning-order.i:28: Frama_C_show_each_split: {0}
+[eva:show] partitioning-order.i:28: Frama_C_show_each_split: {1}
+[eva:show] partitioning-order.i:28: Frama_C_show_each_split: {2}
+[eva:show] partitioning-order.i:30: Frama_C_show_each_split: {0}
+[eva:show] partitioning-order.i:30: Frama_C_show_each_split: {1}
+[eva:show] partitioning-order.i:30: Frama_C_show_each_split: {2}
+[eva:progress] 
+  computing for function incr_g <- check_split_order <- main.
+  Called from partitioning-order.i:31:3-11.
+[eva:progress] Recording results for incr_g
+[eva:progress] Done for function incr_g
+[eva:progress] partitioning-order.i:31: Reusing old results for call to incr_g
+[eva:progress] partitioning-order.i:31: Reusing old results for call to incr_g
+[eva:show] partitioning-order.i:32: Frama_C_show_each_split: {0}
+[eva:show] partitioning-order.i:32: Frama_C_show_each_split: {1}
+[eva:show] partitioning-order.i:32: Frama_C_show_each_split: {2}
+[eva:progress] partitioning-order.i:33: check got status valid.
+[eva:show] partitioning-order.i:34: Frama_C_show_each_split: {0}
+[eva:show] partitioning-order.i:34: Frama_C_show_each_split: {1}
+[eva:show] partitioning-order.i:34: Frama_C_show_each_split: {2}
+[eva:partition] partitioning-order.i:35: starting to merge loop iterations
+[eva:show] partitioning-order.i:36: Frama_C_show_each_split: {0}
+[eva:show] partitioning-order.i:36: Frama_C_show_each_split: {1}
+[eva:show] partitioning-order.i:36: Frama_C_show_each_split: {2}
+[eva:progress] Recording results for check_split_order
+[eva:progress] Done for function check_split_order
+[eva:progress] 
+  computing for function check_history_order <- main.
+  Called from partitioning-order.i:58:3-24.
+[eva:show] partitioning-order.i:43: Frama_C_show_each_history: {2}
+[eva:show] partitioning-order.i:43: Frama_C_show_each_history: {1}
+[eva:show] partitioning-order.i:43: Frama_C_show_each_history: {0}
+[eva:show] partitioning-order.i:44: Frama_C_show_each_history: {2}
+[eva:show] partitioning-order.i:44: Frama_C_show_each_history: {1}
+[eva:show] partitioning-order.i:44: Frama_C_show_each_history: {0}
+[eva:show] partitioning-order.i:46: Frama_C_show_each_history: {2}
+[eva:show] partitioning-order.i:46: Frama_C_show_each_history: {1}
+[eva:show] partitioning-order.i:46: Frama_C_show_each_history: {0}
+[eva:progress] 
+  computing for function incr_g <- check_history_order <- main.
+  Called from partitioning-order.i:47:3-11.
+[eva:progress] Recording results for incr_g
+[eva:progress] Done for function incr_g
+[eva:progress] partitioning-order.i:47: Reusing old results for call to incr_g
+[eva:progress] partitioning-order.i:47: Reusing old results for call to incr_g
+[eva:show] partitioning-order.i:48: Frama_C_show_each_history: {2}
+[eva:show] partitioning-order.i:48: Frama_C_show_each_history: {1}
+[eva:show] partitioning-order.i:48: Frama_C_show_each_history: {0}
+[eva:progress] partitioning-order.i:49: check got status valid.
+[eva:show] partitioning-order.i:50: Frama_C_show_each_history: {2}
+[eva:show] partitioning-order.i:50: Frama_C_show_each_history: {1}
+[eva:show] partitioning-order.i:50: Frama_C_show_each_history: {0}
+[eva:partition] partitioning-order.i:51: starting to merge loop iterations
+[eva:show] partitioning-order.i:52: Frama_C_show_each_history: {0; 1; 2}
+[eva:progress] Recording results for check_history_order
+[eva:progress] Done for function check_history_order
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function incr_g:
+  g ∈ {2; 4}
+[eva:final-states] Values at end of function check_history_order:
+  g ∈ {4}
+  x ∈ {0; 1; 2}
+[eva:final-states] Values at end of function check_split_order:
+  g ∈ {2}
+  x ∈ {0; 1; 2}
+[eva:final-states] Values at end of function main:
+  g ∈ {4}
+[from] Computing for function incr_g
+[from] Done for function incr_g
+[from] Computing for function check_history_order
+[from] Done for function check_history_order
+[from] Computing for function check_split_order
+[from] Done for function check_split_order
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function incr_g:
+  g FROM g
+[from] Function check_history_order:
+  g FROM g
+[from] Function check_split_order:
+  g FROM g
+[from] Function main:
+  g FROM g
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function incr_g:
+    g
+[inout] Inputs for function incr_g:
+    g
+[inout] Out (internal) for function check_history_order:
+    g; x; j
+[inout] Inputs for function check_history_order:
+    nondet; g
+[inout] Out (internal) for function check_split_order:
+    g; x; j
+[inout] Inputs for function check_split_order:
+    nondet; g
+[inout] Out (internal) for function main:
+    g
+[inout] Inputs for function main:
+    nondet; g

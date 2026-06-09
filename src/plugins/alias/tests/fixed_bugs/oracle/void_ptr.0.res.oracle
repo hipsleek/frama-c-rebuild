@@ -1,0 +1,74 @@
+[kernel] Parsing void_ptr.c (with preprocessing)
+[alias] analysing global variable definition: fts_read_sp = {};
+[alias] May-aliases after global variable definition  fts_read_sp  are  <none>
+[alias] analysing global variable definition: fts_read_sp_0 = {};
+[alias] May-aliases after global variable definition  fts_read_sp_0  are  <none>
+[alias] analysing global variable definition: enter_dir_ad = {};
+[alias] May-aliases after global variable definition  enter_dir_ad  are  <none>
+[alias] analysing global variable definition: enter_dir_entry =
+  (void *)(& enter_dir_ad);
+[alias] May-aliases after global variable definition  enter_dir_entry  are  <none>
+[alias] analysing function: enter_dir
+[alias] analysing instruction: enter_dir_ad.fts_ent = ent;
+[alias] May-aliases after instruction  enter_dir_ad.fts_ent = ent;  are
+  { ((struct Active_dir *)enter_dir_entry)->fts_ent; enter_dir_ad.fts_ent;
+    ent }
+[alias] analysing instruction: void *data = hash_find_entry(fts->ht);
+[alias] analysing function: hash_find_entry
+[alias] analysing instruction: struct hash_entry *bucket = & table___0->bucket;
+[alias] May-aliases after instruction
+  struct hash_entry *bucket = & table___0->bucket;  are  <none>
+[alias] analysing instruction: __retres = (struct Active_dir *)bucket->data;
+[alias] May-aliases after instruction  __retres = (struct Active_dir *)bucket->data;
+  are  { table___0->bucket.data; bucket->data; __retres }
+[alias] May-aliases at the end of function hash_find_entry:
+  { table___0->bucket.data; bucket->data; __retres }
+[alias] May-aliases after instruction  void *data = hash_find_entry(fts->ht);  are
+  { ((struct Active_dir *)enter_dir_entry)->fts_ent; enter_dir_ad.fts_ent;
+    ent }
+  { (fts->ht)->bucket.data; data }
+[alias] analysing instruction: data = enter_dir_entry;
+[alias] May-aliases after instruction  data = enter_dir_entry;  are
+  { ((struct Active_dir *)(fts->ht)->bucket.data)->fts_ent;
+    ((struct Active_dir *)enter_dir_entry)->fts_ent;
+    ((struct Active_dir *)data)->fts_ent; enter_dir_ad.fts_ent; ent }
+  { (fts->ht)->bucket.data; enter_dir_entry; data }
+[alias] May-aliases at the end of function enter_dir:
+  { ((struct Active_dir *)(fts->ht)->bucket.data)->fts_ent;
+    ((struct Active_dir *)enter_dir_entry)->fts_ent;
+    ((struct Active_dir *)data)->fts_ent; enter_dir_ad.fts_ent; ent }
+  { (fts->ht)->bucket.data; enter_dir_entry; data }
+[alias] analysing function: main
+[alias] analysing instruction: enter_dir(& fts_read_sp,fts_read_sp_0);
+[alias] May-aliases after instruction  enter_dir(& fts_read_sp,fts_read_sp_0);  are
+  { ((struct Active_dir *)(fts_read_sp.ht)->bucket.data)->fts_ent;
+    ((struct Active_dir *)enter_dir_entry)->fts_ent; fts_read_sp_0;
+    enter_dir_ad.fts_ent }
+  { (fts_read_sp.ht)->bucket.data; enter_dir_entry }
+[alias] analysing instruction: struct _ftsent *tmp = fts_read_sp_0->fts_link;
+[alias] May-aliases after instruction
+  struct _ftsent *tmp = fts_read_sp_0->fts_link;  are
+  { ((struct Active_dir *)(fts_read_sp.ht)->bucket.data)->fts_ent;
+    ((struct Active_dir *)enter_dir_entry)->fts_ent; fts_read_sp_0;
+    enter_dir_ad.fts_ent }
+  { (((struct Active_dir *)(fts_read_sp.ht)->bucket.data)->fts_ent)->fts_link;
+    (((struct Active_dir *)enter_dir_entry)->fts_ent)->fts_link;
+    fts_read_sp_0->fts_link; (enter_dir_ad.fts_ent)->fts_link; tmp }
+  { (fts_read_sp.ht)->bucket.data; enter_dir_entry }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { ((struct Active_dir *)(fts_read_sp.ht)->bucket.data)->fts_ent;
+    ((struct Active_dir *)enter_dir_entry)->fts_ent; fts_read_sp_0;
+    enter_dir_ad.fts_ent }
+  { (((struct Active_dir *)(fts_read_sp.ht)->bucket.data)->fts_ent)->fts_link;
+    (((struct Active_dir *)enter_dir_entry)->fts_ent)->fts_link;
+    fts_read_sp_0->fts_link; (enter_dir_ad.fts_ent)->fts_link; tmp }
+  { (fts_read_sp.ht)->bucket.data; enter_dir_entry }
+[alias] May-aliases at the end of function main:
+  { ((struct Active_dir *)(fts_read_sp.ht)->bucket.data)->fts_ent;
+    ((struct Active_dir *)enter_dir_entry)->fts_ent; fts_read_sp_0;
+    enter_dir_ad.fts_ent }
+  { (((struct Active_dir *)(fts_read_sp.ht)->bucket.data)->fts_ent)->fts_link;
+    (((struct Active_dir *)enter_dir_entry)->fts_ent)->fts_link;
+    fts_read_sp_0->fts_link; (enter_dir_ad.fts_ent)->fts_link; tmp }
+  { (fts_read_sp.ht)->bucket.data; enter_dir_entry }

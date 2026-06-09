@@ -1,0 +1,20 @@
+# frama-c -wp [...]
+[kernel] Parsing boolean.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal u8_is_continue_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal u8_is_continue_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 4 goals scheduled
+[wp] [Valid] typed_u8_is_continue_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_u8_is_continue_assigns_part1 (Qed)
+[wp] [Valid] typed_u8_is_continue_assigns_part2 (Qed)
+[wp] [Valid] typed_u8_is_continue_assigns_part3 (Qed)
+[wp] Proved goals:    6 / 6
+  Terminating:     1
+  Unreachable:     1
+  Qed:             3
+  Alt-Ergo:        1
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  u8_is_continue            5        1        6       100%
+------------------------------------------------------------

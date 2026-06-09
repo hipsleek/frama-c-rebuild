@@ -1,0 +1,27 @@
+opam-version: "2.0"
+name: "frama-c-hdrck"
+synopsis: "Frama-C header check tool"
+version: "34~dev"
+description:"""
+Performs all checks related to file headers as required by the Frama-C
+continuous integration.
+"""
+maintainer: "allan.blanchard@cea.fr"
+authors: [
+  "Patrick Baudin"
+  "Richard Bonichon"
+]
+homepage: "https://frama-c.com/"
+license: "LGPL-2.1-only"
+dev-repo: "git+https://git.frama-c.com/pub/frama-c.git"
+bug-reports: "https://git.frama-c.com/pub/frama-c/issues"
+build: [
+  "dune" "build" "-j%{jobs}%" "--release"
+]
+install: [
+  "dune" "install" "-j%{jobs}%" "--prefix=%{prefix}%"
+]
+depends: [
+  "dune" { > "3.2.0" }
+  "headache"
+]

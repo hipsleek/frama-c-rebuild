@@ -1,0 +1,19 @@
+[kernel] Parsing collapse1.c (with preprocessing)
+[alias] analysing function: main
+[alias] analysing instruction: tab[0] = 0;
+[alias] May-aliases after instruction  tab[0] = 0;  are  <none>
+[alias] analysing instruction: tab[1] = 1;
+[alias] May-aliases after instruction  tab[1] = 1;  are  <none>
+[alias] analysing instruction: tab[2] = tab[1] + 1;
+[alias] May-aliases after instruction  tab[2] = tab[1] + 1;  are  <none>
+[alias] analysing instruction: int x = 0;
+[alias] May-aliases after instruction  int x = 0;  are  <none>
+[alias] analysing instruction: int i = 0;
+[alias] May-aliases after instruction  int i = 0;  are  <none>
+[alias] analysing instruction: x = tab[i];
+[alias] May-aliases after instruction  x = tab[i];  are  <none>
+[alias] analysing instruction: i ++;
+[alias] May-aliases after instruction  i ++;  are  <none>
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are  <none>
+[alias] May-aliases at the end of function main: <none>

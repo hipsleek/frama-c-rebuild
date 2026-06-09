@@ -1,0 +1,18 @@
+[kernel] Parsing enum_typedef_redef.i (no preprocessing)
+[kernel] enum_typedef_redef.i:10: User Error: 
+  redefinition of 'h' in the same scope.
+  Previous declaration was at enum_typedef_redef.i:9:1-24
+[kernel] enum_typedef_redef.i:10: User Error: 
+  redefinition of 'Z' in the same scope.
+  Previous declaration was at enum_typedef_redef.i:9:1-24
+[kernel] enum_typedef_redef.i:10: User Error: 
+  redefinition of type 'h' in the same scope with conflicting type.
+  Previous declaration was at enum_typedef_redef.i:9:1-24
+[kernel] enum_typedef_redef.i:16: User Error: 
+  redefinition of type 't' in the same scope with conflicting type.
+  Previous declaration was at enum_typedef_redef.i:15:1-22
+[kernel] enum_typedef_redef.i:19: User Error: 
+  redefinition of type 'q' in the same scope with conflicting type.
+  Previous declaration was at enum_typedef_redef.i:18:1-15
+[kernel] User Error: stopping on file "enum_typedef_redef.i" that has errors.
+[kernel] Frama-C aborted: invalid user input.

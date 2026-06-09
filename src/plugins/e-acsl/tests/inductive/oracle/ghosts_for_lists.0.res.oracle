@@ -1,0 +1,21 @@
+[e-acsl] beginning translation.
+[e-acsl:analysis:inductive] 
+  extracting predicate from linked_n using mode: complete
+[e-acsl] ghosts_for_lists.c:40: Warning: 
+  no assigns clause generated for function linked_n because pointers as arguments is not yet supported
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] ghosts_for_lists.c:40: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] ghosts_for_lists.c:40: Warning: assertion got status unknown.
+[eva:alarm] ghosts_for_lists.c:33: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] ghosts_for_lists.c:33: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] ghosts_for_lists.c:33: Warning: 
+  out of bounds read. assert \valid_read(cArr + __gen_e_acsl_index);
+[eva:alarm] ghosts_for_lists.c:44: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] ghosts_for_lists.c:44: Warning: assertion got status unknown.
+[eva:alarm] ghosts_for_lists.c:46: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] ghosts_for_lists.c:46: Warning: assertion got status unknown.

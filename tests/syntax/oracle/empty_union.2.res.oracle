@@ -1,0 +1,10 @@
+[kernel] Parsing empty_union.i (no preprocessing)
+[kernel] empty_union.i:9: User Error: 
+  empty unions only allowed for GCC/MSVC machdeps; see option -machdep or run 'frama-c -machdep help' for the list of available machdeps
+[kernel] empty_union.i:9: User Error: 
+  empty initializers only allowed for GCC/MSVC machdeps; see option -machdep or run 'frama-c -machdep help' for the list of available machdeps
+  7     
+  8     // based on GCC's 'torture' test suite
+  9     union empty {} eu = {};
+                       ^^
+[kernel] Frama-C aborted: invalid user input.

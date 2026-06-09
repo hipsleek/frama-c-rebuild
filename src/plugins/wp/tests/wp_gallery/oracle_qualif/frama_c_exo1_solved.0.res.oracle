@@ -1,0 +1,45 @@
+# frama-c -wp [...]
+[kernel] Parsing frama_c_exo1_solved.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal exo1_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal exo1_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 10 goals scheduled
+[wp] [Valid] typed_exo1_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_exo1_ensures_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_exo1_loop_invariant_established (Qed)
+[wp] [Valid] typed_exo1_loop_invariant_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_exo1_loop_invariant_2_established (Qed)
+[wp] [Valid] typed_exo1_loop_invariant_2_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_exo1_loop_assigns (Qed)
+[wp] [Valid] typed_exo1_assigns (Qed)
+[wp] [Valid] typed_exo1_loop_variant_positive (Qed)
+[wp] [Valid] typed_exo1_loop_variant_decrease (Qed)
+[wp] Proved goals:   12 / 12
+  Terminating:     1
+  Unreachable:     1
+  Qed:             6
+  Alt-Ergo:        4
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  exo1                      8        4       12       100%
+------------------------------------------------------------
+[wp] Running WP plugin...
+[wp] Warning: Skipped RTE guards: unaligned pointers (\aligned not supported)
+[wp] Warning: Skipped RTE guards: invalid function pointer calls (\valid_function not supported)
+[rte:annot] annotating function exo1
+[wp] [Valid] Goal exo1_terminates (Cfg) (Trivial)
+[wp] 5 goals scheduled
+[wp] [Valid] typed_exo1_assert_rte_signed_overflow (Qed)
+[wp] [Valid] typed_exo1_assert_rte_mem_access (Alt-Ergo) (Cached)
+[wp] [Valid] typed_exo1_assert_rte_mem_access_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_exo1_assert_rte_signed_overflow_2 (Qed)
+[wp] [Valid] typed_exo1_assert_rte_signed_overflow_3 (Qed)
+[wp] Proved goals:    6 / 6
+  Terminating:     1
+  Qed:             3
+  Alt-Ergo:        2
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  exo1                     11        6       17       100%
+------------------------------------------------------------

@@ -1,0 +1,43 @@
+[kernel] Parsing n9.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+[eva:progress] 
+  computing for function f <- main.
+  Called from n9.i:41:15-18.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] 
+  computing for function g <- main.
+  Called from n9.i:42:15-18.
+[eva:progress] Recording results for g
+[eva:progress] Done for function g
+[eva:progress] 
+  computing for function f_explicit_break <- main.
+  Called from n9.i:43:15-33.
+[eva:progress] Recording results for f_explicit_break
+[eva:progress] Done for function f_explicit_break
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function f:
+  NON TERMINATING FUNCTION
+[eva:final-states] Values at end of function f_explicit_break:
+  NON TERMINATING FUNCTION
+[eva:final-states] Values at end of function g:
+  NON TERMINATING FUNCTION
+[eva:final-states] Values at end of function main:
+  res ∈ {0}
+  __retres ∈ {0}
+[nonterm:stmt] n9.i:7: Warning: 
+  non-terminating loop
+  stack: f :: n9.i:41:15-18 <- main
+[nonterm:stmt] n9.i:19: Warning: 
+  non-terminating loop
+  stack: g :: n9.i:42:15-18 <- main
+[nonterm:stmt] n9.i:29: Warning: 
+  non-terminating loop
+  stack: f_explicit_break :: n9.i:43:15-33 <- main
+[nonterm] Analysis done.

@@ -1,0 +1,10 @@
+[kernel] Parsing origin_simpl.c (with preprocessing)
+[alias] analysing global variable definition: t = {};
+[alias] May-aliases after global variable definition  t  are  <none>
+[alias] analysing function: f
+[alias] analysing instruction: tmp = (void *)*((int *)(t));
+[alias:unsafe-cast] origin_simpl.c:9: Warning: 
+  unsafe cast from int to void *; analysis may be unsound
+[alias] May-aliases after instruction  tmp = (void *)*((int *)(t));  are
+  { t[0..]; tmp }
+[alias] May-aliases at the end of function f: { t[0..]; tmp }

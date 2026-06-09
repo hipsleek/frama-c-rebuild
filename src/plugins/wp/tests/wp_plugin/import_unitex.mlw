@@ -1,0 +1,64 @@
+module Builtin
+  use int.Int
+  use real.Real
+  use bool.Bool
+
+  type bint = int
+  type breal = real
+  type bbool = bool
+end
+
+module No_def
+  type t
+  constant x: t
+end
+
+module No_def_syn
+  use No_def
+
+  type t = No_def.t
+  constant y: t = x
+end
+
+module ADT
+  use int.Int
+  type t 'a = A | B int | C 'a
+  type s 'a = t 'a
+end
+
+module Range
+  use int.Int
+
+  type r42 = < range -42 42 >
+  function to_int (x: r42) : int = r42'int x
+
+  function of_int (x: int) : r42
+  axiom ax:
+    forall x: int.
+      -42 <= x <= 42 -> to_int(of_int(x)) = x
+end
+
+module Float8
+  use real.Real
+
+  type f8 = < float 4 3 >
+
+  constant f1: f8 = (0.5:f8)
+  predicate is_finite(f: f8) = f8'isFinite(f)
+end
+
+module Symbols
+  use int.Int
+
+  predicate pred(i j: int) = i = j
+  predicate (==) (i j: int) = pred i j
+
+  function func(i: int) : int = i + 42
+  function (!) (i : int) : int = func i
+
+  lemma x: !0 == 42
+
+  inductive pos(i: int) =
+    | Base : pos(1)
+    | Plus : forall i : int. pos (i-1) -> pos i
+end

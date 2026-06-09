@@ -1,0 +1,62 @@
+[kernel] Parsing ghost_cv_invalid_use.i (no preprocessing)
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:14: User Error: 
+  'ng' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:20: User Error: 
+  '*ptr' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:25: User Error: 
+  'ng_var.field' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:37: User Error: 
+  '*ptrp' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:38: User Error: 
+  '*(*ptrp)' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:39: User Error: 
+  '*(*ptrpg)' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:40: User Error: 
+  '*(arrp[0])' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:41: User Error: 
+  '(*ptra)[0]' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:46: User Error: 
+  '*a' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:54: User Error: 
+  '*a' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:64: User Error: 
+  'p' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:69: User Error: 
+  '*p' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:73: User Error: 
+  '*p' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:83: User Error: 
+  '*p' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:88: User Error: 
+  '*(p + (0 .. max))' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:92: User Error: 
+  '*(p + (0 .. max))' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:103: User Error: 
+  '*(p + (0 .. max))' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:127: User Error: 
+  Call to non-ghost function from ghost code is not allowed
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:128: User Error: 
+  Call to non-ghost function from ghost code is not allowed
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:129: User Error: 
+  Call to non-ghost function from ghost code is not allowed
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:132: User Error: 
+  Call to non-ghost function from ghost code is not allowed
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:133: User Error: 
+  Call to non-ghost function from ghost code is not allowed
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:134: User Error: 
+  Call to non-ghost function from ghost code is not allowed
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:155: User Error: 
+  Call to non-ghost function from ghost code is not allowed
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:156: User Error: 
+  Call to non-ghost function from ghost code is not allowed
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:157: User Error: 
+  Call to non-ghost function from ghost code is not allowed
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:160: User Error: 
+  Call to non-ghost function from ghost code is not allowed
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:161: User Error: 
+  Call to non-ghost function from ghost code is not allowed
+[kernel:ghost:bad-use] ghost_cv_invalid_use.i:162: User Error: 
+  Call to non-ghost function from ghost code is not allowed
+[kernel] Deferred error: warning as error ghost:bad-use:
+  ghost_cv_invalid_use.i:14: 'ng' is a non-ghost lvalue, it cannot be assigned in ghost code
+[kernel] Frama-C aborted: invalid user input.

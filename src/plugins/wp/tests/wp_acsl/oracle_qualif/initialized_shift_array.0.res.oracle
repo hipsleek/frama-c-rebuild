@@ -1,0 +1,59 @@
+# frama-c -wp [...]
+[kernel] Parsing initialized_shift_array.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] initialized_shift_array.i:4: Warning: 
+  Neither code nor explicit exits, assigns and terminates for function test,
+  generating default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] 33 goals scheduled
+[wp] [Valid] typed_succ_full_first_cell_terminates (Qed)
+[wp] [Valid] typed_succ_full_first_cell_exits (Qed)
+[wp] [Valid] typed_succ_full_first_cell_call_test_requires (Qed)
+[wp] [Valid] typed_succ_full_full_terminates (Qed)
+[wp] [Valid] typed_succ_full_full_exits (Qed)
+[wp] [Valid] typed_succ_full_full_call_test_requires (Alt-Ergo) (Cached)
+[wp] [Valid] typed_succ_full_from_1_terminates (Qed)
+[wp] [Valid] typed_succ_full_from_1_exits (Qed)
+[wp] [Valid] typed_succ_full_from_1_call_test_requires (Alt-Ergo) (Cached)
+[wp] [Valid] typed_succ_from_1_from_1_terminates (Qed)
+[wp] [Valid] typed_succ_from_1_from_1_exits (Qed)
+[wp] [Valid] typed_succ_from_1_from_1_call_test_requires (Alt-Ergo) (Cached)
+[wp] [Valid] typed_succ_full_from_2_terminates (Qed)
+[wp] [Valid] typed_succ_full_from_2_exits (Qed)
+[wp] [Valid] typed_succ_full_from_2_call_test_requires (Alt-Ergo) (Cached)
+[wp] [Valid] typed_fail_cell_before_terminates (Qed)
+[wp] [Valid] typed_fail_cell_before_exits (Qed)
+[wp] [Unsuccess] typed_fail_cell_before_call_test_requires (Alt-Ergo) (Cached)
+[wp] [Valid] typed_fail_too_long_terminates (Qed)
+[wp] [Valid] typed_fail_too_long_exits (Qed)
+[wp] [Unsuccess] typed_fail_too_long_call_test_requires (Alt-Ergo) (Cached)
+[wp] [Valid] typed_fail_too_long_from_1_terminates (Qed)
+[wp] [Valid] typed_fail_too_long_from_1_exits (Qed)
+[wp] [Unsuccess] typed_fail_too_long_from_1_call_test_requires (Alt-Ergo) (Cached)
+[wp] [Valid] typed_fail_too_long_from_2_terminates (Qed)
+[wp] [Valid] typed_fail_too_long_from_2_exits (Qed)
+[wp] [Unsuccess] typed_fail_too_long_from_2_call_test_requires (Alt-Ergo) (Cached)
+[wp] [Valid] typed_fail_cell_after_end_terminates (Qed)
+[wp] [Valid] typed_fail_cell_after_end_exits (Qed)
+[wp] [Unsuccess] typed_fail_cell_after_end_call_test_requires (Alt-Ergo) (Cached)
+[wp] [Valid] typed_fail_partial_not_full_terminates (Qed)
+[wp] [Valid] typed_fail_partial_not_full_exits (Qed)
+[wp] [Unsuccess] typed_fail_partial_not_full_call_test_requires (Alt-Ergo) (Cached)
+[wp] Proved goals:   27 / 33
+  Qed:            23
+  Alt-Ergo:        4
+  Unsuccess:       6
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  succ_full_first_cell      3        -        3       100%
+  succ_full_full            2        1        3       100%
+  succ_full_from_1          2        1        3       100%
+  succ_from_1_from_1        2        1        3       100%
+  succ_full_from_2          2        1        3       100%
+  fail_cell_before          2        -        3      66.7%
+  fail_too_long             2        -        3      66.7%
+  fail_too_long_from_1      2        -        3      66.7%
+  fail_too_long_from_2      2        -        3      66.7%
+  fail_cell_after_end       2        -        3      66.7%
+  fail_partial_not_full     2        -        3      66.7%
+------------------------------------------------------------

@@ -1,0 +1,27 @@
+# frama-c -wp [...]
+[kernel] Parsing vset.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] 15 goals scheduled
+[wp] [Valid] typed_check_lemma_direct_in (Qed)
+[wp] [Valid] typed_check_lemma_direct_in_singleton (Qed)
+[wp] [Valid] typed_check_lemma_indirect_equal_constants (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_indirect_equal_ghost (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_indirect_equal_logical (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_indirect_in_constants (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_indirect_in_ghost (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_indirect_in_logical (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_indirect_not_equal_constants (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_indirect_not_equal_logical (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_indirect_not_in_constants (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_indirect_not_in_logical (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_check_lemma_quantify (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_test_inter (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_test_union (Alt-Ergo) (Cached)
+[wp] Proved goals:   14 / 15
+  Qed:             2
+  Alt-Ergo:       12
+  Unsuccess:       1
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Lemma                     2       12       15      93.3%
+------------------------------------------------------------

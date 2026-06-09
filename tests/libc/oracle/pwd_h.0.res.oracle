@@ -1,0 +1,38 @@
+[kernel] Parsing pwd_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  uid ∈ [--..--]
+[eva:progress] 
+  computing for function getpwuid <- main.
+  Called from pwd_h.c:10.
+[eva] using specification for function getpwuid
+[eva:progress] Done for function getpwuid
+[eva:alarm] pwd_h.c:13: Warning: assertion got status unknown.
+[eva:alarm] pwd_h.c:14: Warning: assertion got status unknown.
+[eva:alarm] pwd_h.c:15: Warning: assertion got status unknown.
+[eva:alarm] pwd_h.c:16: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function getpwnam <- main.
+  Called from pwd_h.c:18.
+[eva] using specification for function getpwnam
+[eva:progress] pwd_h.c:18: 
+  function getpwnam: precondition 'valid_name' got status valid.
+[eva:progress] Done for function getpwnam
+[eva:alarm] pwd_h.c:21: Warning: assertion got status unknown.
+[eva:alarm] pwd_h.c:22: Warning: assertion got status unknown.
+[eva:alarm] pwd_h.c:23: Warning: assertion got status unknown.
+[eva:alarm] pwd_h.c:24: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  __fc_pwd.pw_name ∈ {{ NULL + [--..--] ; &S_pw_name___fc_pwd[0] }}
+          .pw_passwd ∈ {{ NULL + [--..--] ; &S_pw_passwd___fc_pwd[0] }}
+          {.pw_uid; .pw_gid} ∈ [--..--]
+          .pw_gecos ∈ {{ NULL + [--..--] ; &S_pw_gecos___fc_pwd[0] }}
+          .pw_dir ∈ {{ NULL + [--..--] ; &S_pw_dir___fc_pwd[0] }}
+          .pw_shell ∈ {{ NULL + [--..--] ; &S_pw_shell___fc_pwd[0] }}
+  pw ∈ {{ NULL ; &__fc_pwd }}
+  __retres ∈ {0}

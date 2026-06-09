@@ -1,0 +1,4 @@
+MODULE: libSelect libAnim
+MODULE:
+PLUGIN: eva,scope slicing
+OPT: @EVA_OPTIONS@ -machdep x86_32

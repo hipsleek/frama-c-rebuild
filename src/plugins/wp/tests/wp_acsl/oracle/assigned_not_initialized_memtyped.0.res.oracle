@@ -1,0 +1,147 @@
+# frama-c -wp [...]
+[kernel] Parsing assigned_not_initialized_memtyped.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] Warning: Missing RTE guards
+------------------------------------------------------------
+  Function array
+------------------------------------------------------------
+
+Goal Check 'FAIL' ("assigned_not_initialized_memtyped.i", line 28, characters 19-38):
+Let a = shift_sint32(array_0, 0).
+Assume {
+  Type: is_sint32(i).
+  (* Heap *)
+  Type: (region(array_0.base) <= 0) /\ scinit(Init_0).
+  (* Else *)
+  Have: 10 <= i.
+}
+Prove: IsInitArray_sint32(array_0, 10,
+         memcpy(Init_0, a, Init_undef_0, a, 10)).
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function assigned_glob_array
+------------------------------------------------------------
+
+Goal Check 'FAIL' ("assigned_not_initialized_memtyped.i", line 60, characters 19-41):
+Let a = shift_sint32(global(G_glob_array_52), 0).
+Let a_1 = shift_sint32(pg_array_0, 0).
+Assume {
+  Type: is_sint32(i).
+  (* Heap *)
+  Type: (region(G_glob_array_52) <= 0) /\ (region(pg_array_0.base) <= 0) /\
+      scinit(Init_0).
+  (* Else *)
+  Have: 10 <= i.
+}
+Prove: IsInitArray_sint32(pg_array_0, 10,
+         memcpy(memcpy(Init_0, a, Init_undef_0, a, 10), a_1, Init_undef_1,
+           a_1, 10)).
+
+------------------------------------------------------------
+
+Goal Check 'OK' ("assigned_not_initialized_memtyped.i", line 61, characters 18-40):
+Let a = global(G_glob_array_52).
+Let a_1 = shift_sint32(a, 0).
+Let a_2 = shift_sint32(pg_array_0, 0).
+Assume {
+  Type: is_sint32(i).
+  (* Heap *)
+  Type: (region(G_glob_array_52) <= 0) /\ (region(pg_array_0.base) <= 0) /\
+      scinit(Init_0).
+  (* Else *)
+  Have: 10 <= i.
+}
+Prove: IsInitArray_sint32(a, 10,
+         memcpy(memcpy(Init_0, a_1, Init_undef_0, a_1, 10), a_2,
+           Init_undef_1, a_2, 10)).
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function assigned_glob_atomic
+------------------------------------------------------------
+
+Goal Check 'FAIL' ("assigned_not_initialized_memtyped.i", line 38, characters 19-42):
+Assume {
+  Type: is_sint32(i_1).
+  (* Heap *)
+  Type: region(G_glob_atomic_40) <= 0.
+  (* Else *)
+  Have: 10 <= i_1.
+}
+Prove: (i=true).
+
+------------------------------------------------------------
+
+Goal Check 'OK' ("assigned_not_initialized_memtyped.i", line 39, characters 18-41):
+Let a = global(G_glob_atomic_40).
+Assume {
+  Type: is_sint32(i_2).
+  (* Heap *)
+  Type: (region(G_glob_atomic_40) <= 0) /\ (region(pg_atomic_0.base) <= 0) /\
+      scinit(Init_0).
+  (* Else *)
+  Have: 10 <= i_2.
+}
+Prove: (Init_0[a <- i][pg_atomic_0 <- i_1][a]=true).
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function assigned_glob_comp
+------------------------------------------------------------
+
+Goal Check 'FAIL' ("assigned_not_initialized_memtyped.i", line 49, characters 19-40):
+Let a = global(G_glob_comp_46).
+Assume {
+  Type: is_sint32(i).
+  (* Heap *)
+  Type: (region(G_glob_comp_46) <= 0) /\ (region(pg_comp_0.base) <= 0) /\
+      scinit(Init_0).
+  (* Else *)
+  Have: 10 <= i.
+}
+Prove: IsInit_S1_S(pg_comp_0,
+         memcpy(memcpy(Init_0, a, Init_undef_0, a, 11), pg_comp_0,
+           Init_undef_1, pg_comp_0, 11)).
+
+------------------------------------------------------------
+
+Goal Check 'FAIL' ("assigned_not_initialized_memtyped.i", line 50, characters 20-41):
+Let a = global(G_glob_comp_46).
+Assume {
+  Type: is_sint32(i).
+  (* Heap *)
+  Type: (region(G_glob_comp_46) <= 0) /\ (region(pg_comp_0.base) <= 0) /\
+      scinit(Init_0).
+  (* Else *)
+  Have: 10 <= i.
+}
+Prove: IsInit_S1_S(a,
+         memcpy(memcpy(Init_0, a, Init_undef_0, a, 11), pg_comp_0,
+           Init_undef_1, pg_comp_0, 11)).
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function atomic
+------------------------------------------------------------
+
+Goal Check 'FAIL' ("assigned_not_initialized_memtyped.i", line 16, characters 19-36):
+Assume { Type: is_sint32(i_1). (* Else *) Have: 10 <= i_1. }
+Prove: (i=true).
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function comp
+------------------------------------------------------------
+
+Goal Check 'FAIL' ("assigned_not_initialized_memtyped.i", line 22, characters 19-34):
+Assume {
+  Type: is_sint32(i).
+  (* Heap *)
+  Type: (region(s.base) <= 0) /\ scinit(Init_0).
+  (* Else *)
+  Have: 10 <= i.
+}
+Prove: IsInit_S1_S(s, memcpy(Init_0, s, Init_undef_0, s, 11)).
+
+------------------------------------------------------------

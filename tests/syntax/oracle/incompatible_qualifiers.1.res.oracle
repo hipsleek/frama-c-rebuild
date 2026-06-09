@@ -1,0 +1,10 @@
+[kernel] Parsing incompatible_qualifiers.c (with preprocessing)
+[kernel] incompatible_qualifiers.c:20: User Error: 
+  Declaration of f does not match previous declaration from incompatible_qualifiers.c:18 (different qualifiers).
+  18    int f(int a, char volatile *b);
+  19    #ifdef INCOMPATIBLE1
+  20    int f(int a, char *b); // conflicting types for 'f'
+            ^
+  21    #endif
+  22
+[kernel] Frama-C aborted: invalid user input.

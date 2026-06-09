@@ -1,0 +1,29 @@
+; Test dependencies
+(rule
+ (alias frama-c-configure)
+ (deps
+  (universe)
+  (alias ../frama-c-configure-tests))
+ (action (progn
+          (echo "  - tests/mopsa/:" %{read:../../tests-mopsa-deps-available} "\n")
+          (echo "    - cmake:" %{bin-available:cmake} "\n")
+          (echo "    - mopsa-build:" %{bin-available:mopsa-build} "\n")
+          (echo "    - mopsa-db:" %{bin-available:mopsa-db} "\n")
+          ; If you add some dependencies here, do not forget to add them to
+          ; tests_configurator.ml
+ ))
+)
+
+(cram
+  (deps ; generic dependencies for all tests
+    (package frama-c)
+    (package frama-c-eva)
+    ;(package mopsa) ; cannot optionally depend on it, so omitted for now
+  )
+)
+
+(cram
+  (applies_to polarssl-cmake)
+  (enabled_if (and %{bin-available:mopsa-build} %{bin-available:mopsa-db}
+    %{bin-available:cmake}))
+)

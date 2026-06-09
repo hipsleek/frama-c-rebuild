@@ -1,0 +1,19 @@
+module status:
+function nop:
+contract:
+requires p:x == 0;
+ensures q:x == 0;
+assigns x;
+
+function main:
+contract:
+requires \forall STATUS st[2] ; 
+   status == { { st \with [0] = (STATUS)0 } \with [1] = (STATUS)1 };
+requires typename:p_status == (STATUS *)(&status);
+requires p:x == 0;
+ensures q:x == 0;
+assigns x;
+
+function nop:
+contract:
+requires r:x <= 10;

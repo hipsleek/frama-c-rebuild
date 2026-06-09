@@ -1,0 +1,34 @@
+# The config file supports comments starting with #
+
+src_empty.c
+
+# If a line ends with \ then the next line is merged with it.
+-eva-precision \
+    5
+
+# Several \ can be chained
+-eva-domains \
+  equality, \
+  gauges
+
+  # Comments can be indented with spaces
+	# or tabs
+
+# The spaces are preserved when merging lines so they can be put on the
+# first or second one independently. And the spaces around the value are
+# trimmed.
+-eva-slevel\
+   200
+-eva-ilevel    \
+32
+-eva-plevel=\
+100
+
+# If a line ends with \ and the next line contains only spaces, the option is
+# considered without value
+-eva     \
+         \
+
+# No crash if the last line ends with a backslash (no new line at the end of the
+# config file on purpose for the test)
+-eva-partition-history 2 \

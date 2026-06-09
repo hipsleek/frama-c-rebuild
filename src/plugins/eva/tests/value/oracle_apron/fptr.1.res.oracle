@@ -1,0 +1,40 @@
+41c41,45
+< [eva:progress] fptr.i:9: Reusing old results for call to h
+---
+> [eva:progress] 
+>   computing for function h <- f <- main_uninit.
+>   Called from fptr.i:9:12-18.
+> [eva:progress] Recording results for h
+> [eva:progress] Done for function h
+56,57c60,69
+< [eva:progress] fptr.i:9: Reusing old results for call to h
+< [eva:progress] fptr.i:9: Reusing old results for call to hh
+---
+> [eva:progress] 
+>   computing for function h <- f <- main_uninit.
+>   Called from fptr.i:9:12-18.
+> [eva:progress] Recording results for h
+> [eva:progress] Done for function h
+> [eva:progress] 
+>   computing for function hh <- f <- main_uninit.
+>   Called from fptr.i:9:12-18.
+> [eva:progress] Recording results for hh
+> [eva:progress] Done for function hh
+62c74,88
+< [eva:progress] fptr.i:68: Reusing old results for call to f
+---
+> [eva:progress] 
+>   computing for function f <- main_uninit.
+>   Called from fptr.i:68:7-21.
+> [eva:progress] 
+>   computing for function h <- f <- main_uninit.
+>   Called from fptr.i:9:12-18.
+> [eva:progress] Recording results for h
+> [eva:progress] Done for function h
+> [eva:progress] 
+>   computing for function hh <- f <- main_uninit.
+>   Called from fptr.i:9:12-18.
+> [eva:progress] Recording results for hh
+> [eva:progress] Done for function hh
+> [eva:progress] Recording results for f
+> [eva:progress] Done for function f

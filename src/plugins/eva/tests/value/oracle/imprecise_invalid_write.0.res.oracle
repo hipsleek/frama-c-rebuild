@@ -1,0 +1,121 @@
+[kernel] Parsing imprecise_invalid_write.i (no preprocessing)
+[kernel:CERT:MSC:37] imprecise_invalid_write.i:10: Warning: 
+  Body of function main1 falls-through. Adding a return statement
+[kernel:CERT:MSC:37] imprecise_invalid_write.i:15: Warning: 
+  Body of function main2 falls-through. Adding a return statement
+[kernel:CERT:MSC:37] imprecise_invalid_write.i:22: Warning: 
+  Body of function main3 falls-through. Adding a return statement
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:alarm] imprecise_invalid_write.i:17: Warning: 
+  unaligned pointer creation. assert \aligned(&("abc"[0]),alignof(int));
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  x ∈ {0}
+  s ∈ {{ (int *)"abc" }}
+[eva:progress] 
+  computing for function main1 <- main.
+  Called from imprecise_invalid_write.i:26:5-13.
+[eva:alarm] imprecise_invalid_write.i:9: Warning: 
+  unaligned pointer creation. assert \aligned((void *)c,alignof(int));
+[eva:alarm] imprecise_invalid_write.i:9: Warning: 
+  out of bounds write. assert \valid((int *)c);
+[eva] imprecise_invalid_write.i:9: Warning: 
+  all target addresses were invalid. This path is assumed to be dead.
+[eva:progress] Recording results for main1
+[eva:progress] Done for function main1
+[eva:progress] 
+  computing for function main2 <- main.
+  Called from imprecise_invalid_write.i:29:5-12.
+[eva:alarm] imprecise_invalid_write.i:13: Warning: 
+  pointer downcast. assert (unsigned int)(&main1) ≤ 2147483647;
+[eva:garbled-mix:write] imprecise_invalid_write.i:13: 
+  Assigning imprecise value to p because of arithmetic operation on addresses.
+[eva:alarm] imprecise_invalid_write.i:14: Warning: 
+  unaligned pointer creation. assert \aligned(p,alignof(int));
+[eva:alarm] imprecise_invalid_write.i:14: Warning: 
+  out of bounds write. assert \valid((int *)p);
+[eva] imprecise_invalid_write.i:14: Warning: 
+  all target addresses were invalid. This path is assumed to be dead.
+[eva:progress] Recording results for main2
+[eva:progress] Done for function main2
+[eva:progress] 
+  computing for function main3 <- main.
+  Called from imprecise_invalid_write.i:32:5-12.
+[eva:alarm] imprecise_invalid_write.i:20: Warning: 
+  unaligned pointer creation. assert \aligned(s,alignof(int));
+[eva:alarm] imprecise_invalid_write.i:20: Warning: 
+  pointer downcast. assert (unsigned int)s ≤ 2147483647;
+[eva:garbled-mix:write] imprecise_invalid_write.i:20: 
+  Assigning imprecise value to p because of arithmetic operation on addresses.
+[eva:alarm] imprecise_invalid_write.i:21: Warning: 
+  unaligned pointer creation. assert \aligned(p,alignof(int));
+[eva:alarm] imprecise_invalid_write.i:21: Warning: 
+  out of bounds write. assert \valid(p);
+[eva] imprecise_invalid_write.i:21: Warning: 
+  all target addresses were invalid. This path is assumed to be dead.
+[eva:progress] Recording results for main3
+[eva:progress] Done for function main3
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva:garbled-mix:summary] 
+  Origins of garbled mix generated during analysis:
+    imprecise_invalid_write.i:13:9-10: arithmetic operation on addresses
+      (read in 1 statement, propagated through 1 statement)
+      garbled mix of &{main1}
+    imprecise_invalid_write.i:20:8-9: arithmetic operation on addresses
+      (read in 1 statement, propagated through 1 statement)
+      garbled mix of &{"abc"}
+[eva] imprecise_invalid_write.i:9: 
+  assertion 'Eva,mem_access' got final status invalid.
+[eva] imprecise_invalid_write.i:14: 
+  assertion 'Eva,mem_access' got final status invalid.
+[eva] imprecise_invalid_write.i:21: 
+  assertion 'Eva,mem_access' got final status invalid.
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main1:
+  NON TERMINATING FUNCTION
+[eva:final-states] Values at end of function main2:
+  NON TERMINATING FUNCTION
+[eva:final-states] Values at end of function main3:
+  NON TERMINATING FUNCTION
+[eva:final-states] Values at end of function main:
+  
+[from] Computing for function main1
+[from] Non-terminating function main1 (no dependencies)
+[from] Done for function main1
+[from] Computing for function main2
+[from] Non-terminating function main2 (no dependencies)
+[from] Done for function main2
+[from] Computing for function main3
+[from] Non-terminating function main3 (no dependencies)
+[from] Done for function main3
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main1:
+  NON TERMINATING - NO EFFECTS
+[from] Function main2:
+  NON TERMINATING - NO EFFECTS
+[from] Function main3:
+  NON TERMINATING - NO EFFECTS
+[from] Function main:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main1:
+    \nothing
+[inout] Inputs for function main1:
+    x
+[inout] Out (internal) for function main2:
+    p
+[inout] Inputs for function main2:
+    \nothing
+[inout] Out (internal) for function main3:
+    p
+[inout] Inputs for function main3:
+    s
+[inout] Out (internal) for function main:
+    \nothing
+[inout] Inputs for function main:
+    x; s

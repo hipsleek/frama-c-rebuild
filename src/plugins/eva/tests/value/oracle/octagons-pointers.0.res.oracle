@@ -1,0 +1,133 @@
+[kernel] Parsing octagons-pointers.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  size ∈ {436}
+  buffer[0..435] ∈ {0}
+  nondet ∈ [--..--]
+[eva:progress] 
+  computing for function init <- main.
+  Called from octagons-pointers.c:40.
+[eva:partition] octagons-pointers.c:19: starting to merge loop iterations
+[eva:progress] Recording results for init
+[eva:progress] Done for function init
+[eva:show] octagons-pointers.c:47: 
+  Frama_C_dump_each:
+  # octagon:
+  {[ buffer - cmd ∈ {-3}
+      ]}
+  ==END OF DUMP==
+[eva:progress] 
+  computing for function cmdRead <- main.
+  Called from octagons-pointers.c:48.
+[eva:show] octagons-pointers.c:32: 
+  Frama_C_dump_each:
+  # octagon:
+  {[ buffer - cmd ∈ {-3}
+     buffer - cmd ∈ {-3}
+     cmd - cmd ∈ {0}
+      ]}
+  ==END OF DUMP==
+[eva:progress] Recording results for cmdRead
+[eva:progress] Done for function cmdRead
+[eva:show] octagons-pointers.c:47: 
+  Frama_C_dump_each:
+  # octagon:
+  {[ buffer - cmd ∈ [-436..-6]
+     cmd->cmdLen + index ∈ [--..434]
+      ]}
+  ==END OF DUMP==
+[eva:progress] 
+  computing for function cmdRead <- main.
+  Called from octagons-pointers.c:48.
+[eva:show] octagons-pointers.c:32: 
+  Frama_C_dump_each:
+  # octagon:
+  {[ buffer - cmd ∈ [-436..-6]
+     buffer - cmd ∈ [-433..-6]
+     cmd - cmd ∈ [-430..427]
+     cmd->cmdLen + index ∈ [--..434]
+     cmd - len ∈ {0}
+     buffer - len ∈ [-433..-6]
+     len - cmd ∈ [-430..427]
+     len - code ∈ {-2}
+     buffer - code ∈ [-435..-8]
+     cmd - code ∈ {-2}
+     code - cmd ∈ [-428..429]
+     code - elt1 ∈ {-1}
+     buffer - elt1 ∈ [-436..-9]
+     cmd - elt1 ∈ {-3}
+     len - elt1 ∈ {-3}
+     elt1 - cmd ∈ [-427..430]
+     elt1 - elt2 ∈ {-4}
+     buffer - elt2 ∈ [-440..-13]
+     cmd - elt2 ∈ {-7}
+     len - elt2 ∈ {-7}
+     code - elt2 ∈ {-5}
+     elt2 - cmd ∈ [-423..434]
+     elt2 - elt3 ∈ {-2}
+     buffer - elt3 ∈ [-442..-15]
+     cmd - elt3 ∈ {-9}
+     len - elt3 ∈ {-9}
+     code - elt3 ∈ {-7}
+     elt1 - elt3 ∈ {-6}
+     elt3 - cmd ∈ [-421..436]
+      ]}
+  ==END OF DUMP==
+[eva:alarm] octagons-pointers.c:34: Warning: 
+  out of bounds read. assert \valid_read(elt1);
+[eva:alarm] octagons-pointers.c:35: Warning: 
+  out of bounds read. assert \valid_read(elt2);
+[eva:alarm] octagons-pointers.c:36: Warning: 
+  out of bounds read. assert \valid_read(elt3);
+[eva:progress] Recording results for cmdRead
+[eva:progress] Done for function cmdRead
+[eva:loop-unroll:partial] octagons-pointers.c:44: loop not completely unrolled
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function cmdRead:
+  len ∈ {{ &buffer + [3..433] }}
+  code ∈ {{ &buffer + [5..435] }}
+  elt1 ∈ {{ &buffer + [6..436] }}
+  elt2 ∈ {{ &buffer + [10..440] }}
+  elt3 ∈ {{ &buffer + [12..442] }}
+  c ∈ [--..--] or UNINITIALIZED
+  e1 ∈ [--..--] or UNINITIALIZED
+  e2 ∈ [--..--] or UNINITIALIZED
+  e3 ∈ [--..--] or UNINITIALIZED
+[eva:final-states] Values at end of function init:
+  buffer[0..435] ∈ [--..--]
+  i ∈ {436}
+[eva:final-states] Values at end of function main:
+  buffer[0..435] ∈ [--..--]
+  index ∈ [3..436]
+  cmd ∈ {{ &buffer + [3..436] }}
+[from] Computing for function cmdRead
+[from] Done for function cmdRead
+[from] Computing for function init
+[from] Done for function init
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function cmdRead:
+  NO EFFECTS
+[from] Function init:
+  buffer[0..435] FROM size; nondet (and SELF)
+[from] Function main:
+  buffer[0..435] FROM size; nondet (and SELF)
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function cmdRead:
+    len; code; elt1; elt2; elt3; c; e1; e2; e3
+[inout] Inputs for function cmdRead:
+    buffer[3..435]
+[inout] Out (internal) for function init:
+    buffer[0..435]; i
+[inout] Inputs for function init:
+    size; nondet
+[inout] Out (internal) for function main:
+    buffer[0..435]; index; cmd
+[inout] Inputs for function main:
+    size; buffer[3..435]; nondet

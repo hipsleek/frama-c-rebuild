@@ -1,0 +1,735 @@
+{
+  "dbfile": "mopsa.db",
+  "contents":
+[  {
+    "filename": "library/aes.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/aes.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/arc4.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/arc4.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/asn1parse.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/asn1parse.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/base64.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/base64.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/bignum.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/bignum.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/camellia.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/camellia.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/certs.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/certs.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/cipher.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/cipher.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/cipher_wrap.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/cipher_wrap.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/ctr_drbg.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/ctr_drbg.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/debug.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/debug.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/des.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/des.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/dhm.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/dhm.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/entropy.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/entropy.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/entropy_poll.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/entropy_poll.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/error.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/error.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/havege.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/havege.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/libpolarssl.a",
+    "type": "library",
+    "kind": "static",
+    "contents": ["library/aes.o", "library/arc4.o", "library/asn1parse.o", "library/base64.o", "library/bignum.o", "library/camellia.o", "library/certs.o", "library/cipher.o", "library/cipher_wrap.o", "library/ctr_drbg.o", "library/debug.o", "library/des.o", "library/dhm.o", "library/entropy.o", "library/entropy_poll.o", "library/error.o", "library/havege.o", "library/md.o", "library/md2.o", "library/md4.o", "library/md5.o", "library/md_wrap.o", "library/net.o", "library/padlock.o", "library/pem.o", "library/pkcs11.o", "library/rsa.o", "library/sha1.o", "library/sha2.o", "library/sha4.o", "library/ssl_cli.o", "library/ssl_srv.o", "library/ssl_tls.o", "library/timing.o", "library/version.o", "library/x509parse.o", "library/xtea.o"]
+  },
+  {
+    "filename": "library/md.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/md.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/md2.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/md2.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/md4.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/md4.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/md5.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/md5.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/md_wrap.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/md_wrap.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/net.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/net.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/padlock.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/padlock.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/pem.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/pem.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/pkcs11.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/pkcs11.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/rsa.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/rsa.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/sha1.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/sha1.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/sha2.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/sha2.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/sha4.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/sha4.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/ssl_cli.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/ssl_cli.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/ssl_srv.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/ssl_srv.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/ssl_tls.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/ssl_tls.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/timing.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/timing.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/version.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/version.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/x509parse.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/x509parse.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/xtea.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/xtea.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "programs/aes/aescrypt2",
+    "type": "executable",
+    "contents": ["programs/aes/aescrypt2.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/aes/aescrypt2.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/aes/aescrypt2.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/aes/crypt_and_hash",
+    "type": "executable",
+    "contents": ["programs/aes/crypt_and_hash.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/aes/crypt_and_hash.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/aes/crypt_and_hash.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/hash/generic_sum",
+    "type": "executable",
+    "contents": ["programs/hash/generic_sum.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/hash/generic_sum.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/hash/generic_sum.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/hash/hello",
+    "type": "executable",
+    "contents": ["programs/hash/hello.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/hash/hello.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/hash/hello.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/hash/md5sum",
+    "type": "executable",
+    "contents": ["programs/hash/md5sum.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/hash/md5sum.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/hash/md5sum.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/hash/sha1sum",
+    "type": "executable",
+    "contents": ["programs/hash/sha1sum.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/hash/sha1sum.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/hash/sha1sum.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/hash/sha2sum",
+    "type": "executable",
+    "contents": ["programs/hash/sha2sum.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/hash/sha2sum.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/hash/sha2sum.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/pkey/dh_client",
+    "type": "executable",
+    "contents": ["programs/pkey/dh_client.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/pkey/dh_client.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/pkey/dh_client.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/pkey/dh_genprime",
+    "type": "executable",
+    "contents": ["programs/pkey/dh_genprime.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/pkey/dh_genprime.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/pkey/dh_genprime.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/pkey/dh_server",
+    "type": "executable",
+    "contents": ["programs/pkey/dh_server.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/pkey/dh_server.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/pkey/dh_server.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/pkey/key_app",
+    "type": "executable",
+    "contents": ["programs/pkey/key_app.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/pkey/key_app.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/pkey/key_app.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/pkey/mpi_demo",
+    "type": "executable",
+    "contents": ["programs/pkey/mpi_demo.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/pkey/mpi_demo.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/pkey/mpi_demo.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/pkey/rsa_decrypt",
+    "type": "executable",
+    "contents": ["programs/pkey/rsa_decrypt.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/pkey/rsa_decrypt.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/pkey/rsa_decrypt.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/pkey/rsa_encrypt",
+    "type": "executable",
+    "contents": ["programs/pkey/rsa_encrypt.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/pkey/rsa_encrypt.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/pkey/rsa_encrypt.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/pkey/rsa_genkey",
+    "type": "executable",
+    "contents": ["programs/pkey/rsa_genkey.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/pkey/rsa_genkey.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/pkey/rsa_genkey.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/pkey/rsa_sign",
+    "type": "executable",
+    "contents": ["programs/pkey/rsa_sign.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/pkey/rsa_sign.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/pkey/rsa_sign.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/pkey/rsa_sign_pss",
+    "type": "executable",
+    "contents": ["programs/pkey/rsa_sign_pss.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/pkey/rsa_sign_pss.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/pkey/rsa_sign_pss.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/pkey/rsa_verify",
+    "type": "executable",
+    "contents": ["programs/pkey/rsa_verify.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/pkey/rsa_verify.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/pkey/rsa_verify.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/pkey/rsa_verify_pss",
+    "type": "executable",
+    "contents": ["programs/pkey/rsa_verify_pss.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/pkey/rsa_verify_pss.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/pkey/rsa_verify_pss.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/random/gen_entropy",
+    "type": "executable",
+    "contents": ["programs/random/gen_entropy.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/random/gen_entropy.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/random/gen_entropy.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/random/gen_random_ctr_drbg",
+    "type": "executable",
+    "contents": ["programs/random/gen_random_ctr_drbg.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/random/gen_random_ctr_drbg.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/random/gen_random_ctr_drbg.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/random/gen_random_havege",
+    "type": "executable",
+    "contents": ["programs/random/gen_random_havege.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/random/gen_random_havege.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/random/gen_random_havege.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/ssl/ssl_client1",
+    "type": "executable",
+    "contents": ["programs/ssl/ssl_client1.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/ssl/ssl_client1.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/ssl/ssl_client1.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/ssl/ssl_client2",
+    "type": "executable",
+    "contents": ["programs/ssl/ssl_client2.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/ssl/ssl_client2.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/ssl/ssl_client2.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/ssl/ssl_fork_server",
+    "type": "executable",
+    "contents": ["programs/ssl/ssl_fork_server.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/ssl/ssl_fork_server.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/ssl/ssl_fork_server.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/ssl/ssl_mail_client",
+    "type": "executable",
+    "contents": ["programs/ssl/ssl_mail_client.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/ssl/ssl_mail_client.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/ssl/ssl_mail_client.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/ssl/ssl_server",
+    "type": "executable",
+    "contents": ["programs/ssl/ssl_server.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/ssl/ssl_server.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/ssl/ssl_server.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/test/benchmark",
+    "type": "executable",
+    "contents": ["programs/test/benchmark.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/test/benchmark.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/test/benchmark.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/test/selftest",
+    "type": "executable",
+    "contents": ["programs/test/selftest.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/test/selftest.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/test/selftest.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/test/ssl_cert_test",
+    "type": "executable",
+    "contents": ["programs/test/ssl_cert_test.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/test/ssl_cert_test.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/test/ssl_cert_test.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/test/ssl_test",
+    "type": "executable",
+    "contents": ["programs/test/ssl_test.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/test/ssl_test.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/test/ssl_test.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/x509/cert_app",
+    "type": "executable",
+    "contents": ["programs/x509/cert_app.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/x509/cert_app.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/x509/cert_app.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  },
+  {
+    "filename": "programs/x509/crl_app",
+    "type": "executable",
+    "contents": ["programs/x509/crl_app.o", "library/libpolarssl.a"]
+  },
+  {
+    "filename": "programs/x509/crl_app.o",
+    "type": "object",
+    "lang": "C",
+    "source": "programs/x509/crl_app.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "programs"
+  }]
+}

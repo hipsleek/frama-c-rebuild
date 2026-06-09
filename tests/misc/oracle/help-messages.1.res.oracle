@@ -1,0 +1,465 @@
+Description: General options provided by the Frama-C kernel
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-permissive         perform less verifications on validity of command-line
+                    options
+-session <dir>      set the Frama-C session directory to <dir>
+
+*** ANALYSIS OPTIONS
+
+-absolute-valid-range <min-max>  min and max must be integers in decimal,
+                    hexadecimal (0x, 0X), octal (0o) or binary (0b) notation
+                    and fit in 64 bits. Assume that that all absolute
+                    addresses outside of the [min-max] range are invalid. In
+                    the absence of this option, all absolute addresses are
+                    assumed to be invalid (preferably use
+                    -absolute-valid-range="min-max")
+-lib-entry          run analysis for an incomplete application e.g. an API
+                    call. See the -main option to set the entry point
+                    (opposite option is -no-lib-entry)
+-main <f>           use <f> as entry point for analysis. See "-lib-entry" if
+                    this is not for a complete application. Defaults to main
+                    (preferably use -main="f")
+-safe-arrays        for multidimensional arrays or arrays that are fields
+                    inside structs, assume that accesses are in bounds (set
+                    by default, opposite option is -unsafe-arrays)
+-unsafe-arrays      opposite of option -safe-arrays, whose help message
+                    is:
+                    for multidimensional arrays or arrays that are fields
+                    inside structs, assume that accesses are in bounds
+-unspecified-access  do not assume that read/write accesses occurring between
+                    sequence points are separated (opposite option is
+                    -no-unspecified-access)
+-warn-invalid-bool  generate alarms when trap representations are read from
+                    _Bool lvalues. (set by default, opposite option is
+                    -no-warn-invalid-bool)
+-warn-invalid-pointer  generate alarms when invalid pointers are created.
+                    (opposite option is -no-warn-invalid-pointer)
+-warn-left-shift-negative  generate alarms for signed left shifts on negative
+                    values. (set by default, opposite option is
+                    -no-warn-left-shift-negative)
+-warn-pointer-downcast  generate alarms when a pointer is converted into an
+                    integer but may not be in the range of the destination
+                    type. (set by default, opposite option is
+                    -no-warn-pointer-downcast)
+-warn-right-shift-negative  generate alarms for signed right shifts on
+                    negative values. (opposite option is
+                    -no-warn-right-shift-negative)
+-warn-signed-downcast  generate alarms when signed downcasts may exceed the
+                    destination range (opposite option is
+                    -no-warn-signed-downcast)
+-warn-signed-overflow  generate alarms for signed operations that overflow.
+                    (set by default, opposite option is
+                    -no-warn-signed-overflow)
+-warn-special-float <none|nan|non-finite>  generate alarms when special
+                    floats are produced: never, only on NaN, or on infinite
+                    floats and NaN (by default). (preferably use
+                    -warn-special-float="none|nan|non-finite")
+-warn-unaligned-pointer  generate alarms when unaligned pointers are created.
+                    (set by default, opposite option is
+                    -no-warn-unaligned-pointer)
+-warn-unsigned-downcast  generate alarms when unsigned downcasts may exceed
+                    the destination range (opposite option is
+                    -no-warn-unsigned-downcast)
+-warn-unsigned-overflow  generate alarms for unsigned operations that
+                    overflow (opposite option is -no-warn-unsigned-overflow)
+
+*** COMPILATION DATABASE
+
+-compilation-db <path>  when set, preprocessing of each file will include
+                    corresponding flags (e.g. -I, -D) from the JSON
+                    compilation database specified by <path>. If <path> is a
+                    directory, use '<path>/compile_commands.json'. Disabled
+                    by default.
+-mopsa-db <path>    when set, the specified path (or <path>/mopsa-db.json, if
+                    <path> is a directory) is loaded as a build database. If
+                    '-mopsa-target' is not set, prints the list of targets in
+                    the database and exits. Otherwise, '-mopsa-target' sets
+                    the files to be parsed and preprocessing flags.
+-mopsa-exclude-sources <file1,file2,...>  list of source files to be
+                    blacklisted from the set computed by -mopsa-target, so
+                    that Frama-C will not try to parse them. (preferably use
+                    -mopsa-exclude-sources="file1,file2,...")
+-mopsa-list-deps <target1,target2,...>  prints the sources (and relevant
+                    preprocessing flags) used by target1,target2,..., then
+                    exits. (preferably use
+                    -mopsa-list-deps="target1,target2,...")
+-mopsa-target <target1,target2,...>  name of the target(s) present in the
+                    mopsa-db for which the list of sources should be parsed;
+                    replaces any existing files in the command-line. Paths
+                    are relative to the directory containing the mopsa
+                    database, not PWD. Note that messages related to mopsa
+                    databases are still emitted relative to Frama-C's PWD, as
+                    usual. (preferably use
+                    -mopsa-target="target1,target2,...")
+
+*** CUSTOMIZING NORMALIZATION
+
+-aggressive-merging  merge function definitions modulo renaming (defaults to
+                    false) (opposite option is -no-aggressive-merging)
+-allow-duplication  allow duplication of small blocks during normalization
+                    (set by default, opposite option is
+                    -no-allow-duplication)
+-asm-contracts      generate contracts for assembly code written according to
+                    gcc's extended syntax (set by default, opposite option is
+                    -no-asm-contracts)
+-asm-contracts-auto-validate  automatically mark contracts generated from asm
+                    as valid (defaults to false) (opposite option is
+                    -no-asm-contracts-auto-validate)
+-asm-contracts-ensure-init  when contracts for assembly code are generated,
+                    add postconditions stating that the output are
+                    initialized. (opposite option is
+                    -no-asm-contracts-ensure-init)
+-collapse-call-cast  Allow some implicit casts between returned value of a
+                    function and the lvalue it is assigned to. (set by
+                    default, opposite option is -no-collapse-call-cast)
+-constfold          fold all constant expressions in the code before analysis
+                    (opposite option is -no-constfold)
+-enums <default|gcc-enums|int|msvc|gcc-short-enums>  decide how enumerated
+                    types should be represented:
+                    - 'default' (default): chose between gcc or msvc
+                    depending on the machdep
+                    - 'int': treat everything as int (including enumerated
+                    types with packed attribute)
+                    - 'gcc-enums': use an unsigned integer type when no tag
+                    has a negative value, and choose the smallest rank
+                    possible starting from int (default gcc's behavior)
+                    - 'gcc-short-enums': same behavior than 'gcc-enums' but
+                    starting from char instead (gcc's -fshortenums option)
+                    - 'msvc': same behavior than 'int'
+-generated-spec-custom <c1:m1,c2:m2,...>  Fine-tune missing specification
+                    generation by manually selecting modes for each clause.
+                    Can be one of: frama-c, acsl, safe, skip or the name of a
+                    custom registered mode. Do not use skip mode for assigns
+                    unless you know what you are doing! See user manual for
+                    more information. (preferably use
+                    -generated-spec-custom="c1:m1,c2:m2,...")
+-generated-spec-mode <mode>  Select which mode will be used to generate
+                    missing specifications. Can be one of: frama-c, acsl,
+                    safe, or the name of a custom registered mode (defaults
+                    to frama-c). See user manual for more information.
+                    (preferably use -generated-spec-mode="mode")
+-initialized-padding-locals  Implicit initialization of locals sets padding
+                    bits to 0. If false, padding bits are left uninitialized.
+                    Defaults to true. (set by default, opposite option is
+                    -no-initialized-padding-locals)
+-inline-calls <f1, ..., fn>  inline calls to functions f1, ..., fn
+                    (preferably use -inline-calls="f1, ..., fn")
+-inline-stmt-contracts  transforms requires/ensures clauses of statement
+                    contracts into plain assertions, enabling their
+                    verification by plug-ins with incomplete support for
+                    statement contracts. (opposite option is
+                    -no-inline-stmt-contracts)
+-keep-switch        keep switch statements despite -simplify-cfg (opposite
+                    option is -no-keep-switch)
+-keep-unused-functions <none|user-specified|all|all_debug>  whether to keep
+                    unused function declarations: none, only functions with
+                    user specifications (by default; excludes stdlib and
+                    generated functions), or keep all unused functions
+                    (all_debug also includes compiler builtins) (preferably
+                    use
+                    -keep-unused-functions="none|user-specified|all|all_debug")
+-keep-unused-types  keep unused types (false by default) (opposite option is
+                    -remove-unused-types)
+-remove-exn         transforms throw and try/catch statements to normal C
+                    functions. Disabled by default, unless input source
+                    language has has an exception mechanism. (opposite option
+                    is -no-remove-exn)
+-remove-inlined <f1, ..., fn>  remove inlined functions f1, ..., fn, which
+                    must have been given to -inline-calls. Warning: this does
+                    not check if the given functions were fully inlined.
+                    (preferably use -remove-inlined="f1, ..., fn")
+-remove-unused-types  (set by default) opposite of option -keep-unused-types,
+                    whose help message is:
+                    keep unused types (false by default)
+-simplify-cfg       remove break, continue and switch statements before
+                    analyses (opposite option is -no-simplify-cfg)
+-simplify-trivial-loops  simplify trivial loops, such as do ... while(0)
+                    loops (set by default, opposite option is
+                    -no-simplify-trivial-loops)
+-ulevel <l>         unfold loops n times (defaults to 0) before analyzes. A
+                    negative value hides loop unfold annotations.
+-ulevel-force       ignore loop unfold "done" specifications (force
+                    unfolding). (opposite option is -no-ulevel-force)
+-variadic-strict    display warnings about non-portable implicit casts in the
+                    calls of standard variadic functions, i.e. casts between
+                    distinct integral types which have the same size and
+                    signedness (set by default, opposite option is
+                    -no-variadic-strict)
+-variadic-translation  translate variadic functions and calls to semantic
+                    equivalents with only a fixed list of formal parameters
+                    (set by default, opposite option is
+                    -no-variadic-translation)
+
+*** DEBUG
+
+-check              performs consistency checks over the Abstract Syntax Tree
+                    (opposite option is -no-check)
+-copy               always perform a copy of the original AST before analysis
+                    begin (opposite option is -no-copy)
+-debug <n>          general level of debug
+-dump-dependencies <s>  undocumented
+-dump-interpreted-automata  dumps each interpreted automata built into a dot
+                    file (opposite option is -no-dump-interpreted-automata)
+-keep-temp-files    Keep temporary intermediate files (opposite option is
+                    -no-keep-temp-files)
+-kernel-debug <n>   level of debug for the Frama-C kernel (default to 0)
+-orig-name          prints a message each time a variable is renamed
+                    (opposite option is -no-orig-name)
+-print-as-is        when pretty-printing C code, try to print it as close as
+                    possible to the internal (Cil) representation (opposite
+                    option is -no-print-as-is)
+
+*** GETTING INFORMATION
+
+--help              display a general help
+-h                  alias for option --help
+-help               alias for option --help
+--list-plugins      display a general help
+-plugins            alias for option --list-plugins
+--plugins           alias for option --list-plugins
+-autocomplete <p1,p2,...>  displays all Frama-C options, used for shell
+                    autocompletion. Prints options for the specified plugin
+                    names (or '@all' for all plugins). (preferably use
+                    -autocomplete="p1,p2,...")
+-explain            prints the help message for each option given in the
+                    command line
+-kernel-help        help of the Frama-C kernel
+-kernel-h           alias for option -kernel-help
+-print-config       print full config information
+-print-config-json  prints extensive data about Frama-C's configuration, in
+                    JSON format, and exits (experimental: the output format
+                    is very likely to change in future versions).
+-print-lib-path     print the path of the Frama-C kernel library
+-print-libpath      alias for option -print-lib-path
+-print-machdep      pretty print selected machdep
+-print-machdep-builtin-macros  print on standard output the content of the
+                    generated __fc_builtin_macros.h
+-print-machdep-header  print on standard output the content of the generated
+                    __fc_machdep.h
+-print-plugin-path  print the path where the Frama-C dynamic plug-ins are
+                    searched into
+-print-share-path   print the Frama-C share path
+-print-path         alias for option -print-share-path
+-print-version      print the Frama-C version
+-version            print the Frama-C version
+-v                  alias for option -version
+--version           alias for option -version
+
+*** INPUT/OUTPUT SOURCE CODE
+
+-ast-diff           creates a new project and computes a diff of the AST from
+                    the current one (opposite option is -no-ast-diff)
+-big-ints-hex <max>  display integers larger than <max> using hexadecimal
+                    notation. A negative value disable this option. Disabled
+                    by default.
+-eager-load-sources  when loading a source, try to load all referenced
+                    sources in memory (opposite option is
+                    -no-eager-load-sources)
+-float-print <default|norm|hex>  Control how floats will be printed :
+                    'default' will print the float as is, 'norm' will use an
+                    internal routine to normalize it using decimals, and
+                    'hex' is the same than 'norm' but in hexadecimal. Default
+                    value is 'default'
+-keep-comments      try to keep comments in C code (opposite option is
+                    -no-keep-comments)
+-ocode <filename>   when printing code, redirects the output to file
+                    <filename>
+-print              pretty print C code (opposite option is -no-print)
+-print-libc         when pretty-printing C code, keep prototypes coming from
+                    Frama-C standard library (opposite option is
+                    -no-print-libc)
+-print-return       inline gotos to return statement (opposite option is
+                    -no-print-return)
+-typecheck          forces typechecking of the source files (set by default)
+
+*** OUTPUT MESSAGES
+
+-add-symbolic-path <path_1:name_1,...,path_n:name_n>  When displaying file
+                    locations, replace (absolute) path with the corresponding
+                    symbolic name (preferably use
+                    -add-symbolic-path="path_1:name_1,...,path_n:name_n")
+-kernel-log <K_1:file_1,...>  copy log messages from the Frama-C kernel to a
+                    file. <K> is a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -kernel-log="K_1:file_1,...")
+-kernel-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -kernel-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -kernel-msg-key="k1[,...,kn]")
+-kernel-verbose <n>  level of verbosity for the Frama-C kernel (default to 1)
+-kernel-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category
+                    <k1> to <s1>,...,<kn> to <sn>. Use -kernel-warn-key help
+                    to get a list of available categories, and * to enable
+                    all categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -kernel-warn-key="k1[=s1][,...,kn[=sn]]")
+-quiet              sets -verbose and -debug to 0
+-time <filename>    append process time and timestamp to <filename> at exit
+                    (preferably use -time="filename")
+-tty                force the use of terminal capabilities for feedback; use
+                    the opposite option for completely disabling the use of
+                    terminal capabilities (opposite option is -no-tty)
+-unicode            use utf8 in messages (set by default, opposite option is
+                    -no-unicode)
+-verbose <n>        general level of verbosity
+
+*** PARSING
+
+-annot              read and parse annotations (set by default, opposite
+                    option is -no-annot)
+-audit-check <path>  reads an audit JSON file (produced by -audit-prepare)
+                    and checks compliance w.r.t. it; e.g., if the source
+                    files were declared and have the expected checksum.
+                    Raises a warning (with warning key 'audit') in case of
+                    failed checks. Requires -cpp-frama-c-compliant.
+-audit-prepare <path>  produces audit-related information, such as the list
+                    of all source files used during parsing (including those
+                    in include directives) with checksums. Some plug-ins may
+                    produce additional audit-related information. Prints the
+                    information as JSON to the specified file, or if the file
+                    is '-', prints as text to the standard output. Requires
+                    -cpp-frama-c-compliant.
+-cpp-command <cmd>  <cmd> is used to build the preprocessing command.
+                    Default to $CPP environment variable or else "gcc -C -E
+                    -I.".
+                    If unset, the command is built as follows:
+                    CPP -o <preprocessed file> <source file>
+                    %1 and %2 can be used into CPP string to mark the
+                    position of <source file> and <preprocessed file>
+                    respectively (preferably use -cpp-command="cmd") [unsafe
+                    in sandbox mode]
+-cpp-extra-args <args>  additional arguments passed to the preprocessor
+                    (mainly -D and -I) while preprocessing the C code but not
+                    while preprocessing annotations (preferably use
+                    -cpp-extra-args="args") [unsafe in sandbox mode]
+-cpp-extra-args-per-file <file:flags>  when set, adds preprocessing arguments
+                    for each specified file. To add arguments for all files,
+                    use -cpp-extra-args. (preferably use
+                    -cpp-extra-args-per-file="file:flags") [unsafe in sandbox
+                    mode]
+-cpp-frama-c-compliant  indicates that a custom preprocessor (see option
+                    -cpp-command) accepts the same set of options as GNU cpp.
+                    Set it to false if you have preprocessing issues with a
+                    custom preprocessor. (set by default, opposite option is
+                    -no-cpp-frama-c-compliant)
+-frama-c-stdlib     adds -I$FRAMAC_SHARE/libc to the options given to the cpp
+                    command. If -cpp-frama-c-compliant is not false, also
+                    adds -nostdinc to prevent inconsistent mix of system and
+                    Frama-C header files (set by default, opposite option is
+                    -no-frama-c-stdlib)
+-machdep <machine>  use <machine> as the current machine dependent
+                    configuration. See "-machdep help" for a list. The
+                    environment variable FRAMAC_MACHDEP can be used to
+                    override the default value. The command line parameter
+                    still has priority over the default value (preferably use
+                    -machdep="machine")
+-pp-annot           preprocess annotations (if they are read). Set by default
+                    if the preprocessor is GNU-like (see option
+                    -cpp-frama-c-compliant) (opposite option is -no-pp-annot)
+-print-cpp-commands  prints the preprocessing command(s) used by Frama-C and
+                    exits. (opposite option is -no-print-cpp-commands)
+-register-attributes <k1:v1:v2,k2:v3,...>  Register an attribute so Frama-C
+                    knows how to handle it. Keys are attribute names and
+                    values are settings. It takes a list of attributes,
+                    separated by commas, each followed by a list of settings
+                    separated by colons, for example
+                    'attr1:name:print:ignore,attr2:default'. The possible
+                    setting values are:
+                    - 'default': to register an attribute with default
+                    settings. If the attribute is already registered, we use
+                    its registered settings instead.
+                    - 'name', 'type', 'funtype', 'stmt' or 'unknown': class
+                    of the attribute that specifies on which AST node the
+                    attribute should be attached. Defaults to unknown.
+                    - 'print' or 'noprint': should the attribute be printed
+                    when printing the AST? Debug key 'printer:attrs' ignores
+                    this information. Defaults to print.
+                    - 'ignore' or 'noignore': should the attribute be ignored
+                    when comparing types? Defaults to 'ignore' if class is
+                    'unknown' and 'noignore' otherwise.
+                    Note: using the same setting category several times for
+                    the same attribute is undefined. (preferably use
+                    -register-attributes="k1:v1:v2,k2:v3,...")
+-std <c11|c17|c23|c2y>  Configures the ISO standard to use. Note that your
+                    preprocessor must support it, else it will lead to
+                    preprocessing failure.
+
+*** PERFORMANCE
+
+-cache-size <n>     Control the amount of memory allocated to some internal
+                    caches. Must be between 1 and 10; default value is 2.
+                    Each increase of 1 doubles the size of these caches.
+                    Small values are most suitable for the analysis of small
+                    programs (less than 1000 lines). Higher values (around
+                    7-8) can speed up the analysis of large code bases.
+-memory-footprint <n>  Control the memory usage of Frama-C. With smaller
+                    values, analyses consume much less memory but are also
+                    slightly slower. Must be between 1 and 10; default is 6.
+-pow-limit <max>    for performance reasons, limit the maximum exponent
+                    accepted by pow functions in Z. Must be positive. Default
+                    value is 99999
+
+*** PROJECT-RELATED OPTIONS
+
+-remove-projects <p1, ..., pn>  remove the given projects <p1>, ..., <pn>.
+                    @all_but_current removes all projects but the current
+                    one. (preferably use -remove-projects="p1, ..., pn")
+-set-project-as-default  the current project becomes the default one (and so
+                    future '-then' sequences are applied on it) (opposite
+                    option is -no-set-project-as-default)
+
+*** SAVING OR LOADING DATA
+
+-autoload-plugins   Automatically load all plugins in FRAMAC_PLUGIN. (set by
+                    default, opposite option is -no-autoload-plugins)
+-cache <dir>        set the Frama-C cache directory to <dir>
+-compress-saved-session  at exit, the session saved by the -save option is
+                    compressed. No effect if the -save option is not used.
+                    (set by default, opposite option is
+                    -no-compress-saved-session)
+-config <dir>       set the Frama-C config directory to <dir>
+-load <filename>    load a previously-saved session from file <filename>
+-load-library <libname,...>  Dynamically load libraries. Loading order is
+                    preserved. Libraries are loaded between plugins and
+                    modules. (preferably use -load-library="libname,...")
+                    [unsafe in sandbox mode]
+-load-module <SPEC,...>  Dynamically load modules. Each <SPEC> can be an
+                    object file, with or without extension, or a Findlib
+                    package. Loading order is preserved, but after plugins
+                    and libraries. (preferably use -load-module="SPEC,...")
+                    [unsafe in sandbox mode]
+-load-plugin <plugin,...>  Dynamically load plugins. Loading order is
+                    preserved. Plugins are loaded before libraries and
+                    modules. (preferably use -load-plugin="plugin,...")
+                    [unsafe in sandbox mode]
+-save <filename>    at exit, save the session into file <filename>
+-state <dir>        set the Frama-C state directory to <dir>
+
+*** SEQUENCING OPTIONS
+
+-commands-file <filename>  read the next command line arguments from the
+                    given file. One argument per line. Start a line with # to
+                    add a comment.
+-then               parse options before `-then' and execute Frama-C
+                    accordingly, then parse options after `-then' and
+                    re-execute Frama-C
+-then-last          like `-then', but the second group of actions is executed
+                    on the last project created by a program transformer.
+-then-on <p>        like `-then', but the second group of actions is executed
+                    on project <p>
+-then-replace       like `-then-last', but also remove the previous current
+                    project.

@@ -1,0 +1,59 @@
+Plug-in name: Nonterm
+Plug-in shortname: nonterm
+Description:
+Warns when definitively non-terminating functions/loops are detected (e.g. reachable functions with unreachable returns).
+
+Most options of the form '-nonterm-option-name' and without any parameter
+have an opposite with the name '-nonterm-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-nonterm            when on (off by default), warns about non-terminating
+                    functions/loops (opposite option is -no-nonterm)
+-nonterm-dead-code  warns about syntactically unreachable code. Note that
+                    this may emit a substantial amount of warnings. (opposite
+                    option is -nonterm-no-dead-code)
+-nonterm-ignore <f1,..,fn>  ignore functions f1,..,fn and direct calls to
+                    them. Functions prefixed with '-' are removed from the
+                    ignore list. Calls via function pointers are never
+                    ignored. By default, the following functions are ignored:
+                    abort, exit (preferably use -nonterm-ignore="f1,..,fn")
+
+*** DEBUG
+
+-nonterm-debug <n>  level of debug for plug-in Nonterm (default to 0)
+
+*** GETTING INFORMATION
+
+-nonterm-help       help of plug-in Nonterm
+-nonterm-h          alias for option -nonterm-help
+
+*** OUTPUT MESSAGES
+
+-nonterm-log <K_1:file_1,...>  copy log messages from Nonterm to a file. <K>
+                    is a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -nonterm-log="K_1:file_1,...")
+-nonterm-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -nonterm-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -nonterm-msg-key="k1[,...,kn]")
+-nonterm-verbose <n>  level of verbosity for plug-in Nonterm (default to 1)
+-nonterm-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category
+                    <k1> to <s1>,...,<kn> to <sn>. Use -nonterm-warn-key help
+                    to get a list of available categories, and * to enable
+                    all categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -nonterm-warn-key="k1[=s1][,...,kn[=sn]]")

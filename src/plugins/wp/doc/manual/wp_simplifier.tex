@@ -1,0 +1,166 @@
+\chapter{WP Simplifier}
+\label{wp-simplifier}
+
+The logical language $\cal{L}$ used to build proof obligations is now
+equipped with built-in simplifications. This allows for proof
+obligations to be simplified \emph{before} being sent to external
+provers, and sometimes to be reduced to trivial goals.
+
+This chapter is dedicated to the description of the simplifier and how to
+use it with the \textsf{WP} plug-in. It also presents how combinatorial
+explosion of path exploration is now tackled down thanks to
+\emph{passive form} transformation and automated sub-terms
+\emph{factorization}~\cite{FlanaganSaxe2001,Leino2003}. This also
+leads to more compact and (somehow) more readable proof obligations,
+with less memory, less disk usage and lower external prover time
+overhead, compared to \textsf{WP} versions \verb+0.6+ and lower.
+
+\section{Logic Normalizations}
+
+The new logic language $\cal{L}$ is naturally equipped with term
+normalization and maximal sub-term sharing. It is only used with new
+memory models, not with the standard ones.
+
+Maximal sub-term sharing is responsible for the introduction of
+let-bindings whenever a sub-expression appears several times in the
+generated proof obligations. The occupied memory and disk usage of WP
+is also reduced compared to other models.
+
+The normalization rules can not be turned off, and are responsible for
+local simplifications. Although modest, they allow a proof
+obligation to be trivially discharged.
+
+\begin{description}
+\item[Logic] normalization by commutativity and associativity;
+  absorption and neutral elements; elimination of redundant facts;
+  propagation of negations (Morgan laws); simplification of
+  conditionals.
+\item[Arithmetic] normalization by commutativity and associativity;
+  absorption and neutral elements; factorization with linear forms;
+  constant folding; normalization of linear equalities and
+  inequalities.
+\item[Array] elimination of consecutive accesses and updates.
+\item[Record] elimination of consecutive accesses and updates;\\
+  simplification of structural equalities and inequalities.
+\end{description}
+
+\section{Simplifier Engine (Qed)}
+
+Built on top of our normalizing logic language $\cal{L}$, we have a
+simplifier engine named \textsf{Qed}\cite{qed}. The simplifier engine is used by
+the \textsf{WP} plug-in to simplify the generated proof contexts and proof
+obligations. The basic feature of \textsf{Qed} is to manage a knowledge
+base $\Gamma$. It is possible to add new facts (hypotheses) to
+$\Gamma$, and to simplify (rewrite) a term of a property with respect
+to $\Gamma$.
+
+By default, the only rewriting performed by \textsf{Qed} is the
+propagation of equality classes by normalization. The \textsf{Qed}
+engine can be enriched by means of plug-ins to perform more dedicated
+simplifications. For instance, we have developed a simplifier plug-in
+for array and record theories, and a prototype for linear inequalities.
+
+\textsf{WP} uses the simplification engine to simplify proof contexts
+by recursively combining basic laws involving the simplifier
+engine. Each law is applied with respect to a local knowledge base
+$\Gamma$ (initially empty).
+
+\newcommand{\QED}[3]{#1\models\,#2\,\triangleright\,#3}
+\newcommand{\LAW}[2]{\begin{array}{c}{#1}\\\hline{#2}\end{array}}
+\newcommand{\AND}{\quad\quad\quad}
+
+Adding a new fact $H$ to $\Gamma$ is denoted by $\Gamma\oplus H$ ;
+rewriting a term of predicate $e$ into $e'$ with respect to $\Gamma$
+is denoted by $\Gamma\models e\triangleright e'$.
+
+\paragraph{Inference Law.}
+A hypothesis is simplified and added to the knowledge base to
+simplify the goal.
+\[\LAW%
+ {\QED{\Gamma}{H}{H'}\AND\QED{\Gamma\oplus H'}{G}{G'}}%
+ {\QED{\Gamma}{(H\rightarrow G)}{(H'\rightarrow G')}}
+\]
+
+\paragraph{Conjunction Law.}
+Each side of a conjunction is simplified with the added knowledge of
+the other side. This law scales up to the conjunction of $n$ facts,
+and simplifications can be performed incrementally.
+\[\LAW%
+ {\QED{\Gamma\oplus B}{A}{A'}\AND\QED{\Gamma\oplus A}{B}{B'}}%
+ {\QED{\Gamma}{(A\wedge B)}{(A'\wedge B')}}
+\]
+
+\paragraph{Conditional Law.}
+The conditional expression is simplified, before simplifying each
+branch under the appropriate hypothesis.
+\[\LAW
+{\QED{\Gamma}{H}{H'}\AND
+ \QED{\Gamma\oplus H'}{A}{A'}\AND
+ \QED{\Gamma\oplus \neg H'}{B}{B'}}
+{\QED{\Gamma}{(H\,?A:B)}{(H'\,?A':B')}}
+\]
+
+Inside the \textsf{WP} plug-in, the proof contexts are only built in
+terms of conjunctions, conditional and inference rules. Hence, these
+laws are sufficient to perform proof context simplifications.
+Technically, simplification has a quadratic complexity in the width
+and depth of the proof formula. Options will be added to control the
+risk of combinatorial explosion. In practice, simplification is
+delayed until submission of the proof obligation to external provers,
+that have similar complexity. Since we account on simplification for
+enhancing prover efficiency, we expect it to be worth the cost.
+
+The power of the simplification process depends on the simplification plug-ins
+loaded in the \textsf{Qed} engine, and will be the purpose of further
+developments. Chapter~\ref{wp-builtins} provides additional information on the
+implemented simplifications and the supported \textsf{ACSL} built-in operations.
+
+\section{Efficient WP Computation}
+
+During the \emph{Weakest Precondition} calculus, proof obligations are
+constructed backwardly for each program instruction. Conditional
+statements are of particular interest, since they introduce a fork in
+the generated proof contexts.
+
+More precisely, consider a conditional statement \texttt{if $(e)$ $A$
+  else $B$}. Let $W_A$ be the weakest precondition calculus from block
+$A$, and $W_B$ the one from block $B$. Provided the translation of expression
+$e$ in the current memory model leads to assumption $E$, the naive
+weakest precondition of the conditional is: $(E \, ? W_A : W_B)$.
+
+With this formula, the \emph{weakest preconditions} of the program
+after the conditional are duplicated inside $W_A$ and $W_B$. Moreover, these
+common postconditions have been transformed by the effects of $A$ and
+$B$.  Then, the factorization of common sub-terms of logic language
+$\cal{L}$ is \emph{not} capable of avoiding the duplication. In the presence of
+successive conditionals, proof obligations generated become twice as
+big at each conditional statement.
+
+To tackle this problem, the solution is to put the program in
+\emph{passive form}~\cite{FlanaganSaxe2001,Leino2003}. Each variable
+of the program is assigned a different logic variable in each
+branch. The different variables are joined at conditionals into new
+fresh variables and equality conditions.
+
+In practice, the passive form transformation is done during the
+\emph{weakest precondition} calculus, together with the translation of
+\textsf{C} and \textsf{ACSL} by the memory model. Hence, a translation
+map $\sigma$ is maintained at each program point from memory model
+variables to $\cal{L}$ logic variables.
+
+Joining maps $\sigma_1$ and $\sigma_2$ from the branches of a
+conditional leads to a new map $\sigma$ assigning a new logic variable
+$x$ to memory variable $m$ whenever $\sigma_1(m)$ and $\sigma_2(m)$
+are different. This join also produces the two sets of equalities $H_1$
+and $H_2$ associated to this variable renaming. Hence $\sigma(m)=\sigma_1(m)$ below
+is member of $H_1$ and $\sigma(m)=\sigma_2(m)$ is member of $H_2$.
+
+Now, if $W$ is the postcondition of the conditional program below,
+$W_A$ and $W_B$ can always be decomposed into: $W_A=W^0_A\wedge W$ and
+$W_B=W^0_B\wedge W$. Finally, the weakest precondition of the
+conditional is:
+\[ (\,E \, ?\; H_1\wedge W^0_A \;:\; H_2\wedge W^0_B\;) \wedge W \]
+
+This form actually factorizes the common postcondition to $A$ and $B$,
+which makes the \emph{weakest precondition} calculus linear in the
+number of program statements.

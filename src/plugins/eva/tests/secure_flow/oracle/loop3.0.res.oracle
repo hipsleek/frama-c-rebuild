@@ -1,0 +1,35 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing loop3.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  user_input ∈ [--..--]
+  secret ∈ [--..--]
+[eva:progress] loop3.c:13: assertion got status valid.
+[eva:secure-flow:condition] loop3.c:18: Warning: 
+  non-interference violation on condition involving {secret; x}
+[eva:secure-flow:condition] loop3.c:15: Warning: 
+  non-interference violation on condition involving {x}
+[eva:alarm] loop3.c:20: Warning: assertion got status unknown.
+[eva:progress] loop3.c:20: assertion got status valid.
+[eva:progress] loop3.c:21: assertion got status valid.
+[eva:alarm] loop3.c:21: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  x ∈ [-2147483647..2147483647]
+  loop_was_entered ∈ {0; 1}
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    x; loop_was_entered; __retres
+[inout] Inputs for function main:
+    user_input; secret

@@ -1,0 +1,6 @@
+PLUGIN: eva,inout,scope
+
+MACRO: LOG_MT_DOT_FILES_FILENAME @PTEST_NAME@_cfg.@PTEST_NUMBER@.dot
+MACRO: LOG_MT_DOT_FILES_OPTS -mt-extract html -mt-concat-dot-files-to @LOG_MT_DOT_FILES_FILENAME@
+
+OPT: -commands-file %{dep:mthread_test_options.txt}

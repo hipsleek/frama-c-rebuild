@@ -1,0 +1,74 @@
+Plug-in name: Metrics
+Plug-in shortname: metrics
+Description: syntactic metrics
+
+Most options of the form '-metrics-option-name' and without any parameter
+have an opposite with the name '-metrics-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-metrics            activate metrics computation (opposite option is
+                    -no-metrics)
+-metrics-ast <[cabs | cil | acsl]>  apply metrics to Cabs or CIL AST, or to
+                    ACSL specs (preferably use -metrics-ast="[cabs | cil |
+                    acsl]")
+-metrics-by-function  also compute metrics on a per-function basis (opposite
+                    option is -metrics-no-by-function)
+-metrics-cover <f1,..,fn>  compute an overapproximation of the functions
+                    reachable from f1,..,fn. (preferably use
+                    -metrics-cover="f1,..,fn")
+-metrics-eva-cover  estimate Eva coverage w.r.t. reachable syntactic
+                    definitions (opposite option is -metrics-no-eva-cover)
+-metrics-value-cover  alias for option -metrics-eva-cover
+-metrics-libc       show functions from Frama-C standard C library in the
+                    results; deactivated by default. (opposite option is
+                    -metrics-no-libc)
+-metrics-locals-size <f1,...,fn>  prints the size of local variables for
+                    functions f1,...,fn, and for the functions called within
+                    them (does not support recursive calls) (preferably use
+                    -metrics-locals-size="f1,...,fn")
+-metrics-output <filename>  print some metrics into the specified file; the
+                    output format is recognized through the extension:
+                    .text/.txt for text, .html/.htm for HTML, or .json for
+                    JSON.
+-metrics-used-files  list files containing global definitions reachable by
+                    main (opposite option is -metrics-no-used-files)
+
+*** DEBUG
+
+-metrics-debug <n>  level of debug for plug-in Metrics (default to 0)
+
+*** GETTING INFORMATION
+
+-metrics-help       help of plug-in Metrics
+-metrics-h          alias for option -metrics-help
+
+*** OUTPUT MESSAGES
+
+-metrics-log <K_1:file_1,...>  copy log messages from Metrics to a file. <K>
+                    is a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -metrics-log="K_1:file_1,...")
+-metrics-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -metrics-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -metrics-msg-key="k1[,...,kn]")
+-metrics-verbose <n>  level of verbosity for plug-in Metrics (default to 1)
+-metrics-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category
+                    <k1> to <s1>,...,<kn> to <sn>. Use -metrics-warn-key help
+                    to get a list of available categories, and * to enable
+                    all categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -metrics-warn-key="k1[=s1][,...,kn[=sn]]")

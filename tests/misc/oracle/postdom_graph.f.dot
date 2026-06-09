@@ -1,0 +1,54 @@
+digraph G {
+  label="PostDominators for function f";
+  node [shape=box, style="filled", ];
+  1 [label="/* sid:1 */
+c = 12;", ];
+  3 [label="/* sid:3 */
+if (c) {
+  /* sid:4 */
+  test: c = 42;
+  /* sid:5 */
+  goto test;
+}
+else {
+  /* sid:6 */
+  c = 12;
+  /* sid:53 */
+  {
+    /* sid:8 */
+    __retres = c;
+    /* sid:54 */
+    goto return_label;
+  }
+}",
+     ];
+  4 [label="/* sid:4 */
+test: c = 42;", ];
+  53 [label="/* sid:53 */
+{
+  /* sid:8 */
+  __retres = c;
+  /* sid:54 */
+  goto return_label;
+}",
+      ];
+  5 [label="/* sid:5 */
+goto test;", ];
+  54 [label="/* sid:54 */
+goto return_label;", ];
+  6 [label="/* sid:6 */
+c = 12;", ];
+  55 [label="/* sid:55 */
+return_label: return __retres;", ];
+  8 [label="/* sid:8 */
+__retres = c;", ];
+  
+  
+  3 -> 1;
+  6 -> 3;
+  8 -> 53;
+  55 -> 54;
+  53 -> 6;
+  54 -> 8;
+  
+  }

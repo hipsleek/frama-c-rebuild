@@ -1,0 +1,146 @@
+[kernel] Parsing csmith.i (no preprocessing)
+[eva] Analyzing a complete application starting at bts906c
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  G1 ∈ {0}
+  G1b ∈ {0}
+  G2 ∈ {0}
+[eva:partition] csmith.i:189: starting to merge loop iterations
+[eva:partition] csmith.i:190: starting to merge loop iterations
+[eva:progress] Recording results for bts906c
+[eva:progress] Done for function bts906c
+[pdg] computing for function bts906c
+[pdg] done for function bts906c
+[pdg] PDG for bts906c
+ {n1}: InCtrl
+ {n2}: VarDecl : x
+ {n3}: VarDecl : i
+ {n4}: VarDecl : __retres
+ {n5}: int x = 0;
+   -[-c-]-> 1
+   -[a--]-> 2
+ {n6}: W:
+   -[-c-]-> 1
+   -[-c-]-> 9
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 14
+   -[-c-]-> 19
+   -[-c-]-> 21
+ {n7}: goto W;
+   -[-c-]-> 1
+   -[-c-]-> 6
+   -[-c-]-> 9
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 14
+   -[-c-]-> 19
+   -[-c-]-> 21
+ {n8}: int i = 2;
+   -[-c-]-> 1
+   -[a--]-> 3
+ {n9}: while(1)
+   -[-c-]-> 1
+   -[-c-]-> 9
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 14
+ {n10}: i >= 0
+   -[-c-]-> 1
+   -[--d]-> 3
+   -[--d]-> 8
+   -[-c-]-> 9
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 14
+   -[--d]-> 16
+ {n11}: block
+   -[-c-]-> 1
+   -[-c-]-> 9
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 14
+ {n12}: while(1)
+   -[-c-]-> 1
+   -[-c-]-> 9
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 14
+ {n13}: i
+   -[-c-]-> 1
+   -[--d]-> 3
+   -[--d]-> 8
+   -[-c-]-> 9
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 14
+   -[--d]-> 16
+ {n14}: goto B;
+   -[-c-]-> 1
+   -[-c-]-> 9
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 14
+   -[-c-]-> 15
+ {n15}: B:
+   -[-c-]-> 1
+   -[-c-]-> 9
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 14
+ {n16}: B: i --;
+   -[-c-]-> 1
+   -[a-d]-> 3
+   -[--d]-> 8
+   -[-c-]-> 9
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 14
+   -[--d]-> 16
+ {n17}: x ++;
+   -[-c-]-> 1
+   -[a-d]-> 2
+   -[--d]-> 5
+   -[-c-]-> 9
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 14
+ {n18}: break;
+   -[-c-]-> 1
+   -[-c-]-> 9
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 14
+ {n19}: block
+   -[-c-]-> 1
+   -[-c-]-> 9
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 14
+ {n20}: __retres = x;
+   -[-c-]-> 1
+   -[--d]-> 2
+   -[a--]-> 4
+   -[-c-]-> 9
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 14
+   -[--d]-> 17
+   -[-c-]-> 19
+ {n21}: goto return_label;
+   -[-c-]-> 1
+   -[-c-]-> 9
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 14
+   -[-c-]-> 19
+   -[-c-]-> 22
+ {n22}: return_label:
+   -[-c-]-> 1
+ {n23}: return_label: return __retres;
+   -[-c-]-> 1
+   -[--d]-> 4
+   -[--d]-> 20
+ {n24}: OutRet
+   -[--d]-> 23

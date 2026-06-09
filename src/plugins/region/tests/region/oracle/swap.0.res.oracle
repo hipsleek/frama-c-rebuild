@@ -1,0 +1,14 @@
+[kernel] Parsing swap.i (no preprocessing)
+[region] Function swap_aliased:
+  R0001: -R-- a (int *) 64b (*R0002) (singleton) ;
+  R0002: -RW- R: (int) 32b R: a[0..0] R: b[0..0] ;
+  R0003: -R-- b (int *) 64b (*R0002) (singleton) ;
+  R0004: IR-- tmp (int) 32b (singleton) (allocated) ;
+[region] annotating function swap_aliased
+[region] Function swap_separated:
+  R0001: -R-- a (int *) 64b (*R0002) (singleton) ;
+  R0002: -RW- A: (int) 32b A: a[0..0] (singleton) ;
+  R0003: -R-- b (int *) 64b (*R0004) (singleton) ;
+  R0004: -RW- B: (int) 32b B: b[0..0] (singleton) ;
+  R0005: IR-- tmp (int) 32b (singleton) (allocated) ;
+[region] annotating function swap_separated

@@ -1,0 +1,9 @@
+18,19c18
+< [eva:show] interpol.c:16: 
+<   Frama_C_show_each_ok: {0; 1; 2; 3; 4; 5; 6}, {-64; -32; -16; -8; -4; -2; -1}
+---
+> [eva:show] interpol.c:16: Frama_C_show_each_ok: {0; 1; 2; 3; 4; 5; 6}, [-64..-1]
+24c23
+<   d ∈ {-64; -32; -16; -8; -4; -2; -1} or UNINITIALIZED
+---
+>   d ∈ [-64..-1] or UNINITIALIZED

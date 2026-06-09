@@ -1,0 +1,284 @@
+# frama-c -wp [...]
+[kernel] Parsing math.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal ko_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal ko_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal ok_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal ok_terminates (Cfg) (Trivial)
+------------------------------------------------------------
+  Global
+------------------------------------------------------------
+
+Goal Lemma 'abs_neg':
+Assume Lemmas: 'abs_pos'
+Assume { Have: y <= .0. Have: x < y. }
+Prove: RAbs.abs(y) < RAbs.abs(x).
+
+------------------------------------------------------------
+
+Goal Lemma 'abs_pos':
+Assume { Have: .0 <= x. Have: x < y. }
+Prove: RAbs.abs(x) < RAbs.abs(y).
+
+------------------------------------------------------------
+
+Goal Lemma 'atan_sin_cos':
+Assume Lemmas: 'pow_2' 'exp_log_add_mul' 'log_exp_mul_add' 'exp_pos'
+  'sqrt_mono' 'sqrt_pos' 'max_ac' 'min_ac' 'max_or' 'max_inf' 'min_or'
+  'min_inf' 'abs_neg' 'abs_pos'
+Let r = atan(x). Prove: (sin(r) / cos(r)) = x.
+
+------------------------------------------------------------
+
+Goal Lemma 'cosh_opp':
+Assume Lemmas: 'sinh_opp' 'atan_sin_cos' 'pow_2' 'exp_log_add_mul'
+  'log_exp_mul_add' 'exp_pos' 'sqrt_mono' 'sqrt_pos' 'max_ac' 'min_ac'
+  'max_or' 'max_inf' 'min_or' 'min_inf' 'abs_neg' 'abs_pos'
+Prove: cosh(-x) = cosh(x).
+
+------------------------------------------------------------
+
+Goal Lemma 'distance':
+Assume Lemmas: 'tanh_opp' 'cosh_opp' 'sinh_opp' 'atan_sin_cos' 'pow_2'
+  'exp_log_add_mul' 'log_exp_mul_add' 'exp_pos' 'sqrt_mono' 'sqrt_pos'
+  'max_ac' 'min_ac' 'max_or' 'max_inf' 'min_or' 'min_inf' 'abs_neg' 'abs_pos'
+Prove: sqrt((x * x) + (y * y)) = hypot(x, y).
+
+------------------------------------------------------------
+
+Goal Lemma 'exp_log_add_mul':
+Assume Lemmas: 'log_exp_mul_add' 'exp_pos' 'sqrt_mono' 'sqrt_pos' 'max_ac'
+  'min_ac' 'max_or' 'max_inf' 'min_or' 'min_inf' 'abs_neg' 'abs_pos'
+Assume { Have: .0 < a. Have: .0 < b. }
+Prove: (a * b) = exp(log(a) + log(b)).
+
+------------------------------------------------------------
+
+Goal Lemma 'exp_pos':
+Assume Lemmas: 'sqrt_mono' 'sqrt_pos' 'max_ac' 'min_ac' 'max_or' 'max_inf'
+  'min_or' 'min_inf' 'abs_neg' 'abs_pos'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'log_exp_mul_add':
+Assume Lemmas: 'exp_pos' 'sqrt_mono' 'sqrt_pos' 'max_ac' 'min_ac' 'max_or'
+  'max_inf' 'min_or' 'min_inf' 'abs_neg' 'abs_pos'
+Prove: (a + b) = log(exp(a) * exp(b)).
+
+------------------------------------------------------------
+
+Goal Lemma 'max_ac':
+Assume Lemmas: 'min_ac' 'max_or' 'max_inf' 'min_or' 'min_inf' 'abs_neg'
+  'abs_pos'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'max_inf':
+Assume Lemmas: 'min_or' 'min_inf' 'abs_neg' 'abs_pos'
+Let r = Rg.max(x, y). Prove: (x <= r) /\ (y <= r).
+
+------------------------------------------------------------
+
+Goal Lemma 'max_or':
+Assume Lemmas: 'max_inf' 'min_or' 'min_inf' 'abs_neg' 'abs_pos'
+Let r = Rg.max(x, y). Prove: (r = x) \/ (r = y).
+
+------------------------------------------------------------
+
+Goal Lemma 'min_ac':
+Assume Lemmas: 'max_or' 'max_inf' 'min_or' 'min_inf' 'abs_neg' 'abs_pos'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'min_inf':
+Assume Lemmas: 'abs_neg' 'abs_pos'
+Let r = Rg.min(x, y). Prove: (r <= x) /\ (r <= y).
+
+------------------------------------------------------------
+
+Goal Lemma 'min_or':
+Assume Lemmas: 'min_inf' 'abs_neg' 'abs_pos'
+Let r = Rg.min(x, y). Prove: (r = x) \/ (r = y).
+
+------------------------------------------------------------
+
+Goal Lemma 'pow_2':
+Assume Lemmas: 'exp_log_add_mul' 'log_exp_mul_add' 'exp_pos' 'sqrt_mono'
+  'sqrt_pos' 'max_ac' 'min_ac' 'max_or' 'max_inf' 'min_or' 'min_inf'
+  'abs_neg' 'abs_pos'
+Assume { Have: .0 < a. }
+Prove: (a * a) = pow(a, 2.0).
+
+------------------------------------------------------------
+
+Goal Lemma 'sinh_opp':
+Assume Lemmas: 'atan_sin_cos' 'pow_2' 'exp_log_add_mul' 'log_exp_mul_add'
+  'exp_pos' 'sqrt_mono' 'sqrt_pos' 'max_ac' 'min_ac' 'max_or' 'max_inf'
+  'min_or' 'min_inf' 'abs_neg' 'abs_pos'
+Prove: (sinh(x) + sinh(-x)) = .0.
+
+------------------------------------------------------------
+
+Goal Lemma 'sqrt_mono':
+Assume Lemmas: 'sqrt_pos' 'max_ac' 'min_ac' 'max_or' 'max_inf' 'min_or'
+  'min_inf' 'abs_neg' 'abs_pos'
+Assume { Have: .0 <= x. Have: x < y. }
+Prove: sqrt(x) < sqrt(y).
+
+------------------------------------------------------------
+
+Goal Lemma 'sqrt_pos':
+Assume Lemmas: 'max_ac' 'min_ac' 'max_or' 'max_inf' 'min_or' 'min_inf'
+  'abs_neg' 'abs_pos'
+Assume { Have: .0 <= x. }
+Prove: .0 <= sqrt(x).
+
+------------------------------------------------------------
+
+Goal Lemma 'tanh_opp':
+Assume Lemmas: 'cosh_opp' 'sinh_opp' 'atan_sin_cos' 'pow_2' 'exp_log_add_mul'
+  'log_exp_mul_add' 'exp_pos' 'sqrt_mono' 'sqrt_pos' 'max_ac' 'min_ac'
+  'max_or' 'max_inf' 'min_or' 'min_inf' 'abs_neg' 'abs_pos'
+Prove: (tanh(x) + tanh(-x)) = .0.
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function ko
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'ko':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ko,sin_asin' in 'ko':
+Prove: sin(asin(r)) = r.
+
+------------------------------------------------------------
+
+Goal Post-condition 'ko,cos_acos' in 'ko':
+Prove: cos(acos(r)) = r.
+
+------------------------------------------------------------
+
+Goal Post-condition 'ko,asin_sin' in 'ko':
+Prove: asin(sin(r)) = r.
+
+------------------------------------------------------------
+
+Goal Post-condition 'ko,acos_cos' in 'ko':
+Prove: acos(cos(r)) = r.
+
+------------------------------------------------------------
+
+Goal Post-condition 'ko,atan_tan' in 'ko':
+Prove: atan(tan(r)) = r.
+
+------------------------------------------------------------
+
+Goal Post-condition 'ko,log_pow' in 'ko':
+Prove: (r * log(r_1)) = log(pow(r_1, r)).
+
+------------------------------------------------------------
+
+Goal Post-condition 'ko,exp_log' in 'ko':
+Prove: exp(log(r)) = r.
+
+------------------------------------------------------------
+
+Goal Post-condition 'ko,exp_log_add_mul' in 'ko':
+Prove: (r * r_1) = exp(log(r) + log(r_1)).
+
+------------------------------------------------------------
+
+Goal Post-condition 'ko,sqrt_pos' in 'ko':
+Prove: .0 <= sqrt(r).
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'ko':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function ok
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'ok':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'sin_asin' in 'ok':
+Assume { (* Goal *) When: (r <= 1.0) /\ (-1.0 <= r). }
+Prove: sin(asin(r)) = r.
+
+------------------------------------------------------------
+
+Goal Post-condition 'sin_asin_in_range' in 'ok':
+Let r_1 = cos(r). Prove: sin(asin(r_1)) = r_1.
+
+------------------------------------------------------------
+
+Goal Post-condition 'cos_acos' in 'ok':
+Assume { (* Goal *) When: (r <= 1.0) /\ (-1.0 <= r). }
+Prove: cos(acos(r)) = r.
+
+------------------------------------------------------------
+
+Goal Post-condition 'cos_acos_in_range' in 'ok':
+Let r_1 = sin(r). Prove: cos(acos(r_1)) = r_1.
+
+------------------------------------------------------------
+
+Goal Post-condition 'tan_atan' in 'ok':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Post-condition 'log_pow' in 'ok':
+Assume { (* Goal *) When: .0 < r_1. }
+Prove: (r * log(r_1)) = log(pow(r_1, r)).
+
+------------------------------------------------------------
+
+Goal Post-condition 'log_exp' in 'ok':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Post-condition 'exp_log' in 'ok':
+Assume { (* Goal *) When: .0 < r. }
+Prove: exp(log(r)) = r.
+
+------------------------------------------------------------
+
+Goal Post-condition 'min_plus_distrib' in 'ok':
+Prove: (r + Rg.min(r_1, r_2)) = Rg.min(r_1 + r, r_2 + r).
+
+------------------------------------------------------------
+
+Goal Post-condition 'sqrt_pos' in 'ok':
+Assume { (* Goal *) When: .0 < r. }
+Prove: .0 < sqrt(r).
+
+------------------------------------------------------------
+
+Goal Post-condition 'sqrt_pos0' in 'ok':
+Assume { (* Goal *) When: .0 <= r. }
+Prove: .0 <= sqrt(r).
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'ok':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------

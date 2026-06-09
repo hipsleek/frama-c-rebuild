@@ -1,0 +1,10 @@
+[kernel] Parsing generic.c (with preprocessing)
+[kernel] generic.c:39: User Error: 
+  multiple default clauses in _Generic selection
+  37    #endif
+  38    #ifdef TOO_MANY_DEFAULTS
+  39      int a = _Generic("abc", default: 1, default: 1);
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  40    #endif
+  41    #ifdef TOO_MANY_COMPATIBLE
+[kernel] Frama-C aborted: invalid user input.

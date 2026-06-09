@@ -1,0 +1,171 @@
+[kernel] Parsing uchar_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function mbrtoc8 <- main.
+  Called from uchar_h.c:10.
+[eva] using specification for function mbrtoc8
+[eva:assigns:invalid-location] uchar_h.c:10: 
+  Completely invalid destination for assigns clause *ps. Ignoring.
+[eva:progress] Done for function mbrtoc8
+[eva:progress] 
+  computing for function mbrtoc8 <- main.
+  Called from uchar_h.c:11.
+[eva:progress] Done for function mbrtoc8
+[eva:progress] 
+  computing for function mbrtoc8 <- main.
+  Called from uchar_h.c:12.
+[eva:assigns:invalid-location] uchar_h.c:12: 
+  Completely invalid destination for assigns clause *(pc8 + 0). Ignoring.
+[eva:progress] Done for function mbrtoc8
+[eva:progress] 
+  computing for function mbrtoc8 <- main.
+  Called from uchar_h.c:13.
+[eva:assigns:invalid-location] uchar_h.c:13: 
+  Completely invalid destination for assigns clause *(pc8 + 0). Ignoring.
+[eva:assigns:invalid-location] uchar_h.c:13: 
+  Completely invalid destination for assigns clause *ps. Ignoring.
+[eva:progress] Done for function mbrtoc8
+[eva:progress] 
+  computing for function c8rtomb <- main.
+  Called from uchar_h.c:14.
+[eva] using specification for function c8rtomb
+[eva:progress] Done for function c8rtomb
+[eva:progress] 
+  computing for function c8rtomb <- main.
+  Called from uchar_h.c:15.
+[eva:assigns:invalid-location] uchar_h.c:15: 
+  Completely invalid destination for assigns clause *(s + (0 .. 16 - 1)).
+  Ignoring.
+[eva:progress] Done for function c8rtomb
+[eva:progress] 
+  computing for function c8rtomb <- main.
+  Called from uchar_h.c:16.
+[eva:assigns:invalid-location] uchar_h.c:16: 
+  Completely invalid destination for assigns clause *(s + (0 .. 16 - 1)).
+  Ignoring.
+[eva:assigns:invalid-location] uchar_h.c:16: 
+  Completely invalid destination for assigns clause *ps. Ignoring.
+[eva:progress] Done for function c8rtomb
+[eva:progress] 
+  computing for function mbrtoc16 <- main.
+  Called from uchar_h.c:20.
+[eva] using specification for function mbrtoc16
+[eva:assigns:invalid-location] uchar_h.c:20: 
+  Completely invalid destination for assigns clause *ps. Ignoring.
+[eva:progress] Done for function mbrtoc16
+[eva:progress] 
+  computing for function mbrtoc16 <- main.
+  Called from uchar_h.c:21.
+[eva:progress] Done for function mbrtoc16
+[eva:progress] 
+  computing for function mbrtoc16 <- main.
+  Called from uchar_h.c:22.
+[eva:assigns:invalid-location] uchar_h.c:22: 
+  Completely invalid destination for assigns clause *(pc16 + 0). Ignoring.
+[eva:progress] Done for function mbrtoc16
+[eva:progress] 
+  computing for function mbrtoc16 <- main.
+  Called from uchar_h.c:23.
+[eva:assigns:invalid-location] uchar_h.c:23: 
+  Completely invalid destination for assigns clause *(pc16 + 0). Ignoring.
+[eva:assigns:invalid-location] uchar_h.c:23: 
+  Completely invalid destination for assigns clause *ps. Ignoring.
+[eva:progress] Done for function mbrtoc16
+[eva:progress] 
+  computing for function c16rtomb <- main.
+  Called from uchar_h.c:24.
+[eva] using specification for function c16rtomb
+[eva:progress] Done for function c16rtomb
+[eva:progress] 
+  computing for function c16rtomb <- main.
+  Called from uchar_h.c:25.
+[eva:assigns:invalid-location] uchar_h.c:25: 
+  Completely invalid destination for assigns clause *(s + (0 .. 16 - 1)).
+  Ignoring.
+[eva:progress] Done for function c16rtomb
+[eva:progress] 
+  computing for function c16rtomb <- main.
+  Called from uchar_h.c:26.
+[eva:assigns:invalid-location] uchar_h.c:26: 
+  Completely invalid destination for assigns clause *(s + (0 .. 16 - 1)).
+  Ignoring.
+[eva:assigns:invalid-location] uchar_h.c:26: 
+  Completely invalid destination for assigns clause *ps. Ignoring.
+[eva:progress] Done for function c16rtomb
+[eva:progress] 
+  computing for function mbrtoc32 <- main.
+  Called from uchar_h.c:30.
+[eva] using specification for function mbrtoc32
+[eva:assigns:invalid-location] uchar_h.c:30: 
+  Completely invalid destination for assigns clause *ps. Ignoring.
+[eva:progress] Done for function mbrtoc32
+[eva:progress] 
+  computing for function mbrtoc32 <- main.
+  Called from uchar_h.c:31.
+[eva:progress] Done for function mbrtoc32
+[eva:progress] 
+  computing for function mbrtoc32 <- main.
+  Called from uchar_h.c:32.
+[eva:assigns:invalid-location] uchar_h.c:32: 
+  Completely invalid destination for assigns clause *(pc32 + 0). Ignoring.
+[eva:progress] Done for function mbrtoc32
+[eva:progress] 
+  computing for function mbrtoc32 <- main.
+  Called from uchar_h.c:33.
+[eva:assigns:invalid-location] uchar_h.c:33: 
+  Completely invalid destination for assigns clause *(pc32 + 0). Ignoring.
+[eva:assigns:invalid-location] uchar_h.c:33: 
+  Completely invalid destination for assigns clause *ps. Ignoring.
+[eva:progress] Done for function mbrtoc32
+[eva:progress] 
+  computing for function c32rtomb <- main.
+  Called from uchar_h.c:34.
+[eva] using specification for function c32rtomb
+[eva:progress] Done for function c32rtomb
+[eva:progress] 
+  computing for function c32rtomb <- main.
+  Called from uchar_h.c:35.
+[eva:assigns:invalid-location] uchar_h.c:35: 
+  Completely invalid destination for assigns clause *(s + (0 .. 16 - 1)).
+  Ignoring.
+[eva:progress] Done for function c32rtomb
+[eva:progress] 
+  computing for function c32rtomb <- main.
+  Called from uchar_h.c:36.
+[eva:assigns:invalid-location] uchar_h.c:36: 
+  Completely invalid destination for assigns clause *(s + (0 .. 16 - 1)).
+  Ignoring.
+[eva:assigns:invalid-location] uchar_h.c:36: 
+  Completely invalid destination for assigns clause *ps. Ignoring.
+[eva:progress] Done for function c32rtomb
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  __fc_errno ∈ [--..--]
+  __fc_mbrtoc8_internal_mbstate ∈ [--..--]
+  __fc_c8rtomb_internal_mbstate ∈ [--..--]
+  __fc_mbrtoc16_internal_mbstate ∈ [--..--]
+  __fc_c16rtomb_internal_mbstate ∈ [--..--]
+  __fc_mbrtoc32_internal_mbstate ∈ [--..--]
+  __fc_c32rtomb_internal_mbstate ∈ [--..--]
+  __fc_c8rtomb_internal_buf[0..15] ∈ [--..--]
+  __fc_c16rtomb_internal_buf[0..15] ∈ [--..--]
+  __fc_c32rtomb_internal_buf[0..15] ∈ [--..--]
+  st ∈ [--..--]
+  r ∈ [--..--]
+  buf[0..9] ∈ [--..--] or UNINITIALIZED
+  pc8[0] ∈ [--..--] or UNINITIALIZED
+     [1..9] ∈ UNINITIALIZED
+  c8 ∈ {0}
+  pc16[0] ∈ [--..--] or UNINITIALIZED
+      [1..9] ∈ UNINITIALIZED
+  c16 ∈ {0}
+  pc32[0] ∈ [--..--] or UNINITIALIZED
+      [1..9] ∈ UNINITIALIZED
+  c32 ∈ {0}
+  __retres ∈ {0}

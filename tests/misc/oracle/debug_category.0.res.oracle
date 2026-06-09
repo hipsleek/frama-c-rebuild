@@ -1,0 +1,6 @@
+[test] Message categories for test are:
+    *     : All categories
+    a     : A short description for a
+    a:b   : A short description for a::b
+    a:b:c : A short description for a::b::c
+    d     : A short description for d

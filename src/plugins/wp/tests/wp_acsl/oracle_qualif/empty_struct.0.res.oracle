@@ -1,0 +1,32 @@
+# frama-c -wp [...]
+[kernel] Parsing empty_struct.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] empty_struct.i:14: Warning: 
+  Neither code nor explicit exits and terminates for function f1, generating
+  default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] empty_struct.i:24: Warning: 
+  Neither code nor explicit exits and terminates for function f2, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] 12 goals scheduled
+[wp] [Valid] typed_g1_terminates (Qed)
+[wp] [Valid] typed_g1_ensures (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_g1_exits (Qed)
+[wp] [Valid] typed_g1_assigns_normal (Qed)
+[wp] [Valid] typed_g1_assigns_exit (Qed)
+[wp] [Valid] typed_g2_terminates (Qed)
+[wp] [Valid] typed_g2_ensures (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_g2_exits (Qed)
+[wp] [Valid] typed_g2_assigns_normal (Qed)
+[wp] [Valid] typed_g2_assigns_exit (Qed)
+[wp] [Valid] typed_main_terminates (Qed)
+[wp] [Valid] typed_main_exits (Qed)
+[wp] Proved goals:   12 / 12
+  Qed:            10
+  Alt-Ergo:        2
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  g1                        4        1        5       100%
+  g2                        4        1        5       100%
+  main                      2        -        2       100%
+------------------------------------------------------------

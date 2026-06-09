@@ -1,0 +1,39 @@
+[kernel] Parsing sched_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function sched_get_priority_max <- main.
+  Called from sched_h.c:8.
+[eva] using specification for function sched_get_priority_max
+[eva:progress] Done for function sched_get_priority_max
+[eva:progress] 
+  computing for function sched_get_priority_max <- main.
+  Called from sched_h.c:9.
+[eva:progress] Done for function sched_get_priority_max
+[eva:progress] 
+  computing for function sched_getparam <- main.
+  Called from sched_h.c:11.
+[eva] using specification for function sched_getparam
+[eva:progress] Done for function sched_getparam
+[eva:progress] 
+  computing for function sched_rr_get_interval <- main.
+  Called from sched_h.c:13.
+[eva] using specification for function sched_rr_get_interval
+[eva:progress] Done for function sched_rr_get_interval
+[eva:progress] 
+  computing for function sched_setscheduler <- main.
+  Called from sched_h.c:14.
+[eva] using specification for function sched_setscheduler
+[eva:progress] Done for function sched_setscheduler
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  __fc_errno ∈ [--..--]
+  r ∈ [--..--]
+  sp ∈ [--..--] or UNINITIALIZED
+  interval ∈ [--..--] or UNINITIALIZED
+  __retres ∈ {0}

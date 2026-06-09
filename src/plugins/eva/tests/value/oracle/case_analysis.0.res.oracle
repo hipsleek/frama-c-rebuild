@@ -1,0 +1,19 @@
+[kernel] Parsing case_analysis.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  sq ∈ {0}
+  s ∈ {0}
+  rq ∈ {0}
+  r ∈ {0}
+[eva:progress] case_analysis.i:14: assertion got status valid.
+[eva:progress] case_analysis.i:17: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  sq ∈ [0..100]
+  s ∈ [-10..10]
+  rq ∈ [-0.0000000000000000 .. 100.0000000000000000]
+  r ∈ [-10.0000000000000000 .. 10.0000000000000000]

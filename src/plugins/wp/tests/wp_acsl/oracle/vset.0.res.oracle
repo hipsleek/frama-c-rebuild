@@ -1,0 +1,94 @@
+# frama-c -wp [...]
+[kernel] Parsing vset.i (no preprocessing)
+[wp] Running WP plugin...
+------------------------------------------------------------
+  Global
+------------------------------------------------------------
+
+Goal Check Lemma 'direct_in':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'direct_in_singleton':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Check Lemma 'indirect_equal_constants':
+Prove: mem(1, L_Set1) /\ mem(2, L_Set1) /\ mem(3, L_Set1) /\
+    (forall i : Z. (mem(i, L_Set1) -> ((i = 1) \/ (i = 2) \/ (i = 3)))).
+
+------------------------------------------------------------
+
+Goal Check Lemma 'indirect_equal_ghost':
+Let a = L_Set2(int2_0, int1_0).
+Assume { Have: is_sint32(int1_0). Have: is_sint32(int2_0). }
+Prove: mem(int1_0, a) /\ mem(int2_0, a) /\
+    (forall i : Z. (mem(i, a) -> ((i = int1_0) \/ (i = int2_0)))).
+
+------------------------------------------------------------
+
+Goal Check Lemma 'indirect_equal_logical':
+Prove: mem(1, L_Set3) /\ mem(2, L_Set3) /\
+    (forall i : Z. (mem(i, L_Set3) -> ((i = 1) \/ (i = 2)))).
+
+------------------------------------------------------------
+
+Goal Check Lemma 'indirect_in_constants':
+Prove: mem(2, L_Set1).
+
+------------------------------------------------------------
+
+Goal Check Lemma 'indirect_in_ghost':
+Assume { Have: is_sint32(int2_0). }
+Prove: mem(int2_0, L_Set2(int2_0, int1_0)).
+
+------------------------------------------------------------
+
+Goal Check Lemma 'indirect_in_logical':
+Prove: mem(2, L_Set3).
+
+------------------------------------------------------------
+
+Goal Check Lemma 'indirect_not_equal_constants':
+Prove: (!mem(0, L_Set1)) \/ (!mem(1, L_Set1)) \/ (!mem(2, L_Set1)) \/
+    (exists i : Z. (i != 0) /\ (i != 1) /\ (i != 2) /\ mem(i, L_Set1)).
+
+------------------------------------------------------------
+
+Goal Check Lemma 'indirect_not_equal_logical':
+Prove: (!mem(0, L_Set3)) \/ (!mem(1, L_Set3)) \/
+    (exists i : Z. (i != 0) /\ (i != 1) /\ mem(i, L_Set3)).
+
+------------------------------------------------------------
+
+Goal Check Lemma 'indirect_not_in_constants':
+Prove: !mem(4, L_Set1).
+
+------------------------------------------------------------
+
+Goal Check Lemma 'indirect_not_in_logical':
+Prove: !mem(0, L_Set3).
+
+------------------------------------------------------------
+
+Goal Check Lemma 'quantify':
+Prove: exists s : set(Z). !mem(0, s).
+
+------------------------------------------------------------
+
+Goal Check Lemma 'test_inter':
+Let a_1 = inter(a, inter(b, c)).
+Let a_2 = inter(a, c).
+Assume { Have: (b = a) \/ (c = b). }
+Prove: (forall i : Z. (mem(i, a_1) -> mem(i, a_2))) /\
+    (forall i : Z. (mem(i, a_2) -> mem(i, a_1))).
+
+------------------------------------------------------------
+
+Goal Check Lemma 'test_union':
+Assume { Have: (b = a) \/ (c = b). Have: mem(i, b). }
+Prove: mem(i, a) \/ mem(i, c).
+
+------------------------------------------------------------

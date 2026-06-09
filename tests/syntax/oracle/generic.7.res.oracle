@@ -1,0 +1,11 @@
+[kernel] Parsing generic.c (with preprocessing)
+[kernel] generic.c:62: 
+  syntax error:
+  Location: "generic.c", line 62, before or at token: int
+  60    #endif
+  61    #ifdef FUNCTION_TYPE
+  62      int a = _Generic(1, void(int): 1);
+                                   ^
+  63    #endif
+  64    #ifdef INCOMPATIBLE_QUALIFIED_TYPE
+[kernel] Frama-C aborted: invalid user input.

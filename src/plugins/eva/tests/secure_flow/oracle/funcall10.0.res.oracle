@@ -1,0 +1,58 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing funcall10.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  a ∈ {0}
+  c ∈ {0}
+  b ∈ {0}
+[eva:progress] 
+  computing for function fn2 <- main.
+  Called from funcall10.c:25.
+[kernel:annot:missing-spec] funcall10.c:11: Warning: 
+  Neither code nor specification for function fn1, generating default assigns.
+  See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function fn1 <- fn2 <- main.
+  Called from funcall10.c:11.
+[eva] using specification for function fn1
+[eva:progress] Done for function fn1
+[eva:progress] Recording results for fn2
+[eva:progress] Done for function fn2
+[eva:progress] funcall10.c:26: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function fn2:
+  a ∈ [--..--]
+[eva:final-states] Values at end of function main:
+  a ∈ [--..--]
+  c ∈ [--..--]
+  __retres ∈ {0}
+[from] Computing for function fn2
+[from] Computing for function fn1 <-fn2
+[from] Done for function fn1
+[from] Done for function fn2
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function fn1:
+  \result FROM p
+[from] Function fn2:
+  a FROM p1
+  \result FROM p1
+[from] Function main:
+  a FROM b
+  c FROM b
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function fn2:
+    a
+[inout] Inputs for function fn2:
+    a
+[inout] Out (internal) for function main:
+    a; c; __retres
+[inout] Inputs for function main:
+    a; b

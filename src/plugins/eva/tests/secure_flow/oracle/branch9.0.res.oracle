@@ -1,0 +1,50 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing branch9.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+  a ∈ {0}
+  b ∈ {0}
+  c ∈ {0}
+  d ∈ {0}
+  e ∈ {0}
+[eva:progress] branch9.c:10: assertion got status valid.
+[eva:progress] branch9.c:11: assertion got status valid.
+[eva:progress] branch9.c:12: assertion got status valid.
+[eva:progress] branch9.c:13: assertion got status valid.
+[eva:progress] branch9.c:14: assertion got status valid.
+[eva:secure-flow:condition] branch9.c:15: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:alarm] branch9.c:31: Warning: assertion got status unknown.
+[eva:alarm] branch9.c:32: Warning: assertion got status unknown.
+[eva:alarm] branch9.c:33: Warning: assertion got status unknown.
+[eva:alarm] branch9.c:34: Warning: assertion got status unknown.
+[eva:alarm] branch9.c:35: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  a ∈ {0; 1}
+  b ∈ {0; 2}
+  c ∈ {0; 3}
+  d ∈ {0; 4}
+  e ∈ {0; 5}
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  a FROM secret (and SELF)
+  b FROM secret (and SELF)
+  c FROM secret (and SELF)
+  d FROM secret (and SELF)
+  e FROM secret (and SELF)
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    a; b; c; d; e; __retres
+[inout] Inputs for function main:
+    secret

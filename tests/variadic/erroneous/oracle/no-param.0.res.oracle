@@ -1,0 +1,11 @@
+[kernel] Parsing no-param.i (no preprocessing)
+[kernel] no-param.i:5: 
+  syntax error:
+  Location: "no-param.i", line 5, character 8, before or at token: ...
+  3        STDOPT:
+  4     */
+  5     void f(...) // f must have at least one argument
+               ^
+  6     {
+  7       return;
+[kernel] Frama-C aborted: invalid user input.

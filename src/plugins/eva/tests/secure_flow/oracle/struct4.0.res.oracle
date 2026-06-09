@@ -1,0 +1,35 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing struct4.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  y ∈ {0}
+  x_obj ∈ {0}
+  x ∈ {{ &x_obj }}
+[eva:progress] struct4.c:33: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  y.z[0..2] ∈ {0}
+   .z[3] ∈ {42}
+  x_obj.y[0..1] ∈ {0}
+       .y[2] ∈ {{ &y }}
+  p_obj ∈ {0}
+  p ∈ {{ &p_obj.p_y }}
+  some_y_ptr ∈ {0}
+  __retres ∈ {42}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  y.z[3] FROM x
+  x_obj.y[2] FROM \nothing
+  \result FROM x
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    y.z[3]; x_obj.y[2]; p_obj; p; some_y_ptr; __retres
+[inout] Inputs for function main:
+    y.z[3]; x_obj{.y[0]; .y[2]}; x

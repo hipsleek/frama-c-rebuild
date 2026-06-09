@@ -1,0 +1,100 @@
+# frama-c -wp -wp-rte [...]
+[kernel] Parsing opaque_struct.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] Warning: Skipped RTE guards: unaligned pointers (\aligned not supported)
+[wp] Warning: Skipped RTE guards: invalid function pointer calls (\valid_function not supported)
+[rte:annot] annotating function assigned_via_pointer
+[kernel:annot:missing-spec] opaque_struct.i:31: Warning: 
+  Neither code nor explicit exits and terminates for function g, generating
+  default clauses. See -generated-spec-* options for more info.
+[rte:annot] annotating function assigns
+[kernel:annot:missing-spec] opaque_struct.i:20: Warning: 
+  Neither code nor explicit exits and terminates for function f, generating
+  default clauses. See -generated-spec-* options for more info.
+[rte:annot] annotating function assigns_effect
+[kernel:annot:missing-spec] opaque_struct.i:64: Warning: 
+  Neither code nor explicit exits and terminates for function assign,
+  generating default clauses. See -generated-spec-* options for more info.
+[rte:annot] annotating function chunk_typing
+[kernel:annot:missing-spec] opaque_struct.i:76: Warning: 
+  Neither code nor specification for function use, generating default exits,
+  assigns and terminates. See -generated-spec-* options for more info.
+[rte:annot] annotating function initialized_assigns
+[rte:annot] annotating function uninitialized_assigns
+[wp] 27 goals scheduled
+[wp] [Unsuccess] typed_check_lemma_fail (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_succeed_L1 (Qed)
+[wp] [Valid] typed_check_lemma_succeed_L2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_assigns_terminates (Qed)
+[wp] [Valid] typed_assigns_exits (Qed)
+[wp] [Unsuccess] typed_assigns_check_fail (Alt-Ergo) (Cached)
+[wp] [Valid] typed_assigns_check_succeed (Qed)
+[wp] [Valid] typed_initialized_assigns_terminates (Qed)
+[wp] [Valid] typed_initialized_assigns_exits (Qed)
+[wp] [Unsuccess] typed_initialized_assigns_check_fails (Alt-Ergo) (Cached)
+[wp] [Valid] typed_initialized_assigns_check_succeed (Alt-Ergo) (Cached)
+[wp] [Valid] typed_uninitialized_assigns_terminates (Qed)
+[wp] [Valid] typed_uninitialized_assigns_exits (Qed)
+[wp] [Unsuccess] typed_uninitialized_assigns_check_fail (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_uninitialized_assigns_check_fail_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_assigned_via_pointer_terminates (Qed)
+[wp] [Valid] typed_assigned_via_pointer_exits (Qed)
+[wp] [Unsuccess] typed_assigned_via_pointer_check_fail (Alt-Ergo) (Cached)
+[wp] [Valid] typed_assigns_effect_terminates (Qed)
+[wp] [Valid] typed_assigns_effect_exits (Qed)
+[wp] [Unsuccess] typed_assigns_effect_check_fail (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_assigns_effect_check_fail_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_assigns_effect_check_succeed (Alt-Ergo) (Cached)
+[wp] [Valid] typed_chunk_typing_terminates (Qed)
+[wp] [Valid] typed_chunk_typing_exits (Qed)
+[wp] [Valid] typed_chunk_typing_assert_rte_mem_access (Qed)
+[wp] [Valid] typed_chunk_typing_assert_rte_mem_access_2 (Qed)
+[wp] Proved goals:   19 / 27
+  Qed:            16
+  Alt-Ergo:        3
+  Unsuccess:       8
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Axiomatic test            1        1        3      66.7%
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  assigns                   3        -        4      75.0%
+  initialized_assigns       2        1        4      75.0%
+  uninitialized_assigns     2        -        4      50.0%
+  assigned_via_pointer      2        -        3      66.7%
+  assigns_effect            2        1        5      60.0%
+  chunk_typing              4        -        4       100%
+------------------------------------------------------------
+[wp] opaque_struct.i:31: Warning: 
+  Memory model hypotheses for function 'g':
+  /*@ behavior wp_typed:
+        requires \separated(p, &S1, &S2, &p); */
+  void g(void);
+[wp] opaque_struct.i:64: Warning: 
+  Memory model hypotheses for function 'assign':
+  /*@ behavior wp_typed:
+        requires \separated(a, &S1, &S2); */
+  void assign(struct S *a);
+[wp] opaque_struct.i:67: Warning: 
+  Memory model hypotheses for function 'assigns_effect':
+  /*@
+     behavior wp_typed:
+       requires \separated(a, &S1, &S2);
+       requires \separated(c, &S1, &S2);
+       requires \separated(p_0, &S1, &S2);
+       requires \separated(q, &S1, &S2);
+     */
+  void assigns_effect(int *p_0, float *q, char *c, struct S *a);
+[wp] opaque_struct.i:76: Warning: 
+  Memory model hypotheses for function 'use':
+  /*@ behavior wp_typed:
+        requires \separated(s, &S1, &S2); */
+  void use(struct S *s);
+[wp] opaque_struct.i:79: Warning: 
+  Memory model hypotheses for function 'chunk_typing':
+  /*@
+     behavior wp_typed:
+       requires \separated(sc, &S1, &S2);
+       requires \separated(uc, &S1, &S2);
+     */
+  void chunk_typing(unsigned char *uc, signed char *sc);

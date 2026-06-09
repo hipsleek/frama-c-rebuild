@@ -1,0 +1,45 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing branch10.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+  not_secret ∈ [--..--]
+[eva:secure-flow:condition] branch10.c:10: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:secure-flow:condition] branch10.c:10: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:alarm] branch10.c:13: Warning: assertion got status unknown.
+[eva:secure-flow:condition] branch10.c:17: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:secure-flow:condition] branch10.c:17: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:secure-flow:condition] branch10.c:17: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:alarm] branch10.c:20: Warning: assertion got status unknown.
+[eva:secure-flow:condition] branch10.c:24: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:alarm] branch10.c:27: Warning: assertion got status unknown.
+[eva:secure-flow:condition] branch10.c:29: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:alarm] branch10.c:34: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  x ∈ {0; 1}
+  y ∈ {0; 1}
+  z ∈ {0; 1}
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    x; y; z; __retres
+[inout] Inputs for function main:
+    secret; not_secret

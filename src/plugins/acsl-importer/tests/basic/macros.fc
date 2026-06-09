@@ -1,0 +1,38 @@
+let c = z;
+
+let macro_size = 10;
+axiomatic ArraySize {
+   logic integer logic_size = 20 ;
+   logic integer indirect_logic_size = logic_size ;
+   logic integer indirect_macro_size = macro_size ;
+   type  Tint10 = int [macro_size];
+   predicate Parray(Tint10 tab10, int t20[indirect_logic_size], int t10[indirect_macro_size]);
+   }
+
+module m:
+let w = a;
+axiomatic A { predicate P(integer u, integer v, integer w, integer x); }
+
+function f:
+  let b = x;
+  contract:
+    requires p1: P(1,b,y,c);
+  let b = y;
+  contract:
+    requires p2: P(2,x,b,c);
+
+function g:
+  let b = x;
+  contract:
+    requires p3: P(w,b,x,c);
+
+module m:
+
+function f:
+  let b = x;
+  contract:
+    requires p3: P(w,b,x,c);
+
+module l:
+  let b = \false;
+  axiomatic B { predicate False = b; }

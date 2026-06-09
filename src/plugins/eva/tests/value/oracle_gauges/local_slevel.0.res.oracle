@@ -1,0 +1,74 @@
+14,15c14,15
+< [eva:show] local_slevel.i:18: Frama_C_show_each: {-1}, {0}, {0; 1}
+< [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, {1}, {0; 1}
+---
+> [eva:show] local_slevel.i:18: Frama_C_show_each: {-1}, {0}, {0}
+> [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, {1}, {1}
+17c17
+< [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, {1}, {0; 1; 2}
+---
+> [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, {1}, {1}
+19c19
+< [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, [1..79],1%2, {0; 1; 2; 3}
+---
+> [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, [1..79],1%2, {1; 2; 3}
+22,35c22,24
+< [eva:show] local_slevel.i:18: 
+<   Frama_C_show_each: {1}, [1..79],1%2, {0; 1; 2; 3; 4}
+< [eva:show] local_slevel.i:18: 
+<   Frama_C_show_each: {-1}, [0..78],0%2, [0..2147483647]
+< [eva:show] local_slevel.i:18: 
+<   Frama_C_show_each: {1}, [1..79],1%2, [0..2147483647]
+< [eva:show] local_slevel.i:18: 
+<   Frama_C_show_each: {-1}, [0..78],0%2, [0..2147483648]
+< [eva:show] local_slevel.i:18: 
+<   Frama_C_show_each: {1}, [1..79],1%2, [0..2147483648]
+< [eva:show] local_slevel.i:18: 
+<   Frama_C_show_each: {-1}, [0..78],0%2, [0..4294967295]
+< [eva:show] local_slevel.i:18: 
+<   Frama_C_show_each: {1}, [1..79],1%2, [0..4294967295]
+---
+> [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, [1..79],1%2, {1; 2; 3; 4}
+> [eva:show] local_slevel.i:18: Frama_C_show_each: {-1}, [0..78],0%2, [0..78]
+> [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, [1..79],1%2, [1..79]
+152c141
+<   r ∈ [--..--]
+---
+>   r ∈ [0..2147483647]
+394,395c383,384
+< [eva:show] local_slevel.i:18: Frama_C_show_each: {-1}, {0}, {0; 1}
+< [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, {1}, {0; 1}
+---
+> [eva:show] local_slevel.i:18: Frama_C_show_each: {-1}, {0}, {0}
+> [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, {1}, {1}
+397c386
+< [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, {1}, {0; 1; 2}
+---
+> [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, {1}, {1}
+399c388
+< [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, [1..79],1%2, {0; 1; 2; 3}
+---
+> [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, [1..79],1%2, {1; 2; 3}
+402,415c391,393
+< [eva:show] local_slevel.i:18: 
+<   Frama_C_show_each: {1}, [1..79],1%2, {0; 1; 2; 3; 4}
+< [eva:show] local_slevel.i:18: 
+<   Frama_C_show_each: {-1}, [0..78],0%2, [0..2147483647]
+< [eva:show] local_slevel.i:18: 
+<   Frama_C_show_each: {1}, [1..79],1%2, [0..2147483647]
+< [eva:show] local_slevel.i:18: 
+<   Frama_C_show_each: {-1}, [0..78],0%2, [0..2147483648]
+< [eva:show] local_slevel.i:18: 
+<   Frama_C_show_each: {1}, [1..79],1%2, [0..2147483648]
+< [eva:show] local_slevel.i:18: 
+<   Frama_C_show_each: {-1}, [0..78],0%2, [0..4294967295]
+< [eva:show] local_slevel.i:18: 
+<   Frama_C_show_each: {1}, [1..79],1%2, [0..4294967295]
+---
+> [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, [1..79],1%2, {1; 2; 3; 4}
+> [eva:show] local_slevel.i:18: Frama_C_show_each: {-1}, [0..78],0%2, [0..78]
+> [eva:show] local_slevel.i:18: Frama_C_show_each: {1}, [1..79],1%2, [1..79]
+532c510
+<   r ∈ [--..--]
+---
+>   r ∈ [0..2147483647]

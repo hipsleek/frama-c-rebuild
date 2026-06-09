@@ -1,0 +1,33 @@
+# frama-c -wp [...]
+[kernel] Parsing overflow2.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal pointers_and_companions_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal pointers_and_companions_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal pointers_and_companions_ulong_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal pointers_and_companions_ulong_terminates (Cfg) (Trivial)
+[wp] 14 goals scheduled
+[wp] [Valid] typed_pointers_and_companions_ensures_post (Qed)
+[wp] [Valid] typed_pointers_and_companions_assert_a01 (Qed)
+[wp] [Valid] typed_pointers_and_companions_assert_a02 (Qed)
+[wp] [Valid] typed_pointers_and_companions_assert_a03 (Qed)
+[wp] [Valid] typed_pointers_and_companions_assert_a04 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_pointers_and_companions_assert_a05 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_pointers_and_companions_assigns (Qed)
+[wp] [Valid] typed_pointers_and_companions_ulong_ensures_postul (Qed)
+[wp] [Valid] typed_pointers_and_companions_ulong_assert_a06 (Qed)
+[wp] [Valid] typed_pointers_and_companions_ulong_assert_a07 (Qed)
+[wp] [Valid] typed_pointers_and_companions_ulong_assert_a08 (Qed)
+[wp] [Valid] typed_pointers_and_companions_ulong_assert_a09 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_pointers_and_companions_ulong_assert_a10 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_pointers_and_companions_ulong_assigns (Qed)
+[wp] Proved goals:   18 / 18
+  Terminating:     2
+  Unreachable:     2
+  Qed:            10
+  Alt-Ergo:        4
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  pointers_and_companions   7        2        9       100%
+  pointers_and_companions_ulong   7   2       9       100%
+------------------------------------------------------------

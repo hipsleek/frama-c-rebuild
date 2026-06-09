@@ -1,0 +1,160 @@
+(**************************************************************************)
+(*                                                                        *)
+(*  SPDX-License-Identifier LGPL-2.1                                      *)
+(*  Copyright (C)                                                         *)
+(*  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  *)
+(*                                                                        *)
+(**************************************************************************)
+
+theory MemAddr
+
+  use bool.Bool
+  use int.Int
+  use map.Map
+
+  type addr = { base : int ; offset : int }
+  type malloc = map int int
+
+  (* Special addresses *)
+
+  constant null: addr = { base = 0 ; offset = 0 }
+  function global (b: int) : addr = { base = b ; offset = 0 }
+  meta "inline:no" function null
+  meta "inline:no" function global
+
+  (* Pointer arithmetic *)
+
+  predicate addr_le addr addr
+  predicate addr_lt addr addr
+  function addr_le_bool addr addr : bool
+  function addr_lt_bool addr addr : bool
+
+  axiom addr_le_def:
+    forall p q: addr [addr_le p q].
+      p.base = q.base -> (addr_le p q <-> p.offset <= q.offset)
+
+  axiom addr_lt_def:
+    forall p q: addr [addr_lt p q].
+      p.base = q.base -> (addr_lt p q <-> p.offset < q.offset)
+
+  axiom addr_le_bool_def:
+    forall p q: addr [ addr_le_bool p q].
+      addr_le p q <-> addr_le_bool p q = True
+
+  axiom addr_lt_bool_def:
+    forall p q: addr [ addr_lt_bool p q].
+      addr_lt p q <-> addr_lt_bool p q = True
+
+
+  function shift (p: addr) (k: int) : addr = { p with offset = p.offset + k }
+
+  (* Validity *)
+
+  predicate valid_rw (m: malloc) (p: addr) (n: int) =
+    n > 0 -> (  0 < p.base /\ 0 <= p.offset /\ p.offset + n <= m[p.base] )
+
+  predicate valid_rd (m: malloc) (p: addr) (n: int) =
+    n > 0 -> ( 0 <> p.base /\ 0 <= p.offset /\ p.offset + n <= m[p.base] )
+
+  predicate valid_obj (m: malloc) (p: addr) =
+    0 <> p.base /\ 0 <= p.offset /\ p.offset <= m[p.base] /\ m[p.base] > 0
+
+  predicate invalid (m : malloc) (p:addr) (n:int) =
+    n <= 0 \/ p.base = 0 \/ m[p.base] <= p.offset \/ p.offset + n <= 0
+
+  lemma valid_rw_rd:
+    forall m: malloc. forall p: addr. forall n: int.
+      valid_rw m p n -> valid_rd m p n
+
+  lemma valid_string:
+    forall m: malloc. forall p: addr.
+      p.base < 0 -> 0 <= p.offset < m[p.base] ->
+        (valid_rd m p 1 /\ not (valid_rw m p 1))
+
+  (* Separation and inclusion *)
+
+  predicate included (p: addr) (lp: int) (q: addr) (lq: int) =
+    lp > 0 -> ( lq >= 0 /\ p.base = q.base
+                      /\ (q.offset <= p.offset)
+                      /\ (p.offset + lp <= q.offset + lq) )
+
+  predicate separated (p: addr) (lp: int) (q: addr) (lq: int) =
+       lp <= 0 \/ lq <= 0
+    \/ p.base <> q.base
+    \/ q.offset + lq <= p.offset
+    \/ p.offset + lp <= q.offset
+
+  lemma separated_1:
+    forall p q: addr. forall lp lq i j: int
+      [ separated p lp q lq , { base = p.base ; offset = i } ,
+                              { base = q.base ; offset = j } ].
+      separated p lp q lq ->
+      p.offset <= i < p.offset + lp ->
+      q.offset <= j < q.offset + lq ->
+        { base = p.base ; offset = i } <>
+        { base = q.base ; offset = j }
+
+  lemma separated_included:
+    forall p q: addr. forall lp lq: int
+      [ separated p lp q lq , included p lp q lq ].
+      lp > 0 -> lq > 0 -> separated p lp q lq -> included p lp q lq -> false
+
+  lemma included_trans:
+    forall p q r: addr. forall lp lq lr: int
+      [ included p lp q lq , included q lq r lr ].
+    included p lp q lq -> included q lq r lr -> included p lp r lr
+
+  lemma separated_trans:
+    forall p q r: addr. forall lp lq lr : int
+      [ included p lp q lq , separated q lq r lr ].
+    included p lp q lq -> separated q lq r lr -> separated p lp r lr
+
+  lemma separated_sym:
+    forall p q : addr. forall lp lq : int
+      [ separated p lp q lq ].
+      separated p lp q lq <-> separated q lq p lp
+
+  (* Regions *)
+
+  (* the memory associated to this base is always initialized *)
+  predicate binit int
+  function region int: int
+  predicate linked (malloc)
+
+  (* Physical Address *)
+
+  function static_malloc int : int
+
+  predicate statically_allocated (base: int) =
+    base = 0 \/ static_malloc base > 0
+
+  (* Note: for now, we cannot prove that but Why3 does not see that the function
+     statically allocated uses static_malloc which is abstract. *)
+  lemma valid_pointers_are_statically_allocated:
+    forall a: addr, m: malloc, n: int.
+      n > 0 -> valid_rd m a n -> statically_allocated (a.base)
+
+  function int_of_addr addr: int
+  function addr_of_int int: addr
+
+  axiom addr_of_null :
+    int_of_addr null = 0
+
+  axiom addr_of_int_bijection :
+    forall p:addr.
+      statically_allocated p.base -> addr_of_int (int_of_addr p) = p
+
+  (* Table of offsets *)
+
+  type table (* abstract for now, but can be more elaborated later on *)
+  function table_of_base int: table
+  function table_to_offset table int: int
+
+  axiom table_to_offset_zero:
+    forall t: table. table_to_offset t 0 = 0
+
+  axiom table_to_offset_monotonic:
+    forall t: table. forall o1 o2: int.
+      o1 <= o2 <-> table_to_offset t o1 <= table_to_offset t o2
+
+end

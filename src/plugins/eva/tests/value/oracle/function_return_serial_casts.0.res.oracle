@@ -1,0 +1,61 @@
+[kernel] Parsing function_return_serial_casts.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  x ∈ {-10}
+  y ∈ {0}
+  z ∈ {0}
+  t ∈ {0}
+[eva:progress] 
+  computing for function f <- main.
+  Called from function_return_serial_casts.i:17:7-10.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] 
+  computing for function g <- main.
+  Called from function_return_serial_casts.i:18:7-10.
+[eva:progress] Recording results for g
+[eva:progress] Done for function g
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function f:
+  __retres ∈ {65526}
+[eva:final-states] Values at end of function g:
+  l ∈ {65526}
+[eva:final-states] Values at end of function main:
+  y ∈ {65526}
+  z ∈ {65526}
+  t ∈ {65526}
+  __retres ∈ {0}
+[from] Computing for function f
+[from] Done for function f
+[from] Computing for function g
+[from] Done for function g
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  \result FROM x
+[from] Function g:
+  \result FROM x
+[from] Function main:
+  y FROM x
+  z FROM x
+  t FROM x
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function f:
+    __retres
+[inout] Inputs for function f:
+    x
+[inout] Out (internal) for function g:
+    l
+[inout] Inputs for function g:
+    x
+[inout] Out (internal) for function main:
+    y; z; t; tmp; tmp_0; __retres
+[inout] Inputs for function main:
+    x

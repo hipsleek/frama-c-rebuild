@@ -1,0 +1,81 @@
+{
+  "dbfile": "./mopsa.db",
+  "contents":
+[  {
+    "filename": "./cJSON.o",
+    "type": "object",
+    "lang": "C",
+    "source": "./cJSON.c",
+    "args": ["-std=c89", "-fPIC", "-pedantic", "-Wall", "-Werror", "-Wstrict-prototypes", "-Wwrite-strings", "-Wshadow", "-Winit-self", "-Wcast-align", "-Wformat=2", "-Wmissing-prototypes", "-Wstrict-overflow=2", "-Wcast-qual", "-Wc++-compat", "-Wundef", "-Wswitch-default", "-Wconversion", "-fstack-protector", "-I", "."],
+    "path": "."
+  },
+  {
+    "filename": "./cJSON_Utils.o",
+    "type": "object",
+    "lang": "C",
+    "source": "./cJSON_Utils.c",
+    "args": ["-std=c89", "-fPIC", "-pedantic", "-Wall", "-Werror", "-Wstrict-prototypes", "-Wwrite-strings", "-Wshadow", "-Winit-self", "-Wcast-align", "-Wformat=2", "-Wmissing-prototypes", "-Wstrict-overflow=2", "-Wcast-qual", "-Wc++-compat", "-Wundef", "-Wswitch-default", "-Wconversion", "-fstack-protector"],
+    "path": "."
+  },
+  {
+    "filename": "./cJSON_test",
+    "type": "executable",
+    "contents": ["./test.o", "./cJSON.o", "./libm.a"]
+  },
+  {
+    "filename": "./libcjson.a",
+    "type": "library",
+    "kind": "static",
+    "contents": ["./cJSON.o"]
+  },
+  {
+    "filename": "./libcjson.so",
+    "type": "library",
+    "kind": "dynamic",
+    "contents": ["./cJSON.o"]
+  },
+  {
+    "filename": "./libcjson.so.1",
+    "type": "library",
+    "kind": "dynamic",
+    "contents": ["./cJSON.o"]
+  },
+  {
+    "filename": "./libcjson.so.1.7.14",
+    "type": "library",
+    "kind": "dynamic",
+    "contents": ["./cJSON.o"]
+  },
+  {
+    "filename": "./libcjson_utils.a",
+    "type": "library",
+    "kind": "static",
+    "contents": ["./cJSON_Utils.o"]
+  },
+  {
+    "filename": "./libcjson_utils.so",
+    "type": "library",
+    "kind": "dynamic",
+    "contents": ["./cJSON.o", "./cJSON_Utils.o"]
+  },
+  {
+    "filename": "./libcjson_utils.so.1",
+    "type": "library",
+    "kind": "dynamic",
+    "contents": ["./cJSON.o", "./cJSON_Utils.o"]
+  },
+  {
+    "filename": "./libcjson_utils.so.1.7.14",
+    "type": "library",
+    "kind": "dynamic",
+    "contents": ["./cJSON.o", "./cJSON_Utils.o"]
+  },
+  {
+    "filename": "./test.o",
+    "type": "object",
+    "lang": "C",
+    "source": "./test.c",
+    "args": ["-std=c89", "-fPIC", "-pedantic", "-Wall", "-Werror", "-Wstrict-prototypes", "-Wwrite-strings", "-Wshadow", "-Winit-self", "-Wcast-align", "-Wformat=2", "-Wmissing-prototypes", "-Wstrict-overflow=2", "-Wcast-qual", "-Wc++-compat", "-Wundef", "-Wswitch-default", "-Wconversion", "-fstack-protector", "-I", "."],
+    "path": "."
+  }]
+}

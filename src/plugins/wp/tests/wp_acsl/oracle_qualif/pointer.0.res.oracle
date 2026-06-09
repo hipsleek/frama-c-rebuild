@@ -1,0 +1,41 @@
+# frama-c -wp -wp-model 'Typed (Ref)' [...]
+[kernel] Parsing pointer.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal absurd_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal absurd_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal array_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal array_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal mixed_array_pointer_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal mixed_array_pointer_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal pointer_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal pointer_terminates (Cfg) (Trivial)
+[wp] pointer.i:50: Warning: Uncomparable locations p_0 and mem:t.(0)
+[wp] pointer.i:49: Warning: Uncomparable locations p_0 and mem:t.(0)
+[wp] 9 goals scheduled
+[wp] [Valid] typed_ref_array_ensures_Lt (Qed)
+[wp] [Valid] typed_ref_array_ensures_Le (Qed)
+[wp] [Valid] typed_ref_array_ensures_Eq (Qed)
+[wp] [Unsuccess] typed_ref_pointer_ensures_qed_ko_Le_oracle_ko (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_ref_pointer_ensures_qed_ko_Eq_oracle_ko (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_ref_mixed_array_pointer_ensures_qed_ko_Le_oracle_ko (Alt-Ergo) (Cached) (Stronger)
+[wp] [Unsuccess] typed_ref_mixed_array_pointer_ensures_qed_ko_Lt_oracle_ko (Alt-Ergo) (Cached) (Stronger)
+[wp] [Unsuccess] typed_ref_absurd_ensures_qed_ko_Base_oracle_ko (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_ref_absurd_ensures_qed_ko_Comp_oracle_ko (Alt-Ergo) (Cached)
+[wp] Proved goals:   11 / 17
+  Terminating:     4
+  Unreachable:     4
+  Qed:             3
+  Unsuccess:       6
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  array                     5        -        5       100%
+  pointer                   2        -        4      50.0%
+  mixed_array_pointer       2        -        4      50.0%
+  absurd                    2        -        4      50.0%
+------------------------------------------------------------
+[wp] pointer.i:73: Warning: 
+  Memory model hypotheses for function 'absurd':
+  /*@ behavior wp_typed_ref:
+        requires \separated(q + (..), &p); */
+  void absurd(int *q);

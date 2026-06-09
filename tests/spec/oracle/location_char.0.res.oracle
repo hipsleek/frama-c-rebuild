@@ -1,0 +1,94 @@
+[kernel] Parsing location_char.c (with preprocessing)
+[kernel] Predicate x ≤ 0:
+  start line 9, char 27
+  end line 9, char 31
+[kernel] Term x:
+  start line 9, char 27
+  end line 9, char 28
+[kernel] Term x:
+  start line 9, char 27
+  end line 9, char 28
+[kernel] Term 0:
+  start line 9, char 30
+  end line 9, char 31
+[kernel] Predicate y ≤ 0 ∧ x ≡ y:
+  start line 11, char 14
+  end line 12, char 20
+[kernel] Predicate y ≤ 0:
+  start line 11, char 14
+  end line 11, char 20
+[kernel] Term y:
+  start line 11, char 14
+  end line 11, char 15
+[kernel] Term y:
+  start line 11, char 14
+  end line 11, char 15
+[kernel] Term 0:
+  start line 11, char 19
+  end line 11, char 20
+[kernel] Predicate x ≡ y:
+  start line 12, char 14
+  end line 12, char 20
+[kernel] Term x:
+  start line 12, char 14
+  end line 12, char 15
+[kernel] Term y:
+  start line 12, char 19
+  end line 12, char 20
+[kernel] Predicate x ≤ 0:
+  start line 6, char 14
+  end line 6, char 20
+[kernel] Term x:
+  start line 6, char 14
+  end line 6, char 15
+[kernel] Term x:
+  start line 6, char 14
+  end line 6, char 15
+[kernel] Term 0:
+  start line 6, char 19
+  end line 6, char 20
+[kernel] Predicate \result ≡ \old(x):
+  start line 7, char 13
+  end line 7, char 25
+[kernel] Term \result:
+  start line 7, char 13
+  end line 7, char 20
+[kernel] Term \old(x):
+  start line 7, char 24
+  end line 7, char 25
+[kernel] Term x:
+  start line 7, char 24
+  end line 7, char 25
+[kernel] Predicate outer.inner.a ≡ 0:
+  start line 37, char 37
+  end line 37, char 55
+[kernel] Term outer.inner.a:
+  start line 37, char 37
+  end line 37, char 50
+[kernel] Term outer.inner.a:
+  start line 37, char 37
+  end line 37, char 50
+[kernel] Term 0:
+  start line 37, char 54
+  end line 37, char 55
+[kernel] Predicate outer.b ≡ outer.inner.a ∧ 0 ≢ 1:
+  start line 38, char 30
+  end line 40, char 24
+[kernel] Predicate outer.b ≡ outer.inner.a:
+  start line 38, char 30
+  end line 39, char 22
+[kernel] Term outer.b:
+  start line 38, char 30
+  end line 38, char 37
+[kernel] Term outer.inner.a:
+  start line 39, char 9
+  end line 39, char 22
+[kernel] Predicate 0 ≢ 1:
+  start line 40, char 18
+  end line 40, char 24
+[kernel] Term 0:
+  start line 40, char 18
+  end line 40, char 19
+[kernel] Term 1:
+  start line 40, char 23
+  end line 40, char 24

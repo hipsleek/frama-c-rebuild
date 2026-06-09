@@ -1,0 +1,40 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "Constant Propagation:" %{lib-available:frama-c-constant_propagation.core} "\n")
+          (echo "  - Eva:" %{lib-available:frama-c-eva.core} "\n")
+          (echo "  - ppx_z_literals:" %{lib-available:frama-c.ppx_z_literals} "\n")
+  )
+  )
+)
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-constant_propagation.core})))
+ (action (echo "WARNING: Constant Propagation disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+( library
+  (name Constant_Propagation)
+  (optional)
+  (public_name frama-c-constant_propagation.core)
+  (flags -open Frama_c_kernel :standard -w -9)
+  (libraries frama-c.kernel frama-c-eva.core)
+  (instrumentation (backend landmarks))
+  (instrumentation (backend bisect_ppx))
+  (preprocess (pps frama-c.ppx_z_literals))
+)
+
+(plugin (optional) (name constant_propagation) (libraries frama-c-constant_propagation.core) (site (frama-c plugins)))

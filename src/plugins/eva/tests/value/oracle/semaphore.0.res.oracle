@@ -1,0 +1,108 @@
+[kernel] Parsing semaphore.i (no preprocessing)
+[eva] Analyzing a complete application starting at g
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  Sa ∈ {0}
+  Sb ∈ {0}
+[kernel:annot:missing-spec] semaphore.i:31: Warning: 
+  Neither code nor specification for function V, generating default assigns.
+  See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function V <- g.
+  Called from semaphore.i:31:9-15.
+[eva] using specification for function V
+[eva:progress] Done for function V
+[eva:partition] semaphore.i:29: starting to merge loop iterations
+[eva:progress] 
+  computing for function V <- g.
+  Called from semaphore.i:31:9-15.
+[eva:progress] Done for function V
+[eva:progress] 
+  computing for function V <- g.
+  Called from semaphore.i:31:9-15.
+[eva:progress] Done for function V
+[eva:progress] 
+  computing for function V <- g.
+  Called from semaphore.i:31:9-15.
+[eva:progress] Done for function V
+[eva:partition] semaphore.i:28: starting to merge loop iterations
+[kernel:annot:missing-spec] semaphore.i:34: Warning: 
+  Neither code nor specification for function P, generating default assigns.
+  See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function P <- g.
+  Called from semaphore.i:34:3-9.
+[eva] using specification for function P
+[eva:progress] Done for function P
+[eva:progress] 
+  computing for function P <- g.
+  Called from semaphore.i:35:3-9.
+[eva:progress] Done for function P
+[eva:progress] 
+  computing for function V <- g.
+  Called from semaphore.i:37:3-9.
+[eva:progress] Done for function V
+[eva:progress] 
+  computing for function V <- g.
+  Called from semaphore.i:38:3-9.
+[eva:progress] Done for function V
+[eva:progress] 
+  computing for function f <- g.
+  Called from semaphore.i:40:3-6.
+[eva:progress] 
+  computing for function P <- f <- g.
+  Called from semaphore.i:14:5-11.
+[eva:progress] Done for function P
+[eva:progress] 
+  computing for function P <- f <- g.
+  Called from semaphore.i:16:3-9.
+[eva:progress] Done for function P
+[eva:progress] 
+  computing for function P <- f <- g.
+  Called from semaphore.i:17:3-9.
+[eva:progress] Done for function P
+[eva:progress] 
+  computing for function V <- f <- g.
+  Called from semaphore.i:19:3-9.
+[eva:progress] Done for function V
+[eva:progress] 
+  computing for function V <- f <- g.
+  Called from semaphore.i:20:3-9.
+[eva:progress] Done for function V
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] Recording results for g
+[eva:progress] Done for function g
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function f:
+  c ∈ {12}
+[eva:final-states] Values at end of function g:
+  c ∈ {-26; -1}
+[from] Computing for function f
+[from] Computing for function P <-f
+[from] Done for function P
+[from] Computing for function V <-f
+[from] Done for function V
+[from] Done for function f
+[from] Computing for function g
+[from] Done for function g
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function P:
+  NO EFFECTS
+[from] Function V:
+  NO EFFECTS
+[from] Function f:
+  NO EFFECTS
+[from] Function g:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function f:
+    c
+[inout] Inputs for function f:
+    Sa; Sb
+[inout] Out (internal) for function g:
+    c; tmp
+[inout] Inputs for function g:
+    Sa; Sb

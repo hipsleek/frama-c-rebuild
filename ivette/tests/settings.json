@@ -1,0 +1,38 @@
+{
+    "frame": {
+        "x": 100,
+        "y": 100,
+        "width": 1900,
+        "height": 1060
+    },
+    "settings": {
+        "frama-c.labview.shape": {
+            "kind": "VBOX",
+            "content": [
+                {
+                    "kind": "HBOX",
+                    "content": [
+                        {
+                            "kind": "ITEM",
+                            "id": "frama-c.astview"
+                        },
+                        {
+                            "kind": "ITEM",
+                            "id": "frama-c.sourcecode"
+                        }
+                    ]
+                },
+                {
+                    "kind": "ITEM",
+                    "id": "frama-c.astinfo"
+                }
+            ]
+        },
+        "frama-c.labview.panel.views.current": "builtin.views.source"
+    },
+    "storage": {
+        "Controller.history": [
+        ]
+    },
+    "devtools": false
+}

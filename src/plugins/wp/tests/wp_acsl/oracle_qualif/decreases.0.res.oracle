@@ -1,0 +1,92 @@
+# frama-c -wp [...]
+[kernel] Parsing decreases.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] Warning: Missing RTE guards
+[wp:hypothesis] decreases.i:25: Warning: 'Rel' relation must be well-founded
+[wp:hypothesis] decreases.i:44: Warning: 'Rel' relation must be well-founded
+[wp:hypothesis] decreases.i:30: Warning: 'Rel' relation must be well-founded
+[wp:hypothesis] decreases.i:103: Warning: 'Rel' relation must be well-founded
+[wp:hypothesis] decreases.i:107: Warning: 'Wrong' relation must be well-founded
+[wp] decreases.i:76: Warning: 
+  Missing decreases clause on recursive function missing_2, call must be unreachable
+[wp] decreases.i:71: Warning: No decreases clause for missing_2
+[wp] decreases.i:109: Warning: 
+  On call to mw1, relation (Wrong) does not match caller (Rel)
+[wp] decreases.i:105: Warning: 
+  On call to mw2, relation (Rel) does not match caller (Wrong)
+[wp] 53 goals scheduled
+[wp] [Valid] typed_fact_terminates (Qed)
+[wp] [Valid] typed_fact_exits (Qed)
+[wp] [Valid] typed_fact_variant (Alt-Ergo) (Cached)
+[wp] [Valid] typed_fails_fact_terminates (Qed)
+[wp] [Valid] typed_fails_fact_exits (Qed)
+[wp] [Unsuccess] typed_fails_fact_variant (Alt-Ergo) (Cached)
+[wp] [Valid] typed_facto_gen_terminates (Qed)
+[wp] [Valid] typed_facto_gen_exits (Qed)
+[wp] [Valid] typed_facto_gen_variant (Alt-Ergo) (Cached)
+[wp] [Valid] typed_fails_facto_gen_terminates (Qed)
+[wp] [Valid] typed_fails_facto_gen_exits (Qed)
+[wp] [Unsuccess] typed_fails_facto_gen_variant (Alt-Ergo) (Cached)
+[wp] [Valid] typed_fact_i_terminates_part1 (Qed)
+[wp] [Valid] typed_fact_i_terminates_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_fact_i_exits (Qed)
+[wp] [Unsuccess] typed_fact_i_variant (Alt-Ergo) (Cached)
+[wp] [Valid] typed_fails_fact_i_terminates_part1 (Qed)
+[wp] [Unsuccess] typed_fails_fact_i_terminates_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_fails_fact_i_exits (Qed)
+[wp] [Unsuccess] typed_fails_fact_i_variant (Alt-Ergo) (Cached)
+[wp] [Valid] typed_m2_terminates (Qed)
+[wp] [Valid] typed_m2_exits (Qed)
+[wp] [Valid] typed_m2_variant_part1 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_m2_variant_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_m1_terminates (Qed)
+[wp] [Valid] typed_m1_exits (Qed)
+[wp] [Valid] typed_m1_variant (Alt-Ergo) (Cached)
+[wp] [Valid] typed_missing_2_terminates_part1 (Qed)
+[wp] [Unsuccess] typed_missing_2_terminates_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_missing_2_exits (Qed)
+[wp] [Valid] typed_missing_terminates (Qed)
+[wp] [Valid] typed_missing_exits (Qed)
+[wp] [Unsuccess] typed_missing_variant_part1 (Alt-Ergo) (Cached) (Degenerated)
+[wp] [Valid] typed_missing_variant_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_mt2_terminates_part1 (Qed)
+[wp] [Valid] typed_mt2_terminates_part2 (Qed)
+[wp] [Valid] typed_mt2_exits (Qed)
+[wp] [Valid] typed_mt2_variant_part1 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_mt2_variant_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_mt1_terminates_part1 (Qed)
+[wp] [Unsuccess] typed_mt1_terminates_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_mt1_exits (Qed)
+[wp] [Valid] typed_mt1_variant (Alt-Ergo) (Cached)
+[wp] [Valid] typed_mw2_terminates (Qed)
+[wp] [Valid] typed_mw2_exits (Qed)
+[wp] [Unsuccess] typed_mw2_variant_part1 (Alt-Ergo) (Cached) (Degenerated)
+[wp] [Valid] typed_mw2_variant_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_mw1_terminates (Qed)
+[wp] [Valid] typed_mw1_exits (Qed)
+[wp] [Unsuccess] typed_mw1_variant (Alt-Ergo) (Cached) (Degenerated)
+[wp] [Valid] typed_se_terminates (Qed)
+[wp] [Valid] typed_se_exits (Qed)
+[wp] [Valid] typed_se_variant (Qed)
+[wp] Proved goals:   43 / 53
+  Qed:            32
+  Alt-Ergo:       11
+  Unsuccess:      10
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  fact                      2        1        3       100%
+  fails_fact                2        -        3      66.7%
+  facto_gen                 2        1        3       100%
+  fails_facto_gen           2        -        3      66.7%
+  fact_i                    2        1        4      75.0%
+  fails_fact_i              2        -        4      50.0%
+  m2                        2        2        4       100%
+  m1                        2        1        3       100%
+  missing_2                 2        -        3      66.7%
+  missing                   2        1        4      75.0%
+  mt2                       3        2        5       100%
+  mt1                       2        1        4      75.0%
+  mw2                       2        1        4      75.0%
+  mw1                       2        -        3      66.7%
+  se                        3        -        3       100%
+------------------------------------------------------------

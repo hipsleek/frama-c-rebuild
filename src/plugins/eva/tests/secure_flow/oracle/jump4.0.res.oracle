@@ -1,0 +1,127 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing jump4.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+  one ∈ [--..--]
+  two ∈ [--..--]
+  three ∈ [--..--]
+[eva:progress] 
+  computing for function compute <- main.
+  Called from jump4.c:54.
+[eva:secure-flow:condition] jump4.c:9: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:progress] Recording results for compute
+[eva:progress] Done for function compute
+[eva:alarm] jump4.c:55: Warning: assertion got status unknown.
+[eva:progress] jump4.c:56: assertion got status valid.
+[eva:alarm] jump4.c:57: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function compute2 <- main.
+  Called from jump4.c:60.
+[eva:secure-flow:condition] jump4.c:19: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:progress] Recording results for compute2
+[eva:progress] Done for function compute2
+[eva:alarm] jump4.c:61: Warning: assertion got status unknown.
+[eva:progress] jump4.c:62: assertion got status valid.
+[eva:alarm] jump4.c:63: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function compute3 <- main.
+  Called from jump4.c:66.
+[eva:secure-flow:condition] jump4.c:30: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:progress] Recording results for compute3
+[eva:progress] Done for function compute3
+[eva:alarm] jump4.c:67: Warning: assertion got status unknown.
+[eva:progress] jump4.c:68: assertion got status valid.
+[eva:alarm] jump4.c:69: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function compute4 <- main.
+  Called from jump4.c:72.
+[eva:secure-flow:condition] jump4.c:41: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:progress] Recording results for compute4
+[eva:progress] Done for function compute4
+[eva:alarm] jump4.c:73: Warning: assertion got status unknown.
+[eva:progress] jump4.c:74: assertion got status valid.
+[eva:alarm] jump4.c:75: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[scope:rm_asserts] removing 3 assertion(s)
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function compute:
+  one ∈ [--..--]
+  three ∈ [--..--]
+  __retres ∈ [--..--]
+[eva:final-states] Values at end of function compute2:
+  one ∈ {0; 1}
+  three ∈ {0; 1}
+  __retres ∈ [--..--]
+[eva:final-states] Values at end of function compute3:
+  one ∈ {0; 1}
+  three ∈ {0; 1}
+  __retres ∈ {1}
+[eva:final-states] Values at end of function compute4:
+  one ∈ {0; 1}
+  three ∈ {0; 1}
+  __retres ∈ {0}
+[eva:final-states] Values at end of function main:
+  one ∈ {0; 1}
+  three ∈ {0; 1}
+  __retres ∈ {0}
+[from] Computing for function compute
+[from] Done for function compute
+[from] Computing for function compute2
+[from] Done for function compute2
+[from] Computing for function compute3
+[from] Done for function compute3
+[from] Computing for function compute4
+[from] Done for function compute4
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function compute:
+  one FROM secret; one (and SELF)
+  three FROM secret; three (and SELF)
+  \result FROM secret; two
+[from] Function compute2:
+  one FROM secret; one (and SELF)
+  three FROM secret; three (and SELF)
+  \result FROM secret; two
+[from] Function compute3:
+  one FROM secret; one (and SELF)
+  three FROM secret; three (and SELF)
+  \result FROM secret; one; three
+[from] Function compute4:
+  one FROM secret; one (and SELF)
+  three FROM secret; three (and SELF)
+  \result FROM \nothing
+[from] Function main:
+  one FROM secret
+  three FROM secret
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function compute:
+    one; three; __retres
+[inout] Inputs for function compute:
+    secret; one; two; three
+[inout] Out (internal) for function compute2:
+    one; three; __retres
+[inout] Inputs for function compute2:
+    secret; one; two; three
+[inout] Out (internal) for function compute3:
+    one; three; __retres
+[inout] Inputs for function compute3:
+    secret; one; three
+[inout] Out (internal) for function compute4:
+    one; three; __retres
+[inout] Inputs for function compute4:
+    secret; one; three
+[inout] Out (internal) for function main:
+    one; three; __retres
+[inout] Inputs for function main:
+    secret; one; two; three

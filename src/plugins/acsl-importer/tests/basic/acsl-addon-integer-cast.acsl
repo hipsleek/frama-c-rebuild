@@ -1,0 +1,4 @@
+function job:
+contract:
+ensures A: foo == { \old(s) \with .f = x+2 };
+ensures B: foo == { \old(foo) \with .f = x+2 };

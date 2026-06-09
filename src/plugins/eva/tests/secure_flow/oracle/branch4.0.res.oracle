@@ -1,0 +1,36 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing branch4.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  user_input ∈ [--..--]
+  secret ∈ [--..--]
+  arr[0..2] ∈ {0}
+[eva:secure-flow:condition] branch4.c:11: Warning: 
+  non-interference violation on condition involving {user_input; secret}
+[eva:alarm] branch4.c:13: Warning: assertion got status unknown.
+[eva:alarm] branch4.c:16: Warning: assertion got status unknown.
+[eva:alarm] branch4.c:21: Warning: assertion got status unknown.
+[eva:alarm] branch4.c:22: Warning: assertion got status unknown.
+[eva:progress] branch4.c:23: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  arr[0] ∈ {1}
+     [1..2] ∈ {0; 1}
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  arr[0] FROM \nothing
+     [1..2] FROM user_input; secret (and SELF)
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    arr[0..2]; __retres
+[inout] Inputs for function main:
+    user_input; secret

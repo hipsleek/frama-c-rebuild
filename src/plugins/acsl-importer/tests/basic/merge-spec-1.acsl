@@ -1,0 +1,19 @@
+module merge:
+
+function f:
+contract:
+
+  behavior A_Not_Null:
+    assumes A != 0;
+    ensures B == \old(B) + 1;
+    assigns B;
+
+  behavior A_Null:
+    assumes A == 0;
+    ensures A == \old(A) + 1;
+    assigns A;
+
+  complete behaviors;
+  disjoint behaviors;
+
+at LL: contract: requires at_LL:\true;

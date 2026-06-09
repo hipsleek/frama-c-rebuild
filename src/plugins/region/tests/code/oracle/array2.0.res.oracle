@@ -1,0 +1,11 @@
+[kernel] Parsing array2.i (no preprocessing)
+[region] Function job:
+  R0001: -R-- n (int) 32b (singleton) ;
+  R0002: -R-- p (int *) 64b (*R0003) (singleton) ;
+  R0003: -R-A P: (int) 32b P: p[0..n - 1] ;
+  R0004: -R-- q (int *) 64b (*R0005) (singleton) ;
+  R0005: -R-A Q: (int) 32b Q: q[0..n - 1] ;
+  R0006: IRW- s (int) 32b (singleton) (allocated) ;
+  R0007: IRW- k (int) 32b (singleton) (allocated) ;
+  R0008: --W- \result (int) 32b ;
+[region] annotating function job

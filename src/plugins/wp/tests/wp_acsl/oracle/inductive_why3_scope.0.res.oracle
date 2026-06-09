@@ -1,0 +1,158 @@
+# frama-c -wp [...]
+[kernel] Parsing inductive_why3_scope.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] 2 goals scheduled
+[wp:print-generated] 
+  theory WP
+    
+    (* use why3.BuiltIn.BuiltIn *)
+    
+    (* use bool.Bool *)
+    
+    (* use int.Int *)
+    
+    (* use int.ComputerDivision *)
+    
+    (* use real.RealInfix *)
+    
+    (* use frama_c_wp.qed.Qed *)
+    
+    (* use map.Map *)
+    
+    inductive P_i int =
+      | Q_P_i_zero : P_i 0
+      | Q_P_i_ind : forall n:int. P_i n -> P_i (1 + n)
+    
+    inductive P_d int =
+      | Q_P_d_zero : P_d 0
+      | Q_P_d_ind : forall n:int. P_d n -> P_d ((- 1) + n)
+    
+    goal wp_goal : P_i 10 /\ P_d (- 10)
+    
+  end
+---------------------------------------------
+--- Context 'typed' Cluster 'Axiomatic' 
+---------------------------------------------
+theory Axiomatic
+  
+  (* use why3.BuiltIn.BuiltIn *)
+  
+  (* use bool.Bool *)
+  
+  (* use int.Int *)
+  
+  (* use int.ComputerDivision *)
+  
+  (* use real.RealInfix *)
+  
+  (* use frama_c_wp.qed.Qed *)
+  
+  (* use map.Map *)
+  
+  inductive P_d1 int =
+    | Q_P_d_zero1 : P_d1 0
+    | Q_P_d_ind1 : forall n:int. P_d1 n -> P_d1 ((- 1) + n)
+  
+  inductive P_i1 int =
+    | Q_P_i_zero1 : P_i1 0
+    | Q_P_i_ind1 : forall n:int. P_i1 n -> P_i1 (1 + n)
+  
+  lemma Q_l : P_i1 10 /\ P_d1 (- 10)
+  
+end
+[wp:print-generated] 
+  theory WP1
+    
+    (* use why3.BuiltIn.BuiltIn *)
+    
+    (* use bool.Bool *)
+    
+    (* use int.Int *)
+    
+    (* use int.ComputerDivision *)
+    
+    (* use real.RealInfix *)
+    
+    (* use frama_c_wp.qed.Qed *)
+    
+    (* use map.Map *)
+    
+    (* use Axiomatic *)
+    
+    inductive P_i2 int =
+      | Q_P_i2_zero : P_i2 0
+      | Q_P_i2_ind : forall n:int. P_i2 n -> P_i2 (1 + n)
+    
+    inductive P_d2 int =
+      | Q_P_d2_zero : P_d2 0
+      | Q_P_d2_ind : forall n:int. P_d2 n -> P_d2 ((- 1) + n)
+    
+    goal wp_goal : P_i2 10 /\ P_d2 (- 10)
+    
+  end
+[wp] 2 goals generated
+------------------------------------------------------------
+  Global
+------------------------------------------------------------
+
+Cluster A_Ax {
+  
+  Inductive P_d2
+    (x_0 : int) =
+    Axiom zero: (P_d2 0)
+    Axiom ind: forall n_0: int. (P_d2 n_0) -> (P_d2 (n_0-1))
+  
+  Predicate P_d2 (x_0 : int)
+  
+  Predicate P_d2 (x_0 : int)
+  
+  Inductive P_i2
+    (x_0 : int) =
+    Axiom zero: (P_i2 0)
+    Axiom ind: forall n_0: int. (P_i2 n_0) -> (P_i2 (1+n_0))
+  
+  Predicate P_i2 (x_0 : int)
+  
+  Predicate P_i2 (x_0 : int)
+  
+  Lemma l2: (P_i2 10) /\ (P_d2 -10)
+  
+}
+
+Cluster Axiomatic {
+  
+  Inductive P_i
+    (x_0 : int) =
+    Axiom zero: (P_i 0)
+    Axiom ind: forall n_0: int. (P_i n_0) -> (P_i (1+n_0))
+  
+  Predicate P_i (x_0 : int)
+  
+  Predicate P_i (x_0 : int)
+  
+  Inductive P_d
+    (x_0 : int) =
+    Axiom zero: (P_d 0)
+    Axiom ind: forall n_0: int. (P_d n_0) -> (P_d (n_0-1))
+  
+  Predicate P_d (x_0 : int)
+  
+  Predicate P_d (x_0 : int)
+  
+  Lemma l: (P_i 10) /\ (P_d -10)
+  
+}
+
+Goal Lemma 'l':
+Prove: P_i(10) /\ P_d(-10).
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Axiomatic 'Ax'
+------------------------------------------------------------
+
+Goal Lemma 'l2':
+Assume Lemmas: 'l'
+Prove: P_i2(10) /\ P_d2(-10).
+
+------------------------------------------------------------

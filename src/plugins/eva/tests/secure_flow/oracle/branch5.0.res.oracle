@@ -1,0 +1,90 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing branch5.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  global_result ∈ {0}
+  global_g ∈ {0}
+  global_h ∈ {0}
+  global_ptr ∈ {{ &global_h }}
+  secret ∈ [--..--]
+[eva:secure-flow:condition] branch5.c:33: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:progress] 
+  computing for function compute <- main.
+  Called from branch5.c:34.
+[eva:progress] 
+  computing for function g <- compute <- main.
+  Called from branch5.c:10.
+[eva:progress] Recording results for g
+[eva:progress] Done for function g
+[eva:progress] 
+  computing for function h <- compute <- main.
+  Called from branch5.c:11.
+[eva:progress] Recording results for h
+[eva:progress] Done for function h
+[eva:progress] Recording results for compute
+[eva:progress] Done for function compute
+[eva:alarm] branch5.c:39: Warning: assertion got status unknown.
+[eva:alarm] branch5.c:40: Warning: assertion got status unknown.
+[eva:alarm] branch5.c:41: Warning: assertion got status unknown.
+[eva:progress] branch5.c:45: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function g:
+  global_g ∈ {33}
+  g_a ∈ {33}
+[eva:final-states] Values at end of function h:
+  global_h ∈ {32}
+  h_b ∈ {32}
+[eva:final-states] Values at end of function compute:
+  global_result ∈ {65}
+  global_g ∈ {33}
+  global_h ∈ {32}
+[eva:final-states] Values at end of function main:
+  global_result ∈ {0; 65}
+  global_g ∈ {0; 33}
+  global_h ∈ {0; 32}
+  __retres ∈ {0}
+[from] Computing for function g
+[from] Done for function g
+[from] Computing for function h
+[from] Done for function h
+[from] Computing for function compute
+[from] Done for function compute
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function g:
+  global_g FROM g_a
+[from] Function h:
+  global_h FROM global_ptr; h_b
+[from] Function compute:
+  global_result FROM a; b
+  global_g FROM a
+  global_h FROM b; global_ptr
+[from] Function main:
+  global_result FROM secret (and SELF)
+  global_g FROM secret (and SELF)
+  global_h FROM global_ptr; secret (and SELF)
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function g:
+    global_g; g_a
+[inout] Inputs for function g:
+    \nothing
+[inout] Out (internal) for function h:
+    global_h; h_b
+[inout] Inputs for function h:
+    global_ptr
+[inout] Out (internal) for function compute:
+    global_result; global_g; global_h
+[inout] Inputs for function compute:
+    global_ptr
+[inout] Out (internal) for function main:
+    global_result; global_g; global_h; __retres
+[inout] Inputs for function main:
+    global_ptr; secret

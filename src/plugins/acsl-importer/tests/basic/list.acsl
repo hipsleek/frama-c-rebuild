@@ -1,0 +1,24 @@
+function main:
+contract:
+  requires imported: \forall int li; \length(\Cons(li,\Nil))==1;
+
+function main:
+contract:
+  ensures imported: \forall \list<int> li_V, int li, \list<int> li_V1;
+      li_V1 == \Cons(li,li_V)
+    ==>
+      \length(li_V1) == \length(li_V)+1;
+
+
+
+axiomatic Imported {
+
+  axiom Imported_length_cons :
+    \forall \list<int> li_V, int li, \list<int> li_V1;
+      li_V1 == \Cons(li,li_V)
+    ==>
+      \length(li_V1) == \length(li_V)+1;
+
+  predicate Imported_is_empty (\list<int> li_V) = \length(li_V) == 0;
+
+}

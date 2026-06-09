@@ -1,0 +1,10 @@
+[kernel] Parsing wrong_statement_expression.c (with preprocessing)
+[kernel] wrong_statement_expression.c:19: User Error: 
+  void value not ignored as it ought to be
+  17    #ifdef MISSING_COMPUTATION
+  18    int main(int x){
+  19      x = x + ({;});
+                  ^^^^^
+  20    }
+  21    #endif
+[kernel] Frama-C aborted: invalid user input.

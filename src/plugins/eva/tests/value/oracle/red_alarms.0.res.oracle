@@ -1,0 +1,214 @@
+[kernel] Parsing red_alarms.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+[eva:progress] 
+  computing for function callstack <- main.
+  Called from red_alarms.i:96:3-14.
+[eva:progress] 
+  computing for function maybe_swap <- callstack <- main.
+  Called from red_alarms.i:24:3-21.
+[eva:progress] red_alarms.i:9: check got status valid.
+[eva:progress] red_alarms.i:10: check got status valid.
+[eva:progress] Recording results for maybe_swap
+[eva:progress] Done for function maybe_swap
+[eva:progress] 
+  computing for function maybe_swap <- callstack <- main.
+  Called from red_alarms.i:25:3-21.
+[eva:alarm] red_alarms.i:10: Warning: check got status unknown.
+[eva:progress] Recording results for maybe_swap
+[eva:progress] Done for function maybe_swap
+[eva:progress] 
+  computing for function maybe_swap <- callstack <- main.
+  Called from red_alarms.i:26:3-21.
+[eva:alarm] red_alarms.i:10: Warning: check got status invalid.
+[eva:progress] Recording results for maybe_swap
+[eva:progress] Done for function maybe_swap
+[eva:progress] 
+  computing for function maybe_swap <- callstack <- main.
+  Called from red_alarms.i:27:3-26.
+[eva:alarm] red_alarms.i:12: Warning: 
+  accessing uninitialized left-value. assert \initialized(p);
+[eva:progress] Recording results for maybe_swap
+[eva:progress] Done for function maybe_swap
+[eva:progress] 
+  computing for function maybe_swap <- callstack <- main.
+  Called from red_alarms.i:28:3-26.
+[eva:progress] Recording results for maybe_swap
+[eva:progress] Done for function maybe_swap
+[eva:progress] 
+  computing for function maybe_swap <- callstack <- main.
+  Called from red_alarms.i:29:3-20.
+[eva:alarm] red_alarms.i:13: Warning: out of bounds read. assert \valid_read(q);
+[eva:progress] Recording results for maybe_swap
+[eva:progress] Done for function maybe_swap
+[eva:progress] 
+  computing for function maybe_swap <- callstack <- main.
+  Called from red_alarms.i:32:3-19.
+[eva:alarm] red_alarms.i:9: Warning: check got status unknown.
+[eva:alarm] red_alarms.i:12: Warning: out of bounds read. assert \valid_read(p);
+[eva:alarm] red_alarms.i:13: Warning: 
+  accessing uninitialized left-value. assert \initialized(q);
+[eva:progress] Recording results for maybe_swap
+[eva:progress] Done for function maybe_swap
+[eva:progress] Recording results for callstack
+[eva:progress] Done for function callstack
+[eva:progress] 
+  computing for function partitioning <- main.
+  Called from red_alarms.i:97:3-17.
+[eva:alarm] red_alarms.i:45: Warning: 
+  accessing out of bounds index. assert i < 32;
+[eva:partition] red_alarms.i:47: starting to merge loop iterations
+[eva:alarm] red_alarms.i:48: Warning: out of bounds write. assert \valid(p);
+[eva:partition] red_alarms.i:52: starting to merge loop iterations
+[eva:alarm] red_alarms.i:53: Warning: 
+  accessing out of bounds index. assert i < 32;
+[eva:alarm] red_alarms.i:57: Warning: 
+  accessing out of bounds index. assert i < 32;
+[eva] red_alarms.i:57: Warning: 
+  all target addresses were invalid. This path is assumed to be dead.
+[eva:partition] red_alarms.i:60: starting to merge loop iterations
+[eva:alarm] red_alarms.i:61: Warning: 
+  accessing out of bounds index. assert i < 32;
+[eva] red_alarms.i:61: Warning: 
+  all target addresses were invalid. This path is assumed to be dead.
+[eva:alarm] red_alarms.i:64: Warning: 
+  division by zero. assert (int)(i - 5) ≢ 0;
+[eva:alarm] red_alarms.i:65: Warning: 
+  division by zero. assert (int)(i - 10) ≢ 0;
+[eva:alarm] red_alarms.i:67: Warning: 
+  division by zero. assert (int)(i - 15) ≢ 0;
+[eva:progress] Recording results for partitioning
+[eva:progress] Done for function partitioning
+[eva:progress] 
+  computing for function preconditions <- main.
+  Called from red_alarms.i:98:3-18.
+[eva:progress] 
+  computing for function in_bound <- preconditions <- main.
+  Called from red_alarms.i:79:3-15.
+[eva:progress] red_alarms.i:79: 
+  function in_bound: precondition 'positive' got status valid.
+[eva:progress] red_alarms.i:79: 
+  function in_bound: precondition 'bounded' got status valid.
+[eva:progress] Recording results for in_bound
+[eva:progress] Done for function in_bound
+[eva:progress] 
+  computing for function in_bound <- preconditions <- main.
+  Called from red_alarms.i:80:3-19.
+[eva:alarm] red_alarms.i:80: Warning: 
+  function in_bound: precondition 'positive' got status unknown.
+[eva:alarm] red_alarms.i:80: Warning: 
+  function in_bound: precondition 'bounded' got status unknown.
+[eva:progress] Recording results for in_bound
+[eva:progress] Done for function in_bound
+[eva:progress] 
+  computing for function in_bound <- preconditions <- main.
+  Called from red_alarms.i:82:5-17.
+[eva:alarm] red_alarms.i:82: Warning: 
+  function in_bound: precondition 'positive' got status invalid.
+[eva:progress] red_alarms.i:82: 
+  function in_bound: no state left, precondition 'bounded' got status valid.
+[eva:progress] Recording results for in_bound
+[eva:progress] Done for function in_bound
+[eva:progress] Recording results for preconditions
+[eva:progress] Done for function preconditions
+[eva:progress] 
+  computing for function user_assertions <- main.
+  Called from red_alarms.i:99:3-20.
+[eva:alarm] red_alarms.i:87: Warning: check 'indeterminate' got status unknown.
+[eva:progress] red_alarms.i:89: check 'true' got status valid.
+[eva:alarm] red_alarms.i:90: Warning: check 'false' got status invalid.
+[eva:alarm] red_alarms.i:92: Warning: check 'maybe' got status unknown.
+[eva:progress] Recording results for user_assertions
+[eva:progress] Done for function user_assertions
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] red_alarms.i:45: assertion 'Eva,index_bound' got final status invalid.
+[eva] Listing red statuses in file red_alarms.csv
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function in_bound:
+  y ∈ [0..99]
+[eva:final-states] Values at end of function maybe_swap:
+  a ∈ {1; 42}
+  b ∈ {42}
+  c ∈ {42}
+[eva:final-states] Values at end of function callstack:
+  a ∈ {1; 42}
+  b ∈ {42}
+  c ∈ {42}
+  p ∈ {{ NULL ; &a ; &uninit }}
+  q ∈ {{ NULL ; &b ; &uninit }}
+[eva:final-states] Values at end of function partitioning:
+  t[0..31] ∈ [0..31]
+  p ∈ {{ &t + [0..128],0%4 }}
+  i ∈ [0..32]
+  r ∈ [-100..100]
+[eva:final-states] Values at end of function preconditions:
+  
+[eva:final-states] Values at end of function user_assertions:
+  x ∈ [--..--]
+[eva:final-states] Values at end of function main:
+  
+[from] Computing for function in_bound
+[from] Done for function in_bound
+[from] Computing for function maybe_swap
+[from] Done for function maybe_swap
+[from] Computing for function callstack
+[from] Done for function callstack
+[from] Computing for function partitioning
+[from] Done for function partitioning
+[from] Computing for function preconditions
+[from] Done for function preconditions
+[from] Computing for function user_assertions
+[from] Done for function user_assertions
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function in_bound:
+  NO EFFECTS
+[from] Function maybe_swap:
+  a FROM nondet; p; q; b; c; uninit (and SELF)
+  b FROM nondet; p; q; a; b; c; uninit (and SELF)
+  c FROM nondet; p; q; a; b; c; uninit (and SELF)
+[from] Function callstack:
+  NO EFFECTS
+[from] Function partitioning:
+  NO EFFECTS
+[from] Function preconditions:
+  NO EFFECTS
+[from] Function user_assertions:
+  NO EFFECTS
+[from] Function main:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function in_bound:
+    y
+[inout] Inputs for function in_bound:
+    \nothing
+[inout] Out (internal) for function maybe_swap:
+    v; a; b; c
+[inout] Inputs for function maybe_swap:
+    nondet; a; b; c; uninit
+[inout] Out (internal) for function callstack:
+    a; b; c; p; tmp; tmp_0; q; tmp_1; tmp_2
+[inout] Inputs for function callstack:
+    nondet
+[inout] Out (internal) for function partitioning:
+    t[0..31]; p; i; r
+[inout] Inputs for function partitioning:
+    nondet
+[inout] Out (internal) for function preconditions:
+    \nothing
+[inout] Inputs for function preconditions:
+    nondet
+[inout] Out (internal) for function user_assertions:
+    x
+[inout] Inputs for function user_assertions:
+    nondet
+[inout] Out (internal) for function main:
+    \nothing
+[inout] Inputs for function main:
+    nondet

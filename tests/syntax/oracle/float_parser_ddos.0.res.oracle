@@ -1,0 +1,23 @@
+[kernel] Parsing float_parser_ddos.c (with preprocessing)
+[kernel:parser:decimal-float] float_parser_ddos.c:5: Warning: 
+  Floating-point constant 1e308 is not represented exactly. Will use 0x1.1ccf385ebc8a0p1023.
+[kernel:parser:decimal-float] float_parser_ddos.c:6: Warning: 
+  Floating-point constant 1e309 is not represented exactly. Will use inf.
+[kernel:parser:decimal-float] float_parser_ddos.c:7: Warning: 
+  Floating-point constant 1e-308 is not represented exactly. Will use 0x0.730d67819e8d2p-1022.
+[kernel:parser:decimal-float] float_parser_ddos.c:8: Warning: 
+  Floating-point constant 5e-324 is not represented exactly. Will use 0x0.0000000000001p-1022.
+[kernel:parser:decimal-float] float_parser_ddos.c:9: Warning: 
+  Floating-point constant 1e-325 is not represented exactly. Will use 0x0.0000000000000p0.
+[kernel:parser:decimal-float] float_parser_ddos.c:10: Warning: 
+  Floating-point constant 1e-40000000 is not represented exactly. Will use 0x0.0000000000000p0.
+[kernel] float_parser_ddos.c:11: User Error: 
+  The string 1e-400000000 cannot be parsed as a double precision floating-point constant because of an oversized exponent
+  Use flag -pow-limit to raise the upper limit of accepted exponents.
+  9       double too_small = 1e-325;
+  10      double dos1 = 1e-40000000;
+  11      double dos2 = 1e-400000000;
+                        ^^^^^^^^^^^^
+  12      return 0;
+  13    }
+[kernel] Frama-C aborted: invalid user input.

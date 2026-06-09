@@ -1,0 +1,10 @@
+[kernel] Parsing unfinished-oneline-acsl-comment.i (no preprocessing)
+[kernel] unfinished-oneline-acsl-comment.i:6: 
+  Invalid C file: should end with a newline:
+  Location: "unfinished-oneline-acsl-comment.i", line 6, character 8,
+            before or at token: 
+  4      */
+  5     // If you edit this file, make sure it ends WITHOUT a newline
+  6     //@ bad
+               ^
+[kernel] Frama-C aborted: invalid user input.

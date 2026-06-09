@@ -1,0 +1,68 @@
+34,49d33
+< [eva:alarm] relations.i:41: Warning: 
+<   signed overflow. assert -2147483648 ≤ u[5] - u[0];
+< [eva:alarm] relations.i:41: Warning: 
+<   signed overflow. assert u[5] - u[0] ≤ 2147483647;
+< [eva:alarm] relations.i:46: Warning: 
+<   signed overflow. assert -2147483648 ≤ u[10] - u[11];
+< [eva:alarm] relations.i:46: Warning: 
+<   signed overflow. assert u[10] - u[11] ≤ 2147483647;
+< [eva:alarm] relations.i:48: Warning: 
+<   signed overflow. assert -2147483648 ≤ u[1] - u[0];
+< [eva:alarm] relations.i:48: Warning: 
+<   signed overflow. assert u[1] - u[0] ≤ 2147483647;
+< [eva:alarm] relations.i:52: Warning: 
+<   signed overflow. assert -2147483648 ≤ u[5] - u[1];
+< [eva:alarm] relations.i:52: Warning: 
+<   signed overflow. assert u[5] - u[1] ≤ 2147483647;
+60,61c44
+<   u[0] ∈ [-2147483648..2147483646]
+<    [1] ∈ [--..--]
+---
+>   u[0..1] ∈ [-2147483648..2147483646]
+67,78c50,60
+<   R1 ∈ [--..--]
+<   R2 ∈ [--..--]
+<   R3 ∈ [-2147483648..2147483646]
+<   R4 ∈ [--..--]
+<   R5 ∈ [--..--]
+<   R6 ∈ [--..--]
+<   R7 ∈ {0; 1}
+<   A7 ∈ [--..--]
+<   R8 ∈ {0; 1}
+<   A8 ∈ [--..--]
+<   S1 ∈ {-1; 0; 1}
+<   S2 ∈ {0; 1}
+---
+>   R1 ∈ {0; 3}
+>   R2 ∈ {0; 3}
+>   R3 ∈ {0; 2}
+>   R4 ∈ {0; 2}
+>   R5 ∈ {1}
+>   R6 ∈ {0}
+>   R7 ∈ {1}
+>   A7 ∈ {0}
+>   A8 ∈ {1}
+>   S1 ∈ {0}
+>   S2 ∈ {1}
+80,81c62,64
+<   e ∈ [--..--]
+<   f ∈ [--..--]
+---
+>   e ∈ {1}
+>   f[bits 0 to 7] ∈ {1; 4}
+>    [bits 8 to 31] ∈ [--..--]
+102c85
+<   R7 FROM g (and SELF)
+---
+>   R7 FROM g
+104d86
+<   R8 FROM g (and SELF)
+107c89
+<   S2 FROM pCs; S_pCs[0]{.L0; .L1} (and SELF)
+---
+>   S2 FROM pCs; S_pCs[0]{.L0; .L1}
+112c94
+<     A7; R8; A8; S1; S2; c; e; f; tmp; tmp_0; S_pCs[0]{.T13; .T; .L8}
+---
+>     A7; A8; S1; S2; c; e; f; tmp; tmp_0; S_pCs[0]{.T13; .T; .L8}

@@ -1,0 +1,57 @@
+[kernel] Parsing jfla_running_ex.c (with preprocessing)
+[alias] analysing function: jfla
+[alias] analysing instruction: *snd = *fst;
+[alias] May-aliases after instruction  *snd = *fst;  are  <none>
+[alias] analysing instruction: fst = *i1;
+[alias] May-aliases after instruction  fst = *i1;  are  { *i1; fst }
+[alias] analysing instruction: __retres = *i2;
+[alias] May-aliases after instruction  __retres = *i2;  are
+  { *i1; fst }  { *i2; __retres }
+[alias] analysing instruction: fst = *i2;
+[alias] May-aliases after instruction  fst = *i2;  are  { *i2; fst }
+[alias] analysing instruction: __retres = *i1;
+[alias] May-aliases after instruction  __retres = *i1;  are
+  { *i1; __retres }  { *i2; fst }
+[alias] May-aliases at the end of function jfla:
+  { *i1; *i2; fst; __retres }  { i1; i2 }
+[alias] analysing function: main
+[alias] analysing instruction: int u = 11;
+[alias] May-aliases after instruction  int u = 11;  are  <none>
+[alias] analysing instruction: int v = 12;
+[alias] May-aliases after instruction  int v = 12;  are  <none>
+[alias] analysing instruction: int t[3] = {0, 1, 2};
+[alias] May-aliases after instruction  int t[3] = {0, 1, 2};  are  <none>
+[alias] analysing instruction: int *a = & t[1];
+[alias] May-aliases after instruction  int *a = & t[1];  are  { t; a }
+[alias] analysing instruction: int *b = & u;
+[alias] May-aliases after instruction  int *b = & u;  are  { t; a }
+[alias] analysing instruction: int *c = & v;
+[alias] May-aliases after instruction  int *c = & v;  are  { t; a }
+[alias] analysing instruction: int **x = & a;
+[alias] May-aliases after instruction  int **x = & a;  are  { *x; t; a }
+[alias] analysing instruction: int **y = & b;
+[alias] May-aliases after instruction  int **y = & b;  are  { *x; t; a }  { *y; b }
+[alias] analysing instruction: int **z = & c;
+[alias] May-aliases after instruction  int **z = & c;  are
+  { *x; t; a }  { *y; b }  { *z; c }
+[alias] analysing instruction: struct str_t s = {.fst = c, .snd = t};
+[alias] May-aliases after instruction  struct str_t s = {.fst = c, .snd = t};  are
+  { *x; t; a; s.snd }  { *y; b }  { *z; c; s.fst }
+[alias] analysing instruction: struct str_t *s1 = & s;
+[alias] May-aliases after instruction  struct str_t *s1 = & s;  are
+  { *x; s1->snd; t; a; s.snd }  { *y; b }  { *z; s1->fst; c; s.fst }
+[alias] analysing instruction: struct str_t *s2 = & s;
+[alias] May-aliases after instruction  struct str_t *s2 = & s;  are
+  { *x; s1->snd; s2->snd; t; a; s.snd }  { *y; b }
+  { *z; s1->fst; s2->fst; c; s.fst }  { s1; s2 }
+[alias] analysing instruction: c = jfla(s1->fst,s1->snd,x,y,0);
+[alias] May-aliases after instruction  c = jfla(s1->fst,s1->snd,x,y,0);  are
+  { *x; *y; *z; s1->fst; s1->snd; s2->fst; s2->snd; t; a; b; c; s.fst; s.snd }
+  { x; y }  { s1; s2 }
+[alias] analysing instruction: a = jfla(s2->fst,s2->snd,y,z,1);
+[alias] May-aliases after instruction  a = jfla(s2->fst,s2->snd,y,z,1);  are
+  { *x; *y; *z; s1->fst; s1->snd; s2->fst; s2->snd; t; a; b; c; s.fst; s.snd }
+  { x; y; z }  { s1; s2 }
+[alias] May-aliases at the end of function main:
+  { *x; *y; *z; s1->fst; s1->snd; s2->fst; s2->snd; t; a; b; c; s.fst; s.snd }
+  { x; y; z }  { s1; s2 }

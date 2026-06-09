@@ -1,0 +1,6 @@
+(library
+ (name Name_projects)
+ (modules Name_projects)
+ (libraries frama-c.init frama-c.boot frama-c.kernel)
+ (flags -open Frama_c_kernel)
+)

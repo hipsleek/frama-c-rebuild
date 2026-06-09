@@ -1,0 +1,84 @@
+# frama-c -wp [...]
+[kernel] Parsing terminates_formulae.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] terminates_formulae.i:20: Warning: 
+  Neither code nor explicit exits for function terminates_P, generating default
+  clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] terminates_formulae.i:41: Warning: 
+  Neither code nor explicit exits for function call_param, generating default
+  clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] terminates_formulae.i:71: Warning: 
+  Neither code nor specification for function with_call, generating default
+  exits, assigns and terminates. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] terminates_formulae.i:109: Warning: 
+  Neither code nor explicit exits for function local_init_P, generating default
+  clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp:hypothesis] terminates_formulae.i:96: Warning: 
+  'Rel' relation must be well-founded
+[wp:hypothesis] terminates_formulae.i:67: Warning: 
+  'Rel' relation must be well-founded
+[wp] [Valid] Goal general_variant_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal general_variant_terminates (Cfg) (Trivial)
+[wp:hypothesis] terminates_formulae.i:76: Warning: 
+  'Rel' relation must be well-founded
+[wp] [Valid] Goal no_variant_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal variant_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal variant_terminates (Cfg) (Trivial)
+[wp] terminates_formulae.i:103: Warning: 
+  Missing decreases clause on recursive function no_decreases, call must be unreachable
+[wp] 32 goals scheduled
+[wp] [Unsuccess] typed_base_call_terminates (Alt-Ergo) (Cached)
+[wp] [Valid] typed_base_call_exits (Qed)
+[wp] [Valid] typed_call_same_terminates (Qed)
+[wp] [Valid] typed_call_same_exits (Qed)
+[wp] [Unsuccess] typed_call_change_terminates (Alt-Ergo) (Cached)
+[wp] [Valid] typed_call_change_exits (Qed)
+[wp] [Valid] typed_call_param_same_terminates (Qed)
+[wp] [Valid] typed_call_param_same_exits (Qed)
+[wp] [Unsuccess] typed_call_param_change_terminates (Alt-Ergo) (Cached)
+[wp] [Valid] typed_call_param_change_exits (Qed)
+[wp] [Valid] typed_variant_loop_assigns (Qed)
+[wp] [Valid] typed_variant_loop_variant_positive (Qed)
+[wp] [Valid] typed_variant_loop_variant_decrease (Alt-Ergo) (Cached)
+[wp] [Valid] typed_general_variant_loop_assigns (Qed)
+[wp] [Valid] typed_general_variant_loop_variant_relation (Alt-Ergo) (Cached)
+[wp] [Valid] typed_general_variant_call_terminates (Qed)
+[wp] [Valid] typed_general_variant_call_exits (Qed)
+[wp] [Valid] typed_general_variant_call_loop_assigns (Qed)
+[wp] [Valid] typed_general_variant_call_loop_variant_relation (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_no_variant_terminates (Alt-Ergo) (Cached)
+[wp] [Valid] typed_no_variant_loop_assigns (Qed)
+[wp] [Valid] typed_decreases_terminates (Qed)
+[wp] [Valid] typed_decreases_exits (Qed)
+[wp] [Valid] typed_decreases_variant (Alt-Ergo) (Cached)
+[wp] [Valid] typed_general_decreases_terminates (Qed)
+[wp] [Valid] typed_general_decreases_exits (Qed)
+[wp] [Valid] typed_general_decreases_variant (Alt-Ergo) (Cached)
+[wp] [Valid] typed_no_decreases_terminates_part1 (Qed)
+[wp] [Unsuccess] typed_no_decreases_terminates_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_no_decreases_exits (Qed)
+[wp] [Unsuccess] typed_local_init_call_terminates (Alt-Ergo) (Cached)
+[wp] [Valid] typed_local_init_call_exits (Qed)
+[wp] Proved goals:   31 / 37
+  Terminating:     2
+  Unreachable:     3
+  Qed:            21
+  Alt-Ergo:        5
+  Unsuccess:       6
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  base_call                 1        -        2      50.0%
+  call_same                 2        -        2       100%
+  call_change               1        -        2      50.0%
+  call_param_same           2        -        2       100%
+  call_param_change         1        -        2      50.0%
+  variant                   4        1        5       100%
+  general_variant           3        1        4       100%
+  general_variant_call      3        1        4       100%
+  no_variant                2        -        3      66.7%
+  decreases                 2        1        3       100%
+  general_decreases         2        1        3       100%
+  no_decreases              2        -        3      66.7%
+  local_init_call           1        -        2      50.0%
+------------------------------------------------------------

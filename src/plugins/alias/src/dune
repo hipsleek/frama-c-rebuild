@@ -1,0 +1,45 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+( rule
+  (alias frama-c-configure)
+  (deps (universe))
+  (action ( progn
+            (echo "Alias:" %{lib-available:frama-c-alias.core} "\n")
+            (echo " - Frama-C:" %{lib-available:frama-c.kernel} "\n")
+          )
+  )
+)
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-alias.core})))
+ (action (echo "WARNING: Alias disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+(env (release (flags -noassert)))
+
+( library
+  (optional)
+  (name Alias)
+  (public_name frama-c-alias.core)
+  (flags -open Frama_c_kernel :standard)
+  (libraries frama-c.kernel ocamlgraph unionFind)
+  (instrumentation (backend landmarks))
+  (instrumentation (backend bisect_ppx))
+)
+
+( plugin
+  (optional)
+  (name alias)
+  (libraries frama-c-alias.core)
+  (site (frama-c plugins))
+)

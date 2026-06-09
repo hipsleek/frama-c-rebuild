@@ -1,0 +1,63 @@
+## SPECIFIC PART
+/doc/manual/*.cm*
+/doc/manual/*.annot
+/doc/manual/*_DEP
+/doc/manual/*.aux
+/doc/manual/*.bbl
+/doc/manual/*.blg
+/doc/manual/*.cb2
+/doc/manual/*.out
+/doc/manual/*.ind
+/doc/manual/*.ilg
+/doc/manual/*.log
+/doc/manual/*.idx
+/doc/manual/*.cb
+/doc/manual/*.toc
+/doc/manual/hevea.sty
+/doc/manual/main.fls
+/doc/manual/main.fdb_latexmk
+/doc/manual/main.pdf
+/doc/manual/Volatile-manual.pdf
+/doc/manual/auto-generated.sed
+/doc/manual/auto-generated-macros.sty
+
+## GENERIC PART
+
+# Headers
+/Copyright.*-[0-9]*
+
+# Configuration
+/configure
+/config.status
+/config.log
+/configure.lineno
+/autom4te.cache
+/.Makefile.plugin.generated
+
+# Compilation
+/.merlin
+/.merlin.generated
+/.depend
+/*.o
+/*.cm*
+/*.annot
+/*_DEP
+/META.frama-c-*
+/gui
+/top
+/*.check_mli_exists
+/.lint
+_build
+
+# Tests
+/xunit.xml
+/tests/*/result/
+/tests/*/oracle/dune
+
+# Code documentation
+/doc/code
+
+# Nix
+/result*
+
+## END

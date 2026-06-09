@@ -1,0 +1,90 @@
+[kernel] Parsing octagons-pointers-simple.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  size ∈ {436}
+  buffer[0..435] ∈ {0}
+  nondet ∈ [--..--]
+[eva:progress] 
+  computing for function init <- main.
+  Called from octagons-pointers-simple.c:39.
+[eva:partition] octagons-pointers-simple.c:19: starting to merge loop iterations
+[eva:progress] Recording results for init
+[eva:progress] Done for function init
+[eva:show] octagons-pointers-simple.c:47: 
+  Frama_C_dump_each:
+  # octagon:
+  {[ buffer - cmd ∈ {-3}
+     cmd->cmdLen - cmdLen ∈ {0}
+      ]}
+  ==END OF DUMP==
+[eva:progress] 
+  computing for function cmdRead <- main.
+  Called from octagons-pointers-simple.c:48.
+[eva:progress] Recording results for cmdRead
+[eva:progress] Done for function cmdRead
+[eva:show] octagons-pointers-simple.c:47: 
+  Frama_C_dump_each:
+  # octagon:
+  {[ buffer - cmd ∈ [-436..-6]
+     cmd->cmdLen - cmdLen ∈ {0}
+     index + cmdLen ∈ [--..434]
+     cmd->cmdLen + index ∈ [--..434]
+      ]}
+  ==END OF DUMP==
+[eva:progress] 
+  computing for function cmdRead <- main.
+  Called from octagons-pointers-simple.c:48.
+[eva:progress] Recording results for cmdRead
+[eva:progress] Done for function cmdRead
+[eva:loop-unroll:partial] octagons-pointers-simple.c:44: 
+  loop not completely unrolled
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function cmdRead:
+  len ∈ {{ &buffer + [3..433] }}
+  code ∈ {{ &buffer + [5..435] }}
+  elt1 ∈ {{ &buffer + [6..436] }}
+  elt2 ∈ {{ &buffer + [10..440] }}
+  elt3 ∈ {{ &buffer + [12..442] }}
+  c ∈ [--..--] or UNINITIALIZED
+  e1 ∈ [--..--] or UNINITIALIZED
+  e2 ∈ [--..--] or UNINITIALIZED
+  e3 ∈ [--..--] or UNINITIALIZED
+[eva:final-states] Values at end of function init:
+  buffer[0..435] ∈ [--..--]
+  i ∈ {436}
+[eva:final-states] Values at end of function main:
+  buffer[0..435] ∈ [--..--]
+  index ∈ [3..436]
+  cmdLen ∈ [0..65535]
+  cmd ∈ {{ &buffer + [3..436] }}
+[from] Computing for function cmdRead
+[from] Done for function cmdRead
+[from] Computing for function init
+[from] Done for function init
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function cmdRead:
+  NO EFFECTS
+[from] Function init:
+  buffer[0..435] FROM size; nondet (and SELF)
+[from] Function main:
+  buffer[0..435] FROM size; nondet (and SELF)
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function cmdRead:
+    len; code; elt1; elt2; elt3; c; e1; e2; e3
+[inout] Inputs for function cmdRead:
+    buffer[5..435]
+[inout] Out (internal) for function init:
+    buffer[0..435]; i
+[inout] Inputs for function init:
+    size; nondet
+[inout] Out (internal) for function main:
+    buffer[0..435]; index; cmdLen; cmd
+[inout] Inputs for function main:
+    size; buffer[3..435]; nondet

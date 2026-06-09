@@ -1,0 +1,58 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+(alias (name default) (deps (alias install)))
+(dirs bin headers man share src ppx tools tests)
+
+(executable
+ (name configurator)
+ (libraries dune-configurator str)
+ (modules configurator))
+
+(rule
+ (deps VERSION VERSION_CODENAME src/kernel_internals/runtime/system_config.ml.in)
+ (targets
+   python-3.10-available
+   gcc-is-genuine
+   has-c2x-option
+   has-c2y-option
+   system_config.ml)
+ (action (run ./configurator.exe)))
+
+(executable
+ (name tests_configurator)
+ (libraries dune-configurator str)
+ (modules tests_configurator))
+
+(rule
+ (deps
+  ; universe dependency to check installed apps everytime
+  (universe)
+  ; reads targets of configurator.exe
+  python-3.10-available gcc-is-genuine has-c2x-option has-c2y-option)
+ (targets
+  ; Global
+  tests-dependencies-available
+  tests-dependencies-comment
+  ; Kernel
+  tests-fc_scripts-deps-available
+  tests-jcdb-deps-available
+  tests-libc-deps-available
+  tests-metrics-deps-available
+  tests-misc-deps-available
+  tests-mopsa-deps-available
+  tests-spec-deps-available
+  tests-syntax-deps-available
+  ; Plug-ins
+  tests-eva-deps-available
+  tests-markdown-report-deps-available
+  tests-server-deps-available
+  )
+ (action (run ./tests_configurator.exe)))
+

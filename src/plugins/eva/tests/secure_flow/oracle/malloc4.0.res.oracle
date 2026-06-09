@@ -1,0 +1,28 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing malloc4.c (with preprocessing)
+[eva:secure-flow:condition] malloc4.c:12: Warning: 
+  non-interference violation on condition involving {secret}
+[from] Computing for function main
+[from] Computing for function malloc <-main
+[from] Done for function malloc
+[from] Computing for function free <-main
+[from] Done for function free
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function free:
+  __fc_heap_status FROM __fc_heap_status (and SELF)
+[from] Function malloc:
+  __fc_heap_status FROM __fc_heap_status; size (and SELF)
+  __fc_errno FROM __fc_heap_status; size
+  \result FROM __fc_heap_status; size
+[from] Function main:
+  __fc_heap_status FROM __fc_heap_status; secret (and SELF)
+  __fc_errno FROM __fc_heap_status; secret (and SELF)
+  __malloc_main_l13 FROM __fc_heap_status; secret (and SELF)
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    __fc_heap_status; __fc_errno; p; __retres; __malloc_main_l13
+[inout] Inputs for function main:
+    __fc_heap_status; secret

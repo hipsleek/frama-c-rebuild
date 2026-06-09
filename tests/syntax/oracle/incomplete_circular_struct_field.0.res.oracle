@@ -1,0 +1,11 @@
+[kernel] Parsing incomplete_circular_struct_field.i (no preprocessing)
+[kernel] incomplete_circular_struct_field.i:6: User Error: 
+  field '' is declared with incomplete type 'struct incomplete'
+[kernel] incomplete_circular_struct_field.i:6: User Error: 
+  field __anonCompField1 declaration contains a circular reference to type struct incomplete
+  4     */
+  5     struct incomplete {
+  6       struct incomplete;
+          ^^^^^^^^^^^^^^^^^^
+  7     };
+[kernel] Frama-C aborted: invalid user input.

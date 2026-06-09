@@ -1,0 +1,12 @@
+Plugin: Test
+  -test-debug: int (0, 4611686018427387903)
+  -test-decimal-option: float (0.000000, 1.000000)
+  -test-default-range: float
+  -test-help: bool
+  -test-lib: string
+  -test-log: string
+  -test-msg-key: string
+  -test-session: string
+  -test-share: string
+  -test-verbose: int (0, 4611686018427387903)
+  -test-warn-key: string

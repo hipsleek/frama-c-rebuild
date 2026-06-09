@@ -1,0 +1,16 @@
+# frama-c -wp [...]
+[kernel] Parsing noqed.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] 1 goal scheduled
+[wp] [Unsuccess] typed_lemma_ko (Qed)
+[wp] Proved goals:    0 / 1
+  Unsuccess:       1
+------------------------------------------------------------
+  Global
+------------------------------------------------------------
+
+Goal Lemma 'ko':
+Prove: false.
+Prover Qed returns Unsuccess
+
+------------------------------------------------------------

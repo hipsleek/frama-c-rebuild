@@ -1,0 +1,74 @@
+Plug-in name: Volatile
+Plug-in shortname: volatile
+Description:
+support for volatile accesses and calls through function pointers
+
+Most options of the form '-volatile-option-name' and without any parameter
+have an opposite with the name '-volatile-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-volatile           builds a new project (named "Volatile") where volatile
+                    accesses are simulated by function calls (opposite option
+                    is -no-volatile)
+-volatile-basetype  use base-type for int, float and enums for the
+                    instrumentation related to -volatile-binding option
+                    (opposite option is -volatile-no-basetype)
+-volatile-binding <f,...>  allows binding of volatile accesses to functions
+                    <f,...> (preferably use -volatile-binding="f,...")
+-volatile-binding-auto  allows automatic binding of volatiles accesses to
+                    functions: <prefix>Rd_<typename> and
+                    <prefix>Wr_<typename> (opposite option is
+                    -volatile-no-binding-auto)
+-volatile-binding-call-pointer  replaces calls through function pointers by
+                    direct calls to functions:
+                    <prefix>Call_<result-type>_<param-types> (opposite option
+                    is -volatile-no-binding-call-pointer)
+-volatile-binding-prefix <str>  adds <str> as prefix to function names for
+                    automatic binding (preferably use
+                    -volatile-binding-prefix="str")
+-volatile-call-pointer <f,...>  stub call to pointer functions to the
+                    provided functions (indexed by type) (preferably use
+                    -volatile-call-pointer="f,...")
+-volatile-fct <f,...>  Only process the given function(s) (preferably use
+                    -volatile-fct="f,...")
+
+*** DEBUG
+
+-volatile-debug <n>  level of debug for plug-in Volatile (default to 0)
+
+*** GETTING INFORMATION
+
+-volatile-help      help of plug-in Volatile
+-volatile-h         alias for option -volatile-help
+
+*** OUTPUT MESSAGES
+
+-volatile-log <K_1:file_1,...>  copy log messages from Volatile to a file.
+                    <K> is a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -volatile-log="K_1:file_1,...")
+-volatile-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -volatile-msg-key help to get a list
+                    of available categories, and * to enable all categories
+                    (preferably use -volatile-msg-key="k1[,...,kn]")
+-volatile-verbose <n>  level of verbosity for plug-in Volatile (default to 1)
+-volatile-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category
+                    <k1> to <s1>,...,<kn> to <sn>. Use -volatile-warn-key
+                    help to get a list of available categories, and * to
+                    enable all categories. Possible statuses are inactive,
+                    feedback, warning, error, abort, feedback-once,
+                    warning-once, error-once. Defaults to warning.
+                    (preferably use
+                    -volatile-warn-key="k1[=s1][,...,kn[=sn]]")

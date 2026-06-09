@@ -1,0 +1,41 @@
+[kernel] Parsing conditional3.c (with preprocessing)
+[alias] analysing function: main
+[alias] analysing instruction: a = b;
+[alias] May-aliases after instruction  a = b;  are
+  { *(*(*a)); *(*(*b)) }  { *(*a); *(*b) }  { *a; *b }  { a; b }
+[alias] analysing instruction: b = & i;
+[alias] May-aliases after instruction  b = & i;  are
+  { *(*(*a)); *(*(*b)); *(*i) }  { *(*a); *(*b); *i }  { *a; *b; i }  { a; b }
+[alias] analysing instruction: i = & x;
+[alias] May-aliases after instruction  i = & x;  are
+  { *(*(*a)); *(*(*b)); *(*i); *x }  { *(*a); *(*b); *i; x }  { *a; *b; i }
+  { a; b }
+[alias] analysing instruction: x = & t;
+[alias] May-aliases after instruction  x = & t;  are
+  { *(*(*a)); *(*(*b)); *(*i); *x; t }  { *(*a); *(*b); *i; x }  { *a; *b; i }
+  { a; b }
+[alias] analysing instruction: a = c;
+[alias] May-aliases after instruction  a = c;  are
+  { *(*(*a)); *(*(*c)) }  { *(*a); *(*c) }  { *a; *c }  { a; c }
+[alias] analysing instruction: c = & j;
+[alias] May-aliases after instruction  c = & j;  are
+  { *(*(*a)); *(*(*c)); *(*j) }  { *(*a); *(*c); *j }  { *a; *c; j }  { a; c }
+[alias] analysing instruction: j = & y;
+[alias] May-aliases after instruction  j = & y;  are
+  { *(*(*a)); *(*(*c)); *(*j); *y }  { *(*a); *(*c); *j; y }  { *a; *c; j }
+  { a; c }
+[alias] analysing instruction: y = & u;
+[alias] May-aliases after instruction  y = & u;  are
+  { *(*(*a)); *(*(*c)); *(*j); *y; u }  { *(*a); *(*c); *j; y }  { *a; *c; j }
+  { a; c }
+[alias] analysing instruction: p = 0;
+[alias] May-aliases after instruction  p = 0;  are
+  { *(*(*a)); *(*(*b)); *(*(*c)); *(*i); *(*j); *x; *y; t; u }
+  { *(*a); *(*b); *(*c); *i; *j; x; y }  { *a; *b; *c; i; j }  { a; b; c }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { *(*(*a)); *(*(*b)); *(*(*c)); *(*i); *(*j); *x; *y; t; u }
+  { *(*a); *(*b); *(*c); *i; *j; x; y }  { *a; *b; *c; i; j }  { a; b; c }
+[alias] May-aliases at the end of function main:
+  { *(*(*a)); *(*(*b)); *(*(*c)); *(*i); *(*j); *x; *y; t; u }
+  { *(*a); *(*b); *(*c); *i; *j; x; y }  { *a; *b; *c; i; j }  { a; b; c }

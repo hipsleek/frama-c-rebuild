@@ -1,0 +1,27 @@
+# --------------------------------------------------------------------------
+# --- Template .gitignore file for Dome
+# --------------------------------------------------------------------------
+
+.frama-c-gui.local
+.frama-c
+.dome-*.stamp
+.dome-*.back
+.eslint-cache
+node_modules
+yarn-error.log
+/dist
+/out
+/doc/html
+/src/renderer/loader.ts
+/src/renderer/sandbox.ts
+/src/renderer/public
+/src/dome/doc/guides/icons.md
+/Makefile.plugins
+/icon.icns
+/src/frama-c/kernel/api
+/src/frama-c/plugins/*/api
+# --------------------------------------------------------------------------
+/tests/test-results/
+/screenshots/*
+/playwright-report/
+/playwright/.cache/

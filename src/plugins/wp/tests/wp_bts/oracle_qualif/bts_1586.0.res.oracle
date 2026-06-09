@@ -1,0 +1,29 @@
+# frama-c -wp [...]
+[kernel] Parsing bts_1586.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal compute_bizarre_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal compute_bizarre_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal compute_normal_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal compute_normal_terminates (Cfg) (Trivial)
+[wp] 8 goals scheduled
+[wp] [Valid] typed_compute_bizarre_Bizarre_ensures_TRANS (Qed)
+[wp] [Valid] typed_compute_normal_Normal_ensures_TRANS (Qed)
+[wp] [Valid] typed_main_bizarre_KO_terminates (Qed)
+[wp] [Valid] typed_main_bizarre_KO_exits (Qed)
+[wp] [Unsuccess] typed_main_bizarre_KO_assert_FALSE (Alt-Ergo) (Cached)
+[wp] [Valid] typed_main_normal_KO_terminates (Qed)
+[wp] [Valid] typed_main_normal_KO_exits (Qed)
+[wp] [Unsuccess] typed_main_normal_KO_assert_FALSE (Alt-Ergo) (Cached)
+[wp] Proved goals:   10 / 12
+  Terminating:     2
+  Unreachable:     2
+  Qed:             6
+  Unsuccess:       2
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  compute_bizarre           3        -        3       100%
+  compute_normal            3        -        3       100%
+  main_bizarre_KO           2        -        3      66.7%
+  main_normal_KO            2        -        3      66.7%
+------------------------------------------------------------

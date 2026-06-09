@@ -1,0 +1,27 @@
+[kernel] Parsing undef_function.i (no preprocessing)
+[impact] beginning analysis
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  y ∈ {0}
+[kernel:annot:missing-spec] undef_function.i:10: Warning: 
+  Neither code nor specification for function g, generating default assigns.
+  See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function g <- main.
+  Called from undef_function.i:10:3-7.
+[eva] using specification for function g
+[eva:progress] Done for function g
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[pdg] computing for function main
+[from] Computing for function g
+[from] Done for function g
+[pdg] done for function main
+[pdg] computing for function g
+[pdg] done for function g
+[impact] impacted statements of stmt(s) 2 are:
+    undef_function.i:10:3-7 (sid 3): g(y);
+    undef_function.i:11:3-12 (sid 5): return y;
+[impact] analysis done

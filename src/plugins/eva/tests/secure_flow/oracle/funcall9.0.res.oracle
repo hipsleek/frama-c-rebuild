@@ -1,0 +1,45 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing funcall9.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  d ∈ [--..--]
+  e ∈ {{ NULL ; &S_e[0] }}
+  L ∈ {5}
+  S_e[0..1] ∈ [--..--]
+[eva:progress] funcall9.c:27: assertion got status valid.
+[eva:progress] 
+  computing for function fn1 <- main.
+  Called from funcall9.c:28.
+[eva:progress] Recording results for fn1
+[eva:progress] Done for function fn1
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function fn1:
+  d ∈ {5}
+  local_L ∈ {5}
+[eva:final-states] Values at end of function main:
+  d ∈ {5}
+  e ∈ {{ &d }}
+[from] Computing for function fn1
+[from] Done for function fn1
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function fn1:
+  d FROM p
+[from] Function main:
+  d FROM \nothing
+  e FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function fn1:
+    d; local_L
+[inout] Inputs for function fn1:
+    L
+[inout] Out (internal) for function main:
+    d; e
+[inout] Inputs for function main:
+    L

@@ -1,0 +1,88 @@
+##########################################################################
+#                                                                        #
+#  SPDX-License-Identifier LGPL-2.1                                      #
+#  Copyright (C)                                                         #
+#  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  #
+#                                                                        #
+##########################################################################
+
+##########################################################################
+# Parameters
+
+# Must be unset (for external plugins) and set (for FRAMA-C kernel)
+IN_FRAMAC?=
+
+# Note: DO NOT rename this variable "LINT", this name is defined in GNU Makefile
+LINTCK?=frama-c-lint
+
+# Can be set to a
+# - <file> containing files to check/update and their attributes, with 0
+#   separators (like 'git ls-files -z | git check-attr --stdin -za').
+LINTCK_FILES_INPUT?=
+
+# Extra parameters for the lint command
+LINTCK_EXTRA?=
+
+##########################################################################
+## Tools
+
+GIT  ?= git
+DUNE ?= dune
+
+##########################################################################
+## Command used to execute lint
+
+ifneq ($(IN_FRAMAC),yes)
+LINTCK.CMD:= $(LINTCK)
+else
+LINTCK.CMD:= $(DUNE) exec --no-print-directory --root $(FRAMAC_LINTCK_SRC) -- $(LINTCK)
+endif
+
+##########################################################################
+## LINT
+
+LINTCK.HAS_GIT:=$(shell git rev-parse --is-inside-work-tree 2> /dev/null)
+LINTCK.ENABLED=yes
+ifneq ($(LINTCK.HAS_GIT),true)
+ifeq ($(LINTCK_FILES_INPUT),)
+LINTCK.ENABLED=no
+endif
+endif
+
+ifeq ($(LINTCK_FILES_INPUT),)
+LINTCK.COLLECT=$(GIT) ls-files -z | $(GIT) check-attr --stdin -z -a
+else
+LINTCK.COLLECT=cat $(LINTCK_FILES_INPUT)
+endif
+
+ifeq ($(LINTCK.ENABLED),yes)
+
+.PHONY: check-lint
+check-lint:
+	$(LINTCK.COLLECT) | $(LINTCK.CMD) $(LINTCK_EXTRA)
+
+.PHONY: lint
+lint:
+	$(LINTCK.COLLECT) | $(LINTCK.CMD) -u $(LINTCK_EXTRA)
+
+else
+
+.PHONY: check-lint
+check-lint:
+	$(error "Cannot lint: not a Git repository, \
+	   			 you should specify LINTCK_FILES_INPUT")
+
+.PHONY: lint
+lint:
+	$(error "Cannot fix-lint: not a Git repository, \
+	   			 you should specify LINTCK_FILES_INPUT")
+
+endif
+
+##########################################################################
+
+.PHONY: lint.info
+lint.info:
+	echo "LINTCK_FILES_INPUT='$(LINTCK_FILES_INPUT)'"
+	echo "LINTCK.HAS_GIT='$(LINTCK.HAS_GIT)'"
+	echo "LINTCK.CMD='$(LINTCK.CMD)'"

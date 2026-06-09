@@ -1,0 +1,20 @@
+# frama-c -wp [...]
+[kernel] Parsing init_extern.i (no preprocessing)
+[kernel] Parsing init_linker.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal f_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal f_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 3 goals scheduled
+[wp] [Valid] typed_f_ensures_OK (Qed)
+[wp] [Unsuccess] typed_f_ensures_KO (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_f_ensures_KO_2 (Alt-Ergo) (Cached)
+[wp] Proved goals:    3 / 5
+  Terminating:     1
+  Unreachable:     1
+  Qed:             1
+  Unsuccess:       2
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  f                         3        -        5      60.0%
+------------------------------------------------------------

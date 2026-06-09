@@ -1,0 +1,182 @@
+>>> HEAP ---------------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> STACK --------------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> GLOBAL -------------------
+   Application: xxxkB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxkB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxkB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> TLS ----------------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> VDSO ---------------------
+   Application: xxxkB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxkB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxkB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> --------------------------
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread stack -------------
+   Application: xxxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> Thread TLS ---------------
+   Application: xxxxB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxxB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+ *** WARNING: Leakedxxxbytes of heap memory in 2 blocks

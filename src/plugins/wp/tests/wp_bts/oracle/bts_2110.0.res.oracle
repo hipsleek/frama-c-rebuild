@@ -1,0 +1,110 @@
+# frama-c -wp [...]
+[kernel] Parsing bts_2110.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] bts_2110.i:22: Warning: 
+  Neither code nor explicit exits and terminates for function myRead,
+  generating default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] 3 goals scheduled
+[wp] [Generated] Goal typed_myMain_exits (Qed)
+---------------------------------------------
+--- Context 'typed_myMain' Cluster 'S2_A' 
+---------------------------------------------
+theory S2_A
+  
+  (* use why3.BuiltIn.BuiltIn *)
+  
+  (* use bool.Bool *)
+  
+  (* use int.Int *)
+  
+  (* use int.ComputerDivision *)
+  
+  (* use real.RealInfix *)
+  
+  (* use frama_c_wp.qed.Qed *)
+  
+  (* use map.Map *)
+  
+  type S2_A =
+    | S2_A1 (F2_A_dummy:int)
+  
+  (* use frama_c_wp.cint.Cint *)
+  
+  predicate IsS2_A (s:S2_A) = is_sint32 (F2_A_dummy s)
+  
+  predicate EqS2_A (s:S2_A) (s1:S2_A) = F2_A_dummy s1 = F2_A_dummy s
+  
+end
+---------------------------------------------
+--- Context 'typed_myMain' Cluster 'Compound' 
+---------------------------------------------
+theory Compound
+  
+  (* use why3.BuiltIn.BuiltIn *)
+  
+  (* use bool.Bool *)
+  
+  (* use int.Int *)
+  
+  (* use int.ComputerDivision *)
+  
+  (* use real.RealInfix *)
+  
+  (* use frama_c_wp.qed.Qed *)
+  
+  (* use map.Map *)
+  
+  (* use frama_c_wp.memaddr.MemAddr *)
+  
+  function shiftfield_F2_A_dummy (p:addr) : addr = shift p 0
+  
+  (* use S2_A *)
+  
+  function Load_S2_A (p:addr) (mint:addr -> int) : S2_A =
+    S2_A1 (get mint (shiftfield_F2_A_dummy p))
+  
+  function shiftfield_F1_FD_pos (p:addr) : addr = shift p 0
+  
+  axiom Q_Load_S2_A_framed :
+    forall mint:addr -> int, mint1:addr -> int, p:addr.
+     get mint1 p = get mint p -> Load_S2_A p mint1 = Load_S2_A p mint
+  
+end
+[wp:print-generated] 
+  theory WP
+    
+    (* use why3.BuiltIn.BuiltIn *)
+    
+    (* use bool.Bool *)
+    
+    (* use int.Int *)
+    
+    (* use int.ComputerDivision *)
+    
+    (* use real.RealInfix *)
+    
+    (* use frama_c_wp.qed.Qed *)
+    
+    (* use map.Map *)
+    
+    (* use frama_c_wp.memaddr.MemAddr *)
+    
+    (* use Compound *)
+    
+    (* use frama_c_wp.memory.Memory *)
+    
+    goal wp_goal :
+      forall t:addr -> int, t1:addr -> int, a:addr, a1:addr, i:int.
+       let a2 = shiftfield_F1_FD_pos a1 in
+       let x = get t a2 in
+       let a3 = Load_S2_A a t in
+       let a4 = Load_S2_A a (set (memcpy t a t1 a 1) a2 i) in
+       not x = i ->
+       region (a1.base) <= 0 ->
+       region (a.base) <= 0 ->
+       is_sint32 i -> IsS2_A a3 -> is_sint32 x -> IsS2_A a4 -> EqS2_A a4 a3
+    
+  end
+[wp] [Generated] Goal typed_myMain_terminates (Qed)
+[wp] 3 goals generated

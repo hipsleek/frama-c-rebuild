@@ -1,0 +1,53 @@
+Plug-in name: Server TypeScript API
+Plug-in shortname: server-tsc
+Description: Generate TypeScript API for Server
+
+Most options of the form '-server-tsc-option-name' and without any parameter
+have an opposite with the name '-server-tsc-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-server-tsc <path>  Generate TypeScript API in directory <path>
+
+*** DEBUG
+
+-server-tsc-debug <n>  level of debug for plug-in Server TypeScript API
+                    (default to 0)
+
+*** GETTING INFORMATION
+
+-server-tsc-help    help of plug-in Server TypeScript API
+-server-tsc-h       alias for option -server-tsc-help
+
+*** OUTPUT MESSAGES
+
+-server-tsc-log <K_1:file_1,...>  copy log messages from Server TypeScript
+                    API to a file. <K> is a combination of these
+                    characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -server-tsc-log="K_1:file_1,...")
+-server-tsc-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -server-tsc-msg-key help to get a list
+                    of available categories, and * to enable all categories
+                    (preferably use -server-tsc-msg-key="k1[,...,kn]")
+-server-tsc-verbose <n>  level of verbosity for plug-in Server TypeScript API
+                    (default to 1)
+-server-tsc-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category
+                    <k1> to <s1>,...,<kn> to <sn>. Use -server-tsc-warn-key
+                    help to get a list of available categories, and * to
+                    enable all categories. Possible statuses are inactive,
+                    feedback, warning, error, abort, feedback-once,
+                    warning-once, error-once. Defaults to warning.
+                    (preferably use
+                    -server-tsc-warn-key="k1[=s1][,...,kn[=sn]]")

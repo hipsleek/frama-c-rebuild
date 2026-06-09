@@ -1,0 +1,13 @@
+[kernel] Parsing errorloc-inclusion.c (with preprocessing)
+[kernel] errorloc-inclusion-c.h:4: 
+  syntax error:
+  Location: "errorloc-inclusion-c.h", line 4,
+            included from errorloc-inclusion-b.h:1,
+            included from errorloc-inclusion.c:8,
+            before or at token: ;
+  2       /* Syntax error: the error must be correctly reported in this included
+  3          file. */
+  4       int x = ; 
+                 ^
+  5     }
+[kernel] Frama-C aborted: invalid user input.

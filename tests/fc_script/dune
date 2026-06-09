@@ -1,0 +1,65 @@
+; Test dependencies
+(rule
+ (alias frama-c-configure)
+ (deps
+  (universe)
+  (alias ../frama-c-configure-tests))
+ (action (progn
+            (echo "  - tests/fc_script/:" %{read:../../tests-fc_scripts-deps-available} "\n")
+            (echo "    - clang:" %{bin-available:clang} "\n")
+            (echo "    - python:" %{read:../../python-3.10-available} "\n")
+            (echo "    - yq:" %{bin-available:yq} "\n")
+            ; If you add some dependencies here, do not forget to add them to
+            ; tests_configurator.ml
+  ))
+)
+
+; Almost all frama-c-script commands require Python
+(cram
+  (enabled_if %{read:../../python-3.10-available})
+  (deps
+    (package frama-c) ; needed for the installed files specified in share/dune,
+                      ; such as all Python and Perl scripts, among others.
+  )
+)
+
+(cram
+  (applies_to analysis-template)
+  (deps
+    (package frama-c-eva)
+    (package frama-c-inout)
+    (package frama-c-metrics)
+    (package frama-c-nonterm)
+    (package frama-c-report)
+    (package frama-c-scope)
+  )
+)
+
+(cram
+  (applies_to estimate-difficulty)
+  (deps
+    (package frama-c-callgraph)
+  )
+)
+
+(cram
+  (applies_to make-machdep)
+  (enabled_if (and %{bin-available:clang} %{bin-available:yq}))
+)
+
+(cram
+  (applies_to make-wrapper)
+  (deps
+    (package frama-c-eva)
+    (package frama-c-inout)
+    (package frama-c-metrics)
+    (package frama-c-scope)
+  )
+)
+
+(cram
+  (applies_to list-functions)
+  (deps
+    (package frama-c-instantiate)
+  )
+)

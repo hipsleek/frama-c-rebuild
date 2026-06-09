@@ -1,0 +1,6 @@
+[test] Warning categories for test are
+    *            : warning  : All warning categories
+    a            : inactive : A short description for a
+    test-failure : inactive : A short description for test-failure
+    test-inv-err : inactive : A short description for test-inv-err
+    test-vis-err : inactive : A short description for test-vis-err

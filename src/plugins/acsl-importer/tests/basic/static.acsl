@@ -1,0 +1,8 @@
+function decr:
+at return: assert counter <= 0;
+
+function incr:
+at return: assert counter >= 0;
+
+function main:
+at return: assert counter == 0;

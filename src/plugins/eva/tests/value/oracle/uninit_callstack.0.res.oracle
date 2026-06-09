@@ -1,0 +1,9 @@
+[kernel] Parsing uninit_callstack.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:initial-state] Values of globals at initialization
+  p ∈ {0}
+  x ∈ {0}
+[eva:alarm] uninit_callstack.i:9: Warning: 
+  accessing uninitialized left-value. assert \initialized(p);
+  stack: <????> f :: uninit_callstack.i:15:3-6 <- main
+[eva] ====== VALUES COMPUTED ======

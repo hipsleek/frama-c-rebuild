@@ -1,0 +1,44 @@
+26c26
+<   len ∈ [--..--]
+---
+>   len ∈ [0..1023]
+37c37
+< [eva:show] relations2.i:17: Frama_C_show_each_end: [0..4294967295], [0..64]
+---
+> [eva:show] relations2.i:17: Frama_C_show_each_end: [0..1023], [0..64]
+63c63
+<   n ∈ [0..512]
+---
+>   n ∈ [1..512]
+74,76d73
+< [eva:alarm] relations2.i:34: Warning: 
+<   accessing out of bounds index.
+<   assert (unsigned int)(i - (unsigned int)(t + 1)) < 514;
+85c82
+<   n ∈ [0..512]
+---
+>   n ∈ [1..512]
+103c100
+<   n ∈ [0..512]
+---
+>   n ∈ [1..512]
+121c118
+<   n ∈ [0..512]
+---
+>   n ∈ [1..512]
+149c146
+<   len ∈ [--..--]
+---
+>   len ∈ [0..1023]
+192c189
+<   \result FROM a[0..513]
+---
+>   \result FROM a[0..511]
+208c205
+<     a[0..513]
+---
+>     a[0..511]
+212c209
+<     sv; a[0..513]; T[0..6]
+---
+>     sv; a[0..511]; T[0..6]

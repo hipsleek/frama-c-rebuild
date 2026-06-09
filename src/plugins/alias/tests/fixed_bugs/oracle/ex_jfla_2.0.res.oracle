@@ -1,0 +1,106 @@
+[kernel] Parsing ex_jfla_2.c (with preprocessing)
+[alias] analysing global variable definition: __fc_errno = {};
+[alias] May-aliases after global variable definition  __fc_errno  are  <none>
+[alias] analysing global variable definition: __fc_heap_status = {};
+[alias] May-aliases after global variable definition  __fc_heap_status  are  <none>
+[alias] analysing global variable definition: __fc_rand_max =
+  (unsigned long)2147483647;
+[alias] May-aliases after global variable definition  __fc_rand_max  are  <none>
+[alias] analysing global variable definition: __fc_random48_init = {};
+[alias] May-aliases after global variable definition  __fc_random48_init  are  <none>
+[alias] analysing global variable definition: __fc_lit_string1 = "a=%d\n";
+[alias] May-aliases after global variable definition  __fc_lit_string1  are  <none>
+[alias] analysing global variable definition: __fc_lit_string2 = "b=%d\n";
+[alias] May-aliases after global variable definition  __fc_lit_string2  are  <none>
+[alias] analysing global variable definition: __fc_lit_string3 = "a=%d\n";
+[alias] May-aliases after global variable definition  __fc_lit_string3  are  <none>
+[alias] analysing global variable definition: __fc_lit_string4 = "b=%d\n";
+[alias] May-aliases after global variable definition  __fc_lit_string4  are  <none>
+[alias] analysing global variable definition: __fc_lit_string5 = "a=%d\n";
+[alias] May-aliases after global variable definition  __fc_lit_string5  are  <none>
+[alias] analysing global variable definition: __fc_lit_string6 = "b=%d\n";
+[alias] May-aliases after global variable definition  __fc_lit_string6  are  <none>
+[alias] analysing function: create_str_t
+[alias] analysing instruction: str_t *res = malloc(sizeof(str_t));
+[alias] May-aliases after instruction  str_t *res = malloc(sizeof(str_t));  are
+  <none>
+[alias] analysing instruction: res->fst = (int *)malloc(sizeof(int));
+[alias] May-aliases after instruction  res->fst = (int *)malloc(sizeof(int));  are
+  <none>
+[alias] analysing instruction: res->snd = (int *)malloc(sizeof(int));
+[alias] May-aliases after instruction  res->snd = (int *)malloc(sizeof(int));  are
+  <none>
+[alias] analysing instruction: *(res->fst) = va;
+[alias] May-aliases after instruction  *(res->fst) = va;  are  <none>
+[alias] analysing instruction: res->snd = b;
+[alias] May-aliases after instruction  res->snd = b;  are  { res->snd; b }
+[alias] May-aliases at the end of function create_str_t: { res->snd; b }
+[alias] analysing function: jfla
+[alias] analysing instruction: *(s->snd) = *(s->fst);
+[alias] May-aliases after instruction  *(s->snd) = *(s->fst);  are  <none>
+[alias] analysing instruction: s->fst = i1;
+[alias] May-aliases after instruction  s->fst = i1;  are  { s->fst; i1 }
+[alias] analysing instruction: s->fst = i2;
+[alias] May-aliases after instruction  s->fst = i2;  are  { s->fst; i2 }
+[alias] May-aliases at the end of function jfla: { s->fst; i1; i2 }
+[alias] analysing function: main
+[alias] analysing instruction: int u = 11;
+[alias] May-aliases after instruction  int u = 11;  are  <none>
+[alias] analysing instruction: int v = 12;
+[alias] May-aliases after instruction  int v = 12;  are  <none>
+[alias] analysing instruction: int t[3] = {0, 1, 2};
+[alias] May-aliases after instruction  int t[3] = {0, 1, 2};  are  <none>
+[alias] analysing instruction: int *a = & t[1];
+[alias] May-aliases after instruction  int *a = & t[1];  are  { t; a }
+[alias] analysing instruction: int *b = & u;
+[alias] May-aliases after instruction  int *b = & u;  are  { t; a }
+[alias] analysing instruction: int *c = & v;
+[alias] May-aliases after instruction  int *c = & v;  are  { t; a }
+[alias] analysing instruction: int **x = & a;
+[alias] May-aliases after instruction  int **x = & a;  are  { *x; t; a }
+[alias] analysing instruction: int **y = & b;
+[alias] May-aliases after instruction  int **y = & b;  are  { *x; t; a }  { *y; b }
+[alias] analysing instruction: int **z = & c;
+[alias] May-aliases after instruction  int **z = & c;  are
+  { *x; t; a }  { *y; b }  { *z; c }
+[alias] analysing instruction: str_t *s1 = create_str_t(-1,b);
+[alias] May-aliases after instruction  str_t *s1 = create_str_t(-1,b);  are
+  { *x; t; a }  { *y; s1->snd; b }  { *z; c }
+[alias] analysing instruction: str_t *s2 = create_str_t(-2,c);
+[alias] May-aliases after instruction  str_t *s2 = create_str_t(-2,c);  are
+  { *x; t; a }  { *y; s1->snd; b }  { *z; s2->snd; c }
+[alias] analysing instruction: printf("a=%d\n",*(s1->fst));
+[alias:undefined:fn] ex_jfla_2.c:43: Warning: function printf has no definition
+[alias] May-aliases after instruction  printf("a=%d\n",*(s1->fst));  are
+  { *x; t; a }  { *y; s1->snd; b }  { *z; s2->snd; c }
+[alias] analysing instruction: printf("b=%d\n",*(s1->snd));
+[alias:undefined:fn] ex_jfla_2.c:44: Warning: function printf has no definition
+[alias] May-aliases after instruction  printf("b=%d\n",*(s1->snd));  are
+  { *x; t; a }  { *y; s1->snd; b }  { *z; s2->snd; c }
+[alias] analysing instruction: jfla(s1,a,& t[2],1);
+[alias] May-aliases after instruction  jfla(s1,a,& t[2],1);  are
+  { *x; s1->fst; t; a }  { *y; s1->snd; b }  { *z; s2->snd; c }
+[alias] analysing instruction: printf("a=%d\n",*(s1->fst));
+[alias:undefined:fn] ex_jfla_2.c:46: Warning: function printf has no definition
+[alias] May-aliases after instruction  printf("a=%d\n",*(s1->fst));  are
+  { *x; s1->fst; t; a }  { *y; s1->snd; b }  { *z; s2->snd; c }
+[alias] analysing instruction: printf("b=%d\n",*(s1->snd));
+[alias:undefined:fn] ex_jfla_2.c:47: Warning: function printf has no definition
+[alias] May-aliases after instruction  printf("b=%d\n",*(s1->snd));  are
+  { *x; s1->fst; t; a }  { *y; s1->snd; b }  { *z; s2->snd; c }
+[alias] analysing instruction: jfla(s1,t,s2->snd,0);
+[alias] May-aliases after instruction  jfla(s1,t,s2->snd,0);  are
+  { *x; *z; s1->fst; s2->snd; t; a; c }  { *y; s1->snd; b }
+[alias] analysing instruction: printf("a=%d\n",*(s1->fst));
+[alias:undefined:fn] ex_jfla_2.c:49: Warning: function printf has no definition
+[alias] May-aliases after instruction  printf("a=%d\n",*(s1->fst));  are
+  { *x; *z; s1->fst; s2->snd; t; a; c }  { *y; s1->snd; b }
+[alias] analysing instruction: printf("b=%d\n",*(s1->snd));
+[alias:undefined:fn] ex_jfla_2.c:50: Warning: function printf has no definition
+[alias] May-aliases after instruction  printf("b=%d\n",*(s1->snd));  are
+  { *x; *z; s1->fst; s2->snd; t; a; c }  { *y; s1->snd; b }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are
+  { *x; *z; s1->fst; s2->snd; t; a; c }  { *y; s1->snd; b }
+[alias] May-aliases at the end of function main:
+  { *x; *z; s1->fst; s2->snd; t; a; c }  { *y; s1->snd; b }

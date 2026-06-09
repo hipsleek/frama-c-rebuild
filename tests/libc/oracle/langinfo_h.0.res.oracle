@@ -1,0 +1,67 @@
+[kernel] Parsing langinfo_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function setlocale <- main.
+  Called from langinfo_h.c:7.
+[eva] using specification for function setlocale
+[eva:progress] langinfo_h.c:7: 
+  function setlocale: precondition 'locale_null_or_valid_string' got status valid.
+[eva:progress] Done for function setlocale
+[eva:progress] 
+  computing for function setlocale <- main.
+  Called from langinfo_h.c:8.
+[eva:progress] langinfo_h.c:8: 
+  function setlocale: precondition 'locale_null_or_valid_string' got status valid.
+[eva:progress] Done for function setlocale
+[eva:progress] 
+  computing for function nl_langinfo <- main.
+  Called from langinfo_h.c:10.
+[eva] using specification for function nl_langinfo
+[eva:garbled-mix:assigns] langinfo_h.c:10: 
+  The specification of function nl_langinfo
+  has generated a garbled mix of addresses for assigns clause \result.
+[eva:progress] Done for function nl_langinfo
+[eva:progress] 
+  computing for function printf_va_1 <- main.
+  Called from langinfo_h.c:10.
+[eva] using specification for function printf
+[eva:alarm] langinfo_h.c:10: Warning: 
+  function printf_va_1: precondition valid_read_string(param0) got status unknown.
+[eva:progress] langinfo_h.c:10: 
+  function printf_va_1: precondition valid_read_string(format) got status valid.
+[eva:progress] Done for function printf_va_1
+[eva:progress] 
+  computing for function nl_langinfo <- main.
+  Called from langinfo_h.c:11.
+[eva:garbled-mix:assigns] langinfo_h.c:11: 
+  The specification of function nl_langinfo
+  has generated a garbled mix of addresses for assigns clause \result.
+[eva:progress] Done for function nl_langinfo
+[eva:progress] 
+  computing for function printf_va_2 <- main.
+  Called from langinfo_h.c:11.
+[eva:alarm] langinfo_h.c:11: Warning: 
+  function printf_va_2: precondition valid_read_string(param0) got status unknown.
+[eva:progress] langinfo_h.c:11: 
+  function printf_va_2: precondition valid_read_string(format) got status valid.
+[eva:progress] Done for function printf_va_2
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva:garbled-mix:summary] 
+  Origins of garbled mix generated during analysis:
+    langinfo_h.c:10: assigns clause on addresses
+      (read in 1 statement, propagated through 2 statements)
+      garbled mix of &{__fc_langinfo}
+    langinfo_h.c:11: assigns clause on addresses
+      (read in 1 statement, propagated through 2 statements)
+      garbled mix of &{__fc_langinfo}
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  __fc_locale ∈ {{ NULL + [--..--] ; &S___fc_locale[0] }}
+  __fc_langinfo[0..63] ∈ [--..--]
+  __retres ∈ {0}
+  S___fc_stdout[0..1] ∈ [--..--]

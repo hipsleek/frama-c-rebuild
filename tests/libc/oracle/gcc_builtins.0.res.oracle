@@ -1,0 +1,165 @@
+[kernel] Parsing gcc_builtins.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function __builtin_sadd_overflow <- main.
+  Called from gcc_builtins.c:11.
+[eva] using specification for function __builtin_sadd_overflow
+[eva:progress] gcc_builtins.c:11: 
+  function __builtin_sadd_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_sadd_overflow
+[eva:progress] gcc_builtins.c:12: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_sadd_overflow <- main.
+  Called from gcc_builtins.c:14.
+[eva:progress] gcc_builtins.c:14: 
+  function __builtin_sadd_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_sadd_overflow
+[eva:progress] gcc_builtins.c:15: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_uadd_overflow <- main.
+  Called from gcc_builtins.c:23.
+[eva] using specification for function __builtin_uadd_overflow
+[eva:progress] gcc_builtins.c:23: 
+  function __builtin_uadd_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_uadd_overflow
+[eva:progress] gcc_builtins.c:24: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_saddl_overflow <- main.
+  Called from gcc_builtins.c:25.
+[eva] using specification for function __builtin_saddl_overflow
+[eva:progress] gcc_builtins.c:25: 
+  function __builtin_saddl_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_saddl_overflow
+[eva:progress] gcc_builtins.c:26: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_uaddl_overflow <- main.
+  Called from gcc_builtins.c:27.
+[eva] using specification for function __builtin_uaddl_overflow
+[eva:progress] gcc_builtins.c:27: 
+  function __builtin_uaddl_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_uaddl_overflow
+[eva:progress] gcc_builtins.c:28: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_saddll_overflow <- main.
+  Called from gcc_builtins.c:29.
+[eva] using specification for function __builtin_saddll_overflow
+[eva:progress] gcc_builtins.c:29: 
+  function __builtin_saddll_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_saddll_overflow
+[eva:progress] gcc_builtins.c:30: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_uaddll_overflow <- main.
+  Called from gcc_builtins.c:31.
+[eva] using specification for function __builtin_uaddll_overflow
+[eva:progress] gcc_builtins.c:31: 
+  function __builtin_uaddll_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_uaddll_overflow
+[eva:progress] gcc_builtins.c:32: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_usub_overflow <- main.
+  Called from gcc_builtins.c:34.
+[eva] using specification for function __builtin_usub_overflow
+[eva:progress] gcc_builtins.c:34: 
+  function __builtin_usub_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_usub_overflow
+[eva:progress] gcc_builtins.c:35: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_ssubl_overflow <- main.
+  Called from gcc_builtins.c:36.
+[eva] using specification for function __builtin_ssubl_overflow
+[eva:progress] gcc_builtins.c:36: 
+  function __builtin_ssubl_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_ssubl_overflow
+[eva:progress] gcc_builtins.c:37: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_usubl_overflow <- main.
+  Called from gcc_builtins.c:38.
+[eva] using specification for function __builtin_usubl_overflow
+[eva:progress] gcc_builtins.c:38: 
+  function __builtin_usubl_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_usubl_overflow
+[eva:progress] gcc_builtins.c:39: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_ssubll_overflow <- main.
+  Called from gcc_builtins.c:40.
+[eva] using specification for function __builtin_ssubll_overflow
+[eva:progress] gcc_builtins.c:40: 
+  function __builtin_ssubll_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_ssubll_overflow
+[eva:progress] gcc_builtins.c:41: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_usubll_overflow <- main.
+  Called from gcc_builtins.c:42.
+[eva] using specification for function __builtin_usubll_overflow
+[eva:progress] gcc_builtins.c:42: 
+  function __builtin_usubll_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_usubll_overflow
+[eva:progress] gcc_builtins.c:43: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_umul_overflow <- main.
+  Called from gcc_builtins.c:45.
+[eva] using specification for function __builtin_umul_overflow
+[eva:progress] gcc_builtins.c:45: 
+  function __builtin_umul_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_umul_overflow
+[eva:progress] gcc_builtins.c:46: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_smull_overflow <- main.
+  Called from gcc_builtins.c:47.
+[eva] using specification for function __builtin_smull_overflow
+[eva:progress] gcc_builtins.c:47: 
+  function __builtin_smull_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_smull_overflow
+[eva:progress] gcc_builtins.c:48: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_umull_overflow <- main.
+  Called from gcc_builtins.c:49.
+[eva] using specification for function __builtin_umull_overflow
+[eva:progress] gcc_builtins.c:49: 
+  function __builtin_umull_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_umull_overflow
+[eva:progress] gcc_builtins.c:50: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_smulll_overflow <- main.
+  Called from gcc_builtins.c:51.
+[eva] using specification for function __builtin_smulll_overflow
+[eva:progress] gcc_builtins.c:51: 
+  function __builtin_smulll_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_smulll_overflow
+[eva:progress] gcc_builtins.c:52: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_umulll_overflow <- main.
+  Called from gcc_builtins.c:53.
+[eva] using specification for function __builtin_umulll_overflow
+[eva:progress] gcc_builtins.c:53: 
+  function __builtin_umulll_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_umulll_overflow
+[eva:progress] gcc_builtins.c:54: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  ia ∈ {0}
+  ib ∈ {0}
+  ires ∈ {0}
+  overflow ∈ {1}
+  ua ∈ {0}
+  ub ∈ {0}
+  ures ∈ {0}
+  la ∈ {0}
+  lb ∈ {0}
+  lres ∈ {0}
+  ula ∈ {0}
+  ulb ∈ {0}
+  ulres ∈ {0}
+  lla ∈ {0}
+  llb ∈ {0}
+  llres ∈ {0}
+  ulla ∈ {0}
+  ullb ∈ {0}
+  ullres ∈ {0}
+  __retres ∈ {0}

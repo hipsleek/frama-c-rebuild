@@ -1,0 +1,9 @@
+[e-acsl] beginning translation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] t_args.c:9: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] t_args.c:9: Warning: assertion got status unknown.
+[eva:alarm] t_args.c:10: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] t_args.c:10: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.

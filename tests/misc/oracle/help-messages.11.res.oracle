@@ -1,0 +1,72 @@
+Plug-in name: Inout
+Plug-in shortname: inout
+Description: operational, imperative and all kinds of inputs/outputs
+
+Most options of the form '-inout-option-name' and without any parameter
+have an opposite with the name '-inout-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-access-path        force the access path information to be computed
+                    (opposite option is -no-access-path)
+-deref              force deref computation (undocumented) (opposite option
+                    is -no-deref)
+-inout              Compute operational inputs, an over-approximation of the
+                    set of locations whose initial value is used; and the
+                    sure outputs, an under-approximation of the set of the
+                    certainly written locations (opposite option is
+                    -no-inout)
+-inout-with-formals  same as -inout but without local variables and with
+                    function parameters (opposite option is
+                    -inout-no-with-formals)
+-input              Compute imperative inputs. Locals and function parameters
+                    are not displayed (opposite option is -no-input)
+-input-with-formals  Compute imperative inputs. Function parameters are
+                    displayed, locals are not (opposite option is
+                    -no-input-with-formals)
+-out                Compute internal out. Those are an over-approximation of
+                    the set of written locations (opposite option is -no-out)
+-out-external       Compute external out. Those are an over-approximation of
+                    the set of written locations, excluding locals (opposite
+                    option is -no-out-external)
+
+*** DEBUG
+
+-inout-debug <n>    level of debug for plug-in Inout (default to 0)
+
+*** GETTING INFORMATION
+
+-inout-help         help of plug-in Inout
+-inout-h            alias for option -inout-help
+
+*** OUTPUT MESSAGES
+
+-inout-log <K_1:file_1,...>  copy log messages from Inout to a file. <K> is a
+                    combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -inout-log="K_1:file_1,...")
+-inout-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -inout-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -inout-msg-key="k1[,...,kn]")
+-inout-print        print the results of all the analyzes (set by default,
+                    opposite option is -inout-no-print)
+-inout-verbose <n>  level of verbosity for plug-in Inout (default to 1)
+-inout-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category <k1>
+                    to <s1>,...,<kn> to <sn>. Use -inout-warn-key help to get
+                    a list of available categories, and * to enable all
+                    categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -inout-warn-key="k1[=s1][,...,kn[=sn]]")

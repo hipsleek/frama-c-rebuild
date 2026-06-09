@@ -1,0 +1,8 @@
+14c14,18
+< [eva:progress] unspecified_sequence.i:11: Reusing old results for call to f
+---
+> [eva:progress] 
+>   computing for function f <- main.
+>   Called from unspecified_sequence.i:11:18-24.
+> [eva:progress] Recording results for f
+> [eva:progress] Done for function f

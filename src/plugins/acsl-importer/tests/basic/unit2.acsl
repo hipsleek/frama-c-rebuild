@@ -1,0 +1,10 @@
+function f:
+at call 1:
+  contract:
+    assigns E2;
+at call 1:
+  contract:
+    assigns F2;
+at call 1:
+  contract:
+    assigns S2;

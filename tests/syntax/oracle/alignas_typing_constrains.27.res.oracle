@@ -1,0 +1,4 @@
+[kernel] Parsing alignas_typing_constrains.c (with preprocessing)
+[kernel] alignas_typing_constrains.c:288: User Error: 
+  j was previously defined without _Alignas specification at alignas_typing_constrains.c:268
+[kernel] Frama-C aborted: invalid user input.

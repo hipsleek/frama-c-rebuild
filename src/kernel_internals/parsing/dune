@@ -1,0 +1,23 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(ocamllex clexer)
+(ocamllex logic_preprocess)
+(ocamllex logic_lexer)
+
+(menhir
+  (modules logic_parser)
+  ; "--fixed-exception" fixes compatibility with ocamlyacc Parsing.Parse_error
+  (flags :standard --fixed-exception --dump --comment)
+)
+
+(menhir
+  (modules cparser)
+  ; "--fixed-exception" fixes compatibility with ocamlyacc Parsing.Parse_error
+  (flags --fixed-exception --dump --comment)
+)

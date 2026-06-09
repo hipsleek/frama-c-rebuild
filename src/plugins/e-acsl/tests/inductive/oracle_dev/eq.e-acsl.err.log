@@ -1,0 +1,6 @@
+eq.c: In function 'main'
+eq.c:35: Warning: no sound verdict for Assertion (guess: FAIL).
+	the considered predicate is:
+	eqC(1, 3)
+	With values at failure point:
+	- eqC(1, 3): 0

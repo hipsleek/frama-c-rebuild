@@ -1,0 +1,13 @@
+27,28c27,35
+< [eva:progress] partitioning-interproc.c:30: 
+<   Reusing old results for call to cassign
+---
+> [eva:progress] 
+>   computing for function cassign <- cassign_test.
+>   Called from partitioning-interproc.c:30.
+> [eva:progress] 
+>   computing for function Frama_C_nondet <- cassign <- cassign_test.
+>   Called from partitioning-interproc.c:11.
+> [eva:progress] Done for function Frama_C_nondet
+> [eva:progress] Recording results for cassign
+> [eva:progress] Done for function cassign

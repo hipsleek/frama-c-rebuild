@@ -1,0 +1,11 @@
+[kernel] Parsing static_assert_wrong.i (no preprocessing)
+[kernel] static_assert_wrong.i:6: 
+  syntax error:
+  Location: "static_assert_wrong.i", lines 6-8, before or at token: int
+  4     */
+  5     
+  
+  6     _Static_assert(1,"assert succeeds")
+  7     
+  8     int x = 0;
+[kernel] Frama-C aborted: invalid user input.

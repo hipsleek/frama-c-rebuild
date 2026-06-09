@@ -1,0 +1,17 @@
+122a123,124
+> [eva:nonlin] nonlin.c:71: non-linear 'x * x', lv 'x'
+> [eva:nonlin] nonlin.c:71: subdividing on x
+124a127,129
+> [eva:nonlin] nonlin.c:72: subdividing on x
+> [eva:nonlin] nonlin.c:72: non-linear 'y * y', lv 'y'
+> [eva:nonlin] nonlin.c:72: subdividing on y
+126a132,133
+> [eva:nonlin] nonlin.c:74: non-linear 'z * x + x * y', lv 'x'
+> [eva:nonlin] nonlin.c:74: subdividing on x
+166a174,175
+> [eva:nonlin] nonlin.c:118: non-linear 'x * x', lv 'x'
+> [eva:nonlin] nonlin.c:118: subdividing on x
+168a178
+> [eva:nonlin] nonlin.c:119: subdividing on x
+169a180
+> [eva:nonlin] nonlin.c:121: subdividing on x

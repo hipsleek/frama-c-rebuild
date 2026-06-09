@@ -1,0 +1,882 @@
+# frama-c -wp [...]
+[kernel] Parsing unit_bitwise.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal band1_uchar_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band1_uchar_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal band1_uint_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band1_uint_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal band1_ulong_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band1_ulong_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal band1_ushort_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band1_ushort_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal band_char_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band_char_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal band_int_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band_int_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal band_uchar_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band_uchar_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal band_uint_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band_uint_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bnot_char_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bnot_char_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bnot_int_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bnot_int_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bnot_uchar_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bnot_uchar_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bnot_uint_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bnot_uint_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bor_char_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bor_char_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bor_int_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bor_int_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bor_uchar_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bor_uchar_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bor_uint_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bor_uint_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bxor_char_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bxor_char_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bxor_int_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bxor_int_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bxor_uchar_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bxor_uchar_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bxor_uint_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bxor_uint_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal cast_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal cast_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal lshift_char_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal lshift_char_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal lshift_int_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal lshift_int_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal lshift_uchar_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal lshift_uchar_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal lshift_uint_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal lshift_uint_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal rshift_char_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal rshift_char_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal rshift_int_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal rshift_int_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal rshift_uchar_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal rshift_uchar_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal rshift_uint_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal rshift_uint_terminates (Cfg) (Trivial)
+------------------------------------------------------------
+  Global
+------------------------------------------------------------
+
+Goal Lemma 'band_sint8':
+Assume Lemmas: 'bor_sint8' 'bxor_sint8' 'bnot_sint8'
+Let x_1 = land(x, y). Assume { Have: is_sint8(x). Have: is_sint8(y). }
+Prove: to_sint8(x_1) = x_1.
+
+------------------------------------------------------------
+
+Goal Lemma 'band_uint8':
+Assume Lemmas: 'bor_uint8' 'blsr_sint8' 'band_sint8' 'bor_sint8' 'bxor_sint8'
+  'bnot_sint8'
+Let x_1 = land(x, y). Assume { Have: is_uint8(x). Have: is_uint8(y). }
+Prove: to_uint8(x_1) = x_1.
+
+------------------------------------------------------------
+
+Goal Lemma 'blsr_sint8':
+Assume Lemmas: 'band_sint8' 'bor_sint8' 'bxor_sint8' 'bnot_sint8'
+Let x_1 = lsr(x, y).
+Assume { Have: 0 <= y. Have: is_sint8(x). Have: is_sint8(y). }
+Prove: to_sint8(x_1) = x_1.
+
+------------------------------------------------------------
+
+Goal Lemma 'blsr_uint8':
+Assume Lemmas: 'band_uint8' 'bor_uint8' 'blsr_sint8' 'band_sint8' 'bor_sint8'
+  'bxor_sint8' 'bnot_sint8'
+Let x_1 = lsr(x, y).
+Assume { Have: 0 <= y. Have: is_uint8(x). Have: is_uint8(y). }
+Prove: to_uint8(x_1) = x_1.
+
+------------------------------------------------------------
+
+Goal Lemma 'bnot_sint8':
+Let x_1 = lnot(x). Assume { Have: is_sint8(x). }
+Prove: to_sint8(x_1) = x_1.
+
+------------------------------------------------------------
+
+Goal Lemma 'bor_sint8':
+Assume Lemmas: 'bxor_sint8' 'bnot_sint8'
+Let x_1 = lor(x, y). Assume { Have: is_sint8(x). Have: is_sint8(y). }
+Prove: to_sint8(x_1) = x_1.
+
+------------------------------------------------------------
+
+Goal Lemma 'bor_uint8':
+Assume Lemmas: 'blsr_sint8' 'band_sint8' 'bor_sint8' 'bxor_sint8'
+  'bnot_sint8'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'bxor_sint8':
+Assume Lemmas: 'bnot_sint8'
+Let x_1 = lxor(x, y). Assume { Have: is_sint8(x). Have: is_sint8(y). }
+Prove: to_sint8(x_1) = x_1.
+
+------------------------------------------------------------
+
+Goal Lemma 'land_abs':
+Assume Lemmas: 'land_com' 'land_assoc' 'blsr_uint8' 'band_uint8' 'bor_uint8'
+  'blsr_sint8' 'band_sint8' 'bor_sint8' 'bxor_sint8' 'bnot_sint8'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'land_assoc':
+Assume Lemmas: 'blsr_uint8' 'band_uint8' 'bor_uint8' 'blsr_sint8'
+  'band_sint8' 'bor_sint8' 'bxor_sint8' 'bnot_sint8'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'land_com':
+Assume Lemmas: 'land_assoc' 'blsr_uint8' 'band_uint8' 'bor_uint8'
+  'blsr_sint8' 'band_sint8' 'bor_sint8' 'bxor_sint8' 'bnot_sint8'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'land_stb':
+Assume Lemmas: 'land_abs' 'land_com' 'land_assoc' 'blsr_uint8' 'band_uint8'
+  'bor_uint8' 'blsr_sint8' 'band_sint8' 'bor_sint8' 'bxor_sint8' 'bnot_sint8'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'lor_assoc':
+Assume Lemmas: 'land_stb' 'land_abs' 'land_com' 'land_assoc' 'blsr_uint8'
+  'band_uint8' 'bor_uint8' 'blsr_sint8' 'band_sint8' 'bor_sint8' 'bxor_sint8'
+  'bnot_sint8'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'lor_com':
+Assume Lemmas: 'lor_assoc' 'land_stb' 'land_abs' 'land_com' 'land_assoc'
+  'blsr_uint8' 'band_uint8' 'bor_uint8' 'blsr_sint8' 'band_sint8' 'bor_sint8'
+  'bxor_sint8' 'bnot_sint8'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'lor_neu':
+Assume Lemmas: 'lor_com' 'lor_assoc' 'land_stb' 'land_abs' 'land_com'
+  'land_assoc' 'blsr_uint8' 'band_uint8' 'bor_uint8' 'blsr_sint8'
+  'band_sint8' 'bor_sint8' 'bxor_sint8' 'bnot_sint8'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'lor_stb':
+Assume Lemmas: 'lor_neu' 'lor_com' 'lor_assoc' 'land_stb' 'land_abs'
+  'land_com' 'land_assoc' 'blsr_uint8' 'band_uint8' 'bor_uint8' 'blsr_sint8'
+  'band_sint8' 'bor_sint8' 'bxor_sint8' 'bnot_sint8'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'lxor_assoc':
+Assume Lemmas: 'lor_stb' 'lor_neu' 'lor_com' 'lor_assoc' 'land_stb'
+  'land_abs' 'land_com' 'land_assoc' 'blsr_uint8' 'band_uint8' 'bor_uint8'
+  'blsr_sint8' 'band_sint8' 'bor_sint8' 'bxor_sint8' 'bnot_sint8'
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'lxor_com':
+Assume Lemmas: 'lxor_assoc' 'lor_stb' 'lor_neu' 'lor_com' 'lor_assoc'
+  'land_stb' 'land_abs' 'land_com' 'land_assoc' 'blsr_uint8' 'band_uint8'
+  'bor_uint8' 'blsr_sint8' 'band_sint8' 'bor_sint8' 'bxor_sint8' 'bnot_sint8'
+Prove: true.
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function band1_uchar
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'band1_uchar':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'band1_uchar':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 116):
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 117):
+Prove: true.
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function band1_uint
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'band1_uint':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'band1_uint':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 51):
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 52):
+Prove: true.
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function band1_ulong
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'band1_ulong':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'band1_ulong':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 169):
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 170):
+Prove: true.
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function band1_ushort
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'band1_ushort':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'band1_ushort':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 164):
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 165):
+Prove: true.
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function band_char
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'band_char':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'band_char':
+Let x = land(a, b). Assume { Type: is_sint8(a) /\ is_sint8(b). }
+Prove: to_sint8(x) = x.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'band_char':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function band_int
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'band_int':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'band_int':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'band_int':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 19):
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assertion 'ko' ("unit_bitwise.c", line 20):
+Assume { Type: is_sint32(a). }
+Prove: land(281, a) <= 172.
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function band_uchar
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'band_uchar':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'band_uchar':
+Let x = land(a, b). Assume { Type: is_uint8(a) /\ is_uint8(b). }
+Prove: to_uint8(x) = x.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'band_uchar':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function band_uint
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'band_uint':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'band_uint':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'band_uint':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function bnot_char
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'bnot_char':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'bnot_char':
+Let x = lnot(a). Assume { Type: is_sint8(a). }
+Prove: to_sint8(x) = x.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'bnot_char':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function bnot_int
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'bnot_int':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'bnot_int':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'bnot_int':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function bnot_uchar
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'bnot_uchar':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'bnot_uchar':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Post-condition 'ko' in 'bnot_uchar':
+Let x = lnot(a). Assume { Type: is_uint8(a). }
+Prove: to_uint8(x) = x.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'bnot_uchar':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function bnot_uint
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'bnot_uint':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'bnot_uint':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Post-condition 'ko' in 'bnot_uint':
+Let x = lnot(a). Assume { Type: is_uint32(a). }
+Prove: to_uint32(x) = x.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'bnot_uint':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function bor_char
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'bor_char':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'bor_char':
+Let x = lor(a, b). Assume { Type: is_sint8(a) /\ is_sint8(b). }
+Prove: to_sint8(x) = x.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'bor_char':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function bor_int
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'bor_int':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'bor_int':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'bor_int':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function bor_uchar
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'bor_uchar':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'bor_uchar':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'bor_uchar':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function bor_uint
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'bor_uint':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'bor_uint':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'bor_uint':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function bxor_char
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'bxor_char':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'bxor_char':
+Let x = lxor(a, b). Assume { Type: is_sint8(a) /\ is_sint8(b). }
+Prove: to_sint8(x) = x.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'bxor_char':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function bxor_int
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'bxor_int':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'bxor_int':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'bxor_int':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function bxor_uchar
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'bxor_uchar':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'bxor_uchar':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'bxor_uchar':
+Let x = lxor(a, b). Assume { Type: is_uint8(a) /\ is_uint8(b). }
+Prove: to_uint8(x) = x.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'bxor_uchar':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function bxor_uint
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'bxor_uint':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'bxor_uint':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'bxor_uint':
+Let x = lxor(a, b). Assume { Type: is_uint32(a) /\ is_uint32(b). }
+Prove: to_uint32(x) = x.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'bxor_uint':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function cast
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'cast':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'cast':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'cast':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 176):
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 177):
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 178):
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 180):
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 181):
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 182):
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assertion 'ok' ("unit_bitwise.c", line 184):
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Assertion 'ko' ("unit_bitwise.c", line 186):
+Let x = to_sint8(c). Assume { Type: is_uint8(c). }
+Prove: to_uint32(x) = x.
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function lshift_char
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'lshift_char':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'lshift_char':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'lshift_char':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function lshift_int
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'lshift_int':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'lshift_int':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'lshift_int':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function lshift_uchar
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'lshift_uchar':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'lshift_uchar':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'lshift_uchar':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function lshift_uint
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'lshift_uint':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'lshift_uint':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'lshift_uint':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function rshift_char
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'rshift_char':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'rshift_char':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'rshift_char':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function rshift_int
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'rshift_int':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'rshift_int':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'rshift_int':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function rshift_uchar
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'rshift_uchar':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'rshift_uchar':
+Let x = lsr(a, n). Assume { Type: is_uint8(a) /\ is_uint8(n). }
+Prove: to_uint8(x) = x.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'rshift_uchar':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+------------------------------------------------------------
+  Function rshift_uint
+------------------------------------------------------------
+
+Goal Termination-condition (<generated by kernel>) in 'rshift_uint':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------
+
+Goal Post-condition 'ok' in 'rshift_uint':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Exit-condition (<generated by kernel>) in 'rshift_uint':
+Prove: true.
+Prover CFG returns Valid
+
+------------------------------------------------------------

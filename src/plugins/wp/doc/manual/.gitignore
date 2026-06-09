@@ -1,0 +1,12 @@
+/feedback
+/VERSION
+/VERSION_CODENAME
+/wp.pdf
+/*.log-file
+/wp.fls
+/wp.fdb_latexmk
+/logos
+/macros.tex
+/anr-logo.png
+/fc-macros.tex
+/cealistlogo.png

@@ -1,0 +1,38 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing struct5.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+[eva:progress] struct5.c:26: assertion got status valid.
+[eva:progress] struct5.c:27: assertion got status valid.
+[eva:progress] struct5.c:28: assertion got status valid.
+[eva:alarm] struct5.c:29: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  s.s_x ∈ {0}
+   .s_inner ∈ [--..--]
+  a.a_inner[0] ∈ {0}
+   .a_inner[1].i_y ∈ {1}
+   .a_inner[2] ∈ [--..--]
+   .a_simple[0].s_x ∈ {7}
+   .a_simple[0].s_inner.i_y ∈ {8}
+   .a_simple[1].s_x ∈ {5}
+   .a_simple[1].s_inner.i_y ∈ {6}
+   .a_simple[2].s_x ∈ {3}
+   .a_simple[2].s_inner ∈ [--..--]
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    s; a; __retres
+[inout] Inputs for function main:
+    secret

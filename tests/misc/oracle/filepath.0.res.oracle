@@ -1,0 +1,2 @@
+[kernel] User Error: Frama-C state file 'nonexistent_file.sav' does not exist
+[kernel] Frama-C aborted: invalid user input.

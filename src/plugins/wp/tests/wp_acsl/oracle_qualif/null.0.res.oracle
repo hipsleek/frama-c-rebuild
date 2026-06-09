@@ -1,0 +1,40 @@
+# frama-c -wp [...]
+[kernel] Parsing null.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] null.i:27: Warning: 
+  Neither code nor explicit exits and terminates for function prover_f,
+  generating default clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] null.i:19: Warning: 
+  Neither code nor explicit exits and terminates for function qed_f, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] [Valid] Goal null_is_zero_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal null_is_zero_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 13 goals scheduled
+[wp] [Valid] typed_lemma_prover_not_valid_null (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_prover_not_valid_read_null (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_qed_not_valid_null (Qed)
+[wp] [Valid] typed_lemma_qed_not_valid_read_null (Qed)
+[wp] [Valid] typed_null_is_zero_ensures (Qed)
+[wp] [Valid] typed_qed_terminates (Qed)
+[wp] [Valid] typed_qed_exits (Qed)
+[wp] [Valid] typed_qed_assigns_normal (Qed)
+[wp] [Valid] typed_qed_assigns_exit (Qed)
+[wp] [Valid] typed_prover_terminates (Qed)
+[wp] [Valid] typed_prover_exits (Qed)
+[wp] [Valid] typed_prover_assigns_normal (Alt-Ergo) (Cached)
+[wp] [Valid] typed_prover_assigns_exit (Qed)
+[wp] Proved goals:   15 / 15
+  Terminating:     1
+  Unreachable:     1
+  Qed:            10
+  Alt-Ergo:        3
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Lemma                     2        2        4       100%
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  null_is_zero              3        -        3       100%
+  qed                       4        -        4       100%
+  prover                    3        1        4       100%
+------------------------------------------------------------

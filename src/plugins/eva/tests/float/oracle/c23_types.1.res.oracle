@@ -1,0 +1,84 @@
+[kernel] Parsing c23_types.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  any_f32 ∈ [--..--]
+  any_f64 ∈ [--..--]
+  arr[0].f ∈ {0.125}
+     [0].f32 ∈ {0.25}
+     [0].f64 ∈ {0.3}
+     [0].d ∈ {0.4}
+     [1..9] ∈ {0}
+[eva:alarm] c23_types.i:23: Warning: check 'invalid' got status invalid.
+[eva:progress] c23_types.i:24: check 'valid' got status valid.
+[eva:alarm] c23_types.i:26: Warning: check 'invalid' got status invalid.
+[eva:progress] c23_types.i:27: check 'valid' got status valid.
+[eva:progress] c23_types.i:28: check 'valid' got status valid.
+[eva:alarm] c23_types.i:29: Warning: check 'invalid' got status invalid.
+[eva:progress] c23_types.i:30: check 'valid' got status valid.
+[eva:alarm] c23_types.i:31: Warning: check 'invalid' got status invalid.
+[eva:alarm] c23_types.i:32: Warning: check 'invalid' got status invalid.
+[eva:progress] c23_types.i:33: check 'valid' got status valid.
+[eva:acsl:unsupported] c23_types.i:34: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function \exact
+[eva:alarm] c23_types.i:34: Warning: check 'not_yet' got status unknown.
+[eva:acsl:unsupported] c23_types.i:35: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function \round_error
+[eva:alarm] c23_types.i:35: Warning: check 'not_yet' got status unknown.
+[eva:acsl:unsupported] c23_types.i:36: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function \total_error
+[eva:alarm] c23_types.i:36: Warning: check 'not_yet' got status unknown.
+[eva:acsl:unsupported] c23_types.i:37: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function \relative_error
+[eva:alarm] c23_types.i:37: Warning: check 'not_yet' got status unknown.
+[eva:acsl:unsupported] c23_types.i:38: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function \model
+[eva:alarm] c23_types.i:38: Warning: check 'not_yet' got status unknown.
+[eva:alarm] c23_types.i:48: Warning: check 'invalid' got status invalid.
+[eva:progress] c23_types.i:49: check 'valid' got status valid.
+[eva:alarm] c23_types.i:51: Warning: check 'invalid' got status invalid.
+[eva:progress] c23_types.i:52: check 'valid' got status valid.
+[eva:progress] c23_types.i:53: check 'valid' got status valid.
+[eva:alarm] c23_types.i:54: Warning: check 'invalid' got status invalid.
+[eva:progress] c23_types.i:55: check 'valid' got status valid.
+[eva:alarm] c23_types.i:56: Warning: check 'invalid' got status invalid.
+[eva:alarm] c23_types.i:57: Warning: check 'invalid' got status invalid.
+[eva:progress] c23_types.i:58: check 'valid' got status valid.
+[eva:acsl:unsupported] c23_types.i:59: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function \exact
+[eva:alarm] c23_types.i:59: Warning: check 'not_yet' got status unknown.
+[eva:acsl:unsupported] c23_types.i:60: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function \round_error
+[eva:alarm] c23_types.i:60: Warning: check 'not_yet' got status unknown.
+[eva:acsl:unsupported] c23_types.i:61: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function \total_error
+[eva:alarm] c23_types.i:61: Warning: check 'not_yet' got status unknown.
+[eva:acsl:unsupported] c23_types.i:62: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function \relative_error
+[eva:alarm] c23_types.i:62: Warning: check 'not_yet' got status unknown.
+[eva:acsl:unsupported] c23_types.i:63: 
+  cannot evaluate ACSL term, unsupported ACSL construct: logic function \model
+[eva:alarm] c23_types.i:63: Warning: check 'not_yet' got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  m32 ∈ [-inf .. inf] ∪ {NaN}
+  h32 ∈ {0.5}
+  m64 ∈ [-inf .. inf] ∪ {NaN}
+  h64 ∈ {0.5}
+  f ∈ [-inf .. inf] ∪ {NaN}
+  d ∈ [-inf .. inf] ∪ {NaN}
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    m32; h32; inf32; m64; h64; inf64; f; d; __retres
+[inout] Inputs for function main:
+    any_f32; any_f64

@@ -1,0 +1,3 @@
+[kernel] Parsing issue_191.c (with preprocessing)
+norm1: /dir1/dir/file
+norm2: /dir2/dir/file

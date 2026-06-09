@@ -1,0 +1,74 @@
+[kernel] Expanding arguments from mthread_test_options.txt
+[mt] Preparing sources for Mthread with lib pthreads
+[kernel] Parsing FRAMAC_SHARE/mt/mthread.c (with preprocessing)
+[kernel] Parsing FRAMAC_SHARE/mt/mthread_pthread.c (with preprocessing)
+[kernel] Parsing messy_init.c (with preprocessing)
+[mt] Warning: Mthread is an experimental plugin and is still in development.
+[mt] ******* Starting mthread
+[eva] Found concurrency builtins: enabling mthread domain
+[mt] *** Computing value analysis for main thread
+[eva] Analyzing a complete application starting at main
+[mt] New thread: <main>, fun main
+[kernel:annot:missing-spec] messy_init.c:15: Warning: 
+  Neither code nor specification for function random, generating default
+  assigns. See -generated-spec-* options for more info.
+[eva] using specification for function random
+[mt] messy_init.c:16: Initializing mutex lock
+[mt] messy_init.c:19: Lock lock
+[mt] messy_init.c:22: New thread: job, fun fjob, parent <main>, args {0}
+[mt] messy_init.c:22: Start thread job
+[mt] messy_init.c:22: Thread job, fun fjob, parent <main>, args {0}
+[mt] messy_init.c:22: New context for job, fun fjob, parent <main>, args {0}
+[mt] *** First value analysis for main thread done.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] ******* Starting to iterate
+[mt] ***** Iteration 1
+[mt] *** Computing thread job, iteration 1 (first iteration)
+[mt] * Computing value analysis for thread job
+[eva] Analyzing a complete application starting at fjob
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of fjob for thread job
+[mt] messy_init.c:10: Warning: Trying to lock a possibly uninitialized mutex.
+[mt] messy_init.c:10: Warning: 
+  Trying to lock mutex lock, but unable to check its precise status (internal value {0; 1} should be 1).
+[mt] messy_init.c:10: Lock lock
+[eva] FRAMAC_SHARE/mt/mthread_pthread.c:46: Warning: Not a valid mutex id '0'.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  lock:
+    read by job at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: messy_init.c:10 <- fjob
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread job
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread job computed
+[mt] ***** Threads computed for iteration 1.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: \nothing
+[mt] Possible read/write data races:
+  none
+[mt] Shared memory: \nothing
+[mt] Mutexes for concurrent accesses:
+[mt] Detailed shared zones protections
+[mt] ***** Shared variables computed
+[mt] ******* Analysis performed, 1 iterations

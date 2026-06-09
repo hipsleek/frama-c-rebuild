@@ -1,0 +1,89 @@
+alignof_aligned: 16
+alignof_double: 4
+alignof_float: 4
+alignof_fun: 1
+alignof_int: 3
+alignof_long: 4
+alignof_longdouble: 4
+alignof_longlong: 4
+alignof_max_align_t: 16
+alignof_ptr: 4
+alignof_short: 2
+alignof_void: 1
+max_align_t: long double
+max_extended_alignment: -1
+char_is_unsigned: false
+compiler: bar
+cpp_arch_flags: []
+has__builtin_va_list: true
+little_endian: true
+ptrdiff_t: int
+intptr_t: long
+uintptr_t: unsigned long
+int_fast8_t: signed char
+int_fast16_t: long
+int_fast32_t: long
+int_fast64_t: long long
+uint_fast8_t: unsigned char
+uint_fast16_t: unsigned long
+uint_fast32_t: unsigned long
+uint_fast64_t: unsigned long long
+wint_t: int
+size_t: unsigned long
+sizeof_double: 8
+sizeof_float: 4
+sizeof_fun: 1
+sizeof_int: 3
+sizeof_long: 4
+sizeof_longdouble: 12
+sizeof_longlong: 8
+sizeof_ptr: 4
+sizeof_short: 2
+sizeof_void: 1
+ssize_t: long
+version: foo
+wchar_t: int
+weof: (-1)
+wordsize: '24'
+posix_c_source: '200809L'
+bufsiz: '255'
+eof: (-1)
+fopen_max: '128'
+filename_max: '1023'
+l_ctermid: '255'
+l_tmpnam: '255'
+tmp_max: '255'
+tty_name_max: '255'
+host_name_max: '255'
+path_max: '256'
+rand_max: '0xFFFFFE'
+mb_cur_max: '16'
+sig_atomic_t: int
+time_t: long
+nsig: ''
+errno:
+  eacces: "13"
+  eloop: "5"
+  enametoolong: "11"
+  enoent: "2"
+  enotdir: "20"
+  edom: "33"
+  eilseq: "84"
+  erange: "34"
+  eintr: "35"
+  eagain: "36"
+  ebadf: "37"
+  efbig: "38"
+  einval: "39"
+  eio: "40"
+  enospc: "41"
+  eoverflow: "42"
+  epipe: "43"
+  espipe: "44"
+  enxio: "45"
+  emfile: "46"
+  enomem: "47"
+  enotsup: "48"
+machdep_name: custom_machdep
+custom_defs:
+  CUSTOM_MACHDEP: '1'

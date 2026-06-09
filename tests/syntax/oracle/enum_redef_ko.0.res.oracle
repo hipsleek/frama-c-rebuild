@@ -1,0 +1,9 @@
+[kernel] Parsing enum_redef_ko.i (no preprocessing)
+[kernel] enum_redef_ko.i:9: User Error: 
+  redefinition of 'e' in the same scope.
+  Previous declaration was at enum_redef_ko.i:8:1-14
+[kernel] enum_redef_ko.i:9: User Error: 
+  redefinition of 'U' in the same scope.
+  Previous declaration was at enum_redef_ko.i:8:1-14
+[kernel] User Error: stopping on file "enum_redef_ko.i" that has errors.
+[kernel] Frama-C aborted: invalid user input.

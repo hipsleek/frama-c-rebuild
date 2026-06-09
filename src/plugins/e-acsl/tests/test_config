@@ -1,0 +1,21 @@
+MACRO: DEST @PTEST_RESULT_DIR@/gen_@PTEST_NAME@
+MACRO: MACHDEP -machdep gcc_x86_64
+MACRO: GLOBAL @MACHDEP@ -keep-unused-functions none -verbose 0 -no-unicode
+
+COMMENT: no more share to set with Dune
+
+MACRO: EACSL -constfold -e-acsl -e-acsl-verbose 1 -e-acsl-debug 1 -e-acsl-interlang -e-acsl-msg-key analysis:inductive
+MACRO: EVA -eva -eva-no-alloc-returns-null -eva-no-results -eva-warn-key libc:unsupported-spec=inactive,loop-unroll:auto=inactive,assigns:missing=warning
+
+
+MACRO: EVENTUALLY -print -ocode @DEST@.c
+
+PLUGIN: e-acsl eva,scope,inout rtegen
+
+LIBS: @PTEST_SUITE_DIR@/../E_ACSL_test
+LOG: gen_@PTEST_NAME@.c
+
+COMMENT: No need for explicit dependency towards the plugin share directory
+DEPS:
+
+OPT: @GLOBAL@ @EACSL@ -then-last @EVA@ @EVENTUALLY@

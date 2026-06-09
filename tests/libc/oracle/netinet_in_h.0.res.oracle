@@ -1,0 +1,34 @@
+[kernel] Parsing netinet_in_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function inet_ntoa <- main.
+  Called from netinet_in_h.c:6.
+[eva] using specification for function inet_ntoa
+[eva:progress] Done for function inet_ntoa
+[eva:progress] 
+  computing for function printf_va_1 <- main.
+  Called from netinet_in_h.c:6.
+[eva] using specification for function printf
+[eva:progress] netinet_in_h.c:6: 
+  function printf_va_1: precondition valid_read_string(param0) got status valid.
+[eva:progress] netinet_in_h.c:6: 
+  function printf_va_1: precondition valid_read_string(format) got status valid.
+[eva:progress] Done for function printf_va_1
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  __fc_inet_ntoa[0..14] ∈ [--..--]
+                [15] ∈ {0}
+  addr ∈ {0}
+  sockaddr6_any ∈ {0}
+  sockaddr6_loopback{.sin6_family; .sin6_port; .sin6_flowinfo; .sin6_addr.s6_addr[0..14]} ∈
+                    {0}
+                    .sin6_addr.s6_addr[15] ∈ {1}
+                    .sin6_scope_id ∈ {0}
+  __retres ∈ {0}
+  S___fc_stdout[0..1] ∈ [--..--]

@@ -1,0 +1,32 @@
+[kernel] Parsing printf.c (with preprocessing)
+[kernel:variadic] FRAMAC_SHARE/libc/stdio.h:235: 
+  Declaration of variadic function fprintf.
+[kernel:variadic] FRAMAC_SHARE/libc/stdio.h:237: 
+  Declaration of variadic function fscanf.
+[kernel:variadic] FRAMAC_SHARE/libc/stdio.h:239: 
+  Declaration of variadic function printf.
+[kernel:variadic] FRAMAC_SHARE/libc/stdio.h:240: 
+  Declaration of variadic function scanf.
+[kernel:variadic] FRAMAC_SHARE/libc/stdio.h:241: 
+  Declaration of variadic function snprintf.
+[kernel:variadic] FRAMAC_SHARE/libc/stdio.h:243: 
+  Declaration of variadic function sprintf.
+[kernel:variadic] FRAMAC_SHARE/libc/stdio.h:245: 
+  Declaration of variadic function sscanf.
+[kernel:variadic] FRAMAC_SHARE/libc/stdio.h:606: 
+  Declaration of variadic function dprintf.
+[kernel:variadic] FRAMAC_SHARE/libc/stdio.h:668: 
+  Declaration of variadic function asprintf.
+[kernel:libc:format] printf.c:8: Warning: Multiple usage of flag '-'.
+[kernel:libc:format] printf.c:8: Warning: 
+  Flag ' ' is ignored when flag + is also specified.
+[kernel:libc:format] printf.c:8: Warning: 
+  Flag 0 is ignored when flag - is also specified.
+[kernel:variadic] printf.c:8: 
+  Translating call to printf to a call to the specialized version printf_va_1.
+[kernel:libc:format] printf.c:11: Warning: 
+  Flag ' ' is ignored when flag + is also specified.
+[kernel:libc:format] printf.c:11: Warning: 
+  Flag ' ' is ignored when flag + is also specified.
+[kernel:variadic] printf.c:11: 
+  Translating call to printf to a call to the specialized version printf_va_2.

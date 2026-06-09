@@ -1,0 +1,23 @@
+# frama-c -wp [...]
+[kernel] Parsing assign_array.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] assign_array.i:8: Warning: 
+  Neither code nor explicit exits and terminates for function f, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] 8 goals scheduled
+[wp] [Valid] typed_jobA_terminates (Qed)
+[wp] [Valid] typed_jobA_exits (Qed)
+[wp] [Valid] typed_jobA_assigns_normal (Qed)
+[wp] [Valid] typed_jobA_assigns_exit (Qed)
+[wp] [Valid] typed_jobG_terminates (Qed)
+[wp] [Valid] typed_jobG_exits (Qed)
+[wp] [Valid] typed_jobG_assigns_normal (Qed)
+[wp] [Valid] typed_jobG_assigns_exit (Qed)
+[wp] Proved goals:    8 / 8
+  Qed:             8
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  jobA                      4        -        4       100%
+  jobG                      4        -        4       100%
+------------------------------------------------------------

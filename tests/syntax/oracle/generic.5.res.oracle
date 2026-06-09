@@ -1,0 +1,10 @@
+[kernel] Parsing generic.c (with preprocessing)
+[kernel] generic.c:59: User Error: 
+  generic association with incomplete type 'void'
+  57    #endif
+  58    #ifdef INCOMPLETE_TYPE
+  59      int a = _Generic(42, void: 1, default: 2);
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  60    #endif
+  61    #ifdef FUNCTION_TYPE
+[kernel] Frama-C aborted: invalid user input.

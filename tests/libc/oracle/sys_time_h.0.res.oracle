@@ -1,0 +1,109 @@
+[kernel] Parsing sys_time_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function setitimer <- main.
+  Called from sys_time_h.c:11.
+[eva] using specification for function setitimer
+[eva:progress] sys_time_h.c:11: 
+  function setitimer: precondition 'valid_new_value' got status valid.
+[eva:progress] sys_time_h.c:11: 
+  function setitimer: precondition 'old_value_null_or_valid' got status valid.
+[eva:assigns:invalid-location] sys_time_h.c:11: 
+  Completely invalid destination for assigns clause *old_value. Ignoring.
+[eva:progress] Done for function setitimer
+[eva:progress] sys_time_h.c:12: assertion got status valid.
+[eva:progress] 
+  computing for function setitimer <- main.
+  Called from sys_time_h.c:14.
+[eva:progress] sys_time_h.c:14: 
+  function setitimer: precondition 'valid_new_value' got status valid.
+[eva:progress] sys_time_h.c:14: 
+  function setitimer: precondition 'old_value_null_or_valid' got status valid.
+[eva:progress] Done for function setitimer
+[eva:progress] sys_time_h.c:15: assertion got status valid.
+[eva:progress] sys_time_h.c:16: assertion got status valid.
+[eva:progress] 
+  computing for function getitimer <- main.
+  Called from sys_time_h.c:17.
+[eva] using specification for function getitimer
+[eva:progress] sys_time_h.c:17: 
+  function getitimer: precondition 'valid_curr_value' got status valid.
+[eva:progress] Done for function getitimer
+[eva:progress] sys_time_h.c:18: assertion got status valid.
+[eva:progress] sys_time_h.c:19: assertion got status valid.
+[eva:progress] 
+  computing for function getitimer <- main.
+  Called from sys_time_h.c:21.
+[eva:progress] sys_time_h.c:21: 
+  function getitimer: precondition 'valid_curr_value' got status valid.
+[eva:progress] Done for function getitimer
+[eva:progress] sys_time_h.c:22: assertion got status valid.
+[eva:progress] 
+  computing for function setitimer <- main.
+  Called from sys_time_h.c:24.
+[eva:progress] sys_time_h.c:24: 
+  function setitimer: precondition 'valid_new_value' got status valid.
+[eva:progress] sys_time_h.c:24: 
+  function setitimer: precondition 'old_value_null_or_valid' got status valid.
+[eva:progress] Done for function setitimer
+[eva:progress] sys_time_h.c:25: assertion got status valid.
+[eva:progress] 
+  computing for function utimes <- main.
+  Called from sys_time_h.c:27.
+[eva] using specification for function utimes
+[eva:progress] sys_time_h.c:27: 
+  function utimes: precondition 'valid_path' got status valid.
+[eva:progress] sys_time_h.c:27: 
+  function utimes: precondition 'valid_times_or_null' got status valid.
+[eva:progress] sys_time_h.c:27: 
+  function utimes: precondition 'initialized_times_or_null,initialization' got status valid.
+[eva:progress] Done for function utimes
+[eva:progress] 
+  computing for function utimes <- main.
+  Called from sys_time_h.c:33.
+[eva:progress] sys_time_h.c:33: 
+  function utimes: precondition 'valid_path' got status valid.
+[eva:progress] sys_time_h.c:33: 
+  function utimes: precondition 'valid_times_or_null' got status valid.
+[eva:progress] sys_time_h.c:33: 
+  function utimes: precondition 'initialized_times_or_null,initialization' got status valid.
+[eva:progress] Done for function utimes
+[eva:progress] 
+  computing for function utimes <- main.
+  Called from sys_time_h.c:40.
+[eva:progress] sys_time_h.c:40: 
+  function utimes: precondition 'valid_path' got status valid.
+[eva:progress] sys_time_h.c:40: 
+  function utimes: precondition 'valid_times_or_null' got status valid.
+[eva:progress] sys_time_h.c:40: 
+  function utimes: precondition 'initialized_times_or_null,initialization' got status valid.
+[eva:progress] Done for function utimes
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  i1.it_interval.tv_sec ∈ {1}
+    .it_interval.tv_usec ∈ {100}
+    .it_value.tv_sec ∈ {2}
+    .it_value.tv_usec ∈ {200}
+  res ∈ {-1}
+  i2.it_interval.tv_sec ∈ [--..--]
+    .it_interval.tv_usec ∈ {1000000}
+    .it_value ∈ [--..--]
+  INVALID_ITIMER ∈ {-1}
+  r1 ∈ [--..--]
+  tv[0].tv_sec ∈ {10000000}
+    [0].tv_usec ∈ {999999}
+    [1].tv_sec ∈ {-9000000}
+    [1].tv_usec ∈ {1}
+  r2 ∈ [--..--]
+  tv2[0].tv_sec ∈ {1234}
+     [0].tv_usec ∈ {5678}
+     [1].tv_sec ∈ {9012}
+     [1].tv_usec ∈ {3456}
+  r3 ∈ [--..--]
+  __retres ∈ {0}

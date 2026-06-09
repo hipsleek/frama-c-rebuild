@@ -1,0 +1,27 @@
+module demo :
+ axiomatic A {
+ predicate P(int x);
+ }
+
+function f: 
+contract:
+  ensures P(\result);
+  assigns \nothing;
+
+function g:
+contract: assigns \nothing; 
+
+function job: 
+at 1: assert 50 <= A <= 100; 
+at loop 1: 
+  loop invariant 0 <= i <= 50;
+  loop invariant \forall integer k; 0 <= k < i ==> P(t[k]);
+  loop assigns i,t[0..49];
+  
+at loop 2:
+  loop invariant A <= j <= 100;
+  loop assigns j,t[A..99];
+
+at return: 
+  assert \forall integer k; 0 <= k < 50 ==> P(t[k]); 
+

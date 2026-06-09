@@ -1,0 +1,45 @@
+
+\section{The Region Memory Model}
+\label{sec:region-model}
+
+The Region memory model dispatches each pointer to a different memory model.
+For instance, an \texttt{int*} pointer that is always accessed through
+\texttt{int*} accesses (with possible aliases) need only to rely on the Typed
+memory model. On the contrary, a value containing an union whose fields are
+accessed with heterogeneous types shall be handled using the Bytes memory model.
+
+\paragraph{Usage.} To activate this model, simply use '\texttt{-wp-model Region}'.
+It will automatically launch the plugin Region, even without the usage of
+'\texttt{-region}'.
+
+\paragraph{Addresses.} Each address in the Region memory model is a pair of
+the representation of its physical address (computed by the Bytes memory
+model) and the region in which it is included (over-approximation).
+
+\paragraph{Plugin Region.}
+The plugin Region statically computes for each function a static region
+map that associates a node (or region) to expressions of pointers. Each
+node of the map represents a set of pointer's addresses and includes
+the computation of an over-approximation of the list of access types
+(e.g. write 32bits int, read 64bits float, cast 16bits int, etc\dots).
+
+\paragraph{Bytes memory model \& Region plugin.}
+The Region memory model uses the region map produced by the Region
+plugin to statically associate each pointer to a region. Then, for each
+pointer whose region's accesses are not heterogeneous, the Region memory
+model behaves the same way as the Typed memory model ; whereas for all
+regions with heterogeneous accesses, the Region memory model sends off all
+its pointers to the Bytes memory model.
+
+\paragraph{Limitations.} The Region memory model is provided with the
+following current limitations:
+\begin{itemize}
+    \item Function calls are not yet implemented in the Region plugin.
+    \item A structure copy might be rejected by the model if the structure
+    contains fields with pointers.
+    \item Logic is not yet included and only C code is currently analyzed by
+    the Region plugin. Accesses (read, write, and cast) happening only inside
+    ACSL annotations are not included in the analysis. As a consequence,
+    developers and formalists shall add (possibly ghost) C code for field
+    accesses that only appear inside ACSL annotations.
+\end{itemize}

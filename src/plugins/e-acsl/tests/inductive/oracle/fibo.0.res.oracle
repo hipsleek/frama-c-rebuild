@@ -1,0 +1,65 @@
+[e-acsl] beginning translation.
+[e-acsl:analysis:inductive] 
+  extracting predicate from fibo using mode: incomplete in 2
+[e-acsl:analysis:inductive] 
+  extracting function from fibo with mode: incomplete in 2
+[e-acsl] Warning: Negative verdicts of fibo might be unsound
+[e-acsl:analysis:inductive] 
+  extracting predicate from fibo2 using mode: incomplete in 2
+[e-acsl:analysis:inductive] 
+  extracting function from fibo2 with mode: incomplete in 2
+[e-acsl] Warning: Negative verdicts of fibo2 might be unsound
+[e-acsl:analysis:inductive] no valid mode found for: is_fibo
+[e-acsl] Warning: Unable to extract executable code from inductive definition of is_fibo.
+  See language reference manual for details on the supported forms.
+[e-acsl:analysis:inductive] extracting predicate from lucas using mode: complete
+[e-acsl:analysis:inductive] 
+  extracting function from fibo with mode: incomplete in 2
+[e-acsl:analysis:inductive] 
+  extracting function from fibo with mode: incomplete in 2
+[e-acsl] Warning: Negative verdicts of lucas might be unsound
+[e-acsl] fibo.c:48: Warning: 
+  E-ACSL construct
+  `inductive definitions outside of subset described in the reference manual'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] fibo.c:46: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] fibo.c:46: Warning: assertion got status unknown.
+[eva] fibo.c:23: Warning: 
+  Using specification of function __gen_e_acsl_fibo2_fun2
+  for recursive calls of depth 9. Analysis of function __gen_e_acsl_fibo2_fun2
+  is thus incomplete and its soundness relies on the written specification.
+[eva] fibo.c:23: Warning: 
+  Using specification of function __gen_e_acsl_fibo2_fun2
+  for recursive calls of depth 9. Analysis of function __gen_e_acsl_fibo2_fun2
+  is thus incomplete and its soundness relies on the written specification.
+[eva:alarm] fibo.c:20: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] fibo.c:47: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] fibo.c:47: Warning: assertion got status unknown.
+[eva:alarm] fibo.c:48: Warning: assertion got status unknown.
+[eva:alarm] fibo.c:50: Warning: assertion got status unknown.
+[eva:alarm] fibo.c:51: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] fibo.c:51: Warning: assertion got status unknown.
+[eva:alarm] fibo.c:52: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] fibo.c:52: Warning: assertion got status unknown.
+[eva:alarm] fibo.c:53: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] fibo.c:53: Warning: assertion got status unknown.
+[eva:alarm] fibo.c:54: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] fibo.c:54: Warning: assertion got status unknown.
+[eva:alarm] fibo.c:56: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] fibo.c:56: Warning: assertion got status unknown.
+[eva:alarm] fibo.c:57: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] fibo.c:57: Warning: assertion got status unknown.
+[eva:alarm] fibo.c:58: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] fibo.c:58: Warning: assertion got status unknown.

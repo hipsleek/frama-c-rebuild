@@ -1,0 +1,16 @@
+Frama-C sources are mostly covered by LGPLv2.1.
+See licences/LGPL for details about this license.
+
+Some files are distributed with the following licenses:
+- BSD: see licenses/BSD
+- CC0: see licenses/CC0
+- CDDL: see licenses/CDDL
+- GPL v2 with exception on linking, see:
+    - licenses/OCAML_STDLIB
+    - licenses/CAMOMILE
+- QPL: see licenses/QPL_MODIFIED_LICENSE (+ included choice of law)
+
+Each source file contains its own header, indicating used license.
+
+Documentation is licensed under CC-BY-SA 4.0. See doc/LICENSE for more
+information

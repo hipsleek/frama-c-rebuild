@@ -1,0 +1,17 @@
+[kernel] Parsing steensgaard.c (with preprocessing)
+[alias] analysing function: main
+[alias] analysing instruction: a = & x;
+[alias] May-aliases after instruction  a = & x;  are  <none>
+[alias] analysing instruction: b = & y;
+[alias] May-aliases after instruction  b = & y;  are  { *b; y }
+[alias] analysing instruction: y = & z;
+[alias] May-aliases after instruction  y = & z;  are  { *b; y }
+[alias] analysing instruction: y = & x;
+[alias] May-aliases after instruction  y = & x;  are  { *b; a; y }
+[alias] analysing instruction: c = & y;
+[alias] May-aliases after instruction  c = & y;  are  { *b; *c; a; y }  { b; c }
+[alias] analysing instruction: *y = 4;
+[alias] May-aliases after instruction  *y = 4;  are  { *b; *c; a; y }  { b; c }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are  { *b; *c; a; y }  { b; c }
+[alias] May-aliases at the end of function main: { *b; *c; a; y }  { b; c }

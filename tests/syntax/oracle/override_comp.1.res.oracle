@@ -1,0 +1,10 @@
+[kernel] Parsing override_comp.c (with preprocessing)
+[kernel:typing:initializer-overrides] override_comp.c:23: Warning: 
+  overriding prior initialization 'a' of the subobject '.a'
+[kernel:typing:initializer-overrides] override_comp.c:27: Warning: 
+  overriding prior initialization 'b1' of the subobject '.b'
+[kernel:typing:initializer-overrides] override_comp.c:43: Warning: 
+  overriding prior initialization 'u' of the subobject '.a'
+[kernel] override_comp.c:43: Frama-C aborted: unimplemented feature.
+  You may send a feature request at https://git.frama-c.com/pub/frama-c/issues with:
+  '[Frama-C] Overriding initialization of unions'.

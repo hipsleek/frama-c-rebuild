@@ -1,0 +1,217 @@
+##########################################################################
+#                                                                        #
+#  SPDX-License-Identifier LGPL-2.1                                      #
+#  Copyright (C)                                                         #
+#  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  #
+#                                                                        #
+##########################################################################
+
+###########
+# TESTING #
+###########
+
+################################
+## Default variables
+
+# Defines where to find the ptest_config files
+# Default: only consider tests directory, it can be customized via the variable
+PTEST_ALL_DIRS?=tests
+# Additional options transmitted to ptests
+PTEST_OPTS?=
+# Selected ptests directories for testing
+PTEST_DIRS?=$(PTEST_ALL_DIRS)
+# Additional dependencies to build before testing
+PTEST_DEPS?=
+# Indicate whether we use global WP cache
+PTEST_USE_WP_CACHE?=no
+# Defines the related dune targets
+PTEST_ALIASES?=$(addsuffix /ptests,$(addprefix @,$(PTEST_DIRS)))
+# Ptests command
+FRAMAC_PTEST?=
+# Wtests command
+FRAMAC_WTEST?=
+
+FRAMAC_WP_QUALIF?=
+
+ifneq ($(FRAMAC_WP_QUALIF),)
+FRAMAC_WP_CACHEDIR=$(FRAMAC_WP_QUALIF)
+else
+FRAMAC_WP_CACHEDIR?=
+endif
+
+ifeq ($(PTEST_USE_WP_CACHE),yes)
+# we need these variable to be present in the shell environment of the commands
+export FRAMAC_WP_CACHEDIR FRAMAC_WP_CACHE
+endif
+
+############
+# Default values necessary for make -f <this-makefile>
+
+GREP    ?= grep
+RM      ?= rm -f
+RMDIR   ?= rm -rf
+
+ifeq ($(PLATFORM),Darwin)
+XARGS   ?= xargs -0
+else
+# Unix, Cygwin
+XARGS   ?= xargs -0 --no-run-if-empty
+endif
+
+##########################################################################
+
+.PHONY: tests.info
+tests.info:
+	echo "FRAMAC_WTESTS='$(FRAMAC_WTESTS)'"
+	echo "WTESTS='$(WTESTS)'"
+	echo "FRAMAC_PTESTS='$(FRAMAC_PTESTS)'"
+	echo "PTESTS='$(PTESTS)'"
+	echo "PTEST_ALL_DIRS='$(PTEST_ALL_DIRS)'"
+	echo "PTEST_DIRS='$(PTEST_DIRS)'"
+	echo "PTEST_OPTS='$(PTEST_OPTS)'"
+	echo "PTEST_DEPS='$(PTEST_DEPS)'"
+	echo "PTEST_USE_WP_CACHE='$(PTEST_USE_WP_CACHE)'"
+	echo "PTEST_ALIASES='$(PTEST_ALIASES)'"
+
+##########################################################################
+## Command used to execute ptests (in order to generate dune test files)
+
+# Note:
+# - in the Frama-C repository:
+#   ptests is in the project, so this variable is used to tell where is ptests.
+# - in a plug-in:
+#   ptests is installed and its public name is frama-c-ptests
+ifeq ($(FRAMAC_PTESTS),)
+
+# PTESTS is external
+PTESTS=frama-c-ptests
+
+else
+
+# PTESTS is internal
+PTESTS=dune exec $(DUNE_BUILD_OPTS) --root $(FRAMAC_PTESTS_SRC) -- frama-c-ptests
+#PTESTS=dune exec $(DUNE_BUILD_OPTS) --root $(FRAMAC_PTESTS_SRC) -- frama-c-ptests -v
+
+# Note: the public name of ptest.exe is frama-c-ptests
+$(FRAMAC_PTESTS): $(FRAMAC_PTESTS_SRC)/ptests.ml
+	dune build --root $(FRAMAC_PTESTS_SRC) ptests.exe
+
+endif
+
+.PHONY: ptests-help
+ptests-help:
+	$(PTESTS) --help
+
+##########################################################################
+## Command used to execute wtests, the wrapper that can be used during
+## dune testing (c.f. frama-c-ptests)
+
+# Note:
+# - in the Frama-C repository:
+#   wtests is in the project, so this variable is used to tell where is wtests.
+# - in a plug-in:
+#   wtests is installed and its public name is frama-c-wtests
+ifeq ($(FRAMAC_WTESTS),)
+
+# WTESTS is external to Frama-C
+WTESTS=frama-c-wtests
+
+else
+
+# WTESTS is internal to Frama-C
+WTESTS=dune exec $(DUNE_BUILD_OPTS) --root $(FRAMAC_PTESTS_SRC) -- frama-c-wtests
+
+# Note: the public name of wtest.exe is frama-c-wtests
+$(FRAMAC_WTESTS): $(FRAMAC_PTESTS_SRC)/wtests.ml
+	dune build --root $(FRAMAC_PTESTS_SRC) wtests.exe
+
+endif
+
+.PHONY: wtests-help
+wtests-help:
+	$(WTESTS) --help
+
+##########################################################################
+## Removes all dune files generated for testing
+
+.PHONY: purge-tests
+purge-tests:
+	find $(PTEST_ALL_DIRS) -name dune -print0 \
+        | $(GREP) -z -e "/oracle.*/dune\|/result.*/dune" \
+        | $(XARGS) $(RM)
+	find $(PTEST_ALL_DIRS) -name "*.wtests" -print0 \
+        | $(XARGS) $(RM)
+
+# Force the full cleaning of the testing environment
+.PHONY: clean-tests
+clean-tests: purge-tests
+	$(RMDIR) $(addprefix _build/default/,$(PTEST_ALL_DIRS))
+
+##########################################################################
+## Generates all dune files used for testing
+
+.PHONY: run-ptests
+run-ptests: $(PTEST_DEPS) purge-tests $(FRAMAC_PTEST) $(FRAMAC_WTEST)
+	$(PTESTS) $(PTEST_OPTS) $(PTEST_DIRS)
+
+.PHONY: run-ptests.replay
+run-ptests.replay: $(PTEST_DEPS) $(FRAMAC_PTEST)
+	$(PTESTS) $(PTEST_OPTS) $(PTEST_DIRS)
+
+# Run tests of for all configurations (and build all dune files)
+.PHONY: run-tests
+ifeq ($(PTEST_USE_WP_CACHE),yes) # Set WP cache only if needed
+run-tests: FRAMAC_WP_CACHE=offline
+endif
+run-tests: run-ptests
+	dune build $(PTEST_ALIASES)
+
+# Replay tests of for all configurations (requires  all dune files)
+.PHONY: test.replay
+ifeq ($(PTEST_USE_WP_CACHE),yes) # Set WP cache only if needed
+tests.replay: FRAMAC_WP_CACHE=offline
+endif
+tests.replay: $(PTEST_DEPS)
+	dune build $(PTEST_ALIASES)
+
+# Update WP cache entries for all configurations (requires all dune files)
+ifeq ($(PTEST_USE_WP_CACHE),yes) # Only visible when ptests use WP cache
+.PHONY: tests.update-wp-cache
+tests.update-wp-cache: FRAMAC_WP_CACHE=update
+tests.update-wp-cache: $(PTEST_DEPS)
+	dune build $(PTEST_ALIASES)
+endif
+
+.PHONY: tests
+tests:: run-tests
+	@echo "Number of *.{err,res}.log files:"
+	@find $(addprefix _build/default/,$(PTEST_DIRS)) \
+	-name \*.err.log -or -name \*.res.log \
+        | wc -l
+
+ifneq ($(PTEST_USE_WP_CACHE),no)
+ifeq ($(FRAMAC_WP_CACHEDIR),)
+
+tests::
+	@echo "Warning: cannot run some tests related to WP plugin since FRAMAC_WP_CACHEDIR variable is undefined."
+	@echo "Fix proposal:"
+	@echo "> cd <DIR>"
+	@echo "> git clone git@git.frama-c.com:frama-c/wp-cache.git"
+	@echo "> FRAMAC_WP_CACHEDIR=<DIR>/wp-cache make tests"
+	@echo "Otherwise, use 'make PTEST_USE_WP_CACHE=no tests' to remove this warning"
+
+endif # FRAMAC_WP_CACHEDIR
+endif # PTEST_USE_WP_CACHE
+
+.PHONY: default-tests
+default-tests: run-ptests
+	dune build @ptests_config
+	dune runtest tests
+	$(MAKE) count-tests
+
+.PHONY: count-tests
+count-tests:
+	@echo "Number of *.{err,res}.log files:"
+	@find $(addprefix _build/default/,$(PTEST_DIRS)) \
+	-name \*.res.log -or -name \*.err.log \
+        | wc -l

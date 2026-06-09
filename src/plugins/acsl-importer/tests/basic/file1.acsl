@@ -1,0 +1,5 @@
+include "includes/file1.acsl" ;
+include "file2.acsl" ;
+function main:
+contract:
+requires file1:\true ;

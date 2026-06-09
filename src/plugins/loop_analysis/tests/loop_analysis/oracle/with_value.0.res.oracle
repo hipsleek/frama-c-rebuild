@@ -1,0 +1,529 @@
+[kernel] Parsing with_value.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+[eva:progress] 
+  computing for function f1 <- main.
+  Called from with_value.i:187:3-8.
+[eva:partition] with_value.i:6: starting to merge loop iterations
+[eva:progress] Recording results for f1
+[eva:progress] Done for function f1
+[eva:progress] 
+  computing for function f2 <- main.
+  Called from with_value.i:188:3-8.
+[eva:partition] with_value.i:10: starting to merge loop iterations
+[eva:progress] Recording results for f2
+[eva:progress] Done for function f2
+[eva:progress] 
+  computing for function f3 <- main.
+  Called from with_value.i:189:3-8.
+[eva:partition] with_value.i:14: starting to merge loop iterations
+[eva:progress] Recording results for f3
+[eva:progress] Done for function f3
+[eva:progress] 
+  computing for function f4 <- main.
+  Called from with_value.i:190:3-8.
+[eva:partition] with_value.i:18: starting to merge loop iterations
+[eva:progress] Recording results for f4
+[eva:progress] Done for function f4
+[eva:progress] 
+  computing for function f5 <- main.
+  Called from with_value.i:191:3-8.
+[eva:partition] with_value.i:22: starting to merge loop iterations
+[eva:progress] Recording results for f5
+[eva:progress] Done for function f5
+[eva:progress] 
+  computing for function f6 <- main.
+  Called from with_value.i:192:3-8.
+[eva:partition] with_value.i:26: starting to merge loop iterations
+[eva:progress] Recording results for f6
+[eva:progress] Done for function f6
+[eva:progress] 
+  computing for function f7 <- main.
+  Called from with_value.i:193:3-8.
+[eva:partition] with_value.i:30: starting to merge loop iterations
+[eva:progress] Recording results for f7
+[eva:progress] Done for function f7
+[eva:progress] 
+  computing for function f8 <- main.
+  Called from with_value.i:194:3-8.
+[eva:partition] with_value.i:34: starting to merge loop iterations
+[eva:progress] Recording results for f8
+[eva:progress] Done for function f8
+[eva:progress] 
+  computing for function g1 <- main.
+  Called from with_value.i:195:3-13.
+[eva:alarm] with_value.i:38: Warning: 
+  signed overflow. assert n + 2 ≤ 2147483647;
+[eva:partition] with_value.i:38: starting to merge loop iterations
+[eva:progress] Recording results for g1
+[eva:progress] Done for function g1
+[eva:progress] 
+  computing for function g2 <- main.
+  Called from with_value.i:196:3-13.
+[eva:alarm] with_value.i:42: Warning: 
+  signed overflow. assert n + 2 ≤ 2147483647;
+[eva:partition] with_value.i:42: starting to merge loop iterations
+[eva:alarm] with_value.i:42: Warning: 
+  signed overflow. assert i + 1 ≤ 2147483647;
+[eva:progress] Recording results for g2
+[eva:progress] Done for function g2
+[eva:progress] 
+  computing for function g3 <- main.
+  Called from with_value.i:197:3-13.
+[eva:alarm] with_value.i:46: Warning: 
+  signed overflow. assert n + 2 ≤ 2147483647;
+[eva:partition] with_value.i:46: starting to merge loop iterations
+[eva:alarm] with_value.i:46: Warning: 
+  signed overflow. assert i + 1 ≤ 2147483647;
+[eva:progress] Recording results for g3
+[eva:progress] Done for function g3
+[eva:progress] 
+  computing for function g4 <- main.
+  Called from with_value.i:198:3-13.
+[eva:alarm] with_value.i:50: Warning: 
+  signed overflow. assert n + 2 ≤ 2147483647;
+[eva:partition] with_value.i:50: starting to merge loop iterations
+[eva:progress] Recording results for g4
+[eva:progress] Done for function g4
+[eva:progress] 
+  computing for function g5 <- main.
+  Called from with_value.i:199:3-13.
+[eva:alarm] with_value.i:54: Warning: 
+  signed overflow. assert n + 2 ≤ 2147483647;
+[eva:progress] Recording results for g5
+[eva:progress] Done for function g5
+[eva:progress] 
+  computing for function g6 <- main.
+  Called from with_value.i:200:3-13.
+[eva:alarm] with_value.i:58: Warning: 
+  signed overflow. assert n + 2 ≤ 2147483647;
+[eva:progress] Recording results for g6
+[eva:progress] Done for function g6
+[eva:progress] 
+  computing for function g7 <- main.
+  Called from with_value.i:201:3-13.
+[eva:alarm] with_value.i:62: Warning: 
+  signed overflow. assert n + 2 ≤ 2147483647;
+[eva:progress] Recording results for g7
+[eva:progress] Done for function g7
+[eva:progress] 
+  computing for function g8 <- main.
+  Called from with_value.i:202:3-13.
+[eva:alarm] with_value.i:66: Warning: 
+  signed overflow. assert n + 2 ≤ 2147483647;
+[eva:progress] Recording results for g8
+[eva:progress] Done for function g8
+[eva:progress] 
+  computing for function h1 <- main.
+  Called from with_value.i:203:3-9.
+[eva:partition] with_value.i:70: starting to merge loop iterations
+[eva:progress] Recording results for h1
+[eva:progress] Done for function h1
+[eva:progress] 
+  computing for function h1 <- main.
+  Called from with_value.i:204:3-9.
+[eva:progress] Recording results for h1
+[eva:progress] Done for function h1
+[eva:progress] 
+  computing for function h2 <- main.
+  Called from with_value.i:205:3-9.
+[eva:partition] with_value.i:74: starting to merge loop iterations
+[eva:progress] Recording results for h2
+[eva:progress] Done for function h2
+[eva:progress] 
+  computing for function h2 <- main.
+  Called from with_value.i:206:3-9.
+[eva:progress] Recording results for h2
+[eva:progress] Done for function h2
+[eva:progress] 
+  computing for function h3 <- main.
+  Called from with_value.i:207:3-9.
+[eva:partition] with_value.i:78: starting to merge loop iterations
+[eva:progress] Recording results for h3
+[eva:progress] Done for function h3
+[eva:progress] 
+  computing for function h3 <- main.
+  Called from with_value.i:208:3-9.
+[eva:progress] Recording results for h3
+[eva:progress] Done for function h3
+[eva:progress] 
+  computing for function h4 <- main.
+  Called from with_value.i:209:3-9.
+[eva:partition] with_value.i:82: starting to merge loop iterations
+[eva:progress] Recording results for h4
+[eva:progress] Done for function h4
+[eva:progress] 
+  computing for function h4 <- main.
+  Called from with_value.i:210:3-9.
+[eva:progress] Recording results for h4
+[eva:progress] Done for function h4
+[eva:progress] 
+  computing for function h5 <- main.
+  Called from with_value.i:211:3-9.
+[eva:partition] with_value.i:86: starting to merge loop iterations
+[eva:progress] Recording results for h5
+[eva:progress] Done for function h5
+[eva:progress] 
+  computing for function h5 <- main.
+  Called from with_value.i:212:3-9.
+[eva:progress] Recording results for h5
+[eva:progress] Done for function h5
+[eva:progress] 
+  computing for function h6 <- main.
+  Called from with_value.i:213:3-9.
+[eva:partition] with_value.i:90: starting to merge loop iterations
+[eva:progress] Recording results for h6
+[eva:progress] Done for function h6
+[eva:progress] 
+  computing for function h6 <- main.
+  Called from with_value.i:214:3-9.
+[eva:progress] Recording results for h6
+[eva:progress] Done for function h6
+[eva:progress] 
+  computing for function h7 <- main.
+  Called from with_value.i:215:3-9.
+[eva:partition] with_value.i:94: starting to merge loop iterations
+[eva:progress] Recording results for h7
+[eva:progress] Done for function h7
+[eva:progress] 
+  computing for function h7 <- main.
+  Called from with_value.i:216:3-9.
+[eva:progress] Recording results for h7
+[eva:progress] Done for function h7
+[eva:progress] 
+  computing for function h8 <- main.
+  Called from with_value.i:217:3-9.
+[eva:partition] with_value.i:98: starting to merge loop iterations
+[eva:progress] Recording results for h8
+[eva:progress] Done for function h8
+[eva:progress] 
+  computing for function h8 <- main.
+  Called from with_value.i:218:3-9.
+[eva:progress] Recording results for h8
+[eva:progress] Done for function h8
+[eva:progress] 
+  computing for function i1 <- main.
+  Called from with_value.i:219:3-12.
+[eva:partition] with_value.i:102: starting to merge loop iterations
+[eva:progress] Recording results for i1
+[eva:progress] Done for function i1
+[eva:progress] 
+  computing for function i2 <- main.
+  Called from with_value.i:220:3-12.
+[eva:partition] with_value.i:106: starting to merge loop iterations
+[eva:progress] Recording results for i2
+[eva:progress] Done for function i2
+[eva:progress] 
+  computing for function i3 <- main.
+  Called from with_value.i:221:3-12.
+[eva:partition] with_value.i:110: starting to merge loop iterations
+[eva:progress] Recording results for i3
+[eva:progress] Done for function i3
+[eva:progress] 
+  computing for function i4 <- main.
+  Called from with_value.i:222:3-12.
+[eva:partition] with_value.i:114: starting to merge loop iterations
+[eva:progress] Recording results for i4
+[eva:progress] Done for function i4
+[eva:progress] 
+  computing for function j1 <- main.
+  Called from with_value.i:223:3-13.
+[eva:partition] with_value.i:118: starting to merge loop iterations
+[eva:progress] Recording results for j1
+[eva:progress] Done for function j1
+[eva:progress] 
+  computing for function j2 <- main.
+  Called from with_value.i:224:3-13.
+[eva:partition] with_value.i:122: starting to merge loop iterations
+[eva:progress] Recording results for j2
+[eva:progress] Done for function j2
+[eva:progress] 
+  computing for function j3 <- main.
+  Called from with_value.i:225:3-13.
+[eva:progress] Recording results for j3
+[eva:progress] Done for function j3
+[eva:progress] 
+  computing for function j4 <- main.
+  Called from with_value.i:226:3-13.
+[eva:progress] Recording results for j4
+[eva:progress] Done for function j4
+[eva:progress] 
+  computing for function j1 <- main.
+  Called from with_value.i:227:3-13.
+[eva:progress] Recording results for j1
+[eva:progress] Done for function j1
+[eva:progress] 
+  computing for function j2 <- main.
+  Called from with_value.i:228:3-13.
+[eva:progress] Recording results for j2
+[eva:progress] Done for function j2
+[eva:progress] 
+  computing for function j3 <- main.
+  Called from with_value.i:229:3-13.
+[eva:partition] with_value.i:126: starting to merge loop iterations
+[eva:progress] Recording results for j3
+[eva:progress] Done for function j3
+[eva:progress] 
+  computing for function j4 <- main.
+  Called from with_value.i:230:3-13.
+[eva:partition] with_value.i:130: starting to merge loop iterations
+[eva:progress] Recording results for j4
+[eva:progress] Done for function j4
+[eva:progress] 
+  computing for function f2_u_const <- main.
+  Called from with_value.i:232:3-15.
+[eva:partition] with_value.i:134: starting to merge loop iterations
+[eva:progress] Recording results for f2_u_const
+[eva:progress] Done for function f2_u_const
+[eva:progress] 
+  computing for function ne1 <- main.
+  Called from with_value.i:234:3-8.
+[eva:partition] with_value.i:138: starting to merge loop iterations
+[eva:alarm] with_value.i:138: Warning: 
+  signed overflow. assert i + 4 ≤ 2147483647;
+[eva:progress] Recording results for ne1
+[eva:progress] Done for function ne1
+[eva:progress] 
+  computing for function ne2 <- main.
+  Called from with_value.i:235:3-8.
+[eva:partition] with_value.i:142: starting to merge loop iterations
+[eva:alarm] with_value.i:142: Warning: 
+  signed overflow. assert i + 4 ≤ 2147483647;
+[eva:progress] Recording results for ne2
+[eva:progress] Done for function ne2
+[eva:progress] 
+  computing for function ne3 <- main.
+  Called from with_value.i:236:3-8.
+[eva:partition] with_value.i:146: starting to merge loop iterations
+[eva:alarm] with_value.i:146: Warning: 
+  signed overflow. assert -2147483648 ≤ i - 1;
+[eva:progress] Recording results for ne3
+[eva:progress] Done for function ne3
+[eva:progress] 
+  computing for function ne4 <- main.
+  Called from with_value.i:237:3-8.
+[eva:partition] with_value.i:150: starting to merge loop iterations
+[eva:alarm] with_value.i:150: Warning: 
+  signed overflow. assert -2147483648 ≤ i - 1;
+[eva:progress] Recording results for ne4
+[eva:progress] Done for function ne4
+[eva:progress] 
+  computing for function nev1 <- main.
+  Called from with_value.i:238:3-14.
+[eva:partition] with_value.i:154: starting to merge loop iterations
+[eva:alarm] with_value.i:154: Warning: 
+  signed overflow. assert i + 4 ≤ 2147483647;
+[eva:progress] Recording results for nev1
+[eva:progress] Done for function nev1
+[eva:progress] 
+  computing for function nev2 <- main.
+  Called from with_value.i:239:3-17.
+[eva:partition] with_value.i:158: starting to merge loop iterations
+[eva:alarm] with_value.i:158: Warning: 
+  signed overflow. assert i + 4 ≤ 2147483647;
+[eva:progress] Recording results for nev2
+[eva:progress] Done for function nev2
+[eva:progress] 
+  computing for function nev3 <- main.
+  Called from with_value.i:240:3-16.
+[eva:partition] with_value.i:162: starting to merge loop iterations
+[eva:alarm] with_value.i:162: Warning: 
+  signed overflow. assert -2147483648 ≤ i - 1;
+[eva:progress] Recording results for nev3
+[eva:progress] Done for function nev3
+[eva:progress] 
+  computing for function nev4 <- main.
+  Called from with_value.i:241:3-19.
+[eva:partition] with_value.i:166: starting to merge loop iterations
+[eva:alarm] with_value.i:166: Warning: 
+  signed overflow. assert -2147483648 ≤ i - 1;
+[eva:progress] Recording results for nev4
+[eva:progress] Done for function nev4
+[eva:progress] 
+  computing for function nev5 <- main.
+  Called from with_value.i:242:3-14.
+[eva:partition] with_value.i:170: starting to merge loop iterations
+[eva:alarm] with_value.i:170: Warning: 
+  signed overflow. assert i + 4 ≤ 2147483647;
+[eva:progress] Recording results for nev5
+[eva:progress] Done for function nev5
+[eva:progress] 
+  computing for function nev6 <- main.
+  Called from with_value.i:243:3-17.
+[eva:partition] with_value.i:174: starting to merge loop iterations
+[eva:alarm] with_value.i:174: Warning: 
+  signed overflow. assert i + 4 ≤ 2147483647;
+[eva:progress] Recording results for nev6
+[eva:progress] Done for function nev6
+[eva:progress] 
+  computing for function nev7 <- main.
+  Called from with_value.i:244:3-16.
+[eva:partition] with_value.i:178: starting to merge loop iterations
+[eva:alarm] with_value.i:178: Warning: 
+  signed overflow. assert -2147483648 ≤ i - 1;
+[eva:progress] Recording results for nev7
+[eva:progress] Done for function nev7
+[eva:progress] 
+  computing for function nev8 <- main.
+  Called from with_value.i:245:3-19.
+[eva:partition] with_value.i:182: starting to merge loop iterations
+[eva:alarm] with_value.i:182: Warning: 
+  signed overflow. assert -2147483648 ≤ i - 1;
+[eva:progress] Recording results for nev8
+[eva:progress] Done for function nev8
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function f1:
+  i ∈ [7..2147483647]
+[eva:final-states] Values at end of function f2:
+  i ∈ [8..2147483647]
+[eva:final-states] Values at end of function f2_u_const:
+  i ∈ {8}
+[eva:final-states] Values at end of function f3:
+  i ∈ [8..2147483647]
+[eva:final-states] Values at end of function f4:
+  i ∈ [7..2147483647]
+[eva:final-states] Values at end of function f5:
+  i ∈ {3}
+[eva:final-states] Values at end of function f6:
+  i ∈ {2}
+[eva:final-states] Values at end of function f7:
+  i ∈ {2}
+[eva:final-states] Values at end of function f8:
+  i ∈ {3}
+[eva:final-states] Values at end of function g1:
+  i ∈ [1..2147483647]
+[eva:final-states] Values at end of function g2:
+  i ∈ [1..2147483647]
+[eva:final-states] Values at end of function g3:
+  i ∈ [1..2147483647]
+[eva:final-states] Values at end of function g4:
+  i ∈ [1..2147483647]
+[eva:final-states] Values at end of function g5:
+  i ∈ [-2147483646..1]
+[eva:final-states] Values at end of function g6:
+  i ∈ [-2147483646..0]
+[eva:final-states] Values at end of function g7:
+  i ∈ [-2147483646..0]
+[eva:final-states] Values at end of function g8:
+  i ∈ [-2147483646..1]
+[eva:final-states] Values at end of function h1:
+  i ∈ [12..2147483647]
+[eva:final-states] Values at end of function h2:
+  i ∈ [13..2147483647]
+[eva:final-states] Values at end of function h3:
+  i ∈ [13..2147483647]
+[eva:final-states] Values at end of function h4:
+  i ∈ [12..2147483647]
+[eva:final-states] Values at end of function h5:
+  i ∈ {1}
+[eva:final-states] Values at end of function h6:
+  i ∈ {0}
+[eva:final-states] Values at end of function h7:
+  i ∈ {0}
+[eva:final-states] Values at end of function h8:
+  i ∈ {1}
+[eva:final-states] Values at end of function i1:
+  i ∈ [15..2147483647]
+[eva:final-states] Values at end of function i2:
+  i ∈ [16..2147483647]
+[eva:final-states] Values at end of function i3:
+  i ∈ {1; 2; 3; 4; 5; 6; 7}
+[eva:final-states] Values at end of function i4:
+  i ∈ {1; 2; 3; 4; 5; 6}
+[eva:final-states] Values at end of function j1:
+  i ∈ [37..2147483647]
+[eva:final-states] Values at end of function j2:
+  i ∈ [38..2147483647]
+[eva:final-states] Values at end of function j3:
+  i ∈ [1..26]
+[eva:final-states] Values at end of function j4:
+  i ∈ [1..26]
+[eva:final-states] Values at end of function ne1:
+  i ∈ {46}
+[eva:final-states] Values at end of function ne2:
+  i ∈ {46}
+[eva:final-states] Values at end of function ne3:
+  i ∈ {46}
+[eva:final-states] Values at end of function ne4:
+  i ∈ {-154}
+[eva:final-states] Values at end of function nev1:
+  i ∈ {46}
+[eva:final-states] Values at end of function nev2:
+  i ∈ {46}
+[eva:final-states] Values at end of function nev3:
+  i ∈ {46}
+[eva:final-states] Values at end of function nev4:
+  i ∈ {-154}
+[eva:final-states] Values at end of function nev5:
+  i ∈ {46}
+[eva:final-states] Values at end of function nev6:
+  i ∈ {46}
+[eva:final-states] Values at end of function nev7:
+  i ∈ {46}
+[eva:final-states] Values at end of function nev8:
+  i ∈ {-154}
+[eva:final-states] Values at end of function main:
+  __retres ∈ {0}
+[eva:summary] ====== ANALYSIS SUMMARY ======
+  ----------------------------------------------------------------------------
+  46 functions analyzed (out of 46): 100% coverage.
+  In these functions, 329 statements reached (out of 329): 100% coverage.
+  ----------------------------------------------------------------------------
+  No errors or warnings raised during the analysis.
+  ----------------------------------------------------------------------------
+  22 alarms generated by the analysis:
+      22 integer overflows
+  ----------------------------------------------------------------------------
+  No logical properties have been reached by the analysis.
+  ----------------------------------------------------------------------------
+[loop] Maximum number of iterations by loop:
+  with_value.i:6:3-33: 6
+  with_value.i:10:3-34: 7
+  with_value.i:14:3-34: 7
+  with_value.i:18:3-33: 6
+  with_value.i:22:3-33: 4
+  with_value.i:26:3-34: 5
+  with_value.i:30:3-34: 5
+  with_value.i:34:3-33: 4
+  with_value.i:38:3-33: 2147483648
+  with_value.i:42:3-34: 2147483649
+  with_value.i:46:3-34: 2147483649
+  with_value.i:50:3-33: 2147483648
+  with_value.i:54:3-33: 2147483646
+  with_value.i:58:3-34: 2147483647
+  with_value.i:62:3-34: 2147483647
+  with_value.i:66:3-33: 2147483646
+  with_value.i:70:3-33: 21
+  with_value.i:74:3-34: 22
+  with_value.i:78:3-34: 22
+  with_value.i:82:3-33: 21
+  with_value.i:86:3-33: 21
+  with_value.i:90:3-34: 22
+  with_value.i:94:3-34: 22
+  with_value.i:98:3-33: 21
+  with_value.i:102:3-37: 13
+  with_value.i:106:3-38: 14
+  with_value.i:110:3-37: 3
+  with_value.i:114:3-38: 4
+  with_value.i:118:3-37: 41
+  with_value.i:122:3-38: 42
+  with_value.i:126:3-37: 19
+  with_value.i:130:3-38: 20
+  with_value.i:134:3-37: 7
+  with_value.i:138:3-37: 43
+  with_value.i:142:3-40: 146
+  with_value.i:146:3-39: 46
+  with_value.i:150:3-42: 46
+  with_value.i:154:3-36: 43
+  with_value.i:158:3-36: 146
+  with_value.i:162:3-36: 46
+  with_value.i:166:3-36: 46
+  with_value.i:170:3-36: 43
+  with_value.i:174:3-36: 146
+  with_value.i:178:3-36: 46
+  with_value.i:182:3-36: 46

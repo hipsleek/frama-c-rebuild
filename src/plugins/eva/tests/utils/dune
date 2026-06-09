@@ -1,0 +1,14 @@
+; Generic dependencies for all Eva cram tests
+(cram
+  (deps
+    (package frama-c-eva)
+    (package frama-c-inout)
+    (package frama-c-scope)
+  )
+)
+
+; Test using eva.apron
+(cram
+  (applies_to help-messages)
+  (enabled_if %{lib-available:frama-c-eva.apron.core})
+)

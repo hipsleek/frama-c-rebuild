@@ -1,0 +1,43 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing annot4.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  a ∈ [--..--]
+  b ∈ [--..--]
+[eva:progress] 
+  computing for function f <- main.
+  Called from annot4.c:20.
+[eva:alarm] annot4.c:20: Warning: function f: precondition got status unknown.
+[eva:alarm] annot4.c:11: Warning: assertion got status unknown.
+[eva:alarm] annot4.c:12: Warning: assertion got status unknown.
+[eva:alarm] annot4.c:6: Warning: function f: postcondition got status unknown.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function f:
+  result ∈ [--..--]
+[eva:final-states] Values at end of function main:
+  
+[from] Computing for function f
+[from] Done for function f
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  \result FROM x; y
+[from] Function main:
+  \result FROM a; b
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function f:
+    result
+[inout] Inputs for function f:
+    \nothing
+[inout] Out (internal) for function main:
+    tmp
+[inout] Inputs for function main:
+    a; b

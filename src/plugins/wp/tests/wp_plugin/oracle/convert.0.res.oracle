@@ -1,0 +1,19 @@
+# frama-c -wp [...]
+[kernel] Parsing convert.i (no preprocessing)
+[wp] Running WP plugin...
+------------------------------------------------------------
+  Global
+------------------------------------------------------------
+
+Goal Lemma 'ceil':
+Assume Lemmas: 'floor'
+Let x_1 = ceil(x).
+Prove: (x <= real_of_int(x_1)) /\ (real_of_int(x_1 - 1) < x).
+
+------------------------------------------------------------
+
+Goal Lemma 'floor':
+Let x_1 = floor(x).
+Prove: (real_of_int(x_1) <= x) /\ (x < real_of_int(1 + x_1)).
+
+------------------------------------------------------------

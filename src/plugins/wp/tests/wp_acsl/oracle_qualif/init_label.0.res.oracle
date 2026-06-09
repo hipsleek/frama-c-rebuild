@@ -1,0 +1,28 @@
+# frama-c -wp [...]
+[kernel] Parsing init_label.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal extra_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal extra_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal foreign_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal foreign_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal job_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal job_terminates (Cfg) (Trivial)
+[wp] 4 goals scheduled
+[wp] [Valid] typed_main_requires_OK (Qed)
+[wp] [Valid] typed_job_ensures_OK (Alt-Ergo) (Cached)
+[wp] [Valid] typed_foreign_ensures_OK (Qed)
+[wp] [Unsuccess] typed_extra_ensures_KO (Alt-Ergo) (Cached)
+[wp] Proved goals:    9 / 10
+  Terminating:     3
+  Unreachable:     3
+  Qed:             2
+  Alt-Ergo:        1
+  Unsuccess:       1
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  main                      1        -        1       100%
+  job                       2        1        3       100%
+  foreign                   3        -        3       100%
+  extra                     2        -        3      66.7%
+------------------------------------------------------------

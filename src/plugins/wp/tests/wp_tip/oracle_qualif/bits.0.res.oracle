@@ -1,0 +1,11 @@
+# frama-c -wp [...]
+[kernel] Parsing bits.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] 1 goal scheduled
+[wp] [Valid] typed_lemma_dn3 (Tactics 9) (Qed 2314/2314)
+[wp] Proved goals:    1 / 1
+  Script:          1 (Tactics 9) (Qed 2314/2314)
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Lemma                     -        -        1       100%
+------------------------------------------------------------

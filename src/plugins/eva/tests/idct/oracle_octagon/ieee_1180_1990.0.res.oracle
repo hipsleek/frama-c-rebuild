@@ -1,0 +1,77 @@
+438a439,446
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+514a523,530
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+588a605,612
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+> [eva:progress] ieee_1180_1990.c:85: 
+>   Reusing old results for call to IEEE_1180_1990_rand
+597a622,635
+> [eva:progress] ieee_1180_1990.c:100: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:101: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:100: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:101: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:100: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:101: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:100: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+599a638,639
+> [eva:progress] ieee_1180_1990.c:100: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+601a642,647
+> [eva:progress] ieee_1180_1990.c:100: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:101: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:100: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+624a671,680
+> [eva:progress] ieee_1180_1990.c:140: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:141: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:140: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:141: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:140: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+626a683,684
+> [eva:progress] ieee_1180_1990.c:140: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+628a687,696
+> [eva:progress] ieee_1180_1990.c:140: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:141: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:140: 
+>   Call to builtin Frama_C_sqrt for function sqrt
+> [eva:progress] ieee_1180_1990.c:141: 
+>   Call to builtin Frama_C_cos for function cos
+> [eva:progress] ieee_1180_1990.c:140: 
+>   Call to builtin Frama_C_sqrt for function sqrt

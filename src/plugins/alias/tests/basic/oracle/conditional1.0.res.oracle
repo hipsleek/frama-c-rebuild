@@ -1,0 +1,17 @@
+[kernel] Parsing conditional1.c (with preprocessing)
+[alias] analysing function: main
+[alias] analysing instruction: int *a = (int *)0;
+[alias] May-aliases after instruction  int *a = (int *)0;  are  <none>
+[alias] analysing instruction: int *b = (int *)0;
+[alias] May-aliases after instruction  int *b = (int *)0;  are  <none>
+[alias] analysing instruction: int *c = (int *)0;
+[alias] May-aliases after instruction  int *c = (int *)0;  are  <none>
+[alias] analysing instruction: a = b;
+[alias] May-aliases after instruction  a = b;  are  { a; b }
+[alias] analysing instruction: a = c;
+[alias] May-aliases after instruction  a = c;  are  { a; c }
+[alias] analysing instruction: *a = 4;
+[alias] May-aliases after instruction  *a = 4;  are  { a; b; c }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are  { a; b; c }
+[alias] May-aliases at the end of function main: { a; b; c }

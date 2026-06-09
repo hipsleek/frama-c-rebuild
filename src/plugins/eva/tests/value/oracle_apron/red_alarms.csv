@@ -1,0 +1,11 @@
+directory	file	line	function	kind	name	#contexts	status	property
+.	red_alarms.i	90	user_assertions	Property	user check	1	Invalid or unreachable	x < 0
+.	red_alarms.i	67	partitioning	Alarm	division_by_zero	1	Unknown	(int)(i - 15) ≢ 0
+.	red_alarms.i	45	partitioning	Alarm	index_bound	1	Invalid or unreachable	i < 32
+.	red_alarms.i	57	partitioning	Alarm	index_bound	1	Unknown	i < 32
+.	red_alarms.i	13	maybe_swap	Alarm	mem_access	1	Unknown	\valid_read(q)
+.	red_alarms.i	82	preconditions	Property	precondition of in_bound	1	Invalid or unreachable	positive: x ≥ 0
+.	red_alarms.i	12	maybe_swap	Alarm	initialization	2	Unknown	\initialized(p)
+.	red_alarms.i	61	partitioning	Alarm	index_bound	1	Unknown	i < 32
+.	red_alarms.i	10	maybe_swap	Property	user check	1	Unknown	*p ≢ *q
+.	red_alarms.i	70	in_bound	Property	precondition	1	Invalid or unreachable	positive: x ≥ 0

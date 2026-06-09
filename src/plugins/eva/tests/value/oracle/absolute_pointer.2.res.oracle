@@ -1,0 +1,41 @@
+[kernel] Parsing absolute_pointer.c (with preprocessing)
+[eva] Analyzing a complete application starting at negative_absolute_address
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  NULL[rbits 0 to 147573952589676412935] ∈ [--..--]
+  R ∈ {0}
+  nondet ∈ [--..--]
+[eva:alarm] absolute_pointer.c:43: Warning: 
+  invalid pointer creation. assert \null ≡ p - 100 ∨ \object_pointer(p - 100);
+[eva] absolute_pointer.c:43: Warning: 
+  all target addresses were invalid. This path is assumed to be dead.
+[eva:show] absolute_pointer.c:47: Frama_C_show_each: {4294967196}
+[eva:alarm] absolute_pointer.c:50: Warning: 
+  invalid pointer creation. assert \null ≡ p - 99 ∨ \object_pointer(p - 99);
+[eva:show] absolute_pointer.c:56: Frama_C_show_each: {4294967197}
+[eva:progress] Recording results for negative_absolute_address
+[eva:progress] Done for function negative_absolute_address
+[eva] absolute_pointer.c:43: 
+  assertion 'Eva,pointer_value' got final status invalid.
+[eva] absolute_pointer.c:50: 
+  assertion 'Eva,pointer_value' got final status invalid.
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function negative_absolute_address:
+  NULL[rbits 0 to 34359737567] ∈ [--..--]
+      [rbits 34359737568 to 34359737575] ∈ {1}
+      [rbits 34359737576 to 34359737583] ∈ {2}
+      [rbits 34359737584 to 147573952589676412935] ∈ [--..--]
+  uptr ∈ {0}
+  p ∈ {0}
+[from] Computing for function negative_absolute_address
+[from] Done for function negative_absolute_address
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function negative_absolute_address:
+  NULL[4294967196..4294967197] FROM nondet
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function negative_absolute_address:
+    NULL[4294967196..4294967197]; uptr; p; q; q_0
+[inout] Inputs for function negative_absolute_address:
+    nondet

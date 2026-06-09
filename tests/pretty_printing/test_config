@@ -1,0 +1,5 @@
+COMMENT: this directory is meant to test the parser and pretty-printer
+COMMENT: the default option checks that pretty-printed code can be merged
+COMMENT: with the original one
+PLUGIN:
+OPT: @PTEST_FILE@ -no-variadic-translation -print -then -ocode ./ocode_@PTEST_NAME@.c -print -then ./ocode_@PTEST_NAME@.c @PTEST_FILE@ -ocode="" -print

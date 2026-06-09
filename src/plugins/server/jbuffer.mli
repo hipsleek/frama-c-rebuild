@@ -1,0 +1,51 @@
+(**************************************************************************)
+(*                                                                        *)
+(*  SPDX-License-Identifier LGPL-2.1                                      *)
+(*  Copyright (C)                                                         *)
+(*  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  *)
+(*                                                                        *)
+(**************************************************************************)
+
+(** Rich text buffers with JSON marshalling. *)
+
+type json = Json.t
+
+(** All-in-one formatter. Return the JSON encoding of formatted text. *)
+val format : ?indent:int -> ?margin:int ->
+  ('a,Format.formatter,unit,json) format4 -> 'a
+
+(** All-in-one formatter. Return the JSON encoding of formatted text. *)
+val to_json : ?indent:int -> ?margin:int ->
+  (Format.formatter -> 'a -> unit) -> 'a -> json
+
+(** Buffer for encoding formatted text. *)
+type buffer
+
+(** Create a formatter with [~indent] maximum indentation and
+    [~margin] right-margin. Defaults are those of [Format.make_formatter],
+    which are [~indent:68] and [~margin:78] with OCaml 4.05. *)
+val create : ?indent:int -> ?margin:int -> unit -> buffer
+
+(** The underlying formatter of a buffer. *)
+val formatter : buffer -> Format.formatter
+
+(** Prints into the buffer formatter. *)
+val bprintf : buffer -> ('a,Format.formatter,unit) format -> 'a
+
+val append : buffer -> string -> int -> int -> unit
+val flush : buffer -> unit -> unit
+val push_tag : buffer -> Format.stag -> unit
+val pop_tag : buffer -> Format.stag -> unit
+
+(** Flushes the buffer and returns its JSON enoding. This pops all pending
+    tags. *)
+val contents : buffer -> json
+
+(** When [is_empty js] holds, the JSON is sure to be empty. *)
+val is_empty : json -> bool
+
+(** Prints back a JSON encoding into the provided formatter.
+    @raise Yojson.Basic.Util.Type_error in case of ill formatted buffer. *)
+val fprintf : Format.formatter -> json -> unit
+
+(* -------------------------------------------------------------------------- *)

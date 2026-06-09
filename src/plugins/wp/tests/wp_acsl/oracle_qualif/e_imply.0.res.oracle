@@ -1,0 +1,58 @@
+# frama-c -wp [...]
+[kernel] Parsing e_imply.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal f_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal f_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 42 goals scheduled
+[wp] [Valid] typed_f_ensures_p0 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_p1 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_p2 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_p3 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_p4 (Qed)
+[wp] [Valid] typed_f_ensures_p5 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_p6 (Qed)
+[wp] [Valid] typed_f_ensures_p7 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_p8 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_p9 (Qed)
+[wp] [Valid] typed_f_ensures_i0 (Qed)
+[wp] [Valid] typed_f_ensures_i1 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_i2 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_i3 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_i4 (Qed)
+[wp] [Valid] typed_f_ensures_i5 (Qed)
+[wp] [Valid] typed_f_ensures_i6 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_i7 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_i8 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_i9 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_a0 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_a1 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_a2 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_a3 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_a4 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_a5 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_a6 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_a7 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_a8 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_a9 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_o0 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_o1 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_o2 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_o3 (Qed)
+[wp] [Valid] typed_f_ensures_o4 (Qed)
+[wp] [Valid] typed_f_ensures_o5 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_o6 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_o7 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_o8 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_o9 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_f0 (Alt-Ergo) (Trivial)
+[wp] [Valid] typed_f_ensures_f1 (Alt-Ergo) (Trivial)
+[wp] Proved goals:   44 / 44
+  Terminating:     1
+  Unreachable:     1
+  Qed:             8
+  Alt-Ergo:       34
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  f                        10       34       44       100%
+------------------------------------------------------------

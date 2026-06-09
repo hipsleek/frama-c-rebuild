@@ -1,0 +1,7 @@
+[kernel] Parsing unterminated_comment.i (no preprocessing)
+[kernel] unterminated_comment.i:6: 
+  Unterminated C comment:
+  Location: "unterminated_comment.i", line 6, character 1, before or at token: 
+  4     */
+  5     /* foo
+[kernel] Frama-C aborted: invalid user input.

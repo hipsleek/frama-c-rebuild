@@ -1,0 +1,28 @@
+TEST 1: OK: Expected execution at fprintf.c:22
+fprintf: attempt to write to an invalid stream
+TEST 2: OK: Expected signal at fprintf.c:23
+TEST 3: OK: Expected execution at fprintf.c:26
+fprintf: attempt to write to an invalid stream
+TEST 4: OK: Expected signal at fprintf.c:28
+fprintf: attempt to write to an invalid stream
+TEST 5: OK: Expected signal at fprintf.c:29
+TEST 6: OK: Expected execution at fprintf.c:34
+dprintf: attempt to write to a closed file descriptor 3
+TEST 7: OK: Expected signal at fprintf.c:35
+TEST 8: OK: Expected execution at fprintf.c:41
+TEST 9: OK: Expected execution at fprintf.c:42
+sprintf: output buffer is unallocated or has insufficient length to store 6 characters or not writeable
+TEST 10: OK: Expected signal at fprintf.c:43
+sprintf: output buffer is unallocated or has insufficient length to store 6 characters or not writeable
+TEST 11: OK: Expected signal at fprintf.c:44
+sprintf: output buffer is unallocated or has insufficient length to store 6 characters or not writeable
+TEST 12: OK: Expected signal at fprintf.c:45
+TEST 13: OK: Expected execution at fprintf.c:48
+TEST 14: OK: Expected execution at fprintf.c:49
+sprintf: output buffer is unallocated or has insufficient length to store 6 characters and \0 terminator or not writeable
+TEST 15: OK: Expected signal at fprintf.c:50
+sprintf: output buffer is unallocated or has insufficient length to store 6 characters and \0 terminator or not writeable
+TEST 16: OK: Expected signal at fprintf.c:51
+sprintf: output buffer is unallocated or has insufficient length to store 6 characters and \0 terminator or not writeable
+TEST 17: OK: Expected signal at fprintf.c:52
+TEST 18: OK: Expected execution at fprintf.c:54

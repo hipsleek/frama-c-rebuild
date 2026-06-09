@@ -1,0 +1,19 @@
+# frama-c -wp [...]
+[kernel] Parsing unit_tset.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] unit_tset.i:5: Warning: 
+  Neither code nor explicit exits and terminates for function job, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] 5 goals scheduled
+[wp] [Valid] typed_complex_terminates (Qed)
+[wp] [Valid] typed_complex_exits (Qed)
+[wp] [Valid] typed_complex_assigns_normal (Qed)
+[wp] [Valid] typed_complex_assigns_exit (Qed)
+[wp] [Valid] typed_complex_call_job_requires (Qed)
+[wp] Proved goals:    5 / 5
+  Qed:             5
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  complex                   5        -        5       100%
+------------------------------------------------------------

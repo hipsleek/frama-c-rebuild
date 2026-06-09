@@ -1,0 +1,53 @@
+[kernel] Parsing pointer3.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  x ∈ {0}
+  y ∈ {0}
+  c ∈ {0}
+  p ∈ {0}
+  q ∈ {0}
+[eva:progress] 
+  computing for function f <- main.
+  Called from pointer3.i:11:7-12.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] 
+  computing for function f <- main.
+  Called from pointer3.i:12:7-12.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function f:
+  c ∈ {2}
+[eva:final-states] Values at end of function main:
+  x ∈ {2}
+  c ∈ {2}
+  p ∈ {{ &x }}
+  q ∈ {{ &y }}
+[from] Computing for function f
+[from] Done for function f
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  c FROM \nothing
+  \result FROM x_0
+[from] Function main:
+  x FROM \nothing
+  c FROM \nothing
+  p FROM \nothing
+  q FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function f:
+    c
+[inout] Inputs for function f:
+    \nothing
+[inout] Out (internal) for function main:
+    x; c; p; q
+[inout] Inputs for function main:
+    c; p

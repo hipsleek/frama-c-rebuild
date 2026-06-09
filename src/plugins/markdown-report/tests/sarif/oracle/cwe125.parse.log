@@ -1,0 +1,3 @@
+[kernel] Parsing cwe125.c (with preprocessing)
+[kernel:typing:implicit-function-declaration] cwe125.c:27: Warning: 
+  Calling undeclared function printf. Old style K&R code?

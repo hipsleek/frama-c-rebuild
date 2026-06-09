@@ -1,0 +1,45 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing loop1.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  init ∈ [--..--]
+  secret ∈ [--..--]
+[eva:progress] loop1.c:12: assertion got status valid.
+[eva:progress] loop1.c:13: assertion got status valid.
+[eva:secure-flow:condition] loop1.c:14: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:alarm] loop1.c:17: Warning: assertion got status unknown.
+[eva:partition] loop1.c:14: starting to merge loop iterations
+[eva:alarm] loop1.c:22: Warning: assertion got status unknown.
+[eva:alarm] loop1.c:23: Warning: assertion got status unknown.
+[eva:progress] loop1.c:28: assertion got status valid.
+[eva:progress] loop1.c:29: assertion got status valid.
+[eva:progress] loop1.c:38: assertion got status valid.
+[eva:secure-flow:condition] loop1.c:41: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:alarm] loop1.c:38: Warning: assertion got status unknown.
+[eva:partition] loop1.c:30: starting to merge loop iterations
+[eva:alarm] loop1.c:46: Warning: assertion got status unknown.
+[eva:alarm] loop1.c:47: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  secret ∈ {0}
+  sum ∈ [--..--]
+  iterations ∈ [--..--]
+  __retres ∈ [--..--]
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  secret FROM secret
+  \result FROM init; secret
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    secret; sum; iterations; __retres
+[inout] Inputs for function main:
+    init; secret

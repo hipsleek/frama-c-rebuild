@@ -1,0 +1,82 @@
+[kernel] Parsing dlfcn_h.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function dlopen <- main.
+  Called from dlfcn_h.c:13.
+[eva] using specification for function dlopen
+[eva:progress] Done for function dlopen
+[eva:progress] 
+  computing for function dlerror <- main.
+  Called from dlfcn_h.c:15.
+[eva] using specification for function dlerror
+[eva:garbled-mix:assigns] dlfcn_h.c:15: 
+  The specification of function dlerror
+  has generated a garbled mix of addresses for assigns clause \result.
+[eva:progress] Done for function dlerror
+[eva:progress] 
+  computing for function fprintf_va_1 <- main.
+  Called from dlfcn_h.c:15.
+[eva] using specification for function fprintf
+[eva:alarm] dlfcn_h.c:15: Warning: 
+  function fprintf_va_1: precondition valid_read_string(param0) got status unknown.
+[eva:progress] dlfcn_h.c:15: 
+  function fprintf_va_1: precondition valid_read_string(format) got status valid.
+[eva:progress] Done for function fprintf_va_1
+[eva:progress] 
+  computing for function exit <- main.
+  Called from dlfcn_h.c:16.
+[eva] using specification for function exit
+[eva:progress] Done for function exit
+[eva:progress] 
+  computing for function dlerror <- main.
+  Called from dlfcn_h.c:19.
+[eva:garbled-mix:assigns] dlfcn_h.c:19: 
+  The specification of function dlerror
+  has generated a garbled mix of addresses for assigns clause \result.
+[eva:progress] Done for function dlerror
+[eva:progress] 
+  computing for function dlsym <- main.
+  Called from dlfcn_h.c:21.
+[eva] using specification for function dlsym
+[eva:progress] Done for function dlsym
+[eva:progress] 
+  computing for function dlerror <- main.
+  Called from dlfcn_h.c:39.
+[eva:garbled-mix:assigns] dlfcn_h.c:39: 
+  The specification of function dlerror
+  has generated a garbled mix of addresses for assigns clause \result.
+[eva:progress] Done for function dlerror
+[eva:alarm] dlfcn_h.c:40: Warning: 
+  pointer comparison. assert \pointer_comparable((void *)error, (void *)0);
+[eva:progress] 
+  computing for function fprintf_va_2 <- main.
+  Called from dlfcn_h.c:41.
+[eva:alarm] dlfcn_h.c:41: Warning: 
+  function fprintf_va_2: precondition valid_read_string(param0) got status unknown.
+[eva:progress] dlfcn_h.c:41: 
+  function fprintf_va_2: precondition valid_read_string(format) got status valid.
+[eva:progress] Done for function fprintf_va_2
+[eva:progress] 
+  computing for function exit <- main.
+  Called from dlfcn_h.c:42.
+[eva:progress] Done for function exit
+[eva:alarm] dlfcn_h.c:45: Warning: 
+  pointer to function with incompatible type. assert \valid_function(cosine);
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva:garbled-mix:summary] 
+  Origins of garbled mix generated during analysis:
+    dlfcn_h.c:39: assigns clause on addresses
+      (read in 2 statements, propagated through 2 statements)
+      garbled mix of &{__fc_dlerror}
+    dlfcn_h.c:15: assigns clause on addresses
+      (read in 1 statement, propagated through 2 statements)
+      garbled mix of &{__fc_dlerror}
+[eva] dlfcn_h.c:45: assertion 'Eva,function_pointer' got final status invalid.
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  NON TERMINATING FUNCTION

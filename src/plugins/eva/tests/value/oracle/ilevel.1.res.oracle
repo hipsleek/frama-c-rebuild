@@ -1,0 +1,64 @@
+[kernel] Parsing ilevel.c (with preprocessing)
+[eva] Analyzing a complete application starting at large_ilevel
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+  i ∈ {0}
+  j ∈ {0}
+  k ∈ {0}
+  l ∈ {0}
+[eva:progress] 
+  computing for function Frama_C_interval <- large_ilevel.
+  Called from ilevel.c:37.
+[eva] using specification for function Frama_C_interval
+[eva:progress] ilevel.c:37: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] 
+  computing for function Frama_C_interval <- large_ilevel.
+  Called from ilevel.c:39.
+[eva:progress] ilevel.c:39: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] Recording results for large_ilevel
+[eva:progress] Done for function large_ilevel
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function large_ilevel:
+  Frama_C_entropy_source ∈ [--..--]
+  i_0 ∈ [0..10]
+  j_0 ∈ [-25..-15] ∪ [0..10]
+  k_0 ∈ [100..200]
+  a[0] ∈ {53} or UNINITIALIZED
+   [1] ∈ {17} or UNINITIALIZED
+   [2] ∈ {64} or UNINITIALIZED
+   [3] ∈ {99} or UNINITIALIZED
+   [4] ∈ {25} or UNINITIALIZED
+   [5] ∈ {12} or UNINITIALIZED
+   [6] ∈ {72} or UNINITIALIZED
+   [7] ∈ {81} or UNINITIALIZED
+   [8] ∈ {404} or UNINITIALIZED
+   [9] ∈ {303} or UNINITIALIZED
+   [10] ∈ {-101} or UNINITIALIZED
+  s2 ∈ {40; 41; 42} or UNINITIALIZED
+  s1 ∈ {-101; 12; 17; 25; 53; 64; 72; 81; 99; 303; 404} or UNINITIALIZED
+  x ∈
+   {-101} ∪ [-25..-15] ∪ [0..10] ∪ {12; 17; 25; 40; 41; 42; 53; 64; 72; 81}
+    ∪ [99..127] ∪ [129..200] ∪ {303; 404} or UNINITIALIZED
+[from] Computing for function large_ilevel
+[from] Computing for function Frama_C_interval <-large_ilevel
+[from] Done for function Frama_C_interval
+[from] Done for function large_ilevel
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function Frama_C_interval:
+  Frama_C_entropy_source FROM Frama_C_entropy_source (and SELF)
+  \result FROM Frama_C_entropy_source; min; max
+[from] Function large_ilevel:
+  Frama_C_entropy_source FROM Frama_C_entropy_source (and SELF)
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function large_ilevel:
+    Frama_C_entropy_source; i_0; j_0; tmp_0; k_0; a[0..10]; s2; tmp_2; 
+    tmp_3; s1; x; tmp_4; tmp_5; tmp_6
+[inout] Inputs for function large_ilevel:
+    Frama_C_entropy_source; nondet

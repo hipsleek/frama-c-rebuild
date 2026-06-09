@@ -1,0 +1,27 @@
+[kernel] Parsing function6.c (with preprocessing)
+[alias] analysing function: main
+[alias] analysing instruction: int *a = (int *)0;
+[alias] May-aliases after instruction  int *a = (int *)0;  are  <none>
+[alias] analysing instruction: int *b = (int *)0;
+[alias] May-aliases after instruction  int *b = (int *)0;  are  <none>
+[alias] analysing instruction: int *c = (int *)0;
+[alias] May-aliases after instruction  int *c = (int *)0;  are  <none>
+[alias] analysing instruction: int *d = (int *)0;
+[alias] May-aliases after instruction  int *d = (int *)0;  are  <none>
+[alias] analysing instruction: swap(a,b);
+[alias] analysing function: swap
+[alias] analysing instruction: int z = 0;
+[alias] May-aliases after instruction  int z = 0;  are  <none>
+[alias] analysing instruction: z = *x;
+[alias] May-aliases after instruction  z = *x;  are  <none>
+[alias] analysing instruction: *x = *y;
+[alias] May-aliases after instruction  *x = *y;  are  <none>
+[alias] analysing instruction: *y = z;
+[alias] May-aliases after instruction  *y = z;  are  <none>
+[alias] May-aliases at the end of function swap: <none>
+[alias] May-aliases after instruction  swap(a,b);  are  <none>
+[alias] analysing instruction: swap(c,d);
+[alias] May-aliases after instruction  swap(c,d);  are  <none>
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are  <none>
+[alias] May-aliases at the end of function main: <none>

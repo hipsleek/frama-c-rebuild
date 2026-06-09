@@ -1,0 +1,8 @@
+70c70,74
+< [eva:progress] invalid_loc_return.i:17: Reusing old results for call to foo
+---
+> [eva:progress] 
+>   computing for function foo <- main <- main2.
+>   Called from invalid_loc_return.i:17:11-16.
+> [eva:progress] Recording results for foo
+> [eva:progress] Done for function foo

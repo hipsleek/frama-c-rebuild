@@ -1,0 +1,599 @@
+[kernel] Parsing msg_key_crash.i (no preprocessing)
+[kernel:parser:rmtmps] Removing unused
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_c23_va_start"; vorig_name = "__builtin_c23_va_start";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = TVoid; tattr = [] },
+            (Some [("__x0",
+                    { tnode =
+                      (TPtr
+                         { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                           tattr = [("const", [])] });
+                      tattr = [] },
+                    [("fc_anonymous", [])])]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 2; vaddrof = false; vreferenced = false; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_next_arg"; vorig_name = "__builtin_next_arg";
+       vtype =
+       { tnode =
+         (TFun (
+            { tnode =
+              (TPtr
+                 { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                   tattr = [("const", [])] });
+              tattr = [] },
+            (Some []), false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 3; vaddrof = false; vreferenced = false; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_offsetof"; vorig_name = "__builtin_offsetof";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = (TInt IULong); tattr = [] },
+            (Some [("__x0", { tnode = (TInt IULong); tattr = [] },
+                    [("fc_anonymous", [])])]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 5; vaddrof = false; vreferenced = false; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_stdarg_start"; vorig_name = "__builtin_stdarg_start";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = TVoid; tattr = [] },
+            (Some [("__x0",
+                    { tnode =
+                      (TPtr
+                         { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                           tattr = [("const", [])] });
+                      tattr = [] },
+                    [("fc_anonymous", [])])]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 7; vaddrof = false; vreferenced = false; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_va_arg"; vorig_name = "__builtin_va_arg";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = TVoid; tattr = [] },
+            (Some [("__x0",
+                    { tnode =
+                      (TPtr
+                         { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                           tattr = [("const", [])] });
+                      tattr = [] },
+                    [("fc_anonymous", [])]);
+                    ("__x1", { tnode = (TInt IULong); tattr = [] },
+                     [("fc_anonymous", [])]);
+                    ("__x2",
+                     { tnode = (TPtr { tnode = TVoid; tattr = [] }); tattr = []
+                       },
+                     [("fc_anonymous", [])])
+                    ]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 11; vaddrof = false; vreferenced = false; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_va_copy"; vorig_name = "__builtin_va_copy";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = TVoid; tattr = [] },
+            (Some [("__x0",
+                    { tnode =
+                      (TPtr
+                         { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                           tattr = [("const", [])] });
+                      tattr = [] },
+                    [("fc_anonymous", [])]);
+                    ("__x1",
+                     { tnode =
+                       (TPtr
+                          { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                            tattr = [("const", [])] });
+                       tattr = [] },
+                     [("fc_anonymous", [])])
+                    ]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 14; vaddrof = false; vreferenced = false; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_va_end"; vorig_name = "__builtin_va_end";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = TVoid; tattr = [] },
+            (Some [("__x0",
+                    { tnode =
+                      (TPtr
+                         { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                           tattr = [("const", [])] });
+                      tattr = [] },
+                    [("fc_anonymous", [])])]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 16; vaddrof = false; vreferenced = false; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_va_start"; vorig_name = "__builtin_va_start";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = TVoid; tattr = [] },
+            (Some [("__x0",
+                    { tnode =
+                      (TPtr
+                         { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                           tattr = [("const", [])] });
+                      tattr = [] },
+                    [("fc_anonymous", [])])]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 18; vaddrof = false; vreferenced = false; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_varargs_start";
+       vorig_name = "__builtin_varargs_start";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = TVoid; tattr = [] },
+            (Some [("__x0",
+                    { tnode =
+                      (TPtr
+                         { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                           tattr = [("const", [])] });
+                      tattr = [] },
+                    [("fc_anonymous", [])])]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 20; vaddrof = false; vreferenced = false; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot __fc_lit_string1 -> true, non-static variable
+[kernel:parser:rmtmps] marking reachable: function __fc_lit_string1
+[kernel:parser:rmtmps] isExportedRoot f -> true, other function
+[kernel:parser:rmtmps] marking reachable: function f
+[kernel:parser:rmtmps] 
+  reachable_tbl: __fc_lit_string1:true
+                 f:true
+[kernel:parser:rmtmps] starting markReferenced (AST has 11 globals)
+[kernel:parser:rmtmps] finished markReferenced
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_c23_va_start"; vorig_name = "__builtin_c23_va_start";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = TVoid; tattr = [] },
+            (Some [("__x0",
+                    { tnode =
+                      (TPtr
+                         { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                           tattr = [("const", [])] });
+                      tattr = [] },
+                    [("fc_anonymous", [])])]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 2; vaddrof = false; vreferenced = true; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_next_arg"; vorig_name = "__builtin_next_arg";
+       vtype =
+       { tnode =
+         (TFun (
+            { tnode =
+              (TPtr
+                 { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                   tattr = [("const", [])] });
+              tattr = [] },
+            (Some []), false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 3; vaddrof = false; vreferenced = true; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_offsetof"; vorig_name = "__builtin_offsetof";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = (TInt IULong); tattr = [] },
+            (Some [("__x0", { tnode = (TInt IULong); tattr = [] },
+                    [("fc_anonymous", [])])]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 5; vaddrof = false; vreferenced = true; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_stdarg_start"; vorig_name = "__builtin_stdarg_start";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = TVoid; tattr = [] },
+            (Some [("__x0",
+                    { tnode =
+                      (TPtr
+                         { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                           tattr = [("const", [])] });
+                      tattr = [] },
+                    [("fc_anonymous", [])])]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 7; vaddrof = false; vreferenced = true; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_va_arg"; vorig_name = "__builtin_va_arg";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = TVoid; tattr = [] },
+            (Some [("__x0",
+                    { tnode =
+                      (TPtr
+                         { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                           tattr = [("const", [])] });
+                      tattr = [] },
+                    [("fc_anonymous", [])]);
+                    ("__x1", { tnode = (TInt IULong); tattr = [] },
+                     [("fc_anonymous", [])]);
+                    ("__x2",
+                     { tnode = (TPtr { tnode = TVoid; tattr = [] }); tattr = []
+                       },
+                     [("fc_anonymous", [])])
+                    ]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 11; vaddrof = false; vreferenced = true; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_va_copy"; vorig_name = "__builtin_va_copy";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = TVoid; tattr = [] },
+            (Some [("__x0",
+                    { tnode =
+                      (TPtr
+                         { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                           tattr = [("const", [])] });
+                      tattr = [] },
+                    [("fc_anonymous", [])]);
+                    ("__x1",
+                     { tnode =
+                       (TPtr
+                          { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                            tattr = [("const", [])] });
+                       tattr = [] },
+                     [("fc_anonymous", [])])
+                    ]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 14; vaddrof = false; vreferenced = true; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_va_end"; vorig_name = "__builtin_va_end";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = TVoid; tattr = [] },
+            (Some [("__x0",
+                    { tnode =
+                      (TPtr
+                         { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                           tattr = [("const", [])] });
+                      tattr = [] },
+                    [("fc_anonymous", [])])]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 16; vaddrof = false; vreferenced = true; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_va_start"; vorig_name = "__builtin_va_start";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = TVoid; tattr = [] },
+            (Some [("__x0",
+                    { tnode =
+                      (TPtr
+                         { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                           tattr = [("const", [])] });
+                      tattr = [] },
+                    [("fc_anonymous", [])])]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 18; vaddrof = false; vreferenced = true; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] 
+  isExportedRoot (GFunDecl (
+     { spec_behavior = []; spec_variant = None; spec_terminates = None;
+       spec_complete_behaviors = []; spec_disjoint_behaviors = [] },
+     { vname = "__builtin_varargs_start";
+       vorig_name = "__builtin_varargs_start";
+       vtype =
+       { tnode =
+         (TFun ({ tnode = TVoid; tattr = [] },
+            (Some [("__x0",
+                    { tnode =
+                      (TPtr
+                         { tnode = (TPtr { tnode = TVoid; tattr = [] });
+                           tattr = [("const", [])] });
+                      tattr = [] },
+                    [("fc_anonymous", [])])]),
+            false));
+         tattr = [] };
+       vattr = []; vstorage = NoStorage; valignas = None; vglob = true;
+       vdefined = false; vformal = false; vinline = false;
+       vdecl =
+       ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          },
+        { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown
+          });
+       vid = 20; vaddrof = false; vreferenced = true; vtemp = false;
+       vdescr = None; vdescrpure = true; vghost = false; vsource = true;
+       vlogic_var_assoc = None },
+     ({ path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown },
+      { path = <unknown>; offset = -1; line = 0; column = 0; origin = Unknown })
+     )) -> false, neither fundef nor vardef nor annotation
+[kernel:parser:rmtmps] removing global: fun decl __builtin_c23_va_start
+[kernel:parser:rmtmps] removing global: fun decl __builtin_next_arg
+[kernel:parser:rmtmps] removing global: fun decl __builtin_offsetof
+[kernel:parser:rmtmps] removing global: fun decl __builtin_stdarg_start
+[kernel:parser:rmtmps] removing global: fun decl __builtin_va_arg
+[kernel:parser:rmtmps] removing global: fun decl __builtin_va_copy
+[kernel:parser:rmtmps] removing global: fun decl __builtin_va_end
+[kernel:parser:rmtmps] removing global: fun decl __builtin_va_start
+[kernel:parser:rmtmps] removing global: fun decl __builtin_varargs_start
+[kernel:parser:rmtmps] 
+  kept global var __fc_lit_string1 (char const __fc_lit_string1[4UL] = "foo";
+  )
+[kernel:parser:rmtmps] 
+  kept global fun f (int f(void)
+                     {
+                       
+                       return (int)__fc_lit_string1[2];
+                     }
+  
+  )
+/* Generated by Frama-C */
+int f(void)
+{
+  int __retres;
+  __retres = (int)"foo"[2];
+  return __retres;
+}
+
+

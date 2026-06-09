@@ -1,0 +1,39 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing struct2.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+[eva:progress] struct2.c:33: assertion got status valid.
+[eva:progress] struct2.c:34: assertion got status valid.
+[eva:progress] struct2.c:36: assertion got status valid.
+[eva:progress] struct2.c:37: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[scope:rm_asserts] removing 2 assertion(s)
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  s.s_x ∈ {42}
+   .s_inner.i_y ∈ {43}
+  a.a_inner[0] ∈ {0}
+   .a_inner[1].i_y ∈ {1}
+   .a_simple[0].s_x ∈ {44}
+   .a_simple{[0].s_inner; [1].s_x} ∈ UNINITIALIZED
+   .a_simple[1].s_inner ∈ [--..--]
+  m.m_a[0]{.a_inner[0..1]; .a_simple{[0]; [1].s_x}} ∈ UNINITIALIZED
+   .m_a[0].a_simple[1].s_inner.i_y ∈ {46}
+   .m_a[1] ∈ UNINITIALIZED
+  __retres ∈ {46}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    s; a{{.a_inner[0..1]; .a_simple[0].s_x}; .a_simple[1].s_inner};
+    m.m_a[0].a_simple[1].s_inner; __retres
+[inout] Inputs for function main:
+    secret

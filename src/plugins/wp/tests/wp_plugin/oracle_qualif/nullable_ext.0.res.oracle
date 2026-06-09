@@ -1,0 +1,65 @@
+# frama-c -wp -wp-model 'Typed (Caveat)' [...]
+[kernel] Parsing nullable_ext.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] Warning: In caveat model with nullable arguments, -wp-(no)-rte shall be explicitly positioned.
+[wp] [Valid] Goal nullable_coherence_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal nullable_coherence_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal nullable_in_context_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal nullable_in_context_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal with_declaration_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal with_declaration_terminates (Cfg) (Trivial)
+[wp] 6 goals scheduled
+[wp] [Unsuccess] typed_caveat_nullable_coherence_check_must_fail (Alt-Ergo) (Cached)
+[wp] [Valid] typed_caveat_nullable_coherence_check (Qed)
+[wp] [Valid] typed_caveat_nullable_coherence_assigns (Qed)
+[wp] [Valid] typed_caveat_nullable_in_context_assigns_part1 (Qed)
+[wp] [Valid] typed_caveat_nullable_in_context_assigns_part2 (Qed)
+[wp] [Valid] typed_caveat_with_declaration_assigns (Qed)
+[wp] Proved goals:   11 / 12
+  Terminating:     3
+  Unreachable:     3
+  Qed:             5
+  Unsuccess:       1
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  nullable_coherence        4        -        5      80.0%
+  nullable_in_context       4        -        4       100%
+  with_declaration          3        -        3       100%
+------------------------------------------------------------
+[wp] nullable_ext.c:22: Warning: 
+  Memory model hypotheses for function 'nullable_coherence':
+  /*@
+     behavior wp_typed_caveat:
+       requires \valid(g);
+       requires \valid(p) ∨ p ≡ \null;
+       requires \separated(g, &x);
+       requires \separated(p, &x);
+       requires p ≢ \null ⇒ \separated(g, p, &x);
+     */
+  void nullable_coherence(int *p __attribute__((__wp_nullable__)));
+[wp] nullable_ext.c:36: Warning: 
+  Memory model hypotheses for function 'nullable_in_context':
+  /*@
+     behavior wp_typed_caveat:
+       requires \valid(s);
+       requires \valid(t);
+       requires \valid(p) ∨ p ≡ \null;
+       requires \valid(q) ∨ q ≡ \null;
+       requires \valid(r) ∨ r ≡ \null;
+       requires p ≢ \null ⇒ \separated(p, s, t);
+       requires q ≢ \null ⇒ \separated(q, s, t);
+       requires q ≢ \null ⇒ p ≢ \null ⇒ \separated(q, p);
+       requires r ≢ \null ⇒ \separated(r, s, t);
+       requires r ≢ \null ⇒ p ≢ \null ⇒ \separated(r, p);
+       requires r ≢ \null ⇒ q ≢ \null ⇒ \separated(r, q);
+     */
+  void nullable_in_context(int *p __attribute__((__wp_nullable__)),
+                           int *q __attribute__((__wp_nullable__)),
+                           int *r __attribute__((__wp_nullable__)), int *s,
+                           int *t);
+[wp] nullable_ext.c:47: Warning: 
+  Memory model hypotheses for function 'with_declaration':
+  /*@ behavior wp_typed_caveat:
+        requires \valid(ptr); */
+  void with_declaration(int *ptr);

@@ -1,0 +1,7 @@
+[kernel] Parsing incomplete_initialization_issue_1510.i (no preprocessing)
+[kernel] incomplete_initialization_issue_1510.i:7: User Error: 
+  field 'test' is declared with incomplete type 'union u'
+[kernel] incomplete_initialization_issue_1510.i:8: User Error: 
+  variable `my_struct' has initializer but incomplete type
+[kernel] User Error: stopping on file "incomplete_initialization_issue_1510.i" that has errors.
+[kernel] Frama-C aborted: invalid user input.

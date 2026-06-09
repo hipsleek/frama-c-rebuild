@@ -1,0 +1,44 @@
+[e-acsl] beginning translation.
+[e-acsl:analysis:inductive] no valid mode found for: P3
+[e-acsl] Warning: Unable to extract executable code from inductive definition of P3.
+  See language reference manual for details on the supported forms.
+[e-acsl:analysis:inductive] no valid mode found for: eq
+[e-acsl] Warning: Unable to extract executable code from inductive definition of eq.
+  See language reference manual for details on the supported forms.
+[e-acsl:analysis:inductive] no valid mode found for: is_max
+[e-acsl] Warning: Unable to extract executable code from inductive definition of is_max.
+  See language reference manual for details on the supported forms.
+[e-acsl:analysis:inductive] no valid mode found for: fibo
+[e-acsl] Warning: Unable to extract executable code from inductive definition of fibo.
+  See language reference manual for details on the supported forms.
+[e-acsl] unsupported.c:54: Warning: 
+  E-ACSL construct
+  `inductive definitions outside of subset described in the reference manual'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] unsupported.c:55: Warning: 
+  E-ACSL construct
+  `inductive definitions outside of subset described in the reference manual'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] unsupported.c:56: Warning: 
+  E-ACSL construct
+  `inductive definitions outside of subset described in the reference manual'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] unsupported.c:59: Warning: 
+  E-ACSL construct
+  `inductive definitions outside of subset described in the reference manual'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] unsupported.c:61: Warning: 
+  E-ACSL construct
+  `inductive definitions outside of subset described in the reference manual'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] unsupported.c:54: Warning: assertion got status unknown.
+[eva:alarm] unsupported.c:55: Warning: assertion got status unknown.
+[eva:alarm] unsupported.c:56: Warning: assertion got status unknown.
+[eva:alarm] unsupported.c:59: Warning: assertion got status unknown.
+[eva:alarm] unsupported.c:61: Warning: assertion got status unknown.

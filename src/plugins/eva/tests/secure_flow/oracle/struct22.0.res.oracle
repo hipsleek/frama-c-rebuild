@@ -1,0 +1,49 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing struct22.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  foo ∈ {0}
+  bar ∈ {0}
+  baz ∈ {0}
+[eva:progress] 
+  computing for function assign_struct <- main.
+  Called from struct22.c:31.
+[eva] using specification for function assign_struct
+[eva:progress] Done for function assign_struct
+[eva:progress] 
+  computing for function assign_union <- main.
+  Called from struct22.c:32.
+[eva] using specification for function assign_union
+[eva:progress] Done for function assign_union
+[eva:alarm] struct22.c:34: Warning: assertion got status unknown.
+[eva:alarm] struct22.c:35: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  foo ∈ [--..--]
+  baz ∈ [--..--]
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Computing for function assign_struct <-main
+[from] Done for function assign_struct
+[from] Computing for function assign_union <-main
+[from] Done for function assign_union
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function assign_struct:
+  foo FROM bar
+[from] Function assign_union:
+  baz FROM bar
+[from] Function main:
+  foo FROM bar
+  baz FROM bar
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    foo; baz; __retres
+[inout] Inputs for function main:
+    bar

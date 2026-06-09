@@ -1,0 +1,21 @@
+[kernel] Parsing function5.c (with preprocessing)
+[alias] analysing function: choice
+[alias] analysing instruction: int c = 0;
+[alias] May-aliases after instruction  int c = 0;  are  <none>
+[alias] analysing instruction: __retres = x;
+[alias] May-aliases after instruction  __retres = x;  are  { x; __retres }
+[alias] analysing instruction: __retres = y;
+[alias] May-aliases after instruction  __retres = y;  are  { y; __retres }
+[alias] May-aliases at the end of function choice: { x; y; __retres }
+[alias] analysing function: main
+[alias] analysing instruction: int *a = (int *)0;
+[alias] May-aliases after instruction  int *a = (int *)0;  are  <none>
+[alias] analysing instruction: int *b = (int *)0;
+[alias] May-aliases after instruction  int *b = (int *)0;  are  <none>
+[alias] analysing instruction: int *c = (int *)0;
+[alias] May-aliases after instruction  int *c = (int *)0;  are  <none>
+[alias] analysing instruction: c = choice(a,b);
+[alias] May-aliases after instruction  c = choice(a,b);  are  { a; b; c }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are  { a; b; c }
+[alias] May-aliases at the end of function main: { a; b; c }

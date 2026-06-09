@@ -1,0 +1,30 @@
+# frama-c -wp [...]
+[kernel] Parsing zero.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal foo_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal foo_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal init_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal init_terminates (Cfg) (Trivial)
+[wp] 11 goals scheduled
+[wp] [Valid] typed_foo_assert (Alt-Ergo) (Cached)
+[wp] [Valid] typed_init_loop_invariant_established (Qed)
+[wp] [Valid] typed_init_loop_invariant_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_init_loop_invariant_is_zero_established (Qed)
+[wp] [Valid] typed_init_loop_invariant_is_zero_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_init_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_init_loop_assigns_part2 (Qed)
+[wp] [Valid] typed_init_assigns_part1 (Qed)
+[wp] [Valid] typed_init_assigns_part2 (Qed)
+[wp] [Valid] typed_init_loop_variant_positive (Qed)
+[wp] [Valid] typed_init_loop_variant_decrease (Alt-Ergo) (Cached)
+[wp] Proved goals:   15 / 15
+  Terminating:     2
+  Unreachable:     2
+  Qed:             7
+  Alt-Ergo:        4
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  foo                       2        1        3       100%
+  init                      9        3       12       100%
+------------------------------------------------------------

@@ -1,0 +1,14 @@
+[kernel] Parsing c23-bool-kws.c (with preprocessing)
+[kernel] c23-bool-kws.c:32: 
+  syntax error:
+  Location: "c23-bool-kws.c", line 32, before or at token: b1
+          bool b1 = false ;
+              ^
+  in code pre-processed from the original source
+  30    
+  31    int main(void){
+  32      BOOL b1 = FALSE ;
+        ^^^^^^^^^^^^^^^^^^^
+  33      BOOL b2 = TRUE ;
+  34    }
+[kernel] Frama-C aborted: invalid user input.

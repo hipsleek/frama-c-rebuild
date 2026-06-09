@@ -1,0 +1,369 @@
+[kernel] Expanding arguments from mthread_test_options.txt
+[mt] Preparing sources for Mthread with lib pthreads
+[kernel] Parsing FRAMAC_SHARE/mt/mthread.c (with preprocessing)
+[kernel] Parsing FRAMAC_SHARE/mt/mthread_pthread.c (with preprocessing)
+[kernel] Parsing memcpy.c (with preprocessing)
+[mt] Warning: Mthread is an experimental plugin and is still in development.
+[mt] ******* Starting mthread
+[eva] Found concurrency builtins: enabling mthread domain
+[mt] *** Computing value analysis for main thread
+[eva] Analyzing a complete application starting at main
+[mt] New thread: <main>, fun main
+[mt] memcpy.c:39: New thread: tjob0, fun job0, parent <main>, args {0}
+[mt] memcpy.c:39: Start thread tjob0
+[mt] memcpy.c:46: New thread: tjob1, fun job1, parent <main>, args {0}
+[mt] memcpy.c:46: Start thread tjob1
+[mt] memcpy.c:47: New thread: tjob2, fun job2, parent <main>, args {0}
+[mt] memcpy.c:47: Start thread tjob2
+[mt] *** First value analysis for main thread done.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  tjob0:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: memcpy.c:39 <- main
+  tjob1:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: memcpy.c:46 <- main
+  tjob2:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: memcpy.c:47 <- main
+  shared:
+    write by <main> at memcpy.c:41 <- main
+    write by <main> at memcpy.c:42 <- main
+    write by <main> at memcpy.c:43 <- main
+    write by <main> at memcpy.c:44 <- main
+    write by <main> at memcpy.c:49 <- main
+    write by <main> at memcpy.c:50 <- main
+  a:
+    write by <main> at memcpy.c:41 <- main
+    write by <main> at memcpy.c:49 <- main
+  b:
+    write by <main> at memcpy.c:42 <- main
+    write by <main> at memcpy.c:50 <- main
+  c: write by <main> at memcpy.c:43 <- main
+  d: write by <main> at memcpy.c:44 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] ******* Starting to iterate
+[mt] ***** Iteration 1
+[mt] *** Computing thread tjob0, iteration 1 (first iteration)
+[mt] * Computing value analysis for thread tjob0
+[eva] Analyzing a complete application starting at job0
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job0 for thread tjob0
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread tjob0
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread tjob0 computed
+[mt] *** Computing thread tjob1, iteration 1 (first iteration)
+[mt] * Computing value analysis for thread tjob1
+[eva] Analyzing a complete application starting at job1
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job1 for thread tjob1
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  a: read by tjob1 at memcpy.c:27 <- job1
+  c: read by tjob1 at memcpy.c:27 <- job1
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread tjob1
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread tjob1 computed
+[mt] *** Computing thread tjob2, iteration 1 (first iteration)
+[mt] * Computing value analysis for thread tjob2
+[eva] Analyzing a complete application starting at job2
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job2 for thread tjob2
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  b: read by tjob2 at memcpy.c:32 <- job2
+  d: read by tjob2 at memcpy.c:32 <- job2
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread tjob2
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread tjob2 computed
+[mt] ***** Threads computed for iteration 1.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: a; b; c; d
+[mt] Concurrent imprecise accesses have changed: before
+    \nothing
+  vs.
+    a; b; c; d
+[mt] Possible read/write data races:
+  none
+[mt] Shared memory: \nothing
+[mt] Mutexes for concurrent accesses:
+[mt] Detailed shared zones protections
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 2
+[mt] *** Computing thread <main>, iteration 2 (potential shared vars changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[mt] Thread <main>, fun main
+[mt] memcpy.c:39: Thread tjob0, fun job0, parent <main>, args {0}
+[mt] memcpy.c:46: Thread tjob1, fun job1, parent <main>, args {0}
+[mt] memcpy.c:47: Thread tjob2, fun job2, parent <main>, args {0}
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  tjob0:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: memcpy.c:39 <- main
+  tjob1:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: memcpy.c:46 <- main
+  tjob2:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: memcpy.c:47 <- main
+  shared:
+    write by <main> at memcpy.c:41 <- main
+    write by <main> at memcpy.c:42 <- main
+    write by <main> at memcpy.c:43 <- main
+    write by <main> at memcpy.c:44 <- main
+    write by <main> at memcpy.c:49 <- main
+    write by <main> at memcpy.c:50 <- main
+  a:
+    write by <main> at memcpy.c:41 <- main
+    write by <main> at memcpy.c:49 <- main
+  b:
+    write by <main> at memcpy.c:42 <- main
+    write by <main> at memcpy.c:50 <- main
+  c: write by <main> at memcpy.c:43 <- main
+  d: write by <main> at memcpy.c:44 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+      memcpy((void *)(& a),(void *)(& x),sizeof(int)); memcpy.c:41 <- main
+      memcpy((void *)(& b),(void *)(& x),sizeof(int)); memcpy.c:42 <- main
+      memcpy((void *)(& c),(void *)(& x),sizeof(int)); memcpy.c:43 <- main
+      memcpy((void *)(& d),(void *)(& x),sizeof(int)); memcpy.c:44 <- main
+      memcpy((void *)(& a),(void *)(& x),sizeof(int)); memcpy.c:49 <- main
+      memcpy((void *)(& b),(void *)(& x),sizeof(int)); memcpy.c:50 <- main
+    shared bases: {a, b, c, d}
+    interferences by location:
+      memcpy.c:41:
+        # cvalue: a ∈ {3}
+                  b ∈ {0}
+                  c ∈ {0}
+                  d ∈ {0} 
+      memcpy.c:42:
+        # cvalue: a ∈ {3}
+                  b ∈ {3}
+                  c ∈ {0}
+                  d ∈ {0} 
+      memcpy.c:43:
+        # cvalue: a ∈ {3}
+                  b ∈ {3}
+                  c ∈ {3}
+                  d ∈ {0} 
+      memcpy.c:44:
+        # cvalue: a ∈ {3}
+                  b ∈ {3}
+                  c ∈ {3}
+                  d ∈ {3} 
+      memcpy.c:49:
+        # cvalue: a ∈ {3}
+                  b ∈ {3}
+                  c ∈ {3}
+                  d ∈ {3} 
+      memcpy.c:50:
+        # cvalue: a ∈ {3}
+                  b ∈ {3}
+                  c ∈ {3}
+                  d ∈ {3} 
+    interferences by mutexes:
+      {}:
+        # cvalue: a ∈ {3}
+                  b ∈ {0; 3}
+                  c ∈ {0; 3}
+                  d ∈ {0; 3}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread tjob0, iteration 2 (interferences changed)
+[mt] * Computing value analysis for thread tjob0
+[eva] Analyzing a complete application starting at job0
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread tjob0
+    concurrent writes:
+    shared bases: {a, b, c, d}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread tjob0 computed
+[mt] *** Computing thread tjob1, iteration 2 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread tjob1
+[eva] Analyzing a complete application starting at job1
+[eva] Initial state supplied by user
+[eva:interferences] memcpy.c:27: inject threads interferences at this point
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  a: read by tjob1 at memcpy.c:27 <- job1
+  c: read by tjob1 at memcpy.c:27 <- job1
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread tjob1
+    concurrent writes:
+    shared bases: {a, b, c, d}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread tjob1 computed
+[mt] *** Computing thread tjob2, iteration 2 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread tjob2
+[eva] Analyzing a complete application starting at job2
+[eva] Initial state supplied by user
+[eva:interferences] memcpy.c:32: inject threads interferences at this point
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  b: read by tjob2 at memcpy.c:32 <- job2
+  d: read by tjob2 at memcpy.c:32 <- job2
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread tjob2
+    concurrent writes:
+    shared bases: {a, b, c, d}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread tjob2 computed
+[mt] ***** Threads computed for iteration 2.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: a; b; c; d
+[mt] tjob1 reads  a ∈ {3}  // memcpy.c:27 job1
+[mt] tjob2 reads  b ∈ {0; 3}  // memcpy.c:32 job2
+[mt] <main> writes  a# ∈ {0; 3} repeated %8   // memcpy.c:49
+  memcpy :: memcpy.c:49 <- main
+[mt] <main> writes  b# ∈ {0; 3} repeated %8   // memcpy.c:50
+  memcpy :: memcpy.c:50 <- main
+[mt] Possible read/write data races:
+  b:
+    read by tjob2 at memcpy.c:32, unprotected
+    write by <main> at memcpy.c:50, unprotected
+  a:
+    read by tjob1 at memcpy.c:27, unprotected
+    write by <main> at memcpy.c:49, unprotected
+[mt] Shared memory: a; b
+[mt] Concurrent precise var accesses have changed: before
+    \nothing
+  vs.
+    a; b
+[mt] Write summary for <main> (updated):
+  a# ∈ {0; 3} repeated %8 
+  b# ∈ {0; 3} repeated %8
+[mt] Mutexes for concurrent accesses:
+  a  unprotected
+  b  unprotected
+[mt] Detailed shared zones protections
+  b: Read by tjob2, Write by <main>: unprotected
+  a: Read by tjob1, Write by <main>: unprotected
+[mt] Statements needing manual synchronisation
+  memcpy.c:32 (for b)
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 3
+[mt] *** Computing thread tjob1, iteration 3 (shared vars values changed)
+[mt] * Computing value analysis for thread tjob1
+[eva] Analyzing a complete application starting at job1
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  a: read by tjob1 at memcpy.c:27 <- job1
+  c: read by tjob1 at memcpy.c:27 <- job1
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread tjob1
+    concurrent writes:
+    shared bases: {a, b, c, d}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread tjob1 computed
+[mt] *** Computing thread tjob2, iteration 3 (shared vars values changed)
+[mt] * Computing value analysis for thread tjob2
+[eva] Analyzing a complete application starting at job2
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  b: read by tjob2 at memcpy.c:32 <- job2
+  d: read by tjob2 at memcpy.c:32 <- job2
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread tjob2
+    concurrent writes:
+    shared bases: {a, b, c, d}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread tjob2 computed
+[mt] ***** Threads computed for iteration 3.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: a; b; c; d
+[mt] tjob1 reads  a ∈ [0..50529027],0%3  // memcpy.c:27 job1
+[mt] Possible read/write data races:
+  b:
+    read by tjob2 at memcpy.c:32, unprotected
+    write by <main> at memcpy.c:50, unprotected
+  a:
+    read by tjob1 at memcpy.c:27, unprotected
+    write by <main> at memcpy.c:49, unprotected
+[mt] Shared memory: a; b
+[mt] Write summary for <main>: a# ∈ {0; 3} repeated %8 
+                            b# ∈ {0; 3} repeated %8
+[mt] Mutexes for concurrent accesses:
+  a  unprotected
+  b  unprotected
+[mt] Detailed shared zones protections
+  b: Read by tjob2, Write by <main>: unprotected
+  a: Read by tjob1, Write by <main>: unprotected
+[mt] Statements needing manual synchronisation
+  memcpy.c:32 (for b)
+[mt] ***** Shared variables computed
+[mt] ******* Analysis performed, 3 iterations

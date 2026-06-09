@@ -1,0 +1,51 @@
+[kernel] Parsing leaf2.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  G ∈ {0}
+  H ∈ {0}
+  I ∈ {0}
+[eva:alarm] leaf2.i:6: Warning: 
+  pointer downcast. assert (unsigned int)(&I) ≤ 2147483647;
+[kernel:annot:missing-spec] leaf2.i:6: Warning: 
+  Neither code nor specification for function f, generating default assigns.
+  See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function f <- main.
+  Called from leaf2.i:6:7-30.
+[eva] using specification for function f
+[eva:garbled-mix:assigns] leaf2.i:6: 
+  The specification of function f has generated a garbled mix of addresses
+  for assigns clause \result.
+[eva:progress] Done for function f
+[eva:alarm] leaf2.i:7: Warning: signed overflow. assert -2147483648 ≤ G + 1;
+[eva:alarm] leaf2.i:7: Warning: signed overflow. assert G + 1 ≤ 2147483647;
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva:garbled-mix:summary] 
+  Origins of garbled mix generated during analysis:
+    leaf2.i:6:7-30: assigns clause on addresses
+      (read in 2 statements, propagated through 2 statements)
+      garbled mix of &{I}
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  G ∈ {{ garbled mix of &{I} (origin: Library function {leaf2.i:6:7-30}) }}
+  H ∈ {{ garbled mix of &{I} (origin: Library function {leaf2.i:6:7-30}) }}
+[from] Computing for function main
+[from] Computing for function f <-main
+[from] Done for function f
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  H FROM q; i; H (and SELF)
+  \result FROM q; i; H
+[from] Function main:
+  G FROM H
+  H FROM H (and SELF)
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    G; H
+[inout] Inputs for function main:
+    G; H

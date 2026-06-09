@@ -1,0 +1,213 @@
+[kernel] Parsing issue-1337-goto-debug.i (no preprocessing)
+[kernel:typing:global] createGlobal: x
+[kernel:typing:global] 
+  makeGlobalVarinfo isadef=true vi.vname=x(21), vreferenced=false
+[kernel:typing:global] x not in the env already
+[kernel:typing:global] first definition for x(21)
+[kernel:typing:global] Definition of f at issue-1337-goto-debug.i:7:6-7
+[kernel:typing:global] 
+  makeGlobalVarinfo isadef=true vi.vname=f(22), vreferenced=false
+[kernel:typing:global] f not in the env already
+[kernel:typing:chunk] 
+  Concat:
+  
+  
+  {}
+  WITH
+  
+  
+  {/*()  <- 
+   Calls:
+   
+   */
+   goto L;}
+  LEADS TO
+  
+  
+  {/*()  <- 
+   Calls:
+   
+   */
+   goto L;}
+[kernel:typing:chunk] 
+  Removing x from chunk
+  /* UNDEFINED ORDER */
+  
+  
+  {}
+[kernel:typing:cast] no cast to perform
+[kernel:typing:cast] no cast to perform
+[kernel:typing:cast] no cast to perform
+[kernel:typing:chunk] 
+  Concat:
+  
+  
+  {}
+  WITH
+  /* UNDEFINED ORDER */
+  
+  
+  {/*() x <- 
+   Calls:
+   
+   */
+   x ++;}
+  LEADS TO
+  
+  
+  {/*() x <- 
+   Calls:
+   
+   */
+   x ++;}
+[kernel:typing:chunk] 
+  Concat:
+  
+  
+  {/*()  <- 
+   Calls:
+   
+   */
+   goto L;}
+  WITH
+  
+  
+  {/*() x <- 
+   Calls:
+   
+   */
+   x ++;}
+  LEADS TO
+  
+  
+  {/*()  <- 
+   Calls:
+   
+   */
+   goto L;;
+   /*() x <- 
+   Calls:
+   
+   */
+   x ++;}
+[kernel:typing:chunk] 
+  Removing x from chunk
+  /* UNDEFINED ORDER */
+  
+  
+  {}
+[kernel:typing:cast] no cast to perform
+[kernel:typing:cast] no cast to perform
+[kernel:typing:cast] no cast to perform
+[kernel:typing:chunk] 
+  Concat:
+  
+  
+  {}
+  WITH
+  /* UNDEFINED ORDER */
+  
+  
+  {/*() x <- 
+   Calls:
+   
+   */
+   x ++;}
+  LEADS TO
+  
+  
+  {/*() x <- 
+   Calls:
+   
+   */
+   x ++;}
+[kernel:typing:chunk] 
+  Concat:
+  
+  
+  {/*()  <- 
+   Calls:
+   
+   */
+   goto L;;
+   /*() x <- 
+   Calls:
+   
+   */
+   x ++;}
+  WITH
+  
+  
+  {/*() x <- 
+   Calls:
+   
+   */
+   L: x ++;}
+  LEADS TO
+  
+  
+  {/*()  <- 
+   Calls:
+   
+   */
+   goto L;;
+   /*() x <- 
+   Calls:
+   
+   */
+   x ++;;
+   /*() x <- 
+   Calls:
+   
+   */
+   L: x ++;}
+[kernel:typing:chunk] 
+  Concat:
+  
+  
+  {/*()  <- 
+   Calls:
+   
+   */
+   goto L;;
+   /*() x <- 
+   Calls:
+   
+   */
+   x ++;;
+   /*() x <- 
+   Calls:
+   
+   */
+   L: x ++;}
+  WITH
+  
+  
+  {/*()  <- 
+   Calls:
+   
+   */
+   return;}
+  LEADS TO
+  
+  
+  {/*()  <- 
+   Calls:
+   
+   */
+   goto L;;
+   /*() x <- 
+   Calls:
+   
+   */
+   x ++;;
+   /*() x <- 
+   Calls:
+   
+   */
+   L: x ++;;
+   /*()  <- 
+   Calls:
+   
+   */
+   return;}

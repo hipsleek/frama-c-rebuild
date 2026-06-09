@@ -1,0 +1,73 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing funcall12.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  global_x ∈ [--..--]
+  global_y ∈ [--..--]
+  secret ∈ [--..--]
+[eva:secure-flow:condition] funcall12.c:23: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:secure-flow:condition] funcall12.c:23: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:alarm] funcall12.c:26: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function func_a <- main.
+  Called from funcall12.c:29.
+[eva:progress] Recording results for func_a
+[eva:progress] Done for function func_a
+[eva:progress] 
+  computing for function func_b <- main.
+  Called from funcall12.c:29.
+[eva:progress] Recording results for func_b
+[eva:progress] Done for function func_b
+[eva:progress] 
+  computing for function func_c <- main.
+  Called from funcall12.c:29.
+[eva] using specification for function func_c
+[eva:progress] Done for function func_c
+[eva:alarm] funcall12.c:30: Warning: 
+  assertion got status invalid (stopping propagation).
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function func_a:
+  
+[eva:final-states] Values at end of function func_b:
+  global_x ∈ {42}
+[eva:final-states] Values at end of function main:
+  NON TERMINATING FUNCTION
+[from] Computing for function func_a
+[from] Done for function func_a
+[from] Computing for function func_b
+[from] Done for function func_b
+[from] Computing for function main
+[from] Computing for function func_c <-main
+[from] Done for function func_c
+[from] Non-terminating function main (no dependencies)
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function func_a:
+  \result FROM a
+[from] Function func_b:
+  global_x FROM b
+  \result FROM b
+[from] Function func_c:
+  \result FROM global_y; c
+[from] Function main:
+  NON TERMINATING - NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function func_a:
+    \nothing
+[inout] Inputs for function func_a:
+    \nothing
+[inout] Out (internal) for function func_b:
+    global_x
+[inout] Inputs for function func_b:
+    \nothing
+[inout] Out (internal) for function main:
+    global_x; ptr; tmp; tmp_0; arg; result; tmp_1
+[inout] Inputs for function main:
+    global_y; secret

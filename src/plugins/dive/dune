@@ -1,0 +1,41 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "Dive:" %{lib-available:frama-c-dive.core} "\n")
+          (echo "  - Studia:" %{lib-available:frama-c-studia.core} "\n")
+          (echo "  - Server:" %{lib-available:frama-c-server.core} "\n")
+          (echo "  - ppx_z_literals:" %{lib-available:frama-c.ppx_z_literals} "\n")
+  )
+  )
+)
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-dive.core})))
+ (action (echo "WARNING: Dive disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+( library
+  (name dive)
+  (optional)
+  (public_name frama-c-dive.core)
+  (flags -open Frama_c_kernel :standard -w -9)
+  (libraries frama-c.kernel frama-c-studia.core frama-c-server.core)
+  (instrumentation (backend landmarks))
+  (instrumentation (backend bisect_ppx))
+  (preprocess (pps frama-c.ppx_z_literals))
+)
+
+(plugin (optional) (name dive) (libraries frama-c-dive.core) (site (frama-c plugins)))

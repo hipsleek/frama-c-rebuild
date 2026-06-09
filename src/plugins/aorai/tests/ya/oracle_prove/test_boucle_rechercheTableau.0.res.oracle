@@ -1,0 +1,3 @@
+[kernel] Parsing test_boucle_rechercheTableau.c (with preprocessing)
+[kernel] Parsing TMPDIR/aorai_test_boucle_rechercheTableau_0_prove.i (no preprocessing)
+[wp] Warning: Missing RTE guards

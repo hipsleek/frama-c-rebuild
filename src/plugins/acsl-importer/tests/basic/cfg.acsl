@@ -1,0 +1,10 @@
+function case_label:
+at D0 : contract: ensures \old(i) == i + 1;
+at d0 : assert \at(i,Pre) + 1 == i;
+at c1 : contract: ensures \old(i) + 1 == i;
+at d1 : assert i == \at(i,D1);
+at D1 : assert i + 1 == \at(i,D0);
+
+function label:
+at L0: contract: ensures import: i ≡ \old(i) + 1;
+at L1: contract: ensures import: i ≡ \old(i) + 1;

@@ -1,0 +1,14 @@
+# frama-c -wp -wp-model 'Hoare' [...]
+[kernel] Parsing wp_call_pre.c (with preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] wp_call_pre.c:18: Warning: 
+  Neither code nor explicit exits, assigns and terminates for function f,
+  generating default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] User Error: Main entry point function 'main' is (potentially) recursive.
+  This case is not supported yet (skipped verification).
+[wp] No proof obligations
+[wp] Deferred error message was emitted during execution:
+  Main entry point function 'main' is (potentially) recursive.
+  This case is not supported yet (skipped verification).
+[kernel] Plug-in wp aborted: invalid user input.

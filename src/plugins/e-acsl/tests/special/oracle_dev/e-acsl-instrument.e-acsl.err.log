@@ -1,0 +1,16 @@
+e-acsl-instrument.c: In function 'instrument2'
+e-acsl-instrument.c:33: Warning: no sound verdict for Precondition (guess: ok).
+	the considered predicate is:
+	\valid(p)
+e-acsl-instrument.c: In function 'uninstrument2'
+e-acsl-instrument.c:17: Warning: no sound verdict for Precondition (guess: ok).
+	the considered predicate is:
+	\valid(p)
+e-acsl-instrument.c: In function 'main'
+e-acsl-instrument.c:61: Warning: no sound verdict for Assertion (guess: ok).
+	the considered predicate is:
+	\initialized(&x)
+e-acsl-instrument.c: In function 'main'
+e-acsl-instrument.c:62: Warning: no sound verdict for Assertion (guess: ok).
+	the considered predicate is:
+	\initialized(&y)

@@ -1,0 +1,20 @@
+# frama-c -wp [...]
+[kernel] Parsing tac_split_quantifiers.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal split_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal split_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 5 goals scheduled
+[wp] [Unsuccess] typed_split_ensures_Goal_Exist_Or (Tactic) (Qed)
+[wp] [Unsuccess] typed_split_ensures_Goal_Exist_And (Tactic) (Qed)
+[wp] [Unsuccess] typed_split_ensures_Goal_Exist_And_bis (Tactic) (Qed)
+[wp] [Unsuccess] typed_split_ensures_Hyp_Forall_And (Tactic) (Qed)
+[wp] [Unsuccess] typed_split_ensures_Hyp_Forall_Or_bis (Tactic) (Qed)
+[wp] Proved goals:    2 / 7
+  Terminating:     1
+  Unreachable:     1
+  Unsuccess:       5
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  split                     2        -        7      28.6%
+------------------------------------------------------------

@@ -1,0 +1,33 @@
+[e-acsl] beginning translation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:446: Warning: 
+  no assigns clause generated for function valid_read_nstring because pointers as arguments is not yet supported
+[e-acsl] FRAMAC_SHARE/libc/__fc_string_axiomatic.h:286: Warning: 
+  no assigns clause generated for function valid_read_string because pointers as arguments is not yet supported
+[e-acsl] FRAMAC_SHARE/libc/__fc_string_axiomatic.h:282: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:455: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:458: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:445: Warning: 
+  Some assumes clauses could not be translated.
+  Ignoring complete and disjoint behaviors annotations.
+[e-acsl] FRAMAC_SHARE/libc/string.h:445: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:456: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] FRAMAC_SHARE/libc/string.h:459: Warning: 
+  E-ACSL construct `logic functions or predicates performing read accesses'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] bts2252.c:18: Warning: 
+  out of bounds read. assert \valid_read(srcbuf + i);

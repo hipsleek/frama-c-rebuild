@@ -1,0 +1,52 @@
+##########################################################################
+#                                                                        #
+#  SPDX-License-Identifier LGPL-2.1                                      #
+#  Copyright (C)                                                         #
+#  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  #
+#                                                                        #
+##########################################################################
+
+# --------------------------------------------------------------------------
+# ---  Packages Definitions for Dome environment                         ---
+# --------------------------------------------------------------------------
+
+DOME_DEV_PACKAGES= \
+	electron@^40 \
+	electron-builder@^26 \
+	electron-vite@^5 \
+	electron-devtools-installer \
+	@types/lodash@^4 \
+	@types/react@^18 \
+	@types/node@^24 \
+	@types/react-dom@^18 \
+	@types/react-virtualized@^9.21.8 \
+	@types/diff@^5 \
+	@types/d3-selection \
+	@types/d3-graphviz \
+	typescript@^5
+
+DOME_APP_PACKAGES= \
+	react@^18 \
+	react-dom@^18 \
+	source-map-support \
+	lodash@^4.17.23 \
+	react-virtualized@9.22.5 \
+	react-draggable \
+	react-fast-compare \
+	diff@^5 \
+	codemirror@5.65.2 \
+	@codemirror/language@6.10.0 \
+    @codemirror/search@6.5.5 \
+    @codemirror/state@6.4.0 \
+    @codemirror/view@6.23.1 \
+	@lezer/cpp@^1 \
+	react-virtualized-auto-sizer@^1.0.22 \
+	react-force-graph-2d@^1.25.4 \
+	react-force-graph-3d@^1.24.2 \
+	d3-selection@^3 \
+	d3-graphviz@^5 \
+	react-markdown@9.0.1 \
+	react-code-blocks@0.1.6 \
+	remark-custom-header-id@1.0.0
+
+# --------------------------------------------------------------------------

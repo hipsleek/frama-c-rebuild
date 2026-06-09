@@ -1,0 +1,300 @@
+// Concatenated dot files. Generate all graphs with `dot -Tpng -O file.dot`
+// They will be named file.dot.png, file.dot.2.png, etc.
+
+// Graph for <main>
+digraph G {
+  fontsize=9;
+  center=1;
+  v266 [URL="#", fillcolor="#00000000", shape=box, color="#00000055",
+        label="Start: main", style="filled", ];
+  v231 [URL="code.html#sid84", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF",
+        label="Call pthread_mutex_init(& lock,(pthread_mutexattr_t const *)0);",
+        style="filled", ];
+  v260 [URL="code.html#sid19", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF",
+        label="int result = Frama_C_mutex_init((__fc_mthread_name)mutex);",
+        style="filled", ];
+  v261 [URL="code.html#sid21", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="if (result > 0)", style="filled", ];
+  v262 [URL="code.html#sid22", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="mutex->_fc = result;", style="filled", ];
+  v263 [URL="code.html#sid23", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="__retres = 0;", style="filled", ];
+  v264 [URL="code.html#sid103", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="goto return_label;", style="filled", ];
+  v265 [URL="code.html#sid106", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v232 [URL="code.html#sid85", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF",
+        label="Call pthread_create(& job1,(pthread_attr_t const *)0,& f1,(void *)(& b));",
+        style="filled", ];
+  v253 [URL="code.html#sid1", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Create thread job1", style="filled", ];
+  v254 [URL="code.html#sid3", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="if (result > 0)", style="filled", ];
+  v255 [URL="code.html#sid4", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="*thread = (pthread_t)result;",
+        style="filled", ];
+  v256 [URL="code.html#sid5", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Start thread job1", style="filled", ];
+  v257 [URL="code.html#sid6", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="__retres = 0;", style="filled", ];
+  v258 [URL="code.html#sid94", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="goto return_label;", style="filled", ];
+  v259 [URL="code.html#sid97", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v233 [URL="code.html#sid86", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF",
+        label="Call pthread_create(& job2,(pthread_attr_t const *)0,& f2,(void *)(& a));",
+        style="filled", ];
+  v246 [URL="code.html#sid1", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Create thread job2", style="filled", ];
+  v247 [URL="code.html#sid3", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="if (result > 0)", style="filled", ];
+  v248 [URL="code.html#sid4", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="*thread = (pthread_t)result;",
+        style="filled", ];
+  v249 [URL="code.html#sid5", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Start thread job2", style="filled", ];
+  v250 [URL="code.html#sid6", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="__retres = 0;", style="filled", ];
+  v251 [URL="code.html#sid94", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="goto return_label;", style="filled", ];
+  v252 [URL="code.html#sid97", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v234 [URL="code.html#sid87", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_lock(& lock);",
+        style="filled", ];
+  v242 [URL="code.html#sid26", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Lock lock", style="filled", ];
+  v243 [URL="code.html#sid28", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="if (result != -1)", style="filled", ];
+  v244 [URL="code.html#sid29", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="tmp_0 = 0;", style="filled", ];
+  v245 [URL="code.html#sid31", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v235 [URL="code.html#sid88", fillcolor="#CCCCFFFF", shape=box,
+        color="#000000FF",
+        label="int r = ((a + b) + c) + v;\nreads a; b; c;\nv",
+        style="filled", ];
+  v236 [URL="code.html#sid89", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_unlock(& lock);",
+        style="filled", ];
+  v238 [URL="code.html#sid40", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Release lock", style="filled", ];
+  v239 [URL="code.html#sid42", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="if (result != -1)", style="filled", ];
+  v240 [URL="code.html#sid43", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="tmp_0 = 0;", style="filled", ];
+  v241 [URL="code.html#sid45", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v237 [URL="code.html#sid91", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="exit", style="filled", ];
+  v230 [URL="#", fillcolor="#FFFFFFFF", shape=plaintext, color="#000000FF",
+        label="", style="invis", ];
+  
+  
+  v266 -> v231 [dir=forward, ];
+  v231 -> v260 [weight=200, dir=forward, ];
+  v260 -> v261 [dir=forward, ];
+  v261 -> v262 [label="then", dir=forward, ];
+  v262 -> v263 [dir=forward, ];
+  v263 -> v264 [dir=forward, ];
+  v264 -> v265 [dir=forward, ];
+  v265 -> v232 [dir=forward, ];
+  v231 -> v265 [weight=1, dir=none, style="dotted", ];
+  v232 -> v253 [weight=200, dir=forward, ];
+  v253 -> v254 [dir=forward, ];
+  v254 -> v255 [label="then", dir=forward, ];
+  v255 -> v256 [dir=forward, ];
+  v256 -> v257 [dir=forward, ];
+  v257 -> v258 [dir=forward, ];
+  v258 -> v259 [dir=forward, ];
+  v259 -> v233 [dir=forward, ];
+  v232 -> v259 [weight=1, dir=none, style="dotted", ];
+  v233 -> v246 [weight=200, dir=forward, ];
+  v246 -> v247 [dir=forward, ];
+  v247 -> v248 [label="then", dir=forward, ];
+  v248 -> v249 [dir=forward, ];
+  v249 -> v250 [dir=forward, ];
+  v250 -> v251 [dir=forward, ];
+  v251 -> v252 [dir=forward, ];
+  v252 -> v234 [dir=forward, ];
+  v233 -> v252 [weight=1, dir=none, style="dotted", ];
+  v234 -> v242 [weight=200, dir=forward, ];
+  v242 -> v243 [dir=forward, ];
+  v243 -> v244 [label="then", dir=forward, ];
+  v244 -> v245 [dir=forward, ];
+  v245 -> v235 [dir=forward, ];
+  v234 -> v245 [weight=1, dir=none, style="dotted", ];
+  v235 -> v236 [dir=forward, ];
+  v236 -> v238 [weight=200, dir=forward, ];
+  v238 -> v239 [dir=forward, ];
+  v239 -> v240 [label="then", dir=forward, ];
+  v240 -> v241 [dir=forward, ];
+  v241 -> v237 [dir=forward, ];
+  v236 -> v241 [weight=1, dir=none, style="dotted", ];
+  v237 -> v230 [dir=forward, ];
+  
+  }
+
+// Graph for job1
+digraph G {
+  fontsize=9;
+  center=1;
+  v209 [URL="#", fillcolor="#00000000", shape=box, color="#00000055",
+        label="Start: f1", style="filled", ];
+  v191 [URL="code.html#sid66", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_lock(& lock);",
+        style="filled", ];
+  v205 [URL="code.html#sid26", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Lock lock", style="filled", ];
+  v206 [URL="code.html#sid28", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="if (result != -1)", style="filled", ];
+  v207 [URL="code.html#sid29", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="tmp_0 = 0;", style="filled", ];
+  v208 [URL="code.html#sid31", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v192 [URL="code.html#sid67", fillcolor="#CCCCFFFF", shape=box,
+        color="#000000FF", label="a = 1;\nwrites a", style="filled", ];
+  v193 [URL="code.html#sid68", fillcolor="#CCCCFFFF", shape=box,
+        color="#000000FF", label="*((int *)p) = 1;\nwrites b",
+        style="filled", ];
+  v194 [URL="code.html#sid69", fillcolor="#CCCCFFFF", shape=box,
+        color="#000000FF", label="c = 1;\nwrites c", style="filled", ];
+  v195 [URL="code.html#sid70", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call g1();", style="filled", ];
+  v204 [URL="code.html#sid70", fillcolor="#CCCCFFFF", shape=diamond,
+        color="#000000FF", label="writes v", style="filled", ];
+  v196 [URL="code.html#sid71", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_unlock(& lock);",
+        style="filled", ];
+  v200 [URL="code.html#sid40", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Release lock", style="filled", ];
+  v201 [URL="code.html#sid42", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="if (result != -1)", style="filled", ];
+  v202 [URL="code.html#sid43", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="tmp_0 = 0;", style="filled", ];
+  v203 [URL="code.html#sid45", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v197 [URL="code.html#sid72", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="e = 1;", style="filled", ];
+  v198 [URL="code.html#sid73", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="__retres = (void *)0;", style="filled", ];
+  v199 [URL="code.html#sid120", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="exit", style="filled", ];
+  v190 [URL="#", fillcolor="#FFFFFFFF", shape=plaintext, color="#000000FF",
+        label="", style="invis", ];
+  
+  
+  v209 -> v191 [dir=forward, ];
+  v191 -> v205 [weight=200, dir=forward, ];
+  v205 -> v206 [dir=forward, ];
+  v206 -> v207 [label="then", dir=forward, ];
+  v207 -> v208 [dir=forward, ];
+  v208 -> v192 [dir=forward, ];
+  v191 -> v208 [weight=1, dir=none, style="dotted", ];
+  v192 -> v193 [dir=forward, ];
+  v193 -> v194 [dir=forward, ];
+  v194 -> v195 [dir=forward, ];
+  v195 -> v204 [weight=200, dir=none, ];
+  v204 -> v196 [dir=forward, ];
+  v196 -> v200 [weight=200, dir=forward, ];
+  v200 -> v201 [dir=forward, ];
+  v201 -> v202 [label="then", dir=forward, ];
+  v202 -> v203 [dir=forward, ];
+  v203 -> v197 [dir=forward, ];
+  v196 -> v203 [weight=1, dir=none, style="dotted", ];
+  v197 -> v198 [dir=forward, ];
+  v198 -> v199 [dir=forward, ];
+  v199 -> v190 [dir=forward, ];
+  
+  }
+
+// Graph for job2
+digraph G {
+  fontsize=9;
+  center=1;
+  v229 [URL="#", fillcolor="#00000000", shape=box, color="#00000055",
+        label="Start: f2", style="filled", ];
+  v211 [URL="code.html#sid75", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_lock(& lock);",
+        style="filled", ];
+  v225 [URL="code.html#sid26", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Lock lock", style="filled", ];
+  v226 [URL="code.html#sid28", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="if (result != -1)", style="filled", ];
+  v227 [URL="code.html#sid29", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="tmp_0 = 0;", style="filled", ];
+  v228 [URL="code.html#sid31", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v212 [URL="code.html#sid76", fillcolor="#CCCCFFFF", shape=box,
+        color="#000000FF", label="b = 2;\nwrites b", style="filled", ];
+  v213 [URL="code.html#sid77", fillcolor="#CCCCFFFF", shape=box,
+        color="#000000FF", label="*((int *)p) = 2;\nwrites a",
+        style="filled", ];
+  v214 [URL="code.html#sid78", fillcolor="#CCCCFFFF", shape=box,
+        color="#000000FF", label="c = 2;\nwrites c", style="filled", ];
+  v215 [URL="code.html#sid79", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call g2();", style="filled", ];
+  v224 [URL="code.html#sid79", fillcolor="#CCCCFFFF", shape=diamond,
+        color="#000000FF", label="writes v", style="filled", ];
+  v216 [URL="code.html#sid80", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_unlock(& lock);",
+        style="filled", ];
+  v220 [URL="code.html#sid40", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Release lock", style="filled", ];
+  v221 [URL="code.html#sid42", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="if (result != -1)", style="filled", ];
+  v222 [URL="code.html#sid43", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="tmp_0 = 0;", style="filled", ];
+  v223 [URL="code.html#sid45", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v217 [URL="code.html#sid81", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="d = 2;", style="filled", ];
+  v218 [URL="code.html#sid82", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="__retres = (void *)0;", style="filled", ];
+  v219 [URL="code.html#sid122", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="exit", style="filled", ];
+  v210 [URL="#", fillcolor="#FFFFFFFF", shape=plaintext, color="#000000FF",
+        label="", style="invis", ];
+  
+  
+  v229 -> v211 [dir=forward, ];
+  v211 -> v225 [weight=200, dir=forward, ];
+  v225 -> v226 [dir=forward, ];
+  v226 -> v227 [label="then", dir=forward, ];
+  v227 -> v228 [dir=forward, ];
+  v228 -> v212 [dir=forward, ];
+  v211 -> v228 [weight=1, dir=none, style="dotted", ];
+  v212 -> v213 [dir=forward, ];
+  v213 -> v214 [dir=forward, ];
+  v214 -> v215 [dir=forward, ];
+  v215 -> v224 [weight=200, dir=none, ];
+  v224 -> v216 [dir=forward, ];
+  v216 -> v220 [weight=200, dir=forward, ];
+  v220 -> v221 [dir=forward, ];
+  v221 -> v222 [label="then", dir=forward, ];
+  v222 -> v223 [dir=forward, ];
+  v223 -> v217 [dir=forward, ];
+  v216 -> v223 [weight=1, dir=none, style="dotted", ];
+  v217 -> v218 [dir=forward, ];
+  v218 -> v219 [dir=forward, ];
+  v219 -> v210 [dir=forward, ];
+  
+  }
+
+// Graph for thread_inheritance_graph
+digraph G {
+  "<main>" [label="<main>", ];
+  "job1" [label="job1", ];
+  "job2" [label="job2", ];
+  
+  
+  edge [style="solid", ];
+  "<main>" -> "job1";
+  "<main>" -> "job2";
+  
+  }
+

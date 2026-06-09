@@ -1,0 +1,39 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing jump7.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  secret ∈ [--..--]
+  c1 ∈ [--..--]
+  c2 ∈ [--..--]
+  x1 ∈ {0}
+  x2 ∈ {0}
+  x3 ∈ {0}
+[eva:secure-flow:condition] jump7.c:14: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:alarm] jump7.c:26: Warning: assertion got status unknown.
+[eva:alarm] jump7.c:27: Warning: assertion got status unknown.
+[eva:alarm] jump7.c:28: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  x1 ∈ {0; 1}
+  x2 ∈ {0; 2}
+  x3 ∈ {0; 3}
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  x1 FROM secret (and SELF)
+  x2 FROM secret; c1 (and SELF)
+  x3 FROM secret; c1; c2 (and SELF)
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    x1; x2; x3; __retres
+[inout] Inputs for function main:
+    secret; c1; c2

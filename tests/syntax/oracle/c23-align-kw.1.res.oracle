@@ -1,0 +1,11 @@
+[kernel] Parsing c23-align-kw.c (with preprocessing)
+[kernel] c23-align-kw.c:11: 
+  syntax error:
+  Location: "c23-align-kw.c", line 11, before or at token: alignof
+  9     void f(void){
+  10    #ifdef ALIGNOF
+  11      int alignof = 42;
+             ^
+  12    #endif
+  13    #ifdef ALIGNAS
+[kernel] Frama-C aborted: invalid user input.

@@ -1,0 +1,24 @@
+int const
+int
+
+int const *
+int *
+
+int const []
+int []
+
+int const (*)[]
+int (*)[]
+
+int const *[]
+int *[]
+
+int const * const *
+int **
+
+int const * const *(int const (*x)[])
+int **(int (*x)[])
+
+int const *(int const *x, int const * const *y)
+int *(int *x, int **y)
+

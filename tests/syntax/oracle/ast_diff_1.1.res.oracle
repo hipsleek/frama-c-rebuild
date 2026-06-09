@@ -1,0 +1,48 @@
+[kernel] Parsing ast_diff_1.i (no preprocessing)
+[kernel] Parsing ast_diff_2.c (with preprocessing)
+[kernel] Parsing ast_diff_1.i (no preprocessing)
+[adt] Showing correspondences between orig_default and default
+[adt] Variable X:  => X
+[adt] Variable Y: N/A
+[adt] Variable a:  => q
+[adt] Variable c:  => c
+[adt] Variable c:  => c
+[adt] Variable decl:  => decl
+[adt] Variable f:  => f
+[adt] Variable g:  => g
+[adt] Variable h:  => h
+[adt] Variable has_static_local:  => has_static_local
+[adt] Variable has_static_local_x:  => has_static_local_y
+[adt] Variable i:  => i
+[adt] Variable i_0:  => i_0
+[adt] Variable local_var_use:  => local_var_use
+[adt] Variable ptr_func:  => ptr_func
+[adt] Variable s: N/A
+[adt] Variable se:  => se
+[adt] Variable use_logic_builtin:  => use_logic_builtin
+[adt] Variable use_s: N/A
+[adt] Variable used_in_decl:  => used_in_decl
+[adt] Variable v:  => w
+[adt] Variable with_goto_changed:  => with_goto_changed
+[adt] Variable with_goto_unchanged:  => with_goto_unchanged
+[adt] Variable with_loop_unroll_diff:  => with_loop_unroll_diff
+[adt] Variable with_loop_unroll_same:  => with_loop_unroll_same
+[adt] Variable x:  => x
+[adt] Variable x:  => z
+[adt] Variable x:  => x
+[adt] Variable y:  => t
+[adt] Variable y:  => y
+[adt] Function decl:  => decl
+[adt] Function f:  => f
+[adt] Function g: N/A
+[adt] Function h: -> h (body changed)
+[adt] Function has_static_local:  => has_static_local
+[adt] Function i:  => i
+[adt] Function local_var_use:  => local_var_use
+[adt] Function se: -> se (body changed)
+[adt] Function use_logic_builtin:  => use_logic_builtin
+[adt] Function use_s: N/A
+[adt] Function with_goto_changed: -> with_goto_changed (body changed)
+[adt] Function with_goto_unchanged:  => with_goto_unchanged
+[adt] Function with_loop_unroll_diff: -> with_loop_unroll_diff (body changed)
+[adt] Function with_loop_unroll_same:  => with_loop_unroll_same

@@ -1,0 +1,5 @@
+[kernel] Parsing parse-and-typing-only.i (no preprocessing)
+[kernel:annot-error] parse-and-typing-only.acsl:1: Failure: 
+  could not find function zz for ACSL importer.
+[kernel] User Error: warning annot-error treated as fatal error.
+[kernel] Frama-C aborted: invalid user input.

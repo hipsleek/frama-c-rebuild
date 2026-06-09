@@ -1,0 +1,6 @@
+[e-acsl] beginning translation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] bts2231.i:8: Warning: 
+  signed overflow. assert -9223372036854775808 <= __gen_e_acsl_mul_2 - 1;
+[eva:alarm] bts2231.i:8: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.

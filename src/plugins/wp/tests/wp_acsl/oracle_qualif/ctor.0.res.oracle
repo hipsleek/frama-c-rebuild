@@ -1,0 +1,12 @@
+# frama-c -wp [...]
+[kernel] Parsing ctor.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] 2 goals scheduled
+[wp] [Valid] typed_lemma_cons (Qed)
+[wp] [Valid] typed_lemma_diff (Qed)
+[wp] Proved goals:    2 / 2
+  Qed:             2
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Axiomatic Event           2        -        2       100%
+------------------------------------------------------------

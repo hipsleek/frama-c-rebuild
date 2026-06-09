@@ -1,0 +1,9 @@
+14c14
+< [eva:progress] loop4.c:29: assertion got status valid.
+---
+> [eva:partition] loop4.c:17: starting to merge loop iterations
+17,18d16
+< [eva:progress] loop4.c:30: assertion got status valid.
+< [eva:progress] loop4.c:31: assertion got status valid.
+21d18
+< [eva:progress] loop4.c:32: assertion got status valid.

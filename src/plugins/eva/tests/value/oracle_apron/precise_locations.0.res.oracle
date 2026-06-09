@@ -1,0 +1,126 @@
+33,36c33,52
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+---
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+38,43c54,83
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+---
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+558,567c598,647
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+< [eva:progress] precise_locations.i:39: Reusing old results for call to ct
+---
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct
+> [eva:progress] 
+>   computing for function ct <- main.
+>   Called from precise_locations.i:39:20-24.
+> [eva:progress] Recording results for ct
+> [eva:progress] Done for function ct

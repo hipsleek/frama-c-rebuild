@@ -1,0 +1,7 @@
+include "file2.acsl" ;
+function main:
+contract:
+requires includes_file1:\true ;
+
+function main:
+include "file3.acsl" ;

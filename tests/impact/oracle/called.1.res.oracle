@@ -1,0 +1,24 @@
+[kernel] Parsing called.i (no preprocessing)
+[impact] beginning analysis
+[eva] Analyzing an incomplete application starting at h
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  X ∈ [--..--]
+[eva:progress] 
+  computing for function f <- h.
+  Called from called.i:25:7-13.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] called.i:27: Reusing old results for call to f
+[eva:progress] Recording results for h
+[eva:progress] Done for function h
+[pdg] computing for function h
+[from] Computing for function f
+[from] Done for function f
+[pdg] done for function h
+[pdg] computing for function f
+[pdg] done for function f
+[impact] impacted statements of stmt(s) 14 are:
+    called.i:8:30-39 (sid 3): return y;called.i:25:7-13 (sid 16): c = f(a,b);
+[impact] analysis done

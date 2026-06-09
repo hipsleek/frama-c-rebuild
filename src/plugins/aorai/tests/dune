@@ -1,0 +1,7 @@
+; Used by the ptests directive `LIBS: ../../Aorai_test` in `tests_config` files.
+(library
+ (name Aorai_test)
+ (modules Aorai_test)
+ (libraries frama-c.init frama-c.boot frama-c.kernel frama-c-wp.core)
+ (flags -open Frama_c_kernel)
+)

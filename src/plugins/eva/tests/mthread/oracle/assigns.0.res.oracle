@@ -1,0 +1,357 @@
+[kernel] Expanding arguments from mthread_test_options.txt
+[mt] Preparing sources for Mthread with lib pthreads
+[kernel] Parsing FRAMAC_SHARE/mt/mthread.c (with preprocessing)
+[kernel] Parsing FRAMAC_SHARE/mt/mthread_pthread.c (with preprocessing)
+[kernel] Parsing assigns.c (with preprocessing)
+[mt] Warning: Mthread is an experimental plugin and is still in development.
+[mt] ******* Starting mthread
+[eva] Found concurrency builtins: enabling mthread domain
+[mt] *** Computing value analysis for main thread
+[eva] Analyzing a complete application starting at main
+[mt] New thread: <main>, fun main
+[mt] assigns.c:30: New thread: jobs1, fun f1, parent <main>, args {0}
+[mt] assigns.c:30: Start thread jobs1
+[mt] assigns.c:31: New thread: jobs2, fun f2, parent <main>, args {0}
+[mt] assigns.c:31: Start thread jobs2
+[mt] *** First value analysis for main thread done.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  jobs1:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: assigns.c:30 <- main
+  jobs2:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: assigns.c:31 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] ******* Starting to iterate
+[mt] ***** Iteration 1
+[mt] *** Computing thread jobs1, iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs1
+[eva] Analyzing a complete application starting at f1
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of f1 for thread jobs1
+[eva] using specification for function g1
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  a: write by jobs1 at assigns.c:20 <- f1
+  b: read by jobs1 at assigns.c:20 <- f1
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs1
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs1 computed
+[mt] *** Computing thread jobs2, iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs2
+[eva] Analyzing a complete application starting at f2
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of f2 for thread jobs2
+[eva] using specification for function g2
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  a: read by jobs2 at assigns.c:25 <- f2
+  b: write by jobs2 at assigns.c:25 <- f2
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs2
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs2 computed
+[mt] ***** Threads computed for iteration 1.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: a; b
+[mt] Concurrent imprecise accesses have changed: before
+    \nothing
+  vs.
+    a; b
+[mt] Possible read/write data races:
+  none
+[mt] Shared memory: \nothing
+[mt] Mutexes for concurrent accesses:
+[mt] Detailed shared zones protections
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 2
+[mt] *** Computing thread <main>, iteration 2 (potential shared vars changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[mt] Thread <main>, fun main
+[mt] assigns.c:30: Thread jobs1, fun f1, parent <main>, args {0}
+[mt] assigns.c:31: Thread jobs2, fun f2, parent <main>, args {0}
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  jobs1:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: assigns.c:30 <- main
+  jobs2:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: assigns.c:31 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {a, b}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread jobs1, iteration 2 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs1
+[eva] Analyzing a complete application starting at f1
+[eva] Initial state supplied by user
+[eva:interferences] assigns.c:20: inject threads interferences at this point
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  a: write by jobs1 at assigns.c:20 <- f1
+  b: read by jobs1 at assigns.c:20 <- f1
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs1
+    concurrent writes:
+      g1(); assigns.c:20 <- f1
+    shared bases: {a, b}
+    interferences by location:
+      assigns.c:20:
+        # cvalue: a ∈ [--..--]
+                  b ∈ {0} 
+    interferences by mutexes:
+      {}:
+        # cvalue: a ∈ [--..--]
+                  b ∈ {0}
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs1 computed
+[mt] *** Computing thread jobs2, iteration 2 (potential shared vars changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs2
+[eva] Analyzing a complete application starting at f2
+[eva] Initial state supplied by user
+[eva:interferences] assigns.c:25: inject threads interferences at this point
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  a: read by jobs2 at assigns.c:25 <- f2
+  b: write by jobs2 at assigns.c:25 <- f2
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs2
+    concurrent writes:
+      g2(); assigns.c:25 <- f2
+    shared bases: {a, b}
+    interferences by location:
+      assigns.c:25:
+        # cvalue: a ∈ [--..--]
+                  b ∈ [--..--] 
+    interferences by mutexes:
+      {}:
+        # cvalue: a ∈ [--..--]
+                  b ∈ [--..--]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs2 computed
+[mt] ***** Threads computed for iteration 2.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: a; b
+[mt] jobs2 reads  a ∈ [--..--]  // assigns.c:25 g2 :: assigns.c:25 <- f2
+[mt] jobs1 reads  b ∈ {0}  // assigns.c:20 g1 :: assigns.c:20 <- f1
+[mt] jobs1 writes  a ∈ [--..--]  // assigns.c:20 g1 :: assigns.c:20 <- f1
+[mt] jobs2 writes  b ∈ [--..--]  // assigns.c:25 g2 :: assigns.c:25 <- f2
+[mt] Possible read/write data races:
+  b:
+    read by jobs1 at assigns.c:20, unprotected
+    write by jobs2 at assigns.c:25, unprotected
+  a:
+    read by jobs2 at assigns.c:25, unprotected
+    write by jobs1 at assigns.c:20, unprotected
+[mt] Shared memory: a; b
+[mt] Concurrent precise var accesses have changed: before
+    \nothing
+  vs.
+    a; b
+[mt] Write summary for jobs1 (updated): a ∈ [--..--]
+[mt] Write summary for jobs2 (updated): b ∈ [--..--]
+[mt] Mutexes for concurrent accesses:
+  a  unprotected
+  b  unprotected
+[mt] Detailed shared zones protections
+  b: Read by jobs1, Write by jobs2: unprotected
+  a: Read by jobs2, Write by jobs1: unprotected
+[mt] Statements needing manual synchronisation
+  assigns.c:25 (for a)
+  assigns.c:20 (for b)
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 3
+[mt] *** Computing thread <main>, iteration 3 (interferences changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[mt] assigns.c:31: New context for jobs2, fun f2, parent <main>, args {0}
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  jobs1:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: assigns.c:30 <- main
+  jobs2:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: assigns.c:31 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {a, b}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] *** Computing thread jobs1, iteration 3 (shared vars values changed and
+    interferences changed)
+[mt] * Computing value analysis for thread jobs1
+[eva] Analyzing a complete application starting at f1
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  a: write by jobs1 at assigns.c:20 <- f1
+  b: read by jobs1 at assigns.c:20 <- f1
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs1
+    concurrent writes:
+      g1(); assigns.c:20 <- f1
+    shared bases: {a, b}
+    interferences by location:
+      assigns.c:20:
+        # cvalue: a ∈ [--..--]
+                  b ∈ [--..--] 
+    interferences by mutexes:
+      {}:
+        # cvalue: a ∈ [--..--]
+                  b ∈ [--..--]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs1 computed
+[mt] *** Computing thread jobs2, iteration 3 (shared vars values changed, thread
+    initial memory state changed and interferences changed)
+[mt] * Computing value analysis for thread jobs2
+[eva] Analyzing a complete application starting at f2
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  a: read by jobs2 at assigns.c:25 <- f2
+  b: write by jobs2 at assigns.c:25 <- f2
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs2
+    concurrent writes:
+      g2(); assigns.c:25 <- f2
+    shared bases: {a, b}
+    interferences by location:
+      assigns.c:25:
+        # cvalue: a ∈ [--..--]
+                  b ∈ [--..--] 
+    interferences by mutexes:
+      {}:
+        # cvalue: a ∈ [--..--]
+                  b ∈ [--..--]
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs2 computed
+[mt] ***** Threads computed for iteration 3.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: a; b
+[mt] jobs1 reads  b ∈ [--..--]  // assigns.c:20 g1 :: assigns.c:20 <- f1
+[mt] Possible read/write data races:
+  b:
+    read by jobs1 at assigns.c:20, unprotected
+    write by jobs2 at assigns.c:25, unprotected
+  a:
+    read by jobs2 at assigns.c:25, unprotected
+    write by jobs1 at assigns.c:20, unprotected
+[mt] Shared memory: a; b
+[mt] Write summary for jobs1: a ∈ [--..--]
+[mt] Write summary for jobs2: b ∈ [--..--]
+[mt] Mutexes for concurrent accesses:
+  a  unprotected
+  b  unprotected
+[mt] Detailed shared zones protections
+  b: Read by jobs1, Write by jobs2: unprotected
+  a: Read by jobs2, Write by jobs1: unprotected
+[mt] Statements needing manual synchronisation
+  assigns.c:25 (for a)
+  assigns.c:20 (for b)
+[mt] ***** Shared variables computed
+[mt] ***** Iteration 4
+[mt] *** Computing thread <main>, iteration 4 (interferences changed)
+[mt] * Computing value analysis for thread <main>
+[eva] Analyzing a complete application starting at main
+[eva] Initial state supplied by user
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  jobs1:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: assigns.c:30 <- main
+  jobs2:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: assigns.c:31 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {a, b}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] ***** Threads computed for iteration 4.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: a; b
+[mt] Possible read/write data races:
+  b:
+    read by jobs1 at assigns.c:20, unprotected
+    write by jobs2 at assigns.c:25, unprotected
+  a:
+    read by jobs2 at assigns.c:25, unprotected
+    write by jobs1 at assigns.c:20, unprotected
+[mt] Shared memory: a; b
+[mt] Write summary for jobs1: a ∈ [--..--]
+[mt] Write summary for jobs2: b ∈ [--..--]
+[mt] Mutexes for concurrent accesses:
+  a  unprotected
+  b  unprotected
+[mt] Detailed shared zones protections
+  b: Read by jobs1, Write by jobs2: unprotected
+  a: Read by jobs2, Write by jobs1: unprotected
+[mt] Statements needing manual synchronisation
+  assigns.c:25 (for a)
+  assigns.c:20 (for b)
+[mt] ***** Shared variables computed
+[mt] ******* Analysis performed, 4 iterations

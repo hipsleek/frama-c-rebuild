@@ -1,0 +1,4 @@
+[kernel] Parsing alignas_typing_constrains.c (with preprocessing)
+[kernel] alignas_typing_constrains.c:109: User Error: 
+  Invalid _Alignas(2): shall not reduce original alignof(double): 4
+[kernel] Frama-C aborted: invalid user input.

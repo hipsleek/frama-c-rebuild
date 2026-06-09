@@ -1,0 +1,11 @@
+/VERSION
+/VERSION_CODENAME
+/volatile.pdf
+/*.log-file
+/main.pdf
+/main.fdb_latexmk
+/logos
+/anr-logo.png
+/fc-macros.tex
+.make-class
+/frama-c-book.cls

@@ -1,0 +1,2 @@
+[kernel] Parsing fc_libc.c (with preprocessing)
+[kernel] All non-variadic functions in Frama-C's libc headers have assigns!

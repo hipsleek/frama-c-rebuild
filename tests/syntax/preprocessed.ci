@@ -1,0 +1,6 @@
+/* run.config
+ENABLED_IF: %{bin-available:gcc}
+OPT: -cpp-command="gcc -C -E -DFOO=42" -print
+*/
+/*@ ensures \result == FOO; */
+int foo() { int FOO = 42; return FOO; }

@@ -1,0 +1,7 @@
+PLUGIN: eva,inout,scope
+
+COMMENT: No generation of dot files in alternative configuration.
+MACRO: LOG_MT_DOT_FILES_FILENAME
+MACRO: LOG_MT_DOT_FILES_OPTS
+
+OPT: -commands-file %{dep:mthread_test_options.txt} -eva-domains bitwise

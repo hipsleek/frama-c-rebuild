@@ -1,0 +1,7 @@
+PLUGIN: aorai eva,from,scope report wp,rtegen
+
+COMMENT: Path to the library from the test file
+LIBS: @PTEST_SUITE_DIR@/../Aorai_test
+
+DEPS: env_var:FRAMAC_WP_CACHEDIR env_var:FRAMAC_WP_CACHE
+OPT: -constfold -aorai-test-prove-aux-spec -aorai-test-id @PTEST_NUMBER@@PTEST_CONFIG@

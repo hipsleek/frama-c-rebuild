@@ -1,0 +1,59 @@
+[kernel] Parsing quantifier.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  t[0..9] ∈ {0}
+  x ∈ [--..--]
+  nondet ∈ [--..--]
+[eva:progress] quantifier.c:20: check 'true' got status valid.
+[eva:progress] quantifier.c:21: check 'true' got status valid.
+[eva:alarm] quantifier.c:22: Warning: check 'false' got status invalid.
+[eva:alarm] quantifier.c:23: Warning: check 'false' got status invalid.
+[eva:alarm] quantifier.c:24: Warning: check 'unknown' got status unknown.
+[eva:alarm] quantifier.c:25: Warning: check 'unknown' got status unknown.
+[eva:progress] quantifier.c:33: check 'true' got status valid.
+[eva:alarm] quantifier.c:34: Warning: check 'false' got status invalid.
+[eva:progress] quantifier.c:35: check 'true' got status valid.
+[eva:progress] quantifier.c:36: check 'true' got status valid.
+[eva:alarm] quantifier.c:37: Warning: check 'false' got status invalid.
+[eva:alarm] quantifier.c:39: Warning: check 'unknown' got status unknown.
+[eva:alarm] quantifier.c:40: Warning: check 'unknown' got status unknown.
+[eva:progress] quantifier.c:44: check 'true' got status valid.
+[eva:alarm] quantifier.c:45: Warning: check 'false' got status unknown.
+[eva:alarm] quantifier.c:46: Warning: check 'true' got status unknown.
+[eva:alarm] quantifier.c:47: Warning: check 'true' got status unknown.
+[eva:alarm] quantifier.c:48: Warning: check 'false' got status invalid.
+[eva:alarm] quantifier.c:50: Warning: check 'unknown' got status unknown.
+[eva:alarm] quantifier.c:51: Warning: check 'unknown' got status unknown.
+[eva:progress] quantifier.c:59: check 'true' got status valid.
+[eva:alarm] quantifier.c:60: Warning: check 'unknown' got status unknown.
+[eva:alarm] quantifier.c:61: Warning: check 'false' got status invalid.
+[eva:progress] quantifier.c:62: check 'true' got status valid.
+[eva:alarm] quantifier.c:63: Warning: check 'unknown' got status unknown.
+[eva:alarm] quantifier.c:64: Warning: check 'false' got status invalid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  t[0] ∈ {0}
+   [1] ∈ {0; 1}
+   [2] ∈ {0; 1; 2}
+   [3] ∈ {0; 1; 2; 3}
+   [4] ∈ {0; 1; 2; 3; 4}
+   [5] ∈ {0; 1; 2; 3; 4; 5}
+   [6] ∈ {0; 1; 2; 3; 4; 5; 6}
+   [7] ∈ {0; 1; 2; 3; 4; 5; 6; 7}
+   [8] ∈ [0..8]
+   [9] ∈ [0..9]
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  t[0..9] FROM nondet (and SELF)
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    t[0..9]; k; k_0
+[inout] Inputs for function main:
+    nondet

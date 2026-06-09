@@ -1,0 +1,6 @@
+PLUGIN: wp
+MACRO: WP_SESSION @PTEST_DIR@/@PTEST_NAME@.@PTEST_NUMBER@.session@PTEST_CONFIG@
+MACRO: USING_WP_SESSION -wp-session @WP_SESSION@
+COMMENT: no need of "-wp-share" in Dune -> Dune finds it automatically
+CMD: @frama-c@ -wp -wp-par 1 -wp-prover none -wp-print -wp-msg-key shell -wp-warn-key "pedantic-assigns=inactive"
+OPT:

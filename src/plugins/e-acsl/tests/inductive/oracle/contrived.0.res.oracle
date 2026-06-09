@@ -1,0 +1,63 @@
+[e-acsl] beginning translation.
+[e-acsl:analysis:inductive] 
+  extracting predicate from use_multimode using mode: complete
+[e-acsl:analysis:inductive] 
+  extracting function from multimode with mode: incomplete in 2
+[e-acsl:analysis:inductive] 
+  extracting function from multimode with mode: incomplete in 3
+[e-acsl] Warning: Negative verdicts of use_multimode might be unsound
+[e-acsl:analysis:inductive] 
+  extracting predicate from simple_complex_argument using mode: complete
+[e-acsl:analysis:inductive] 
+  extracting predicate from conds using mode: incomplete in 3
+[e-acsl:analysis:inductive] 
+  extracting function from conds with mode: incomplete in 3
+[e-acsl] Warning: Negative verdicts of conds might be unsound
+[e-acsl:analysis:inductive] 
+  extracting predicate from use_var_bind_and_subst using mode: complete
+[e-acsl:analysis:inductive] 
+  extracting predicate from fibo using mode: incomplete in 2
+[e-acsl:analysis:inductive] 
+  extracting function from fibo with mode: incomplete in 2
+[e-acsl] Warning: Negative verdicts of fibo might be unsound
+[e-acsl:analysis:inductive] 
+  extracting predicate from use_var_use_bind_and_subst using mode: complete
+[e-acsl:analysis:inductive] 
+  extracting predicate from bind_twice using mode: incomplete in 3
+[e-acsl:analysis:inductive] 
+  extracting function from bind_twice with mode: incomplete in 3
+[e-acsl] Warning: Negative verdicts of bind_twice might be unsound
+[e-acsl:analysis:inductive] 
+  extracting predicate from subst_let using mode: complete
+[e-acsl:analysis:inductive] 
+  extracting predicate from dupl using mode: incomplete in 2
+[e-acsl:analysis:inductive] 
+  extracting function from dupl with mode: incomplete in 2
+[e-acsl] Warning: Negative verdicts of dupl might be unsound
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] contrived.c:77: Warning: assertion got status unknown.
+[eva:alarm] contrived.c:78: Warning: assertion got status unknown.
+[eva:alarm] contrived.c:79: Warning: assertion got status unknown.
+[eva] contrived.c:31: Warning: 
+  Using specification of function __gen_e_acsl_conds_fun3_2
+  for recursive calls of depth 5.
+  Analysis of function __gen_e_acsl_conds_fun3_2 is thus incomplete
+  and its soundness relies on the written specification.
+[eva] contrived.c:31: Warning: 
+  Using specification of function __gen_e_acsl_conds_fun3
+  for recursive calls of depth 5. Analysis of function __gen_e_acsl_conds_fun3
+  is thus incomplete and its soundness relies on the written specification.
+[eva:alarm] contrived.c:30: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] contrived.c:80: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] contrived.c:80: Warning: assertion got status unknown.
+[eva:alarm] contrived.c:81: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] contrived.c:81: Warning: assertion got status unknown.
+[eva:alarm] contrived.c:82: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] contrived.c:82: Warning: assertion got status unknown.
+[eva:alarm] contrived.c:83: Warning: assertion got status unknown.
+[eva:alarm] contrived.c:84: Warning: assertion got status unknown.
+[eva:alarm] contrived.c:85: Warning: assertion got status unknown.

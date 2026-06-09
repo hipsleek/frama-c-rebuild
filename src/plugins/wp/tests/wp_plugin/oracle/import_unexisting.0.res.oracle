@@ -1,0 +1,6 @@
+# frama-c -wp [...]
+[kernel] Parsing import_unexisting.i (no preprocessing)
+[wp] User Error: Library Module not found
+[wp] Deferred error message was emitted during execution:
+  Library Module not found
+[kernel] Plug-in wp aborted: invalid user input.

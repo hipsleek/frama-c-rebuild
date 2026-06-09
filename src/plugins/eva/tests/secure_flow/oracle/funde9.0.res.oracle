@@ -1,0 +1,41 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing funde9.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  a ∈ {0}
+[eva:progress] 
+  computing for function f <- main.
+  Called from funde9.c:20.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] funde9.c:21: Reusing old results for call to f
+[eva:progress] funde9.c:22: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function f:
+  
+[eva:final-states] Values at end of function main:
+  c ∈ {0}
+  __retres ∈ {0}
+[from] Computing for function f
+[from] Done for function f
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  \result FROM a
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function f:
+    \nothing
+[inout] Inputs for function f:
+    a
+[inout] Out (internal) for function main:
+    c; __retres
+[inout] Inputs for function main:
+    a

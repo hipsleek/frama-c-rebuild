@@ -1,0 +1,24 @@
+[kernel] Parsing attributes.i (no preprocessing)
+[region] attributes.i:29: Warning: garbage has no object to apply on
+[region] Function job_disjoint:
+  R0001: -R-- n (int) 32b (singleton) ;
+  R0002: -R-- p (int *) 64b (*R0003) (singleton) ;
+  R0003: --WA A: (int) 32b A: p[0..n - 1], nullable, garbage (nullable)
+    (garbage) ;
+  R0004: -R-- q (int *) 64b (*R0005) (singleton) ;
+  R0005: -R-A B: (int) 32b B: q[0..n - 1], nullable, readonly (nullable)
+    (readonly) ;
+  R0006: IRW- k (int) 32b (singleton) (allocated) ;
+  R0007: -RW- __retres (int) 32b (singleton) (allocated) ;
+  R0008: --W- \result (int) 32b ;
+[region] annotating function job_disjoint
+[region] Function job_merged:
+  R0001: -R-- n (int) 32b (singleton) ;
+  R0002: -R-- p (int *) 64b (*R0003) (singleton) ;
+  R0003: -RWA A: B: (int) 32b A: p[0..n - 1], nullable, garbage
+    B: q[0..n - 1], nullable, readonly (nullable) (garbage) ;
+  R0004: -R-- q (int *) 64b (*R0003) (singleton) ;
+  R0005: IRW- k (int) 32b (singleton) (allocated) ;
+  R0006: -RW- __retres (int) 32b (singleton) (allocated) ;
+  R0007: --W- \result (int) 32b ;
+[region] annotating function job_merged

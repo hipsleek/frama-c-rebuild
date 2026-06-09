@@ -1,0 +1,81 @@
+[kernel] Parsing str_lit_libentry.i (no preprocessing)
+[eva] Analyzing an incomplete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  const_global[0] ∈ {99}
+              [1] ∈ {111}
+              [2] ∈ {110}
+              [3] ∈ {115}
+              [4] ∈ {116}
+              [5] ∈ {95}
+              [6] ∈ {103}
+              [7] ∈ {108}
+              [8] ∈ {111}
+              [9] ∈ {98}
+              [10] ∈ {97}
+              [11] ∈ {108}
+              [12] ∈ {0}
+  global[0..6] ∈ [--..--]
+[eva:progress] 
+  computing for function f <- main.
+  Called from str_lit_libentry.i:12:15-26.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] 
+  computing for function f <- main.
+  Called from str_lit_libentry.i:14:12-22.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:partition] str_lit_libentry.i:13: starting to merge loop iterations
+[eva:progress] 
+  computing for function f <- main.
+  Called from str_lit_libentry.i:14:12-22.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] 
+  computing for function f <- main.
+  Called from str_lit_libentry.i:14:12-22.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] 
+  computing for function f <- main.
+  Called from str_lit_libentry.i:14:12-22.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] str_lit_libentry.i:14: Reusing old results for call to f
+[eva:show] str_lit_libentry.i:16: 
+  Frama_C_show_each: {99}, [-128..127], {99}, {0; 97; 99; 108; 111}
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function f:
+  __retres ∈ {0; 97; 99; 108; 111}
+[eva:final-states] Values at end of function main:
+  local[0] ∈ {108}
+       [1] ∈ {111}
+       [2] ∈ {99}
+       [3] ∈ {97}
+       [4] ∈ {108}
+       [5] ∈ {0}
+  test ∈ {0; 97; 99; 108; 111}
+  __retres ∈ {0}
+[from] Computing for function f
+[from] Done for function f
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function f:
+  \result FROM s; i; local[0..5]
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function f:
+    __retres
+[inout] Inputs for function f:
+    local[0..5]
+[inout] Out (internal) for function main:
+    local[0..5]; test; i; __retres
+[inout] Inputs for function main:
+    const_global[0]; global[1]

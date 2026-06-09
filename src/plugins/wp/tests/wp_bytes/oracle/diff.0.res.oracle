@@ -1,0 +1,24 @@
+# frama-c -wp -wp-model 'Typed' [...]
+[kernel] Parsing diff.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal f_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal f_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+
+Goal Post-condition ("diff.c", line 13) in 'f':
+Let x = i - j.
+Assume {
+  Type: is_sint32(i) /\ is_sint32(j).
+  (* Pre-condition *)
+  Have: ((-10) <= i) /\ ((-10) <= j) /\ (i <= 10) /\ (j <= 10).
+  Probe DIFF = x.
+}
+Prove: (j + to_sint32(x)) = i.
+
+------------------------------------------------------------
+
+Goal Assigns nothing in 'f':
+Effect at line 21
+Prove: true.
+
+------------------------------------------------------------

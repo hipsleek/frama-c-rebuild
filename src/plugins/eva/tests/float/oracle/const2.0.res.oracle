@@ -1,0 +1,17 @@
+[kernel] Parsing const2.i (no preprocessing)
+[kernel:parser:decimal-float] const2.i:5: Warning: 
+  Floating-point constant 1e-40f is not represented exactly. Will use 0x1.16c2000000000p-133.
+  (warn-once: no further messages from category 'parser:decimal-float' will be emitted)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:alarm] const2.i:6: Warning: 
+  non-finite float value. assert \is_finite(1e40f);
+[eva] const2.i:6: Warning: evaluation of initializer '1e40f' failed
+[eva:progress] Initial state computed
+[eva] User Error: Eva not started because globals initialization is not computable.
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] ====== END OF DEPENDENCIES ======
+[eva] Deferred error message was emitted during execution:
+  Eva not started because globals initialization is not computable.
+[kernel] Plug-in eva aborted: invalid user input.

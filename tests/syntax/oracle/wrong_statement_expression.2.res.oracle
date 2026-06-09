@@ -1,0 +1,10 @@
+[kernel] Parsing wrong_statement_expression.c (with preprocessing)
+[kernel] wrong_statement_expression.c:14: User Error: 
+  statement expression forbidden outside function definition
+  12    
+  13    #ifdef OUTSIDE_FDEC
+  14      int x = ({ 42; });
+                  ^^^^^^^^^
+  15    #endif
+  16
+[kernel] Frama-C aborted: invalid user input.

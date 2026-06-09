@@ -1,0 +1,97 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing loop2.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  input ∈ [--..--]
+  secret ∈ [--..--]
+  result ∈ {0}
+[eva:progress] loop2.c:41: assertion got status valid.
+[eva:progress] 
+  computing for function gcd <- main.
+  Called from loop2.c:42.
+[eva:secure-flow:condition] loop2.c:11: Warning: 
+  non-interference violation on condition involving {a; b}
+[eva:secure-flow:condition] loop2.c:12: Warning: 
+  non-interference violation on condition involving {a; b}
+[eva:partition] loop2.c:11: starting to merge loop iterations
+[eva:progress] Recording results for gcd
+[eva:progress] Done for function gcd
+[eva:alarm] loop2.c:43: Warning: assertion got status unknown.
+[eva:progress] loop2.c:46: assertion got status valid.
+[eva:progress] 
+  computing for function gcd <- main.
+  Called from loop2.c:47.
+[eva:progress] Recording results for gcd
+[eva:progress] Done for function gcd
+[eva:alarm] loop2.c:48: Warning: assertion got status unknown.
+[eva:progress] loop2.c:51: assertion got status valid.
+[eva:progress] 
+  computing for function foo <- main.
+  Called from loop2.c:52.
+[eva:secure-flow:condition] loop2.c:24: Warning: 
+  non-interference violation on condition involving {b}
+[eva:secure-flow:condition] loop2.c:26: Warning: 
+  non-interference violation on condition involving {a; b}
+[eva:partition] loop2.c:26: starting to merge loop iterations
+[eva:partition] loop2.c:24: starting to merge loop iterations
+[eva:secure-flow:condition] loop2.c:34: Warning: 
+  non-interference violation on condition involving {a; b}
+[eva:partition] loop2.c:32: starting to merge loop iterations
+[eva:progress] Recording results for foo
+[eva:progress] Done for function foo
+[eva:alarm] loop2.c:53: Warning: assertion got status unknown.
+[eva:progress] loop2.c:56: assertion got status valid.
+[eva:progress] 
+  computing for function foo <- main.
+  Called from loop2.c:57.
+[eva:secure-flow:condition] loop2.c:23: Warning: 
+  non-interference violation on condition involving {a}
+[eva:secure-flow:condition] loop2.c:25: Warning: 
+  non-interference violation on condition involving {a}
+[eva:progress] Recording results for foo
+[eva:progress] Done for function foo
+[eva:alarm] loop2.c:58: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function foo:
+  result ∈ [--..--]
+  a ∈ [0..4294967294]
+  b ∈ [--..--]
+[eva:final-states] Values at end of function gcd:
+  result ∈ [--..--]
+  a ∈ [--..--]
+  b ∈ [--..--]
+[eva:final-states] Values at end of function main:
+  result ∈ [--..--]
+  __retres ∈ [--..--]
+[from] Computing for function foo
+[from] Done for function foo
+[from] Computing for function gcd
+[from] Done for function gcd
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function foo:
+  result FROM a; b
+[from] Function gcd:
+  result FROM a; b
+[from] Function main:
+  result FROM input; secret
+  \result FROM input; secret
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function foo:
+    result; a; b
+[inout] Inputs for function foo:
+    \nothing
+[inout] Out (internal) for function gcd:
+    result; a; b
+[inout] Inputs for function gcd:
+    \nothing
+[inout] Out (internal) for function main:
+    result; __retres
+[inout] Inputs for function main:
+    input; secret; result

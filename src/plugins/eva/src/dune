@@ -1,0 +1,71 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action
+  (progn
+   (echo "Eva:" %{lib-available:frama-c-eva.core} "\n")
+   (echo "  - ppx_deriving.eq:" %{lib-available:ppx_deriving.eq} "\n")
+   (echo "  - ppx_deriving.ord:" %{lib-available:ppx_deriving.ord} "\n")
+   (echo "  - ppx_z_literals:" %{lib-available:frama-c.ppx_z_literals} "\n")
+   (echo "Eva Server API:" %{lib-available:frama-c-eva.server_api} "\n")
+   (echo "  - Server:" %{lib-available:frama-c-server.core} "\n")
+   (echo "Eva Apron domains:" %{lib-available:frama-c-eva.apron.core} "\n")
+   (echo "  - apron.octMPQ:" %{lib-available:apron.octMPQ} "\n")
+   (echo "  - apron.boxMPQ:" %{lib-available:apron.boxMPQ} "\n")
+   (echo "  - apron.polkaMPQ:" %{lib-available:apron.polkaMPQ} "\n")
+   (echo "  - apron.apron:" %{lib-available:apron.apron} "\n"))))
+
+;; Deactivate warning 9 globally for Eva
+(env (_ (flags :standard -w -9)))
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-eva.core})))
+ (action (echo "WARNING: Eva disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+(library
+ (name eva)
+ (optional)
+ (public_name frama-c-eva.core)
+ (flags -open Frama_c_kernel :standard)
+ (libraries frama-c.kernel)
+ (instrumentation (backend landmarks))
+ (instrumentation (backend bisect_ppx))
+ (preprocess (pps ppx_deriving.eq ppx_deriving.ord frama-c.ppx_z_literals)))
+
+(plugin
+ (name eva)
+ (optional)
+ (libraries frama-c-eva.core frama-c-eva.numerors.core)
+ (site (frama-c plugins)))
+
+(include_subdirs unqualified)
+
+(subdir domains/apron (include_subdirs no))
+(subdir domains/apron
+ (library
+  (name apron_domain)
+  (optional)
+  (public_name frama-c-eva.apron.core)
+  (flags -open Frama_c_kernel -open Eva__Private :standard)
+  (libraries frama-c.kernel frama-c-eva.core fc_internal_apron)
+  (instrumentation (backend landmarks))
+  (instrumentation (backend bisect_ppx))))
+
+(plugin
+ (name eva.apron)
+ (optional)
+ (libraries frama-c-eva.apron.core)
+ (site (frama-c plugins)))

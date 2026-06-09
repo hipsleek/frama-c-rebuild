@@ -1,0 +1,47 @@
+[kernel] Parsing pb_infinite_loop.c (with preprocessing)
+[eva] Analyzing a complete application starting at test_infinite_loop_2
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  G ∈ [--..--]
+[eva:partition] pb_infinite_loop.c:32: starting to merge loop iterations
+[eva:alarm] pb_infinite_loop.c:34: Warning: 
+  signed overflow. assert G + 1 ≤ 2147483647;
+[eva:alarm] pb_infinite_loop.c:35: Warning: 
+  signed overflow. assert i + 1 ≤ 2147483647;
+[eva:progress] Recording results for test_infinite_loop_2
+[eva:progress] Done for function test_infinite_loop_2
+[pdg] computing for function test_infinite_loop_2
+[pdg] pb_infinite_loop.c:37: Warning: no final state. Probably unreachable...
+[pdg] done for function test_infinite_loop_2
+[pdg] PDG for test_infinite_loop_2
+ {n1}: InCtrl
+ {n2}: VarDecl : i
+ {n3}: int i = 0;
+   -[-c-]-> 1
+   -[a--]-> 2
+ {n4}: return G;
+   -[-c-]-> 1
+ {n5}: OutRet
+ {n6}: while(1)
+   -[-c-]-> 1
+   -[-c-]-> 6
+ {n7}: i % 2
+   -[-c-]-> 1
+   -[--d]-> 2
+   -[--d]-> 3
+   -[-c-]-> 6
+   -[--d]-> 9
+ {n8}: G ++;
+   -[-c-]-> 1
+   -[-c-]-> 6
+   -[-c-]-> 7
+   -[--d]-> 8
+   -[--d]-> 10
+ {n9}: i ++;
+   -[-c-]-> 1
+   -[a-d]-> 2
+   -[--d]-> 3
+   -[-c-]-> 6
+   -[--d]-> 9
+ {n10}: In(G)

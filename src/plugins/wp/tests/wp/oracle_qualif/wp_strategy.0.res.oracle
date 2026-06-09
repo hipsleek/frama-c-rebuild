@@ -1,0 +1,24 @@
+# frama-c -wp -wp-model 'Hoare' [...]
+[kernel] Parsing wp_strategy.c (with preprocessing)
+[rte:annot] annotating function bts0513
+[rte:annot] annotating function bts0513_bis
+[wp] Running WP plugin...
+[wp] [Valid] Goal bts0513_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bts0513_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bts0513_bis_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bts0513_bis_terminates (Cfg) (Trivial)
+[wp] 4 goals scheduled
+[wp] [Unsuccess] hoare_bts0513_ensures_qed_ko_ko1 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] hoare_bts0513_ensures_qed_ko_ko2 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] hoare_bts0513_bis_assert_qed_ko_ko1 (Alt-Ergo) (Cached)
+[wp] [Valid] hoare_bts0513_bis_assert_qed_ok_ok (Qed)
+[wp] Proved goals:    5 / 8
+  Terminating:     2
+  Unreachable:     2
+  Qed:             1
+  Unsuccess:       3
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  bts0513                   2        -        4      50.0%
+  bts0513_bis               3        -        4      75.0%
+------------------------------------------------------------

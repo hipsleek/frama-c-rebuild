@@ -1,0 +1,69 @@
+Plug-in name: Instantiate
+Plug-in shortname: instantiate
+Description: Overrides standard library functions
+
+Most options of the form '-instantiate-option-name' and without any parameter
+have an opposite with the name '-instantiate-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-instantiate         (opposite option is -no-instantiate)
+-instantiate-calloc  Activate replacement for function 'calloc' (set by
+                    default, opposite option is -instantiate-no-calloc)
+-instantiate-fct <f,...>  Override stdlib functions only into the specified
+                    functions (defaults to all). (preferably use
+                    -instantiate-fct="f,...")
+-instantiate-free   Activate replacement for function 'free' (set by default,
+                    opposite option is -instantiate-no-free)
+-instantiate-malloc  Activate replacement for function 'malloc' (set by
+                    default, opposite option is -instantiate-no-malloc)
+-instantiate-memcmp  Activate replacement for function 'memcmp' (set by
+                    default, opposite option is -instantiate-no-memcmp)
+-instantiate-memcpy  Activate replacement for function 'memcpy' (set by
+                    default, opposite option is -instantiate-no-memcpy)
+-instantiate-memmove  Activate replacement for function 'memmove' (set by
+                    default, opposite option is -instantiate-no-memmove)
+-instantiate-memset  Activate replacement for function 'memset' (set by
+                    default, opposite option is -instantiate-no-memset)
+
+*** DEBUG
+
+-instantiate-debug <n>  level of debug for plug-in Instantiate (default to 0)
+
+*** GETTING INFORMATION
+
+-instantiate-help   help of plug-in Instantiate
+-instantiate-h      alias for option -instantiate-help
+
+*** OUTPUT MESSAGES
+
+-instantiate-log <K_1:file_1,...>  copy log messages from Instantiate to a
+                    file. <K> is a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -instantiate-log="K_1:file_1,...")
+-instantiate-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -instantiate-msg-key help to get a
+                    list of available categories, and * to enable all
+                    categories (preferably use
+                    -instantiate-msg-key="k1[,...,kn]")
+-instantiate-verbose <n>  level of verbosity for plug-in Instantiate (default
+                    to 1)
+-instantiate-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for
+                    category <k1> to <s1>,...,<kn> to <sn>. Use
+                    -instantiate-warn-key help to get a list of available
+                    categories, and * to enable all categories. Possible
+                    statuses are inactive, feedback, warning, error, abort,
+                    feedback-once, warning-once, error-once. Defaults to
+                    warning. (preferably use
+                    -instantiate-warn-key="k1[=s1][,...,kn[=sn]]")

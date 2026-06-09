@@ -1,0 +1,4 @@
+In file included from FC_HOME/default/tests/syntax/result/force_posix.c:
+FC_HOME/install/default/share/frama-c/share/libc/unistd.h:30:2: error: #error "unistd.h should only be included with a POSIX machdep"
+ #error "unistd.h should only be included with a POSIX machdep"
+  ^~~~~

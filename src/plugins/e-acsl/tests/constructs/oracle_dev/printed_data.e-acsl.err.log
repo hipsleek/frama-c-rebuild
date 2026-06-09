@@ -1,0 +1,183 @@
+EVERY ASSERTION SHOULD PRINT ITS DATA IN EXECUTION LOG
+printed_data.c: In function 'main'
+printed_data.c:69: Assertion valid:
+	\let x = int_bool; \true.
+	With values at failure point:
+	- int_bool: 1
+printed_data.c: In function 'main'
+printed_data.c:71: Assertion valid:
+	\let x = int_char; \true.
+	With values at failure point:
+	- int_char: 127
+printed_data.c: In function 'main'
+printed_data.c:73: Assertion valid:
+	\let x = int_schar; \true.
+	With values at failure point:
+	- int_schar: 127
+printed_data.c: In function 'main'
+printed_data.c:75: Assertion valid:
+	\let x = int_uchar; \true.
+	With values at failure point:
+	- int_uchar: 255
+printed_data.c: In function 'main'
+printed_data.c:77: Assertion valid:
+	\let x = int_int; \true.
+	With values at failure point:
+	- int_int: 2147483647
+printed_data.c: In function 'main'
+printed_data.c:79: Assertion valid:
+	\let x = int_uint; \true.
+	With values at failure point:
+	- int_uint: 4294967295
+printed_data.c: In function 'main'
+printed_data.c:81: Assertion valid:
+	\let x = int_short; \true.
+	With values at failure point:
+	- int_short: 32767
+printed_data.c: In function 'main'
+printed_data.c:83: Assertion valid:
+	\let x = int_ushort; \true.
+	With values at failure point:
+	- int_ushort: 65535
+printed_data.c: In function 'main'
+printed_data.c:85: Assertion valid:
+	\let x = int_long; \true.
+	With values at failure point:
+	- int_long: 9223372036854775807
+printed_data.c: In function 'main'
+printed_data.c:87: Assertion valid:
+	\let x = int_ulong; \true.
+	With values at failure point:
+	- int_ulong: 18446744073709551615
+printed_data.c: In function 'main'
+printed_data.c:89: Assertion valid:
+	\let x = int_llong; \true.
+	With values at failure point:
+	- int_llong: 9223372036854775807
+printed_data.c: In function 'main'
+printed_data.c:91: Assertion valid:
+	\let x = int_ullong; \true.
+	With values at failure point:
+	- int_ullong: 18446744073709551615
+printed_data.c: In function 'main'
+printed_data.c:93: Assertion valid:
+	\let int_mpz = (0x7fffffffffffffffLL * 2ULL + 1ULL) + 1;
+int_mpz != 0x7fffffffffffffffLL * 2ULL + 1ULL.
+	With values at failure point:
+	- int_mpz: 18446744073709551616
+printed_data.c: In function 'main'
+printed_data.c:98: Assertion valid:
+	\let x = real_float; \true.
+	With values at failure point:
+	- real_float: 3.402823e+38
+printed_data.c: In function 'main'
+printed_data.c:100: Assertion valid:
+	\let x = real_double; \true.
+	With values at failure point:
+	- real_double: 1.797693e+308
+printed_data.c: In function 'main'
+printed_data.c:102: Assertion valid:
+	\let x = real_ldouble; \true.
+	With values at failure point:
+	- real_ldouble: 1.189731e+4932
+printed_data.c: In function 'main'
+printed_data.c:104: Assertion valid:
+	\let real_mpq = 0.1; real_mpq != 1.
+	With values at failure point:
+	- real_mpq: 1/10
+printed_data.c: In function 'main'
+printed_data.c:109: Assertion valid:
+	ptr != (void *)0.
+	With values at failure point:
+	- ptr: 0x000000
+printed_data.c: In function 'main'
+printed_data.c:113: Assertion valid:
+	array1 != array2.
+	With values at failure point:
+	- array2: <array>
+		- address: 0x000000
+	- array1: <array>
+		- address: 0x000000
+printed_data.c: In function 'main'
+printed_data.c:118: Assertion valid:
+	&f != &g.
+	With values at failure point:
+	- &g: 0x000000
+	- &f: 0x000000
+printed_data.c: In function 'main'
+printed_data.c:123: Assertion valid:
+	\let x = struct1; \true.
+	With values at failure point:
+	- struct1: <struct>
+printed_data.c: In function 'main'
+printed_data.c:128: Assertion valid:
+	\let x = union1; \true.
+	With values at failure point:
+	- union1: <union>
+printed_data.c: In function 'main'
+printed_data.c:133: Assertion valid:
+	\let x = enum_bool; \true.
+	With values at failure point:
+	- enum_bool: <enum> 1
+printed_data.c: In function 'main'
+printed_data.c:135: Assertion valid:
+	\let x = enum_char; \true.
+	With values at failure point:
+	- enum_char: <enum> 127
+printed_data.c: In function 'main'
+printed_data.c:137: Assertion valid:
+	\let x = enum_schar; \true.
+	With values at failure point:
+	- enum_schar: <enum> 127
+printed_data.c: In function 'main'
+printed_data.c:139: Assertion valid:
+	\let x = enum_uchar; \true.
+	With values at failure point:
+	- enum_uchar: <enum> 255
+printed_data.c: In function 'main'
+printed_data.c:141: Assertion valid:
+	\let x = enum_int; \true.
+	With values at failure point:
+	- enum_int: <enum> 2147483647
+printed_data.c: In function 'main'
+printed_data.c:143: Assertion valid:
+	\let x = enum_uint; \true.
+	With values at failure point:
+	- enum_uint: <enum> 4294967295
+printed_data.c: In function 'main'
+printed_data.c:145: Assertion valid:
+	\let x = enum_short; \true.
+	With values at failure point:
+	- enum_short: <enum> 32767
+printed_data.c: In function 'main'
+printed_data.c:147: Assertion valid:
+	\let x = enum_ushort; \true.
+	With values at failure point:
+	- enum_ushort: <enum> 65535
+printed_data.c: In function 'main'
+printed_data.c:149: Assertion valid:
+	\let x = enum_long; \true.
+	With values at failure point:
+	- enum_long: <enum> 9223372036854775807
+printed_data.c: In function 'main'
+printed_data.c:151: Assertion valid:
+	\let x = enum_ulong; \true.
+	With values at failure point:
+	- enum_ulong: <enum> 18446744073709551615
+printed_data.c: In function 'main'
+printed_data.c:153: Assertion valid:
+	\let x = enum_llong; \true.
+	With values at failure point:
+	- enum_llong: <enum> 9223372036854775807
+printed_data.c: In function 'main'
+printed_data.c:155: Assertion valid:
+	\let x = enum_ullong; \true.
+	With values at failure point:
+	- enum_ullong: <enum> 18446744073709551615
+printed_data.c: In function 'main'
+printed_data.c:161: Assertion valid:
+	\let c = a + b; a != b && c == a + b.
+	With values at failure point:
+	- c: 5
+	- b: 3
+	- a: 2

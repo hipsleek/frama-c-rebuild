@@ -1,0 +1,66 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing branch2.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  user_input ∈ [--..--]
+  another_user_input ∈ [--..--]
+  secret ∈ [--..--]
+  x ∈ {0}
+  y ∈ {0}
+  z ∈ {0}
+[eva:secure-flow:condition] branch2.c:12: Warning: 
+  non-interference violation on condition involving {user_input; secret}
+[eva:alarm] branch2.c:14: Warning: assertion got status unknown.
+[eva:alarm] branch2.c:17: Warning: assertion got status unknown.
+[eva:progress] branch2.c:23: assertion got status valid.
+[eva:alarm] branch2.c:28: Warning: assertion got status unknown.
+[eva:alarm] branch2.c:29: Warning: assertion got status unknown.
+[eva:progress] branch2.c:37: assertion got status valid.
+[eva:progress] branch2.c:38: assertion got status valid.
+[eva:secure-flow:condition] branch2.c:39: Warning: 
+  non-interference violation on condition involving {user_input; secret}
+[eva:alarm] branch2.c:45: Warning: assertion got status unknown.
+[eva:alarm] branch2.c:46: Warning: assertion got status unknown.
+[eva:progress] branch2.c:49: assertion got status valid.
+[eva:secure-flow:condition] branch2.c:52: Warning: 
+  non-interference violation on condition involving {user_input; secret}
+[eva:alarm] branch2.c:55: Warning: assertion got status unknown.
+[eva:progress] branch2.c:58: assertion got status valid.
+[eva:progress] branch2.c:60: assertion got status valid.
+[eva:secure-flow:condition] branch2.c:62: Warning: 
+  non-interference violation on condition involving {user_input; secret}
+[eva:secure-flow:condition] branch2.c:63: Warning: 
+  non-interference violation on condition involving
+    {another_user_input; secret}
+[eva:alarm] branch2.c:67: Warning: assertion got status unknown.
+[eva:alarm] branch2.c:73: Warning: assertion got status unknown.
+[eva:alarm] branch2.c:75: Warning: assertion got status unknown.
+[eva:alarm] branch2.c:76: Warning: assertion got status unknown.
+[eva:progress] branch2.c:80: assertion got status valid.
+[eva:progress] branch2.c:81: assertion got status valid.
+[eva:progress] branch2.c:82: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[scope:rm_asserts] removing 1 assertion(s)
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  x ∈ {1}
+  y ∈ {0; 6}
+  z ∈ {0; 5}
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  x FROM \nothing
+  y FROM user_input; another_user_input; secret
+  z FROM user_input; another_user_input; secret
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    x; y; z; __retres
+[inout] Inputs for function main:
+    user_input; another_user_input; secret

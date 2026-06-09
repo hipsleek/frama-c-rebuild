@@ -1,0 +1,24 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(include_subdirs no)
+
+(executable
+ (name check_logic_parser)
+ (libraries unix str)
+)
+
+(rule
+ (alias run-kernel-tests)
+ (deps ../logic_parser.mly)
+ (action  (run %{dep:./check_logic_parser.exe})))
+
+(alias
+  (deps (alias run-kernel-tests) )
+  (name ptests)
+)

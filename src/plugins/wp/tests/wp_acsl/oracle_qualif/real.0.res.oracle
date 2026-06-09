@@ -1,0 +1,23 @@
+# frama-c -wp [...]
+[kernel] Parsing real.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal add_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal add_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] 7 goals scheduled
+[wp] [Valid] typed_add_check_A (Alt-Ergo) (Cached)
+[wp] [Valid] typed_add_check_B (Alt-Ergo) (Cached)
+[wp] [Valid] typed_add_check_C (Alt-Ergo) (Cached)
+[wp] [Valid] typed_add_check_C_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_add_check_D (Alt-Ergo) (Cached)
+[wp] [Valid] typed_add_check_E (Alt-Ergo) (Cached)
+[wp] [Valid] typed_add_assigns (Qed)
+[wp] Proved goals:    9 / 9
+  Terminating:     1
+  Unreachable:     1
+  Qed:             1
+  Alt-Ergo:        6
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  add                       3        6        9       100%
+------------------------------------------------------------

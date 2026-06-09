@@ -1,0 +1,8 @@
+24c24,28
+< [eva:progress] local.i:13: Reusing old results for call to f
+---
+> [eva:progress] 
+>   computing for function f <- g <- main.
+>   Called from local.i:13:7-10.
+> [eva:progress] Recording results for f
+> [eva:progress] Done for function f

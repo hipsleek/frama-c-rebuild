@@ -1,0 +1,2 @@
+PLUGIN: region
+OPT: -region -region-msg-key dump -region-warn-key froms=warning

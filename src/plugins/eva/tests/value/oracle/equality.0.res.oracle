@@ -1,0 +1,160 @@
+[kernel] Parsing equality.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  rand ∈ [--..--]
+[eva:progress] 
+  computing for function replace_lvalue <- main.
+  Called from equality.c:120.
+[eva:progress] Recording results for replace_lvalue
+[eva:progress] Done for function replace_lvalue
+[eva:progress] 
+  computing for function assign_by_copy <- main.
+  Called from equality.c:121.
+[eva:progress] 
+  computing for function Frama_C_interval <- assign_by_copy <- main.
+  Called from equality.c:40.
+[eva] using specification for function Frama_C_interval
+[eva:progress] equality.c:40: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:alarm] equality.c:44: Warning: 
+  accessing uninitialized left-value. assert \initialized(&x);
+[eva:progress] Recording results for assign_by_copy
+[eva:progress] Done for function assign_by_copy
+[eva:progress] 
+  computing for function symbolic <- main.
+  Called from equality.c:122.
+[eva:progress] 
+  computing for function Frama_C_float_interval <- symbolic <- main.
+  Called from equality.c:52.
+[eva] using specification for function Frama_C_float_interval
+[eva:progress] equality.c:52: 
+  function Frama_C_float_interval, behavior finite: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_float_interval
+[eva:progress] 
+  computing for function Frama_C_float_interval <- symbolic <- main.
+  Called from equality.c:53.
+[eva:progress] equality.c:53: 
+  function Frama_C_float_interval, behavior finite: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_float_interval
+[eva:progress] equality.c:57: Call to builtin sqrtf
+[eva:progress] equality.c:57: 
+  function sqrtf: precondition 'finite_arg' got status valid.
+[eva:alarm] equality.c:57: Warning: 
+  function sqrtf: precondition 'arg_positive' got status unknown.
+[eva:progress] Recording results for symbolic
+[eva:progress] Done for function symbolic
+[eva:progress] 
+  computing for function test_join <- main.
+  Called from equality.c:123.
+[eva:progress] 
+  computing for function Frama_C_interval <- test_join <- main.
+  Called from equality.c:64.
+[eva:progress] equality.c:64: 
+  function Frama_C_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_interval
+[eva:show] equality.c:79: Frama_C_show_each_precise_0_9: [0..9]
+[eva:alarm] equality.c:84: Warning: 
+  accessing uninitialized left-value. assert \initialized(p);
+[eva:show] equality.c:85: Frama_C_show_each_imprecise_0_17: [0..32]
+[eva:alarm] equality.c:92: Warning: 
+  accessing uninitialized left-value. assert \initialized(p);
+[eva:show] equality.c:93: Frama_C_show_each_imprecise_0_21: [0..32]
+[eva:show] equality.c:99: Frama_C_show_each_10_19: [10..42]
+[eva:alarm] equality.c:103: Warning: 
+  accessing uninitialized left-value. assert \initialized(p);
+[eva:show] equality.c:105: Frama_C_show_each_10_42: [10..42]
+[eva:alarm] equality.c:111: Warning: 
+  accessing uninitialized left-value. assert \initialized(p);
+[eva:show] equality.c:113: Frama_C_show_each_10_42: [10..42]
+[eva:progress] Recording results for test_join
+[eva:progress] Done for function test_join
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function assign_by_copy:
+  Frama_C_entropy_source ∈ [--..--]
+  x ∈ [0..42]
+  y ∈ [0..42] or UNINITIALIZED
+  w ∈ [0..42] or UNINITIALIZED
+  z ∈ [1..43]
+[eva:final-states] Values at end of function replace_lvalue:
+  x ∈ [-2147483647..2147483647]
+  y ∈ [--..--]
+  z ∈ [-8..8]
+[eva:final-states] Values at end of function symbolic:
+  Frama_C_entropy_source ∈ [--..--]
+  f ∈ [-0. .. 10.]
+  g ∈ [-0. .. 10.]
+  tmp ∈ [-10. .. 0.]
+  res ∈ [-0. .. 3.16227769852] or UNINITIALIZED
+[eva:final-states] Values at end of function test_join:
+  Frama_C_entropy_source ∈ [--..--]
+  a ∈ [-9..32] or UNINITIALIZED
+  b ∈ [-10..32] or UNINITIALIZED
+  c ∈ [0..32] or UNINITIALIZED
+  r ∈ [0..42] or UNINITIALIZED
+  p ∈ {{ &a ; &b ; &c }}
+  x ∈ [0..32]
+  y ∈ [10..42]
+[eva:final-states] Values at end of function main:
+  Frama_C_entropy_source ∈ [--..--]
+[from] Computing for function assign_by_copy
+[from] Computing for function Frama_C_interval <-assign_by_copy
+[from] Done for function Frama_C_interval
+[from] Done for function assign_by_copy
+[from] Computing for function replace_lvalue
+[from] Done for function replace_lvalue
+[from] Computing for function symbolic
+[from] Computing for function Frama_C_float_interval <-symbolic
+[from] Done for function Frama_C_float_interval
+[from] Computing for function sqrtf <-symbolic
+[from] Done for function sqrtf
+[from] Done for function symbolic
+[from] Computing for function test_join
+[from] Done for function test_join
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function Frama_C_float_interval:
+  Frama_C_entropy_source FROM Frama_C_entropy_source (and SELF)
+  \result FROM Frama_C_entropy_source; min; max
+[from] Function Frama_C_interval:
+  Frama_C_entropy_source FROM Frama_C_entropy_source (and SELF)
+  \result FROM Frama_C_entropy_source; min; max
+[from] Function assign_by_copy:
+  Frama_C_entropy_source FROM Frama_C_entropy_source; rand (and SELF)
+[from] Function replace_lvalue:
+  NO EFFECTS
+[from] Function sqrtf:
+  \result FROM x
+[from] Function symbolic:
+  Frama_C_entropy_source FROM Frama_C_entropy_source (and SELF)
+[from] Function test_join:
+  Frama_C_entropy_source FROM Frama_C_entropy_source (and SELF)
+[from] Function main:
+  Frama_C_entropy_source FROM Frama_C_entropy_source; rand (and SELF)
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function assign_by_copy:
+    Frama_C_entropy_source; x; y; w; z
+[inout] Inputs for function assign_by_copy:
+    Frama_C_entropy_source; rand
+[inout] Out (internal) for function replace_lvalue:
+    x; y; z; tmp
+[inout] Inputs for function replace_lvalue:
+    rand
+[inout] Out (internal) for function symbolic:
+    Frama_C_entropy_source; f; g; tmp; res
+[inout] Inputs for function symbolic:
+    Frama_C_entropy_source
+[inout] Out (internal) for function test_join:
+    Frama_C_entropy_source; a; b; c; r; p; x; y
+[inout] Inputs for function test_join:
+    Frama_C_entropy_source; rand
+[inout] Out (internal) for function main:
+    Frama_C_entropy_source
+[inout] Inputs for function main:
+    Frama_C_entropy_source; rand

@@ -1,0 +1,28 @@
+[kernel] Parsing if_globals.c (with preprocessing)
+[alias] analysing global variable definition: p = {};
+[alias] May-aliases after global variable definition  p  are  <none>
+[alias] May-alias graph after global variable definition  p  is    0:{ p } → 1:{}
+[alias] analysing global variable definition: z = {};
+[alias] May-aliases after global variable definition  z  are  <none>
+[alias] May-alias graph after global variable definition  z  is
+  0:{ p } → 1:{}   2:{ z }
+[alias] analysing global variable definition: d = {};
+[alias] May-aliases after global variable definition  d  are  <none>
+[alias] May-alias graph after global variable definition  d  is
+  0:{ p } → 1:{}   2:{ z }   3:{ d }
+[alias] analysing function: main
+[alias] analysing instruction: p = & z;
+[alias] May-aliases after instruction  p = & z;  are  <none>
+[alias] May-alias graph after instruction  p = & z;  is
+  0:{ p } → 1:{ z }   3:{ d }
+[alias] analysing instruction: p = & d;
+[alias] May-aliases after instruction  p = & d;  are  <none>
+[alias] May-alias graph after instruction  p = & d;  is
+  0:{ p } → 1:{ d }   2:{ z }
+[alias] May-aliases at the end of function main: <none>
+[alias] May-alias graph at the end of function main:
+  0:{ p } → 1:{ z; d }
+[alias] Summary of function main:
+  formals:     returns: <none>    state: <none>
+[alias] node counter: 6
+[alias] Analysis complete

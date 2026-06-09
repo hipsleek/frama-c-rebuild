@@ -1,0 +1,6 @@
+[kernel] Parsing incompatible_qualifiers.c (with preprocessing)
+[kernel] incompatible_qualifiers.c:74: User Error: 
+  function pointer type does not allow 'restrict' qualifier
+[kernel] User Error: stopping on file "incompatible_qualifiers.c" that has errors. Add
+  '-kernel-msg-key pp' for preprocessing command.
+[kernel] Frama-C aborted: invalid user input.

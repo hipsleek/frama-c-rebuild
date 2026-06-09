@@ -1,0 +1,45 @@
+# frama-c -wp -wp-model 'Region' -wp-timeout 15 [...]
+[kernel] Parsing compound_assigns.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal copy_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal copy_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal init_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal init_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal swap_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal swap_terminates (Cfg) (Trivial)
+[wp] 22 goals scheduled
+[wp] [Valid] region_swap_ensures_P (Alt-Ergo) (Cached)
+[wp] [Valid] region_swap_ensures_Q (Alt-Ergo) (Cached)
+[wp] [Valid] region_swap_assigns_part1 (Qed)
+[wp] [Valid] region_swap_assigns_part2 (Qed)
+[wp] [Valid] region_copy_assert_Kept (Alt-Ergo) (Cached)
+[wp] [Valid] region_copy_assert_Kept_2 (Alt-Ergo) (Cached)
+[wp] [Valid] region_copy_assigns_part1 (Qed)
+[wp] [Valid] region_copy_assigns_part2 (Qed)
+[wp] [Valid] region_copy_assigns_part3 (Qed)
+[wp] [Valid] region_copy_assigns_part4 (Qed)
+[wp] [Valid] region_copy_assigns_part5 (Qed)
+[wp] [Valid] region_copy_assigns_part6 (Qed)
+[wp] [Valid] region_copy_Left_ensures_CopyQ (Alt-Ergo) (Cached)
+[wp] [Valid] region_copy_Left_ensures_KeepQ (Alt-Ergo) (Cached)
+[wp] [Valid] region_copy_Left_ensures_SaveR (Alt-Ergo) (Cached)
+[wp] [Valid] region_copy_Right_ensures_CopyR (Alt-Ergo) (Cached)
+[wp] [Valid] region_copy_Right_ensures_SaveQ (Alt-Ergo) (Cached)
+[wp] [Valid] region_copy_Right_ensures_KeepR (Alt-Ergo) (Cached)
+[wp] [Valid] region_init_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] region_init_ensures_2 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] region_init_assert_PF_Z3_only (Alt-Ergo) (Cached)
+[wp] [Valid] region_init_assigns (Qed)
+[wp] Proved goals:   27 / 28
+  Terminating:     3
+  Unreachable:     3
+  Qed:             9
+  Alt-Ergo:       12
+  Unsuccess:       1
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  swap                      4        2        6       100%
+  copy                      8        8       16       100%
+  init                      3        2        6      83.3%
+------------------------------------------------------------

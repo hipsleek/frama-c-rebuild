@@ -1,0 +1,39 @@
+[kernel] Parsing va_list.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:initial-state] 
+  creating variable S_0_S___va_params with imprecise size (type void)
+[eva:initial-state] 
+  creating variable S_1_S___va_params with imprecise size (type void)
+[eva:progress] 
+  computing for function __builtin_next_arg <- main.
+  Called from va_list.c:14.
+[eva] using specification for function __builtin_next_arg
+[eva:progress] Done for function __builtin_next_arg
+[eva:alarm] va_list.c:14: Warning: 
+  unaligned pointer creation.
+  assert \aligned(tmp,alignof(void *));
+  (tmp from __builtin_next_arg())
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  vlParameters ∈ [0..4294967292],0%4
+[from] Computing for function main
+[from] Computing for function __builtin_next_arg <-main
+[from] Done for function __builtin_next_arg
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function __builtin_next_arg:
+  \result FROM \nothing
+[from] Function main:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    vlParameters; tmp
+[inout] Inputs for function main:
+    \nothing

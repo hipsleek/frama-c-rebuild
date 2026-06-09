@@ -1,0 +1,15 @@
+[kernel] Parsing line_directives.c (with preprocessing)
+[kernel:pp:line-directive] Warning: 
+  ignoring non-existing file 'non-existing-file.c', referenced in a line directive
+[kernel:CERT:MSC:37] line_directives.c:6: Warning: 
+  Body of function f falls-through. Adding a return statement
+[kernel:CERT:MSC:37] line_directives.c:2: Warning: 
+  Body of function g falls-through. Adding a return statement
+[kernel:CERT:MSC:37] line_directives.c:3: Warning: 
+  Body of function h falls-through. Adding a return statement
+[kernel:CERT:MSC:37] line_directives.c:4: Warning: 
+  Body of function i falls-through. Adding a return statement
+[kernel:CERT:MSC:37] line_directives.c:5: Warning: 
+  Body of function j falls-through. Adding a return statement
+[kernel:CERT:MSC:37] line_directives.c:6: Warning: 
+  Body of function k falls-through. Adding a return statement

@@ -1,0 +1,76 @@
+digraph G {
+  label="PostDominators for function i";
+  node [shape=box, style="filled", ];
+  48 [label="/* sid:48 */
+{
+  /* sid:49 */
+  x += 1;
+  /* sid:50 */
+  loop: ;
+}",
+      ];
+  49 [label="/* sid:49 */
+x += 1;", ];
+  50 [label="/* sid:50 */
+loop: ;", ];
+  38 [label="/* sid:38 */
+int x = 0;", ];
+  40 [label="/* sid:40 */
+if (nondet) {
+  /* sid:41 */
+  goto loop;
+}
+else {
+  
+}",
+      ];
+  41 [label="/* sid:41 */
+goto loop;", ];
+  43 [label="/* sid:43 */
+x = 1;", ];
+  44 [label="/* sid:44 */
+while (1) {
+  /* sid:46 */
+  if (x < 10) {
+    
+  }
+  else {
+    /* sid:47 */
+    break;
+  }
+  /* sid:48 */
+  {
+    /* sid:49 */
+    x += 1;
+    /* sid:50 */
+    loop: ;
+  }
+}",
+      ];
+  62 [label="/* sid:62 */
+return;", ];
+  46 [label="/* sid:46 */
+if (x < 10) {
+  
+}
+else {
+  /* sid:47 */
+  break;
+}",
+      ];
+  47 [label="/* sid:47 */
+break;", ];
+  
+  
+  49 -> 48;
+  50 -> 49;
+  44 -> 50;
+  40 -> 38;
+  44 -> 40;
+  50 -> 41;
+  44 -> 43;
+  46 -> 44;
+  47 -> 46;
+  62 -> 47;
+  
+  }

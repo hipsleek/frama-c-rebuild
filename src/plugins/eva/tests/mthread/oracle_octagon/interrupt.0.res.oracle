@@ -1,0 +1,6 @@
+181a182,183
+> [eva:show] interrupt.c:18: Frama_C_show_each_locked: {0; 1}
+> [eva:show] interrupt.c:20: Frama_C_show_each: {1}
+279a282,283
+> [eva:show] interrupt.c:18: Frama_C_show_each_locked: {0; 1}
+> [eva:show] interrupt.c:20: Frama_C_show_each: {0; 1}

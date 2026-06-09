@@ -1,0 +1,12 @@
+[kernel] Parsing ghost_local_ill_formed.i (no preprocessing)
+[kernel] ghost_local_ill_formed.i:9: User Error: 
+  redefinition of 'c' in the same scope.
+  Previous declaration was at ghost_local_ill_formed.i:6:7-8
+[kernel] ghost_local_ill_formed.i:21: User Error: 
+  Variable c is a ghost symbol. It cannot be used in non-ghost context. Did you forget a /*@ ghost ... /?
+  19      //@ ghost int c = 0;
+  20      // ill-formed: the instruction should be ghost as well
+  21      c++;
+          ^
+  22    }
+[kernel] Frama-C aborted: invalid user input.

@@ -1,0 +1,1 @@
+STDOPT: #"-no-variadic-translation -e-acsl-validate-format-strings"

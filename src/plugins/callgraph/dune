@@ -1,0 +1,39 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "Callgraph:" %{lib-available:frama-c-callgraph.core} "\n")
+          (echo "  - Eva:" %{lib-available:frama-c-eva.core} "\n")
+          (echo "  - Server:" %{lib-available:frama-c-server.core} "\n")
+  )
+  )
+)
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-callgraph.core})))
+ (action (echo "WARNING: Callgraph disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+( library
+  (name callgraph)
+  (optional)
+  (public_name frama-c-callgraph.core)
+  (flags -open Frama_c_kernel :standard -w -9)
+  (libraries frama-c.kernel frama-c-eva.core frama-c-server.core)
+  (instrumentation (backend landmarks))
+  (instrumentation (backend bisect_ppx))
+)
+
+(plugin (optional) (name callgraph) (libraries frama-c-callgraph.core) (site (frama-c plugins)))

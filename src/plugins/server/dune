@@ -1,0 +1,42 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "Server:" %{lib-available:frama-c-server.core} "\n")
+          (echo "  - (optional) Zmq:" %{lib-available:zmq} "\n")
+  )
+  )
+)
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-server.core})))
+ (action (echo "WARNING: Server disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+(library
+  (name server)
+  (optional)
+  (public_name frama-c-server.core)
+  (flags -open Frama_c_kernel :standard -w -9)
+ (libraries frama-c.kernel
+  (select server_zmq.ml from
+     (zmq -> server_zmq.ok.ml)
+     (    -> server_zmq.ko.ml)
+ ))
+ (instrumentation (backend landmarks))
+ (instrumentation (backend bisect_ppx))
+)
+
+(plugin (optional) (name server) (libraries frama-c-server.core) (site (frama-c plugins)))

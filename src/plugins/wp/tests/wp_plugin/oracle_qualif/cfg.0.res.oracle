@@ -1,0 +1,36 @@
+# frama-c -wp [...]
+[kernel] Parsing cfg.c (with preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] cfg.c:2: Warning: 
+  Neither code nor explicit exits and terminates for function foo, generating
+  default clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal f1_simpler_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal f1_simpler_terminates (Cfg) (Trivial)
+[wp] 13 goals scheduled
+[wp] [Valid] typed_f1_terminates (Qed)
+[wp] [Unsuccess] typed_f1_ensures_BUG_LEGACY_WP (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f1_exits (Qed)
+[wp] [Unsuccess] typed_f1_simpler_ensures_BUG_LEGACY_WP (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f1_variant_terminates (Qed)
+[wp] [Unsuccess] typed_f1_variant_ensures_BUG_LEGACY_WP (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f1_variant_exits (Qed)
+[wp] [Valid] typed_f1_variant_invert_terminates (Qed)
+[wp] [Unsuccess] typed_f1_variant_invert_ensures_FAILS_AS_EXPECTED (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f1_variant_invert_exits (Qed)
+[wp] [Valid] typed_f2_terminates (Qed)
+[wp] [Unsuccess] typed_f2_ensures_BUG_LEGACY_WP (Alt-Ergo) (Cached)
+[wp] [Valid] typed_f2_exits (Qed)
+[wp] Proved goals:   10 / 15
+  Terminating:     1
+  Unreachable:     1
+  Qed:             8
+  Unsuccess:       5
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  f1                        2        -        3      66.7%
+  f1_simpler                2        -        3      66.7%
+  f1_variant                2        -        3      66.7%
+  f1_variant_invert         2        -        3      66.7%
+  f2                        2        -        3      66.7%
+------------------------------------------------------------

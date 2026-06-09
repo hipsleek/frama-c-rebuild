@@ -1,0 +1,11 @@
+[kernel] Parsing assignment3.c (with preprocessing)
+[alias] analysing global variable definition: b = 0;
+[alias] May-aliases after global variable definition  b  are  <none>
+[alias] analysing global variable definition: a = & b;
+[alias] May-aliases after global variable definition  a  are  <none>
+[alias] analysing global variable definition: c = & b;
+[alias] May-aliases after global variable definition  c  are  { a; c }
+[alias] analysing function: main
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are  { a; c }
+[alias] May-aliases at the end of function main: { a; c }

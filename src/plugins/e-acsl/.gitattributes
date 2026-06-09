@@ -1,0 +1,59 @@
+#########################
+# HEADER_SPEC: CEA_LGPL #
+#########################
+
+/man/e-acsl-gcc.1 header_spec=CEA_LGPL
+/scripts/e-acsl-gcc header_spec=CEA_LGPL
+/scripts/e-acsl-gcc.comp header_spec=CEA_LGPL
+
+###########################################
+# CHECK-INDENT                            #
+###########################################
+
+/doc/**/*.[ch] -check-indent
+/examples/**/*.[ch] -check-indent
+/tests/*/*.c check-syntax check-indent
+/share/**/*.c check-syntax check-indent
+
+# Don't check it because it takes too much time
+/contrib/libdlmalloc/dlmalloc.[ch] -check-indent
+
+########################
+# HEADER_SPEC: .ignore #
+########################
+
+README header_spec=.ignore
+
+/.clang-format header_spec=.ignore
+/doc/Makefile.common header_spec=.ignore
+/doc/support/MakeLaTeXModern header_spec=.ignore
+/doc/Changelog header_spec=.ignore
+/doc/doxygen/doxygen.cfg.in header_spec=.ignore
+/doc/refman/*.tex header_spec=.ignore
+/doc/userman/*.tex header_spec=.ignore
+
+/examples/demo/TODO header_spec=.ignore
+/examples/ensuresec/push-alerts/.env-example header_spec=.ignore
+
+# Becarefull at the order with the previous lines
+/contrib/**/*.c header_spec=.ignore
+
+/doc/**/Makefile header_spec=.ignore
+/doc/**/*.ml header_spec=.ignore
+/doc/**/*.mll header_spec=.ignore
+/doc/**/*.c header_spec=.ignore
+/doc/**/*.i header_spec=.ignore
+
+/examples/**/Makefile header_spec=.ignore
+/examples/**/*.c header_spec=.ignore
+/examples/**/*.i header_spec=.ignore
+/examples/**/*.ml header_spec=.ignore
+/examples/**/*.sh header_spec=.ignore
+/examples/**/*.py header_spec=.ignore
+
+/tests/test_config header_spec=.ignore
+/tests/test_config_dev header_spec=.ignore
+/tests/**/* header_spec=.ignore
+
+/contrib/libdlmalloc/dlmalloc.* header_spec=MODIFIED_DLMALLOC
+/share/e-acsl/internals/e_acsl_rtl_io.* header_spec=MODIFIED_SPARETIMELABS

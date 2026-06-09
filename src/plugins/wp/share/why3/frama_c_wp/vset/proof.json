@@ -1,0 +1,4 @@
+{
+  "profile": [],
+  "proofs": { "Vset": { "range": { "prover": "alt-ergo", "time": 0.01 } } }
+}

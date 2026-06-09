@@ -1,0 +1,45 @@
+# frama-c -wp [...]
+[kernel] Parsing arith.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal cast_sgn_usgn_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal cast_sgn_usgn_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal uchar_range_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal uchar_range_terminates (Cfg) (Trivial)
+[wp] 24 goals scheduled
+[wp] [Valid] typed_lemma_ASSOC_land_qed_ok (Qed)
+[wp] [Valid] typed_lemma_L01_lnot_qed_ok (Qed)
+[wp] [Valid] typed_lemma_L10_land_neutral_qed_ok (Qed)
+[wp] [Valid] typed_lemma_L11_land_absorbent_qed_ok (Qed)
+[wp] [Valid] typed_lemma_L12_land_qed_ok (Qed)
+[wp] [Valid] typed_lemma_L13_land_qed_ok (Qed)
+[wp] [Valid] typed_lemma_L14_land_absorbent_qed_ok (Qed)
+[wp] [Valid] typed_lemma_L15_land_qed_ok (Qed)
+[wp] [Valid] typed_lemma_L16_land_qed_ok (Qed)
+[wp] [Valid] typed_lemma_L20_lor_neutral_qed_ok (Qed)
+[wp] [Valid] typed_lemma_L21_lor_absorbent_qed_ok (Qed)
+[wp] [Valid] typed_lemma_L30_lxor_neutral_qed_ok (Qed)
+[wp] [Valid] typed_lemma_scL1_qed_ok (Qed)
+[wp] [Valid] typed_lemma_scN1_qed_ok (Qed)
+[wp] [Valid] typed_lemma_scN2_qed_ok (Qed)
+[wp] [Valid] typed_lemma_ucL1_qed_ok (Qed)
+[wp] [Valid] typed_lemma_ucL2_qed_ok (Qed)
+[wp] [Valid] typed_lemma_ucL3_qed_ok (Qed)
+[wp] [Valid] typed_lemma_ucL4_qed_ok (Qed)
+[wp] [Valid] typed_lemma_ucN1_qed_ok (Qed)
+[wp] [Valid] typed_lemma_ucN2_qed_ok (Qed)
+[wp] [Valid] typed_cast_sgn_usgn_ensures_qed_ok_nat (Qed)
+[wp] [Valid] typed_uchar_range_assert_qed_ok_A1 (Qed)
+[wp] [Valid] typed_uchar_range_assert_qed_ok_A2 (Qed)
+[wp] Proved goals:   28 / 28
+  Terminating:     2
+  Unreachable:     2
+  Qed:            24
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Lemma                    21        -       21       100%
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  cast_sgn_usgn             3        -        3       100%
+  uchar_range               4        -        4       100%
+------------------------------------------------------------

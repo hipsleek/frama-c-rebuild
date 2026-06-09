@@ -1,0 +1,34 @@
+(**************************************************************************)
+(*                                                                        *)
+(*  SPDX-License-Identifier LGPL-2.1                                      *)
+(*  Copyright (C)                                                         *)
+(*  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  *)
+(*                                                                        *)
+(**************************************************************************)
+
+(* -------------------------------------------------------------------------- *)
+(* --- Additional Sets Symbols for WP                                     --- *)
+(* -------------------------------------------------------------------------- *)
+
+theory Vset
+
+  use int.Int
+  use map.Const
+  use export set.Set
+
+  function memb (x:'a) (s:set 'a) : bool = s x
+
+  let function range (inf sup:int) : set int (* [a..b] *) =
+    fun elt -> inf <= elt <= sup
+
+  function range_sup (sup:int) : set int (* [a..] *) =
+    fun elt -> elt <= sup
+
+  function range_inf (inf:int) : set int (* [..b] *) =
+    fun elt -> inf <= elt
+
+  function range_all : set int (* [..] *) = const true
+
+  (* -------------------------------------------------------------------------- *)
+
+end

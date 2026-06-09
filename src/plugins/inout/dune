@@ -1,0 +1,42 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "Inout:" %{lib-available:frama-c-inout.core} "\n")
+          (echo "  - Callgraph:" %{lib-available:frama-c-callgraph.core} "\n")
+          (echo "  - Eva:" %{lib-available:frama-c-eva.core} "\n")
+          (echo "  - From:" %{lib-available:frama-c-from.core} "\n")
+          (echo "  - ppx_z_literals:" %{lib-available:frama-c.ppx_z_literals} "\n")
+  )
+  )
+)
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-inout.core})))
+ (action (echo "WARNING: Inout disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+( library
+  (name inout)
+  (optional)
+  (public_name frama-c-inout.core)
+  (flags -open Frama_c_kernel :standard -w -9)
+  (libraries frama-c.kernel frama-c-callgraph.core frama-c-eva.core frama-c-from.core)
+  (instrumentation (backend landmarks))
+  (instrumentation (backend bisect_ppx))
+  (preprocess (pps frama-c.ppx_z_literals))
+)
+
+(plugin (optional) (name inout) (libraries frama-c-inout.core) (site (frama-c plugins)))

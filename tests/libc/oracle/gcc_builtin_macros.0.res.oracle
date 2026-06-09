@@ -1,0 +1,62 @@
+[kernel] Parsing gcc_builtin_macros.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+[eva:progress] 
+  computing for function abort <- main.
+  Called from gcc_builtin_macros.c:8.
+[eva] using specification for function abort
+[eva:progress] Done for function abort
+[eva:progress] 
+  computing for function abs <- main.
+  Called from gcc_builtin_macros.c:9.
+[eva] using specification for function abs
+[eva:progress] gcc_builtin_macros.c:9: 
+  function abs: precondition 'abs_representable' got status valid.
+[eva:progress] Done for function abs
+[eva:progress] gcc_builtin_macros.c:10: Call to builtin acos
+[eva:progress] gcc_builtin_macros.c:10: 
+  function acos: precondition 'in_domain' got status valid.
+[eva:progress] 
+  computing for function imaxabs <- main.
+  Called from gcc_builtin_macros.c:11.
+[eva] using specification for function imaxabs
+[eva:progress] gcc_builtin_macros.c:11: 
+  function imaxabs: precondition 'abs_representable' got status valid.
+[eva:progress] Done for function imaxabs
+[eva:progress] gcc_builtin_macros.c:12: Call to builtin pow
+[eva:progress] gcc_builtin_macros.c:12: 
+  function pow: precondition 'finite_logic_res' got status valid.
+[eva:progress] 
+  computing for function isalnum <- main.
+  Called from gcc_builtin_macros.c:13.
+[eva] using specification for function isalnum
+[eva:progress] gcc_builtin_macros.c:13: 
+  function isalnum: precondition 'c_uchar_or_eof_or_EOF' got status valid.
+[eva:progress] Done for function isalnum
+[eva:progress] 
+  computing for function iswlower <- main.
+  Called from gcc_builtin_macros.c:13.
+[eva] using specification for function iswlower
+[eva:progress] Done for function iswlower
+[eva:progress] gcc_builtin_macros.c:14: Call to builtin strlen
+[eva:progress] gcc_builtin_macros.c:14: 
+  function strlen: precondition 'valid_string_s' got status valid.
+[eva:progress] gcc_builtin_macros.c:15: Call to builtin malloc
+[eva:malloc:new] gcc_builtin_macros.c:15: allocating variable __malloc_main_l15
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  __fc_errno ∈ [--..--]
+  __fc_heap_status ∈ [--..--]
+  i ∈ {1}
+  d ∈ {0}
+  ll ∈ {2}
+  d2 ∈ {2.}
+  b ∈ [--..--]
+  s ∈ {2}
+  p ∈ {{ NULL ; &__malloc_main_l15[0] }}
+  __retres ∈ {0}

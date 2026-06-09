@@ -1,0 +1,17 @@
+[e-acsl] beginning translation.
+[e-acsl:analysis:inductive] 
+  extracting predicate from sum using mode: incomplete in 5
+[e-acsl:analysis:inductive] 
+  extracting function from sum with mode: incomplete in 5
+[e-acsl] Warning: Negative verdicts of sum might be unsound
+[e-acsl] sum.c:29: Warning: 
+  no assigns clause generated for function sum because pointers as arguments is not yet supported
+[e-acsl] sum.c:16: Warning: 
+  no assigns clause generated for function sum because pointers as arguments is not yet supported
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] sum.c:29: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] sum.c:29: Warning: assertion got status unknown.
+[eva:alarm] sum.c:30: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] sum.c:30: Warning: assertion got status unknown.

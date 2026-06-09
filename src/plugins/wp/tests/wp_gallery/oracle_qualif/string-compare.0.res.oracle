@@ -1,0 +1,96 @@
+# frama-c -wp [...]
+[kernel] Parsing string-compare.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal stringCompare_exits_never (Cfg) (Unreachable)
+[wp] [Valid] Goal stringLength_exits_never (Cfg) (Unreachable)
+[wp] 55 goals scheduled
+[wp] [Valid] typed_stringCompare_complete_SomeDifferent_allEqual (Qed)
+[wp] [Valid] typed_stringCompare_disjoint_SomeDifferent_allEqual (Qed)
+[wp] [Valid] typed_stringCompare_terminates (Qed)
+[wp] [Valid] typed_stringCompare_loop_invariant_equal_established (Qed)
+[wp] [Valid] typed_stringCompare_loop_invariant_equal_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_loop_invariant_gauge_established (Qed)
+[wp] [Valid] typed_stringCompare_loop_invariant_gauge_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_loop_invariant_gauge_s1_established (Qed)
+[wp] [Valid] typed_stringCompare_loop_invariant_gauge_s1_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_loop_invariant_gauge_s2_established (Qed)
+[wp] [Valid] typed_stringCompare_loop_invariant_gauge_s2_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_loop_invariant_not_eos_established (Qed)
+[wp] [Valid] typed_stringCompare_loop_invariant_not_eos_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_loop_invariant_strlen_s1_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_loop_invariant_strlen_s1_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_loop_invariant_strlen_s2_established (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_loop_invariant_strlen_s2_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_assert_length (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_assert_different (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_stringCompare_loop_assigns_part2 (Qed)
+[wp] [Valid] typed_stringCompare_loop_assigns_part3 (Qed)
+[wp] [Valid] typed_stringCompare_assigns_part1 (Qed)
+[wp] [Valid] typed_stringCompare_assigns_part2 (Qed)
+[wp] [Valid] typed_stringCompare_assigns_part3 (Qed)
+[wp] [Valid] typed_stringCompare_assigns_part4 (Qed)
+[wp] [Valid] typed_stringCompare_assigns_part5 (Qed)
+[wp] [Valid] typed_stringCompare_assigns_part6 (Qed)
+[wp] [Valid] typed_stringCompare_assigns_part7 (Qed)
+[wp] [Valid] typed_stringCompare_assigns_part8 (Qed)
+[wp] [Valid] typed_stringCompare_assigns_part9 (Qed)
+[wp] [Valid] typed_stringCompare_allEqual_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_SomeDifferent_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringLength_terminates (Qed)
+[wp] [Valid] typed_stringLength_ensures_rightResult (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringLength_ensures_rightEndCharacter (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringLength_loop_invariant_established (Qed)
+[wp] [Valid] typed_stringLength_loop_invariant_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringLength_loop_invariant_2_established (Qed)
+[wp] [Valid] typed_stringLength_loop_invariant_2_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringLength_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_stringLength_loop_assigns_part2 (Qed)
+[wp] [Valid] typed_stringLength_assigns_part1 (Qed)
+[wp] [Valid] typed_stringLength_assigns_part2 (Qed)
+[wp] [Valid] typed_stringLength_assigns_part3 (Qed)
+[wp] [Valid] typed_stringLength_assigns_part4 (Qed)
+[wp] [Valid] typed_stringLength_assigns_part5 (Qed)
+[wp] [Valid] typed_main_terminates (Qed)
+[wp] [Valid] typed_main_ensures (Alt-Ergo) (Cached)
+[wp] [Valid] typed_main_exits_never (Qed)
+[wp] [Valid] typed_main_assert (Qed)
+[wp] [Valid] typed_main_assigns_normal_part1 (Qed)
+[wp] [Valid] typed_main_assigns_normal_part2 (Qed)
+[wp] [Valid] typed_main_assigns_exit (Qed)
+[wp] [Valid] typed_main_call_stringCompare_requires_validStrings (Alt-Ergo) (Cached)
+[wp] Proved goals:   57 / 57
+  Unreachable:     2
+  Qed:            36
+  Alt-Ergo:       19
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  stringCompare            21       13       34       100%
+  stringLength             11        4       15       100%
+  main                      6        2        8       100%
+------------------------------------------------------------
+[wp] Running WP plugin...
+[wp] Warning: Skipped RTE guards: unaligned pointers (\aligned not supported)
+[wp] Warning: Skipped RTE guards: invalid function pointer calls (\valid_function not supported)
+[rte:annot] annotating function main
+[rte:annot] annotating function stringCompare
+[rte:annot] annotating function stringLength
+[wp] 8 goals scheduled
+[wp] [Valid] typed_stringCompare_assert_rte_mem_access (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_assert_rte_mem_access_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_assert_rte_mem_access_3 (Qed)
+[wp] [Valid] typed_stringCompare_assert_rte_mem_access_4 (Qed)
+[wp] [Valid] typed_stringCompare_assert_rte_mem_access_5 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_assert_rte_signed_overflow (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringCompare_assert_rte_signed_overflow_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_stringLength_assert_rte_mem_access (Alt-Ergo) (Cached)
+[wp] Proved goals:    8 / 8
+  Qed:             2
+  Alt-Ergo:        6
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  stringCompare            23       18       41       100%
+  stringLength             11        5       16       100%
+  main                      6        2        8       100%
+------------------------------------------------------------

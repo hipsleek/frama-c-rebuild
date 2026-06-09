@@ -1,0 +1,18 @@
+[e-acsl] beginning translation.
+[e-acsl] FRAMAC_SHARE/libc/ctype.h:159: Warning: 
+  E-ACSL construct `assigns clause' is not yet supported. Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] ctype_macros.c:37: Warning: 
+  function __gen_e_acsl_isupper: precondition 'c_uchar_or_eof' got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/ctype.h:160: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/ctype.h:159: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/ctype.h:164: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/ctype.h:167: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] FRAMAC_SHARE/libc/ctype.h:164: Warning: 
+  function __gen_e_acsl_isupper, behavior definitely_match: postcondition 'nonzero_result' got status unknown. (Behavior may be inactive, no reduction performed.)
+[eva:alarm] FRAMAC_SHARE/libc/ctype.h:167: Warning: 
+  function __gen_e_acsl_isupper, behavior definitely_not_match: postcondition 'zero_result' got status unknown. (Behavior may be inactive, no reduction performed.)

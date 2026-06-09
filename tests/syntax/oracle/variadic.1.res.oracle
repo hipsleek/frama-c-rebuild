@@ -1,0 +1,6 @@
+[kernel] Parsing variadic.i (no preprocessing)
+[kernel:typing:implicit-function-declaration] variadic.i:28: Warning: 
+  Calling undeclared function f. Old style K&R code?
+[kernel] variadic.i:29: User Error: Too many arguments in call to h
+[kernel] User Error: stopping on file "variadic.i" that has errors.
+[kernel] Frama-C aborted: invalid user input.

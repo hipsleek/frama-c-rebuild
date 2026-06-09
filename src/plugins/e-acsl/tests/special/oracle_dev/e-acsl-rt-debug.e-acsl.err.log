@@ -1,0 +1,21 @@
+>>> HEAP ---------------------
+   Application: xxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> STACK --------------------
+   Application: xxMB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxMB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> GLOBAL -------------------
+   Application: xxxkB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxkB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxkB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> TLS ----------------------
+   Application: 720 B [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : 720 B [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : 720 B [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> VDSO ---------------------
+   Application: xxxkB [0x0000-0000-0000, 0x0000-0000-0000]
+   Primary    : xxxkB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+   Secondary  : xxxkB [0x0000-0000-0000, 0x0000-0000-0000]{ Offset:xxxxx }
+>>> --------------------------

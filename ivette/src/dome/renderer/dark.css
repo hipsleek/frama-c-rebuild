@@ -1,0 +1,194 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #b4cacd;
+    --text-discrete: #879da0;
+    --disabled-text: #506679;
+    --disabled-text-sidebar: #607689;
+    --info-text: #748a8d;
+    --info-text-discrete: #778094;
+    --text-highlighted: rgb(80, 220, 255);
+
+    --caret-color: white;
+    --code-hover: #005137;
+    --code-select: #4f3d24;
+    --code-select-hover: #5f4d34;
+    --dead-code: #777;
+    --non-terminating: #634c4e;
+    --highlighted-marker: #5f611b;
+    --code-bullet: #0a2234;
+
+    --border: #031b2d;
+    --border-discrete: #2a4254;
+    --splitter: var(--border-discrete);
+
+    --background: #2c394b;
+    --background-profound: #082032;
+    --background-profound-hover: #0e2638;
+    --background-disabled: #525f71;
+    --background-disabled-hover: #4c596b;
+    --background-intense: #132b41;
+    --background-softer: #364455;
+    --background-sidebar: #183042;
+    --background-button-hover: #c0c0c0;
+    --background-alterning-odd: #354154;
+    --background-alterning-even: #475366;
+    --background-interaction: #4c596b;
+    --background-report: #1e2b3d;
+    --background-block-form: #2d3e58;
+    --background-popup: #374150;
+
+    --selected-element: #082032;
+    --checked-element: #68758e;
+
+    --lcd-button-color: #21211a;
+    --lcd-button-background: #727798;
+
+    --default-button-color: #3c495b;
+    --default-led-img: radial-gradient(circle at center, #5f92b9, #4189bf);
+    --default-button-img: linear-gradient(to bottom, #3c495b 0%, #455164 100%);
+    --default-button-hover: #154240;
+    --default-button-active: #303d4f;
+
+    --primary-button-color: #146bbf;
+    --primary-button-img: linear-gradient(to bottom, #146bbf 0%, #1960b2 100%);
+    --primary-button-hover: #0e65b9;
+    --primary-button-active: #085fb3;
+
+    --positive-button-color: #327024;
+    --positive-led-img: radial-gradient(circle at center, #20a110, #177c16);
+    --positive-button-img: linear-gradient(to bottom, #327024 0%, #2e6c20 100%);
+    --positive-button-hover: #28661a;
+    --positive-button-active: #226014;
+
+    --negative-button-color: #a10f0f;
+    --negative-led-img: radial-gradient(circle at center, #df3b36, #c72a25c7);
+    --negative-button-img: linear-gradient(to bottom, #bc150e 0%, #cf1c17 100%);
+    --negative-button-hover: #b60f08;
+    --negative-button-active: #b00903;
+
+    --warning-button-color: #a4601a;
+    --warning-led-img: radial-gradient(circle at center, #efa739, #ccb41f);
+    --warning-button-img: linear-gradient(to bottom, #a4601a 0%, #a6571c 100%);
+    --warning-button-hover: #9e5114;
+    --warning-button-active: #984b0e;
+
+    --cancel-button-img: #082032;
+    --cancel-button-hover: #0e2638;
+    --cancel-button-active: #041c2e;
+
+    --selected-button-img: #336cb3;
+    --selected-button-hover: #116cdc;
+
+    --activated-button-color: #348bdf;
+    --activated-button-hover: #b53d9e;
+
+    --grid-layout-holder: #266475;
+    --grid-layout-target: #34b4c0;
+
+    --error: darkorange;
+    --warning: darkorange;
+
+    --meter-optimum:  linear-gradient(to bottom, #170 0%, #5c0 20%, #170 100%);
+    --meter-subopti:  linear-gradient(to bottom, #770 0%, #cc0 20%, #770 100%);
+    --meter-evenless: linear-gradient(to bottom, #710 0%, #c50 20%, #710 100%);
+
+    --studia-search-mode: #c2c71e;
+
+    --eva-evaluation-mode: #714074;
+    --eva-state-before: #082032;
+    --eva-state-after: #321428;
+    --eva-state-then: #98a02e;
+    --eva-state-else: #8f030e;
+    --eva-probes-pinned: #1f493f;
+    --eva-probes-pinned-focused: #025d22;
+    --eva-probes-transient: #bfb095;
+    --eva-probes-transient-focused: #9f3c20;
+    --eva-alarms-true: green;
+    --eva-alarms-false: #fb4e4a;
+    --eva-alarms-unknown: darkorange;
+
+    --mthread-button-thread: #4B2A69;
+    --mthread-button-mutex: #7D1919;
+    --mthread-button-message: #197D19;
+    --mthread-button-variable: #19197D;
+
+    --codemirror-comment: #748a8d;
+    --codemirror-type: #bacd5f;
+    --codemirror-number: #d3869b;
+    --codemirror-keyword: #d84954;
+    --codemirror-def: #94aadd;
+
+    --status-dead : #000000;
+    --status-valid : #499E00;
+    --status-invalid: #FF0000;
+    --status-unknown: #FFE62E;
+    --status-never-tried: #FFFFFF;
+    --status-inconsistent: #FF00FF;
+
+    --status-valid-but-dead: linear-gradient(to right, var(--status-valid) 49%, var(--status-dead) 51%);
+    --status-invalid-but-dead: linear-gradient(to right, var(--status-invalid) 49%, var(--status-dead) 51%);
+    --status-unknown-but-dead: linear-gradient(to right, var(--status-unknown) 49%, var(--status-dead) 51%);
+
+    --status-valid-under-hyp: linear-gradient(to right, var(--status-valid) 49%, var(--status-unknown) 51%);
+    --status-considered-valid: linear-gradient(to right, var(--status-valid) 49%, #73BBBB 51%);
+    --status-invalid-under-hyp: linear-gradient(to right, var(--status-invalid) 49%, var(--status-unknown) 51%);
+
+    /* node background colors */
+    --graph-bg-color-default: #4c596b;
+    --graph-bg-color-white: #ffffff;
+    --graph-bg-color-lightgrey: #dddddd;
+    --graph-bg-color-grey: #cccccc;
+    --graph-bg-color-dark: #666666;
+    --graph-bg-color-primary: dodgerblue;
+    --graph-bg-color-selected: deepskyblue;
+    --graph-bg-color-green: lime;
+    --graph-bg-color-orange: #ffa700;
+    --graph-bg-color-red: red;
+    --graph-bg-color-yellow: yellow;
+    --graph-bg-color-blue: cyan;
+    --graph-bg-color-pink: hotpink;
+    /* cluster background colors */
+    --graph-sg-color-default: #4c596b;
+    --graph-sg-color-white: #dddddd;
+    --graph-bg-color-lightgrey: #cccccc;
+    --graph-sg-color-grey: #bbbbbb;
+    --graph-sg-color-dark: #aaaaaa;
+    --graph-sg-color-primary: #4fc3f7;
+    --graph-sg-color-selected: #4c596b;
+    --graph-sg-color-green: #AED581;
+    --graph-sg-color-orange: #FFCC80;
+    --graph-sg-color-red: #ff6e6e;
+    --graph-sg-color-yellow: #d4cc82;
+    --graph-sg-color-blue: #bbdefb;
+    --graph-sg-color-pink: #f8bbd0;
+    /** foreground colors */
+    --graph-fg-color-default: white;
+    --graph-fg-color-white: black;
+    --graph-fg-color-lightgrey: black;
+    --graph-fg-color-grey: black;
+    --graph-fg-color-dark: white;
+    --graph-fg-color-primary: white;
+    --graph-fg-color-selected: black;
+    --graph-fg-color-green: black;
+    --graph-fg-color-orange: black;
+    --graph-fg-color-red: white;
+    --graph-fg-color-yellow: black;
+    --graph-fg-color-blue: black;
+    --graph-fg-color-pink: white;
+    /** edge colors */
+    --graph-ed-color-default: white; /* white */
+    --graph-ed-color-white: white; /* white */
+    --graph-ed-color-lightgrey: #bbbbbb;
+    --graph-ed-color-grey: #aaaaaa;
+    --graph-ed-color-dark: #000000; /* black */
+    --graph-ed-color-primary: #1E90FF; /* dodgerblue */
+    --graph-ed-color-selected: #00BFFF; /* deepskyblue */
+    --graph-ed-color-green: #00FF00; /* green */
+    --graph-ed-color-orange: #FFA500; /* orange */
+    --graph-ed-color-red: #FF0000; /* red */
+    --graph-ed-color-yellow: #E5E100;
+    --graph-ed-color-blue: #00BFFF; /* deepskyblue */
+    --graph-ed-color-pink: #FF82AB; /* palevioletred1 */
+
+  }
+}

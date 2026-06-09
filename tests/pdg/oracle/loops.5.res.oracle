@@ -1,0 +1,109 @@
+[kernel] Parsing loops.c (with preprocessing)
+[eva] Analyzing an incomplete application starting at two_infinite_loops
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  after ∈ [--..--]
+[eva:partition] loops.c:99: starting to merge loop iterations
+[eva:alarm] loops.c:110: Warning: signed overflow. assert i1 + 2 ≤ 2147483647;
+[eva:partition] loops.c:105: starting to merge loop iterations
+[eva:alarm] loops.c:106: Warning: signed overflow. assert i2 + 1 ≤ 2147483647;
+[eva:progress] Recording results for two_infinite_loops
+[eva:progress] Done for function two_infinite_loops
+[pdg] computing for function two_infinite_loops
+[pdg] done for function two_infinite_loops
+[pdg] PDG for two_infinite_loops
+ {n1}: InCtrl
+ {n2}: VarDecl : n
+   -[a--]-> 3
+ {n3}: In1
+   -[a--]-> 2
+ {n4}: VarDecl : s
+ {n5}: VarDecl : i1
+ {n6}: VarDecl : i2
+ {n7}: int s = 0;
+   -[-c-]-> 1
+   -[a--]-> 4
+ {n8}: int i1 = 0;
+   -[-c-]-> 1
+   -[a--]-> 5
+ {n9}: int i2 = 0;
+   -[-c-]-> 1
+   -[a--]-> 6
+ {n10}: n > 0
+   -[-c-]-> 1
+   -[--d]-> 2
+   -[--d]-> 3
+ {n11}: while(1)
+   -[-c-]-> 1
+   -[-c-]-> 10
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 19
+ {n12}: i1 ++;
+   -[-c-]-> 1
+   -[a-d]-> 5
+   -[--d]-> 8
+   -[-c-]-> 10
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[--d]-> 15
+   -[-c-]-> 19
+ {n13}: s < 10
+   -[-c-]-> 1
+   -[--d]-> 4
+   -[--d]-> 7
+   -[-c-]-> 10
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[--d]-> 14
+   -[-c-]-> 19
+ {n14}: s += 2;
+   -[-c-]-> 1
+   -[a-d]-> 4
+   -[--d]-> 7
+   -[-c-]-> 10
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[--d]-> 14
+   -[-c-]-> 19
+ {n15}: i1 += 2;
+   -[-c-]-> 1
+   -[a-d]-> 5
+   -[-c-]-> 10
+   -[-c-]-> 11
+   -[--d]-> 12
+   -[-c-]-> 13
+   -[-c-]-> 19
+ {n16}: s = 1;
+   -[a--]-> 4
+ {n17}: i2 = 0;
+   -[-c-]-> 1
+   -[a--]-> 6
+   -[-c-]-> 10
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 19
+ {n18}: after = 0;
+   -[-c-]-> 1
+ {n19}: while(1)
+   -[-c-]-> 1
+   -[-c-]-> 10
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[-c-]-> 19
+ {n20}: i2 ++;
+   -[-c-]-> 1
+   -[a-d]-> 6
+   -[-c-]-> 10
+   -[-c-]-> 11
+   -[-c-]-> 13
+   -[--d]-> 17
+   -[-c-]-> 19
+   -[--d]-> 20
+ {n21}: return s;
+   -[-c-]-> 1
+   -[--d]-> 4
+   -[--d]-> 16
+ {n22}: OutRet
+   -[--d]-> 21

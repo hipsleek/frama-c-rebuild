@@ -1,0 +1,60 @@
+Plug-in name: Obfuscator
+Plug-in shortname: obfuscator
+Description: obfuscator for confidential code
+
+Most options of the form '-obfuscator-option-name' and without any parameter
+have an opposite with the name '-obfuscator-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-obfuscate          print an obfuscated version of the input files and
+                    exit.
+                    Disable any other Frama-C analysis. (opposite option is
+                    -no-obfuscate)
+-obfuscator-dictionary <f>  generate the dictionary into file <f> (on stdout
+                    by default) (preferably use -obfuscator-dictionary="f")
+-obfuscator-string-dictionary <f>  generate the dictionary of literal strings
+                    into file <f> (in the same place than the code by
+                    default) (preferably use
+                    -obfuscator-string-dictionary="f")
+
+*** DEBUG
+
+-obfuscator-debug <n>  level of debug for plug-in Obfuscator (default to 0)
+
+*** GETTING INFORMATION
+
+-obfuscator-help    help of plug-in Obfuscator
+-obfuscator-h       alias for option -obfuscator-help
+
+*** OUTPUT MESSAGES
+
+-obfuscator-log <K_1:file_1,...>  copy log messages from Obfuscator to a
+                    file. <K> is a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -obfuscator-log="K_1:file_1,...")
+-obfuscator-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -obfuscator-msg-key help to get a list
+                    of available categories, and * to enable all categories
+                    (preferably use -obfuscator-msg-key="k1[,...,kn]")
+-obfuscator-verbose <n>  level of verbosity for plug-in Obfuscator (default
+                    to 1)
+-obfuscator-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category
+                    <k1> to <s1>,...,<kn> to <sn>. Use -obfuscator-warn-key
+                    help to get a list of available categories, and * to
+                    enable all categories. Possible statuses are inactive,
+                    feedback, warning, error, abort, feedback-once,
+                    warning-once, error-once. Defaults to warning.
+                    (preferably use
+                    -obfuscator-warn-key="k1[=s1][,...,kn[=sn]]")

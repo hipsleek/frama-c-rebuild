@@ -1,0 +1,8 @@
+46c46,50
+< [eva:progress] str_lit_libentry.i:14: Reusing old results for call to f
+---
+> [eva:progress] 
+>   computing for function f <- main.
+>   Called from str_lit_libentry.i:14:12-22.
+> [eva:progress] Recording results for f
+> [eva:progress] Done for function f

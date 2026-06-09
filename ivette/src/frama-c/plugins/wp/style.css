@@ -1,0 +1,371 @@
+/* -------------------------------------------------------------------------- */
+/* --- WP Goals                                                           --- */
+/* -------------------------------------------------------------------------- */
+
+.wp-empty-goals {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Panel                                                              --- */
+/* -------------------------------------------------------------------------- */
+
+/* Generic sidebar block */
+/* TODO: extract this to Dome */
+
+.wp-sidebar-block {
+  max-width: 100%;
+  margin: 4px 0 2px 0;
+  background-color: var(--background-block-form);
+  padding: 2px 8px 2px 2px;
+  border-radius: 4px;
+
+  .dome-xCheckbox {
+    padding: 2px;
+    margin: 2px 4px;
+  }
+}
+
+.wp-sidebar-block-title {
+  /* Probably mergeable with xTitleBar */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0px;
+
+  .dome-xBoxes-hbox {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+.wp-sidebar-block-title-label {
+  font-weight: bolder;
+  margin: 1px 4px;
+}
+
+/* end sidebar block */
+
+/* Generic sidebar function search */
+
+.wp-sidebar-block {
+  .dome-xToolBar-searchComponent {
+    margin: 1px 4px;
+    width: auto;
+  }
+
+  .dome-xToolBar-searchField {
+    width: auto;
+  }
+
+  .dome-xToolBar-searchField input[type=search] {
+    width: 100%;
+  }
+
+  .dome-control-disabled {
+    color: var(--disabled-text-sidebar);
+    fill: var(--disabled-text-sidebar);
+    font-weight: lighter;
+  }
+
+  .dome-xIcon-disabled {
+    fill: var(--disabled-text-sidebar);
+  }
+}
+
+.wp-sidebar-search {
+  background: var(--primary-button-color);
+  fill: var(--text-discrete);
+}
+
+/* end sidebar search */
+
+.wp-sidebar-prover-label {
+  margin-top: 4px;
+}
+
+.wp-sidebar .dome-xForm-section {
+  margin-top: 10px;
+}
+
+.wp-sidebar-selection-button {
+  margin: 1px;
+  padding: 1px;
+}
+
+.wp-sidebar-selection {
+  padding: 0px 0px 0px 3px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin: 2px;
+  width: fit-content;
+  display: inline-flex;
+}
+
+.wp-sidebar-selection-selected {
+  border: 1px solid var(--text-discrete);
+  background-color: var(--background-softer);
+}
+
+.wp-sidebar-selection-block {
+  margin-bottom: 5px;
+}
+
+.wp-sidebar-selection-commit {
+  padding: 2px;
+  border-radius: 50%;
+  margin: 1px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Pattern Debugger                                                   --- */
+/* -------------------------------------------------------------------------- */
+
+.wp-select-pattern:hover {
+  cursor: pointer;
+  color: var(--default-button-color);
+  background-color: var(--background-button-hover);
+}
+
+.wp-pattern-warning {
+  text-decoration: underline wavy orange;
+}
+
+.wp-pattern-error {
+  text-decoration: underline 2pt red;
+}
+
+.wp-pattern-selected-warning {
+  background-color: rgb(255, 225, 164);
+}
+
+@media (prefers-color-scheme: dark) {
+  .wp-pattern-selected-warning {
+    background-color: rgb(134, 90, 0);
+  }
+}
+
+.wp-pattern-selected-error {
+  background-color: rgb(255, 164, 164);
+}
+
+@media (prefers-color-scheme: dark) {
+  .wp-pattern-selected-error {
+    background-color: rgb(164, 0, 0);
+  }
+}
+
+.wp-pattern-selected {
+  background-color: var(--background-softer);
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Sequent Editor                                                     --- */
+/* -------------------------------------------------------------------------- */
+
+.wp .cm-gutter {
+  width: 3px;
+}
+
+.wp-gutter-part {
+  background: red;
+}
+
+.wp-selected {
+  background: var(--code-select);
+}
+
+.wp.cm-hovered-code,
+.wp.cm-hovered-code>span {
+  background: var(--code-hover);
+}
+
+.wp-printer {
+  position: absolute;
+  right: 18px;
+  top: 2px;
+  background: var(--background-report);
+}
+
+.wp-printer-field {
+  margin: 0px;
+  fill: var(--text-discrete);
+  color: var(--text-discrete);
+  font-size: x-small;
+  border-radius: 6px;
+  background: var(--background-report);
+}
+
+.wp-printer-field.selected {
+  font-weight: bolder;
+  fill: var(--positive-button-color);
+  color: var(--positive-button-color);
+}
+
+.wp-printer-field:hover {
+  /* fill: var(--default-button-color); */
+  /* color: var(--default-button-color); */
+  background: var(--background-button-hover) !important;
+}
+
+.wp-printer-button {
+  width: 30px;
+  padding: 5px 4px 5px 4px;
+}
+
+.wp-printer-locked {
+  fill: var(--negative-button-color);
+}
+
+.wp-printer-button dome-xIcon {
+  margin: 0px;
+  padding: 0px;
+}
+
+.wp-printer-select {
+  border: none;
+  box-shadow: none;
+  text-align: right;
+  padding: 0px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Navigation Bar                                                     --- */
+/* -------------------------------------------------------------------------- */
+
+.wp-navbar {
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: var(--background-sidebar);
+}
+
+.wp-navbar-node {
+  padding-right: 8px;
+}
+
+.wp-navbar-node:hover {
+  background-color: var(--code-hover);
+}
+
+.wp-navbar-node.parent {
+  padding-left: 0px;
+}
+
+.wp-navbar-node.child {
+  padding-left: 12px;
+}
+
+.wp-navbar-node.current {
+  font-weight: bold;
+  padding-left: 0px;
+  background-color: var(--code-select);
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Tactics View                                                       --- */
+/* -------------------------------------------------------------------------- */
+
+.wp-sidebar-view {
+  padding: 2px 0px 2px 3px;
+  align-content: flex-start;
+  overflow-y: auto;
+  border-width: 1px;
+  border-left-style: solid;
+}
+
+.wp-tactical-item {
+  flex: 0 0 auto;
+  margin: 2px;
+  width: 120px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 6px;
+}
+
+.wp-tactical-item.selected {
+  background: var(--code-select);
+}
+
+.wp-tactical-item:hover {
+  background: var(--code-hover);
+}
+
+.wp-tactical-cell {
+  flex: 1 0 90px;
+  margin-right: 0px;
+  text-overflow: ellipsis;
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Tactic Configuration                                               --- */
+/* -------------------------------------------------------------------------- */
+
+.wp-configure {
+  min-height: 32px;
+  align-items: baseline;
+  align-content: center;
+}
+
+.wp-configure .dome-xLabel {
+  padding: 0px 3px 0px 3px;
+  margin: 0px 3px 0px 3px;
+}
+
+.wp-configure .dome-xIconButton {
+  padding: 2px 5px 2px 5px;
+  width: 20px;
+}
+
+.wp-configure .dome-xIconButton.dome-control-enabled:hover {
+  border-radius: 4px;
+  background: var(--background-interaction);
+}
+
+.wp-config-tactic {
+  font-weight: bold;
+}
+
+.wp-config-info {
+  overflow: hidden;
+}
+
+.wp-config-field {
+  border: none;
+  margin-left: 4px;
+  border-radius: 4px;
+  background: var(--background-interaction);
+}
+
+.wp-config-checkbox .dome-xIcon-disabled {
+  fill: var(--disabled-text);
+}
+
+.wp-config-checkbox:hover {
+  border-radius: 6px;
+  background: var(--background-interaction);
+}
+
+.wp-config-switch {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.wp-config-spinner {
+  width: 60px;
+  color: var(--text-discrete);
+  background: var(--background-interaction);
+}
+
+.wp-config-select {
+  padding: 1px;
+  margin: 0 5px 0 4px;
+}
+
+input.wp-config-spinner:disabled {
+  color: var(--text-disabled);
+  background: var(--background-profound);
+}
+
+/* -------------------------------------------------------------------------- */

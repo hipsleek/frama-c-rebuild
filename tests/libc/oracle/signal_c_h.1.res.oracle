@@ -1,0 +1,346 @@
+[kernel] Parsing signal_c_h.c (with preprocessing)
+[eva:split-return] 
+  Splitting return states on:
+    \full_split(signal)
+    \return(raise) == 0 (auto)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+  signal_status ∈ {0}
+[eva:progress] 
+  computing for function test_sigaction <- main.
+  Called from signal_c_h.c:104.
+[eva:progress] 
+  computing for function sigemptyset <- test_sigaction <- main.
+  Called from signal_c_h.c:22.
+[eva] using specification for function sigemptyset
+[eva:progress] signal_c_h.c:22: 
+  function sigemptyset: precondition 'valid_set' got status valid.
+[eva:progress] Done for function sigemptyset
+[eva:progress] 
+  computing for function sigaddset <- test_sigaction <- main.
+  Called from signal_c_h.c:23.
+[eva] using specification for function sigaddset
+[eva:progress] signal_c_h.c:23: 
+  function sigaddset: precondition 'valid_set' got status valid.
+[eva:progress] signal_c_h.c:23: 
+  function sigaddset: precondition 'initialization,set' got status valid.
+[eva:progress] Done for function sigaddset
+[eva:progress] 
+  computing for function sigdelset <- test_sigaction <- main.
+  Called from signal_c_h.c:26.
+[eva] using specification for function sigdelset
+[eva:progress] signal_c_h.c:26: 
+  function sigdelset: precondition 'valid_set' got status valid.
+[eva:progress] signal_c_h.c:26: 
+  function sigdelset: precondition 'initialization,set' got status valid.
+[eva:progress] Done for function sigdelset
+[eva:progress] 
+  computing for function sigismember <- test_sigaction <- main.
+  Called from signal_c_h.c:29.
+[eva] using specification for function sigismember
+[eva:progress] signal_c_h.c:29: 
+  function sigismember: precondition 'valid_read_set' got status valid.
+[eva:progress] signal_c_h.c:29: 
+  function sigismember: precondition 'initialization,set' got status valid.
+[eva:progress] Done for function sigismember
+[eva:progress] 
+  computing for function sigfillset <- test_sigaction <- main.
+  Called from signal_c_h.c:30.
+[eva] using specification for function sigfillset
+[eva:progress] signal_c_h.c:30: 
+  function sigfillset: precondition 'valid_set' got status valid.
+[eva:progress] Done for function sigfillset
+[eva:progress] 
+  computing for function sigismember <- test_sigaction <- main.
+  Called from signal_c_h.c:31.
+[eva:progress] signal_c_h.c:31: 
+  function sigismember: precondition 'valid_read_set' got status valid.
+[eva:progress] signal_c_h.c:31: 
+  function sigismember: precondition 'initialization,set' got status valid.
+[eva:progress] Done for function sigismember
+[eva:progress] 
+  computing for function sigaddset <- test_sigaction <- main.
+  Called from signal_c_h.c:34.
+[eva:progress] signal_c_h.c:34: 
+  function sigaddset: precondition 'valid_set' got status valid.
+[eva:alarm] signal_c_h.c:34: Warning: 
+  function sigaddset: precondition 'initialization,set' got status invalid.
+[eva:progress] Done for function sigaddset
+[eva:progress] 
+  computing for function sigprocmask <- test_sigaction <- main.
+  Called from signal_c_h.c:41.
+[eva] using specification for function sigprocmask
+[eva:progress] signal_c_h.c:41: 
+  function sigprocmask: precondition 'valid_set_or_null' got status valid.
+[eva:progress] signal_c_h.c:41: 
+  function sigprocmask: precondition 'valid_how' got status valid.
+[eva:progress] signal_c_h.c:41: 
+  function sigprocmask: precondition 'valid_oldset_or_null' got status valid.
+[eva:progress] signal_c_h.c:41: 
+  function sigprocmask: precondition 'separation' got status valid.
+[eva:progress] Done for function sigprocmask
+[eva:progress] 
+  computing for function sigaddset <- test_sigaction <- main.
+  Called from signal_c_h.c:44.
+[eva:progress] signal_c_h.c:44: 
+  function sigaddset: precondition 'valid_set' got status valid.
+[eva:progress] signal_c_h.c:44: 
+  function sigaddset: precondition 'initialization,set' got status valid.
+[eva:progress] Done for function sigaddset
+[eva:progress] 
+  computing for function sigprocmask <- test_sigaction <- main.
+  Called from signal_c_h.c:47.
+[eva:progress] signal_c_h.c:47: 
+  function sigprocmask: precondition 'valid_set_or_null' got status valid.
+[eva:progress] signal_c_h.c:47: 
+  function sigprocmask: precondition 'valid_how' got status valid.
+[eva:progress] signal_c_h.c:47: 
+  function sigprocmask: precondition 'valid_oldset_or_null' got status valid.
+[eva:progress] signal_c_h.c:47: 
+  function sigprocmask: precondition 'separation' got status valid.
+[eva:assigns:invalid-location] signal_c_h.c:47: 
+  Completely invalid destination for assigns clause *oldset. Ignoring.
+[eva:progress] Done for function sigprocmask
+[eva:progress] 
+  computing for function sigprocmask <- test_sigaction <- main.
+  Called from signal_c_h.c:50.
+[eva:progress] signal_c_h.c:50: 
+  function sigprocmask: precondition 'valid_set_or_null' got status valid.
+[eva:progress] signal_c_h.c:50: 
+  function sigprocmask: precondition 'valid_how' got status valid.
+[eva:progress] signal_c_h.c:50: 
+  function sigprocmask: precondition 'valid_oldset_or_null' got status valid.
+[eva:progress] signal_c_h.c:50: 
+  function sigprocmask: precondition 'separation' got status valid.
+[eva:progress] Done for function sigprocmask
+[eva:progress] 
+  computing for function kill <- test_sigaction <- main.
+  Called from signal_c_h.c:54.
+[eva] using specification for function kill
+[eva:progress] Done for function kill
+[eva:progress] 
+  computing for function sigaction <- test_sigaction <- main.
+  Called from signal_c_h.c:57.
+[eva] using specification for function sigaction
+[eva:progress] signal_c_h.c:57: 
+  function sigaction: precondition 'valid_signal' got status valid.
+[eva:progress] signal_c_h.c:57: 
+  function sigaction: precondition 'valid_oldact_or_null' got status valid.
+[eva:progress] signal_c_h.c:57: 
+  function sigaction: precondition 'valid_read_act_or_null' got status valid.
+[eva:progress] signal_c_h.c:57: 
+  function sigaction: precondition 'separation,separated_acts' got status valid.
+[eva:garbled-mix:assigns] signal_c_h.c:57: 
+  The specification of function sigaction
+  has generated a garbled mix of addresses for assigns clause *oldact.
+[eva:progress] Done for function sigaction
+[eva:progress] 
+  computing for function sigaction <- test_sigaction <- main.
+  Called from signal_c_h.c:57.
+[eva:progress] Done for function sigaction
+[eva:progress] 
+  computing for function sigaction <- test_sigaction <- main.
+  Called from signal_c_h.c:60.
+[eva:progress] signal_c_h.c:60: 
+  function sigaction: precondition 'valid_signal' got status valid.
+[eva:progress] signal_c_h.c:60: 
+  function sigaction: precondition 'valid_oldact_or_null' got status valid.
+[eva:progress] signal_c_h.c:60: 
+  function sigaction: precondition 'valid_read_act_or_null' got status valid.
+[eva:progress] signal_c_h.c:60: 
+  function sigaction: precondition 'separation,separated_acts' got status valid.
+[eva:garbled-mix:assigns] signal_c_h.c:60: 
+  The specification of function sigaction
+  has generated a garbled mix of addresses for assigns clause *oldact.
+[eva:progress] Done for function sigaction
+[eva:progress] 
+  computing for function sigaction <- test_sigaction <- main.
+  Called from signal_c_h.c:63.
+[eva:progress] signal_c_h.c:63: 
+  function sigaction: precondition 'valid_signal' got status valid.
+[eva:progress] signal_c_h.c:63: 
+  function sigaction: precondition 'valid_oldact_or_null' got status valid.
+[eva:progress] signal_c_h.c:63: 
+  function sigaction: precondition 'valid_read_act_or_null' got status valid.
+[eva:progress] signal_c_h.c:63: 
+  function sigaction: precondition 'separation,separated_acts' got status valid.
+[eva:assigns:invalid-location] signal_c_h.c:63: 
+  Completely invalid destination for assigns clause *oldact. Ignoring.
+[eva:progress] Done for function sigaction
+[eva:progress] signal_c_h.c:67: assertion 'valid_nsig' got status valid.
+[eva:progress] 
+  computing for function sigsuspend <- test_sigaction <- main.
+  Called from signal_c_h.c:71.
+[eva] using specification for function sigsuspend
+[eva:progress] signal_c_h.c:71: 
+  function sigsuspend: precondition 'valid_mask_or_null' got status valid.
+[eva:progress] Done for function sigsuspend
+[eva:progress] signal_c_h.c:72: 
+  assertion 'sigsuspend_errno_eintr' got status valid.
+[eva:progress] signal_c_h.c:73: assertion 'sigsuspend_return' got status valid.
+[eva:progress] Recording results for test_sigaction
+[eva:progress] Done for function test_sigaction
+[eva:progress] 
+  computing for function test_sighandler <- main.
+  Called from signal_c_h.c:105.
+[eva:progress] signal_c_h.c:87: assertion got status valid.
+[eva:progress] 
+  computing for function signal <- test_sighandler <- main.
+  Called from signal_c_h.c:89.
+[eva:progress] 
+  computing for function get_signal_handler <- signal <- test_sighandler <- 
+                          main.
+  Called from FRAMAC_SHARE/libc/signal.c:49.
+[eva:progress] 
+  computing for function set_signal_handler <- get_signal_handler <- signal <- 
+                          test_sighandler <- main.
+  Called from FRAMAC_SHARE/libc/signal.c:41.
+[eva:progress] Recording results for set_signal_handler
+[eva:progress] Done for function set_signal_handler
+[eva:progress] 
+  computing for function set_signal_handler <- get_signal_handler <- signal <- 
+                          test_sighandler <- main.
+  Called from FRAMAC_SHARE/libc/signal.c:41.
+[eva:progress] Recording results for set_signal_handler
+[eva:progress] Done for function set_signal_handler
+[eva:progress] Recording results for get_signal_handler
+[eva:progress] Done for function get_signal_handler
+[eva:progress] 
+  computing for function set_signal_handler <- signal <- test_sighandler <- 
+                          main.
+  Called from FRAMAC_SHARE/libc/signal.c:50.
+[eva:progress] Recording results for set_signal_handler
+[eva:progress] Done for function set_signal_handler
+[eva:progress] Recording results for signal
+[eva:progress] Done for function signal
+[eva:progress] 
+  computing for function raise <- test_sighandler <- main.
+  Called from signal_c_h.c:92.
+[eva:progress] FRAMAC_SHARE/libc/signal.c:60: 
+  Reusing old results for call to get_signal_handler
+[eva:progress] 
+  computing for function SIG_DFL <- raise <- test_sighandler <- main.
+  Called from FRAMAC_SHARE/libc/signal.c:61.
+[eva:progress] 
+  computing for function exit <- SIG_DFL <- raise <- test_sighandler <- main.
+  Called from FRAMAC_SHARE/libc/signal.c:21.
+[eva] using specification for function exit
+[eva:progress] Done for function exit
+[eva:progress] Recording results for SIG_DFL
+[eva:progress] Done for function SIG_DFL
+[eva:progress] 
+  computing for function SIG_IGN <- raise <- test_sighandler <- main.
+  Called from FRAMAC_SHARE/libc/signal.c:61.
+[eva:progress] Recording results for SIG_IGN
+[eva:progress] Done for function SIG_IGN
+[eva:progress] Recording results for raise
+[eva:progress] Done for function raise
+[eva:progress] 
+  computing for function raise <- test_sighandler <- main.
+  Called from signal_c_h.c:92.
+[eva:progress] 
+  computing for function get_signal_handler <- raise <- test_sighandler <- main.
+  Called from FRAMAC_SHARE/libc/signal.c:60.
+[eva:progress] Recording results for get_signal_handler
+[eva:progress] Done for function get_signal_handler
+[eva:progress] 
+  computing for function signal_handler <- raise <- test_sighandler <- main.
+  Called from FRAMAC_SHARE/libc/signal.c:61.
+[eva:progress] Recording results for signal_handler
+[eva:progress] Done for function signal_handler
+[eva:progress] Recording results for raise
+[eva:progress] Done for function raise
+[eva:progress] signal_c_h.c:99: assertion 'handler_called' got status valid.
+[eva:progress] signal_c_h.c:100: 
+  assertion 'handler_not_called' got status valid.
+[eva:progress] Recording results for test_sighandler
+[eva:progress] Done for function test_sighandler
+[eva:alarm] signal_c_h.c:107: Warning: 
+  assertion 'unknown_because_volatile' got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function SIG_IGN:
+  
+[eva:final-states] Values at end of function SIG_DFL:
+  
+[eva:final-states] Values at end of function set_signal_handler:
+  __fc_signal_handlers[0..1] ∈ {0}
+                      [2] ∈ {{ &SIG_DFL ; &SIG_IGN ; &signal_handler }}
+                      [3..64] ∈ {0}
+[eva:final-states] Values at end of function get_signal_handler:
+  __fc_signal_handlers[0..1] ∈ {0}
+                      [2] ∈ {{ &SIG_DFL ; &SIG_IGN ; &signal_handler }}
+                      [3..64] ∈ {0}
+  handler ∈ {{ &SIG_DFL ; &SIG_IGN ; &signal_handler }}
+[eva:final-states] Values at end of function signal:
+  __fc_errno ∈ [--..--]
+  __fc_signal_handlers[0..1] ∈ {0}
+                      [2] ∈ {{ NULL ; &signal_handler }}
+                      [3..64] ∈ {0}
+  __retres ∈ {{ &SIG_DFL ; &SIG_IGN ; &SIG_ERR }}
+[eva:final-states] Values at end of function signal_handler:
+  signal_status ∈ {2}
+[eva:final-states] Values at end of function raise:
+  __fc_signal_handlers[0..1] ∈ {0}
+                      [2] ∈
+                      {{ NULL ; &SIG_DFL ; &SIG_IGN ; &signal_handler }}
+                      [3..64] ∈ {0}
+  signal_status ∈ {0; 2}
+  __retres ∈ {-1; 0}
+[eva:final-states] Values at end of function test_sigaction:
+  __fc_errno ∈ [--..--]
+  __fc_sigaction[0..9] ∈ {0}
+                [10] ∈
+                {{ garbled mix of &{__fc_sigaction}
+                 (origin: Library function {signal_c_h.c:60}) }}
+                [11..16] ∈ {0}
+                [17] ∈ [--..--]
+                [18] ∈
+                {{ garbled mix of &{__fc_sigaction}
+                 (origin: Library function {signal_c_h.c:57}) }}
+                [19..64] ∈ {0}
+  s ∈ [--..--]
+  uninit ∈ UNINITIALIZED
+  old ∈ [--..--] or UNINITIALIZED
+  kill_res ∈ {-1; 0} or UNINITIALIZED
+  sa1 ∈
+     {{ garbled mix of &{__fc_sigaction}
+      (origin: Library function {signal_c_h.c:57}) }} or UNINITIALIZED
+  sa2 ∈
+     {{ garbled mix of &{__fc_sigaction}
+      (origin: Library function {signal_c_h.c:60}) }} or UNINITIALIZED
+  __retres ∈ {-1; 0; 1; 2; 3}
+[eva:final-states] Values at end of function test_sighandler:
+  __fc_errno ∈ [--..--]
+  __fc_signal_handlers[0..1] ∈ {0}
+                      [2] ∈
+                      {{ NULL ; &SIG_DFL ; &SIG_IGN ; &signal_handler }}
+                      [3..64] ∈ {0}
+  signal_status ∈ {0; 2}
+  res_sig ∈ {{ &SIG_DFL ; &SIG_IGN ; &SIG_ERR }}
+  res_raise ∈ {-1; 0}
+  handler_called ∈ {0; 1}
+[eva:final-states] Values at end of function main:
+  __fc_errno ∈ [--..--]
+  __fc_signal_handlers[0..1] ∈ {0}
+                      [2] ∈
+                      {{ NULL ; &SIG_DFL ; &SIG_IGN ; &signal_handler }}
+                      [3..64] ∈ {0}
+  __fc_sigaction[0..9] ∈ {0}
+                [10] ∈
+                {{ garbled mix of &{__fc_sigaction}
+                 (origin: Library function {signal_c_h.c:60}) }}
+                [11..16] ∈ {0}
+                [17] ∈ [--..--]
+                [18] ∈
+                {{ garbled mix of &{__fc_sigaction}
+                 (origin: Library function {signal_c_h.c:57}) }}
+                [19..64] ∈ {0}
+  signal_status ∈ {0; 2}
+  smin ∈ [--..--]
+  smax ∈ [--..--]
+  __retres ∈ {0}

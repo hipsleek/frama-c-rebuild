@@ -1,0 +1,358 @@
+################
+# MERGE: union #
+################
+
+.git-blame-ignore-revs merge=union
+Changelog merge=union
+
+################
+# DISTRIBUTION #
+################
+
+/doc/** export-ignore
+
+##################################################
+# BINARY/CHECK-SYNTAX/INDENT/EOL-EOF: set/-unset #
+##################################################
+
+# note: "binary" is a built-in macro that also
+#       unsets the "text" and "diff" attributes
+
+# note: set "check-eoleof" and "check-utf8" by default to all files
+* check-eoleof check-utf8
+
+# note: unset "-check-eoleof" and "-check-utf8" for "binary"
+*.ico binary -check-eoleof -check-utf8
+*.icns binary -check-eoleof -check-utf8
+
+*.eps binary -check-eoleof -check-utf8
+*.ps  binary -check-eoleof -check-utf8
+*.gif binary -check-eoleof -check-utf8
+*.jpg binary -check-eoleof -check-utf8
+*.png binary -check-eoleof -check-utf8
+*.svg binary -check-eoleof -check-utf8
+
+*.odg binary -check-eoleof -check-utf8
+*.pdf binary -check-eoleof -check-utf8
+
+*.eot binary -check-eoleof -check-utf8
+*.woff binary -check-eoleof -check-utf8
+
+###########################################
+# CHECK-SYNTAX/INDENT/EOL-EOF: set/-unset #
+###########################################
+
+## Set "check-syntax" and "check-indent"
+
+# note: "check-syntax" includes already "check-eoleof"
+*.ml  check-syntax check-indent -check-eoleof
+*.mli check-syntax check-indent -check-eoleof
+*.py  check-indent
+*.c   check-indent
+*.h   check-indent
+
+## Unset "-check-indent"
+
+# Unchecked C files
+
+tests/**/*.[ch] -check-indent
+src/plugins/*/tests/**/*.[ch] -check-indent
+
+doc/aorai/**/*.[ch]  -check-indent
+doc/developer/**/*.[ch] -check-indent
+doc/eva/**/*.[ch] -check-indent
+doc/rte/**/*.[ch] -check-indent
+doc/userman/examples/generated/*.[ch] -check-indent
+share/**/*.[ch] -check-indent
+
+src/plugins/wp/doc/**/*.[ch] -check-indent
+
+# Unchecked python files
+
+share/analysis-scripts/benchmark_database.py -check-indent
+share/analysis-scripts/summary.py -check-indent
+share/analysis-scripts/results_display.py -check-indent
+src/plugins/e-acsl/examples/ensuresec/**/*.py -check-indent
+
+## Unset "-check-eoleof"
+
+*.dot -check-eoleof
+
+/tests/misc/commands_file.t/comments_and_newlines.txt -check-eoleof
+/tests/spec/unfinished-oneline-acsl-comment.i -check-eoleof
+/doc/developer/check_api/run.oracle -check-eoleof
+
+## Unset "-check-utf8"
+
+## Unset all: "-check-syntax -check-indent -check-eoleof -check-utf8"
+
+#########################
+# HEADER_SPEC: CEA_LGPL #
+#########################
+
+dune-project header_spec=CEA_LGPL
+dune header_spec=CEA_LGPL
+dune-workspace.* header_spec=CEA_LGPL
+
+config* header_spec=CEA_LGPL
+
+makefile* header_spec=CEA_LGPL
+Make* header_spec=CEA_LGPL
+*.mk header_spec=CEA_LGPL
+
+*.c header_spec=CEA_LGPL
+*.h header_spec=CEA_LGPL
+
+*.htm header_spec=CEA_LGPL
+*.html header_spec=CEA_LGPL
+
+*.js header_spec=CEA_LGPL
+
+*.ml header_spec=CEA_LGPL
+*.mli header_spec=CEA_LGPL
+*.mll header_spec=CEA_LGPL
+*.mly header_spec=CEA_LGPL
+
+*.pl header_spec=CEA_LGPL
+
+*.py header_spec=CEA_LGPL
+
+*.rc header_spec=CEA_LGPL
+
+*.sh header_spec=CEA_LGPL
+*.zsh header_spec=CEA_LGPL
+
+*.css header_spec=CEA_LGPL
+
+*.ts header_spec=CEA_LGPL
+*.tsx header_spec=CEA_LGPL
+
+########################
+# HEADER_SPEC: .ignore #
+########################
+
+.gitattributes header_spec=.ignore
+.gitignore header_spec=.ignore
+.gitkeep header_spec=.ignore
+.git-blame-ignore-revs header_spec=.ignore
+
+.merlin header_spec=.ignore
+
+Changelog header_spec=.ignore
+opam header_spec=.ignore
+
+README* header_spec=.ignore
+*.README* header_spec=.ignore
+
+*.dot header_spec=.ignore
+*.fig header_spec=.ignore
+
+*.eps header_spec=.ignore
+*.ps header_spec=.ignore
+
+*.gif header_spec=.ignore
+*.ico header_spec=.ignore
+*.jpg header_spec=.ignore
+*.jpeg header_spec=.ignore
+*.png header_spec=.ignore
+*.svg header_spec=.ignore
+
+*.nix header_spec=.ignore
+/nix/*.patch header_spec=.ignore
+
+*.md header_spec=.ignore
+*.opam header_spec=.ignore
+
+*.pdf header_spec=.ignore
+
+*.tex header_spec=.ignore
+*.sty header_spec=.ignore
+*.bib header_spec=.ignore
+
+*.odoc header_spec=.ignore
+
+test_config header_spec=.ignore
+ptests_config header_spec=.ignore
+
+/.gitlab-ci.yml header_spec=.ignore
+/.mailmap header_spec=.ignore
+/.ocp-indent header_spec=.ignore
+/LICENSE header_spec=.ignore
+/VERSION header_spec=.ignore
+/VERSION_CODENAME header_spec=.ignore
+
+/dev/docker/*.sh header_spec=.ignore
+/dev/docker/Dockerfile header_spec=.ignore
+/dev/_typos.toml header_spec=.ignore
+
+/doc/CC-BY-SA-4.0 header_spec=.ignore
+/doc/CHANGES.obfuscator header_spec=.ignore
+/doc/LICENSE header_spec=.ignore
+/doc/MakeLaTeXModern header_spec=.ignore
+/doc/developer/dune-workspace.bench header_spec=.ignore
+/doc/developer/examples/**/Makefile* header_spec=.ignore
+/doc/developer/examples/**/dune header_spec=.ignore
+/doc/developer/examples/**/dune-project header_spec=.ignore
+/doc/developer/tutorial/**/Makefile* header_spec=.ignore
+/doc/developer/tutorial/**/dune header_spec=.ignore
+/doc/developer/tutorial/**/dune-project header_spec=.ignore
+/doc/qualification/testing header_spec=.ignore
+/doc/periodic-elements.txt header_spec=.ignore
+/doc/eva/watchpoints header_spec=.ignore
+/doc/scope/M.v header_spec=.ignore
+
+/doc/aorai/example/example* header_spec=.ignore
+/doc/frama-c-book.* header_spec=.ignore
+/doc/*.hva header_spec=.ignore
+
+/doc/eva/examples/parametrizing/*.log header_spec=.ignore
+/doc/eva/examples/mthread/*.log header_spec=.ignore
+/doc/**/make* header_spec=.ignore
+/doc/**/TODO header_spec=.ignore
+/doc/**/*.bnf header_spec=.ignore
+/doc/**/*.c header_spec=.ignore
+/doc/**/*.graphml header_spec=.ignore
+/doc/**/*.h header_spec=.ignore
+/doc/**/*.html header_spec=.ignore
+/doc/**/*.lua header_spec=.ignore
+/doc/*/*/**/*.ml header_spec=.ignore
+/doc/**/*.mli header_spec=.ignore
+/doc/**/*.mll header_spec=.ignore
+/doc/**/*.oracle header_spec=.ignore
+/doc/**/*.tex header_spec=.ignore
+/doc/*/*/**/*.txt header_spec=.ignore
+/doc/**/*.sh header_spec=.ignore
+
+/headers/* header_spec=.ignore
+/headers/dune header_spec=CEA_LGPL
+
+/licenses/* header_spec=.ignore
+
+/man/frama-c.1 header_spec=.ignore
+
+/nix/external-plugins.txt header_spec=.ignore
+/nix/ivette-plugins.txt header_spec=.ignore
+/nix/ocaml-versions.txt header_spec=.ignore
+/nix/frama-c-public/known_hosts header_spec=.ignore
+/nix/sources.json header_spec=.ignore
+
+/tools/ptests/tests/**/* header_spec=.ignore
+
+/share/framac.vim header_spec=.ignore
+/share/analysis-scripts/readme-graph.graphml header_spec=.ignore
+/share/machdeps/*.json header_spec=.ignore
+/share/machdeps/.machdep_*.validated header_spec=.ignore
+/share/machdeps/machdep-schema.yaml header_spec=.ignore
+/share/machdeps/machdep_*.yaml header_spec=.ignore
+/tests/**/* header_spec=.ignore
+
+#######################
+# HEADER_SPEC: others #
+#######################
+
+/doc/aorai/Makefile header_spec=AORAI_LGPL
+
+/share/analysis-scripts/fc-estimate-difficulty.mk header_spec=.ignore
+/share/analysis-scripts/fced-lin.Dockerfile header_spec=.ignore
+/share/analysis-scripts/fced-win.Dockerfile header_spec=.ignore
+/share/analysis-scripts/fced-test/a.c header_spec=.ignore
+/share/analysis-scripts/fced-test/a.h header_spec=.ignore
+/share/analysis-scripts/flamegraph.pl header_spec=CDDL
+/share/emacs/acsl.el header_spec=CEA_PR_LGPL
+/share/libc/argz.h header_spec=CEA_FSF_LGPL
+/share/libc/argz.c header_spec=CEA_FSF_LGPL
+
+/src/kernel_internals/parsing/clexer.mli header_spec=CIL
+/src/kernel_internals/parsing/clexer.mll header_spec=CIL
+/src/kernel_internals/parsing/cparser.mly header_spec=CIL
+/src/kernel_internals/parsing/errorloc.ml header_spec=CIL
+/src/kernel_internals/parsing/errorloc.mli header_spec=CIL
+/src/kernel_internals/parsing/lexerhack.ml header_spec=CIL
+/src/kernel_internals/parsing/lexerhack.mli header_spec=CIL
+/src/kernel_internals/parsing/logic_lexer.mli header_spec=CEA_INRIA_LGPL
+/src/kernel_internals/parsing/logic_lexer.mll header_spec=CEA_INRIA_LGPL
+/src/kernel_internals/parsing/logic_parser.mly header_spec=CEA_INRIA_LGPL
+/src/kernel_internals/parsing/logic_preprocess.mli header_spec=CEA_INRIA_LGPL
+/src/kernel_internals/parsing/logic_preprocess.mll header_spec=CEA_INRIA_LGPL
+/src/kernel_internals/runtime/machdeps.ml header_spec=CIL
+/src/kernel_internals/runtime/machdeps.mli header_spec=CIL
+/src/kernel_internals/typing/alpha.ml header_spec=CIL
+/src/kernel_internals/typing/alpha.mli header_spec=CIL
+/src/kernel_internals/typing/cabs2cil.ml header_spec=CIL
+/src/kernel_internals/typing/cabs2cil.mli header_spec=CIL
+/src/kernel_internals/typing/cfg.ml header_spec=CIL
+/src/kernel_internals/typing/cfg.mli header_spec=CIL
+/src/kernel_internals/typing/frontc.ml header_spec=CIL
+/src/kernel_internals/typing/frontc.mli header_spec=CIL
+/src/kernel_internals/typing/logic_builtin.ml header_spec=CEA_INRIA_LGPL
+/src/kernel_internals/typing/logic_builtin.mli header_spec=CEA_INRIA_LGPL
+/src/kernel_internals/typing/mergecil.ml header_spec=CIL
+/src/kernel_internals/typing/mergecil.mli header_spec=CIL
+/src/kernel_internals/typing/oneret.ml header_spec=CIL
+/src/kernel_internals/typing/oneret.mli header_spec=CIL
+/src/kernel_internals/typing/rmtmps.ml header_spec=CIL
+/src/kernel_internals/typing/rmtmps.mli header_spec=CIL
+/src/kernel_internals/typing/translate_lightweight.ml header_spec=CEA_INRIA_LGPL
+/src/kernel_internals/typing/translate_lightweight.mli header_spec=CEA_INRIA_LGPL
+/src/kernel_services/analysis/dataflows.ml header_spec=CIL
+/src/kernel_services/analysis/dataflows.mli header_spec=CIL
+/src/kernel_services/ast_data/cil_types.mli header_spec=CIL
+/src/kernel_services/ast_data/cil_types.ml header_spec=CIL
+/src/kernel_services/ast_printing/cprint.ml header_spec=CIL
+/src/kernel_services/ast_printing/cprint.mli header_spec=CIL
+/src/kernel_services/ast_printing/logic_print.ml header_spec=CEA_INRIA_LGPL
+/src/kernel_services/ast_printing/logic_print.mli header_spec=CEA_INRIA_LGPL
+/src/kernel_services/ast_queries/cil.ml header_spec=CIL
+/src/kernel_services/ast_queries/cil.mli header_spec=CIL
+/src/kernel_services/ast_queries/cil_builtins.ml header_spec=CIL
+/src/kernel_services/ast_queries/cil_builtins.mli header_spec=CIL
+/src/kernel_services/ast_queries/cil_const.ml header_spec=CIL
+/src/kernel_services/ast_queries/cil_const.mli header_spec=CIL
+/src/kernel_services/ast_queries/logic_const.ml header_spec=CEA_INRIA_LGPL
+/src/kernel_services/ast_queries/logic_const.mli header_spec=CEA_INRIA_LGPL
+/src/kernel_services/ast_queries/logic_env.ml header_spec=CEA_INRIA_LGPL
+/src/kernel_services/ast_queries/logic_env.mli header_spec=CEA_INRIA_LGPL
+/src/kernel_services/ast_queries/logic_typing.ml header_spec=CEA_INRIA_LGPL
+/src/kernel_services/ast_queries/logic_typing.mli header_spec=CEA_INRIA_LGPL
+/src/kernel_services/ast_queries/logic_utils.ml header_spec=CEA_INRIA_LGPL
+/src/kernel_services/ast_queries/logic_utils.mli header_spec=CEA_INRIA_LGPL
+/src/kernel_services/parsetree/cabs.ml header_spec=CIL
+/src/kernel_services/parsetree/cabshelper.ml header_spec=CIL
+/src/kernel_services/parsetree/cabshelper.mli header_spec=CIL
+/src/kernel_services/parsetree/logic_ptree.ml header_spec=CEA_INRIA_LGPL
+/src/kernel_services/visitors/cabsvisit.ml header_spec=CIL
+/src/kernel_services/visitors/cabsvisit.mli header_spec=CIL
+/src/kernel_services/visitors/visitor_behavior.ml header_spec=CEA_INRIA_LGPL
+/src/kernel_services/visitors/visitor_behavior.mli header_spec=CEA_INRIA_LGPL
+
+/src/libraries/datatype/unmarshal.ml header_spec=INRIA_BSD
+/src/libraries/datatype/unmarshal.mli header_spec=INRIA_BSD
+/src/libraries/datatype/tests/unmarshal_hashtbl_test.ml header_spec=INRIA_BSD
+/src/libraries/datatype/tests/unmarshal_test.ml header_spec=INRIA_BSD
+/src/libraries/project/state_topological.ml header_spec=MODIFIED_OCAMLGRAPH
+/src/libraries/project/state_topological.mli header_spec=MODIFIED_OCAMLGRAPH
+/src/libraries/utils/escape.ml header_spec=CIL
+/src/libraries/utils/escape.mli header_spec=CIL
+/src/libraries/utils/hptmap.ml header_spec=MODIFIED_MENHIR
+/src/libraries/utils/hptmap.mli header_spec=MODIFIED_MENHIR
+/src/libraries/utils/hptmap_sig.ml header_spec=MODIFIED_MENHIR
+/src/libraries/utils/rangemap.ml header_spec=OCAML_STDLIB
+/src/libraries/utils/rangemap.mli header_spec=OCAML_STDLIB
+/src/libraries/utils/utf8_logic.ml header_spec=CEA_INRIA_LGPL
+/src/libraries/utils/utf8_logic.mli header_spec=CEA_INRIA_LGPL
+
+/tools/lint/UTF8.ml header_spec=MODIFIED_CAMOMILE
+
+#########################
+# HEADER_SPEC: CEA_LGPL #
+#########################
+
+/bin/frama-c* header_spec=CEA_LGPL
+
+/headers/headache_config.txt header_spec=CEA_LGPL
+
+/share/autocomplete_frama-c header_spec=CEA_LGPL
+/share/emacs/frama-c-*.el header_spec=CEA_LGPL
+/share/_frama-c header_spec=CEA_LGPL
+
+/src/kernel_internals/runtime/system_config.ml.in header_spec=CEA_LGPL

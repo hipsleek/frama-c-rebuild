@@ -1,0 +1,10 @@
+[kernel] Parsing const-assignments.c (with preprocessing)
+[kernel] const-assignments.c:53: User Error: 
+  Cannot assign to non-modifiable lval *x_0
+  51    #ifdef T5
+  52    void f(const int* x) {
+  53      *x = 1;
+          ^^^^^^
+  54    }
+  55    #endif
+[kernel] Frama-C aborted: invalid user input.

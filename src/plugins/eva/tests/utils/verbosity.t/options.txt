@@ -1,0 +1,5 @@
+-no-autoload-plugins
+-load-module eva,inout,scope
+-eva
+-eva-auto-loop-unroll 10
+file.i

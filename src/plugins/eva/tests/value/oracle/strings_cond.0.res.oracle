@@ -1,0 +1,46 @@
+[kernel] Parsing strings_cond.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function foo <- main.
+  Called from strings_cond.i:8:3-13.
+[eva:show] strings_cond.i:3: 
+  Frama_C_dump_each:
+  # cvalue:
+  s ∈ {{ "Bla" }}
+  ==END OF DUMP==
+[eva:show] strings_cond.i:4: Frama_C_show_each_s: {{ "Bla" }}
+[eva:partition] strings_cond.i:4: starting to merge loop iterations
+[eva:show] strings_cond.i:4: Frama_C_show_each_s: {{ "Bla" + {0; 1} }}
+[eva:show] strings_cond.i:4: Frama_C_show_each_s: {{ "Bla" + {0; 1; 2} }}
+[eva:progress] Recording results for foo
+[eva:progress] Done for function foo
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function foo:
+  s ∈ {{ "Bla"[3] }}
+[eva:final-states] Values at end of function main:
+  
+[from] Computing for function foo
+[from] Done for function foo
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function foo:
+  NO EFFECTS
+[from] Function main:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function foo:
+    s
+[inout] Inputs for function foo:
+    \nothing
+[inout] Out (internal) for function main:
+    \nothing
+[inout] Inputs for function main:
+    \nothing

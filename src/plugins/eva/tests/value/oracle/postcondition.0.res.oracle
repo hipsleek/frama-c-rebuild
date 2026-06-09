@@ -1,0 +1,305 @@
+[kernel] Parsing postcondition.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  G ∈ {0}
+  A ∈ {0}
+  B ∈ {0}
+  C ∈ {0}
+  D ∈ {0}
+  E ∈ {0}
+  EX ∈ {0}
+  X ∈ {0}
+  p ∈ {0}
+  TAB[0..9] ∈ {0}
+[eva:progress] 
+  computing for function get_index <- main.
+  Called from postcondition.i:84:5-17.
+[eva:progress] postcondition.i:84: 
+  function get_index: precondition got status valid.
+[eva:show] postcondition.i:17: Frama_C_show_each_cmd: {1}
+[kernel:annot:missing-spec] postcondition.i:20: Warning: 
+  Neither code nor explicit assigns for function u, generating default clauses.
+  See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function u <- get_index <- main.
+  Called from postcondition.i:20:11-14.
+[eva] using specification for function u
+[eva:progress] Done for function u
+[eva:partition] postcondition.i:18: starting to merge loop iterations
+[eva:progress] 
+  computing for function u <- get_index <- main.
+  Called from postcondition.i:20:11-14.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- get_index <- main.
+  Called from postcondition.i:20:11-14.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- get_index <- main.
+  Called from postcondition.i:20:11-14.
+[eva:progress] Done for function u
+[eva:progress] postcondition.i:12: 
+  function get_index: postcondition got status valid.
+[eva:alarm] postcondition.i:12: Warning: 
+  function get_index: postcondition got status unknown.
+[eva:progress] Recording results for get_index
+[eva:progress] Done for function get_index
+[eva:progress] 
+  computing for function u <- main.
+  Called from postcondition.i:85:8-11.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function bound <- main.
+  Called from postcondition.i:86:3-11.
+[eva:alarm] postcondition.i:26: Warning: 
+  function bound: postcondition got status unknown.
+[eva:progress] Recording results for bound
+[eva:progress] Done for function bound
+[eva:progress] 
+  computing for function u <- main.
+  Called from postcondition.i:87:15-18.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function get_index <- main.
+  Called from postcondition.i:87:5-23.
+[eva:alarm] postcondition.i:87: Warning: 
+  function get_index: precondition got status unknown.
+[eva:show] postcondition.i:17: Frama_C_show_each_cmd: {4}
+[eva:progress] 
+  computing for function u <- get_index <- main.
+  Called from postcondition.i:20:11-14.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- get_index <- main.
+  Called from postcondition.i:20:11-14.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- get_index <- main.
+  Called from postcondition.i:20:11-14.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function u <- get_index <- main.
+  Called from postcondition.i:20:11-14.
+[eva:progress] Done for function u
+[eva:alarm] postcondition.i:12: Warning: 
+  function get_index: postcondition got status invalid.
+[eva:progress] Recording results for get_index
+[eva:progress] Done for function get_index
+[eva:progress] 
+  computing for function u <- main.
+  Called from postcondition.i:88:7-10.
+[eva:progress] Done for function u
+[kernel:annot:missing-spec] postcondition.i:89: Warning: 
+  Neither code nor explicit assigns for function cap, generating default
+  clauses. See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function cap <- main.
+  Called from postcondition.i:89:7-18.
+[eva] using specification for function cap
+[eva:progress] Done for function cap
+[eva:progress] 
+  computing for function u <- main.
+  Called from postcondition.i:90:7-10.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function t0 <- main.
+  Called from postcondition.i:90:12-16.
+[eva:progress] postcondition.i:33: function t0: postcondition got status valid.
+[eva:progress] Recording results for t0
+[eva:progress] Done for function t0
+[eva:progress] 
+  computing for function u <- main.
+  Called from postcondition.i:91:7-10.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function t1 <- main.
+  Called from postcondition.i:91:12-16.
+[eva:alarm] postcondition.i:38: Warning: 
+  function t1: postcondition got status invalid.
+[eva:progress] Recording results for t1
+[eva:progress] Done for function t1
+[eva:progress] 
+  computing for function u <- main.
+  Called from postcondition.i:92:7-10.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function t2 <- main.
+  Called from postcondition.i:92:12-16.
+[eva:progress] postcondition.i:45: function t2: postcondition got status valid.
+[eva:progress] Recording results for t2
+[eva:progress] Done for function t2
+[eva:progress] 
+  computing for function u <- main.
+  Called from postcondition.i:93:7-10.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function t3 <- main.
+  Called from postcondition.i:93:12-16.
+[eva:progress] postcondition.i:60: function t3: postcondition got status valid.
+[eva:progress] Recording results for t3
+[eva:progress] Done for function t3
+[eva:progress] 
+  computing for function t4 <- main.
+  Called from postcondition.i:94:3-10.
+[eva:progress] postcondition.i:65: function t4: postcondition got status valid.
+[eva:progress] Recording results for t4
+[eva:progress] Done for function t4
+[eva:progress] 
+  computing for function u <- main.
+  Called from postcondition.i:95:7-10.
+[eva:progress] Done for function u
+[eva:progress] 
+  computing for function t5 <- main.
+  Called from postcondition.i:95:21-26.
+[eva:progress] postcondition.i:71: function t5: postcondition got status valid.
+[eva:progress] postcondition.i:72: function t5: postcondition got status valid.
+[eva:progress] Recording results for t5
+[eva:progress] Done for function t5
+[eva:progress] 
+  computing for function f <- main.
+  Called from postcondition.i:96:10-13.
+[eva:progress] postcondition.i:78: function f: postcondition got status valid.
+[eva:alarm] postcondition.i:79: Warning: 
+  function f: postcondition got status invalid.
+[eva:progress] Recording results for f
+[eva:progress] Done for function f
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function bound:
+  cmd ∈ {2}
+  __retres ∈ {0}
+[eva:final-states] Values at end of function f:
+  __retres ∈ {0}
+[eva:final-states] Values at end of function t0:
+  G ∈ {6}
+[eva:final-states] Values at end of function t1:
+  G ∈ {6}
+[eva:final-states] Values at end of function t2:
+  G ∈ {6}
+  p ∈ {{ &G }}
+[eva:final-states] Values at end of function t3:
+  TAB[0].a ∈ {12}
+     {[0]{.b; .c}; [1..9]} ∈ {0}
+[eva:final-states] Values at end of function t4:
+  x ∈ {4}
+  y ∈ {3}
+[eva:final-states] Values at end of function t5:
+  x ∈ {9}
+[eva:final-states] Values at end of function get_index:
+  ret ∈ [0..2147483647]
+  __retres ∈ [0..2147483647]
+[eva:final-states] Values at end of function main:
+  G ∈ {0; 6}
+  B ∈ {0}
+  C ∈ [0..299]
+  D ∈ [-100..100]
+  E ∈ [20..80]
+  EX ∈ [-100..8]
+  X ∈ {0; 8}
+  p ∈ {{ NULL ; &G }}
+  TAB[0].a ∈ {0; 12}
+     {[0]{.b; .c}; [1..9]} ∈ {0}
+[from] Computing for function bound
+[from] Done for function bound
+[from] Computing for function f
+[from] Done for function f
+[from] Computing for function t0
+[from] Done for function t0
+[from] Computing for function t1
+[from] Done for function t1
+[from] Computing for function t2
+[from] Done for function t2
+[from] Computing for function t3
+[from] Done for function t3
+[from] Computing for function t4
+[from] Done for function t4
+[from] Computing for function t5
+[from] Done for function t5
+[from] Computing for function get_index
+[from] Computing for function u <-get_index
+[from] Done for function u
+[from] Done for function get_index
+[from] Computing for function main
+[from] Computing for function cap <-main
+[from] Done for function cap
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function bound:
+  \result FROM \nothing
+[from] Function cap:
+  \result FROM min; max
+[from] Function f:
+  \result FROM \nothing
+[from] Function t0:
+  G FROM \nothing
+[from] Function t1:
+  G FROM \nothing
+[from] Function t2:
+  G FROM \nothing
+  p FROM \nothing
+[from] Function t3:
+  TAB[0].a FROM \nothing
+[from] Function t4:
+  NO EFFECTS
+[from] Function t5:
+  \result FROM X
+[from] Function u:
+  \result FROM \nothing
+[from] Function get_index:
+  \result FROM cmd
+[from] Function main:
+  G FROM \nothing (and SELF)
+  B FROM \nothing
+  C FROM \nothing
+  D FROM \nothing
+  E FROM \nothing
+  EX FROM \nothing
+  X FROM \nothing (and SELF)
+  p FROM \nothing (and SELF)
+  TAB[0].a FROM \nothing (and SELF)
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function bound:
+    cmd; __retres
+[inout] Inputs for function bound:
+    \nothing
+[inout] Out (internal) for function f:
+    __retres
+[inout] Inputs for function f:
+    \nothing
+[inout] Out (internal) for function t0:
+    G
+[inout] Inputs for function t0:
+    \nothing
+[inout] Out (internal) for function t1:
+    G
+[inout] Inputs for function t1:
+    \nothing
+[inout] Out (internal) for function t2:
+    G; p
+[inout] Inputs for function t2:
+    p
+[inout] Out (internal) for function t3:
+    TAB[0].a
+[inout] Inputs for function t3:
+    \nothing
+[inout] Out (internal) for function t4:
+    x; y
+[inout] Inputs for function t4:
+    \nothing
+[inout] Out (internal) for function t5:
+    x
+[inout] Inputs for function t5:
+    X
+[inout] Out (internal) for function get_index:
+    ret; tmp; __retres
+[inout] Inputs for function get_index:
+    \nothing
+[inout] Out (internal) for function main:
+    G; B; C; D; E; EX; X; p; TAB[0].a; tmp; tmp_0; tmp_1; tmp_2; tmp_3; 
+    tmp_4; tmp_5
+[inout] Inputs for function main:
+    B; X; p

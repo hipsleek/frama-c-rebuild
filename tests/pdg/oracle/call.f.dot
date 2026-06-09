@@ -1,0 +1,31 @@
+digraph G {
+  rankdir=TB;
+  node [style="filled", ];
+  2 [label="Decl a", fillcolor="#FFEFD5", shape=box, ];
+  3 [label="In1", fillcolor="#6495ED", shape=box, ];
+  4 [label="Decl b", fillcolor="#FFEFD5", shape=box, ];
+  5 [label="In2", fillcolor="#6495ED", shape=box, ];
+  6 [label="Decl __retres", fillcolor="#FFEFD5", shape=box, ];
+  7 [label="G.b = b;", fillcolor="#CCCCCC", shape=box, ];
+  8 [label="__retres = a + G.a;", fillcolor="#CCCCCC", shape=box, ];
+  9 [label="return __retres;", fillcolor="#CCCCCC", shape=box, ];
+  10 [label="OutRet", fillcolor="#90EE90", shape=box, ];
+  11 [label="In(G.a)", fillcolor="#6495ED", shape=box, ];
+  
+  
+  edge [dir=back, ];
+  3 -> 2 [color="#000000", style="dotted", ];
+  2 -> 3 [color="#000000", style="dotted", ];
+  5 -> 4 [color="#000000", style="dotted", ];
+  4 -> 5 [color="#000000", style="dotted", ];
+  4 -> 7 [color="#0000FF", ];
+  5 -> 7 [color="#0000FF", ];
+  2 -> 8 [color="#0000FF", ];
+  3 -> 8 [color="#0000FF", ];
+  6 -> 8 [color="#000000", style="dotted", ];
+  11 -> 8 [color="#0000FF", ];
+  6 -> 9 [color="#0000FF", ];
+  8 -> 9 [color="#0000FF", ];
+  9 -> 10 [color="#0000FF", ];
+  
+  }

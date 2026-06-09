@@ -1,0 +1,3 @@
+PLUGIN: volatile
+CMD: @frama-c@ -add-symbolic-path=$(dirname $(pwd)):.. -no-unicode
+OPT: -volatile -then-on Volatile -print -then-on Volatile -print -ocode ./ocode_@PTEST_NUMBER@_@PTEST_NAME@.i -then ./ocode_@PTEST_NUMBER@_@PTEST_NAME@.i

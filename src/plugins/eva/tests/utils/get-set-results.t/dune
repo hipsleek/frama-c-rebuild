@@ -1,0 +1,8 @@
+(executable
+  (name "test_get_set_results")
+  (modules "test_get_set_results")
+  (modes plugin)
+  (libraries frama-c.init frama-c.boot frama-c.kernel "frama-c-eva.core")
+  (flags :standard -open Frama_c_kernel)
+  (promote (until-clean))
+)

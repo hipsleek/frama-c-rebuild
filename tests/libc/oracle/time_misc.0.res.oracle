@@ -1,0 +1,85 @@
+[kernel] Parsing time_misc.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  v ∈ [--..--]
+[eva:progress] 
+  computing for function test_gettimeofday <- main.
+  Called from time_misc.c:37.
+[eva:progress] 
+  computing for function gettimeofday <- test_gettimeofday <- main.
+  Called from time_misc.c:7.
+[eva] using specification for function gettimeofday
+[eva:progress] Done for function gettimeofday
+[eva:progress] time_misc.c:8: assertion got status valid.
+[eva:progress] time_misc.c:9: assertion got status valid.
+[eva:progress] Recording results for test_gettimeofday
+[eva:progress] Done for function test_gettimeofday
+[eva:progress] 
+  computing for function test_strftime <- main.
+  Called from time_misc.c:38.
+[eva:progress] 
+  computing for function time <- test_strftime <- main.
+  Called from time_misc.c:18.
+[eva] using specification for function time
+[eva:progress] Done for function time
+[eva:progress] 
+  computing for function localtime <- test_strftime <- main.
+  Called from time_misc.c:19.
+[eva] using specification for function localtime
+[eva:progress] time_misc.c:19: 
+  function localtime: precondition 'valid_timer' got status valid.
+[eva:progress] Done for function localtime
+[eva:progress] 
+  computing for function strftime <- test_strftime <- main.
+  Called from time_misc.c:21.
+[eva] using specification for function strftime
+[eva:progress] time_misc.c:21: 
+  function strftime: precondition 'dst_has_room' got status valid.
+[eva:progress] time_misc.c:21: 
+  function strftime: precondition 'valid_format' got status valid.
+[eva:progress] time_misc.c:21: 
+  function strftime: precondition 'valid_tm' got status valid.
+[eva:progress] Done for function strftime
+[eva:progress] Recording results for test_strftime
+[eva:progress] Done for function test_strftime
+[eva:progress] 
+  computing for function test_ctime <- main.
+  Called from time_misc.c:39.
+[eva:progress] 
+  computing for function ctime <- test_ctime <- main.
+  Called from time_misc.c:31.
+[eva] using specification for function ctime
+[eva:progress] time_misc.c:31: 
+  function ctime: precondition 'valid_timer' got status valid.
+[eva:alarm] time_misc.c:31: Warning: 
+  function ctime: precondition 'initialization,init_timer' got status unknown.
+[eva:progress] Done for function ctime
+[eva:alarm] time_misc.c:32: Warning: assertion got status unknown.
+[eva:progress] Recording results for test_ctime
+[eva:progress] Done for function test_ctime
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function test_ctime:
+  __fc_ctime[0..25] ∈ [--..--]
+  t ∈ {42}
+  s ∈ {{ &__fc_ctime[0] }}
+[eva:final-states] Values at end of function test_gettimeofday:
+  tv.tv_sec ∈ [--..--]
+    .tv_usec ∈ [0..999999]
+[eva:final-states] Values at end of function test_strftime:
+  __fc_time_tm{.tm_sec; .tm_min; .tm_hour; .tm_mday; .tm_mon; .tm_year; .tm_wday; .tm_yday; .tm_isdst; .tm_gmtoff} ∈
+              [--..--]
+              .tm_zone ∈ {{ NULL + [--..--] ; &S_tm_zone___fc_time_tm[0] }}
+  outstr[0..199] ∈ [--..--] or UNINITIALIZED
+  t ∈ [--..--]
+  tmp ∈ {{ NULL ; &__fc_time_tm }}
+  res ∈ [0..199] or UNINITIALIZED
+[eva:final-states] Values at end of function main:
+  __fc_ctime[0..25] ∈ [--..--]
+  __fc_time_tm{.tm_sec; .tm_min; .tm_hour; .tm_mday; .tm_mon; .tm_year; .tm_wday; .tm_yday; .tm_isdst; .tm_gmtoff} ∈
+              [--..--]
+              .tm_zone ∈ {{ NULL + [--..--] ; &S_tm_zone___fc_time_tm[0] }}
+  __retres ∈ {0}

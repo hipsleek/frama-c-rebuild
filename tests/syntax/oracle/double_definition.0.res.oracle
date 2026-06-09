@@ -1,0 +1,8 @@
+[kernel] Parsing double_definition.i (no preprocessing)
+[kernel] double_definition.i:9: User Error: 
+  There is a definition already for f (previous definition was at double_definition.i:6:6-7).
+  7     // error (redefinition of f), but Frama-C shouldn't
+  8     // leave a backtrace for that...
+  9     void f() { }
+             ^
+[kernel] Frama-C aborted: invalid user input.

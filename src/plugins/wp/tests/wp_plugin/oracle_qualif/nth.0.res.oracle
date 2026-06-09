@@ -1,0 +1,40 @@
+# frama-c -wp [...]
+[kernel] Parsing nth.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] 26 goals scheduled
+[wp] [Valid] typed_lemma_access_4_4_ok (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_lemma_access_8_8_ko (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_access_repeat_concat_3_ok_lack (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_constructor_elt_ok (Qed)
+[wp] [Valid] typed_lemma_eq_repeat_concat_3_ok (Qed)
+[wp] [Valid] typed_check_lemma_left_shift_repeat1_ok (Qed)
+[wp] [Valid] typed_check_lemma_left_shift_repeat2_ok (Qed)
+[wp] [Valid] typed_check_lemma_left_unfold_repeat1_ok (Qed)
+[wp] [Valid] typed_check_lemma_left_unfold_repeat2_ok (Qed)
+[wp] [Valid] typed_check_lemma_negative_repeat_ok (Qed)
+[wp] [Valid] typed_check_lemma_not_nil_elt_ok (Qed)
+[wp] [Valid] typed_check_lemma_nth_repeat_1_ok (Qed)
+[wp] [Valid] typed_check_lemma_nth_repeat_2_ok (Qed)
+[wp] [Valid] typed_check_lemma_nth_repeat_3_ok (Qed)
+[wp] [Valid] typed_check_lemma_nth_repeat_4_ok (Qed)
+[wp] [Unsuccess] typed_check_lemma_nth_repeat_undefined_1_ko (Alt-Ergo) (Cached)
+[wp] [Valid] typed_check_lemma_repeat1_ok (Qed)
+[wp] [Valid] typed_check_lemma_repeat2_ok (Qed)
+[wp] [Valid] typed_check_lemma_repeat_nil_ok (Qed)
+[wp] [Valid] typed_check_lemma_repeat_one_ok (Qed)
+[wp] [Valid] typed_check_lemma_repeat_repeated_ok (Qed)
+[wp] [Valid] typed_check_lemma_right_shift_repeat1_ok (Qed)
+[wp] [Valid] typed_check_lemma_right_shift_repeat2_ok (Qed)
+[wp] [Valid] typed_check_lemma_right_unfold_repeat1_ok (Qed)
+[wp] [Valid] typed_check_lemma_right_unfold_repeat2_ok (Qed)
+[wp] [Valid] typed_check_lemma_subsequence1_ok (Qed)
+[wp] Proved goals:   24 / 26
+  Qed:            22
+  Alt-Ergo:        2
+  Unsuccess:       2
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Axiomatic Equality       13        -       13       100%
+  Axiomatic MkRepeat        4        -        4       100%
+  Axiomatic Nth             5        2        9      77.8%
+------------------------------------------------------------

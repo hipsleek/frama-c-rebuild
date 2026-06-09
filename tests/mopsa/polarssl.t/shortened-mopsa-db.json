@@ -1,0 +1,27 @@
+{
+  "dbfile": "mopsa.db",
+  "contents":
+[  {
+    "filename": "library/aes.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/aes.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/arc4.o",
+    "type": "object",
+    "lang": "C",
+    "source": "library/arc4.c",
+    "args": ["-I", "include", "-D", "_FILE_OFFSET_BITS=64", "-Wall", "-W", "-Wdeclaration-after-statement", "-O"],
+    "path": "library"
+  },
+  {
+    "filename": "library/libpolarssl.a",
+    "type": "library",
+    "kind": "static",
+    "contents": ["library/aes.o", "library/arc4.o"]
+  }
+  ]
+}

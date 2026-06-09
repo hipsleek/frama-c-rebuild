@@ -1,0 +1,10 @@
+[kernel] Parsing generic.c (with preprocessing)
+[kernel] generic.c:70: User Error: 
+  generic association with variably modified type 'int [x]'
+  68      int x = 42;
+  69      int y[x];
+  70      int a = _Generic(y, int[x]: 0, default: 1);
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  71    #endif
+  72      int ok1 = _Generic("abc", char*: 0);
+[kernel] Frama-C aborted: invalid user input.

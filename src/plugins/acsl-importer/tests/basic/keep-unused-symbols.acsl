@@ -1,0 +1,3 @@
+function f_unused_without_spec:
+  contract:
+  ensures Post: \result ≡ (T_unused)\old(A);

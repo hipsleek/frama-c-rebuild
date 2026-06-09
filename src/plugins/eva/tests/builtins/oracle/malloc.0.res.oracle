@@ -1,0 +1,66 @@
+[kernel] Parsing malloc.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] malloc.c:11: Call to builtin malloc
+[eva:malloc:new] malloc.c:11: allocating variable __malloc_main_l11
+[eva:progress] malloc.c:17: Call to builtin malloc
+[eva:malloc:new] malloc.c:17: allocating variable __malloc_main_l17
+[eva:progress] malloc.c:17: Call to builtin malloc
+[eva:malloc] malloc.c:17: 
+  resizing variable `__malloc_main_l17' (0..-1) to fit 0..-1/34359738359
+[eva:progress] malloc.c:18: Call to builtin malloc
+[eva:malloc:new] malloc.c:18: allocating variable __malloc_main_l18
+[eva:progress] malloc.c:18: Call to builtin malloc
+[eva:progress] malloc.c:20: Call to builtin malloc
+[eva:malloc:new] malloc.c:20: allocating variable __malloc_main_l20
+[eva:progress] malloc.c:20: Call to builtin malloc
+[eva:malloc:new] malloc.c:20: allocating variable __malloc_main_l20_0
+[eva:alarm] malloc.c:21: Warning: out of bounds write. assert \valid(p);
+[eva:alarm] malloc.c:22: Warning: out of bounds write. assert \valid(p + 2);
+[eva:alarm] malloc.c:23: Warning: out of bounds write. assert \valid(p + 24999);
+[eva:show] malloc.c:26: Frama_C_show_each: {{ &__malloc_main_l18 + {8} }}
+[eva:show] malloc.c:26: Frama_C_show_each: {{ &__malloc_main_l18 + {8} }}
+[eva:progress] malloc.c:33: Call to builtin malloc
+[eva:malloc:imprecise] malloc.c:33: Warning: 
+  allocating a single weak variable for ALL dynamic allocations via malloc/calloc/realloc: __alloc_w_main
+[eva:progress] malloc.c:33: Call to builtin malloc
+[eva:alarm] malloc.c:34: Warning: out of bounds write. assert \valid(mw);
+[eva:progress] malloc.c:36: Call to builtin malloc
+[eva:progress] malloc.c:36: Call to builtin malloc
+[eva:alarm] malloc.c:37: Warning: out of bounds write. assert \valid(mw2);
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  __fc_heap_status ∈ [--..--]
+  __fc_errno ∈ [--..--]
+  x ∈ {1; 2}
+  s ∈ {{ NULL ; &__malloc_main_l11[0] }}
+  p ∈ {{ &__malloc_main_l17[0] }}
+  q ∈ {{ &__malloc_main_l18[0] }}
+  r ∈ {{ &__malloc_main_l20[0] ; &__malloc_main_l20_0[0] }}
+  mw ∈ {{ (int *)&__alloc_w_main }}
+  mw2 ∈ {{ (int *)&__alloc_w_main }}
+  __malloc_main_l17[0] ∈ {1}
+                   [1] ∈ UNINITIALIZED
+                   [2] ∈ {3}
+                   [3..24998] ∈ UNINITIALIZED
+                   [24999] ∈ {4}
+                   {[25000..1073741822]; [1073741823][bits 0 to 23]} ∈
+                   UNINITIALIZED
+  __malloc_main_l18[0] ∈ {1}
+                   [1] ∈ UNINITIALIZED
+                   [2] ∈ {3}
+  __malloc_main_l20[0] ∈ {1}
+                   [1] ∈ UNINITIALIZED
+                   [2] ∈ {3}
+                   [3..24] ∈ UNINITIALIZED
+  __malloc_main_l20_0[0] ∈ {1}
+                     [1] ∈ UNINITIALIZED
+                     [2] ∈ {3}
+                     [3..24] ∈ UNINITIALIZED
+  __alloc_w_main[bits 0 to 31] ∈ {1; 2} or UNINITIALIZED
+                [4..4294967295] ∈ UNINITIALIZED

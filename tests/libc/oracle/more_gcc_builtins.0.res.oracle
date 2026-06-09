@@ -1,0 +1,291 @@
+[kernel] Parsing more_gcc_builtins.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  v ∈ [--..--]
+[eva:progress] 
+  computing for function __builtin_sadd_overflow <- main.
+  Called from more_gcc_builtins.c:10.
+[eva] using specification for function __builtin_sadd_overflow
+[eva:progress] more_gcc_builtins.c:10: 
+  function __builtin_sadd_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_sadd_overflow
+[eva:progress] more_gcc_builtins.c:11: assertion got status valid.
+[eva:progress] more_gcc_builtins.c:12: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_sadd_overflow <- main.
+  Called from more_gcc_builtins.c:13.
+[eva:progress] more_gcc_builtins.c:13: 
+  function __builtin_sadd_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_sadd_overflow
+[eva:progress] more_gcc_builtins.c:14: assertion got status valid.
+[eva:progress] more_gcc_builtins.c:15: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_saddl_overflow <- main.
+  Called from more_gcc_builtins.c:17.
+[eva] using specification for function __builtin_saddl_overflow
+[eva:progress] more_gcc_builtins.c:17: 
+  function __builtin_saddl_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_saddl_overflow
+[eva:progress] more_gcc_builtins.c:18: assertion got status valid.
+[eva:progress] more_gcc_builtins.c:19: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_saddl_overflow <- main.
+  Called from more_gcc_builtins.c:20.
+[eva:progress] more_gcc_builtins.c:20: 
+  function __builtin_saddl_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_saddl_overflow
+[eva:progress] more_gcc_builtins.c:21: assertion got status valid.
+[eva:progress] more_gcc_builtins.c:22: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_saddll_overflow <- main.
+  Called from more_gcc_builtins.c:24.
+[eva] using specification for function __builtin_saddll_overflow
+[eva:progress] more_gcc_builtins.c:24: 
+  function __builtin_saddll_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_saddll_overflow
+[eva:progress] more_gcc_builtins.c:25: assertion got status valid.
+[eva:progress] more_gcc_builtins.c:26: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_uadd_overflow <- main.
+  Called from more_gcc_builtins.c:28.
+[eva] using specification for function __builtin_uadd_overflow
+[eva:progress] more_gcc_builtins.c:28: 
+  function __builtin_uadd_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_uadd_overflow
+[eva:progress] more_gcc_builtins.c:29: assertion got status valid.
+[eva:progress] more_gcc_builtins.c:30: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_uaddl_overflow <- main.
+  Called from more_gcc_builtins.c:32.
+[eva] using specification for function __builtin_uaddl_overflow
+[eva:progress] more_gcc_builtins.c:32: 
+  function __builtin_uaddl_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_uaddl_overflow
+[eva:progress] more_gcc_builtins.c:33: assertion got status valid.
+[eva:progress] more_gcc_builtins.c:34: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_uaddll_overflow <- main.
+  Called from more_gcc_builtins.c:36.
+[eva] using specification for function __builtin_uaddll_overflow
+[eva:progress] more_gcc_builtins.c:36: 
+  function __builtin_uaddll_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_uaddll_overflow
+[eva:progress] more_gcc_builtins.c:37: assertion got status valid.
+[eva:progress] more_gcc_builtins.c:38: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_usubll_overflow <- main.
+  Called from more_gcc_builtins.c:39.
+[eva] using specification for function __builtin_usubll_overflow
+[eva:progress] more_gcc_builtins.c:39: 
+  function __builtin_usubll_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_usubll_overflow
+[eva:progress] more_gcc_builtins.c:40: assertion got status valid.
+[eva:progress] more_gcc_builtins.c:41: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_smulll_overflow <- main.
+  Called from more_gcc_builtins.c:42.
+[eva] using specification for function __builtin_smulll_overflow
+[eva:progress] more_gcc_builtins.c:42: 
+  function __builtin_smulll_overflow: precondition 'valid_res' got status valid.
+[eva:progress] Done for function __builtin_smulll_overflow
+[eva:progress] more_gcc_builtins.c:43: assertion got status valid.
+[eva:progress] more_gcc_builtins.c:44: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_clz <- main.
+  Called from more_gcc_builtins.c:46.
+[eva] using specification for function __builtin_clz
+[eva:alarm] more_gcc_builtins.c:46: Warning: 
+  function __builtin_clz: precondition 'x_nonzero' got status invalid.
+[eva:progress] Done for function __builtin_clz
+[eva:progress] 
+  computing for function __builtin_clz <- main.
+  Called from more_gcc_builtins.c:49.
+[eva:progress] more_gcc_builtins.c:49: 
+  function __builtin_clz: precondition 'x_nonzero' got status valid.
+[eva:progress] Done for function __builtin_clz
+[eva:progress] more_gcc_builtins.c:50: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_clzl <- main.
+  Called from more_gcc_builtins.c:51.
+[eva] using specification for function __builtin_clzl
+[eva:progress] more_gcc_builtins.c:51: 
+  function __builtin_clzl: precondition 'x_nonzero' got status valid.
+[eva:progress] Done for function __builtin_clzl
+[eva:progress] more_gcc_builtins.c:52: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_clzll <- main.
+  Called from more_gcc_builtins.c:53.
+[eva] using specification for function __builtin_clzll
+[eva:progress] more_gcc_builtins.c:53: 
+  function __builtin_clzll: precondition 'x_nonzero' got status valid.
+[eva:progress] Done for function __builtin_clzll
+[eva:progress] more_gcc_builtins.c:54: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_ctz <- main.
+  Called from more_gcc_builtins.c:56.
+[eva] using specification for function __builtin_ctz
+[eva:alarm] more_gcc_builtins.c:56: Warning: 
+  function __builtin_ctz: precondition 'x_nonzero' got status invalid.
+[eva:progress] Done for function __builtin_ctz
+[eva:progress] 
+  computing for function __builtin_ctz <- main.
+  Called from more_gcc_builtins.c:59.
+[eva:progress] more_gcc_builtins.c:59: 
+  function __builtin_ctz: precondition 'x_nonzero' got status valid.
+[eva:progress] Done for function __builtin_ctz
+[eva:progress] more_gcc_builtins.c:60: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_ctzl <- main.
+  Called from more_gcc_builtins.c:61.
+[eva] using specification for function __builtin_ctzl
+[eva:progress] more_gcc_builtins.c:61: 
+  function __builtin_ctzl: precondition 'x_nonzero' got status valid.
+[eva:progress] Done for function __builtin_ctzl
+[eva:progress] more_gcc_builtins.c:62: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_ctzll <- main.
+  Called from more_gcc_builtins.c:63.
+[eva] using specification for function __builtin_ctzll
+[eva:progress] more_gcc_builtins.c:63: 
+  function __builtin_ctzll: precondition 'x_nonzero' got status valid.
+[eva:progress] Done for function __builtin_ctzll
+[eva:progress] more_gcc_builtins.c:64: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_popcount <- main.
+  Called from more_gcc_builtins.c:66.
+[eva] using specification for function __builtin_popcount
+[eva:progress] Done for function __builtin_popcount
+[eva:progress] more_gcc_builtins.c:67: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_popcountl <- main.
+  Called from more_gcc_builtins.c:68.
+[eva] using specification for function __builtin_popcountl
+[eva:progress] Done for function __builtin_popcountl
+[eva:progress] more_gcc_builtins.c:69: assertion got status valid.
+[eva:progress] 
+  computing for function __builtin_popcountll <- main.
+  Called from more_gcc_builtins.c:70.
+[eva] using specification for function __builtin_popcountll
+[eva:progress] Done for function __builtin_popcountll
+[eva:progress] more_gcc_builtins.c:71: assertion got status valid.
+[eva:progress] 
+  computing for function __atomic_load_1 <- main.
+  Called from more_gcc_builtins.c:75.
+[eva] using specification for function __atomic_load_1
+[eva:progress] more_gcc_builtins.c:75: 
+  function __atomic_load_1: precondition 'validity' got status valid.
+[eva:progress] more_gcc_builtins.c:75: 
+  function __atomic_load_1: precondition 'initialization' got status valid.
+[eva:progress] Done for function __atomic_load_1
+[eva:progress] 
+  computing for function __atomic_store_2 <- main.
+  Called from more_gcc_builtins.c:77.
+[eva] using specification for function __atomic_store_2
+[eva:progress] more_gcc_builtins.c:77: 
+  function __atomic_store_2: precondition 'validity' got status valid.
+[eva:progress] Done for function __atomic_store_2
+[eva:progress] 
+  computing for function __atomic_exchange_4 <- main.
+  Called from more_gcc_builtins.c:79.
+[eva] using specification for function __atomic_exchange_4
+[eva:progress] more_gcc_builtins.c:79: 
+  function __atomic_exchange_4: precondition 'validity' got status valid.
+[eva:progress] more_gcc_builtins.c:79: 
+  function __atomic_exchange_4: precondition 'initialization' got status valid.
+[eva:progress] Done for function __atomic_exchange_4
+[eva:progress] 
+  computing for function __atomic_compare_exchange_8 <- main.
+  Called from more_gcc_builtins.c:81.
+[eva] using specification for function __atomic_compare_exchange_8
+[eva:progress] more_gcc_builtins.c:81: 
+  function __atomic_compare_exchange_8: precondition 'validity' got status valid.
+[eva:progress] more_gcc_builtins.c:81: 
+  function __atomic_compare_exchange_8: precondition 'initialization,mem' got status valid.
+[eva:progress] more_gcc_builtins.c:81: 
+  function __atomic_compare_exchange_8: precondition 'initialization,expected' got status valid.
+[eva:progress] Done for function __atomic_compare_exchange_8
+[eva:progress] 
+  computing for function __atomic_add_fetch_1 <- main.
+  Called from more_gcc_builtins.c:82.
+[eva] using specification for function __atomic_add_fetch_1
+[eva:progress] more_gcc_builtins.c:82: 
+  function __atomic_add_fetch_1: precondition 'validity' got status valid.
+[eva:progress] more_gcc_builtins.c:82: 
+  function __atomic_add_fetch_1: precondition 'initialization' got status valid.
+[eva:progress] Done for function __atomic_add_fetch_1
+[eva:progress] 
+  computing for function __atomic_fetch_sub_2 <- main.
+  Called from more_gcc_builtins.c:83.
+[eva] using specification for function __atomic_fetch_sub_2
+[eva:progress] more_gcc_builtins.c:83: 
+  function __atomic_fetch_sub_2: precondition 'validity' got status valid.
+[eva:progress] more_gcc_builtins.c:83: 
+  function __atomic_fetch_sub_2: precondition 'initialization' got status valid.
+[eva:progress] Done for function __atomic_fetch_sub_2
+[eva:progress] 
+  computing for function __atomic_fetch_xor_4 <- main.
+  Called from more_gcc_builtins.c:84.
+[eva] using specification for function __atomic_fetch_xor_4
+[eva:progress] more_gcc_builtins.c:84: 
+  function __atomic_fetch_xor_4: precondition 'validity' got status valid.
+[eva:progress] more_gcc_builtins.c:84: 
+  function __atomic_fetch_xor_4: precondition 'initialization' got status valid.
+[eva:progress] Done for function __atomic_fetch_xor_4
+[eva:progress] 
+  computing for function __atomic_fetch_nand_8 <- main.
+  Called from more_gcc_builtins.c:85.
+[eva] using specification for function __atomic_fetch_nand_8
+[eva:progress] more_gcc_builtins.c:85: 
+  function __atomic_fetch_nand_8: precondition 'validity' got status valid.
+[eva:progress] more_gcc_builtins.c:85: 
+  function __atomic_fetch_nand_8: precondition 'initialization' got status valid.
+[eva:progress] Done for function __atomic_fetch_nand_8
+[eva:progress] 
+  computing for function __atomic_test_and_set <- main.
+  Called from more_gcc_builtins.c:86.
+[eva] using specification for function __atomic_test_and_set
+[eva:progress] more_gcc_builtins.c:86: 
+  function __atomic_test_and_set: precondition 'validity' got status valid.
+[eva:progress] Done for function __atomic_test_and_set
+[eva:progress] 
+  computing for function __atomic_clear <- main.
+  Called from more_gcc_builtins.c:87.
+[eva] using specification for function __atomic_clear
+[eva:progress] more_gcc_builtins.c:87: 
+  function __atomic_clear: precondition 'validity' got status valid.
+[eva:progress] Done for function __atomic_clear
+[eva:progress] 
+  computing for function __atomic_always_lock_free <- main.
+  Called from more_gcc_builtins.c:88.
+[eva] using specification for function __atomic_always_lock_free
+[eva:progress] Done for function __atomic_always_lock_free
+[eva:progress] 
+  computing for function __atomic_is_lock_free <- main.
+  Called from more_gcc_builtins.c:89.
+[eva] using specification for function __atomic_is_lock_free
+[eva:progress] Done for function __atomic_is_lock_free
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  res ∈ [0..64]
+  r ∈ [--..--]
+  lres ∈ {2147483647}
+  llres ∈ {-9223372036854775808}
+  ures ∈ {8}
+  ulres ∈ {8}
+  ullres ∈ {18446744073709551612}
+  u8_1 ∈ [--..--]
+  u8_2 ∈ [--..--]
+  u16_1 ∈ [--..--]
+  u16_2 ∈ [--..--]
+  u32_1 ∈ [--..--]
+  u32_2 ∈ [--..--]
+  u32_3[bits 0 to 7] ∈ [--..--]
+       [bits 8 to 31]# ∈ {420000}%32, bits 8 to 31 
+  u64_1 ∈ [--..--]
+  u64_2 ∈ [--..--]
+  u64_3 ∈ {42000000001}
+  __retres ∈ {0}

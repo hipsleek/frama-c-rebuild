@@ -1,0 +1,11 @@
+[kernel] Parsing ghost_multiline_annot.c (with preprocessing)
+[kernel] ghost_multiline_annot.c:49: 
+  This kind of annotation is valid only inside ghost code:
+  Location: "ghost_multiline_annot.c", line 49, before or at token: /@
+  47    int main()
+  48    {
+  49      /@ assert 2 == 2; @/
+          ^^
+  50      return 0;
+  51    }
+[kernel] Frama-C aborted: invalid user input.

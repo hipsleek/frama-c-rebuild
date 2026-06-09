@@ -1,0 +1,73 @@
+Plug-in name: Callgraph
+Plug-in shortname: cg
+Description:
+automatically compute the callgraph of the program. Using Eva might improve the precision of this plug-in
+
+Most options of the form '-cg-option-name' and without any parameter
+have an opposite with the name '-cg-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-cg <filename>      dump the callgraph to the file <filename> in dot format
+-cg-function-pointers  when Eva has not been computed, safely
+                    over-approximate callees in presence of function
+                    pointers; always done when Eva has been previously
+                    computed. (set by default, opposite option is
+                    -cg-no-function-pointers)
+-cg-roots <s>       if not empty, display only the functions of the callgraph
+                    reachable from the given functions (preferably use
+                    -cg-roots="")
+-cg-service-roots <s>  when computing callgraph services (see -cg-services),
+                    use the given functions (and their immediate children) as
+                    service roots. If none, use the main function if any;
+                    else use every uncalled function (preferably use
+                    -cg-service-roots="")
+-cg-services        compute and display services (groups of related functions
+                    which seem to provide common functionalities) from the
+                    callgraph (set by default, opposite option is
+                    -cg-no-services)
+-cg-uncalled        add the uncalled functions to the callgraph (the main
+                    function is always added anyway) (set by default,
+                    opposite option is -cg-no-uncalled)
+-cg-uncalled-leaf   add to the callgraph the uncalled functions that,
+                    themselves, do not call any function (opposite option is
+                    -cg-no-uncalled-leaf)
+
+*** DEBUG
+
+-cg-debug <n>       level of debug for plug-in Callgraph (default to 0)
+
+*** GETTING INFORMATION
+
+-cg-help            help of plug-in Callgraph
+-cg-h               alias for option -cg-help
+
+*** OUTPUT MESSAGES
+
+-cg-log <K_1:file_1,...>  copy log messages from Callgraph to a file. <K> is
+                    a combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -cg-log="K_1:file_1,...")
+-cg-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -cg-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -cg-msg-key="k1[,...,kn]")
+-cg-verbose <n>     level of verbosity for plug-in Callgraph (default to 1)
+-cg-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category <k1> to
+                    <s1>,...,<kn> to <sn>. Use -cg-warn-key help to get a
+                    list of available categories, and * to enable all
+                    categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -cg-warn-key="k1[=s1][,...,kn[=sn]]")

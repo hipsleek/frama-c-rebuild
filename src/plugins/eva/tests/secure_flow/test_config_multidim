@@ -1,0 +1,2 @@
+DEPS: security_macro.h
+STDOPT: +"-commands-file %{dep:test_options.txt}"

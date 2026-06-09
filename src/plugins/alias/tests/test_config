@@ -1,0 +1,2 @@
+PLUGIN: alias
+OPT: -alias -alias-verbose 3 -no-variadic-translation -alias-msg-key printer:show-libc-vars

@@ -1,0 +1,6 @@
+[test-import] Linking.
+[kernel] Parsing import_errors.c (with preprocessing)
+[kernel] import_errors.c:36: User Error: 
+  Conflicts on extension named 'foo' registered by different plugins (myplugin2,
+  myplugin1), use '\plugin::ext_name' syntax to avoid this ambiguity
+[kernel] Frama-C aborted: invalid user input.

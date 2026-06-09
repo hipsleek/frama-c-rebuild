@@ -1,0 +1,49 @@
+# frama-c -wp [...]
+[kernel] Parsing math.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal ok_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal ok_terminates (Cfg) (Trivial)
+[wp] 30 goals scheduled
+[wp] [Valid] typed_lemma_abs_neg (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_abs_pos (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_atan_sin_cos (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_cosh_opp (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_distance (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_exp_log_add_mul (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_exp_pos (Qed)
+[wp] [Valid] typed_lemma_log_exp_mul_add (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_max_ac (Qed)
+[wp] [Valid] typed_lemma_max_inf (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_max_or (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_min_ac (Qed)
+[wp] [Valid] typed_lemma_min_inf (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_min_or (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_pow_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_sinh_opp (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_sqrt_mono (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_sqrt_pos (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_tanh_opp (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ok_ensures_sin_asin (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ok_ensures_sin_asin_in_range (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ok_ensures_cos_acos (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ok_ensures_cos_acos_in_range (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ok_ensures_tan_atan (Qed)
+[wp] [Valid] typed_ok_ensures_log_pow (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ok_ensures_log_exp (Qed)
+[wp] [Valid] typed_ok_ensures_exp_log (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ok_ensures_min_plus_distrib (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ok_ensures_sqrt_pos (Alt-Ergo) (Cached)
+[wp] [Valid] typed_ok_ensures_sqrt_pos0 (Alt-Ergo) (Cached)
+[wp] Proved goals:   32 / 32
+  Terminating:     1
+  Unreachable:     1
+  Qed:             5
+  Alt-Ergo:       25
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Lemma                     3       16       19       100%
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  ok                        4        9       13       100%
+------------------------------------------------------------

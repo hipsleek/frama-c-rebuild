@@ -1,0 +1,167 @@
+[kernel] Parsing show_perf.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+[eva:progress] 
+  computing for function print_collatz <- main.
+  Called from show_perf.i:46:3-19.
+[eva:progress] 
+  computing for function collatz <- print_collatz <- main.
+  Called from show_perf.i:40:14-24.
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] 
+  computing for function compute_next <- collatz <- print_collatz <- main.
+  Called from show_perf.i:33:9-24.
+[eva:progress] Recording results for compute_next
+[eva:progress] Done for function compute_next
+[eva:progress] Recording results for collatz
+[eva:progress] Done for function collatz
+[eva:progress] show_perf.i:41: Reusing old results for call to collatz
+[eva:show] show_perf.i:42: Frama_C_show_each: {7}, {16}, {52}
+[eva:progress] Recording results for print_collatz
+[eva:progress] Done for function print_collatz
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function compute_next:
+  __retres ∈ [1..52]
+[eva:final-states] Values at end of function collatz:
+  i ∈ {16}
+  v ∈ {1}
+  max ∈ {52}
+  r.length ∈ {16}
+   .max ∈ {52}
+[eva:final-states] Values at end of function print_collatz:
+  r.length ∈ {16}
+   .max ∈ {52}
+[eva:final-states] Values at end of function main:
+  
+[eva] ######## Eva execution feedback ######## 
+  Long running functions:
+  ================================================================
+  * main: executed: 1x total: ?s
+    | print_collatz 1x ?s (?%) | self: ?s (?%)
+  * print_collatz: executed: 1x total: ?s
+    | collatz 2x ?s (?%) | self: ?s (?%)
+  * collatz: executed: 2x total: ?s
+    | compute_next 16x ?s (?%) | self: ?s (?%)
+  * compute_next: executed: 16x total: ?s
+    | self: ?s (?%)
+  
+  Execution time per callstack:
+  ================================================================
+  * main: executed: 1x total: ?s
+  | * print_collatz: executed: 1x total: ?s
+  | | * collatz: executed: 2x total: ?s
+  | | | * compute_next: executed: 16x total: ?s
+[from] Computing for function compute_next
+[from] Done for function compute_next
+[from] Computing for function collatz
+[from] Done for function collatz
+[from] Computing for function print_collatz
+[from] Done for function print_collatz
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function compute_next:
+  \result FROM x
+[from] Function collatz:
+  \result FROM n
+[from] Function print_collatz:
+  NO EFFECTS
+[from] Function main:
+  NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function compute_next:
+    tmp; __retres
+[inout] Inputs for function compute_next:
+    \nothing
+[inout] Out (internal) for function collatz:
+    i; v; max; tmp; r
+[inout] Inputs for function collatz:
+    \nothing
+[inout] Out (internal) for function print_collatz:
+    r
+[inout] Inputs for function print_collatz:
+    \nothing
+[inout] Out (internal) for function main:
+    \nothing
+[inout] Inputs for function main:
+    \nothing

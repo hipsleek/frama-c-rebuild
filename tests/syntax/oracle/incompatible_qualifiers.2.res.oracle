@@ -1,0 +1,10 @@
+[kernel] Parsing incompatible_qualifiers.c (with preprocessing)
+[kernel] incompatible_qualifiers.c:28: User Error: 
+  Declaration of h does not match previous declaration from incompatible_qualifiers.c:26 (different qualifiers).
+  26    void h(const char[]);
+  27    #ifdef INCOMPATIBLE2
+  28    void h(char[]); // conflicting types for 'h'
+             ^
+  29    #endif
+  30
+[kernel] Frama-C aborted: invalid user input.

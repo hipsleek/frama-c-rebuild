@@ -1,0 +1,29 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing funde7.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:alarm] funde7.c:8: Warning: function main: precondition got status unknown.
+[eva:progress] funde7.c:14: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  b ∈ {1}
+  l ∈ {1}
+  S_0_S_a[0] ∈ {0}
+         [1] ∈ [--..--]
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  S_0_S_a[0] FROM a; S_a[0]
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    b; l; S_0_S_a[0]
+[inout] Inputs for function main:
+    S_a[0]

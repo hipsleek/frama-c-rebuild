@@ -1,0 +1,7 @@
+[kernel] Parsing too_large_array.i (no preprocessing)
+[kernel:too-large-array] too_large_array.i:12: User Error: 
+  Array length is too large.
+[kernel] too_large_array.i:12: Warning: 
+  Cannot represent length of array as an attribute
+[kernel] User Error: stopping on file "too_large_array.i" that has errors.
+[kernel] Frama-C aborted: invalid user input.

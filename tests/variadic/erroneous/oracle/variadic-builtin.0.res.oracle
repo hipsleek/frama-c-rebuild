@@ -1,0 +1,10 @@
+[kernel] Parsing variadic-builtin.i (no preprocessing)
+[kernel:variadic] variadic-builtin.i:5: 
+  Declaration of variadic function Frama_C_show_each_warning.
+[kernel:variadic] variadic-builtin.i:5: 
+  Variadic builtin Frama_C_show_each_warning left untransformed.
+[kernel:variadic] variadic-builtin.i:9: 
+  Call to variadic builtin Frama_C_show_each_warning left untransformed.
+[kernel] variadic-builtin.i:10: Frama-C aborted: unimplemented feature.
+  You may send a feature request at https://git.frama-c.com/pub/frama-c/issues with:
+  '[Frama-C] Option -variadic-translation doesn't handle calls to a pointer to the variadic builtin Frama_C_show_each_warning.'.

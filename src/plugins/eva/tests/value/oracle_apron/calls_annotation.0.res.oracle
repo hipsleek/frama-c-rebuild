@@ -1,0 +1,92 @@
+66c66,70
+< [eva:progress] calls_annotation.i:80: Reusing old results for call to incr
+---
+> [eva:progress] 
+>   computing for function incr <- main.
+>   Called from calls_annotation.i:80:10-23.
+> [eva:progress] Recording results for incr
+> [eva:progress] Done for function incr
+104,107c108,127
+< [eva:progress] calls_annotation.i:80: Reusing old results for call to incr
+< [eva:progress] calls_annotation.i:82: Reusing old results for call to decr
+< [eva:progress] calls_annotation.i:85: Reusing old results for call to incr
+< [eva:progress] calls_annotation.i:85: Reusing old results for call to decr
+---
+> [eva:progress] 
+>   computing for function incr <- main.
+>   Called from calls_annotation.i:80:10-23.
+> [eva:progress] Recording results for incr
+> [eva:progress] Done for function incr
+> [eva:progress] 
+>   computing for function decr <- main.
+>   Called from calls_annotation.i:82:10-27.
+> [eva:progress] Recording results for decr
+> [eva:progress] Done for function decr
+> [eva:progress] 
+>   computing for function incr <- main.
+>   Called from calls_annotation.i:85:10-23.
+> [eva:progress] Recording results for incr
+> [eva:progress] Done for function incr
+> [eva:progress] 
+>   computing for function decr <- main.
+>   Called from calls_annotation.i:85:10-23.
+> [eva:progress] Recording results for decr
+> [eva:progress] Done for function decr
+128,130c148,162
+< [eva:progress] calls_annotation.i:80: Reusing old results for call to incr
+< [eva:progress] calls_annotation.i:82: Reusing old results for call to incr
+< [eva:progress] calls_annotation.i:85: Reusing old results for call to incr
+---
+> [eva:progress] 
+>   computing for function incr <- main.
+>   Called from calls_annotation.i:80:10-23.
+> [eva:progress] Recording results for incr
+> [eva:progress] Done for function incr
+> [eva:progress] 
+>   computing for function incr <- main.
+>   Called from calls_annotation.i:82:10-27.
+> [eva:progress] Recording results for incr
+> [eva:progress] Done for function incr
+> [eva:progress] 
+>   computing for function incr <- main.
+>   Called from calls_annotation.i:85:10-23.
+> [eva:progress] Recording results for incr
+> [eva:progress] Done for function incr
+161,162c193,202
+< [eva:progress] calls_annotation.i:80: Reusing old results for call to incr
+< [eva:progress] calls_annotation.i:82: Reusing old results for call to decr
+---
+> [eva:progress] 
+>   computing for function incr <- main.
+>   Called from calls_annotation.i:80:10-23.
+> [eva:progress] Recording results for incr
+> [eva:progress] Done for function incr
+> [eva:progress] 
+>   computing for function decr <- main.
+>   Called from calls_annotation.i:82:10-27.
+> [eva:progress] Recording results for decr
+> [eva:progress] Done for function decr
+164,166c204,218
+< [eva:progress] calls_annotation.i:85: Reusing old results for call to incr
+< [eva:progress] calls_annotation.i:85: Reusing old results for call to decr
+< [eva:progress] calls_annotation.i:85: Reusing old results for call to square
+---
+> [eva:progress] 
+>   computing for function incr <- main.
+>   Called from calls_annotation.i:85:10-23.
+> [eva:progress] Recording results for incr
+> [eva:progress] Done for function incr
+> [eva:progress] 
+>   computing for function decr <- main.
+>   Called from calls_annotation.i:85:10-23.
+> [eva:progress] Recording results for decr
+> [eva:progress] Done for function decr
+> [eva:progress] 
+>   computing for function square <- main.
+>   Called from calls_annotation.i:85:10-23.
+> [eva:progress] Recording results for square
+> [eva:progress] Done for function square
+184c236
+<   __retres ∈ [-1..65536]
+---
+>   __retres ∈ [0..65536]

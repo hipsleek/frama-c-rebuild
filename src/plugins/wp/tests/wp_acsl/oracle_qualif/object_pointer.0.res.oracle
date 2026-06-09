@@ -1,0 +1,52 @@
+# frama-c -wp [...]
+[kernel] Parsing object_pointer.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal array_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal array_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal compound_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal compound_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal dangling_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal dangling_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal memvar_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal memvar_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal pointer_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal pointer_terminates (Cfg) (Trivial)
+[wp] object_pointer.i:23: Warning: void object
+[wp] 22 goals scheduled
+[wp] [Valid] typed_memvar_check_M1 (Qed)
+[wp] [Valid] typed_memvar_check_P0 (Qed)
+[wp] [Valid] typed_memvar_check_P1 (Qed)
+[wp] [Valid] typed_memvar_check_P2 (Qed)
+[wp] [Valid] typed_pointer_check_M1 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_pointer_check_P0 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_pointer_check_P1 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_pointer_check_P2 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_pointer_check_qed_NULL_ko (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_pointer_check_prover_NULL_ko (Alt-Ergo) (Cached)
+[wp] [Valid] typed_array_check_ARR (Alt-Ergo) (Cached)
+[wp] [Valid] typed_compound_check_M1 (Qed)
+[wp] [Valid] typed_compound_check_P0 (Qed)
+[wp] [Valid] typed_compound_check_P1 (Qed)
+[wp] [Valid] typed_compound_check_P2 (Qed)
+[wp] [Valid] typed_compound_check_F (Alt-Ergo) (Cached)
+[wp] [Valid] typed_compound_check_G (Alt-Ergo) (Cached)
+[wp] [Valid] typed_compound_check_F2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_compound_check_G2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_compound_check_E (Alt-Ergo) (Cached)
+[wp] [Valid] typed_compound_check_AM (Qed)
+[wp] [Valid] typed_dangling_check (Alt-Ergo) (Cached)
+[wp] Proved goals:   30 / 32
+  Terminating:     5
+  Unreachable:     5
+  Qed:             9
+  Alt-Ergo:       11
+  Unsuccess:       2
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  memvar                    6        -        6       100%
+  pointer                   2        4        8      75.0%
+  array                     2        1        3       100%
+  compound                  7        5       12       100%
+  dangling                  2        1        3       100%
+------------------------------------------------------------

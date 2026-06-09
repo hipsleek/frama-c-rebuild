@@ -1,0 +1,12 @@
+Checking Cil_datatype.Typ.t
+  All checks succeeded!
+
+Checking Cil_datatype.TypByName.t
+  All checks succeeded!
+
+Checking Cil_datatype.TypNoUnroll.t
+  All checks succeeded!
+
+Checking Cil_datatype.TypNoAttrs.t
+  All checks succeeded!
+

@@ -1,0 +1,16 @@
+
+This is Frama-C XX.X
+
+Usage:
+    frama-c [options files ...]
+
+Main Options:
+    -help        This message.
+    -version     Version number only.
+    -plugins     List of installed plugins.
+    -kernel-h    Additional help and options.
+
+Plug-in Options:
+    -<plugin>    Plug-in activation.
+    -<plugin>-h  Additional help and options.
+

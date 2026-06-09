@@ -1,0 +1,73 @@
+[kernel] Parsing loopfun.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  v ∈ [--..--]
+  a ∈ {7}
+[eva:progress] 
+  computing for function test <- main.
+  Called from loopfun.i:14:7-13.
+[eva:progress] Recording results for test
+[eva:progress] Done for function test
+[eva:progress] 
+  computing for function test <- main.
+  Called from loopfun.i:14:14-20.
+[eva:progress] Recording results for test
+[eva:progress] Done for function test
+[eva:progress] 
+  computing for function test <- main.
+  Called from loopfun.i:16:25-31.
+[eva:progress] Recording results for test
+[eva:progress] Done for function test
+[eva:show] loopfun.i:16: Frama_C_show_each_t: {5}
+[eva:progress] 
+  computing for function test <- main.
+  Called from loopfun.i:14:21-27.
+[eva:progress] Recording results for test
+[eva:progress] Done for function test
+[eva:progress] 
+  computing for function test <- main.
+  Called from loopfun.i:14:14-20.
+[eva:progress] Recording results for test
+[eva:progress] Done for function test
+[eva:progress] 
+  computing for function test <- main.
+  Called from loopfun.i:16:25-31.
+[eva:progress] Recording results for test
+[eva:progress] Done for function test
+[eva:show] loopfun.i:16: Frama_C_show_each_t: {2}
+[eva:progress] 
+  computing for function test <- main.
+  Called from loopfun.i:14:21-27.
+[eva:progress] Recording results for test
+[eva:progress] Done for function test
+[eva:progress] 
+  computing for function test <- main.
+  Called from loopfun.i:14:14-20.
+[eva:progress] Recording results for test
+[eva:progress] Done for function test
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[from] Computing for function test
+[from] Done for function test
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function test:
+  FROMTOP
+  \result FROM ANYTHING(origin:Unknown)
+[from] Function main:
+  FROMTOP
+  \result FROM ANYTHING(origin:Unknown)
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function test:
+    tmp; a
+[inout] Inputs for function test:
+    a
+[inout] Out (internal) for function main:
+    ANYTHING(origin:Unknown)
+[inout] Inputs for function main:
+    a

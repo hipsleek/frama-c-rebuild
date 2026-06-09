@@ -1,0 +1,42 @@
+[kernel] Parsing loop_wvar.i (no preprocessing)
+[eva] Analyzing a complete application starting at main3
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function main_unhelpful <- main3.
+  Called from loop_wvar.i:80:3-20.
+[eva:partition] loop_wvar.i:48: starting to merge loop iterations
+[eva:alarm] loop_wvar.i:53: Warning: 
+  signed overflow. assert next + 1 ≤ 2147483647;
+[eva:progress] Recording results for main_unhelpful
+[eva:progress] Done for function main_unhelpful
+[eva:progress] 
+  computing for function main_multiple_hints <- main3.
+  Called from loop_wvar.i:81:3-25.
+[eva:show] loop_wvar.i:67: Frama_C_show_each: {0}, {0}, {0}
+[eva:partition] loop_wvar.i:65: starting to merge loop iterations
+[eva:show] loop_wvar.i:67: Frama_C_show_each: {0; 1}, {0; 1}, {0; 1}
+[eva:show] loop_wvar.i:67: Frama_C_show_each: {0; 1; 2}, {0; 1; 2}, {0; 1; 2}
+[eva:show] loop_wvar.i:67: Frama_C_show_each: [0..9], {0; 1; 2; 3}, {0; 1; 2; 3}
+[eva:show] loop_wvar.i:67: 
+  Frama_C_show_each: [0..9], {0; 1; 2; 3; 4}, {0; 1; 2; 3; 4}
+[eva:show] loop_wvar.i:67: Frama_C_show_each: [0..9], [0..17], [0..11]
+[eva:show] loop_wvar.i:67: Frama_C_show_each: [0..9], [0..18], [0..12]
+[eva:progress] Recording results for main_multiple_hints
+[eva:progress] Done for function main_multiple_hints
+[eva:progress] Recording results for main3
+[eva:progress] Done for function main3
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main_multiple_hints:
+  maxj ∈ {17}
+  maxk ∈ {11}
+  j ∈ [0..18]
+  k ∈ [0..12]
+[eva:final-states] Values at end of function main_unhelpful:
+  max ∈ {25}
+  next ∈ [0..2147483647]
+  i ∈ {30}
+[eva:final-states] Values at end of function main3:
+  

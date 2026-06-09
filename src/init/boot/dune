@@ -1,0 +1,32 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(library
+  (name frama_c_boot)
+  (public_name frama-c.boot)
+  (modules boot)
+  (libraries frama_c_kernel)
+  (instrumentation (backend landmarks))
+  (instrumentation (backend bisect_ppx))
+)
+
+
+(rule
+  (targets empty_file.ml)
+  (action (with-stdout-to empty_file.ml (echo "")))
+)
+
+(executable
+  (name empty_file)
+  (public_name frama-c)
+  (modes byte (best exe))
+  (modules empty_file)
+  (package frama-c)
+  (flags :standard -open Frama_c_kernel -linkall)
+  (libraries frama-c.kernel frama-c.init frama-c.boot)
+)

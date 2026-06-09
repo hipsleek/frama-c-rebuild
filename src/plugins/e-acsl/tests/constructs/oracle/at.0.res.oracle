@@ -1,0 +1,29 @@
+[e-acsl] beginning translation.
+[e-acsl] at.i:22: Warning: 
+  E-ACSL construct
+  `label 'Init' within statement annotation 'Assertion' in '\at(A,Init)''
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] at.i:33: Warning: 
+  E-ACSL construct
+  `label 'LoopEntry' within statement annotation 'Assertion' in '\at(i_0,
+                                                                    LoopEntry)''
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] at.i:20: Warning: assertion got status unknown.
+[eva:alarm] at.i:22: Warning: assertion got status unknown.
+[eva:alarm] at.i:23: Warning: assertion got status unknown.
+[eva:alarm] at.i:33: Warning: assertion got status unknown.
+[eva:alarm] at.i:85: Warning: assertion got status unknown.
+[eva:alarm] at.i:86: Warning: assertion got status unknown.
+[eva:alarm] at.i:87: Warning: assertion got status unknown.
+[eva:alarm] at.i:47: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] at.i:47: Warning: assertion got status unknown.
+[eva:alarm] at.i:51: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] at.i:49: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] at.i:49: Warning: assertion got status unknown.
+[eva:alarm] at.i:51: Warning: assertion got status unknown.

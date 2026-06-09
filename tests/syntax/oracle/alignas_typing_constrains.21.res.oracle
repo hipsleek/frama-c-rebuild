@@ -1,0 +1,12 @@
+[kernel] Parsing alignas_typing_constrains.c (with preprocessing)
+[kernel] alignas_typing_constrains.c:221: 
+  syntax error:
+  Location: "alignas_typing_constrains.c", line 221,
+            before or at token: _Alignas
+  219   #ifdef ALIGNAS_FUNCTION_3
+  220   // note: no smart message, we just check that it is not captured as an attribute
+  221   void c17_6_7_5_2_c(int x) _Alignas(8) ;
+                                 ^
+  222   #endif
+  223
+[kernel] Frama-C aborted: invalid user input.

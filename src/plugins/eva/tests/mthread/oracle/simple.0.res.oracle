@@ -1,0 +1,132 @@
+[kernel] Expanding arguments from mthread_test_options.txt
+[mt] Preparing sources for Mthread with lib pthreads
+[kernel] Parsing FRAMAC_SHARE/mt/mthread.c (with preprocessing)
+[kernel] Parsing FRAMAC_SHARE/mt/mthread_pthread.c (with preprocessing)
+[kernel] Parsing simple.c (with preprocessing)
+[mt] Warning: Mthread is an experimental plugin and is still in development.
+[mt] ******* Starting mthread
+[eva] Found concurrency builtins: enabling mthread domain
+[mt] *** Computing value analysis for main thread
+[eva] Analyzing a complete application starting at main
+[mt] New thread: <main>, fun main
+[mt] simple.c:44: Initializing mutex lock
+[mt] simple.c:46: New thread: job1, fun f1, parent <main>, args {{ &b }}
+[mt] simple.c:46: Start thread job1
+[mt] simple.c:47: New thread: job2, fun f2, parent <main>, args {{ &a }}
+[mt] simple.c:47: Start thread job2
+[mt] simple.c:49: Lock lock
+[mt] simple.c:51: Release lock
+[mt] *** First value analysis for main thread done.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  a: read by <main> at simple.c:50 <- main
+  b: read by <main> at simple.c:50 <- main
+  c: read by <main> at simple.c:50 <- main
+  v: read by <main> at simple.c:50 <- main
+  job1:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: simple.c:46 <- main
+  job2:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: simple.c:47 <- main
+  lock:
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: simple.c:49 <- main
+    read by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: simple.c:51 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] ******* Starting to iterate
+[mt] ***** Iteration 1
+[mt] *** Computing thread job1, iteration 1 (first iteration)
+[mt] * Computing value analysis for thread job1
+[eva] Analyzing a complete application starting at f1
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of f1 for thread job1
+[mt] simple.c:22: Lock lock
+[eva] using specification for function g1
+[mt] simple.c:27: Release lock
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  a: write by job1 at simple.c:23 <- f1
+  b: write by job1 at simple.c:24 <- f1
+  c: write by job1 at simple.c:25 <- f1
+  e: write by job1 at simple.c:28 <- f1
+  v: write by job1 at simple.c:26 <- f1
+  lock:
+    read by job1 at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: simple.c:22 <- f1
+    read by job1 at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: simple.c:27 <- f1
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread job1
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread job1 computed
+[mt] *** Computing thread job2, iteration 1 (first iteration)
+[mt] * Computing value analysis for thread job2
+[eva] Analyzing a complete application starting at f2
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of f2 for thread job2
+[mt] simple.c:33: Lock lock
+[eva] using specification for function g2
+[mt] simple.c:38: Release lock
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  a: write by job2 at simple.c:35 <- f2
+  b: write by job2 at simple.c:34 <- f2
+  c: write by job2 at simple.c:36 <- f2
+  d: write by job2 at simple.c:39 <- f2
+  v: write by job2 at simple.c:37 <- f2
+  lock:
+    read by job2 at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: simple.c:33 <- f2
+    read by job2 at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: simple.c:38 <- f2
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread job2
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread job2 computed
+[mt] ***** Threads computed for iteration 1.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: a; b; c; v
+[mt] Concurrent imprecise accesses have changed: before
+    \nothing
+  vs.
+    a; b; c; v
+[mt] Possible read/write data races:
+  none
+[mt] Shared memory: \nothing
+[mt] Mutexes for concurrent accesses:
+[mt] Detailed shared zones protections
+[mt] ***** Shared variables computed
+[mt] ******* Analysis stopped after 1 iterations.
+  Remaining to do:
+  Thread <main>, fun main: potential shared vars changed
+  Thread job1, fun f1, parent <main>, args {{ &b }}: potential shared vars
+    changed
+  Thread job2, fun f2, parent <main>, args {{ &a }}: potential shared vars
+    changed

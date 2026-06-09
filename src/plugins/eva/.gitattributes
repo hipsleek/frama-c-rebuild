@@ -1,0 +1,8 @@
+########################
+# HEADER_SPEC: .ignore #
+########################
+
+/Changelog_non_free header_spec=.ignore
+/src/legacy/TOREMOVE header_spec=.ignore
+/src/mthread/trie.ml header_spec=JCF_LGPL
+/src/mthread/trie.mli header_spec=JCF_LGPL

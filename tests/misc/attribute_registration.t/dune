@@ -1,0 +1,8 @@
+(executable
+  (name "attribute_registration")
+  (modules "attribute_registration")
+  (modes plugin)
+  (libraries frama-c.init frama-c.kernel)
+  (flags -open Frama_c_kernel :standard)
+  (promote (until-clean))
+)

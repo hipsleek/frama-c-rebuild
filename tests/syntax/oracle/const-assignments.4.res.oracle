@@ -1,0 +1,10 @@
+[kernel] Parsing const-assignments.c (with preprocessing)
+[kernel] const-assignments.c:40: User Error: 
+  Cannot assign to non-modifiable lval x
+  38    #ifdef T3
+  39    void f() {
+  40      x += 3;
+          ^^^^^^
+  41    }
+  42    #endif
+[kernel] Frama-C aborted: invalid user input.

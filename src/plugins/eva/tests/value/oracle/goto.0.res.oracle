@@ -1,0 +1,64 @@
+[kernel] Parsing goto.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+[eva:progress] 
+  computing for function stop <- main.
+  Called from goto.i:32:10-17.
+[eva:progress] Recording results for stop
+[eva:progress] Done for function stop
+[eva:progress] 
+  computing for function skip_declaration <- main.
+  Called from goto.i:34:3-22.
+[eva:alarm] goto.i:19: Warning: check 'unknown' got status unknown.
+[eva:alarm] goto.i:20: Warning: check 'unknown' got status unknown.
+[eva:alarm] goto.i:21: Warning: check 'unknown' got status unknown.
+[eva:alarm] goto.i:22: Warning: check 'unknown' got status unknown.
+[eva:alarm] goto.i:23: Warning: 
+  accessing uninitialized left-value. assert \initialized(&x);
+[eva:alarm] goto.i:24: Warning: 
+  accessing uninitialized left-value. assert \initialized(&y);
+[eva:progress] Recording results for skip_declaration
+[eva:progress] Done for function skip_declaration
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function skip_declaration:
+  y ∈ {2}
+  r ∈ {3}
+  x ∈ {1}
+[eva:final-states] Values at end of function stop:
+  NON TERMINATING FUNCTION
+[eva:final-states] Values at end of function main:
+  c ∈ [--..--]
+  __retres ∈ {0}
+[from] Computing for function skip_declaration
+[from] Done for function skip_declaration
+[from] Computing for function stop
+[from] Non-terminating function stop (no dependencies)
+[from] Done for function stop
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function skip_declaration:
+  NO EFFECTS
+[from] Function stop:
+  NON TERMINATING - NO EFFECTS
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function skip_declaration:
+    y; r; x
+[inout] Inputs for function skip_declaration:
+    nondet
+[inout] Out (internal) for function stop:
+    \nothing
+[inout] Inputs for function stop:
+    \nothing
+[inout] Out (internal) for function main:
+    c; __retres
+[inout] Inputs for function main:
+    nondet

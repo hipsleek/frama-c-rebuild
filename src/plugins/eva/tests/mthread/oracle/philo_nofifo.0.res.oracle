@@ -1,0 +1,256 @@
+[kernel] Expanding arguments from mthread_test_options.txt
+[mt] Preparing sources for Mthread with lib pthreads
+[kernel] Parsing FRAMAC_SHARE/mt/mthread.c (with preprocessing)
+[kernel] Parsing FRAMAC_SHARE/mt/mthread_pthread.c (with preprocessing)
+[kernel] Parsing philo_nofifo.c (with preprocessing)
+[mt] Warning: Mthread is an experimental plugin and is still in development.
+[mt] ******* Starting mthread
+[eva] Found concurrency builtins: enabling mthread domain
+[mt] *** Computing value analysis for main thread
+[eva] Analyzing a complete application starting at main
+[mt] New thread: <main>, fun main
+[mt] philo_nofifo.c:31: Initializing mutex locks[0]
+[mt] philo_nofifo.c:31: Initializing mutex locks[1]
+[mt] philo_nofifo.c:31: Initializing mutex locks[2]
+[mt] philo_nofifo.c:31: Initializing mutex locks[3]
+[mt] philo_nofifo.c:31: Initializing mutex locks[4]
+[mt] philo_nofifo.c:37: New thread: jobs[0], fun job, parent <main>, args {0}
+[mt] philo_nofifo.c:37: Start thread jobs[0]
+[mt] philo_nofifo.c:37: New thread: jobs[1], fun job, parent <main>, args {1}
+[mt] philo_nofifo.c:37: Start thread jobs[1]
+[mt] philo_nofifo.c:37: New thread: jobs[2], fun job, parent <main>, args {2}
+[mt] philo_nofifo.c:37: Start thread jobs[2]
+[mt] philo_nofifo.c:37: New thread: jobs[3], fun job, parent <main>, args {3}
+[mt] philo_nofifo.c:37: Start thread jobs[3]
+[mt] philo_nofifo.c:37: New thread: jobs[4], fun job, parent <main>, args {4}
+[mt] philo_nofifo.c:37: Start thread jobs[4]
+[mt] *** First value analysis for main thread done.
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  jobs[0..4]:
+    write by <main> at FRAMAC_SHARE/mt/mthread_pthread.c:19 <-
+      pthread_create :: philo_nofifo.c:37 <- main
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread <main>
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread <main> computed
+[mt] ******* Starting to iterate
+[mt] ***** Iteration 1
+[mt] *** Computing thread jobs[0], iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs[0]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[0]
+[mt] philo_nofifo.c:12: Lock locks[4]
+[mt] philo_nofifo.c:13: Lock locks[1]
+[mt] philo_nofifo.c:14: Release locks[1]
+[mt] philo_nofifo.c:15: Release locks[4]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[1]:
+    read by jobs[0] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: philo_nofifo.c:13 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+    read by jobs[0] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: philo_nofifo.c:14 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+  locks[4]:
+    read by jobs[0] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: philo_nofifo.c:12 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+    read by jobs[0] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: philo_nofifo.c:15 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[0]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[0] computed
+[mt] *** Computing thread jobs[1], iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs[1]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[1]
+[mt] philo_nofifo.c:12: Lock locks[0]
+[mt] philo_nofifo.c:13: Lock locks[2]
+[mt] philo_nofifo.c:14: Release locks[2]
+[mt] philo_nofifo.c:15: Release locks[0]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[0]:
+    read by jobs[1] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: philo_nofifo.c:12 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+    read by jobs[1] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: philo_nofifo.c:15 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+  locks[2]:
+    read by jobs[1] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: philo_nofifo.c:13 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+    read by jobs[1] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: philo_nofifo.c:14 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[1]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[1] computed
+[mt] *** Computing thread jobs[2], iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs[2]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[2]
+[mt] philo_nofifo.c:12: Lock locks[1]
+[mt] philo_nofifo.c:13: Lock locks[3]
+[mt] philo_nofifo.c:14: Release locks[3]
+[mt] philo_nofifo.c:15: Release locks[1]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[1]:
+    read by jobs[2] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: philo_nofifo.c:12 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+    read by jobs[2] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: philo_nofifo.c:15 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+  locks[3]:
+    read by jobs[2] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: philo_nofifo.c:13 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+    read by jobs[2] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: philo_nofifo.c:14 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[2]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[2] computed
+[mt] *** Computing thread jobs[3], iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs[3]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[3]
+[mt] philo_nofifo.c:12: Lock locks[2]
+[mt] philo_nofifo.c:13: Lock locks[4]
+[mt] philo_nofifo.c:14: Release locks[4]
+[mt] philo_nofifo.c:15: Release locks[2]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[2]:
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: philo_nofifo.c:12 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: philo_nofifo.c:15 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+  locks[4]:
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: philo_nofifo.c:13 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+    read by jobs[3] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: philo_nofifo.c:14 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[3]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[3] computed
+[mt] *** Computing thread jobs[4], iteration 1 (first iteration)
+[mt] * Computing value analysis for thread jobs[4]
+[eva] Analyzing a complete application starting at job
+[eva] Initial state supplied by user
+[eva:interferences] 
+  inject threads interferences at the start of job for thread jobs[4]
+[mt] philo_nofifo.c:12: Lock locks[3]
+[mt] philo_nofifo.c:13: Lock locks[0]
+[mt] philo_nofifo.c:14: Release locks[0]
+[mt] philo_nofifo.c:15: Release locks[3]
+[mt] * Computing shared variables
+[mt] Globals accessed by thread:
+  locks[0]:
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: philo_nofifo.c:13 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: philo_nofifo.c:14 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+  locks[3]:
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:46 <-
+      pthread_mutex_lock :: philo_nofifo.c:12 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+    read by jobs[4] at FRAMAC_SHARE/mt/mthread_pthread.c:56 <-
+      pthread_mutex_unlock :: philo_nofifo.c:15 <-
+      aux :: philo_nofifo.c:24 <-
+      job
+[mt] * shared variables computed
+[eva:interferences] 
+  Interferences from thread jobs[4]
+    concurrent writes:
+    shared bases: {}
+    interferences by location:
+    interferences by mutexes:
+[mt] * Computing cfg
+[mt] * Cfg computed
+[mt] *** Thread jobs[4] computed
+[mt] ***** Threads computed for iteration 1.
+[mt] * Computing live threads and locked mutexes
+[mt] * threads and mutexes computed
+[mt] ***** Computing shared variables
+[mt] Imprecise locations to watch: \nothing
+[mt] Possible read/write data races:
+  none
+[mt] Shared memory: \nothing
+[mt] Mutexes for concurrent accesses:
+[mt] Detailed shared zones protections
+[mt] ***** Shared variables computed
+[mt] ******* Analysis performed, 1 iterations

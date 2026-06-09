@@ -1,0 +1,63 @@
+digraph G {
+  label="Dominators for function g";
+  node [shape=box, style="filled", ];
+  16 [label="/* sid:16 */
+c = 12;", ];
+  18 [label="/* sid:18 */
+__retres = c;", ];
+  20 [label="/* sid:20 */
+__retres = c;", ];
+  57 [label="/* sid:57 */
+{
+  /* sid:18 */
+  __retres = c;
+  /* sid:58 */
+  goto return_label;
+}",
+      ];
+  58 [label="/* sid:58 */
+goto return_label;", ];
+  10 [label="/* sid:10 */
+c = 12;", ];
+  59 [label="/* sid:59 */
+return_label: return __retres;", ];
+  12 [label="/* sid:12 */
+if (c) {
+  /* sid:13 */
+  goto test;
+  /* sid:14 */
+  c += 1;
+  /* sid:15 */
+  test: c = 42;
+}
+else {
+  /* sid:16 */
+  c = 12;
+  /* sid:57 */
+  {
+    /* sid:18 */
+    __retres = c;
+    /* sid:58 */
+    goto return_label;
+  }
+}",
+      ];
+  13 [label="/* sid:13 */
+goto test;", ];
+  14 [label="/* sid:14 */
+c += 1;", ];
+  15 [label="/* sid:15 */
+test: c = 42;", ];
+  
+  
+  12 -> 16;
+  57 -> 18;
+  15 -> 20;
+  16 -> 57;
+  18 -> 58;
+  12 -> 59;
+  10 -> 12;
+  12 -> 13;
+  13 -> 15;
+  
+  }

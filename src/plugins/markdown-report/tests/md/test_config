@@ -1,0 +1,3 @@
+PLUGIN: inout,scope,eva markdown-report
+LOG: @PTEST_NAME@.@PTEST_NUMBER@.md
+CMD: @frama-c@ -eva @PTEST_FILE@ -mdr-gen md -mdr-date="now" -mdr-out ./@PTEST_NAME@.@PTEST_NUMBER@.md

@@ -1,0 +1,14 @@
+# todo: adds bugs?
+# todo: adds crowbar? Yes, but these tests do not use ptests
+# todo: adds journal? No, the journal suite directory will be removed later to master
+
+### Tests of kernel
+
+DEFAULT_SUITES= cil dynamic jcdb libc misc
+DEFAULT_SUITES= pretty_printing saveload spec syntax
+DEFAULT_SUITES= variadic/known variadic/declared variadic/defined variadic/erroneous
+
+### Tests of small plugins
+
+DEFAULT_SUITES= callgraph constant_propagation impact metrics occurrence pdg
+DEFAULT_SUITES= scope slicing sparecode

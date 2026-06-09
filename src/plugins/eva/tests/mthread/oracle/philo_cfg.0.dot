@@ -1,0 +1,510 @@
+// Concatenated dot files. Generate all graphs with `dot -Tpng -O file.dot`
+// They will be named file.dot.png, file.dot.2.png, etc.
+
+// Graph for <main>
+digraph G {
+  fontsize=9;
+  center=1;
+  v389 [URL="#", fillcolor="#00000000", shape=box, color="#00000055",
+        label="Start: main", style="filled", ];
+  v369 [URL="code.html#sid103", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call queuecreate(& queue,5);",
+        style="filled", ];
+  v384 [URL="code.html#sid121", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Creating queue queue (size 5)",
+        style="filled", ];
+  v385 [URL="code.html#sid164", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v370 [URL="code.html#sid105", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="while(1)", style="filled", ];
+  v371 [URL="code.html#sid107", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="if (i < 5)", style="filled", ];
+  v379 [URL="code.html#sid109", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF",
+        label="Call pthread_create(& jobs[i],(pthread_attr_t const *)0,& job,(void *)i);",
+        style="filled", ];
+  v380 [URL="code.html#sid1", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF",
+        label="Create thread jobs[0]\nCreate thread jobs[1]\nCreate thread jobs[2]\nCreate thread jobs[3]\nCreate thread jobs[4]",
+        style="filled", ];
+  v382 [URL="code.html#sid5", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF",
+        label="Start thread jobs[0]\nStart thread jobs[1]\nStart thread jobs[2]\nStart thread jobs[3]\nStart thread jobs[4]",
+        style="filled", ];
+  v383 [URL="code.html#sid135", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v372 [URL="code.html#sid111", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="while(1)", style="filled", ];
+  v373 [URL="code.html#sid113", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="if (end[0])", style="filled", ];
+  v377 [URL="code.html#sid116", fillcolor="#CCCCFFFF", shape=box,
+        color="#000000FF", label="if (end2)\nreads end2", style="filled", ];
+  v378 [URL="code.html#sid162", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="exit", style="filled", ];
+  v366 [URL="#", fillcolor="#FFFFFFFF", shape=plaintext, color="#000000FF",
+        label="", style="invis", ];
+  v374 [URL="code.html#sid118", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call msgrcv(queue,2,end);", style="filled", ];
+  v375 [URL="code.html#sid128", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF",
+        label="Receiving\nmessage\non queue,\nmax size 2,\nstored in &end.",
+        style="filled", ];
+  v376 [URL="code.html#sid129", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  
+  
+  v389 -> v369 [dir=forward, ];
+  v369 -> v384 [weight=200, dir=forward, ];
+  v384 -> v385 [dir=forward, ];
+  v385 -> v370 [dir=forward, ];
+  v369 -> v385 [weight=1, dir=none, style="dotted", ];
+  v370 -> v371 [dir=forward, ];
+  v371 -> v379 [label="then", dir=forward, ];
+  v371 -> v372 [label="else", dir=forward, ];
+  v379 -> v380 [weight=200, dir=forward, ];
+  v380 -> v382 [dir=forward, ];
+  v382 -> v383 [dir=forward, ];
+  v370 -> v383 [dir=back, ];
+  v379 -> v383 [weight=1, dir=none, style="dotted", ];
+  v372 -> v373 [dir=forward, ];
+  v373 -> v377 [label="then", dir=forward, ];
+  v373 -> v374 [label="else", dir=forward, ];
+  v377 -> v378 [label="then", dir=forward, ];
+  v377 -> v374 [label="else", dir=forward, ];
+  v378 -> v366 [dir=forward, ];
+  v374 -> v375 [weight=200, dir=forward, ];
+  v375 -> v376 [dir=forward, ];
+  v372 -> v376 [dir=back, ];
+  v374 -> v376 [weight=1, dir=none, style="dotted", ];
+  
+  }
+
+// Graph for jobs[0]
+digraph G {
+  fontsize=9;
+  center=1;
+  v420 [URL="#", fillcolor="#00000000", shape=box, color="#00000055",
+        label="Start: job", style="filled", ];
+  v395 [URL="code.html#sid92", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="while(1)", style="filled", ];
+  v396 [URL="code.html#sid93", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call aux(l,r,p + 1);", style="filled", ];
+  v397 [URL="code.html#sid66", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_lock(& locks[l]);",
+        style="filled", ];
+  v417 [URL="code.html#sid26", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Lock locks[4]", style="filled", ];
+  v419 [URL="code.html#sid31", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v398 [URL="code.html#sid67", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_lock(& locks[r]);",
+        style="filled", ];
+  v414 [URL="code.html#sid26", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Lock locks[1]", style="filled", ];
+  v416 [URL="code.html#sid31", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v399 [URL="code.html#sid69", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="if (tmp)", style="filled", ];
+  v410 [URL="code.html#sid73", fillcolor="#CCCCFFFF", shape=box,
+        color="#000000FF", label="end2 = 1;\nwrites end2", style="filled", ];
+  v411 [URL="code.html#sid74", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call msgsnd(queue,(char const *)(buf),2);",
+        style="filled", ];
+  v412 [URL="code.html#sid124", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF",
+        label="Sending\nmessage\non queue,\ncontent\n[0] IN {1}\n[1] IN UNINITIALIZED",
+        style="filled", ];
+  v413 [URL="code.html#sid126", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v400 [URL="code.html#sid77", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_unlock(& locks[r]);",
+        style="filled", ];
+  v406 [URL="code.html#sid40", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Release locks[1]", style="filled", ];
+  v408 [URL="code.html#sid45", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v401 [URL="code.html#sid78", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_unlock(& locks[l]);",
+        style="filled", ];
+  v403 [URL="code.html#sid40", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Release locks[4]", style="filled", ];
+  v405 [URL="code.html#sid45", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v402 [URL="code.html#sid158", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  
+  
+  v420 -> v395 [dir=forward, ];
+  v395 -> v396 [dir=forward, ];
+  v396 -> v397 [weight=200, dir=forward, ];
+  v397 -> v417 [weight=200, dir=forward, ];
+  v417 -> v419 [dir=forward, ];
+  v419 -> v398 [dir=forward, ];
+  v397 -> v419 [weight=1, dir=none, style="dotted", ];
+  v398 -> v414 [weight=200, dir=forward, ];
+  v414 -> v416 [dir=forward, ];
+  v416 -> v399 [dir=forward, ];
+  v398 -> v416 [weight=1, dir=none, style="dotted", ];
+  v399 -> v410 [label="then", dir=forward, ];
+  v399 -> v400 [label="else", dir=forward, ];
+  v410 -> v411 [dir=forward, ];
+  v411 -> v412 [weight=200, dir=forward, ];
+  v412 -> v413 [dir=forward, ];
+  v413 -> v400 [dir=forward, ];
+  v411 -> v413 [weight=1, dir=none, style="dotted", ];
+  v400 -> v406 [weight=200, dir=forward, ];
+  v406 -> v408 [dir=forward, ];
+  v408 -> v401 [dir=forward, ];
+  v400 -> v408 [weight=1, dir=none, style="dotted", ];
+  v401 -> v403 [weight=200, dir=forward, ];
+  v403 -> v405 [dir=forward, ];
+  v405 -> v402 [dir=forward, ];
+  v401 -> v405 [weight=1, dir=none, style="dotted", ];
+  v395 -> v402 [dir=back, ];
+  v396 -> v402 [weight=1, dir=none, style="dotted", ];
+  
+  }
+
+// Graph for jobs[1]
+digraph G {
+  fontsize=9;
+  center=1;
+  v447 [URL="#", fillcolor="#00000000", shape=box, color="#00000055",
+        label="Start: job", style="filled", ];
+  v426 [URL="code.html#sid92", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="while(1)", style="filled", ];
+  v427 [URL="code.html#sid93", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call aux(l,r,p + 1);", style="filled", ];
+  v428 [URL="code.html#sid66", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_lock(& locks[l]);",
+        style="filled", ];
+  v444 [URL="code.html#sid26", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Lock locks[0]", style="filled", ];
+  v446 [URL="code.html#sid31", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v429 [URL="code.html#sid67", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_lock(& locks[r]);",
+        style="filled", ];
+  v441 [URL="code.html#sid26", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Lock locks[2]", style="filled", ];
+  v443 [URL="code.html#sid31", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v431 [URL="code.html#sid77", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_unlock(& locks[r]);",
+        style="filled", ];
+  v437 [URL="code.html#sid40", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Release locks[2]", style="filled", ];
+  v439 [URL="code.html#sid45", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v432 [URL="code.html#sid78", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_unlock(& locks[l]);",
+        style="filled", ];
+  v434 [URL="code.html#sid40", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Release locks[0]", style="filled", ];
+  v436 [URL="code.html#sid45", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v433 [URL="code.html#sid158", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  
+  
+  v447 -> v426 [dir=forward, ];
+  v426 -> v427 [dir=forward, ];
+  v427 -> v428 [weight=200, dir=forward, ];
+  v428 -> v444 [weight=200, dir=forward, ];
+  v444 -> v446 [dir=forward, ];
+  v446 -> v429 [dir=forward, ];
+  v428 -> v446 [weight=1, dir=none, style="dotted", ];
+  v429 -> v441 [weight=200, dir=forward, ];
+  v441 -> v443 [dir=forward, ];
+  v443 -> v431 [dir=forward, ];
+  v429 -> v443 [weight=1, dir=none, style="dotted", ];
+  v431 -> v437 [weight=200, dir=forward, ];
+  v437 -> v439 [dir=forward, ];
+  v439 -> v432 [dir=forward, ];
+  v431 -> v439 [weight=1, dir=none, style="dotted", ];
+  v432 -> v434 [weight=200, dir=forward, ];
+  v434 -> v436 [dir=forward, ];
+  v436 -> v433 [dir=forward, ];
+  v432 -> v436 [weight=1, dir=none, style="dotted", ];
+  v426 -> v433 [dir=back, ];
+  v427 -> v433 [weight=1, dir=none, style="dotted", ];
+  
+  }
+
+// Graph for jobs[2]
+digraph G {
+  fontsize=9;
+  center=1;
+  v478 [URL="#", fillcolor="#00000000", shape=box, color="#00000055",
+        label="Start: job", style="filled", ];
+  v453 [URL="code.html#sid92", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="while(1)", style="filled", ];
+  v454 [URL="code.html#sid93", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call aux(l,r,p + 1);", style="filled", ];
+  v455 [URL="code.html#sid66", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_lock(& locks[l]);",
+        style="filled", ];
+  v475 [URL="code.html#sid26", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Lock locks[1]", style="filled", ];
+  v477 [URL="code.html#sid31", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v456 [URL="code.html#sid67", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_lock(& locks[r]);",
+        style="filled", ];
+  v472 [URL="code.html#sid26", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Lock locks[3]", style="filled", ];
+  v474 [URL="code.html#sid31", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v457 [URL="code.html#sid69", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="if (tmp)", style="filled", ];
+  v468 [URL="code.html#sid73", fillcolor="#CCCCFFFF", shape=box,
+        color="#000000FF", label="end2 = 1;\nwrites end2", style="filled", ];
+  v469 [URL="code.html#sid74", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call msgsnd(queue,(char const *)(buf),2);",
+        style="filled", ];
+  v470 [URL="code.html#sid124", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF",
+        label="Sending\nmessage\non queue,\ncontent\n[0] IN {3}\n[1] IN UNINITIALIZED",
+        style="filled", ];
+  v471 [URL="code.html#sid126", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v458 [URL="code.html#sid77", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_unlock(& locks[r]);",
+        style="filled", ];
+  v464 [URL="code.html#sid40", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Release locks[3]", style="filled", ];
+  v466 [URL="code.html#sid45", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v459 [URL="code.html#sid78", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_unlock(& locks[l]);",
+        style="filled", ];
+  v461 [URL="code.html#sid40", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Release locks[1]", style="filled", ];
+  v463 [URL="code.html#sid45", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v460 [URL="code.html#sid158", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  
+  
+  v478 -> v453 [dir=forward, ];
+  v453 -> v454 [dir=forward, ];
+  v454 -> v455 [weight=200, dir=forward, ];
+  v455 -> v475 [weight=200, dir=forward, ];
+  v475 -> v477 [dir=forward, ];
+  v477 -> v456 [dir=forward, ];
+  v455 -> v477 [weight=1, dir=none, style="dotted", ];
+  v456 -> v472 [weight=200, dir=forward, ];
+  v472 -> v474 [dir=forward, ];
+  v474 -> v457 [dir=forward, ];
+  v456 -> v474 [weight=1, dir=none, style="dotted", ];
+  v457 -> v468 [label="then", dir=forward, ];
+  v457 -> v458 [label="else", dir=forward, ];
+  v468 -> v469 [dir=forward, ];
+  v469 -> v470 [weight=200, dir=forward, ];
+  v470 -> v471 [dir=forward, ];
+  v471 -> v458 [dir=forward, ];
+  v469 -> v471 [weight=1, dir=none, style="dotted", ];
+  v458 -> v464 [weight=200, dir=forward, ];
+  v464 -> v466 [dir=forward, ];
+  v466 -> v459 [dir=forward, ];
+  v458 -> v466 [weight=1, dir=none, style="dotted", ];
+  v459 -> v461 [weight=200, dir=forward, ];
+  v461 -> v463 [dir=forward, ];
+  v463 -> v460 [dir=forward, ];
+  v459 -> v463 [weight=1, dir=none, style="dotted", ];
+  v453 -> v460 [dir=back, ];
+  v454 -> v460 [weight=1, dir=none, style="dotted", ];
+  
+  }
+
+// Graph for jobs[3]
+digraph G {
+  fontsize=9;
+  center=1;
+  v509 [URL="#", fillcolor="#00000000", shape=box, color="#00000055",
+        label="Start: job", style="filled", ];
+  v484 [URL="code.html#sid92", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="while(1)", style="filled", ];
+  v485 [URL="code.html#sid93", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call aux(l,r,p + 1);", style="filled", ];
+  v486 [URL="code.html#sid66", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_lock(& locks[l]);",
+        style="filled", ];
+  v506 [URL="code.html#sid26", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Lock locks[2]", style="filled", ];
+  v508 [URL="code.html#sid31", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v487 [URL="code.html#sid67", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_lock(& locks[r]);",
+        style="filled", ];
+  v503 [URL="code.html#sid26", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Lock locks[4]", style="filled", ];
+  v505 [URL="code.html#sid31", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v488 [URL="code.html#sid69", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="if (tmp)", style="filled", ];
+  v499 [URL="code.html#sid73", fillcolor="#CCCCFFFF", shape=box,
+        color="#000000FF", label="end2 = 1;\nwrites end2", style="filled", ];
+  v500 [URL="code.html#sid74", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call msgsnd(queue,(char const *)(buf),2);",
+        style="filled", ];
+  v501 [URL="code.html#sid124", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF",
+        label="Sending\nmessage\non queue,\ncontent\n[0] IN {4}\n[1] IN UNINITIALIZED",
+        style="filled", ];
+  v502 [URL="code.html#sid126", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v489 [URL="code.html#sid77", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_unlock(& locks[r]);",
+        style="filled", ];
+  v495 [URL="code.html#sid40", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Release locks[4]", style="filled", ];
+  v497 [URL="code.html#sid45", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v490 [URL="code.html#sid78", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_unlock(& locks[l]);",
+        style="filled", ];
+  v492 [URL="code.html#sid40", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Release locks[2]", style="filled", ];
+  v494 [URL="code.html#sid45", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v491 [URL="code.html#sid158", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  
+  
+  v509 -> v484 [dir=forward, ];
+  v484 -> v485 [dir=forward, ];
+  v485 -> v486 [weight=200, dir=forward, ];
+  v486 -> v506 [weight=200, dir=forward, ];
+  v506 -> v508 [dir=forward, ];
+  v508 -> v487 [dir=forward, ];
+  v486 -> v508 [weight=1, dir=none, style="dotted", ];
+  v487 -> v503 [weight=200, dir=forward, ];
+  v503 -> v505 [dir=forward, ];
+  v505 -> v488 [dir=forward, ];
+  v487 -> v505 [weight=1, dir=none, style="dotted", ];
+  v488 -> v499 [label="then", dir=forward, ];
+  v488 -> v489 [label="else", dir=forward, ];
+  v499 -> v500 [dir=forward, ];
+  v500 -> v501 [weight=200, dir=forward, ];
+  v501 -> v502 [dir=forward, ];
+  v502 -> v489 [dir=forward, ];
+  v500 -> v502 [weight=1, dir=none, style="dotted", ];
+  v489 -> v495 [weight=200, dir=forward, ];
+  v495 -> v497 [dir=forward, ];
+  v497 -> v490 [dir=forward, ];
+  v489 -> v497 [weight=1, dir=none, style="dotted", ];
+  v490 -> v492 [weight=200, dir=forward, ];
+  v492 -> v494 [dir=forward, ];
+  v494 -> v491 [dir=forward, ];
+  v490 -> v494 [weight=1, dir=none, style="dotted", ];
+  v484 -> v491 [dir=back, ];
+  v485 -> v491 [weight=1, dir=none, style="dotted", ];
+  
+  }
+
+// Graph for jobs[4]
+digraph G {
+  fontsize=9;
+  center=1;
+  v540 [URL="#", fillcolor="#00000000", shape=box, color="#00000055",
+        label="Start: job", style="filled", ];
+  v515 [URL="code.html#sid92", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="while(1)", style="filled", ];
+  v516 [URL="code.html#sid93", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call aux(l,r,p + 1);", style="filled", ];
+  v517 [URL="code.html#sid66", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_lock(& locks[l]);",
+        style="filled", ];
+  v537 [URL="code.html#sid26", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Lock locks[3]", style="filled", ];
+  v539 [URL="code.html#sid31", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v518 [URL="code.html#sid67", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_lock(& locks[r]);",
+        style="filled", ];
+  v534 [URL="code.html#sid26", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Lock locks[0]", style="filled", ];
+  v536 [URL="code.html#sid31", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v519 [URL="code.html#sid69", fillcolor="#FFFFFFFF", shape=box,
+        color="#000000FF", label="if (tmp)", style="filled", ];
+  v530 [URL="code.html#sid73", fillcolor="#CCCCFFFF", shape=box,
+        color="#000000FF", label="end2 = 1;\nwrites end2", style="filled", ];
+  v531 [URL="code.html#sid74", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call msgsnd(queue,(char const *)(buf),2);",
+        style="filled", ];
+  v532 [URL="code.html#sid124", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF",
+        label="Sending\nmessage\non queue,\ncontent\n[0] IN {5}\n[1] IN UNINITIALIZED",
+        style="filled", ];
+  v533 [URL="code.html#sid126", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v520 [URL="code.html#sid77", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_unlock(& locks[r]);",
+        style="filled", ];
+  v526 [URL="code.html#sid40", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Release locks[0]", style="filled", ];
+  v528 [URL="code.html#sid45", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v521 [URL="code.html#sid78", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="Call pthread_mutex_unlock(& locks[l]);",
+        style="filled", ];
+  v523 [URL="code.html#sid40", fillcolor="#FFFFFFFF", shape=box,
+        color="#FF0000FF", label="Release locks[3]", style="filled", ];
+  v525 [URL="code.html#sid45", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  v522 [URL="code.html#sid158", fillcolor="#FFFFFFFF", shape=box,
+        color="#AAAAAAFF", label="return", style="filled", ];
+  
+  
+  v540 -> v515 [dir=forward, ];
+  v515 -> v516 [dir=forward, ];
+  v516 -> v517 [weight=200, dir=forward, ];
+  v517 -> v537 [weight=200, dir=forward, ];
+  v537 -> v539 [dir=forward, ];
+  v539 -> v518 [dir=forward, ];
+  v517 -> v539 [weight=1, dir=none, style="dotted", ];
+  v518 -> v534 [weight=200, dir=forward, ];
+  v534 -> v536 [dir=forward, ];
+  v536 -> v519 [dir=forward, ];
+  v518 -> v536 [weight=1, dir=none, style="dotted", ];
+  v519 -> v530 [label="then", dir=forward, ];
+  v519 -> v520 [label="else", dir=forward, ];
+  v530 -> v531 [dir=forward, ];
+  v531 -> v532 [weight=200, dir=forward, ];
+  v532 -> v533 [dir=forward, ];
+  v533 -> v520 [dir=forward, ];
+  v531 -> v533 [weight=1, dir=none, style="dotted", ];
+  v520 -> v526 [weight=200, dir=forward, ];
+  v526 -> v528 [dir=forward, ];
+  v528 -> v521 [dir=forward, ];
+  v520 -> v528 [weight=1, dir=none, style="dotted", ];
+  v521 -> v523 [weight=200, dir=forward, ];
+  v523 -> v525 [dir=forward, ];
+  v525 -> v522 [dir=forward, ];
+  v521 -> v525 [weight=1, dir=none, style="dotted", ];
+  v515 -> v522 [dir=back, ];
+  v516 -> v522 [weight=1, dir=none, style="dotted", ];
+  
+  }
+
+// Graph for thread_inheritance_graph
+digraph G {
+  "<main>" [label="<main>", ];
+  "jobs[0]" [label="jobs[0]", ];
+  "jobs[1]" [label="jobs[1]", ];
+  "jobs[2]" [label="jobs[2]", ];
+  "jobs[3]" [label="jobs[3]", ];
+  "jobs[4]" [label="jobs[4]", ];
+  
+  
+  edge [style="solid", ];
+  "<main>" -> "jobs[0]";
+  "<main>" -> "jobs[1]";
+  "<main>" -> "jobs[2]";
+  "<main>" -> "jobs[3]";
+  "<main>" -> "jobs[4]";
+  
+  }
+

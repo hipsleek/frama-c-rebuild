@@ -1,0 +1,3 @@
+function main:
+  at loop 2: loop unfold "done";
+  at loop 2: loop invariant y <= a ;

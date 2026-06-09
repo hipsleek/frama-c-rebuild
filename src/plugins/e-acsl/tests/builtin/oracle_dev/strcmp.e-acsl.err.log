@@ -1,0 +1,36 @@
+TEST 1: OK: Expected execution at strcmp.c:36
+TEST 2: OK: Expected execution at strcmp.c:37
+TEST 3: OK: Expected execution at strcmp.c:38
+strcmp: string 1 string not NUL-terminated
+TEST 4: OK: Expected signal at strcmp.c:41
+strcmp: string 2 string not NUL-terminated
+TEST 5: OK: Expected signal at strcmp.c:44
+strcmp: string 1 string not NUL-terminated
+TEST 6: OK: Expected signal at strcmp.c:46
+strcmp: string 2 string not NUL-terminated
+TEST 7: OK: Expected signal at strcmp.c:49
+strcmp: string 2 string unallocated
+TEST 8: OK: Expected signal at strcmp.c:51
+strcmp: string 1 string unallocated
+TEST 9: OK: Expected signal at strcmp.c:52
+strcmp: string 1 string unallocated
+TEST 10: OK: Expected signal at strcmp.c:57
+strcmp: string 2 string unallocated
+TEST 11: OK: Expected signal at strcmp.c:58
+TEST 12: OK: Expected execution at strcmp.c:68
+TEST 13: OK: Expected execution at strcmp.c:69
+TEST 14: OK: Expected execution at strcmp.c:70
+TEST 15: OK: Expected execution at strcmp.c:72
+TEST 16: OK: Expected execution at strcmp.c:73
+TEST 17: OK: Expected execution at strcmp.c:77
+TEST 18: OK: Expected execution at strcmp.c:80
+TEST 19: OK: Expected execution at strcmp.c:82
+TEST 20: OK: Expected execution at strcmp.c:85
+strncmp: string 2 string has insufficient length
+TEST 21: OK: Expected signal at strcmp.c:88
+strncmp: string 2 string has insufficient length
+TEST 22: OK: Expected signal at strcmp.c:91
+strncmp: string 2 string has insufficient length
+TEST 23: OK: Expected signal at strcmp.c:92
+strncmp: string 1 string has insufficient length
+TEST 24: OK: Expected signal at strcmp.c:95

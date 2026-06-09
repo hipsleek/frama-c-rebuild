@@ -1,0 +1,11 @@
+#!/bin/sh
+##########################################################################
+#                                                                        #
+#  SPDX-License-Identifier LGPL-2.1                                      #
+#  Copyright (C)                                                         #
+#  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  #
+#                                                                        #
+##########################################################################
+
+
+dune exec --root=$(dirname $0)/.. --no-build --no-print-directory -- frama-c "$@"

@@ -1,0 +1,32 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "Qed:" %{lib-available:qed} "\n")
+          (echo "  - Zarith:" %{lib-available:zarith} "\n"))))
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:qed})))
+ (action (echo "WARNING: Qed disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+(library
+  (name qed)
+  (optional)
+  (public_name qed)
+  (flags (:standard -w -9))
+  (libraries str zarith)
+  (instrumentation (backend landmarks))
+  (instrumentation (backend bisect_ppx)))

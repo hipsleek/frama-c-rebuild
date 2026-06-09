@@ -1,0 +1,60 @@
+(**************************************************************************)
+(*                                                                        *)
+(*  SPDX-License-Identifier LGPL-2.1                                      *)
+(*  Copyright (C)                                                         *)
+(*  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  *)
+(*                                                                        *)
+(**************************************************************************)
+
+open SlicingTypes
+open Cil_types
+
+open Pdg_types
+
+open SlicingInternals
+
+type select = sl_mark PdgMarks.select
+
+
+(** selection mode (ie which mark to associate to the node
+    and how to propagate in the different kinds of dependencies) *)
+type n_or_d_marks
+
+val build_simple_node_selection :
+  ?nd_marks:n_or_d_marks -> sl_mark -> n_or_d_marks
+val build_addr_dpds_selection :
+  ?nd_marks:n_or_d_marks -> sl_mark -> n_or_d_marks
+val build_data_dpds_selection :
+  ?nd_marks:n_or_d_marks -> sl_mark -> n_or_d_marks
+val build_ctrl_dpds_selection :
+  ?nd_marks:n_or_d_marks -> sl_mark -> n_or_d_marks
+val build_node_and_dpds_selection :
+  ?nd_marks:n_or_d_marks -> sl_mark -> n_or_d_marks
+
+val translate_crit_to_select :
+  Pdg.Api.t -> ?to_select:select ->
+  ((PdgTypes.Node.t * Memory_zone.t option) list * n_or_d_marks) list
+  -> select
+
+val mk_fct_crit : fct_info -> fct_crit -> criterion
+val mk_crit_fct_user_select : fct_info -> select -> criterion
+val mk_crit_fct_top : fct_info -> sl_mark -> criterion
+val mk_crit_prop_persist_marks : fct_info -> select -> criterion
+val mk_ff_user_select : fct_slice -> select -> criterion
+val mk_crit_choose_call : fct_slice -> stmt -> criterion
+val mk_crit_change_call : fct_slice -> stmt -> called_fct -> criterion
+val mk_crit_missing_inputs : fct_slice -> stmt -> select * bool -> criterion
+val mk_crit_missing_outputs : fct_slice -> stmt -> select * bool -> criterion
+val mk_crit_examines_calls :
+  fct_slice -> sl_mark PdgMarks.info_called_outputs -> criterion
+val mk_appli_select_calls : fct_info -> criterion
+val mk_crit_mark_calls : fct_info -> kernel_function -> sl_mark -> criterion
+val mk_crit_add_output_marks : fct_slice -> select -> criterion
+
+(** Printing *)
+val print_nd_and_mark_list : Format.formatter -> n_or_d_marks -> unit
+val print_nodes : Format.formatter -> PdgTypes.Node.t list -> unit
+val print_sel_marks_list : Format.formatter -> select -> unit
+val print_crit : Format.formatter -> criterion -> unit
+val print_f_crit : Format.formatter -> fct_user_crit -> unit
+val print_list_crit : Format.formatter -> criterion list -> unit

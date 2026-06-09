@@ -1,0 +1,193 @@
+[kernel] Parsing period.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  g[0..9] ∈ {0}
+  Frama_C_periodic_t_320[0] ∈ {1}
+                        [1..59] ∈ {0}
+  u[0] ∈ {-1}
+   [1] ∈ {-2}
+   [2] ∈ {-3}
+   [3..59] ∈ {0}
+  v[0] ∈ {-1}
+   [1] ∈ {-2}
+   [2] ∈ {-3}
+  w[0..9] ∈ {0}
+  Au ∈ {0}
+  Bu ∈ {0}
+  Cu ∈ {0}
+  Du ∈ {0}
+  Eu ∈ {0}
+  Fu ∈ {0}
+  Gu ∈ {12}
+  Hu ∈ {0}
+  At ∈ {0}
+  Bt ∈ {0}
+  Ct ∈ {0}
+  Dt ∈ {0}
+  Et ∈ {0}
+  Ft ∈ {0}
+  Gt ∈ {12}
+  Ht ∈ {0}
+[eva:show] period.c:49: 
+  Frama_C_dump_each:
+  # cvalue:
+  g[0..9] ∈ {0}
+  Frama_C_periodic_t_320[0] ∈ {1}
+                        [1..3] ∈ {0}
+                        [4] ∈ {24}
+                        [5..12] ∈ {0}
+                        [13] ∈ {2}
+                        [14..40] ∈ {0}
+                        [41] ∈ {6}
+                        [42..59] ∈ {0}
+  u[0] ∈ {-1}
+   [1] ∈ {-2}
+   [2] ∈ {-3}
+   [3] ∈ {0}
+   [4] ∈ {24}
+   [5..12] ∈ {0}
+   [13] ∈ {2}
+   [14..40] ∈ {0}
+   [41] ∈ {6}
+   [42..59] ∈ {0}
+  v[0] ∈ {-1}
+   [1] ∈ {1}
+   [2] ∈ {-3}
+  w[0].s1 ∈ {1}
+   {[0]{.s2; .s3}; [1].s1} ∈ {0}
+   [1].s2 ∈ {2}
+   {[1].s3; [2]{.s1; .s2}} ∈ {0}
+   [2].s3 ∈ {3}
+   [3..9] ∈ {0}
+  Au ∈ {-1}
+  Bu ∈ {0}
+  Cu ∈ {-3}
+  Du ∈ {0}
+  Eu ∈ {0}
+  Fu ∈ {2}
+  Gu ∈ {12}
+  Hu ∈ {1}
+  At ∈ {1}
+  Bt ∈ {0}
+  Ct ∈ {0}
+  Dt ∈ {0}
+  Et ∈ {0}
+  Ft ∈ {2}
+  Gt ∈ {12}
+  Ht ∈ {1}
+  p ∈ UNINITIALIZED
+  vg ∈ UNINITIALIZED
+  ==END OF DUMP==
+[eva:alarm] period.c:51: Warning: 
+  pointer downcast. assert (unsigned int)(&g) ≤ 2147483647;
+[eva:alarm] period.c:51: Warning: 
+  unaligned pointer creation.
+  assert \aligned((&g + (int)(&g)) - (int)(&g),alignof(int));
+[eva:garbled-mix:write] period.c:51: 
+  Assigning imprecise value to p because of arithmetic operation on addresses.
+[eva:alarm] period.c:52: Warning: 
+  unaligned pointer creation. assert \aligned(p,alignof(int));
+[eva:alarm] period.c:52: Warning: out of bounds write. assert \valid(p);
+[eva:alarm] period.c:53: Warning: 
+  pointer downcast. assert (unsigned int)(&g) ≤ 2147483647;
+[eva:alarm] period.c:53: Warning: 
+  unaligned pointer creation.
+  assert \aligned((&g + (int)(&g)) - (int)(&g),alignof(int));
+[eva:garbled-mix:write] period.c:53: 
+  Assigning imprecise value to p because of arithmetic operation on addresses.
+[eva:alarm] period.c:54: Warning: 
+  unaligned pointer creation. assert \aligned(p,alignof(int));
+[eva:alarm] period.c:54: Warning: out of bounds read. assert \valid_read(p);
+[eva:alarm] period.c:55: Warning: 
+  unaligned pointer creation. assert \aligned(p,alignof(int));
+[eva:alarm] period.c:55: Warning: 
+  pointer downcast. assert (unsigned int)(&vg) ≤ 2147483647;
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva:garbled-mix:summary] 
+  Origins of garbled mix generated during analysis:
+    period.c:51: arithmetic operation on addresses
+      (read in 1 statement, propagated through 1 statement) garbled mix of &
+      {g}
+    period.c:53: arithmetic operation on addresses
+      (read in 1 statement, propagated through 1 statement) garbled mix of &
+      {g}
+[scope:rm_asserts] removing 3 assertion(s)
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  g[0..9] ∈ {{ NULL + [--..--] ; (int)&vg }}
+  Frama_C_periodic_t_320[0] ∈ {1}
+                        [1..3] ∈ {0}
+                        [4] ∈ {24}
+                        [5..12] ∈ {0}
+                        [13] ∈ {2}
+                        [14..40] ∈ {0}
+                        [41] ∈ {6}
+                        [42..59] ∈ {0}
+  u[0] ∈ {-1}
+   [1] ∈ {-2}
+   [2] ∈ {-3}
+   [3] ∈ {0}
+   [4] ∈ {24}
+   [5..12] ∈ {0}
+   [13] ∈ {2}
+   [14..40] ∈ {0}
+   [41] ∈ {6}
+   [42..59] ∈ {0}
+  v[0] ∈ {-1}
+   [1] ∈ {1}
+   [2] ∈ {-3}
+  w[0].s1 ∈ {1}
+   {[0]{.s2; .s3}; [1].s1} ∈ {0}
+   [1].s2 ∈ {2}
+   {[1].s3; [2]{.s1; .s2}} ∈ {0}
+   [2].s3 ∈ {3}
+   [3..9] ∈ {0}
+  Au ∈ {-1}
+  Bu ∈ {0}
+  Cu ∈ {-3}
+  Eu ∈ {0}
+  Fu ∈ {2}
+  Hu ∈ {1}
+  At ∈ {1}
+  Bt ∈ {0}
+  Ct ∈ {0}
+  Et ∈ {0}
+  Ft ∈ {2}
+  Ht ∈ {1}
+  p ∈ {{ &g + [0..36],0%4 }}
+  vg ∈ [--..--]
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  g[0..9] FROM \nothing (and SELF)
+  Frama_C_periodic_t_320[4] FROM Gt
+                        {[13]; [41]} FROM Frama_C_periodic_t_320[20]
+  u[4] FROM Gu
+   {[13]; [41]} FROM u[22]
+  v[1] FROM \nothing
+  w{[0].s1; [1].s2; [2].s3} FROM \nothing
+  Au FROM u[0]
+  Bu FROM u[11]
+  Cu FROM u[2]
+  Eu FROM u[12]
+  Fu FROM u[22]
+  Hu FROM u[25]
+  At FROM Frama_C_periodic_t_320[0]
+  Bt FROM Frama_C_periodic_t_320[11]
+  Ct FROM Frama_C_periodic_t_320[2]
+  Et FROM Frama_C_periodic_t_320[12]
+  Ft FROM Frama_C_periodic_t_320[20]
+  Ht FROM Frama_C_periodic_t_320[25]
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    g[0..9]; Frama_C_periodic_t_320{[4]; [13]; [41]}; u{[4]; [13]; [41]}; 
+    v[1]; w{[0].s1; [1].s2; [2].s3}; Au; Bu; Cu; Eu; Fu; Hu; At; Bt; Ct; 
+    Et; Ft; Ht; p; vg
+[inout] Inputs for function main:
+    g[0..9]; Frama_C_periodic_t_320{[0]; [2]; [11..12]; [20]; [25]};
+    u{[0]; [2]; [11..12]; [22]; [25]}; w{[0].s1; [1].s2}; Fu; Gu; Ft; Gt

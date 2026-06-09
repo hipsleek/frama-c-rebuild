@@ -1,0 +1,10 @@
+[kernel] Parsing incompatible_qualifiers.c (with preprocessing)
+[kernel] incompatible_qualifiers.c:47: User Error: 
+  Declaration of l does not match previous declaration from incompatible_qualifiers.c:45 (different qualifiers).
+  45    fp1 *l(int *f(int));
+  46    #ifdef INCOMPATIBLE4
+  47    fp2 *l(const int *f(volatile int)); // conflicting types for 'l'
+             ^
+  48    #endif
+  49
+[kernel] Frama-C aborted: invalid user input.

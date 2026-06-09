@@ -1,0 +1,24 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(include_subdirs qualified)
+
+(library
+ (name server_api)
+ (optional)
+ (public_name frama-c-eva.server_api)
+ (flags -open Frama_c_kernel -open Eva__Private :standard)
+ (libraries eva frama-c.kernel frama-c-server.core)
+ (instrumentation (backend landmarks))
+ (instrumentation (backend bisect_ppx)))
+
+(plugin
+ (name eva.server_api)
+ (optional)
+ (libraries frama-c-eva.server_api)
+ (site (frama-c plugins)))

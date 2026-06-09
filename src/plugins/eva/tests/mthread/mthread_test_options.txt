@@ -1,0 +1,17 @@
+# Parameters of the mthread tests, shared by all test configurations.
+
+-eva
+-mthread
+-eva-slevel 15
+-mt-shared-values 2
+-mt-shared-accesses-synchronization
+# Kernel options
+-no-warn-unaligned-pointer
+# Parsing
+-mt-threads-lib pthreads
+-add-symbolic-path ../../../share/mthread:"FRAMAC_SHARE/mt"
+# Verbosity options
+-mt-verbose 3
+-eva-verbose 3
+-eva-msg-key interferences,-summary
+-eva-warn-key experimental=inactive

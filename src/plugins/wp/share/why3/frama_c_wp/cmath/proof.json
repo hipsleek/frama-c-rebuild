@@ -1,0 +1,65 @@
+{
+  "profile": [],
+  "proofs": {
+    "ArcTrigo": { "Cos_acos": null, "Sin_asin": null },
+    "Cmath": { "abs_def": { "prover": "alt-ergo", "time": 0.02 } },
+    "ExpLog": {
+      "Pow_half": { "prover": "alt-ergo", "time": 0.041 },
+      "Pow_mult": { "prover": "alt-ergo", "time": 0.016 },
+      "Pow_one_y": { "prover": "alt-ergo", "time": 0.011 },
+      "Pow_plus": { "prover": "alt-ergo", "time": 0.016 },
+      "Pow_pos": { "prover": "alt-ergo", "time": 0.011 },
+      "Pow_x_one": { "prover": "alt-ergo", "time": 0.012 },
+      "Pow_x_two": { "prover": "alt-ergo", "time": 0.017 },
+      "Pow_x_zero": { "prover": "alt-ergo", "time": 0.011 },
+      "exp_sum_opposite": null,
+      "log10_increasing": {
+        "tactic": "split_vc",
+        "children": [
+          {
+            "tactic": "inline_goal",
+            "children": [
+              {
+                "tactic": "inline_goal",
+                "children": [
+                  {
+                    "tactic": "inline_goal",
+                    "children": [ { "prover": "alt-ergo", "time": 0.035 } ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "log2_increasing": {
+        "tactic": "split_vc",
+        "children": [
+          {
+            "tactic": "inline_goal",
+            "children": [
+              {
+                "tactic": "inline_goal",
+                "children": [
+                  {
+                    "tactic": "inline_goal",
+                    "children": [ { "prover": "alt-ergo", "time": 0.035 } ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "pow_from_int": null
+    },
+    "IAbs": {},
+    "RAbs": {},
+    "Square": {
+      "sqrt_0": { "prover": "alt-ergo", "time": 0.02 },
+      "sqrt_1": { "prover": "alt-ergo", "time": 0.018 },
+      "sqrt_lin0": null,
+      "sqrt_lin1": null
+    }
+  }
+}

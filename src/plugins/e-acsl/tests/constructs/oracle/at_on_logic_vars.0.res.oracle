@@ -1,0 +1,65 @@
+[e-acsl] beginning translation.
+[e-acsl] at_on_logic_vars.c:67: Warning: 
+  E-ACSL construct
+  `\at on purely logic variables that needs to allocate too much memory (bigger than int_max bytes)'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] at_on_logic_vars.c:70: Warning: 
+  E-ACSL construct `\at with logic variable linked to C variable'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] at_on_logic_vars.c:28: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:28: Warning: assertion got status unknown.
+[eva:alarm] at_on_logic_vars.c:29: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:29: Warning: assertion got status unknown.
+[eva:alarm] at_on_logic_vars.c:34: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:34: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] at_on_logic_vars.c:31: Warning: assertion got status unknown.
+[eva:alarm] at_on_logic_vars.c:38: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:38: Warning: assertion got status unknown.
+[eva:alarm] at_on_logic_vars.c:42: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:42: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] at_on_logic_vars.c:42: Warning: assertion got status unknown.
+[eva:alarm] at_on_logic_vars.c:46: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:46: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.
+[eva:alarm] at_on_logic_vars.c:45: Warning: 
+  accessing uninitialized left-value.
+  assert
+  \initialized(__gen_e_acsl_at_6 +
+               (int)((int)((int)(__gen_e_acsl_u_7 - 9) * 26) +
+                     (int)(__gen_e_acsl_v_5 - -4)));
+[eva:alarm] at_on_logic_vars.c:44: Warning: assertion got status unknown.
+[eva:alarm] at_on_logic_vars.c:8: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:8: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:7: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:7: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:7: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:7: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:8: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:8: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:16: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:16: Warning: assertion got status unknown.
+[eva:alarm] at_on_logic_vars.c:59: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status invalid.
+[eva:alarm] at_on_logic_vars.c:56: Warning: assertion got status unknown.
+[eva:alarm] at_on_logic_vars.c:66: Warning: assertion got status unknown.
+[eva:alarm] at_on_logic_vars.c:69: Warning: assertion got status unknown.

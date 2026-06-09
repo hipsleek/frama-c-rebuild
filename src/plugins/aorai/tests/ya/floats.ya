@@ -1,0 +1,16 @@
+%init : I;
+%deterministic;
+
+I: { CALL(main) } -> A;
+
+A: { CALL(square_root) } -> B;
+
+B:
+  { square_root_aux().x >= 1.0f && square_root_aux().x <= square_root_aux().n } -> B
+| { RETURN(square_root_aux) } -> B
+| { RETURN(square_root) } -> C
+;
+
+C: { RETURN(main) } -> E;
+
+E: -> E;

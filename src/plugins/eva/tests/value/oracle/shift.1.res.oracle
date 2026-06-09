@@ -1,0 +1,88 @@
+[kernel] Parsing shift.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  a ∈ {0}
+  b ∈ {0}
+  d ∈ {0}
+  e ∈ {0}
+  f ∈ {0}
+  g ∈ {0}
+  h ∈ {0}
+  ua ∈ {0}
+  ub ∈ {0}
+  uc ∈ {0}
+  ud ∈ {0}
+  ue ∈ {0}
+  uf ∈ {0}
+  t[0..9] ∈ {0}
+  v ∈ [--..--]
+[eva:alarm] shift.i:21: Warning: 
+  invalid RHS operand for shift. assert 0 ≤ c < 32;
+[eva:progress] shift.i:22: assertion got status valid.
+[eva:alarm] shift.i:25: Warning: 
+  invalid RHS operand for shift. assert 0 ≤ c < 32;
+[eva:progress] shift.i:26: assertion got status valid.
+[eva:alarm] shift.i:29: Warning: 
+  invalid RHS operand for shift. assert 0 ≤ c < 32;
+[eva:alarm] shift.i:32: Warning: assertion got status unknown.
+[eva:alarm] shift.i:35: Warning: 
+  invalid RHS operand for shift. assert 0 ≤ 32 < 32;
+[eva:alarm] shift.i:36: Warning: 
+  invalid RHS operand for shift. assert 0 ≤ 5555 < 32;
+[eva:alarm] shift.i:40: Warning: 
+  invalid RHS operand for shift. assert 0 ≤ b < 32;
+[eva:show] shift.i:48: 
+  Frama_C_show_each: {{ "ua:%u\nub:%u\n" }}, {1401}, {1073741074}
+[eva:garbled-mix:write] shift.i:52: 
+  Assigning imprecise value to r because of arithmetic operation on addresses.
+[eva:alarm] shift.i:53: Warning: 
+  pointer downcast. assert (unsigned int)(&(t[0])) ≤ 2147483647;
+[eva:alarm] shift.i:53: Warning: 
+  signed overflow. assert -2147483648 ≤ (long)(&(t[0])) << 8;
+[eva:alarm] shift.i:53: Warning: 
+  signed overflow. assert (long)(&(t[0])) << 8 ≤ 2147483647;
+[eva:alarm] shift.i:53: Warning: 
+  signed overflow. assert -2147483648 ≤ (long)r + (long)((long)(&(t[0])) << 8);
+[eva:alarm] shift.i:53: Warning: 
+  signed overflow. assert (long)r + (long)((long)(&(t[0])) << 8) ≤ 2147483647;
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva:garbled-mix:summary] 
+  Origins of garbled mix generated during analysis:
+    shift.i:52:9-10: arithmetic operation on addresses
+      (read in 1 statement, propagated through 2 statements)
+      garbled mix of &{t}
+[eva] shift.i:35: assertion 'Eva,shift' got final status invalid.
+[eva] shift.i:36: assertion 'Eva,shift' got final status invalid.
+[eva] shift.i:40: assertion 'Eva,shift' got final status invalid.
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  a ∈ {314; 1256; 5024}
+  b ∈ {0}
+  d ∈ {61; 246; 255; 987}
+  f ∈ {-988; -255; -247; -62}
+  ua ∈ {1401}
+  ub ∈ {1073741074}
+  c ∈ [--..--]
+  z ∈ [-2147483648..2147483630],0%2
+  zz ∈ {0}
+  shl ∈ {0; 1}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  a FROM v; c
+  b FROM z (and SELF)
+  d FROM v; c
+  f FROM v; c
+  ua FROM \nothing
+  ub FROM \nothing
+  \result FROM b; z
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    a; b; d; f; ua; ub; c; z; zz; r; shl
+[inout] Inputs for function main:
+    b; d; f; ua; ub; v

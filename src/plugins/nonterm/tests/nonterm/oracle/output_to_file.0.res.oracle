@@ -1,0 +1,23 @@
+[kernel] Parsing output_to_file.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function loop <- main.
+  Called from output_to_file.i:11:3-9.
+[eva:progress] Recording results for loop
+[eva:progress] Done for function loop
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function loop:
+  NON TERMINATING FUNCTION
+[eva:final-states] Values at end of function main:
+  NON TERMINATING FUNCTION
+[nonterm:stmt] output_to_file.i:7: Warning: 
+  non-terminating loop
+  stack: loop :: output_to_file.i:11:3-9 <- main
+[nonterm:unreachable] output_to_file.i:12: Warning: unreachable return
+[nonterm] Analysis done.

@@ -1,0 +1,15 @@
+[kernel] Parsing fun.i (no preprocessing)
+[kernel:annot:missing-spec] fun.i:1: Warning: 
+  Neither code nor specification for function foo, generating default assigns.
+  See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] fun.i:2: Warning: 
+  Neither code nor specification for function bar, generating default assigns.
+  See -generated-spec-* options for more info.
+[region] Function job:
+  R0001: -R-- foo bar (int (int )) 8b ;
+  R0002: -R-- x (int) 32b (singleton) ;
+  R0003: IR-- fn (int (*)(int )) 64b (*R0001) (singleton) (allocated) ;
+  R0004: -RW- tmp (int (*)(int )) 64b (*R0001) (singleton) (allocated) ;
+  R0005: -RW- tmp_0 (int) 32b (singleton) (allocated) ;
+  R0006: --W- \result (int) 32b ;
+[region] annotating function job

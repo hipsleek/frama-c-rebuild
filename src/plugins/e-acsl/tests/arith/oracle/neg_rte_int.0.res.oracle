@@ -1,0 +1,12 @@
+[e-acsl] beginning translation.
+[e-acsl] neg_rte_int.c:10: Warning: 
+  E-ACSL construct `function application' is not yet supported.
+  Ignoring annotation.
+[e-acsl] neg_rte_int.c:10: Warning: 
+  E-ACSL construct
+  `logic functions or predicates with no definition nor reads clause'
+  is not yet supported.
+  Ignoring annotation.
+[e-acsl] translation done in project "e-acsl".
+[eva:alarm] neg_rte_int.c:10: Warning: 
+  function __e_acsl_assert, behavior blocking: precondition got status unknown.

@@ -1,0 +1,42 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "Sparecode:" %{lib-available:frama-c-sparecode.core} "\n")
+          (echo "  - Callgraph:" %{lib-available:frama-c-callgraph.core} "\n")
+          (echo "  - Eva:" %{lib-available:frama-c-eva.core} "\n")
+          (echo "  - Inout:" %{lib-available:frama-c-inout.core} "\n")
+          (echo "  - Pdg:" %{lib-available:frama-c-pdg.core} "\n")
+  )
+  )
+)
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-sparecode.core})))
+ (action (echo "WARNING: Sparecode disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+(library
+  (name Sparecode)
+  (optional)
+  (public_name frama-c-sparecode.core)
+  (private_modules sparecode_params globs spare_marks transform register)
+  (flags :standard -open Frama_c_kernel)
+  (libraries frama-c.kernel frama-c-callgraph.core frama-c-eva.core frama-c-pdg.core frama-c-inout.core)
+  (instrumentation (backend landmarks))
+  (instrumentation (backend bisect_ppx))
+)
+
+(plugin (optional) (name sparecode) (libraries frama-c-sparecode.core) (site (frama-c plugins)))

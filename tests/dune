@@ -1,0 +1,22 @@
+; Test dependencies
+(rule
+ ; Use frama-c-configure-tests instead of frama-c-configure as alias
+ ; so that tests can depend on it and this echo line should end up
+ ; before tests' echo lines
+ (alias frama-c-configure-tests)
+ (deps (universe))
+ (action (progn
+          (echo "Tests:" %{read:../tests-dependencies-available} %{read:../tests-dependencies-comment} "\n")
+ ))
+)
+
+(rule
+ (alias runtest)
+ (deps (universe))
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{read:../tests-dependencies-available})))
+ (action (echo "WARNING: Some tests are disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+

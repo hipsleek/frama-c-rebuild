@@ -1,0 +1,63 @@
+# frama-c -wp [...]
+[kernel] Parsing terminates_fp.i (no preprocessing)
+[wp] Running WP plugin...
+[kernel:annot:missing-spec] terminates_fp.i:9: Warning: 
+  Neither code nor explicit terminates for function gt, generating default
+  clauses. See -generated-spec-* options for more info.
+[kernel:annot:missing-spec] terminates_fp.i:11: Warning: 
+  Neither code nor explicit terminates for function ht, generating default
+  clauses. See -generated-spec-* options for more info.
+[wp] Warning: Missing RTE guards
+[wp] terminates_fp.i:78: Warning: 
+  In 'warns_recursive', no 'calls' specification for statement(s) at terminates_fp.i:79:3-8, 
+  Assuming that they can call 'warns_recursive'
+[wp] terminates_fp.i:79: Warning: Missing 'calls' for default behavior
+[wp] terminates_fp.i:79: Warning: 
+  Unknown callee, considering non-terminating call
+[wp] terminates_fp.i:79: Warning: 
+  Missing decreases clause on recursive function warns_recursive, call must be unreachable
+[wp] 30 goals scheduled
+[wp] [Valid] typed_t_spec_call_point_gt_ht_s2 (Qed)
+[wp] [Valid] typed_t_spec_terminates (Qed)
+[wp] [Valid] typed_t_spec_in_bhv_call_point_gt_hnt_s6 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_t_spec_in_bhv_complete_B1_B2 (Qed)
+[wp] [Valid] typed_t_spec_in_bhv_disjoint_B1_B2 (Qed)
+[wp] [Valid] typed_t_spec_in_bhv_terminates_part1 (Qed)
+[wp] [Valid] typed_t_spec_in_bhv_terminates_part2 (Qed)
+[wp] [Valid] typed_t_spec_in_bhv_call_point_gt_hnt_s6 (Qed)
+[wp] [Valid] typed_t_spec_in_bhv_call_point_gt_hnt_s6 (Qed)
+[wp] [Valid] typed_no_t_spec_call_point_gnt_hnt_s10 (Qed)
+[wp] [Valid] typed_no_t_spec_terminates_part1 (Qed)
+[wp] [Unsuccess] typed_no_t_spec_terminates_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_no_t_spec_in_bhv_call_point_gnt_hnt_s14 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_no_t_spec_in_bhv_complete_B1_B2 (Qed)
+[wp] [Valid] typed_no_t_spec_in_bhv_disjoint_B1_B2 (Qed)
+[wp] [Valid] typed_no_t_spec_in_bhv_terminates_part1 (Qed)
+[wp] [Unsuccess] typed_no_t_spec_in_bhv_terminates_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_no_t_spec_in_bhv_call_point_gnt_hnt_s14 (Qed)
+[wp] [Valid] typed_no_t_spec_in_bhv_call_point_gnt_hnt_s14 (Qed)
+[wp] [Valid] typed_no_t_spec_cond_call_point_gt_hnt_s18 (Qed)
+[wp] [Valid] typed_no_t_spec_cond_terminates_part1 (Qed)
+[wp] [Unsuccess] typed_no_t_spec_cond_terminates_part2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_no_t_spec_cond_m_call_point_gt_ht_s22 (Qed)
+[wp] [Valid] typed_no_t_spec_cond_m_call_point_hnt_s24_part1 (Qed)
+[wp] [Valid] typed_no_t_spec_cond_m_call_point_hnt_s24_part2 (Qed)
+[wp] [Valid] typed_no_t_spec_cond_m_terminates_part1 (Qed)
+[wp] [Unsuccess] typed_no_t_spec_cond_m_terminates_part2 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_no_t_spec_cond_m_terminates_part3 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_warns_recursive_terminates_part1 (Alt-Ergo) (Cached)
+[wp] [Unsuccess] typed_warns_recursive_terminates_part2 (Alt-Ergo) (Cached)
+[wp] Proved goals:   23 / 30
+  Qed:            21
+  Alt-Ergo:        2
+  Unsuccess:       7
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  t_spec                    2        -        2       100%
+  t_spec_in_bhv             6        1        7       100%
+  no_t_spec                 2        -        3      66.7%
+  no_t_spec_in_bhv          5        1        7      85.7%
+  no_t_spec_cond            2        -        3      66.7%
+  no_t_spec_cond_m          4        -        6      66.7%
+  warns_recursive           -        -        2       0.0%
+------------------------------------------------------------

@@ -1,0 +1,12 @@
+# frama-c -wp -wp-timeout 1 -wp-steps 10 [...]
+[kernel] Parsing no_step_limit.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] 1 goal scheduled
+[wp] Warning: no-steps  does not support steps limit (ignored option)
+[wp] [Unsuccess] typed_lemma_truc (no-steps) (Cache miss 1)
+[wp] Proved goals:    0 / 1
+  Unsuccess:       1
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Lemma                     -        -        1       0.0%
+------------------------------------------------------------

@@ -1,0 +1,10 @@
+[kernel] Parsing function_ptr_lvalue_2.i (no preprocessing)
+[kernel] function_ptr_lvalue_2.i:12: User Error: 
+  Cannot assign to non-modifiable lval *p
+  10      void (*p)(void) = &f ;
+  11      p = &f ;
+  12      *p = f ;
+          ^^^^^^
+  13      return 0 ;
+  14      }
+[kernel] Frama-C aborted: invalid user input.

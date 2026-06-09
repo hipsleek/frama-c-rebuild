@@ -1,0 +1,113 @@
+# frama-c -wp [...]
+[kernel] Parsing import_unitex.i (no preprocessing)
+[wp] Running WP plugin...
+------------------------------------------------------------
+  Global
+------------------------------------------------------------
+
+Goal Lemma 'L_compat_adt_1':
+Assume Lemmas: 'L_no_def' 'L_compat_bool' 'L_compat_real_2' 'L_compat_real_1'
+  'L_compat_int_2' 'L_compat_int_1'
+Prove: P_compat_adt(import_unitex.ADT.A, import_unitex.ADT.A).
+
+------------------------------------------------------------
+
+Goal Lemma 'L_compat_adt_2':
+Assume Lemmas: 'L_compat_adt_1' 'L_no_def' 'L_compat_bool' 'L_compat_real_2'
+  'L_compat_real_1' 'L_compat_int_2' 'L_compat_int_1'
+Let a = import_unitex.ADT.B(1). Prove: P_compat_adt(a, a).
+
+------------------------------------------------------------
+
+Goal Lemma 'L_compat_adt_3':
+Assume Lemmas: 'L_compat_adt_2' 'L_compat_adt_1' 'L_no_def' 'L_compat_bool'
+  'L_compat_real_2' 'L_compat_real_1' 'L_compat_int_2' 'L_compat_int_1'
+Let a = import_unitex.ADT.C(.0). Prove: P_compat_adt(a, a).
+
+------------------------------------------------------------
+
+Goal Lemma 'L_compat_bool':
+Assume Lemmas: 'L_compat_real_2' 'L_compat_real_1' 'L_compat_int_2'
+  'L_compat_int_1'
+Prove: P_compat_bool(true, true).
+
+------------------------------------------------------------
+
+Goal Lemma 'L_compat_int_1':
+Prove: P_compat_int(int.Int.zero, 0).
+
+------------------------------------------------------------
+
+Goal Lemma 'L_compat_int_2':
+Assume Lemmas: 'L_compat_int_1'
+Prove: P_compat_int(0, int.Int.zero).
+
+------------------------------------------------------------
+
+Goal Lemma 'L_compat_real_1':
+Assume Lemmas: 'L_compat_int_2' 'L_compat_int_1'
+Prove: P_compat_real(real.Real.zero, .0).
+
+------------------------------------------------------------
+
+Goal Lemma 'L_compat_real_2':
+Assume Lemmas: 'L_compat_real_1' 'L_compat_int_2' 'L_compat_int_1'
+Prove: P_compat_real(.0, real.Real.zero).
+
+------------------------------------------------------------
+
+Goal Lemma 'L_f8':
+Assume Lemmas: 'L_rg_2' 'L_rg_1' 'L_compat_adt_3' 'L_compat_adt_2'
+  'L_compat_adt_1' 'L_no_def' 'L_compat_bool' 'L_compat_real_2'
+  'L_compat_real_1' 'L_compat_int_2' 'L_compat_int_1'
+Prove: import_unitex.Float8.is_finite(import_unitex.Float8.f1).
+
+------------------------------------------------------------
+
+Goal Lemma 'L_no_def':
+Assume Lemmas: 'L_compat_bool' 'L_compat_real_2' 'L_compat_real_1'
+  'L_compat_int_2' 'L_compat_int_1'
+Prove: import_unitex.No_def_syn.y = import_unitex.No_def.x.
+
+------------------------------------------------------------
+
+Goal Lemma 'L_rg_1':
+Assume Lemmas: 'L_compat_adt_3' 'L_compat_adt_2' 'L_compat_adt_1' 'L_no_def'
+  'L_compat_bool' 'L_compat_real_2' 'L_compat_real_1' 'L_compat_int_2'
+  'L_compat_int_1'
+Assume { Have: (-42) <= i. Have: i <= 42. }
+Prove: import_unitex.Range.to_int(import_unitex.Range.of_int(i)) = i.
+
+------------------------------------------------------------
+
+Goal Lemma 'L_rg_2':
+Assume Lemmas: 'L_rg_1' 'L_compat_adt_3' 'L_compat_adt_2' 'L_compat_adt_1'
+  'L_no_def' 'L_compat_bool' 'L_compat_real_2' 'L_compat_real_1'
+  'L_compat_int_2' 'L_compat_int_1'
+Let x = import_unitex.Range.to_int(i). Prove: ((-42) <= x) /\ (x <= 42).
+
+------------------------------------------------------------
+
+Goal Lemma 'L_sym_1':
+Assume Lemmas: 'L_f8' 'L_rg_2' 'L_rg_1' 'L_compat_adt_3' 'L_compat_adt_2'
+  'L_compat_adt_1' 'L_no_def' 'L_compat_bool' 'L_compat_real_2'
+  'L_compat_real_1' 'L_compat_int_2' 'L_compat_int_1'
+Prove: import_unitex.Symbols.infix ==(import_unitex.Symbols.prefix !(0), 42).
+
+------------------------------------------------------------
+
+Goal Lemma 'L_sym_2':
+Assume Lemmas: 'L_sym_1' 'L_f8' 'L_rg_2' 'L_rg_1' 'L_compat_adt_3'
+  'L_compat_adt_2' 'L_compat_adt_1' 'L_no_def' 'L_compat_bool'
+  'L_compat_real_2' 'L_compat_real_1' 'L_compat_int_2' 'L_compat_int_1'
+Prove: import_unitex.Symbols.pred(import_unitex.Symbols.func(0), 42).
+
+------------------------------------------------------------
+
+Goal Lemma 'L_sym_3':
+Assume Lemmas: 'L_sym_2' 'L_sym_1' 'L_f8' 'L_rg_2' 'L_rg_1' 'L_compat_adt_3'
+  'L_compat_adt_2' 'L_compat_adt_1' 'L_no_def' 'L_compat_bool'
+  'L_compat_real_2' 'L_compat_real_1' 'L_compat_int_2' 'L_compat_int_1'
+Prove: import_unitex.Symbols.pos(4).
+
+------------------------------------------------------------

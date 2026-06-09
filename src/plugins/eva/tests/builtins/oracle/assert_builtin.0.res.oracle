@@ -1,0 +1,31 @@
+[kernel] Parsing assert_builtin.i (no preprocessing)
+[kernel:annot:missing-spec] assert_builtin.i:3: Warning: 
+  Neither code nor specification for function Frama_C_assert, generating
+  default assigns. See -generated-spec-* options for more info.
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  t[0..9] ∈ {0}
+[eva:progress] assert_builtin.i:6: Call to builtin Frama_C_assert
+[eva] assert_builtin.i:6: Warning: Frama_C_assert: unknown
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Computing for function Frama_C_assert <-main
+[from] Done for function Frama_C_assert
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function Frama_C_assert:
+  NO EFFECTS
+[from] Function main:
+  \result FROM t[0..9]; c
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    __retres
+[inout] Inputs for function main:
+    t[0..9]

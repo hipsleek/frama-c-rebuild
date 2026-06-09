@@ -1,0 +1,32 @@
+[kernel] Parsing ghost_cv_var_decl.c (with preprocessing)
+[kernel:ghost:already-ghost] ghost_cv_var_decl.c:15: 'g1' is already ghost
+[kernel:ghost:already-ghost] ghost_cv_var_decl.c:25: 'g1' is already ghost
+[kernel:ghost:already-ghost] ghost_cv_var_decl.c:26: 'g2' is already ghost
+[kernel:ghost:already-ghost] ghost_cv_var_decl.c:35: 
+  'g0' elements are already ghost
+[kernel:ghost:already-ghost] ghost_cv_var_decl.c:48: 'g0' is already ghost
+[kernel:ghost:already-ghost] ghost_cv_var_decl.c:178: 'b' is already ghost
+[kernel:ghost:already-ghost] ghost_cv_var_decl.c:187: 'b' is already ghost
+[kernel:ghost:already-ghost] ghost_cv_var_decl.c:194: 'b' is already ghost
+[kernel:ghost:already-ghost] ghost_cv_var_decl.c:203: 'b' is already ghost
+[kernel:ghost:already-ghost] ghost_cv_var_decl.c:210: 
+  'b' elements are already ghost
+[kernel:ghost:already-ghost] ghost_cv_var_decl.c:219: 
+  'b' elements are already ghost
+[kernel:ghost:bad-use] ghost_cv_var_decl.c:152: User Error: 
+  No definition, nor assigns specification for ghost function 'decl_bad_return_type'
+[kernel:ghost:bad-use] ghost_cv_var_decl.c:152: User Error: 
+  Invalid return type: indirection from non-ghost to ghost
+[kernel:ghost:bad-use] ghost_cv_var_decl.c:153: User Error: 
+  No definition, nor assigns specification for ghost function 'decl_bad_parameter_type'
+[kernel:ghost:bad-use] ghost_cv_var_decl.c:153: User Error: 
+  Invalid type for 'param': indirection from non-ghost to ghost
+[kernel:ghost:bad-use] ghost_cv_var_decl.c:154: User Error: 
+  Invalid return type: indirection from non-ghost to ghost
+[kernel:ghost:bad-use] ghost_cv_var_decl.c:157: User Error: 
+  Invalid type for 'param': indirection from non-ghost to ghost
+[kernel:ghost:bad-use] ghost_cv_var_decl.c:166: User Error: 
+  Invalid type for 'pptrg': indirection from non-ghost to ghost
+[kernel] Deferred error: warning as error ghost:bad-use:
+  ghost_cv_var_decl.c:152: No definition, nor assigns specification for ghost function 'decl_bad_return_type'
+[kernel] Frama-C aborted: invalid user input.

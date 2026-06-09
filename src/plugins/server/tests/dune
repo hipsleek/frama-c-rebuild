@@ -1,0 +1,13 @@
+; Test dependencies
+(rule
+ (alias frama-c-configure)
+ (deps
+  (universe)
+  (alias ../../../../tests/frama-c-configure-tests))
+ (action (progn
+           (echo "  - Server:" %{read:../../../../tests-server-deps-available} "\n")
+           ; (echo "    - foo:" %{bin-available:foo} "\n")
+           ; If you add some dependencies here, do not forget to add them to
+           ; tests_configurator.ml
+  ))
+)

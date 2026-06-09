@@ -1,0 +1,6 @@
+**Eval_op**: multiple dependencies in Eval_terms and builtins. Must be rewritten
+  into the corresponding functionality in Cvalue_forward. This requires having
+  contexts for logic terms, though.
+
+To be moved elsewhere, probably in domains/cvalue or in engine:
+  eval_annots, eval_terms

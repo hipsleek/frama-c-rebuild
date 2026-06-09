@@ -1,0 +1,89 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing branch6.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  global_arr[0..2] ∈ {0}
+  write_count ∈ {0}
+  secret ∈ [--..--]
+[eva:progress] 
+  computing for function write <- main.
+  Called from branch6.c:21.
+[eva:progress] branch6.c:21: function write: precondition got status valid.
+[eva:progress] Recording results for write
+[eva:progress] Done for function write
+[eva:progress] branch6.c:22: assertion got status valid.
+[eva:progress] 
+  computing for function write <- main.
+  Called from branch6.c:23.
+[eva:progress] branch6.c:23: function write: precondition got status valid.
+[eva:progress] Recording results for write
+[eva:progress] Done for function write
+[eva:alarm] branch6.c:24: Warning: assertion got status unknown.
+[eva:secure-flow:condition] branch6.c:28: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:secure-flow:condition] branch6.c:28: Warning: 
+  non-interference violation on condition involving {secret}
+[eva:progress] 
+  computing for function write <- main.
+  Called from branch6.c:29.
+[eva:progress] branch6.c:29: function write: precondition got status valid.
+[eva:progress] Recording results for write
+[eva:progress] Done for function write
+[eva:alarm] branch6.c:31: Warning: assertion got status unknown.
+[eva:progress] 
+  computing for function write <- main.
+  Called from branch6.c:40.
+[eva:progress] branch6.c:40: function write: precondition got status valid.
+[eva:progress] Recording results for write
+[eva:progress] Done for function write
+[eva:alarm] branch6.c:41: Warning: assertion got status unknown.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function write:
+  global_arr[0] ∈ {1}
+            [1] ∈ {0; 1}
+            [2] ∈ {0}
+  write_count ∈ {1; 2; 3; 4}
+  conditional_arr[0] ∈ {0; 1} or UNINITIALIZED
+                 [1..2] ∈ {0} or UNINITIALIZED
+  arr[0..1] ∈ {0} or UNINITIALIZED
+     [2] ∈ [--..--] or UNINITIALIZED
+[eva:final-states] Values at end of function main:
+  global_arr[0] ∈ {1}
+            [1] ∈ {0; 1}
+            [2] ∈ {0}
+  write_count ∈ {3; 4}
+  secret_idx ∈ {0; 1}
+  conditional_arr[0] ∈ {0; 1}
+                 [1..2] ∈ {0}
+  arr[0..1] ∈ {0}
+     [2] ∈ [--..--]
+  __retres ∈ {0}
+[from] Computing for function write
+[from] Done for function write
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function write:
+  global_arr[0..2] FROM p; index; value (and SELF)
+  write_count FROM write_count
+  conditional_arr[0..2] FROM p; index; value (and SELF)
+  arr[0..2] FROM p; index; value (and SELF)
+[from] Function main:
+  global_arr[0..2] FROM secret (and SELF)
+  write_count FROM write_count; secret
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function write:
+    global_arr[0..2]; write_count; conditional_arr[0..2]; arr[0..2]
+[inout] Inputs for function write:
+    write_count
+[inout] Out (internal) for function main:
+    global_arr[0..1]; write_count; secret_idx; conditional_arr[0..2];
+    arr[0..2]; __retres
+[inout] Inputs for function main:
+    write_count; secret

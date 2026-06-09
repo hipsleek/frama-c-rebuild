@@ -1,0 +1,159 @@
+[kernel] Parsing inout_proto.i (no preprocessing)
+[eva] Analyzing a complete application starting at main_main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  a ∈ {0}
+  b ∈ {0}
+  c ∈ {0}
+  t[0..9] ∈ {0}
+  u[0..19] ∈ {0}
+[eva:progress] 
+  computing for function main <- main_main.
+  Called from inout_proto.i:54:3-12.
+[eva:progress] 
+  computing for function SendBuffer <- main <- main_main.
+  Called from inout_proto.i:19:4-49.
+[eva] using specification for function SendBuffer
+[eva:garbled-mix:assigns] inout_proto.i:19: 
+  The specification of function SendBuffer
+  has generated a garbled mix of addresses for assigns clause *RETURN_CODE.
+[eva:progress] Done for function SendBuffer
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva:progress] 
+  computing for function main2 <- main_main.
+  Called from inout_proto.i:55:3-11.
+[eva:progress] 
+  computing for function f <- main2 <- main_main.
+  Called from inout_proto.i:46:3-6.
+[eva] using specification for function f
+[eva:progress] Done for function f
+[eva:progress] 
+  computing for function g1 <- main2 <- main_main.
+  Called from inout_proto.i:47:3-7.
+[eva:progress] 
+  computing for function g <- g1 <- main2 <- main_main.
+  Called from inout_proto.i:34:3-11.
+[eva] using specification for function g
+[eva:progress] Done for function g
+[eva:progress] Recording results for g1
+[eva:progress] Done for function g1
+[eva:progress] 
+  computing for function g2 <- main2 <- main_main.
+  Called from inout_proto.i:48:3-7.
+[eva:progress] 
+  computing for function g <- g2 <- main2 <- main_main.
+  Called from inout_proto.i:38:3-11.
+[eva:progress] Done for function g
+[eva:progress] Recording results for g2
+[eva:progress] Done for function g2
+[eva:progress] 
+  computing for function g3 <- main2 <- main_main.
+  Called from inout_proto.i:50:5-14.
+[eva:progress] 
+  computing for function g <- g3 <- main2 <- main_main.
+  Called from inout_proto.i:42:3-7.
+[eva:progress] Done for function g
+[eva:progress] Recording results for g3
+[eva:progress] Done for function g3
+[eva:progress] Recording results for main2
+[eva:progress] Done for function main2
+[eva:progress] Recording results for main_main
+[eva:progress] Done for function main_main
+[inout] InOut (internal) for function g1:
+  Operational inputs:
+    t[6..7]
+  Operational inputs on termination:
+    t[6..7]
+  Sure outputs:
+    t[3..5]
+[inout] InOut (with formals) for function g1:
+  Operational inputs:
+    t[6..7]
+  Operational inputs on termination:
+    t[6..7]
+  Sure outputs:
+    t[3..5]
+[inout] Inputs (with formals) for function g1:
+    t[6..7]
+[inout] InOut (internal) for function g2:
+  Operational inputs:
+    t[3..4]
+  Operational inputs on termination:
+    t[3..4]
+  Sure outputs:
+    t[0..2]
+[inout] InOut (with formals) for function g2:
+  Operational inputs:
+    t[3..4]
+  Operational inputs on termination:
+    t[3..4]
+  Sure outputs:
+    t[0..2]
+[inout] Inputs (with formals) for function g2:
+    t[3..4]
+[inout] InOut (internal) for function g3:
+  Operational inputs:
+    u[8..10]; p
+  Operational inputs on termination:
+    u[8..10]; p
+  Sure outputs:
+    \nothing
+[inout] InOut (with formals) for function g3:
+  Operational inputs:
+    u[8..10]; p
+  Operational inputs on termination:
+    u[8..10]; p
+  Sure outputs:
+    \nothing
+[inout] Inputs (with formals) for function g3:
+    u[8..10]; p
+[inout] InOut (internal) for function main:
+  Operational inputs:
+    msg
+  Operational inputs on termination:
+    msg
+  Sure outputs:
+    ret
+[inout] InOut (with formals) for function main:
+  Operational inputs:
+    msg
+  Operational inputs on termination:
+    msg
+  Sure outputs:
+    \nothing
+[inout] Inputs (with formals) for function main:
+    msg
+[inout] InOut (internal) for function main2:
+  Operational inputs:
+    b; t[6..7]; u[8..10]; i
+  Operational inputs on termination:
+    b; t[6..7]; u[8..10]; i
+  Sure outputs:
+    a; c; t[0..5]
+[inout] InOut (with formals) for function main2:
+  Operational inputs:
+    b; t[6..7]; u[8..10]; i
+  Operational inputs on termination:
+    b; t[6..7]; u[8..10]; i
+  Sure outputs:
+    a; c; t[0..5]
+[inout] Inputs (with formals) for function main2:
+    b; t{[3..4]; [6..7]}; u[8..10]; i
+[inout] InOut (internal) for function main_main:
+  Operational inputs:
+    b; t[6..7]; u[8..10]; msg; i
+  Operational inputs on termination:
+    b; t[6..7]; u[8..10]; msg; i
+  Sure outputs:
+    a; c; t[0..5]
+[inout] InOut (with formals) for function main_main:
+  Operational inputs:
+    b; t[6..7]; u[8..10]; msg; i
+  Operational inputs on termination:
+    b; t[6..7]; u[8..10]; msg; i
+  Sure outputs:
+    a; c; t[0..5]
+[inout] Inputs (with formals) for function main_main:
+    b; t{[3..4]; [6..7]}; u[8..10]; msg; i

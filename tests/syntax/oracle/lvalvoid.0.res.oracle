@@ -1,0 +1,11 @@
+[kernel] Parsing lvalvoid.i (no preprocessing)
+[kernel] lvalvoid.i:8: User Error: 
+  lvalue of type void: *(src + i)
+  
+  6       char* d=dst; char* s=src;
+  7       for (int i=0;i<n;i++)
+  8         d[i]=(char)(src[i]);
+                        ^^^^^^
+  9       return dst;
+  10    }
+[kernel] Frama-C aborted: invalid user input.

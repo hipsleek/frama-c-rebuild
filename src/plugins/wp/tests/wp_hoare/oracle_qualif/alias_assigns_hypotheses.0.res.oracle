@@ -1,0 +1,140 @@
+# frama-c -wp [...]
+[kernel] Parsing alias_assigns_hypotheses.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal comprehension_alias_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal comprehension_alias_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal field_alias_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal field_alias_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal field_range_alias_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal field_range_alias_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal formal_alias_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal formal_alias_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal formal_alias_array_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal formal_alias_array_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal formal_no_alias_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal formal_no_alias_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal global_alias_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal global_alias_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal global_no_alias_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal global_no_alias_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal set_alias_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal set_alias_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal union_alias_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal union_alias_terminates (Cfg) (Trivial)
+[wp] 30 goals scheduled
+[wp] [Valid] typed_global_alias_ensures (Qed)
+[wp] [Valid] typed_global_alias_ensures_2 (Qed)
+[wp] [Valid] typed_global_alias_assigns (Qed)
+[wp] [Valid] typed_global_no_alias_ensures (Qed)
+[wp] [Valid] typed_global_no_alias_assigns (Qed)
+[wp] [Valid] typed_formal_alias_ensures (Qed)
+[wp] [Valid] typed_formal_alias_ensures_2 (Qed)
+[wp] [Valid] typed_formal_alias_assigns (Qed)
+[wp] [Valid] typed_formal_no_alias_ensures (Qed)
+[wp] [Valid] typed_formal_no_alias_assigns (Qed)
+[wp] [Valid] typed_formal_alias_array_ensures (Qed)
+[wp] [Valid] typed_formal_alias_array_ensures_2 (Qed)
+[wp] [Valid] typed_formal_alias_array_ensures_3 (Qed)
+[wp] [Valid] typed_formal_alias_array_assigns_part1 (Qed)
+[wp] [Valid] typed_formal_alias_array_assigns_part2 (Qed)
+[wp] [Valid] typed_field_alias_ensures (Qed)
+[wp] [Valid] typed_field_alias_ensures_2 (Qed)
+[wp] [Valid] typed_field_alias_assigns (Qed)
+[wp] [Valid] typed_field_range_alias_ensures (Qed)
+[wp] [Valid] typed_field_range_alias_ensures_2 (Qed)
+[wp] [Valid] typed_field_range_alias_assigns (Qed)
+[wp] [Valid] typed_set_alias_ensures (Qed)
+[wp] [Valid] typed_set_alias_ensures_2 (Qed)
+[wp] [Valid] typed_set_alias_assigns (Qed)
+[wp] [Valid] typed_comprehension_alias_ensures (Qed)
+[wp] [Valid] typed_comprehension_alias_ensures_2 (Qed)
+[wp] [Valid] typed_comprehension_alias_assigns (Qed)
+[wp] [Valid] typed_union_alias_ensures (Qed)
+[wp] [Valid] typed_union_alias_ensures_2 (Qed)
+[wp] [Valid] typed_union_alias_assigns (Qed)
+[wp] Proved goals:   50 / 50
+  Terminating:    10
+  Unreachable:    10
+  Qed:            30
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  global_alias              5        -        5       100%
+  global_no_alias           4        -        4       100%
+  formal_alias              5        -        5       100%
+  formal_no_alias           4        -        4       100%
+  formal_alias_array        7        -        7       100%
+  field_alias               5        -        5       100%
+  field_range_alias         5        -        5       100%
+  set_alias                 5        -        5       100%
+  comprehension_alias       5        -        5       100%
+  union_alias               5        -        5       100%
+------------------------------------------------------------
+[wp] alias_assigns_hypotheses.i:17: Warning: 
+  Memory model hypotheses for function 'global_alias':
+  /*@
+     behavior wp_typed:
+       requires \separated(g_alias, &(global[0]) + (..), &g_alias);
+     */
+  void global_alias(void);
+[wp] alias_assigns_hypotheses.i:24: Warning: 
+  Memory model hypotheses for function 'global_no_alias':
+  /*@ behavior wp_typed:
+        requires \separated(g_alias, &g_alias); */
+  void global_no_alias(void);
+[wp] alias_assigns_hypotheses.i:32: Warning: 
+  Memory model hypotheses for function 'formal_alias':
+  /*@ behavior wp_typed:
+        requires \separated(f_alias, &(global[0]) + (..)); */
+  void formal_alias(int *f_alias);
+[wp] alias_assigns_hypotheses.i:48: Warning: 
+  Memory model hypotheses for function 'formal_alias_array':
+  /*@
+     behavior wp_typed:
+       requires \separated(&(global[0]) + (..), &(*alias_array)[0 .. 1]);
+       requires \separated(alias_array + (..), &(global[0]) + (..));
+     */
+  void formal_alias_array(int (*alias_array)[2]);
+[wp] alias_assigns_hypotheses.i:61: Warning: 
+  Memory model hypotheses for function 'field_alias':
+  /*@
+     behavior wp_typed:
+       requires \separated(&(global[0]) + (..), &x->x);
+       requires \separated(x, &(global[0]) + (..));
+     */
+  void field_alias(struct X *x);
+[wp] alias_assigns_hypotheses.i:73: Warning: 
+  Memory model hypotheses for function 'field_range_alias':
+  /*@
+     behavior wp_typed:
+       requires \separated(&(global[0]) + (..), &(x + (0 .. 3))->x);
+       requires \separated(x + (..), &(global[0]) + (..));
+     */
+  void field_range_alias(struct X *x);
+[wp] alias_assigns_hypotheses.i:81: Warning: 
+  Memory model hypotheses for function 'set_alias':
+  /*@
+     behavior wp_typed:
+       requires \separated(&(global[0]) + (..), &g_alias, {g_alias, f_alias});
+       requires \separated(f_alias, &(global[0]) + (..), &g_alias);
+     */
+  void set_alias(int *f_alias);
+[wp] alias_assigns_hypotheses.i:92: Warning: 
+  Memory model hypotheses for function 'comprehension_alias':
+  /*@
+     behavior wp_typed:
+       requires
+         \separated(
+           &(global[0]) + (..), &g_alias,
+           {alias | int *alias; alias ≡ \at(g_alias,Pre)}
+           );
+     */
+  void comprehension_alias(void);
+[wp] alias_assigns_hypotheses.i:102: Warning: 
+  Memory model hypotheses for function 'union_alias':
+  /*@
+     behavior wp_typed:
+       requires \separated(&(global[0]) + (..), &g_alias, {g_alias, f_alias});
+       requires \separated(f_alias, &(global[0]) + (..), &g_alias);
+     */
+  void union_alias(int *f_alias);

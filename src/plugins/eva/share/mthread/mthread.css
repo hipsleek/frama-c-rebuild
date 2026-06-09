@@ -1,0 +1,97 @@
+/**************************************************************************/
+/*                                                                        */
+/*  SPDX-License-Identifier LGPL-2.1                                      */
+/*  Copyright (C)                                                         */
+/*  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  */
+/*                                                                        */
+/**************************************************************************/
+
+   body {
+     display:block;
+     position: relative;
+     left: 5%;
+     width: 90%;
+     font-family: Georgia, Times, serif;
+     font-size: 10pt; /* base size */
+     min-height: 30em;
+     background: #ffffff;
+     color: #444444;
+}
+
+h1 {
+    font-family: Optima, Verdana, Arial, sans;
+    font-size: 1.6em;
+    font-weight: normal;
+    color: black;
+    margin: 0.4em 0em 0.4em 0em;
+    padding: 0.4em 0em 0em 1em;
+    border-bottom: thin solid #404040;
+}
+
+h3 {
+    font-family: Optima, Verdana, Arial, sans;
+    font-size: 1.4em;
+    font-weight: normal;
+    color: black;
+    margin: 0.4em 0em 0.4em 0em;
+    padding: 0.4em 0em 0em 1em;
+}
+
+td {
+  text-align: center;
+  border: thin solid black; 
+}
+
+th { 
+    text-align: center;
+    font-weight: normal;
+    color: black;
+    border: thin solid black; 
+    padding: 3pt;
+    background-color: #BFB4B4 ;
+}
+
+tr {}
+
+caption {
+    caption-side: bottom;
+}
+
+table {
+    border: medium solid black;
+}
+
+div.graph {
+    text-align: center;
+}
+
+ul.horizontal {
+ padding:0;
+ margin:0;
+ list-style-type:none;
+ }
+li.horizontal {
+ margin-left:1.5em;
+ float:left; /*pour IE*/
+ }
+
+span:target {
+    font-weight: bold;
+}
+
+a.varinfo, span.vdecl a.varinfo_fun {
+    text-decoration: none;
+}
+
+a.varinfo, a.varinfo_fun {
+    color: #000;
+}
+
+h3.back {
+    font-family: Optima, Verdana, Arial, sans;
+    padding-top: 2em;
+}
+
+h3.back a {
+    color:black;
+}

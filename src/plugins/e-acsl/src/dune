@@ -1,0 +1,42 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                        ;;
+;;  SPDX-License-Identifier LGPL-2.1                                      ;;
+;;  Copyright (C)                                                         ;;
+;;  CEA (Commissariat à l'énergie atomique et aux énergies alternatives)  ;;
+;;                                                                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(rule
+ (alias frama-c-configure)
+ (deps (universe))
+ (action (progn
+          (echo "E-ACSL:" %{lib-available:frama-c-e-acsl.core} "\n")
+          (echo "  - Rtegen:" %{lib-available:frama-c-rtegen.core} "\n")
+          (echo "  - ppx_z_literals:" %{lib-available:frama-c.ppx_z_literals} "\n")
+  )
+  )
+)
+
+(rule
+ (alias install)
+ (enabled_if
+  (and
+   (= %{env:FRAMAC_DEVELOPER=no} "yes")
+   (not %{lib-available:frama-c-e-acsl.core})))
+ (action (echo "WARNING: E-ACSL disabled. Run 'dune build @frama-c-configure' for more details\n"))
+)
+
+(library
+ (name E_ACSL)
+ (optional)
+ (public_name frama-c-e-acsl.core)
+ (flags -open Frama_c_kernel :standard -w -9)
+ (libraries frama-c.kernel frama-c-rtegen.core frama-c-callgraph.core)
+ (instrumentation (backend landmarks))
+ (instrumentation (backend bisect_ppx))
+ (preprocess (pps frama-c.ppx_z_literals))
+)
+
+(plugin (optional) (name e-acsl) (libraries frama-c-e-acsl.core) (site (frama-c plugins)))
+
+(include_subdirs unqualified)

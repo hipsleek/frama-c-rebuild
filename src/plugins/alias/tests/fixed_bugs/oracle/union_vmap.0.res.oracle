@@ -1,0 +1,21 @@
+[kernel] Parsing union_vmap.c (with preprocessing)
+[alias] analysing global variable definition: __fc_lit_string1 = "a";
+[alias] May-aliases after global variable definition  __fc_lit_string1  are  <none>
+[alias] analysing global variable definition: __fc_lit_string2 = "b";
+[alias] May-aliases after global variable definition  __fc_lit_string2  are  <none>
+[alias] analysing function: CPS_ParseKey
+[alias] analysing instruction: char *s2 = CPS_SplitWord((char *)"a");
+[alias] analysing function: CPS_SplitWord
+[alias] May-aliases at the end of function CPS_SplitWord: <none>
+[alias] May-aliases after instruction  char *s2 = CPS_SplitWord((char *)"a");  are
+  { s2; "a" }
+[alias] analysing instruction: char *s3 = CPS_SplitWord((char *)"b");
+[alias] May-aliases after instruction  char *s3 = CPS_SplitWord((char *)"b");  are
+  { s2; "a" }  { s3; "b" }
+[alias] analysing instruction: *key = s3;
+[alias] May-aliases after instruction  *key = s3;  are
+  { *key; s3; "b" }  { s2; "a" }
+[alias] analysing instruction: *key = s2;
+[alias] May-aliases after instruction  *key = s2;  are
+  { *key; s2; "a" }  { s3; "b" }
+[alias] May-aliases at the end of function CPS_ParseKey: { *key; s2; "a"; s3; "b" }

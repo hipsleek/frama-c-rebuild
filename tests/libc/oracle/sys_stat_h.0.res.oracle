@@ -1,0 +1,152 @@
+[kernel] Parsing sys_stat_h.c (with preprocessing)
+[kernel] sys_stat_h.c:19: Warning: 
+  Too many initializers for character array non_terminated
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  nondet ∈ [--..--]
+[eva:progress] 
+  computing for function __va_open_mode_t <- main.
+  Called from sys_stat_h.c:10.
+[eva] using specification for function __va_open_mode_t
+[eva:progress] sys_stat_h.c:10: 
+  function __va_open_mode_t: precondition 'valid_filename' got status valid.
+[eva:progress] Done for function __va_open_mode_t
+[eva:progress] 
+  computing for function close <- main.
+  Called from sys_stat_h.c:12.
+[eva] using specification for function close
+[eva:progress] sys_stat_h.c:12: 
+  function close: precondition 'valid_fd' got status valid.
+[eva:progress] Done for function close
+[eva:progress] 
+  computing for function stat <- main.
+  Called from sys_stat_h.c:14.
+[eva] using specification for function stat
+[eva:progress] sys_stat_h.c:14: 
+  function stat: precondition 'valid_pathname' got status valid.
+[eva:progress] sys_stat_h.c:14: 
+  function stat: precondition 'valid_buf' got status valid.
+[eva:progress] Done for function stat
+[eva:progress] 
+  computing for function mkdir <- main.
+  Called from sys_stat_h.c:17.
+[eva] using specification for function mkdir
+[eva:progress] sys_stat_h.c:17: 
+  function mkdir: precondition 'valid_path' got status valid.
+[eva:progress] Done for function mkdir
+[eva:progress] 
+  computing for function mkdir <- main.
+  Called from sys_stat_h.c:20.
+[eva:alarm] sys_stat_h.c:20: Warning: 
+  function mkdir: precondition 'valid_path' got status invalid.
+[eva:progress] Done for function mkdir
+[eva:progress] 
+  computing for function mkdir <- main.
+  Called from sys_stat_h.c:20.
+[eva:progress] Done for function mkdir
+[eva:progress] 
+  computing for function umask <- main.
+  Called from sys_stat_h.c:22.
+[eva] using specification for function umask
+[eva:progress] Done for function umask
+[eva:progress] 
+  computing for function umask <- main.
+  Called from sys_stat_h.c:22.
+[eva:progress] Done for function umask
+[eva:progress] 
+  computing for function lstat <- main.
+  Called from sys_stat_h.c:23.
+[eva] using specification for function lstat
+[eva:progress] sys_stat_h.c:23: 
+  function lstat: precondition 'valid_path' got status valid.
+[eva:progress] sys_stat_h.c:23: 
+  function lstat: precondition 'valid_buf' got status valid.
+[eva:progress] Done for function lstat
+[eva:progress] 
+  computing for function lstat <- main.
+  Called from sys_stat_h.c:23.
+[eva:progress] Done for function lstat
+[eva:progress] 
+  computing for function mkfifo <- main.
+  Called from sys_stat_h.c:24.
+[eva] using specification for function mkfifo
+[eva:progress] sys_stat_h.c:24: 
+  function mkfifo: precondition 'valid_path' got status valid.
+[eva:progress] Done for function mkfifo
+[eva:progress] 
+  computing for function mknod <- main.
+  Called from sys_stat_h.c:25.
+[eva] using specification for function mknod
+[eva:progress] sys_stat_h.c:25: 
+  function mknod: precondition 'valid_path' got status valid.
+[eva:progress] Done for function mknod
+[eva:progress] 
+  computing for function mknod <- main.
+  Called from sys_stat_h.c:25.
+[eva:progress] Done for function mknod
+[eva:progress] 
+  computing for function chmod <- main.
+  Called from sys_stat_h.c:27.
+[eva] using specification for function chmod
+[eva:progress] sys_stat_h.c:27: 
+  function chmod: precondition 'valid_path' got status valid.
+[eva:progress] Done for function chmod
+[eva:progress] 
+  computing for function fchmod <- main.
+  Called from sys_stat_h.c:29.
+[eva] using specification for function fchmod
+[eva:progress] Done for function fchmod
+[eva:progress] 
+  computing for function fchmod <- main.
+  Called from sys_stat_h.c:29.
+[eva:progress] Done for function fchmod
+[eva:progress] 
+  computing for function fchmodat <- main.
+  Called from sys_stat_h.c:31.
+[eva] using specification for function fchmodat
+[eva:progress] sys_stat_h.c:31: 
+  function fchmodat: precondition 'valid_path' got status valid.
+[eva:progress] Done for function fchmodat
+[eva:progress] 
+  computing for function fstat <- main.
+  Called from sys_stat_h.c:35.
+[eva] using specification for function fstat
+[eva:progress] sys_stat_h.c:35: 
+  function fstat: precondition 'valid_buf' got status valid.
+[eva:progress] Done for function fstat
+[eva:progress] 
+  computing for function fstat <- main.
+  Called from sys_stat_h.c:35.
+[eva:progress] Done for function fstat
+[eva:progress] 
+  computing for function fstatat <- main.
+  Called from sys_stat_h.c:37.
+[eva] using specification for function fstatat
+[eva:progress] sys_stat_h.c:37: 
+  function fstatat: precondition 'valid_path' got status valid.
+[eva:progress] sys_stat_h.c:37: 
+  function fstatat: precondition 'valid_buf' got status valid.
+[eva:progress] Done for function fstatat
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  __fc_fds[0..1023] ∈ [--..--]
+  __fc_errno ∈ [--..--]
+  fd ∈ [-1..1023]
+  st ∈ [--..--] or UNINITIALIZED
+  r ∈ {-1; 0} or UNINITIALIZED
+  r_mkdir ∈ {-1; 0} or UNINITIALIZED
+  old_mask ∈ [--..--] or UNINITIALIZED
+  r2 ∈ {-1; 0} or UNINITIALIZED
+  r3 ∈ {-1; 0} or UNINITIALIZED
+  r4 ∈ {-1; 0} or UNINITIALIZED
+  r5 ∈ {-1; 0} or UNINITIALIZED
+  r6 ∈ {-1; 0} or UNINITIALIZED
+  r7 ∈ {-1; 0} or UNINITIALIZED
+  buf ∈ [--..--] or UNINITIALIZED
+  r8 ∈ {-1; 0} or UNINITIALIZED
+  r9 ∈ {-1; 0} or UNINITIALIZED
+  __retres ∈ {-1; 0; 1; 2; 3}

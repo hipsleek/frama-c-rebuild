@@ -1,0 +1,193 @@
+[kernel] Parsing variadic.i (no preprocessing)
+[impact] beginning analysis
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  y ∈ {0}
+  z ∈ {0}
+[kernel:annot:missing-spec] variadic.i:12: Warning: 
+  Neither code nor specification for function f, generating default assigns.
+  See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function f <- main.
+  Called from variadic.i:12:3-7.
+[eva] using specification for function f
+[eva:progress] Done for function f
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[pdg] computing for function main
+[from] Computing for function f
+[from] Done for function f
+[pdg] done for function main
+[pdg] computing for function f
+[pdg] done for function f
+[impact] impacted statements of stmt(s) 3 are:
+    variadic.i:12:3-7 (sid 50): f(i,(void * const *)(__va_args));
+[impact] analysis done
+[impact] beginning analysis
+[eva] Analyzing a complete application starting at main1
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  y ∈ {0}
+  z ∈ {0}
+[eva:progress] 
+  computing for function g1 <- main1.
+  Called from variadic.i:29:4-15.
+[eva:progress] Recording results for g1
+[eva:progress] Done for function g1
+[eva:progress] 
+  computing for function g1 <- main1.
+  Called from variadic.i:30:3-11.
+[eva:progress] Recording results for g1
+[eva:progress] Done for function g1
+[eva:progress] Recording results for main1
+[eva:progress] Done for function main1
+[pdg] computing for function main1
+[from] Computing for function g1
+[from] Done for function g1
+[pdg] done for function main1
+[pdg] computing for function g1
+[pdg] done for function g1
+[impact] impacted statements of stmt(s) 12 are:
+    variadic.i:19:7-12 (sid 7): y = x + y;
+    variadic.i:31:3-12 (sid 15): return y;
+    variadic.i:29:4-15 (sid 52): int __va_arg0 = 2;
+    variadic.i:29:4-15 (sid 53): int __va_arg1 = 3;
+    variadic.i:29:4-15 (sid 54): void *__va_args[2] =
+                                   {& __va_arg0, & __va_arg1};
+    variadic.i:29:4-15 (sid 55): g1(1,(void * const *)(__va_args));
+    variadic.i:30:3-11 (sid 58): g1(1,(void * const *)(__va_args_8));
+[impact] analysis done
+[impact] beginning analysis
+[eva] Analyzing a complete application starting at main2
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  y ∈ {0}
+  z ∈ {0}
+[eva:progress] 
+  computing for function g2 <- main2.
+  Called from variadic.i:37:4-15.
+[eva] using specification for function g2
+[eva:progress] Done for function g2
+[eva:progress] 
+  computing for function g2 <- main2.
+  Called from variadic.i:38:3-11.
+[eva:progress] Done for function g2
+[eva:progress] Recording results for main2
+[eva:progress] Done for function main2
+[pdg] computing for function main2
+[from] Computing for function g2
+[from] Done for function g2
+[pdg] done for function main2
+[pdg] computing for function g2
+[pdg] done for function g2
+[impact] impacted statements of stmt(s) 19 are:
+    variadic.i:37:4-15 (sid 60): int __va_arg0 = 2;
+    variadic.i:37:4-15 (sid 61): int __va_arg1 = 3;
+    variadic.i:37:4-15 (sid 62): void *__va_args[2] =
+                                   {& __va_arg0, & __va_arg1};
+    variadic.i:37:4-15 (sid 63): g2(1,(void * const *)(__va_args));
+[impact] analysis done
+[impact] beginning analysis
+[eva] Analyzing a complete application starting at main3
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  y ∈ {0}
+  z ∈ {0}
+[eva:progress] 
+  computing for function aux3 <- main3.
+  Called from variadic.i:57:3-13.
+[eva:progress] 
+  computing for function g1 <- aux3 <- main3.
+  Called from variadic.i:51:4-9.
+[eva:progress] Recording results for g1
+[eva:progress] Done for function g1
+[eva:progress] 
+  computing for function g1 <- aux3 <- main3.
+  Called from variadic.i:52:3-8.
+[eva:progress] Recording results for g1
+[eva:progress] Done for function g1
+[eva:progress] Recording results for aux3
+[eva:progress] Done for function aux3
+[eva:progress] 
+  computing for function aux3 <- main3.
+  Called from variadic.i:58:3-13.
+[eva:progress] 
+  computing for function g1 <- aux3 <- main3.
+  Called from variadic.i:51:4-9.
+[eva:progress] Recording results for g1
+[eva:progress] Done for function g1
+[eva:progress] 
+  computing for function g1 <- aux3 <- main3.
+  Called from variadic.i:52:3-8.
+[eva:progress] Recording results for g1
+[eva:progress] Done for function g1
+[eva:progress] Recording results for aux3
+[eva:progress] Done for function aux3
+[eva:progress] Recording results for main3
+[eva:progress] Done for function main3
+[pdg] computing for function aux3
+[from] Computing for function g1
+[from] Done for function g1
+[pdg] done for function aux3
+[pdg] computing for function main3
+[from] Computing for function aux3
+[from] Done for function aux3
+[pdg] done for function main3
+[pdg] computing for function g1
+[pdg] done for function g1
+[impact] impacted statements of stmt(s) 26 are:
+    variadic.i:19:7-12 (sid 7): y = x + y;
+    variadic.i:53:3-12 (sid 29): return y;
+    variadic.i:59:3-12 (sid 34): return y;
+    variadic.i:51:4-9 (sid 68): void *__va_args[1] = {(void *)0};
+    variadic.i:51:4-9 (sid 69): g1(t,(void * const *)(__va_args));
+    variadic.i:52:3-8 (sid 71): g1(t,(void * const *)(__va_args_5));
+    variadic.i:57:3-13 (sid 75): aux3(1,(void * const *)(__va_args));
+    variadic.i:58:3-13 (sid 78): aux3(2,(void * const *)(__va_args_6));
+[impact] analysis done
+[impact] beginning analysis
+[eva] Analyzing a complete application starting at main4
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  y ∈ {0}
+  z ∈ {0}
+[eva:progress] 
+  computing for function aux4bis <- main4.
+  Called from variadic.i:73:3-16.
+[eva:progress] 
+  computing for function aux4 <- aux4bis <- main4.
+  Called from variadic.i:68:3-10.
+[eva:progress] Recording results for aux4
+[eva:progress] Done for function aux4
+[eva:progress] Recording results for aux4bis
+[eva:progress] Done for function aux4bis
+[eva:progress] 
+  computing for function aux4bis <- main4.
+  Called from variadic.i:74:3-19.
+[eva:progress] variadic.i:68: Reusing old results for call to aux4
+[eva:progress] Recording results for aux4bis
+[eva:progress] Done for function aux4bis
+[eva:progress] Recording results for main4
+[eva:progress] Done for function main4
+[pdg] computing for function aux4
+[pdg] done for function aux4
+[pdg] computing for function aux4bis
+[from] Computing for function aux4
+[from] Done for function aux4
+[pdg] done for function aux4bis
+[pdg] computing for function main4
+[from] Computing for function aux4bis
+[from] Done for function aux4bis
+[pdg] done for function main4
+[impact] impacted statements of stmt(s) 37 are:
+    variadic.i:69:3-12 (sid 42): return y;
+    variadic.i:75:3-12 (sid 47): return y;
+    variadic.i:73:3-16 (sid 82): aux4bis(1,(void * const *)(__va_args));
+    variadic.i:74:3-19 (sid 86): aux4bis(1,(void * const *)(__va_args_7));
+[impact] analysis done

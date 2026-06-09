@@ -1,0 +1,29 @@
+12,13c12
+< [eva:show] backward_add_ptr.c:26: 
+<   Frama_C_show_each_only_a: {0; 1}, {{ &a }}, {0}
+---
+> [eva:show] backward_add_ptr.c:26: Frama_C_show_each_only_a: {0}, {{ &a }}, {0}
+78c77,81
+< [eva:progress] backward_add_ptr.c:110: Reusing old results for call to gm
+---
+> [eva:progress] 
+>   computing for function gm <- main3 <- main.
+>   Called from backward_add_ptr.c:110.
+> [eva:progress] Recording results for gm
+> [eva:progress] Done for function gm
+87c90,94
+< [eva:progress] backward_add_ptr.c:125: Reusing old results for call to gm
+---
+> [eva:progress] 
+>   computing for function gm <- main3 <- main.
+>   Called from backward_add_ptr.c:125.
+> [eva:progress] Recording results for gm
+> [eva:progress] Done for function gm
+127c134,138
+< [eva:progress] backward_add_ptr.c:160: Reusing old results for call to gm
+---
+> [eva:progress] 
+>   computing for function gm <- main4 <- main.
+>   Called from backward_add_ptr.c:160.
+> [eva:progress] Recording results for gm
+> [eva:progress] Done for function gm

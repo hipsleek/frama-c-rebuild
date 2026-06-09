@@ -1,0 +1,10 @@
+[kernel] Parsing incompatible_qualifiers.c (with preprocessing)
+[kernel] incompatible_qualifiers.c:36: User Error: 
+  Declaration of j does not match previous declaration from incompatible_qualifiers.c:34 (different qualifiers).
+  34    void j(int *f(int[]));
+  35    #ifdef INCOMPATIBLE3
+  36    void j(int *f(int const[])); // conflicting types for 'j'
+             ^
+  37    #endif
+  38
+[kernel] Frama-C aborted: invalid user input.

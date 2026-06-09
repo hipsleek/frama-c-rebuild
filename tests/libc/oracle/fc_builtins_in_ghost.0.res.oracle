@@ -1,0 +1,21 @@
+[kernel] Parsing fc_builtins_in_ghost.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:show] fc_builtins_in_ghost.c:5: Frama_C_show_each: ⊥
+[eva:progress] 
+  computing for function Frama_C_int_interval <- main.
+  Called from fc_builtins_in_ghost.c:6.
+[eva] using specification for function Frama_C_int_interval
+[eva:progress] fc_builtins_in_ghost.c:6: 
+  function Frama_C_int_interval: precondition 'order' got status valid.
+[eva:progress] Done for function Frama_C_int_interval
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  Frama_C_entropy_source ∈ [--..--]
+  p ∈ [0..10]
+  __retres ∈ {0}

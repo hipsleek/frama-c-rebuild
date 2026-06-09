@@ -1,0 +1,17 @@
+# frama-c -wp [...]
+[kernel] Parsing ctor.i (no preprocessing)
+[wp] Running WP plugin...
+------------------------------------------------------------
+  Axiomatic 'Event'
+------------------------------------------------------------
+
+Goal Lemma 'cons':
+Prove: true.
+
+------------------------------------------------------------
+
+Goal Lemma 'diff':
+Assume Lemmas: 'cons'
+Prove: true.
+
+------------------------------------------------------------

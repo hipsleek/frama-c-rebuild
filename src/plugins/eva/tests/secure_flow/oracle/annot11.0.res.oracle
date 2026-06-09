@@ -1,0 +1,30 @@
+[kernel] Expanding arguments from test_options.txt
+[kernel] Parsing annot11.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  extern_data[0..4] ∈ [--..--]
+  global_key[0..4] ∈ {0}
+[eva:loop-unroll:auto] annot11.c:13: Automatic loop unrolling.
+[eva:progress] annot11.c:18: assertion got status valid.
+[eva:progress] annot11.c:19: assertion got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  global_key[0..4] ∈ [--..--]
+  local_key[0..4] ∈ [--..--]
+  __retres ∈ {0}
+[from] Computing for function main
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function main:
+  global_key[0..4] FROM extern_data[0..4] (and SELF)
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    global_key[0..4]; local_key[0..4]; i; __retres
+[inout] Inputs for function main:
+    extern_data[0..4]

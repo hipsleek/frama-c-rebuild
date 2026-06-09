@@ -1,0 +1,10 @@
+[kernel] Parsing ghost_else_bad.c (with preprocessing)
+[kernel] ghost_else_bad.c:20: User Error: 
+  Cannot resolve variable z
+  18      } */
+  19    
+  20      z = 42;
+          ^
+  21    }
+  22
+[kernel] Frama-C aborted: invalid user input.

@@ -1,0 +1,35 @@
+# frama-c -wp [...]
+[kernel] Parsing bts_1462.i (no preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal local_exits (Cfg) (Unreachable)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal wrong_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal wrong_terminates (Cfg) (Trivial)
+[wp] 16 goals scheduled
+[wp] [Valid] typed_wrong_assert_for_value (Alt-Ergo) (Cached)
+[wp] [Valid] typed_wrong_loop_invariant_A_KO_established (Qed)
+[wp] [Unsuccess] typed_wrong_loop_invariant_A_KO_preserved (Alt-Ergo) (Cached)
+[wp] [Valid] typed_wrong_loop_invariant_B_established (Qed)
+[wp] [Valid] typed_wrong_loop_invariant_B_preserved (Qed)
+[wp] [Valid] typed_wrong_loop_invariant_C_established (Qed)
+[wp] [Valid] typed_wrong_loop_invariant_C_preserved (Qed)
+[wp] [Valid] typed_wrong_assert_consequence_of_false_invariant (Alt-Ergo) (Cached)
+[wp] [Valid] typed_wrong_loop_assigns (Qed)
+[wp] [Valid] typed_wrong_loop_variant_positive (Qed)
+[wp] [Valid] typed_wrong_loop_variant_decrease (Qed)
+[wp] [Valid] typed_local_terminates (Qed)
+[wp] [Valid] typed_local_loop_invariant_established (Qed)
+[wp] [Valid] typed_local_loop_invariant_preserved (Qed)
+[wp] [Valid] typed_local_loop_assigns_part1 (Qed)
+[wp] [Valid] typed_local_loop_assigns_part2 (Qed)
+[wp] Proved goals:   18 / 19
+  Terminating:     1
+  Unreachable:     2
+  Qed:            13
+  Alt-Ergo:        2
+  Unsuccess:       1
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  wrong                    10        2       13      92.3%
+  local                     6        -        6       100%
+------------------------------------------------------------

@@ -1,0 +1,126 @@
+[kernel] Parsing fc_builtin_c.c (with preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function Frama_C_interval <- main.
+  Called from fc_builtin_c.c:8.
+[eva:progress] 
+  computing for function Frama_C_update_entropy <- Frama_C_interval <- main.
+  Called from FRAMAC_SHARE/libc/__fc_builtin.c:68.
+[eva:progress] Recording results for Frama_C_update_entropy
+[eva:progress] Done for function Frama_C_update_entropy
+[eva:progress] Recording results for Frama_C_interval
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] fc_builtin_c.c:9: assertion 'bounds' got status valid.
+[eva:alarm] fc_builtin_c.c:10: Warning: 
+  assertion 'sampling,unknown' got status unknown.
+[eva:progress] 
+  computing for function Frama_C_char_interval <- main.
+  Called from fc_builtin_c.c:12.
+[eva:progress] 
+  computing for function Frama_C_interval <- Frama_C_char_interval <- main.
+  Called from FRAMAC_SHARE/libc/__fc_builtin.c:79.
+[eva:progress] FRAMAC_SHARE/libc/__fc_builtin.c:68: 
+  Reusing old results for call to Frama_C_update_entropy
+[eva:progress] Recording results for Frama_C_interval
+[eva:progress] Done for function Frama_C_interval
+[eva:progress] Recording results for Frama_C_char_interval
+[eva:progress] Done for function Frama_C_char_interval
+[eva:progress] fc_builtin_c.c:13: assertion 'bounds' got status valid.
+[eva:alarm] fc_builtin_c.c:14: Warning: 
+  assertion 'sampling,unknown' got status unknown.
+[eva:progress] 
+  computing for function Frama_C_unsigned_int_interval <- main.
+  Called from fc_builtin_c.c:16.
+[eva:progress] FRAMAC_SHARE/libc/__fc_builtin.c:119: 
+  Reusing old results for call to Frama_C_update_entropy
+[eva:progress] Recording results for Frama_C_unsigned_int_interval
+[eva:progress] Done for function Frama_C_unsigned_int_interval
+[eva:progress] fc_builtin_c.c:17: assertion 'bounds' got status valid.
+[eva:alarm] fc_builtin_c.c:18: Warning: 
+  assertion 'sampling,unknown' got status unknown.
+[eva:progress] 
+  computing for function Frama_C_float_interval <- main.
+  Called from fc_builtin_c.c:20.
+[eva:progress] FRAMAC_SHARE/libc/__fc_builtin.c:89: 
+  Reusing old results for call to Frama_C_update_entropy
+[eva:progress] Recording results for Frama_C_float_interval
+[eva:progress] Done for function Frama_C_float_interval
+[eva:progress] fc_builtin_c.c:21: assertion 'bounds' got status valid.
+[eva:alarm] fc_builtin_c.c:22: Warning: 
+  assertion 'sampling,unknown' got status unknown.
+[eva:progress] 
+  computing for function Frama_C_double_interval <- main.
+  Called from fc_builtin_c.c:25.
+[eva:progress] FRAMAC_SHARE/libc/__fc_builtin.c:95: 
+  Reusing old results for call to Frama_C_update_entropy
+[eva:progress] Recording results for Frama_C_double_interval
+[eva:progress] Done for function Frama_C_double_interval
+[eva:progress] fc_builtin_c.c:26: assertion 'bounds' got status valid.
+[eva:alarm] fc_builtin_c.c:27: Warning: 
+  assertion 'sampling,unknown' got status unknown.
+[eva:progress] 
+  computing for function Frama_C_long_interval <- main.
+  Called from fc_builtin_c.c:29.
+[eva:progress] FRAMAC_SHARE/libc/__fc_builtin.c:131: 
+  Reusing old results for call to Frama_C_update_entropy
+[eva:progress] Recording results for Frama_C_long_interval
+[eva:progress] Done for function Frama_C_long_interval
+[eva:progress] fc_builtin_c.c:30: assertion 'bounds' got status valid.
+[eva:alarm] fc_builtin_c.c:31: Warning: 
+  assertion 'sampling,unknown' got status unknown.
+[eva:progress] 
+  computing for function Frama_C_unsigned_long_interval <- main.
+  Called from fc_builtin_c.c:34.
+[eva:progress] FRAMAC_SHARE/libc/__fc_builtin.c:143: 
+  Reusing old results for call to Frama_C_update_entropy
+[eva:progress] Recording results for Frama_C_unsigned_long_interval
+[eva:progress] Done for function Frama_C_unsigned_long_interval
+[eva:progress] fc_builtin_c.c:35: assertion 'bounds' got status valid.
+[eva:alarm] fc_builtin_c.c:36: Warning: 
+  assertion 'sampling,unknown' got status unknown.
+[eva:progress] fc_builtin_c.c:43: 
+  assertion '__WORDSIZE_is_defined' got status valid.
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function Frama_C_update_entropy:
+  Frama_C_entropy_source ∈ [--..--]
+[eva:final-states] Values at end of function Frama_C_double_interval:
+  Frama_C_entropy_source ∈ [--..--]
+[eva:final-states] Values at end of function Frama_C_float_interval:
+  Frama_C_entropy_source ∈ [--..--]
+[eva:final-states] Values at end of function Frama_C_interval:
+  Frama_C_entropy_source ∈ [--..--]
+  r ∈ [-127..2147483627]
+  aux ∈ [--..--]
+[eva:final-states] Values at end of function Frama_C_char_interval:
+  Frama_C_entropy_source ∈ [--..--]
+  __retres ∈ [-127..123]
+[eva:final-states] Values at end of function Frama_C_long_interval:
+  Frama_C_entropy_source ∈ [--..--]
+  r ∈ [-2147483648..-2]
+  aux ∈ [--..--]
+[eva:final-states] Values at end of function Frama_C_unsigned_int_interval:
+  Frama_C_entropy_source ∈ [--..--]
+  r ∈ [2147483647..4294967295]
+  aux ∈ [--..--]
+[eva:final-states] Values at end of function Frama_C_unsigned_long_interval:
+  Frama_C_entropy_source ∈ [--..--]
+  r ∈ {2147483646; 2147483647; 2147483648}
+  aux ∈ [--..--]
+[eva:final-states] Values at end of function main:
+  Frama_C_entropy_source ∈ [--..--]
+  i ∈ {1073741823}
+  c ∈ {42}
+  ui ∈ {4294957295}
+  f ∈ {1.5}
+  one_e_100 ∈ {1e+100}
+  d ∈ [12345678901.2 .. 12345678901.2]
+  l ∈ {-3}
+  ul ∈ {2147483647}
+  w ∈ {32}
+  __retres ∈ {0}

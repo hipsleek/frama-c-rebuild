@@ -1,0 +1,1 @@
+frama-c default-options:=-check -no-autoload-plugins -add-symbolic-path=<path-to-frama-c-ptests-project>/_build/default/./tests/nothing:.:= empty.i

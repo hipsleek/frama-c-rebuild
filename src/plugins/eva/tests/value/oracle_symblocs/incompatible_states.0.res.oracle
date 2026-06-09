@@ -1,0 +1,7 @@
+47,48d46
+< [eva:alarm] incompatible_states.c:53: Warning: 
+<   division by zero. assert t[i] ≢ 0;
+55c53
+< [scope:rm_asserts] removing 2 assertion(s)
+---
+> [scope:rm_asserts] removing 1 assertion(s)

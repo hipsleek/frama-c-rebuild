@@ -1,0 +1,16 @@
+84c84,88
+< [eva:progress] auto_loop_unroll.c:101: Reusing old results for call to incr
+---
+> [eva:progress] 
+>   computing for function incr <- various_loops <- main.
+>   Called from auto_loop_unroll.c:101.
+> [eva:progress] Recording results for incr
+> [eva:progress] Done for function incr
+95c99,103
+< [eva:progress] auto_loop_unroll.c:101: Reusing old results for call to incr
+---
+> [eva:progress] 
+>   computing for function incr <- various_loops <- main.
+>   Called from auto_loop_unroll.c:101.
+> [eva:progress] Recording results for incr
+> [eva:progress] Done for function incr

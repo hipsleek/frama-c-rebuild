@@ -1,0 +1,104 @@
+[kernel] Parsing incompatible_builtins.i (no preprocessing)
+[kernel:parser:decimal-float] incompatible_builtins.i:43: Warning: 
+  Floating-point constant 3.14 is not represented exactly. Will use 0x1.91eb851eb851fp1.
+  (warn-once: no further messages from category 'parser:decimal-float' will be emitted)
+[eva:builtins:missing-spec] incompatible_builtins.i:36: Warning: 
+  The builtin for function floor will not be used, as its specification has no default behavior.
+[eva:builtins:missing-spec] incompatible_builtins.i:23: Warning: 
+  The builtin for function sqrt will not be used, as its specification has no assigns clause.
+[eva:builtins:missing-spec] incompatible_builtins.i:26: Warning: 
+  The builtin for function ceil will not be used, as its frama-c libc specification is not available.
+[eva:builtins:override] incompatible_builtins.i:8: Warning: 
+  Builtin pow will not be used for function pow of incompatible type int 
+  (int a, int b).
+[eva:builtins:override] incompatible_builtins.i:18: Warning: 
+  Builtin exp will not be used for function exp of incompatible type float 
+  (float f).
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  
+[eva:progress] 
+  computing for function pow <- main.
+  Called from incompatible_builtins.i:40:11-20.
+[eva:progress] Recording results for pow
+[eva:progress] Done for function pow
+[eva:progress] 
+  computing for function exp <- main.
+  Called from incompatible_builtins.i:41:13-22.
+[eva] using specification for function exp
+[eva:progress] Done for function exp
+[kernel:annot:missing-spec] incompatible_builtins.i:42: Warning: 
+  Neither code nor explicit assigns for function sqrt, generating default
+  clauses. See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function sqrt <- main.
+  Called from incompatible_builtins.i:42:16-24.
+[eva] using specification for function sqrt
+[eva:progress] incompatible_builtins.i:42: 
+  function sqrt: precondition 'finite_positive_arg' got status valid.
+[eva:progress] Done for function sqrt
+[kernel:annot:missing-spec] incompatible_builtins.i:43: Warning: 
+  Neither code nor explicit assigns for function floor, generating default
+  clauses from the specification. See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function floor <- main.
+  Called from incompatible_builtins.i:43:18-29.
+[eva] using specification for function floor
+[eva:progress] Done for function floor
+[kernel:annot:missing-spec] incompatible_builtins.i:44: Warning: 
+  Neither code nor specification for function ceil, generating default assigns.
+  See -generated-spec-* options for more info.
+[eva:progress] 
+  computing for function ceil <- main.
+  Called from incompatible_builtins.i:44:17-27.
+[eva] using specification for function ceil
+[eva:progress] Done for function ceil
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function pow:
+  x ∈ {16}
+[eva:final-states] Values at end of function main:
+  n ∈ {16}
+  f ∈ [-inf .. inf] ∪ {NaN}
+  two ∈ [-0. .. 1.79769313486e+308]
+  three ∈ [-inf .. inf] ∪ {NaN}
+  four ∈ [-inf .. inf] ∪ {NaN}
+  __retres ∈ {0}
+[from] Computing for function pow
+[from] Done for function pow
+[from] Computing for function main
+[from] Computing for function exp <-main
+[from] Done for function exp
+[from] Computing for function sqrt <-main
+[from] Done for function sqrt
+[from] Computing for function floor <-main
+[from] Done for function floor
+[from] Computing for function ceil <-main
+[from] Done for function ceil
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function ceil:
+  \result FROM d
+[from] Function exp:
+  \result FROM f
+[from] Function floor:
+  \result FROM d
+[from] Function pow:
+  \result FROM a; b
+[from] Function sqrt:
+  \result FROM d
+[from] Function main:
+  \result FROM \nothing
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function pow:
+    x; i
+[inout] Inputs for function pow:
+    \nothing
+[inout] Out (internal) for function main:
+    n; f; two; three; four; __retres
+[inout] Inputs for function main:
+    \nothing

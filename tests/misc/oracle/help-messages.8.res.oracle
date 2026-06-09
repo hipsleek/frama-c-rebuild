@@ -1,0 +1,336 @@
+Plug-in name: Eva
+Plug-in shortname: eva
+Description:
+automatically computes variation domains for the variables of the program
+
+Most options of the form '-eva-option-name' and without any parameter
+have an opposite with the name '-eva-no-option-name'.
+
+Most options of the form '-option-name' and without any parameter
+have an opposite with the name '-no-option-name'.
+
+Options taking a string as argument should preferably be written
+-option-name="argument".
+
+***** LIST OF AVAILABLE OPTIONS:
+
+-eva                Run the Eva analysis. (opposite option is -no-eva)
+-val                alias for option -eva
+-eva-precision <n>  Meta-option that automatically sets up some Eva
+                    parameters for a quick configuration of an analysis, from
+                    0 (fastest but rather imprecise analysis) to 11 (accurate
+                    but potentially slow analysis).
+
+*** ABSTRACT DOMAINS
+
+-eva-domains <d1,...,dn>  Enable a list of analysis domains. Available
+                    domains are: cvalue, equality, symbolic-locations,
+                    gauges, octagon, multidim, bitwise, taint, numerors,
+                    sign, mthread, inout, printer, traces. Use -eva-domains
+                    help to print a short description of each domain.
+-eva-domains-function <d:f>  Enable a domain only for the given functions.
+                    <d:f+> enables the domain [d] from function [f] (the
+                    domain is enabled in all functions called from [f]).
+                    <d:f-> disables the domain [d] from function [f].
+                    (preferably use -eva-domains-function="d:f")
+-eva-equality-through-calls <none|formals|all>  Propagate equalities through
+                    function calls (from the caller to the called function):
+                    none, only equalities between formal parameters and
+                    concrete arguments, or all.  (preferably use
+                    -eva-equality-through-calls="none|formals|all")
+-eva-equality-through-calls-function <f:none|formals|all>  Propagate
+                    equalities through calls to specific functions. Overrides
+                    -eva-equality-call. (preferably use
+                    -eva-equality-through-calls-function="f:none|formals|all")
+-eva-multidim-disjunctive-invariants  Try to infer structures disjunctive
+                    invariants. (opposite option is
+                    -eva-no-multidim-disjunctive-invariants)
+-eva-multidim-segment-limit <N>  Limit the number of segments in the
+                    abstraction of arrays.
+-eva-numerors-interaction <relative|absolute|none|both>  Define how the
+                    numerors domain infers the absolute and the relative
+                    errors:
+                    - relative: the relative is deduced from the absolute;
+                    - absolute: the absolute is deduced from the relative;
+                    - none: absolute and relative are computed separately;
+                    - both: reduced product between absolute and relative.
+                    (preferably use
+                    -eva-numerors-interaction="relative|absolute|none|both")
+-eva-octagon-through-calls  Propagate relations inferred by the octagon
+                    domain through function calls. Disabled by default: the
+                    octagon analysis is intra-procedural, starting each
+                    function with an empty octagon state, and losing the
+                    octagons inferred at the end. The interprocedural
+                    analysis is more precise but slower. (opposite option is
+                    -eva-no-octagon-through-calls)
+-eva-secure-flow    Perform secure-flow analysis to prove non-interference
+                    properties: emit warnings whenever low-security public
+                    data may depend on high-security private data. Public and
+                    private data must be specified using corresponding custom
+                    attributes. (opposite option is -eva-no-secure-flow)
+-eva-taint-auto     Automatically taint the function parameters of user input
+                    based functions (scanf, fgets, etc). (opposite option is
+                    -eva-no-taint-auto)
+-eva-traces-dot <FILENAME>  Output to the given filename the Cfg in dot
+                    format.
+-eva-traces-project  Try to convert the Cfg into a program in a new project.
+                    (opposite option is -eva-no-traces-project)
+-eva-traces-unify-loop  Specify if all the instances of a loop should try to
+                    share theirs traces. (opposite option is
+                    -eva-no-traces-unify-loop)
+-eva-traces-unroll-loop  Specify if the traces domain should unroll the
+                    loops. (set by default, opposite option is
+                    -eva-no-traces-unroll-loop)
+
+*** DEBUG
+
+-eva-debug <n>      level of debug for plug-in Eva (default to 0)
+
+*** DETERMINISTIC PROGRAMS
+
+-eva-interpreter-mode  Stop at first call to a library function, if main()
+                    has arguments, on undecided branches (opposite option is
+                    -eva-no-interpreter-mode)
+-eva-stop-at-nth-alarm <n>  Abort the analysis when the nth alarm is emitted.
+
+*** DYNAMIC ALLOCATION
+
+-eva-alloc-builtin <imprecise|by_stack|fresh|fresh_weak>  Select the behavior
+                    of allocation builtins. By default, they use up to
+                    [-eva-mlevel] bases for each callstack (<by_stack>). They
+                    can also use one <imprecise> base for all allocations,
+                    create a <fresh> strong base at each call, or create a
+                    <fresh_weak> base at each call. (preferably use
+                    -eva-alloc-builtin="imprecise|by_stack|fresh|fresh_weak")
+-eva-alloc-functions <f1,...,fn>  Control call site creation for dynamically
+                    allocated bases. Dynamic allocation builtins use the call
+                    sites of malloc/calloc/realloc to know where to create
+                    new bases. This detection does not work for custom
+                    allocators or wrappers on top of them, unless they are
+                    listed here. By default, contains malloc, calloc and
+                    realloc. (preferably use
+                    -eva-alloc-functions="f1,...,fn")
+-eva-malloc-functions <f1,...,fn>  alias for option -eva-alloc-functions
+-eva-alloc-returns-null  Memory allocation built-ins (malloc, calloc,
+                    realloc) are modeled as nondeterministically returning a
+                    null pointer (set by default, opposite option is
+                    -eva-no-alloc-returns-null)
+-eva-mlevel <m>     Set to [m] the number of precise dynamic allocations
+                    besides the initial one, for each callstack (defaults to
+                    0)
+
+*** GETTING INFORMATION
+
+-eva-help           help of plug-in Eva
+-eva-h              alias for option -eva-help
+
+*** INITIAL CONTEXT
+
+-eva-context-depth <n>  Use <n> as the depth of the default context for Eva.
+                    (defaults to 2)
+-eva-context-valid-pointers  Only allocate valid pointers until
+                    context-depth, and then use NULL (defaults to false)
+                    (opposite option is -eva-no-context-valid-pointers)
+-eva-context-width <n>  Use <n> as the width of the default context for Eva.
+                    (defaults to 2)
+-eva-initialization-padding-globals <yes|no|maybe>  Specify how padding bits
+                    are initialized inside global variables. Possible values
+                    are <yes> (padding is fully initialized), <no> (padding
+                    is completely uninitialized), or <maybe> (padding may be
+                    uninitialized). Default is <yes>.
+
+*** OUTPUT MESSAGES
+
+-eva-annot <f>      Populate the specified functions with assertions
+                    representing the range of values computed by Eva on
+                    l-values read by the code, when available. (preferably
+                    use -eva-annot="f")
+-eva-flamegraph <file>  Dump a summary of the time spent analyzing function
+                    calls in a format suitable for the Flamegraph tool
+                    (http://www.brendangregg.com/flamegraphs.html)
+-eva-log <K_1:file_1,...>  copy log messages from Eva to a file. <K> is a
+                    combination of these characters:
+                    a: ALL messages (equivalent to 'dfiruw')
+                    d: debug       e: user or internal error (same as 'iu')
+                    f: feedback    i: internal error
+                    r: result      u: user error    w: warning
+                    An empty <K> (e.g. ":file.txt") defaults to 'iruw'. One
+                    plug-in can output to several files and vice-versa.
+                    (preferably use -eva-log="K_1:file_1,...")
+-eva-msg-key <k1[,...,kn]>  enables message display for categories
+                    <k1>,...,<kn>. Use -eva-msg-key help to get a list of
+                    available categories, and * to enable all categories
+                    (preferably use -eva-msg-key="k1[,...,kn]")
+-eva-print-callstacks  When printing a message, also show the current call
+                    stack (opposite option is -eva-no-print-callstacks)
+-eva-report-red-statuses <filename>  Output the list of "red properties" in a
+                    csv file of the given name. These are the properties
+                    which were invalid for some states. Their consolidated
+                    status may not be invalid, but they should often be
+                    investigated first.
+-eva-show-perf      Compute and show a summary of the time spent analyzing
+                    function calls (opposite option is -eva-no-show-perf)
+-eva-show-slevel <n>  Period for showing consumption of the allotted slevel
+                    during analysis
+-eva-statistics-file <file.csv>  Dump some internal statistics about the
+                    analysis
+-eva-verbose <n>    level of verbosity for plug-in Eva (default to 5)
+-eva-warn-key <k1[=s1][,...,kn[=sn]]>  set warning status for category <k1>
+                    to <s1>,...,<kn> to <sn>. Use -eva-warn-key help to get a
+                    list of available categories, and * to enable all
+                    categories. Possible statuses are inactive, feedback,
+                    warning, error, abort, feedback-once, warning-once,
+                    error-once. Defaults to warning. (preferably use
+                    -eva-warn-key="k1[=s1][,...,kn[=sn]]")
+
+*** PRECISION VS. TIME
+
+-eva-auto-loop-unroll <n>  Limit of the automatic loop unrolling: all loops
+                    whose number of iterations can be easily bounded by <n>
+                    are completely unrolled.
+-eva-builtin <f:ffc>  When analyzing function <f>, try to use Frama-C builtin
+                    <ffc> instead. Fall back to <f> if <ffc> cannot handle
+                    its arguments. (preferably use -eva-builtin="f:ffc")
+-eva-builtins-auto  When set, builtins will be used automatically to replace
+                    known C functions (set by default, opposite option is
+                    -eva-no-builtins-auto)
+-eva-builtins-list  List existing builtins, and which functions they are
+                    automatically associated to (if any)
+-eva-default-loop-unroll <n>  Define the default limit for loop unroll
+                    annotations that do not explicitly provide a limit.
+-eva-enumerate-cond  Activate reduce_by_cond_enumerate. (set by default,
+                    opposite option is -eva-no-enumerate-cond)
+-eva-ilevel <n>     Sets of integers are represented as sets up to <n>
+                    elements. Above, intervals with congruence information
+                    are used (defaults to 8, must be above 2)
+-eva-interprocedural-history  Keep partitioning history through function
+                    returns (opposite option is
+                    -eva-no-interprocedural-history)
+-eva-interprocedural-splits  Keep partitioning splits through function
+                    returns (opposite option is
+                    -eva-no-interprocedural-splits)
+-eva-memexec        Speed up analysis by not recomputing functions already
+                    analyzed in the same context. Callstacks for which the
+                    analysis has not been recomputed are incorrectly shown as
+                    dead in the GUI. (set by default, opposite option is
+                    -eva-no-memexec)
+-eva-min-loop-unroll <n>  Unroll <n> loop iterations for each loop,
+                    regardless of the slevel settings and the number of
+                    states already propagated. Can be overwritten on a
+                    case-by-case basis by loop unroll annotations.
+-eva-oracle-depth <n>  Maximum number of successive uses of the oracle by the
+                    domain for the evaluation of an expression. Set 0 to
+                    disable the oracle.
+-eva-partition-history <n>  Keep states distinct as long as the <n> last
+                    branching in their traces are also distinct. (A value of
+                    0 deactivates this feature)
+-eva-partition-history-function <f:n>  Override partition-history with <n>
+                    when analyzing <f> (preferably use
+                    -eva-partition-history-function="f:n")
+-eva-partition-value <V>  Partition the space of reachable states according
+                    to the possible values of the global(s) variable(s) V.
+                    (preferably use -eva-partition-value="V")
+-eva-plevel <n>     Use <n> as the precision level for arrays accesses. Array
+                    accesses are precise as long as the interval for the
+                    index contains less than n values. (defaults to 200)
+-eva-reduction-depth <n>  Maximum number of successive backward reductions
+                    that the domain may initiate.
+-eva-remove-redundant-alarms  After the analysis, try to remove redundant
+                    alarms, so that the user needs to inspect fewer of them
+                    (set by default, opposite option is
+                    -eva-no-remove-redundant-alarms)
+-eva-skip-stdlib-specs  Skip ACSL specifications on functions originating
+                    from the standard library of Frama-C, when their bodies
+                    are evaluated (set by default, opposite option is
+                    -eva-no-skip-stdlib-specs)
+-eva-slevel <n>     Superpose up to <n> states when unrolling control flow.
+                    The larger n, the more precise and expensive the analysis
+                    (defaults to 0)
+-eva-slevel-function <f:n>  Override slevel with <n> when analyzing <f>
+                    (preferably use -eva-slevel-function="f:n")
+-eva-slevel-merge-after-loop <f | @all>  When set, the different execution
+                    paths that originate from the body of a loop are merged
+                    before entering the next execution. (preferably use
+                    -eva-slevel-merge-after-loop="f | @all")
+-eva-split-limit <N>  Prevent split annotations or -eva-partition-value from
+                    enumerating more than N cases
+-eva-split-return <full|auto|N>  Control the propagation of states separated
+                    by option -eva-slevel at the return of a function. By
+                    default, all inferred states at a return point are joined
+                    into one single state, which is fast but imprecise. With
+                    'full', all inferred states are propagated back to the
+                    callsite, which is costly but precise. With 'auto',
+                    states inferred at a return point are automatically
+                    joined or kept separate according to the function return
+                    code. With a number <N>, keep states distinct only
+                    according to the value of the predicate \result == N.
+-eva-split-return-function <f:full|f:auto|f:N|f:>  Override the global option
+                    -eva-split-return at the return of function <f>. <f:>
+                    reverts to the the default strategy where all states are
+                    joined at the return point of <f>. (preferably use
+                    -eva-split-return-function="f:full|f:auto|f:N|f:")
+-eva-subdivide-non-linear <n>  Improve precision when evaluating expressions
+                    in which a variable appears multiple times, by splitting
+                    its value at most n times. Defaults to 0.
+-eva-subdivide-non-linear-function <f:n>  Override the global option
+                    -eva-subdivide-non-linear with <n>when analyzing the
+                    function <f>. (preferably use
+                    -eva-subdivide-non-linear-function="f:n")
+-eva-unroll-recursive-calls <n>  Unroll <n> recursive calls before using the
+                    specification of the recursive function to interpret the
+                    calls.
+-eva-use-spec <f1,..,fn>  Use the ACSL specification of the functions instead
+                    of their definitions (preferably use
+                    -eva-use-spec="f1,..,fn")
+-eva-widening-delay <n>  Do not widen before the <n>-th iteration (defaults
+                    to 3)
+-eva-widening-period <n>  After the first widening, widen each <n> iterations
+                    (defaults to 2)
+
+*** PROPAGATION AND ALARMS 
+
+-eva-initialized-locals  Local variables enter in scope fully initialized.
+                    Only useful for the analysis of programs buggy w.r.t.
+                    initialization. (opposite option is
+                    -eva-no-initialized-locals)
+-eva-reduce-on-logic-alarms  Force reductions by a predicate to ignore logic
+                    alarms emitted while the predicate is evaluated
+                    (experimental) (opposite option is
+                    -eva-no-reduce-on-logic-alarms)
+-eva-undefined-pointer-comparison-propagate-all  If the target program
+                    appears to contain undefined pointer comparisons,
+                    propagate both outcomes {0; 1} in addition to the
+                    emission of an alarm (opposite option is
+                    -eva-no-undefined-pointer-comparison-propagate-all)
+-eva-warn-copy-indeterminate <f | @all>  Warn when a statement copies a value
+                    that may be indeterminate (uninitialized, containing an
+                    escaping address, or infinite/NaN floating-point value).
+                    Set by default; can be deactivated for function 'f' by
+                    '=-f', or for all functions by '=-@all'. (preferably use
+                    -eva-warn-copy-indeterminate="f | @all")
+-eva-warn-pointer-subtraction  Warn when subtracting two pointers that may
+                    not be in the same allocated block, and return the
+                    pointwise difference between the offsets. When unset, do
+                    not warn but generate imprecise offsets. (set by default,
+                    opposite option is -eva-no-warn-pointer-subtraction)
+-eva-warn-signed-converted-downcast  Signed downcasts are decomposed into two
+                    operations: a conversion to the signed type of the
+                    original width, then a downcast. Warn when the downcast
+                    may exceed the destination range. (opposite option is
+                    -eva-no-warn-signed-converted-downcast)
+-eva-warn-undefined-pointer-comparison <all|pointer|none>  Warn on all
+                    pointer comparisons, on comparisons where the arguments
+                    have pointer type (default), or never warn
+
+*** RESULTS MEMOIZATION VS. TIME
+
+-eva-join-results   Precompute consolidated states once Eva is computed (set
+                    by default, opposite option is -eva-no-join-results)
+-eva-no-results-domain <domains>  Do not record the states of some domains
+                    during the analysis. (preferably use
+                    -eva-no-results-domain="domains")
+-eva-no-results-function <f>  Do not record the values obtained for the
+                    statements of function f (preferably use
+                    -eva-no-results-function="f")
+-eva-results        Record values for each of the statements of the program.
+                    (set by default, opposite option is -eva-no-results)

@@ -1,0 +1,164 @@
+# frama-c -wp [...]
+[kernel] Parsing unit_bitwise.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] [Valid] Goal band1_uchar_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band1_uchar_terminates (Cfg) (Trivial)
+[wp] Warning: Missing RTE guards
+[wp] [Valid] Goal band1_uint_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band1_uint_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal band1_ulong_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band1_ulong_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal band1_ushort_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band1_ushort_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal band_char_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band_char_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal band_int_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band_int_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal band_uchar_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band_uchar_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal band_uint_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal band_uint_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bnot_char_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bnot_char_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bnot_int_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bnot_int_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bnot_uchar_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bnot_uchar_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bnot_uint_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bnot_uint_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bor_char_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bor_char_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bor_int_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bor_int_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bor_uchar_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bor_uchar_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bor_uint_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bor_uint_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bxor_char_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bxor_char_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bxor_int_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bxor_int_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bxor_uchar_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bxor_uchar_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal bxor_uint_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal bxor_uint_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal cast_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal cast_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal lshift_char_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal lshift_char_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal lshift_int_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal lshift_int_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal lshift_uchar_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal lshift_uchar_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal lshift_uint_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal lshift_uint_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal rshift_char_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal rshift_char_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal rshift_int_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal rshift_int_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal rshift_uchar_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal rshift_uchar_terminates (Cfg) (Trivial)
+[wp] [Valid] Goal rshift_uint_exits (Cfg) (Unreachable)
+[wp] [Valid] Goal rshift_uint_terminates (Cfg) (Trivial)
+[wp] 61 goals scheduled
+[wp] [Valid] typed_lemma_band_sint8 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_band_uint8 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_blsr_sint8 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_blsr_uint8 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_bnot_sint8 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_bor_sint8 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_bor_uint8 (Qed)
+[wp] [Valid] typed_lemma_bxor_sint8 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lemma_land_abs (Qed)
+[wp] [Valid] typed_lemma_land_assoc (Qed)
+[wp] [Valid] typed_lemma_land_com (Qed)
+[wp] [Valid] typed_lemma_land_stb (Qed)
+[wp] [Valid] typed_lemma_lor_assoc (Qed)
+[wp] [Valid] typed_lemma_lor_com (Qed)
+[wp] [Valid] typed_lemma_lor_neu (Qed)
+[wp] [Valid] typed_lemma_lor_stb (Qed)
+[wp] [Valid] typed_lemma_lxor_assoc (Qed)
+[wp] [Valid] typed_lemma_lxor_com (Qed)
+[wp] [Valid] typed_band_int_ensures_ok (Qed)
+[wp] [Valid] typed_band_int_assert_ok (Qed)
+[wp] [Valid] typed_bor_int_ensures_ok (Qed)
+[wp] [Valid] typed_bxor_int_ensures_ok (Qed)
+[wp] [Valid] typed_bnot_int_ensures_ok (Qed)
+[wp] [Valid] typed_lshift_int_ensures_ok (Qed)
+[wp] [Valid] typed_rshift_int_ensures_ok (Qed)
+[wp] [Valid] typed_band1_uint_assert_ok (Qed)
+[wp] [Valid] typed_band1_uint_assert_ok_2 (Qed)
+[wp] [Valid] typed_band_uint_ensures_ok (Qed)
+[wp] [Valid] typed_bor_uint_ensures_ok (Qed)
+[wp] [Valid] typed_bxor_uint_ensures_ok (Qed)
+[wp] [Valid] typed_bxor_uint_ensures_ok_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_bnot_uint_ensures_ok (Qed)
+[wp] [Valid] typed_lshift_uint_ensures_ok (Qed)
+[wp] [Valid] typed_rshift_uint_ensures_ok (Qed)
+[wp] [Valid] typed_band_char_ensures_ok (Alt-Ergo) (Cached)
+[wp] [Valid] typed_bor_char_ensures_ok (Alt-Ergo) (Cached)
+[wp] [Valid] typed_bxor_char_ensures_ok (Alt-Ergo) (Cached)
+[wp] [Valid] typed_bnot_char_ensures_ok (Alt-Ergo) (Cached)
+[wp] [Valid] typed_lshift_char_ensures_ok (Qed)
+[wp] [Valid] typed_rshift_char_ensures_ok (Qed)
+[wp] [Valid] typed_band1_uchar_assert_ok (Qed)
+[wp] [Valid] typed_band1_uchar_assert_ok_2 (Qed)
+[wp] [Valid] typed_band_uchar_ensures_ok (Alt-Ergo) (Cached)
+[wp] [Valid] typed_bor_uchar_ensures_ok (Qed)
+[wp] [Valid] typed_bxor_uchar_ensures_ok (Qed)
+[wp] [Valid] typed_bxor_uchar_ensures_ok_2 (Alt-Ergo) (Cached)
+[wp] [Valid] typed_bnot_uchar_ensures_ok (Qed)
+[wp] [Valid] typed_lshift_uchar_ensures_ok (Qed)
+[wp] [Valid] typed_rshift_uchar_ensures_ok (Alt-Ergo) (Cached)
+[wp] [Valid] typed_band1_ushort_assert_ok (Qed)
+[wp] [Valid] typed_band1_ushort_assert_ok_2 (Qed)
+[wp] [Valid] typed_band1_ulong_assert_ok (Qed)
+[wp] [Valid] typed_band1_ulong_assert_ok_2 (Qed)
+[wp] [Valid] typed_cast_ensures_ok (Qed)
+[wp] [Valid] typed_cast_assert_ok (Qed)
+[wp] [Valid] typed_cast_assert_ok_2 (Qed)
+[wp] [Valid] typed_cast_assert_ok_3 (Qed)
+[wp] [Valid] typed_cast_assert_ok_4 (Qed)
+[wp] [Valid] typed_cast_assert_ok_5 (Qed)
+[wp] [Valid] typed_cast_assert_ok_6 (Qed)
+[wp] [Valid] typed_cast_assert_ok_7 (Qed)
+[wp] Proved goals:  119 / 119
+  Terminating:    29
+  Unreachable:    29
+  Qed:            46
+  Alt-Ergo:       15
+------------------------------------------------------------
+ Axiomatics                WP     Alt-Ergo  Total   Success
+  Lemma                    11        7       18       100%
+------------------------------------------------------------
+ Functions                 WP     Alt-Ergo  Total   Success
+  band_int                  4        -        4       100%
+  bor_int                   3        -        3       100%
+  bxor_int                  3        -        3       100%
+  bnot_int                  3        -        3       100%
+  lshift_int                3        -        3       100%
+  rshift_int                3        -        3       100%
+  band1_uint                4        -        4       100%
+  band_uint                 3        -        3       100%
+  bor_uint                  3        -        3       100%
+  bxor_uint                 3        1        4       100%
+  bnot_uint                 3        -        3       100%
+  lshift_uint               3        -        3       100%
+  rshift_uint               3        -        3       100%
+  band_char                 2        1        3       100%
+  bor_char                  2        1        3       100%
+  bxor_char                 2        1        3       100%
+  bnot_char                 2        1        3       100%
+  lshift_char               3        -        3       100%
+  rshift_char               3        -        3       100%
+  band1_uchar               4        -        4       100%
+  band_uchar                2        1        3       100%
+  bor_uchar                 3        -        3       100%
+  bxor_uchar                3        1        4       100%
+  bnot_uchar                3        -        3       100%
+  lshift_uchar              3        -        3       100%
+  rshift_uchar              2        1        3       100%
+  band1_ushort              4        -        4       100%
+  band1_ulong               4        -        4       100%
+  cast                     10        -       10       100%
+------------------------------------------------------------

@@ -1,0 +1,4 @@
+[kernel] Parsing alignas_typing_constrains.c (with preprocessing)
+[kernel] alignas_typing_constrains.c:123: User Error: 
+  Invalid _Alignas(32): exceeds alignof(max_align_t): 16, and machdep does not allow extended alignment
+[kernel] Frama-C aborted: invalid user input.

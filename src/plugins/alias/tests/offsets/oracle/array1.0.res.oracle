@@ -1,0 +1,17 @@
+[kernel] Parsing array1.c (with preprocessing)
+[alias] analysing function: main
+[alias] analysing instruction: tab[0] = 0;
+[alias] May-aliases after instruction  tab[0] = 0;  are  <none>
+[alias] analysing instruction: tab[1] = 1;
+[alias] May-aliases after instruction  tab[1] = 1;  are  <none>
+[alias] analysing instruction: tab[2] = tab[1] + 1;
+[alias] May-aliases after instruction  tab[2] = tab[1] + 1;  are  <none>
+[alias] analysing instruction: int *x = & tab[1];
+[alias] May-aliases after instruction  int *x = & tab[1];  are  { tab; x }
+[alias] analysing instruction: int *y = & tab[2];
+[alias] May-aliases after instruction  int *y = & tab[2];  are  { tab; x; y }
+[alias] analysing instruction: tab[3] = *x + *y;
+[alias] May-aliases after instruction  tab[3] = *x + *y;  are  { tab; x; y }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are  { tab; x; y }
+[alias] May-aliases at the end of function main: { tab; x; y }

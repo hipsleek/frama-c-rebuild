@@ -1,0 +1,17 @@
+[kernel] Parsing cast1.c (with preprocessing)
+[alias] analysing function: main
+[alias] analysing instruction: int *a = (int *)0;
+[alias] May-aliases after instruction  int *a = (int *)0;  are  <none>
+[alias] analysing instruction: int *b = (int *)0;
+[alias] May-aliases after instruction  int *b = (int *)0;  are  <none>
+[alias] analysing instruction: float *c = (float *)0;
+[alias] May-aliases after instruction  float *c = (float *)0;  are  <none>
+[alias] analysing instruction: float *d = (float *)0;
+[alias] May-aliases after instruction  float *d = (float *)0;  are  <none>
+[alias] analysing instruction: a = (int *)c;
+[alias] May-aliases after instruction  a = (int *)c;  are  { a; c }
+[alias] analysing instruction: d = (float *)b;
+[alias] May-aliases after instruction  d = (float *)b;  are  { a; c }  { b; d }
+[alias] analysing instruction: __retres = 0;
+[alias] May-aliases after instruction  __retres = 0;  are  { a; c }  { b; d }
+[alias] May-aliases at the end of function main: { a; c }  { b; d }

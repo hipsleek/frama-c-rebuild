@@ -1,0 +1,40 @@
+[kernel] Parsing array_sizeof.i (no preprocessing)
+[eva] Analyzing a complete application starting at main
+[eva:progress] Computing initial state
+[eva:progress] Initial state computed
+[eva:initial-state] Values of globals at initialization
+  x ∈ {0}
+[eva:alarm] array_sizeof.i:10: Warning: 
+  accessing out of bounds index.
+  assert
+  sizeof(unsigned char [sizeof(unsigned char [1]) + sizeof(x)]) <
+  (unsigned int)(sizeof(unsigned char [1]) + sizeof(int));
+[eva:progress] array_sizeof.i:14: assertion 'alloca_bounds' got status valid.
+[eva:progress] array_sizeof.i:14: Call to builtin __fc_vla_alloc
+[eva:malloc:new] array_sizeof.i:14: allocating variable __malloc_main_l14
+[eva:alarm] array_sizeof.i:15: Warning: 
+  accessing uninitialized left-value. assert \initialized(buf_0 + x);
+[eva:progress] Recording results for main
+[eva:progress] Done for function main
+[eva] array_sizeof.i:10: assertion 'Eva,index_bound' got final status invalid.
+[eva] array_sizeof.i:15: 
+  assertion 'Eva,initialization' got final status invalid.
+[eva] ====== VALUES COMPUTED ======
+[eva:final-states] Values at end of function main:
+  NON TERMINATING FUNCTION
+[from] Computing for function main
+[from] Computing for function __fc_vla_alloc <-main
+[from] Done for function __fc_vla_alloc
+[from] Non-terminating function main (no dependencies)
+[from] Done for function main
+[from] ====== DEPENDENCIES COMPUTED ======
+  These dependencies hold at termination for the executions that terminate:
+[from] Function __fc_vla_alloc:
+  \result FROM \nothing
+[from] Function main:
+  NON TERMINATING - NO EFFECTS
+[from] ====== END OF DEPENDENCIES ======
+[inout] Out (internal) for function main:
+    x; tmp; buf_0; __lengthof_buf_0; tmp_3
+[inout] Inputs for function main:
+    x; __malloc_main_l14[4]

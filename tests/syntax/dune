@@ -1,0 +1,31 @@
+; Test dependencies
+(rule
+ (alias frama-c-configure)
+ (deps
+  (universe)
+  (alias ../frama-c-configure-tests))
+ (action (progn
+            (echo "  - tests/syntax/:" %{read:../../tests-syntax-deps-available} "\n")
+            (echo "    - clang:" %{bin-available:clang} "\n")
+            (echo "    - gcc:" %{bin-available:gcc} "\n")
+            (echo "    - gcc-is-genuine:" %{read:../../gcc-is-genuine} "\n")
+            (echo "    - has-c2x-option:" %{read:../../has-c2x-option} "\n")
+            (echo "    - python-3.10:" %{read:../../python-3.10-available} "\n")
+            ; If you add some dependencies here, do not forget to add them to
+            ; tests_configurator.ml
+  ))
+)
+
+(subdir
+   result/mixed_includes
+   (copy_files ../../mixed_includes/*))
+
+; Generic dependencies for all tests
+(cram
+  (deps (package frama-c))
+)
+
+(cram
+  (applies_to cpp-command)
+  (enabled_if %{read:../../python-3.10-available})
+)

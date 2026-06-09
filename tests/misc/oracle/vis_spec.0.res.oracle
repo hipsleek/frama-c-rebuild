@@ -1,0 +1,16 @@
+[kernel] Parsing vis_spec.i (no preprocessing)
+[kernel:annot:missing-spec] vis_spec.i:7: Warning: 
+  Neither code nor explicit exits for function g, generating default clauses.
+  See -generated-spec-* options for more info.
+Starting visit
+Considering vspec of function g
+Function prototype; Funspec is 'exits \false;'
+Considering sspec of function f
+Funspec of f is '' through visitor
+It is 'exits \false;
+       assigns \nothing;' through get_spec
+Considering vspec of function f
+Funspec of f is 'exits \false;' through visitor
+It is 'exits \false;
+       assigns \nothing;' through get_spec
+End visit
