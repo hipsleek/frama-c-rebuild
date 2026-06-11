@@ -38,6 +38,7 @@ else
 endif
 
 DISABLED_PLUGINS?=
+HIPSLEEK_DIR:=hipsleek
 
 all::
 ifeq (${FRAMAC_DEVELOPER},yes)
@@ -50,6 +51,10 @@ ifneq ($(DISABLED_PLUGINS),)
 	./dev/disable-plugins.sh ${DISABLED_PLUGINS}
 endif
 	dune build ${WORKSPACE_OPT} ${DUNE_BUILD_OPTS} @install
+
+.PHONY: hipsleek
+hipsleek:
+	dune build ${WORKSPACE_OPT} ${DUNE_BUILD_OPTS} $(HIPSLEEK_DIR)/hip.exe $(HIPSLEEK_DIR)/sleek.exe
 
 clean:: purge-tests # to be done before a "dune" command
 ifeq (${FRAMAC_DEVELOPER},yes)

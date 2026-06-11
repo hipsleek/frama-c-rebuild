@@ -8,7 +8,7 @@
 
 
 (alias (name default) (deps (alias install)))
-(dirs bin headers man share src ppx tools tests)
+(dirs bin headers man share src ppx tools tests hipsleek)
 
 (executable
  (name configurator)
