@@ -1,0 +1,12 @@
+(library
+ (name hipsleek)
+ (optional)
+ (public_name frama-c-hipsleek.core)
+ (flags (-open Frama_c_kernel :standard))
+ (libraries frama-c.kernel unix))
+
+(plugin
+ (optional)
+ (name hipsleek)
+ (libraries frama-c-hipsleek.core)
+ (site (frama-c plugins)))

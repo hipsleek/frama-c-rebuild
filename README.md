@@ -1,137 +1,115 @@
-![Frama-C](share/frama-c.png?raw=true)
+# HipSleek Verification via Frama-C
 
-[Frama-C](https://frama-c.com) is a platform dedicated to the analysis of
-source code written in C.
+This directory contains demo programs for the Frama-C HipSleek plugin, which lets you verify C programs using separation-logic specifications processed by the HipSleek engine (`hip.exe`).
 
-## A Collaborative Platform
+## Build
 
-Frama-C gathers several analysis techniques in a single collaborative
-platform, consisting of a **kernel** providing a core set of features
-(e.g., a normalized AST for C programs) plus a set of analyzers,
-called **plug-ins**. Plug-ins can build upon results computed by other
-plug-ins in the platform.
+From the repository root:
 
-Thanks to this approach, Frama-C provides sophisticated tools, including:
-- an analyzer based on abstract interpretation, aimed at verifying
-  the absence of run-time errors (**Eva**);
-- a program proof framework based on weakest precondition calculus (**WP**);
-- a program slicer (**Slicing**);
-- a tool for verification of temporal (LTL) properties (**Aoraï**);
-- a runtime verification tool (**E-ACSL**);
-- several tools for code base exploration and dependency analysis
-  (**From**, **Impact**, **Metrics**, **Occurrence**, **Scope**, etc.).
+```bash
+dune build
+```
 
-These plug-ins share a common language and can exchange information via
-**[ACSL](https://frama-c.com/acsl.html)** (*ANSI/ISO C Specification Language*)
-properties. Plug-ins can also collaborate via their APIs.
+This builds both Frama-C (with the HipSleek plugin) and the `hip.exe` / `sleek.exe` binaries.
 
-## Installation
+## Run
 
-Frama-C is available through [opam](https://opam.ocaml.org/), the
-OCaml package manager. If you have it, simply run:
+```bash
+dune exec --root . frama-c -- -hipsleek <file.c>
+```
 
-    opam install frama-c
+Example:
 
-or, for `opam` versions less than 2.1:
+```bash
+dune exec --root . frama-c -- -hipsleek demo_hipsleek/test_ll.c
+```
 
-    opam install depext # handles external (non-OCaml) dependencies
-    opam depext frama-c --install
+Expected output:
 
-Frama-C is developed mainly in Linux, often tested in macOS
-(via Homebrew), and occasionally tested on Windows
-(via the Windows Subsystem for Linux).
+```
+[hipsleek] [HipSleek] append: SUCCESS
+[hipsleek] [HipSleek] length: SUCCESS
+```
 
-For detailed installation instructions and troubleshooting,
-see [INSTALL.md](INSTALL.md).
+## Annotation Syntax
 
-### Development branch
+All HipSleek annotations are written as special C comments so the file remains valid C. Two kinds are supported:
 
-To install the development branch of Frama-C (updated nightly):
+### 1. Predicate / view definitions — `/*[SL_pred] ... */`
 
-    opam pin add frama-c --dev-repo
+Defines separation-logic predicates used in specs. Written at the top of the file (before any function that uses them).
 
-This command will *pin* the development version of Frama-C and try to install it.
-If installation fails due to missing external dependencies, try using
-the same commands from the [Installation](#installation) section to get the
-external dependencies and then install Frama-C.
+```c
+/*[SL_pred]
+ll<> == self = null
+  or self::node_star<p> * p::node<_,q> * q::ll<>;
+*/
+```
 
-### Distribution packages
+The body is HipSleek's native `.ss` view syntax and is passed through verbatim to the generated `.ss` file.
 
-Some Linux distributions have a `frama-c` package, kindly provided by
-distribution packagers. Note that they may not correspond to the latest
-Frama-C release.
+### 2. Pre/post specifications — `/*[SL] ... */`
 
-## Usage
+Written immediately before the function they annotate.
 
-Frama-C can be run from the command-line, or via its graphical interface.
+```c
+/*[SL]
+  requires x::ll<> * y::ll<>
+  ensures res::ll<>;
+*/
+node* append(node* x, node* y) { ... }
+```
 
-#### Simple usage
+## Pointer types and field access
 
-The recommended usage for simple files is one of the following lines:
+HipSleek's native format represents C pointer types `T*` as a wrapper type `T_star` with a single field `pdata`. The plugin performs this translation automatically:
 
-    frama-c file.c -<plugin> [options]
-    frama-c-gui file.c -<plugin> [options]
+| C source | Generated `.ss` |
+|----------|----------------|
+| `node* x` (parameter) | `node_star x` |
+| `x->next` | `x.pdata.next` |
+| `struct node { node* next; }` | `data node { node_star next; }` + `data node_star { node pdata; }` |
+| `(node*)0` / `NULL` | `null` |
 
-Where `-<plugin>` is one of the several Frama-C plug-ins,
-e.g. `-eva`, or `-wp`, or `-metrics`, etc.
-Plug-ins can also be run directly from the graphical interface.
+Predicate definitions must use `node_star` directly (as shown in the `ll<>` example above), since they are passed through verbatim.
 
-To list all plug-ins, run:
+## Example — `test_ll.c`
 
-    frama-c -plugins
+```c
+/*[SL_pred]
+ll<> == self = null
+  or self::node_star<p> * p::node<_,q> * q::ll<>;
+*/
 
-Each plug-in has a help command
-(`-<plugin>-help` or `-<plugin>-h`) that describes its own
-options.
+typedef struct node {
+  int val;
+  struct node* next;
+} node;
 
-Finally, the list of options governing the behavior of Frama-C's kernel itself
-is available through
+/*[SL]
+  requires x::ll<>
+  ensures x::ll<>;
+*/
+int length(node* x) {
+  if (x == 0) return 0;
+  return 1 + length(x->next);
+}
 
-    frama-c -kernel-help
+/*[SL]
+  requires x::ll<> * y::ll<>
+  ensures res::ll<>;
+*/
+node* append(node* x, node* y) {
+  if (x == 0) return y;
+  x->next = append(x->next, y);
+  return x;
+}
+```
 
-#### Complex scenarios
+## Options
 
-For complex usage scenarios (several files and directories,
-preprocessing directives, etc), we recommend the following two-step approach:
-
-1. Parsing the input files and saving the result to a file;
-2. Loading the parsing results and then running the analyses or the GUI.
-
-Parsing complex C applications usually involves C preprocessor options
-(e.g. GCC's `-D` and `-I`).
-In Frama-C, they are passed via option `-cpp-extra-args`, as in this example:
-
-    frama-c *.c -cpp-extra-args="-D<define> -I<include>" -save parsed.sav
-
-The results can then be loaded into Frama-C for further analyses or for inspection
-via the GUI:
-
-    frama-c -load parsed.sav -<plugin> [options]
-    frama-c-gui -load parsed.sav -<plugin> [options]
-
-## Further reference
-
-- Links to user and developer manuals, Frama-C archives,
-  and plug-in manuals are available at <br> https://frama-c.com/html/get-frama-c.html
-
-- The [Frama-C documentation page](https://frama-c.com/html/documentation.html)
-  contains links to all manuals and plugins description, as well as tutorials,
-  courses and more.
-
-- [StackOverflow](https://stackoverflow.com/questions/tagged/frama-c) has several
-  questions with the `frama-c` tag, which is monitored by several members of the
-  Frama-C community.
-
-- The [Frama-c-discuss mailing list](https://groupes.renater.fr/sympa/info/frama-c-discuss)
-  is used for announcements and general discussions.
-
-- The [Frama-C blog](https://frama-c.com/blog) has several posts about
-  new developments of Frama-C, as well as general discussions about the C
-  language, undefined behavior, floating-point computations, etc.
-
-- The [Frama-C public repository](https://git.frama-c.com/pub/frama-c)
-  contains a daily snapshot of the development version of Frama-C, as well as
-  the [issues tracking system](https://git.frama-c.com/pub/frama-c/issues),
-  for reporting bugs.
-  These [contribution guidelines](CONTRIBUTING.md) detail how to submit
-  issues or create merge requests.
+| Flag | Description |
+|------|-------------|
+| `-hipsleek` | Enable the HipSleek plugin |
+| `-hipsleek-path <path>` | Override path to `hip.exe` (auto-detected by default) |
+| `-hipsleek-output-dir <dir>` | Directory for the generated `.ss` file (default: system temp) |
