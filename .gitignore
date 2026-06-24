@@ -162,3 +162,5 @@ hello-*.tar.gz
 # HipSleek solver output logs
 /logs/
 /oc.out
+
+.vscode/

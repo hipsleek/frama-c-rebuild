@@ -12,9 +12,6 @@ typedef struct node {
   requires x::ll<>
   ensures x::ll<>;
 */
-/*@ requires \valid(x) || x == \null;
-    assigns \nothing;
-*/
 int length(node* x) {
   if (x == 0) return 0;
   return 1 + length(x->next);
@@ -23,10 +20,6 @@ int length(node* x) {
 /*[SL]
   requires x::ll<> * y::ll<>
   ensures res::ll<>;
-*/
-/*@ requires \valid(x) || x == \null;
-    requires \valid(y) || y == \null;
-    assigns \nothing;
 */
 node* append(node* x, node* y) {
   if (x == 0) return y;

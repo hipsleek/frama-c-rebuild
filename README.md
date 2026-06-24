@@ -106,6 +106,41 @@ node* append(node* x, node* y) {
 }
 ```
 
+## Verification results in Frama-C
+
+Each function's HipSleek verdict is reported back into Frama-C as a real property,
+so it shows up on the command line, in `-report`, and in the Ivette GUI:
+
+- The SL spec appears on the function as a clean `\hipsleek::hipsleek requires…/ensures…`
+  contract clause (visible with `-print` and in the GUI source view), and the SUCCESS/FAIL
+  verdict becomes that clause's **property status** (green *Valid* marker on SUCCESS).
+- `[SL_pred]` view definitions appear as a global `\hipsleek::hipsleek_pred …` annotation.
+
+### Proof detail — `-hipsleek-proof-log`
+
+With this flag, the plugin runs HipSleek with its ESL proof log enabled and attaches the
+per-function proof obligations (the SLEEK entailments — `PRE` / `POST` / `BIND` / `PRE_REC`,
+each marked `[proved]` / `[unproved]`) as a **separate `HipSleek proof (…)` property** on the
+function. This keeps the source comment clean: the detail is shown on demand (in `-report`,
+or by selecting the function in the GUI's Properties panel), not inline in the contract.
+
+```bash
+dune exec --root . frama-c -- \
+  -hipsleek -hipsleek-proof-log demo_hipsleek/test_ll.c -report -report-print-properties
+```
+
+### Translation-fidelity warnings
+
+The C→`.ss` translation supports a subset of C. When a function body uses something that is
+dropped or approximated (a cast, a global variable, `sizeof`, `switch`, `goto`, a nested
+lvalue, …), the plugin emits a warning such as:
+
+```
+[hipsleek] Warning: uses_global: generated .ss may differ from your C (references global 'g')
+```
+
+so a green verdict on a lossily-translated function is never silent.
+
 ## Options
 
 | Flag | Description |
@@ -113,3 +148,4 @@ node* append(node* x, node* y) {
 | `-hipsleek` | Enable the HipSleek plugin |
 | `-hipsleek-path <path>` | Override path to `hip.exe` (auto-detected by default) |
 | `-hipsleek-output-dir <dir>` | Directory for the generated `.ss` file (default: system temp) |
+| `-hipsleek-proof-log` | Capture HipSleek's ESL proof log and attach per-function proof detail as a property |

@@ -85,6 +85,24 @@ let find_annotation annotations func_line =
   | (_, body) :: _ -> Some body
 
 (* ------------------------------------------------------------------ *)
+(* Translation-fidelity warnings                                       *)
+(*                                                                     *)
+(* The C/Cil AST -> HIP .ss translation drops or coarsens a number of *)
+(* constructs (casts, globals, sizeof, switch, goto, nested lvalues,   *)
+(* ...). When that happens inside a function body, a green HIP verdict *)
+(* attests to a .ss that differs from the C. We accumulate a note per  *)
+(* function (deduplicated) so the caller can surface "verified, but    *)
+(* the .ss differs from your C here".                                  *)
+(*                                                                     *)
+(* Translation is sequential (one function at a time), so a single     *)
+(* module-level accumulator, reset by translate_fundec, is sufficient. *)
+(* ------------------------------------------------------------------ *)
+
+let warn_acc : string list ref = ref []
+let add_warn msg =
+  if not (List.mem msg !warn_acc) then warn_acc := msg :: !warn_acc
+
+(* ------------------------------------------------------------------ *)
 (* Type translation                                                     *)
 (*                                                                     *)
 (* In HipSleek's .ss format, C pointer types T* are represented as    *)
@@ -103,8 +121,12 @@ let rec translate_typ t =
   | TPtr t'          -> translate_typ t' ^ "_star"
   | TComp ci         -> ci.cname
   | TNamed ti        -> translate_typ ti.ttype
-  | TArray _         -> "int_star"  (* not in subset *)
-  | TFun _           -> "void_star" (* not in subset *)
+  | TArray _         ->
+    add_warn "array type approximated as a pointer (size/elements lost)";
+    "int_star"  (* not in subset *)
+  | TFun _           ->
+    add_warn "function-pointer type approximated as void*";
+    "void_star" (* not in subset *)
   | TEnum _          -> "int"
   | TBuiltin_va_list -> "void_star"
 
@@ -155,25 +177,38 @@ let rec translate_exp e =
     when Z.equal n Z.zero ->
     "null"
   | CastE(_, e) ->
+    add_warn "cast(s) erased during translation (no width/sign/pointer reinterpretation)";
     translate_exp e
   | AddrOf lv  -> "(&" ^ translate_lval lv ^ ")"
   | StartOf lv -> translate_lval lv
-  | SizeOf _   -> "/*sizeof*/"
-  | SizeOfE _  -> "/*sizeof*/"
-  | AlignOf _  -> "/*alignof*/"
-  | AlignOfE _ -> "/*alignof*/"
+  | SizeOf _   -> add_warn "sizeof not modelled"; "/*sizeof*/"
+  | SizeOfE _  -> add_warn "sizeof not modelled"; "/*sizeof*/"
+  | AlignOf _  -> add_warn "alignof not modelled"; "/*alignof*/"
+  | AlignOfE _ -> add_warn "alignof not modelled"; "/*alignof*/"
 
 (* Translate an lval.
    Key difference from C: p->field (Mem p, Field fi) becomes p.pdata.field
    because in .ss format, a C pointer variable p is of type T_star, and
    field access goes via the .pdata indirection. *)
-and translate_lval = function
-  | Var vi, NoOffset                  -> vi.vname
-  | Var vi, Field(fi, NoOffset)       -> vi.vname ^ "." ^ fi.fname
-  | Var vi, Index(e, NoOffset)        -> vi.vname ^ "[" ^ translate_exp e ^ "]"
+and translate_lval lv =
+  let note_global vi =
+    if vi.vglob then
+      add_warn
+        (Printf.sprintf
+           "references global '%s' (globals are not translated to the .ss)"
+           vi.vname)
+  in
+  match lv with
+  | Var vi, NoOffset                  -> note_global vi; vi.vname
+  | Var vi, Field(fi, NoOffset)       -> note_global vi; vi.vname ^ "." ^ fi.fname
+  | Var vi, Index(e, NoOffset)        ->
+    note_global vi; vi.vname ^ "[" ^ translate_exp e ^ "]"
   | Mem e,  NoOffset                  -> translate_exp e ^ ".pdata"
   | Mem e,  Field(fi, NoOffset)       -> translate_exp e ^ ".pdata." ^ fi.fname
-  | _                                 -> "/*unsupported_lval*/"
+  | _                                 ->
+    add_warn "unsupported lvalue (nested field/offset or multi-level deref) \
+              emitted as a placeholder";
+    "/*unsupported_lval*/"
 
 (* ------------------------------------------------------------------ *)
 (* Statement translation                                                *)
@@ -246,12 +281,22 @@ and translate_stmt buf indent stmt =
     translate_stmts buf indent b.bstmts
   | UnspecifiedSequence seq ->
     List.iter (fun (s, _, _, _, _) -> translate_stmt buf indent s) seq
-  | Goto _         -> ()
-  | Switch _       -> Buffer.add_string buf (pad ^ "/* switch: not in subset */\n")
-  | Throw _        -> Buffer.add_string buf (pad ^ "/* throw: not in subset */\n")
-  | TryCatch _     -> Buffer.add_string buf (pad ^ "/* try-catch: not in subset */\n")
-  | TryFinally _   -> Buffer.add_string buf (pad ^ "/* try-finally: not in subset */\n")
-  | TryExcept _    -> Buffer.add_string buf (pad ^ "/* try-except: not in subset */\n")
+  | Goto _         -> add_warn "goto dropped (only the single-return pattern is reconstructed)"
+  | Switch _       ->
+    add_warn "switch not in subset (dropped)";
+    Buffer.add_string buf (pad ^ "/* switch: not in subset */\n")
+  | Throw _        ->
+    add_warn "exceptions not in subset (dropped)";
+    Buffer.add_string buf (pad ^ "/* throw: not in subset */\n")
+  | TryCatch _     ->
+    add_warn "exceptions not in subset (dropped)";
+    Buffer.add_string buf (pad ^ "/* try-catch: not in subset */\n")
+  | TryFinally _   ->
+    add_warn "exceptions not in subset (dropped)";
+    Buffer.add_string buf (pad ^ "/* try-finally: not in subset */\n")
+  | TryExcept _    ->
+    add_warn "exceptions not in subset (dropped)";
+    Buffer.add_string buf (pad ^ "/* try-except: not in subset */\n")
 
 and translate_instr buf pad = function
   | Set(lv, e, _) ->
@@ -279,10 +324,13 @@ and translate_instr buf pad = function
     in
     Buffer.add_string buf (pad ^ vi.vname ^ " = " ^ call_str ^ ";\n")
   | Local_init(_, AssignInit(CompoundInit _), _) ->
+    add_warn "compound initializer not in subset (dropped)";
     Buffer.add_string buf (pad ^ "/* compound init: not in subset */\n")
-  | Asm _       -> Buffer.add_string buf (pad ^ "/* asm: not in subset */\n")
+  | Asm _       ->
+    add_warn "inline asm not in subset (dropped)";
+    Buffer.add_string buf (pad ^ "/* asm: not in subset */\n")
   | Skip _      -> ()
-  | Code_annot _ -> ()
+  | Code_annot _ -> add_warn "inline ACSL annotation ignored"
 
 (* ------------------------------------------------------------------ *)
 (* Struct definition translation                                        *)
@@ -310,7 +358,11 @@ let translate_compinfo buf ci =
 (* Function definition translation                                      *)
 (* ------------------------------------------------------------------ *)
 
-let translate_fundec buf annotations fundec loc =
+(* Translate one function into its own buffer and return
+   (name, sl_spec_text option, generated .ss procedure text, fidelity warnings). *)
+let translate_fundec annotations fundec loc =
+  warn_acc := [];
+  let buf = Buffer.create 512 in
   let func_line = Fileloc.line loc in
   let spec = find_annotation annotations func_line in
   let ret_typ = match fundec.svar.vtype.tnode with
@@ -341,7 +393,8 @@ let translate_fundec buf annotations fundec loc =
     ) visible_locals;
   if visible_locals <> [] then Buffer.add_string buf "\n";
   translate_stmts buf 2 fundec.sbody.bstmts;
-  Buffer.add_string buf "}\n\n"
+  Buffer.add_string buf "}\n\n";
+  (fundec.svar.vname, spec, Buffer.contents buf, List.rev !warn_acc)
 
 (* ------------------------------------------------------------------ *)
 (* Top-level file translation                                           *)
@@ -363,6 +416,25 @@ let source_files_of globals =
         else begin Hashtbl.add seen path (); Some path end
     ) globals
 
+(* Count newlines in a string (= number of complete lines). *)
+let count_lines s =
+  String.fold_left (fun n c -> if c = '\n' then n + 1 else n) 0 s
+
+(* Result of translating a whole file:
+   - full_ss   : the complete generated .ss program (fed to hip)
+   - preds     : the [SL_pred] view-definition blocks (verbatim)
+   - functions : per-function (name, sl_spec_text option, generated .ss proc text)
+   - ss_spans  : per-function (name, start_line, end_line) within full_ss; used to
+                 map HipSleek proof-log entries (keyed by .ss line) back to functions
+   - fidelity  : per-function (name, translation-fidelity warnings) *)
+type translation = {
+  full_ss   : string;
+  preds     : string list;
+  functions : (string * string option * string) list;
+  ss_spans  : (string * int * int) list;
+  fidelity  : (string * string list) list;
+}
+
 let translate file =
   let buf = Buffer.create 4096 in
   let src_files = source_files_of file.globals in
@@ -376,10 +448,26 @@ let translate file =
   let annotations =
     List.concat_map extract_sl_annotations src_files
   in
+  let functions = ref [] in
+  let ss_spans = ref [] in
+  let fidelity = ref [] in
   List.iter (fun g ->
       match g with
       | GCompTag(ci, _)     -> translate_compinfo buf ci
-      | GFun(fundec, loc)   -> translate_fundec buf annotations fundec loc
+      | GFun(fundec, loc)   ->
+        let (name, spec, proc_text, warnings) =
+          translate_fundec annotations fundec loc in
+        (* The procedure occupies lines [start_line, end_line] in full_ss. *)
+        let start_line = count_lines (Buffer.contents buf) + 1 in
+        Buffer.add_string buf proc_text;
+        let end_line = count_lines (Buffer.contents buf) in
+        functions := (name, spec, proc_text) :: !functions;
+        ss_spans  := (name, start_line, end_line) :: !ss_spans;
+        if warnings <> [] then fidelity := (name, warnings) :: !fidelity
       | _                   -> ()
     ) file.globals;
-  Buffer.contents buf
+  { full_ss = Buffer.contents buf;
+    preds;
+    functions = List.rev !functions;
+    ss_spans  = List.rev !ss_spans;
+    fidelity  = List.rev !fidelity }

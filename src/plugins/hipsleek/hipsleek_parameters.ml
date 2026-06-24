@@ -31,3 +31,12 @@ module OutputDir =
     let arg_name = "dir"
     let default = ""
   end)
+
+let () = Parameter_customize.set_group group
+module ProofLog =
+  False(struct
+    let option_name = "-hipsleek-proof-log"
+    let help =
+      "Capture HipSleek's ESL proof log and show per-function proof detail \
+       (entailments + verdict) in the property description"
+  end)
