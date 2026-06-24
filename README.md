@@ -31,6 +31,43 @@ Expected output:
 [hipsleek] [HipSleek] length: SUCCESS
 ```
 
+## GUI (Ivette)
+
+The dev tree's graphical front-end is **Ivette** (an Electron app). It shows the SL contract
+clauses, the verdict markers, and — with `-hipsleek-proof-log` — the per-function proof
+detail in the Properties panel.
+
+### One-time setup
+
+Ivette needs **Node ≥ 20** and is built with `yarn`/`make`:
+
+```bash
+nvm use 23                # or any Node >= 20
+yarn install              # in the repo root
+make -C ivette api
+make -C ivette app        # produces the bin/frama-c-gui launcher
+```
+
+### Running
+
+```bash
+nvm use 23
+unset ELECTRON_RUN_AS_NODE         # else Electron runs headless -> "ipcMain undefined"
+export ELECTRON_DISABLE_SANDBOX=1  # WSL/sandbox-less environments
+
+HIP=$(pwd)/_build/default/hipsleek/hip.exe
+bin/frama-c-gui -hipsleek -hipsleek-proof-log -hipsleek-path "$HIP" demo_hipsleek/test_ll.c
+```
+
+Notes:
+- Any arguments after `bin/frama-c-gui` are passed straight to `frama-c`.
+- **Give it ~20 s** after the window opens to connect — the dev server is slow to bind its
+  socket on the Windows-mounted `/mnt/c` filesystem, so the functions list is briefly empty.
+- Do **not** prefix the launch with `pkill` in the same command; that races the spawn. Kill
+  any stale instance as a separate step first.
+- In the GUI, open the **Source/AST** view to see the SL clauses + green verdict markers, and
+  select a function to see its `HipSleek proof (…)` property in the **Properties** panel.
+
 ## Annotation Syntax
 
 All HipSleek annotations are written as special C comments so the file remains valid C. Two kinds are supported:
