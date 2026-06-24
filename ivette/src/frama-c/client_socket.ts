@@ -14,7 +14,11 @@ import { SocketDomain, defaultInetPort } from './server';
 
 const D = new Debug('SocketServer');
 
-const RETRIES = 30;
+// Connection budget = RETRIES * TIMEOUT ms. Kept generous so that a slow
+// Frama-C server startup (e.g. dune-exec dev build on a Windows-mounted /mnt
+// filesystem under WSL, which can take >6s to bind its socket) is tolerated
+// instead of the GUI silently giving up with an empty AST.
+const RETRIES = 300;
 const TIMEOUT = 200;
 
 // --------------------------------------------------------------------------
