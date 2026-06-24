@@ -97,6 +97,29 @@ HipSleek has been stabilised as a standalone verifier before the Frama-C integra
 
 **What is working**: `hip.exe` and `sleek.exe` build cleanly and pass the representative test suite. Core separation-logic reasoning, Z3/Omega backends, and standard heap predicates all work.
 
+## Demos (`demo_hipsleek/`)
+
+C/Frama-C demo programs exercised end-to-end through the plugin with
+`./bin/frama-c -hipsleek demo_hipsleek/<file>.c`:
+
+| File | Functions | Demonstrates |
+|------|-----------|--------------|
+| `hipexm.c` | `get_val`, `set_val` | the basic READ / UPDATE heap effects |
+| `ll.c` | `get_next`, `set_next`, `set_null`, `append` | the `ll<n>` length predicate (`[SL_pred]`); `append` is recursive |
+| `alias.c` | `alias_write`, `aliased_inputs`, `set_two`, `set_two_aliased` | aliasing vs. separation; `set_two_aliased` is an **expected FAIL** — `*` rejects unintended aliasing at the call site |
+
+All functions verify **SUCCESS** except `set_two_aliased` (intentional FAIL).
+`test_ll.c` is an older scratch file, not part of the demo set.
+
+**Encoding rule the specs use**: a C `node* x` is encoded by the plugin as the wrapper
+type `node_star` (a cell whose `pdata` field is the `node`), so `node* x` owns *two*
+cells — `x::node_star<p> * p::node<...>` — and `x->val` becomes `x.pdata.val` in the
+generated `.ss`. Specs are written in that generated-`.ss` vocabulary.
+
+Running requires the z3/`prelude.ss`/PATH setup recorded in the project memory
+(`build-run-env`): hip.exe needs a `z3-4.3.2` executable on a `WindowsApps`-free PATH
+and `_build/default/hipsleek/prelude.ss` present.
+
 ## Collaboration Notes
 
 - **`hipsleek/CLAUDE.md`** — detailed change log for the HipSleek stabilisation work (newest-first). All code changes to HipSleek must be logged there.
