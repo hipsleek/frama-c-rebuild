@@ -102,6 +102,21 @@ let warn_acc : string list ref = ref []
 let add_warn msg =
   if not (List.mem msg !warn_acc) then warn_acc := msg :: !warn_acc
 
+(* Count newlines in a string (= number of complete lines). *)
+let count_lines s =
+  String.fold_left (fun n c -> if c = '\n' then n + 1 else n) 0 s
+
+(* Maps a generated-.ss line (relative to the current procedure buffer) to the
+   originating C source line, so proof obligations (keyed by .ss line) can be
+   reported against the user's code. Reset per function by translate_fundec. *)
+let linemap_acc : (int * int) list ref = ref []
+let record_line buf stmt =
+  let cl = Fileloc.line (Cil_datatype.Stmt.loc stmt) in
+  if cl > 0 then begin
+    let ssl = count_lines (Buffer.contents buf) + 1 in
+    linemap_acc := (ssl, cl) :: !linemap_acc
+  end
+
 (* ------------------------------------------------------------------ *)
 (* Type translation                                                     *)
 (*                                                                     *)
@@ -256,6 +271,7 @@ let rec translate_stmts buf indent stmts =
 
 and translate_stmt buf indent stmt =
   let pad = String.make indent ' ' in
+  record_line buf stmt;
   match stmt.skind with
   | Instr i ->
     translate_instr buf pad i
@@ -364,6 +380,9 @@ let translate_fundec annotations fundec loc =
   warn_acc := [];
   let buf = Buffer.create 512 in
   let func_line = Fileloc.line loc in
+  (* Seed the line map so obligations before any statement (e.g. POST at the
+     ensures line) still resolve to the function's C declaration line. *)
+  linemap_acc := [ (1, func_line) ];
   let spec = find_annotation annotations func_line in
   let ret_typ = match fundec.svar.vtype.tnode with
     | TFun(rt, _, _) -> translate_typ rt
@@ -394,7 +413,8 @@ let translate_fundec annotations fundec loc =
   if visible_locals <> [] then Buffer.add_string buf "\n";
   translate_stmts buf 2 fundec.sbody.bstmts;
   Buffer.add_string buf "}\n\n";
-  (fundec.svar.vname, spec, Buffer.contents buf, List.rev !warn_acc)
+  (fundec.svar.vname, spec, Buffer.contents buf,
+   List.rev !warn_acc, List.rev !linemap_acc)
 
 (* ------------------------------------------------------------------ *)
 (* Top-level file translation                                           *)
@@ -416,23 +436,22 @@ let source_files_of globals =
         else begin Hashtbl.add seen path (); Some path end
     ) globals
 
-(* Count newlines in a string (= number of complete lines). *)
-let count_lines s =
-  String.fold_left (fun n c -> if c = '\n' then n + 1 else n) 0 s
-
 (* Result of translating a whole file:
    - full_ss   : the complete generated .ss program (fed to hip)
    - preds     : the [SL_pred] view-definition blocks (verbatim)
    - functions : per-function (name, sl_spec_text option, generated .ss proc text)
    - ss_spans  : per-function (name, start_line, end_line) within full_ss; used to
                  map HipSleek proof-log entries (keyed by .ss line) back to functions
-   - fidelity  : per-function (name, translation-fidelity warnings) *)
+   - fidelity  : per-function (name, translation-fidelity warnings)
+   - linemaps  : per-function (name, (ss_line_relative_to_proc, c_source_line) list),
+                 to report obligations against the user's C source *)
 type translation = {
   full_ss   : string;
   preds     : string list;
   functions : (string * string option * string) list;
   ss_spans  : (string * int * int) list;
   fidelity  : (string * string list) list;
+  linemaps  : (string * (int * int) list) list;
 }
 
 let translate file =
@@ -451,11 +470,12 @@ let translate file =
   let functions = ref [] in
   let ss_spans = ref [] in
   let fidelity = ref [] in
+  let linemaps = ref [] in
   List.iter (fun g ->
       match g with
       | GCompTag(ci, _)     -> translate_compinfo buf ci
       | GFun(fundec, loc)   ->
-        let (name, spec, proc_text, warnings) =
+        let (name, spec, proc_text, warnings, linemap) =
           translate_fundec annotations fundec loc in
         (* The procedure occupies lines [start_line, end_line] in full_ss. *)
         let start_line = count_lines (Buffer.contents buf) + 1 in
@@ -463,6 +483,7 @@ let translate file =
         let end_line = count_lines (Buffer.contents buf) in
         functions := (name, spec, proc_text) :: !functions;
         ss_spans  := (name, start_line, end_line) :: !ss_spans;
+        linemaps  := (name, linemap) :: !linemaps;
         if warnings <> [] then fidelity := (name, warnings) :: !fidelity
       | _                   -> ()
     ) file.globals;
@@ -470,4 +491,5 @@ let translate file =
     preds;
     functions = List.rev !functions;
     ss_spans  = List.rev !ss_spans;
-    fidelity  = List.rev !fidelity }
+    fidelity  = List.rev !fidelity;
+    linemaps  = List.rev !linemaps }

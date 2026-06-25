@@ -157,6 +157,67 @@ let squeeze s =
     ) s;
   String.trim (Buffer.contents b)
 
+(* Replace all (non-overlapping) occurrences of [sub] in [s] with [rep]. *)
+let replace_all s sub rep =
+  if sub = "" then s
+  else begin
+    let b = Buffer.create (String.length s) in
+    let lsub = String.length sub in
+    let i = ref 0 in
+    let n = String.length s in
+    while !i < n do
+      if !i + lsub <= n && String.sub s !i lsub = sub then
+        (Buffer.add_string b rep; i := !i + lsub)
+      else (Buffer.add_char b s.[!i]; incr i)
+    done;
+    Buffer.contents b
+  end
+
+(* Strip HipSleek's internal noise from an entailment so it reads closer to the
+   separation-logic the user wrote: drop {FLOW,...} blocks and the
+   termination markers MayLoop[]/Term[], then tidy leftover separators. *)
+let clean_entail s =
+  (* drop "{FLOW,...}" blocks and a directly-following "[]" *)
+  let b = Buffer.create (String.length s) in
+  let n = String.length s in
+  let i = ref 0 in
+  while !i < n do
+    if !i + 6 <= n && String.sub s !i 6 = "{FLOW," then begin
+      let j = ref (!i + 6) in
+      while !j < n && s.[!j] <> '}' do incr j done;
+      i := (if !j < n then !j + 1 else n);
+      if !i + 1 < n && s.[!i] = '[' && s.[!i + 1] = ']' then i := !i + 2
+    end else (Buffer.add_char b s.[!i]; incr i)
+  done;
+  let s = Buffer.contents b in
+  let s = replace_all s "MayLoop[]" "" in
+  let s = replace_all s "Term[]" "" in
+  let s = squeeze s in
+  (* tidy leftover '&' separator artifacts *)
+  let s = replace_all s "&&" "&" in
+  let s = replace_all s "& &" "&" in
+  let s = replace_all s "& ." "." in
+  let s = replace_all s "&." "." in
+  let s = replace_all s "& )" ")" in
+  let s = replace_all s "&)" ")" in
+  let s = replace_all s "& |-" "|-" in
+  let s = replace_all s "&|-" "|-" in
+  let s = replace_all s "|- &" "|-" in
+  let s = squeeze s in
+  (* drop the "checkentail " lead-in and the trailing '.'/'&' *)
+  let s =
+    let p = "checkentail " in let lp = String.length p in
+    if String.length s >= lp && String.sub s 0 lp = p
+    then String.sub s lp (String.length s - lp) else s
+  in
+  let s = String.trim s in
+  let drop_last s =
+    let n = String.length s in
+    if n > 0 && (s.[n-1] = '.' || s.[n-1] = '&')
+    then String.trim (String.sub s 0 (n-1)) else s
+  in
+  drop_last (drop_last s)
+
 type entry = { e_line : int; e_kind : string; e_oblig : string; e_proved : bool }
 
 (* Parse one entry block (the "id:" header + the lines that follow it). *)
@@ -228,11 +289,30 @@ let is_obligation_kind = function
   | "PRE" | "POST" | "BIND" | "PRE_REC" | "ASSERT" -> true
   | _ -> false
 
-(* Build per-function proof-detail text from the sleek log, keyed by the
-   per-function .ss line spans (name, start, end). *)
-let proof_logs_of_spans ~spans content =
+(* Public, structured per-obligation record (consumed by Hipsleek_store /
+   the server panel as well as the textual CLI surface). [cline] is the
+   originating C source line (0 if unknown); [line] is the generated .ss line. *)
+type obligation =
+  { kind : string; line : int; cline : int; entail : string; proved : bool }
+
+(* Map an absolute .ss line within a function (span start [lo]) to the C source
+   line, via the per-function (ss_line_relative, c_line) map: take the C line of
+   the greatest relative entry <= the obligation's relative line. *)
+let cline_of linemap ~lo abs =
+  let rel = abs - lo + 1 in
+  List.fold_left (fun best (ssrel, cl) ->
+      if ssrel <= rel then
+        (match best with Some (b, _) when b >= ssrel -> best | _ -> Some (ssrel, cl))
+      else best)
+    None linemap
+  |> function Some (_, cl) -> cl | None -> 0
+
+(* Build per-function structured obligations from the sleek log, keyed by the
+   per-function .ss line spans (name, start, end) and C-source line maps. *)
+let proof_info_of_spans ~spans ~linemaps content : (string * obligation list) list =
   let entries = parse_sleek_log content in
   List.filter_map (fun (name, lo, hi) ->
+      let linemap = match List.assoc_opt name linemaps with Some m -> m | None -> [] in
       let es =
         List.filter (fun e ->
             is_obligation_kind e.e_kind && e.e_line >= lo && e.e_line <= hi)
@@ -247,20 +327,34 @@ let proof_logs_of_spans ~spans content =
             else (Hashtbl.add seen k (); true)) es
       in
       if es = [] then None
-      else begin
-        let b = Buffer.create 256 in
-        Buffer.add_string b
-          (Printf.sprintf "HipSleek proof (%d obligation(s)):"
-             (List.length es));
-        List.iter (fun e ->
-            Buffer.add_string b
-              (Printf.sprintf "\n  %s @%d: %s  [%s]"
-                 e.e_kind e.e_line e.e_oblig
-                 (if e.e_proved then "proved" else "unproved"))
-          ) es;
-        Some (name, Buffer.contents b)
-      end
+      else
+        let obls =
+          List.map (fun e ->
+              { kind = e.e_kind; line = e.e_line;
+                cline = cline_of linemap ~lo e.e_line;
+                entail = clean_entail e.e_oblig; proved = e.e_proved }) es
+        in
+        Some (name, obls)
     ) spans
+
+(* Flatten one function's obligations into the textual form used by the
+   ip_other property / CLI -report. *)
+let text_of_obligations obls =
+  let b = Buffer.create 256 in
+  Buffer.add_string b
+    (Printf.sprintf "HipSleek proof (%d obligation(s)):" (List.length obls));
+  List.iter (fun o ->
+      let where =
+        if o.cline > 0 then Printf.sprintf "line %d" o.cline
+        else Printf.sprintf ".ss %d" o.line in
+      Buffer.add_string b
+        (Printf.sprintf "\n  %s (%s): %s  [%s]"
+           o.kind where o.entail (if o.proved then "proved" else "unproved"))
+    ) obls;
+  Buffer.contents b
+
+let proof_logs_of_info info =
+  List.map (fun (name, obls) -> (name, text_of_obligations obls)) info
 
 (* ------------------------------------------------------------------ *)
 (* Subprocess invocation                                                *)
@@ -317,7 +411,7 @@ let read_sleek_log ~dir ~ss_file =
 (* Entry point: write .ss file, run hip.exe, report                    *)
 (* ------------------------------------------------------------------ *)
 
-let run ~ss_content ~ss_spans =
+let run ~ss_content ~ss_spans ~linemaps =
   let dir =
     let d = Hipsleek_parameters.OutputDir.get () in
     if d <> "" then d else Filename.get_temp_dir_name ()
@@ -329,11 +423,12 @@ let run ~ss_content ~ss_spans =
   Hipsleek_parameters.feedback "Generated .ss file: %s" ss_file;
   let results = run_hip ~dir ~ss_file in
   report results;
-  let proof_logs =
+  let proof_info =
     if Hipsleek_parameters.ProofLog.get () then
       match read_sleek_log ~dir ~ss_file with
-      | Some content -> proof_logs_of_spans ~spans:ss_spans content
+      | Some content -> proof_info_of_spans ~spans:ss_spans ~linemaps content
       | None -> []
     else []
   in
-  (results, proof_logs, ss_file)
+  let proof_logs = proof_logs_of_info proof_info in
+  (results, proof_logs, proof_info, ss_file)

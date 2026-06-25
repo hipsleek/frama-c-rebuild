@@ -3,7 +3,7 @@
  (optional)
  (public_name frama-c-hipsleek.core)
  (flags (-open Frama_c_kernel :standard))
- (libraries frama-c.kernel unix))
+ (libraries frama-c.kernel unix frama-c-server.core))
 
 (plugin
  (optional)
