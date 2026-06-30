@@ -33,20 +33,23 @@ Expected output:
 
 ## GUI (Ivette)
 
-The dev tree's graphical front-end is **Ivette** (an Electron app). It shows the SL contract
-clauses, the verdict markers, and — with `-hipsleek-proof-log` — the per-function proof
-detail in the Properties panel.
+The dev tree's graphical front-end is **Ivette** (an Electron app). It ships a dedicated
+**HipSleek** view that puts your C source, the generated HipSleek `.ss` program, and the
+proof obligations side by side, all cross-linked.
 
 ### One-time setup
 
-Ivette needs **Node ≥ 20** and is built with `yarn`/`make`:
+Ivette needs **Node >= 20** and is built with `yarn`/`make`:
 
 ```bash
 nvm use 23                # or any Node >= 20
 yarn install              # in the repo root
-make -C ivette api
+make -C ivette api        # regenerate the TypeScript server API
 make -C ivette app        # produces the bin/frama-c-gui launcher
 ```
+
+Re-run `make -C ivette api` after changing a plugin's server requests, and
+`make -C ivette app` after any change to the Ivette TypeScript.
 
 ### Running
 
@@ -59,20 +62,94 @@ HIP=$(pwd)/_build/default/hipsleek/hip.exe
 bin/frama-c-gui -hipsleek -hipsleek-proof-log -hipsleek-path "$HIP" demo_hipsleek/test_ll.c
 ```
 
+Pass `-hipsleek-proof-log` so the **HipSleek Proof** panel is populated with obligations
+(without it you still get the verdict, but no per-obligation detail).
+
 Notes:
 - Any arguments after `bin/frama-c-gui` are passed straight to `frama-c`.
-- **Give it ~20 s** after the window opens to connect — the dev server is slow to bind its
+- Give it about 20 s after the window opens to connect. The dev server is slow to bind its
   socket on the Windows-mounted `/mnt/c` filesystem, so the functions list is briefly empty.
-- Do **not** prefix the launch with `pkill` in the same command; that races the spawn. Kill
-  any stale instance as a separate step first.
-- In the GUI, open the **Source/AST** view to see the SL clauses + green verdict markers, and
-  select a function to see its `HipSleek proof (…)` property in the **Properties** panel.
+- Do not prefix the launch with `pkill` in the same command, that races the spawn. Kill any
+  stale instance as a separate step first.
+
+### Opening the HipSleek panels
+
+The HipSleek panels are registered both as a ready-made **view** (a one-click layout) and as
+individual **components** you can dock anywhere. Open them from the sidebar:
+
+1. Make sure the sidebar is visible. Click **View** in the top menu bar and choose
+   **Toggle Sidebar** (or press `Ctrl/Cmd+B`), or click the icons on the left edge of the
+   window.
+2. To open the whole layout at once, select the **Views** sidebar tab and click **HipSleek**.
+3. To add one panel at a time, select the **Components** sidebar tab, type `hipsleek` in the
+   filter box, and click the component you want:
+   - **HipSleek Proof** (the obligations panel), or
+   - **HipSleek Core (.ss)** (the generated `.ss` program).
+
+### The HipSleek view
+
+After the window connects, choose the **HipSleek** view as described above. It is a
+three-panel layout:
+
+| Panel | Location | Shows |
+|-------|----------|-------|
+| **Source Code** | top-left | your original C file, including the `/*[SL]*/` and `/*[SL_loop]*/` spec comments |
+| **HipSleek Core (.ss)** | top-right | the separation-logic program the plugin generates and feeds to `hip.exe` |
+| **HipSleek Proof** | bottom | the per-function verdict and proof obligations |
+
+Select a function (from the Source Code view, the `.ss` view, or the Globals list) to
+populate all three panels for it.
+
+![The HipSleek view](screenshots/hipsleek-view.png)
+
+> The normalized AST view is still available. Add it from the components menu if you want
+> it back alongside or instead of the `.ss` view.
+
+#### HipSleek Proof panel
+
+Shows the selected function's verdict (a colored badge) followed by its proof obligations,
+grouped by kind:
+
+- `PRE` (precondition), `BIND` (a field access / dereference is safe), `PRE_REC` (the
+  precondition at a recursive call), and `POST` (postcondition).
+- Each row shows the C source line it comes from, a green `proved` / red `unproved` badge,
+  and the (decluttered) entailment. Groups open automatically when they contain an unproved
+  obligation or the currently selected line.
+
+Obligations only appear when you launched with `-hipsleek-proof-log`.
+
+![The HipSleek Proof panel](screenshots/hipsleek-proof.png)
+
+#### HipSleek Core (.ss) panel
+
+Shows the generated `.ss` for the selected function: the actual program the verdict and
+obligations are about. A status circle next to the function name reflects the HipSleek
+verdict (green = SUCCESS, yellow = unknown, red = FAIL or ERROR). Each line is numbered and
+clickable.
+
+![The HipSleek Core (.ss) panel](screenshots/hipsleek-core.png)
+
+#### Cross-linking the panels
+
+Everything is keyed by C source line, so clicking in one panel highlights the matching place
+in the others:
+
+- Click a line in the **.ss** view to highlight its C source line and the obligations from it.
+- Click an **obligation** to highlight its C source line and its `.ss` line.
+- Select a line in the **Source Code** view to highlight the matching `.ss` line(s) and
+  obligations.
+
+This works for spec comment lines too. For example, clicking a `POST` obligation reveals the
+`ensures` line inside the `/*[SL]*/` (or `/*[SL_loop]*/`) comment, even though comments have
+no AST marker.
+
+![Cross-linked highlighting across the three panels](screenshots/hipsleek-highlight.png)
 
 ## Annotation Syntax
 
-All HipSleek annotations are written as special C comments so the file remains valid C. Two kinds are supported:
+All HipSleek annotations are written as special C comments so the file remains valid C. Three kinds are supported:
 
-### 1. Predicate / view definitions — `/*[SL_pred] ... */`
+### 1. Predicate / view definitions: `/*[SL_pred] ... */`
 
 Defines separation-logic predicates used in specs. Written at the top of the file (before any function that uses them).
 
@@ -85,7 +162,7 @@ ll<> == self = null
 
 The body is HipSleek's native `.ss` view syntax and is passed through verbatim to the generated `.ss` file.
 
-### 2. Pre/post specifications — `/*[SL] ... */`
+### 2. Pre/post specifications: `/*[SL] ... */`
 
 Written immediately before the function they annotate.
 
@@ -96,6 +173,39 @@ Written immediately before the function they annotate.
 */
 node* append(node* x, node* y) { ... }
 ```
+
+### 3. Loop specifications: `/*[SL_loop] ... */`
+
+A `while` loop needs its own contract, written in a `/*[SL_loop]*/` block placed immediately
+before the loop. HipSleek desugars the loop into a recursive helper and verifies it against
+this spec. Use primed variables (`i'`) for a variable's post-state and unprimed (`i`) for its
+value on entry:
+
+```c
+int count_to_ten(int i) {
+  /*[SL_loop]
+     requires true
+     ensures i < 10 & i' = 10 or i >= 10 & i' = i;
+  */
+  while (i < 10) {
+    i = i + 1;
+  }
+  return i;
+}
+```
+
+You only write the `requires` / `ensures`. The plugin recovers the loop guard from Frama-C's
+normalized form automatically. A loop with no `/*[SL_loop]*/` block still translates, but
+HipSleek may reject it, and the plugin emits a fidelity warning in that case. See
+`demo_hipsleek/loop.c` for the full demo. Its verdict looks like:
+
+```
+[hipsleek] [HipSleek] while loop at line 10 (in count_to_ten): SUCCESS
+[hipsleek] [HipSleek] count_to_ten: SUCCESS
+```
+
+The first line is the loop itself (HipSleek's desugared helper, relabeled with the loop's C
+source line); the second is the enclosing function.
 
 ## Pointer types and field access
 
@@ -110,7 +220,7 @@ HipSleek's native format represents C pointer types `T*` as a wrapper type `T_st
 
 Predicate definitions must use `node_star` directly (as shown in the `ll<>` example above), since they are passed through verbatim.
 
-## Example — `test_ll.c`
+## Example: `test_ll.c`
 
 ```c
 /*[SL_pred]
@@ -153,10 +263,10 @@ so it shows up on the command line, in `-report`, and in the Ivette GUI:
   verdict becomes that clause's **property status** (green *Valid* marker on SUCCESS).
 - `[SL_pred]` view definitions appear as a global `\hipsleek::hipsleek_pred …` annotation.
 
-### Proof detail — `-hipsleek-proof-log`
+### Proof detail: `-hipsleek-proof-log`
 
 With this flag, the plugin runs HipSleek with its ESL proof log enabled and attaches the
-per-function proof obligations (the SLEEK entailments — `PRE` / `POST` / `BIND` / `PRE_REC`,
+per-function proof obligations (the SLEEK entailments: `PRE` / `POST` / `BIND` / `PRE_REC`,
 each marked `[proved]` / `[unproved]`) as a **separate `HipSleek proof (…)` property** on the
 function. This keeps the source comment clean: the detail is shown on demand (in `-report`,
 or by selecting the function in the GUI's Properties panel), not inline in the contract.
