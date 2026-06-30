@@ -71,6 +71,10 @@ let parse_output output =
       else None
     ) lines
 
+let starts_with s prefix =
+  let n = String.length prefix in
+  String.length s >= n && String.sub s 0 n = prefix
+
 (* ------------------------------------------------------------------ *)
 (* Report results as Frama-C messages                                  *)
 (* ------------------------------------------------------------------ *)
@@ -356,6 +360,35 @@ let text_of_obligations obls =
 let proof_logs_of_info info =
   List.map (fun (name, obls) -> (name, text_of_obligations obls)) info
 
+(* HipSleek desugars each while loop into a method named while_<ssline>_<col>,
+   where <ssline> is the loop's line in the generated .ss. Relabel such verdicts
+   with the loop's C source line (via the span + linemap that contains that .ss
+   line) so the user sees their own code instead of generated-.ss coordinates. *)
+let humanize_loop_results ~spans ~linemaps results =
+  let locate abs =
+    match List.find_opt (fun (_, lo, hi) -> abs >= lo && abs <= hi) spans with
+    | None -> None
+    | Some (name, lo, _) ->
+      let lm = match List.assoc_opt name linemaps with Some m -> m | None -> [] in
+      Some (name, cline_of lm ~lo abs)
+  in
+  List.map (fun r ->
+      if not (starts_with r.func_name "while_") then r
+      else
+        let rest = String.sub r.func_name 6 (String.length r.func_name - 6) in
+        match String.split_on_char '_' rest with
+        | ssline_str :: _ ->
+          (match int_of_string_opt ssline_str with
+           | Some abs ->
+             (match locate abs with
+              | Some (fn, cl) when cl > 0 ->
+                { r with func_name =
+                    Printf.sprintf "while loop at line %d (in %s)" cl fn }
+              | _ -> r)
+           | None -> r)
+        | [] -> r)
+    results
+
 (* ------------------------------------------------------------------ *)
 (* Subprocess invocation                                                *)
 (* ------------------------------------------------------------------ *)
@@ -421,7 +454,8 @@ let run ~ss_content ~ss_spans ~linemaps =
   output_string oc ss_content;
   close_out oc;
   Hipsleek_parameters.feedback "Generated .ss file: %s" ss_file;
-  let results = run_hip ~dir ~ss_file in
+  let results =
+    humanize_loop_results ~spans:ss_spans ~linemaps (run_hip ~dir ~ss_file) in
   report results;
   let proof_info =
     if Hipsleek_parameters.ProofLog.get () then

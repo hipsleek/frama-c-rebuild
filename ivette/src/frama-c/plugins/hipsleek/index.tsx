@@ -108,16 +108,26 @@ function HipSleekProof(): JSX.Element {
   const info = States.useRequestStable(getProofInfo, scope);
   // C source line of the current selection, so obligations from that line are
   // highlighted as the user clicks around the Source Code / AST views.
-  const selectedLine = States.useMarker(marker).sloc?.line ?? 0;
+  const markerLine = States.useMarker(marker).sloc?.line ?? 0;
+  // A line clicked directly in this panel — lets spec-comment obligations (which
+  // have no AST marker, so [marker] never moves to them) still show as active.
+  // Reset whenever the marker moves, so source/AST clicks take over again.
+  const [clickedLine, setClickedLine] = React.useState(0);
+  React.useEffect(() => { setClickedLine(0); }, [marker]);
+  const selectedLine = clickedLine || markerLine;
 
-  // Clicking an obligation row reveals its C line in the Source Code view:
-  // resolve the marker at (file, line) and make it the current selection.
+  // Clicking an obligation row reveals its C line in the Source Code view.
+  // revealSourceLine highlights any line (including /*[SL]*/ spec comments, which
+  // have no marker); getMarkerAt+setSelected additionally syncs the AST view for
+  // lines that do correspond to a marker.
   const file = decl.source?.file ?? '';
   const onSelect = React.useCallback((line: number) => {
-    if (file !== '' && line > 0)
-      Server.send(Ast.getMarkerAt, { file, line, column: 0 })
-        .then((m) => { if (m) States.setSelected(m); })
-        .catch(() => { /* no marker at that position: ignore */ });
+    if (file === '' || line <= 0) return;
+    setClickedLine(line);
+    States.revealSourceLine({ file, line });
+    Server.send(Ast.getMarkerAt, { file, line, column: 0 })
+      .then((m) => { if (m) States.setSelected(m); })
+      .catch(() => { /* no marker at that position: ignore */ });
   }, [file]);
 
   if (kind !== 'FUNCTION')

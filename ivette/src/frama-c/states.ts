@@ -861,6 +861,29 @@ export function clearHistory(): void {
 }
 
 // --------------------------------------------------------------------------
+// --- Source line reveal
+// --------------------------------------------------------------------------
+
+// A raw (file, line) position to reveal/highlight in the Source Code view,
+// independent of the marker selection. This is needed for lines that have no
+// AST marker — e.g. plugin spec comments such as HipSleek's /*[SL]*/ blocks —
+// which the marker-driven highlight cannot reach.
+export interface SourceLine { file: string; line: number }
+
+export const GlobalRevealLine = new GlobalState<SourceLine | undefined>(undefined);
+
+/** Request the Source Code view to reveal and highlight [file:line]. */
+export function revealSourceLine(loc: SourceLine): void {
+  // Always a fresh object so re-revealing the same line still notifies.
+  GlobalRevealLine.setValue({ file: loc.file, line: loc.line });
+}
+
+export function useRevealSourceLine(): SourceLine | undefined {
+  const [v] = useGlobalState(GlobalRevealLine);
+  return v;
+}
+
+// --------------------------------------------------------------------------
 // --- Declarations
 // --------------------------------------------------------------------------
 

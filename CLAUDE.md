@@ -107,6 +107,7 @@ C/Frama-C demo programs exercised end-to-end through the plugin with
 | `hipexm.c` | `get_val`, `set_val` | the basic READ / UPDATE heap effects |
 | `ll.c` | `get_next`, `set_next`, `set_null`, `append` | the `ll<n>` length predicate (`[SL_pred]`); `append` is recursive |
 | `alias.c` | `alias_write`, `aliased_inputs`, `set_two`, `set_two_aliased` | aliasing vs. separation; `set_two_aliased` is an **expected FAIL** — `*` rejects unintended aliasing at the call site |
+| `loop.c` | `count_to_ten` | a `while` loop with an inline `/*[SL_loop]*/` requires/ensures spec (primed post-state vars); plugin recovers the guard from Cil's normalized `if/break` head |
 
 All functions verify **SUCCESS** except `set_two_aliased` (intentional FAIL).
 `test_ll.c` is an older scratch file, not part of the demo set.

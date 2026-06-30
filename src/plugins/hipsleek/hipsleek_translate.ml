@@ -83,6 +83,17 @@ let extract_sl_preds filename =
   List.map (fun (_, _, body) -> body)
     (extract_tagged_blocks "/*[SL_pred]\n" filename)
 
+(* Loop-spec blocks: /*[SL_loop] ... */ placed immediately before a while loop.
+   Kept as (start_line, end_line, body) so the closest one preceding a loop's
+   source line can be attached to it. *)
+let extract_sl_loops filename =
+  extract_tagged_blocks "/*[SL_loop]\n" filename
+
+(* All /*[SL_loop]*/ blocks in the file, set per [translate] run. The statement
+   translator (top-level [let rec], not a closure) reads this from the Loop case,
+   mirroring the warn_acc / linemap_acc accumulator pattern below. *)
+let loop_annots : (int * int * string) list ref = ref []
+
 (* Find the closest /*[SL]*/ block that ends before func_line.
    This tolerates any number of lines between the SL block and the
    function (e.g. an ACSL /*@ ... */ comment in between). *)
@@ -257,6 +268,30 @@ let is_retres_goto stmt =
   | Goto(tgt, _) -> is_retres_return !tgt
   | _ -> false
 
+(* Is [b] a block whose only statement is a break (possibly nested in blocks)? *)
+let rec block_lone_break b =
+  match b.bstmts with
+  | [ s ] ->
+    (match s.skind with
+     | Break _  -> true
+     | Block b' -> block_lone_break b'
+     | _        -> false)
+  | _ -> false
+
+(* Cil normalizes `while(c) body` to a `Loop` whose first statement guards the
+   exit: `if (c) {} else { break; }` (the guard's false branch breaks). Recover
+   the guard text and the remaining real body statements. Returns None when the
+   head doesn't match this shape, so the caller can fall back to `while (1)`. *)
+let recover_while_guard body =
+  match body.bstmts with
+  | { skind = If(c, bthen, belse, _); _ } :: rest ->
+    if bthen.bstmts = [] && block_lone_break belse then
+      Some (translate_exp c, rest)               (* if(c){}else break; -> while(c)  *)
+    else if belse.bstmts = [] && block_lone_break bthen then
+      Some ("!(" ^ translate_exp c ^ ")", rest)  (* if(c) break;       -> while(!c) *)
+    else None
+  | _ -> None
+
 let rec translate_stmts buf indent stmts =
   match stmts with
   | [] -> ()
@@ -301,10 +336,36 @@ and translate_stmt buf indent stmt =
       translate_stmts buf (indent + 2) belse.bstmts
     end;
     Buffer.add_string buf (pad ^ "}\n")
-  | Loop(_, body, _, _, _) ->
-    Buffer.add_string buf (pad ^ "while (1) {\n");
-    translate_stmts buf (indent + 2) body.bstmts;
-    Buffer.add_string buf (pad ^ "}\n")
+  | Loop(_, body, loc, _, _) ->
+    (match recover_while_guard body with
+     | Some (guard, inner) ->
+       Buffer.add_string buf (pad ^ "while (" ^ guard ^ ")\n");
+       (* Attach the closest /*[SL_loop]*/ block ending before the loop's line,
+          emitting its requires/ensures clauses between the guard and the body. *)
+       (match find_annotation !loop_annots (Fileloc.line loc) with
+        | None ->
+          add_warn
+            "while loop has no /*[SL_loop]*/ spec; HipSleek may reject it"
+        | Some (start_line, spec_body) ->
+          (* Map each loop spec clause to its C source line, so the loop's
+             PRE/POST obligations (keyed by HipSleek to these .ss spec lines)
+             point at the /*[SL_loop]*/ clauses, mirroring how the function
+             spec is recorded in translate_fundec. *)
+          List.iteri (fun k raw ->
+              let line = String.trim raw in
+              if line <> "" then begin
+                record_cline buf (start_line + k);
+                Buffer.add_string buf (pad ^ "  " ^ line ^ "\n")
+              end)
+            (String.split_on_char '\n' spec_body));
+       Buffer.add_string buf (pad ^ "{\n");
+       translate_stmts buf (indent + 2) inner;
+       Buffer.add_string buf (pad ^ "}\n")
+     | None ->
+       add_warn "could not recover while-loop guard; emitted while(1)";
+       Buffer.add_string buf (pad ^ "while (1) {\n");
+       translate_stmts buf (indent + 2) body.bstmts;
+       Buffer.add_string buf (pad ^ "}\n"))
   | Break _    -> Buffer.add_string buf (pad ^ "break;\n")
   | Continue _ -> Buffer.add_string buf (pad ^ "continue;\n")
   | Block b ->
@@ -487,6 +548,8 @@ let translate file =
   let annotations =
     List.concat_map extract_sl_annotations src_files
   in
+  (* Make /*[SL_loop]*/ blocks available to the statement translator's Loop case. *)
+  loop_annots := List.concat_map extract_sl_loops src_files;
   let functions = ref [] in
   let ss_spans = ref [] in
   let fidelity = ref [] in

@@ -209,6 +209,15 @@ export default function SourceCode(): JSX.Element {
       Editor.selectLine(view, selectedMarkerLine, isTop, true);
   }, [view, source, isTop, selectedMarkerLine]);
 
+  // Reveal a raw (file, line) requested via States.revealSourceLine — used to
+  // highlight lines without an AST marker (e.g. plugin spec comments like
+  // HipSleek's /*[SL]*/ blocks), which the marker-driven highlight cannot reach.
+  const reveal = States.useRevealSourceLine();
+  React.useEffect(() => {
+    if (reveal && reveal.file === file && reveal.line > 0 && source.length > 0)
+      Editor.selectLine(view, reveal.line, false, true);
+  }, [view, source, reveal, file]);
+
   React.useEffect(() => {
     if (cursor.file === slocAtCursor?.file
       && cursor.line === slocAtCursor?.line)
