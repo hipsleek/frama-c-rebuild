@@ -110,6 +110,71 @@
     word-break: break-word;
 }
 
+/* --- generated .ss (HIP core) view --- */
+
+/* White background for the .ss view (with readable dark text, so it holds up
+   under a dark theme too). */
+.hipsleek-core {
+    background: #ffffff;
+}
+.hipsleek-core .hipsleek-fn,
+.hipsleek-core .hipsleek-ss-code {
+    color: #1e1e1e;
+}
+.hipsleek-core .hipsleek-ss-num {
+    color: #999999;
+}
+
+/* verdict status circle (green = SUCCESS, yellow = unknown, red = FAIL/ERROR) */
+.hipsleek-circle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex: none;
+}
+.hipsleek-circle.ok      { background: #2e9e4f; }
+.hipsleek-circle.bad     { background: #c0392b; }
+.hipsleek-circle.unknown { background: #e0b000; }
+
+.hipsleek-core-tag {
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--text-discrete, #888);
+}
+
+.hipsleek-ss {
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    overflow: auto;
+}
+
+.hipsleek-ss-line {
+    display: flex;
+    white-space: pre;
+}
+
+.hipsleek-ss-line.clickable { cursor: pointer; }
+.hipsleek-ss-line.clickable:hover { background: var(--field-hover, #eef2f7); }
+
+/* .ss line(s) whose C source line is the currently selected one */
+.hipsleek-ss-line.active {
+    background: var(--selection, #cfe3ff);
+    box-shadow: inset 3px 0 0 var(--info, #2f6fde);
+}
+
+.hipsleek-ss-num {
+    display: inline-block;
+    min-width: 28px;
+    padding-right: 8px;
+    text-align: right;
+    color: var(--text-discrete, #888);
+    user-select: none;
+}
+
+.hipsleek-ss-code { white-space: pre; }
+
 /* --- fidelity warnings --- */
 
 .hipsleek-fidelity {

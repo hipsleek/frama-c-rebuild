@@ -101,34 +101,40 @@ function KindGroup(
   );
 }
 
-function HipSleekProof(): JSX.Element {
-  const { scope, marker } = States.useCurrentLocation();
-  const decl = States.useDeclaration(scope);
-  const { kind, name } = decl;
-  const info = States.useRequestStable(getProofInfo, scope);
-  // C source line of the current selection, so obligations from that line are
-  // highlighted as the user clicks around the Source Code / AST views.
+// Shared "active C line" selection used by both HipSleek panels, so the Source
+// Code view, the .ss view and the obligation list all highlight the same C line:
+//  - markerLine: the selected marker's source line (covers code lines / AST);
+//  - revealLine: an explicitly-clicked C line published via revealSourceLine,
+//    needed for lines with no AST marker (e.g. /*[SL]*/ spec comments).
+// The reveal is cleared whenever the marker moves, so real selections win.
+// onSelect publishes the clicked C line (highlighting all three views) and, for
+// lines that do have a marker, also moves the kernel selection (syncs the AST).
+function useClineSelection(file: string, marker: States.Marker): {
+  selectedLine: number,
+  onSelect: (line: number) => void,
+} {
   const markerLine = States.useMarker(marker).sloc?.line ?? 0;
-  // A line clicked directly in this panel — lets spec-comment obligations (which
-  // have no AST marker, so [marker] never moves to them) still show as active.
-  // Reset whenever the marker moves, so source/AST clicks take over again.
-  const [clickedLine, setClickedLine] = React.useState(0);
-  React.useEffect(() => { setClickedLine(0); }, [marker]);
-  const selectedLine = clickedLine || markerLine;
-
-  // Clicking an obligation row reveals its C line in the Source Code view.
-  // revealSourceLine highlights any line (including /*[SL]*/ spec comments, which
-  // have no marker); getMarkerAt+setSelected additionally syncs the AST view for
-  // lines that do correspond to a marker.
-  const file = decl.source?.file ?? '';
+  const reveal = States.useRevealSourceLine();
+  const revealLine = reveal && reveal.file === file ? reveal.line : 0;
+  const selectedLine = revealLine || markerLine;
+  React.useEffect(() => { States.clearRevealSourceLine(); }, [marker]);
   const onSelect = React.useCallback((line: number) => {
     if (file === '' || line <= 0) return;
-    setClickedLine(line);
     States.revealSourceLine({ file, line });
     Server.send(Ast.getMarkerAt, { file, line, column: 0 })
       .then((m) => { if (m) States.setSelected(m); })
       .catch(() => { /* no marker at that position: ignore */ });
   }, [file]);
+  return { selectedLine, onSelect };
+}
+
+function HipSleekProof(): JSX.Element {
+  const { scope, marker } = States.useCurrentLocation();
+  const decl = States.useDeclaration(scope);
+  const { kind, name } = decl;
+  const info = States.useRequestStable(getProofInfo, scope);
+  const file = decl.source?.file ?? '';
+  const { selectedLine, onSelect } = useClineSelection(file, marker);
 
   if (kind !== 'FUNCTION')
     return (
@@ -172,6 +178,74 @@ function HipSleekProof(): JSX.Element {
   );
 }
 
+// Shows the generated HipSleek .ss ("HIP core") for the selected function: the
+// separation-logic program the plugin feeds to hip.exe (the data the proof
+// obligations and verdict are about). Each line is clickable and linked to its
+// C source line, so clicking a line highlights the matching source line and
+// obligations (and vice-versa) — like clicking through the AST.
+function HipSleekCore(): JSX.Element {
+  const { scope, marker } = States.useCurrentLocation();
+  const decl = States.useDeclaration(scope);
+  const { kind, name } = decl;
+  const info = States.useRequestStable(getProofInfo, scope);
+  const file = decl.source?.file ?? '';
+  const { selectedLine, onSelect } = useClineSelection(file, marker);
+
+  if (kind !== 'FUNCTION')
+    return (
+      <div className="hipsleek-proof hipsleek-empty">
+        Select a function to see its generated <code>.ss</code> (HIP core).
+      </div>
+    );
+
+  // Drop trailing blank lines; ssClines is aligned to info.ss split on '\n'.
+  const lines = info.ss === '' ? [] : info.ss.replace(/\n+$/, '').split('\n');
+
+  // HipSleek verdict shown as a colored status circle next to the name.
+  const verdict = info.verdict || 'UNKNOWN';
+  const vclass =
+    verdict === 'SUCCESS' ? 'ok'
+      : (verdict === 'FAIL' || verdict === 'ERROR') ? 'bad'
+        : 'unknown';
+
+  return (
+    <div className="hipsleek-proof hipsleek-core">
+      <div className="hipsleek-header">
+        <span className={`hipsleek-circle ${vclass}`} title={verdict} />
+        <span className="hipsleek-fn">{name}</span>
+        <span className="hipsleek-core-tag">generated .ss</span>
+      </div>
+      {lines.length === 0 ? (
+        <div className="hipsleek-empty">
+          No generated <code>.ss</code> (run with <code>-hipsleek</code>).
+        </div>
+      ) : (
+        <div className="hipsleek-ss">
+          {lines.map((ln, i) => {
+            const cl = info.ssClines[i] ?? 0;
+            const clickable = cl > 0;
+            const active = clickable && cl === selectedLine;
+            return (
+              <div
+                key={i}
+                className={
+                  `hipsleek-ss-line${active ? ' active' : ''}`
+                  + `${clickable ? ' clickable' : ''}`
+                }
+                title={clickable ? `C line ${cl}` : undefined}
+                onClick={clickable ? () => onSelect(cl) : undefined}
+              >
+                <span className="hipsleek-ss-num">{i + 1}</span>
+                <span className="hipsleek-ss-code">{ln === '' ? ' ' : ln}</span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
 Ivette.registerGroup({
   id: 'fc.hipsleek',
   label: 'HipSleek',
@@ -185,14 +259,22 @@ Ivette.registerComponent({
   children: <HipSleekProof />,
 });
 
-// One-click layout: original C source (top-left), normalized AST (bottom-left),
-// and the HipSleek proof obligations (right).
+Ivette.registerComponent({
+  id: 'fc.hipsleek.core',
+  label: 'HipSleek Core (.ss)',
+  title: 'Generated HipSleek .ss program for the selected function',
+  preferredPosition: 'BL',
+  children: <HipSleekCore />,
+});
+
+// One-click layout: original C source (top-left), the generated HipSleek .ss
+// (bottom-left), and the HipSleek proof obligations (right).
 Ivette.registerView({
   id: 'fc.hipsleek.view',
   label: 'HipSleek',
   layout: {
     A: 'fc.kernel.sourcecode',
-    B: 'fc.kernel.astview',
+    B: 'fc.hipsleek.core',
     CD: 'fc.hipsleek.proof',
   },
 });

@@ -51,6 +51,8 @@ struct
       "verdict",     Jstring ;
       "obligations", Jarray Obligation.jtype ;
       "fidelity",    Jarray Jstring ;
+      "ss",          Jstring ;   (* generated .ss (HIP core) for the function *)
+      "ssClines",    Jarray Jnumber ;  (* C source line for each .ss line *)
     ]
   let to_json (i : t) =
     Json.of_fields [
@@ -59,6 +61,9 @@ struct
         (List.map Obligation.to_json i.Hipsleek_store.obligations) ;
       "fidelity",    Json.of_list
         (List.map Json.of_string i.Hipsleek_store.fidelity) ;
+      "ss",          Json.of_string i.Hipsleek_store.ss ;
+      "ssClines",    Json.of_list
+        (List.map Json.of_int i.Hipsleek_store.ss_clines) ;
     ]
   let of_json _ = failwith "Hipsleek.ProofInfo.of_json"
 end

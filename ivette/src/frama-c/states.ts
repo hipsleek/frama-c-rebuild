@@ -872,10 +872,17 @@ export interface SourceLine { file: string; line: number }
 
 export const GlobalRevealLine = new GlobalState<SourceLine | undefined>(undefined);
 
-/** Request the Source Code view to reveal and highlight [file:line]. */
+/** Request the Source Code view to reveal and highlight [file:line]. Also acts
+    as a shared "active source line" channel that plugin panels can read to keep
+    their own highlights in sync (e.g. lines with no AST marker). */
 export function revealSourceLine(loc: SourceLine): void {
-  // Always a fresh object so re-revealing the same line still notifies.
   GlobalRevealLine.setValue({ file: loc.file, line: loc.line });
+}
+
+/** Clear the revealed/active source line (e.g. when a real marker selection
+    takes over). */
+export function clearRevealSourceLine(): void {
+  GlobalRevealLine.setValue(undefined);
 }
 
 export function useRevealSourceLine(): SourceLine | undefined {

@@ -11,9 +11,13 @@ type info = {
   verdict     : string;                    (* SUCCESS | FAIL | ERROR | UNKNOWN *)
   obligations : Hipsleek_run.obligation list;
   fidelity    : string list;
+  ss          : string;      (* generated .ss (HIP core) for this function *)
+  ss_clines   : int list;    (* C source line for each .ss line (0 if unknown),
+                                in order, so the GUI can link .ss <-> source *)
 }
 
-let empty = { verdict = "UNKNOWN"; obligations = []; fidelity = [] }
+let empty =
+  { verdict = "UNKNOWN"; obligations = []; fidelity = []; ss = ""; ss_clines = [] }
 
 let table : (string, info) Hashtbl.t = Hashtbl.create 16
 
