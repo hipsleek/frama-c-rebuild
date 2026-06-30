@@ -78,6 +78,10 @@
     border-top: 1px solid var(--border, #eee);
 }
 
+/* rows tied to a C line are clickable: reveal that line in the source */
+.hipsleek-row.clickable { cursor: pointer; }
+.hipsleek-row.clickable:hover { background: var(--field-hover, #eef2f7); }
+
 /* obligation(s) coming from the C line currently selected in Source/AST */
 .hipsleek-row.active {
     background: var(--selection, #cfe3ff);

@@ -14,7 +14,9 @@
 
 import React from 'react';
 import * as Ivette from 'ivette';
+import * as Server from 'frama-c/server';
 import * as States from 'frama-c/states';
+import * as Ast from 'frama-c/kernel/api/ast';
 import { getProofInfo, obligation } from './api';
 import './style.css';
 
@@ -43,11 +45,20 @@ function groupByKind(obls: obligation[]): [string, obligation[]][] {
   return kinds.map((k) => [k, map.get(k) ?? []]);
 }
 
-function ObligationRow(props: { o: obligation, active: boolean }): JSX.Element {
-  const { o, active } = props;
+function ObligationRow(
+  props: { o: obligation, active: boolean, onSelect: (line: number) => void },
+): JSX.Element {
+  const { o, active, onSelect } = props;
   const where = o.cline > 0 ? `line ${o.cline}` : `.ss ${o.line}`;
+  const clickable = o.cline > 0;
   return (
-    <div className={active ? 'hipsleek-row active' : 'hipsleek-row'}>
+    <div
+      className={
+        `hipsleek-row${active ? ' active' : ''}${clickable ? ' clickable' : ''}`
+      }
+      title={clickable ? `Reveal line ${o.cline} in the source` : undefined}
+      onClick={clickable ? () => onSelect(o.cline) : undefined}
+    >
       <span className="hipsleek-loc">{where}</span>
       <span className={o.proved ? 'hipsleek-tag ok' : 'hipsleek-tag bad'}>
         {o.proved ? 'proved' : 'unproved'}
@@ -58,9 +69,12 @@ function ObligationRow(props: { o: obligation, active: boolean }): JSX.Element {
 }
 
 function KindGroup(
-  props: { kind: string, obls: obligation[], selectedLine: number },
+  props: {
+    kind: string, obls: obligation[], selectedLine: number,
+    onSelect: (line: number) => void,
+  },
 ): JSX.Element {
-  const { kind, obls, selectedLine } = props;
+  const { kind, obls, selectedLine, onSelect } = props;
   const label = KIND_LABEL[kind] ?? kind;
   const ok = obls.filter((o) => o.proved).length;
   const allOk = ok === obls.length;
@@ -80,6 +94,7 @@ function KindGroup(
           key={i}
           o={o}
           active={selectedLine > 0 && o.cline === selectedLine}
+          onSelect={onSelect}
         />
       ))}
     </details>
@@ -88,11 +103,22 @@ function KindGroup(
 
 function HipSleekProof(): JSX.Element {
   const { scope, marker } = States.useCurrentLocation();
-  const { kind, name } = States.useDeclaration(scope);
+  const decl = States.useDeclaration(scope);
+  const { kind, name } = decl;
   const info = States.useRequestStable(getProofInfo, scope);
   // C source line of the current selection, so obligations from that line are
   // highlighted as the user clicks around the Source Code / AST views.
   const selectedLine = States.useMarker(marker).sloc?.line ?? 0;
+
+  // Clicking an obligation row reveals its C line in the Source Code view:
+  // resolve the marker at (file, line) and make it the current selection.
+  const file = decl.source?.file ?? '';
+  const onSelect = React.useCallback((line: number) => {
+    if (file !== '' && line > 0)
+      Server.send(Ast.getMarkerAt, { file, line, column: 0 })
+        .then((m) => { if (m) States.setSelected(m); })
+        .catch(() => { /* no marker at that position: ignore */ });
+  }, [file]);
 
   if (kind !== 'FUNCTION')
     return (
@@ -120,7 +146,10 @@ function HipSleekProof(): JSX.Element {
         </div>
       ) : (
         groups.map(([k, obls]) => (
-          <KindGroup key={k} kind={k} obls={obls} selectedLine={selectedLine} />
+          <KindGroup
+            key={k} kind={k} obls={obls}
+            selectedLine={selectedLine} onSelect={onSelect}
+          />
         ))
       )}
       {info.fidelity.length > 0 && (
