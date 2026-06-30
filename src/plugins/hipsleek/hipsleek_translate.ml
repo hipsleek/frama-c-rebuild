@@ -27,7 +27,9 @@ let line_of_pos content pos =
   done;
   !n
 
-(* Scan file content for blocks starting with marker, return (end_line, body) list. *)
+(* Scan file content for blocks starting with marker, returning a
+   (body_start_line, end_line, body) list, where body_start_line is the C line
+   of the first non-blank body line (used to map spec clauses to source). *)
 let extract_tagged_blocks marker filename =
   if not (Sys.file_exists filename) then []
   else
@@ -56,8 +58,15 @@ let extract_tagged_blocks marker filename =
         let end_pos = find_end (i + mlen) in
         let raw = String.sub content (i + mlen) (end_pos - i - mlen - 2) in
         let body = String.trim raw in
+        (* Skip leading whitespace/newlines so the start line is the first real
+           body line, independent of how the block is laid out. *)
+        let lead = ref 0 in
+        while !lead < String.length raw &&
+              (match raw.[!lead] with ' ' | '\t' | '\n' | '\r' -> true | _ -> false)
+        do incr lead done;
+        let start_line = line_of_pos content (i + mlen + !lead) in
         let end_line = line_of_pos content end_pos in
-        result := (end_line, body) :: !result;
+        result := (start_line, end_line, body) :: !result;
         scan end_pos
       end
       else scan (i + 1)
@@ -71,18 +80,19 @@ let extract_sl_annotations filename =
 
 (* Predicate/view definition blocks: /*[SL_pred] ... */ emitted at top of .ss. *)
 let extract_sl_preds filename =
-  List.map snd (extract_tagged_blocks "/*[SL_pred]\n" filename)
+  List.map (fun (_, _, body) -> body)
+    (extract_tagged_blocks "/*[SL_pred]\n" filename)
 
 (* Find the closest /*[SL]*/ block that ends before func_line.
    This tolerates any number of lines between the SL block and the
    function (e.g. an ACSL /*@ ... */ comment in between). *)
 let find_annotation annotations func_line =
   let preceding =
-    List.filter (fun (el, _) -> el < func_line) annotations
+    List.filter (fun (_sl, el, _) -> el < func_line) annotations
   in
-  match List.sort (fun (a, _) (b, _) -> compare b a) preceding with
+  match List.sort (fun (_, a, _) (_, b, _) -> compare b a) preceding with
   | [] -> None
-  | (_, body) :: _ -> Some body
+  | (start_line, _, body) :: _ -> Some (start_line, body)
 
 (* ------------------------------------------------------------------ *)
 (* Translation-fidelity warnings                                       *)
@@ -110,12 +120,12 @@ let count_lines s =
    originating C source line, so proof obligations (keyed by .ss line) can be
    reported against the user's code. Reset per function by translate_fundec. *)
 let linemap_acc : (int * int) list ref = ref []
+(* Record "the .ss line about to be written maps to C source line [cl]". *)
+let record_cline buf cl =
+  if cl > 0 then
+    linemap_acc := (count_lines (Buffer.contents buf) + 1, cl) :: !linemap_acc
 let record_line buf stmt =
-  let cl = Fileloc.line (Cil_datatype.Stmt.loc stmt) in
-  if cl > 0 then begin
-    let ssl = count_lines (Buffer.contents buf) + 1 in
-    linemap_acc := (ssl, cl) :: !linemap_acc
-  end
+  record_cline buf (Fileloc.line (Cil_datatype.Stmt.loc stmt))
 
 (* ------------------------------------------------------------------ *)
 (* Type translation                                                     *)
@@ -258,6 +268,10 @@ let rec translate_stmts buf indent stmts =
        | next_s :: rest2
          when is_retres_goto next_s || is_retres_return next_s ->
          let pad = String.make indent ' ' in
+         (* Record against the "__retres = e" statement's C location so the
+            reconstructed "return e;" (and the heap obligations its dereferences
+            generate) map to the C return line, not the previous statement. *)
+         record_line buf s;
          Buffer.add_string buf (pad ^ "return " ^ translate_exp e ^ ";\n");
          translate_stmts buf indent rest2
        | _ ->
@@ -383,7 +397,8 @@ let translate_fundec annotations fundec loc =
   (* Seed the line map so obligations before any statement (e.g. POST at the
      ensures line) still resolve to the function's C declaration line. *)
   linemap_acc := [ (1, func_line) ];
-  let spec = find_annotation annotations func_line in
+  let spec_info = find_annotation annotations func_line in
+  let spec = Option.map snd spec_info in
   let ret_typ = match fundec.svar.vtype.tnode with
     | TFun(rt, _, _) -> translate_typ rt
     | _              -> translate_typ fundec.svar.vtype
@@ -394,13 +409,18 @@ let translate_fundec annotations fundec loc =
   Buffer.add_string buf
     (ret_typ ^ " " ^ fundec.svar.vname
      ^ "(" ^ String.concat ", " params ^ ")\n");
-  (match spec with
+  (match spec_info with
    | None      -> ()
-   | Some body ->
-     List.iter (fun line ->
-         let line = String.trim line in
-         if line <> "" then
+   | Some (start_line, body) ->
+     (* Each emitted spec clause is mapped to its C source line, so POST/PRE
+        obligations (which HipSleek keys to the ensures/requires .ss line) point
+        at the SL spec rather than collapsing onto the declaration line. *)
+     List.iteri (fun k raw_line ->
+         let line = String.trim raw_line in
+         if line <> "" then begin
+           record_cline buf (start_line + k);
            Buffer.add_string buf ("  " ^ line ^ "\n")
+         end
        ) (String.split_on_char '\n' body));
   Buffer.add_string buf "{\n";
   let visible_locals =

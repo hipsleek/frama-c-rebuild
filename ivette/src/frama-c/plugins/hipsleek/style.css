@@ -78,6 +78,12 @@
     border-top: 1px solid var(--border, #eee);
 }
 
+/* obligation(s) coming from the C line currently selected in Source/AST */
+.hipsleek-row.active {
+    background: var(--selection, #cfe3ff);
+    box-shadow: inset 3px 0 0 var(--info, #2f6fde);
+}
+
 .hipsleek-loc {
     color: var(--text-discrete, #888);
     white-space: nowrap;

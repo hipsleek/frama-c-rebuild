@@ -43,11 +43,11 @@ function groupByKind(obls: obligation[]): [string, obligation[]][] {
   return kinds.map((k) => [k, map.get(k) ?? []]);
 }
 
-function ObligationRow(props: { o: obligation }): JSX.Element {
-  const { o } = props;
+function ObligationRow(props: { o: obligation, active: boolean }): JSX.Element {
+  const { o, active } = props;
   const where = o.cline > 0 ? `line ${o.cline}` : `.ss ${o.line}`;
   return (
-    <div className="hipsleek-row">
+    <div className={active ? 'hipsleek-row active' : 'hipsleek-row'}>
       <span className="hipsleek-loc">{where}</span>
       <span className={o.proved ? 'hipsleek-tag ok' : 'hipsleek-tag bad'}>
         {o.proved ? 'proved' : 'unproved'}
@@ -57,28 +57,42 @@ function ObligationRow(props: { o: obligation }): JSX.Element {
   );
 }
 
-function KindGroup(props: { kind: string, obls: obligation[] }): JSX.Element {
-  const { kind, obls } = props;
+function KindGroup(
+  props: { kind: string, obls: obligation[], selectedLine: number },
+): JSX.Element {
+  const { kind, obls, selectedLine } = props;
   const label = KIND_LABEL[kind] ?? kind;
   const ok = obls.filter((o) => o.proved).length;
   const allOk = ok === obls.length;
+  const hasActive =
+    selectedLine > 0 && obls.some((o) => o.cline === selectedLine);
+  // Open if unproved obligations exist, or the selected source line lives here.
   return (
-    <details className="hipsleek-group" open={!allOk}>
+    <details className="hipsleek-group" open={!allOk || hasActive}>
       <summary>
         <span className="hipsleek-group-label">{label}</span>
         <span className={allOk ? 'hipsleek-count ok' : 'hipsleek-count bad'}>
           {ok}/{obls.length} proved
         </span>
       </summary>
-      {obls.map((o, i) => <ObligationRow key={i} o={o} />)}
+      {obls.map((o, i) => (
+        <ObligationRow
+          key={i}
+          o={o}
+          active={selectedLine > 0 && o.cline === selectedLine}
+        />
+      ))}
     </details>
   );
 }
 
 function HipSleekProof(): JSX.Element {
-  const { scope } = States.useCurrentLocation();
+  const { scope, marker } = States.useCurrentLocation();
   const { kind, name } = States.useDeclaration(scope);
   const info = States.useRequestStable(getProofInfo, scope);
+  // C source line of the current selection, so obligations from that line are
+  // highlighted as the user clicks around the Source Code / AST views.
+  const selectedLine = States.useMarker(marker).sloc?.line ?? 0;
 
   if (kind !== 'FUNCTION')
     return (
@@ -105,7 +119,9 @@ function HipSleekProof(): JSX.Element {
           No proof obligations (run with <code>-hipsleek-proof-log</code>).
         </div>
       ) : (
-        groups.map(([k, obls]) => <KindGroup key={k} kind={k} obls={obls} />)
+        groups.map(([k, obls]) => (
+          <KindGroup key={k} kind={k} obls={obls} selectedLine={selectedLine} />
+        ))
       )}
       {info.fidelity.length > 0 && (
         <div className="hipsleek-fidelity">
