@@ -4,7 +4,9 @@
  * (a cell whose `pdata` field is the `node`), so `x` owns two cells —
  * `x::node_star<p> * p::node<...>` — and `x->val` is `x.pdata.val` in the .ss.
  *
- * Both functions verify SUCCESS.
+ * All four functions verify SUCCESS. The pair `walk_destructive` / `length`
+ * is the point of this file: they are the same algorithm, and the only
+ * difference is whether the loop clobbers the parameter or a cursor.
  */
 
 /*[SL_pred]
@@ -38,21 +40,16 @@ void bump(node* x, int k) {
   }
 }
 
-/* Walk a list and count it. This is a CONSUMING traversal: the loop spec takes
-   `x::ll<k>` and its `ensures` says nothing about the heap, so the list is not
-   handed back — which is exactly why `length` can only promise `res = n` and
-   not `x::ll<n>`. Returning the list would need a list-segment predicate to
-   describe the already-walked prefix, plus a lemma folding that segment back
-   onto the tail; both are out of the current demo subset.
-
-   The interesting part is that `k` is the length of whatever remains at loop
-   entry, and the loop relates it to the counter: `c' = c + k`. Because the
-   function enters with `c = 0` and `k = n`, that yields `res = n`. */
+/* CONSUMING traversal — the cautionary version. The loop walks `x` itself, so
+   on exit `x` is null and the `ensures` has nothing left to say about the
+   list: it is not handed back, and the caller cannot state `x::ll<n>`
+   afterwards. The count is still provable, so this verifies — it just proves
+   much less than you probably wanted. Compare `length` below. */
 /*[SL]
   requires x::ll<n>
   ensures res = n;
 */
-int length(node* x) {
+int walk_destructive(node* x) {
   int c = 0;
   /*[SL_loop]
      requires x::ll<k>
@@ -63,4 +60,48 @@ int length(node* x) {
     c = c + 1;
   }
   return c;
+}
+
+/* NON-CONSUMING traversal — the version you want. Walking a separate cursor
+   leaves the parameter `x` pointing at the head, so the loop can give the list
+   back: `ensures cur::ll<k>` names the entry value of `cur`, which is `x`.
+   HipSleek re-folds the list on the way out of the recursion (each iteration
+   unfolds one node and folds it back), so no list-segment predicate or lemma
+   is needed here — just a cursor. That is what lets the function promise
+   `x::ll<n> & res = n` rather than only `res = n`. */
+/*[SL]
+  requires x::ll<n>
+  ensures x::ll<n> & res = n;
+*/
+int length(node* x) {
+  int c = 0;
+  node* cur = x;
+  /*[SL_loop]
+     requires cur::ll<k>
+     ensures cur::ll<k> & cur' = null & c' = c + k;
+  */
+  while (cur != (node*)0) {
+    cur = cur->next;
+    c = c + 1;
+  }
+  return c;
+}
+
+/* Mutating every node in a loop while preserving the list's shape. The `ll`
+   view leaves the value field as `_`, so overwriting it keeps the list a list:
+   the loop borrows `cur::ll<k>`, rewrites each node, and folds `ll<k>` back. */
+/*[SL]
+  requires x::ll<n>
+  ensures x::ll<n>;
+*/
+void zero_all(node* x) {
+  node* cur = x;
+  /*[SL_loop]
+     requires cur::ll<k>
+     ensures cur::ll<k> & cur' = null;
+  */
+  while (cur != (node*)0) {
+    cur->val = 0;
+    cur = cur->next;
+  }
 }

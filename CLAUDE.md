@@ -110,12 +110,22 @@ C/Frama-C demo programs exercised end-to-end through the plugin with
 | `loop.c` | `count_to_ten` | a `while` loop with an inline `/*[SL_loop]*/` requires/ensures spec (primed post-state vars); plugin recovers the guard from Cil's normalized `if/break` head |
 | `loop_arith.c` | `count_up`, `add_ones`, `countdown` | the basic loop-spec shapes: variable bound, accumulator invariant (`s = i`), loop variable as parameter |
 | `loop_control.c` | `and_guard`, `or_guard`, `stop_at_five`, `skip_three` | short-circuit `&&`/`||` guards (Cil nests these as if/break trees; the guards are deliberately redundant so the spec pins down which operand binds), plus `break` and `continue` |
-| `loop_heap.c` | `bump`, `length` | loops over the heap: `bump` hands back the cells it borrows; `length` is a **consuming** list traversal (the loop takes `x::ll<k>` and does not return it, which is why the spec is `res = n` and not `x::ll<n>`) |
-| `loop_bad.c` | `off_by_one`, `wrong_post`, `not_invariant`, `guard_ignored` | **all four are intentional FAILs** — negative twins of the above; see the note on modular verdicts below |
+| `loop_heap.c` | `bump`, `walk_destructive`, `length`, `zero_all` | loops over the heap. `walk_destructive` vs `length` is the lesson: walking the parameter consumes the list (only `res = n` provable), walking a **cursor** hands it back (`x::ll<n> & res = n`) — HipSleek re-folds the list out of the recursion, so no list-segment predicate or lemma is needed. `zero_all` mutates every node with the shape preserved |
+| `loop_advanced.c` | `twice`, `inc`/`call_loop`, `mult`, `divide` | nested loops (each needs its own invariant), a call inside a loop body, and nonlinear invariants discharged by Z3 (`r = a*i` for multiply-by-addition; `n = q'*d - q*d + n'` for divide-by-subtraction) |
+| `loop_bad.c` | `off_by_one`, `wrong_post`, `not_invariant`, `guard_ignored`, `leaks_list` | **all five are intentional failures** — negative twins of the above, including `leaks_list`, a heap **footprint** error; see the note on modular verdicts below |
 
-All functions verify **SUCCESS** except `set_two_aliased` and all of `loop_bad.c`
-(intentional FAILs). `test_ll.c` and `demo.c` are older scratch files, not part
-of the demo set.
+All functions verify **SUCCESS** except `set_two_aliased` (intentional FAIL) and
+everything in `loop_bad.c` (intentional failures: two report FAIL, three report
+NOT VERIFIED — see the note on modular verdicts below). `test_ll.c` and `demo.c`
+are older scratch files, not part of the demo set.
+
+**Not in the subset:** walking a list and then *reconnecting* it (append via a
+loop) needs a list-segment predicate plus a lemma folding the segment back onto
+the tail. `[SL_pred]` blocks are emitted verbatim, so both the `lseg` view and
+the `lemma` parse and the loop itself verifies — but the function fails at the
+fold, which is HipSleek's open backwards-lemma-application issue (#11 in
+`hipsleek/CLAUDE.md`). Recursive `append` in `ll.c` works and is the way to do
+it today.
 
 **A loop spec must be an INVARIANT, not a precondition.** HipSleek compiles a
 `while` into a recursive procedure and re-checks the spec's `requires` at the

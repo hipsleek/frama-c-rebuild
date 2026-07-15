@@ -9,13 +9,15 @@
  *   wrong_post      SUCCESS / FAIL
  *   not_invariant   FAIL    / NOT VERIFIED
  *   guard_ignored   FAIL    / NOT VERIFIED
+ *   leaks_list      SUCCESS / FAIL
  *
  * The two failure modes are different, and the distinction is the point of
  * this file. Verification is modular: HipSleek checks a loop against its own
  * spec, then checks the function while ASSUMING that spec.
  *
- *   - `wrong_post` has a CORRECT loop spec; the function's own claim is false,
- *     so the function itself fails to prove: FAIL.
+ *   - `wrong_post` and `leaks_list` have loop specs that are true as far as
+ *     they go; it is each function's own claim that cannot be proved from
+ *     them, so the function itself fails: FAIL.
  *   - The other three have a WRONG loop spec that is nonetheless exactly what
  *     the function needs. Each function's proof is real but rests on a lemma
  *     that was never discharged, so it is reported NOT VERIFIED rather than
@@ -82,7 +84,7 @@ int not_invariant(int i) {
 /* WRONG: the guard is `i < 10 && i < 5`, so the loop stops at 5, not 10. The
    spec is what you would write if the `&& i < 5` operand were ignored, so this
    is the negative twin of loop_control.c's `and_guard`.
-   -> loop FAIL. (Function reports SUCCESS: it assumes the bad i' = 10.) */
+   -> loop FAIL. (Function reports NOT VERIFIED: it assumed the bad i' = 10.) */
 /*[SL]
    requires i = 0
    ensures res = 10;
@@ -96,4 +98,39 @@ int guard_ignored(int i) {
     i = i + 1;
   }
   return i;
+}
+
+/*[SL_pred]
+ll<n> == self = null & n = 0
+  or self::node_star<p> * p::node<_,q> * q::ll<n-1>
+  inv n >= 0;
+*/
+
+typedef struct node {
+  int val;
+  struct node* next;
+} node;
+
+/* WRONG, and the classic separation-logic mistake: a FOOTPRINT error. The loop
+   spec takes `x::ll<k>` but its `ensures` mentions no heap, so the list is
+   consumed and never handed back — the function then has nothing to satisfy
+   its own `ensures x::ll<n>` with. The arithmetic is all fine; only the
+   footprint is wrong. This is the negative twin of loop_heap.c's `length`,
+   which gets it right by walking a cursor instead of `x`.
+   -> loop SUCCESS, function FAIL (the function's own claim is unprovable). */
+/*[SL]
+  requires x::ll<n>
+  ensures x::ll<n> & res = n;
+*/
+int leaks_list(node* x) {
+  int c = 0;
+  /*[SL_loop]
+     requires x::ll<k>
+     ensures c' = c + k;
+  */
+  while (x != (node*)0) {
+    x = x->next;
+    c = c + 1;
+  }
+  return c;
 }
