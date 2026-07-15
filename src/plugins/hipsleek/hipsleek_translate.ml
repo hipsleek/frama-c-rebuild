@@ -27,9 +27,19 @@ let line_of_pos content pos =
   done;
   !n
 
-(* Scan file content for blocks starting with marker, returning a
-   (body_start_line, end_line, body) list, where body_start_line is the C line
-   of the first non-blank body line (used to map spec clauses to source). *)
+(* One /*[SL...]*/ comment block found in a source file.
+   [blk_start] is the C line of the first non-blank body line (used to map spec
+   clauses back to source); [blk_end] is the line of the closing "*/".
+   [blk_file] keeps blocks from different source files apart -- line numbers
+   alone are ambiguous once several files are translated together. *)
+type sl_block = {
+  blk_file  : string;
+  blk_start : int;
+  blk_end   : int;
+  blk_body  : string;
+}
+
+(* Scan file content for blocks starting with marker. *)
 let extract_tagged_blocks marker filename =
   if not (Sys.file_exists filename) then []
   else
@@ -66,7 +76,8 @@ let extract_tagged_blocks marker filename =
         do incr lead done;
         let start_line = line_of_pos content (i + mlen + !lead) in
         let end_line = line_of_pos content end_pos in
-        result := (start_line, end_line, body) :: !result;
+        result := { blk_file = filename; blk_start = start_line;
+                    blk_end = end_line; blk_body = body } :: !result;
         scan end_pos
       end
       else scan (i + 1)
@@ -80,30 +91,40 @@ let extract_sl_annotations filename =
 
 (* Predicate/view definition blocks: /*[SL_pred] ... */ emitted at top of .ss. *)
 let extract_sl_preds filename =
-  List.map (fun (_, _, body) -> body)
+  List.map (fun b -> b.blk_body)
     (extract_tagged_blocks "/*[SL_pred]\n" filename)
 
-(* Loop-spec blocks: /*[SL_loop] ... */ placed immediately before a while loop.
-   Kept as (start_line, end_line, body) so the closest one preceding a loop's
-   source line can be attached to it. *)
+(* Loop-spec blocks: /*[SL_loop] ... */ placed immediately before a while loop. *)
 let extract_sl_loops filename =
   extract_tagged_blocks "/*[SL_loop]\n" filename
 
-(* All /*[SL_loop]*/ blocks in the file, set per [translate] run. The statement
-   translator (top-level [let rec], not a closure) reads this from the Loop case,
-   mirroring the warn_acc / linemap_acc accumulator pattern below. *)
-let loop_annots : (int * int * string) list ref = ref []
+(* All /*[SL_loop]*/ blocks, set per [translate] run. The statement translator
+   (top-level [let rec], not a closure) reads this from the Loop case, mirroring
+   the warn_acc / linemap_acc accumulator pattern below. *)
+let loop_annots : sl_block list ref = ref []
 
-(* Find the closest /*[SL]*/ block that ends before func_line.
-   This tolerates any number of lines between the SL block and the
-   function (e.g. an ACSL /*@ ... */ comment in between). *)
-let find_annotation annotations func_line =
-  let preceding =
-    List.filter (fun (_sl, el, _) -> el < func_line) annotations
+(* Blocks already attached to a function or a loop. A spec block describes
+   exactly one thing, so consuming it on first use is what stops a later
+   *unannotated* function/loop from silently adopting its neighbour's spec and
+   being "verified" against a contract the user never wrote for it. *)
+let used_blocks : sl_block list ref = ref []
+
+(* Find the closest unconsumed block in [file] ending before [line].
+   Searching for the closest preceding block (rather than requiring strict line
+   adjacency) is deliberate: it tolerates an ACSL /*@ ... */ comment sitting
+   between the SL block and the function. [after] bounds the search from below,
+   which is how a loop spec is kept inside its own function's body. *)
+let find_annotation ?(after = 0) blocks ~file ~line =
+  let cands =
+    List.filter
+      (fun b ->
+         b.blk_file = file && b.blk_end < line && b.blk_start > after
+         && not (List.memq b !used_blocks))
+      blocks
   in
-  match List.sort (fun (_, a, _) (_, b, _) -> compare b a) preceding with
+  match List.sort (fun a b -> compare b.blk_end a.blk_end) cands with
   | [] -> None
-  | (start_line, _, body) :: _ -> Some (start_line, body)
+  | b :: _ -> used_blocks := b :: !used_blocks; Some (b.blk_start, b.blk_body)
 
 (* ------------------------------------------------------------------ *)
 (* Translation-fidelity warnings                                       *)
@@ -137,6 +158,12 @@ let record_cline buf cl =
     linemap_acc := (count_lines (Buffer.contents buf) + 1, cl) :: !linemap_acc
 let record_line buf stmt =
   record_cline buf (Fileloc.line (Cil_datatype.Stmt.loc stmt))
+
+(* First line of the function currently being translated, set by
+   translate_fundec. The Loop case uses it as a lower bound when looking up a
+   /*[SL_loop]*/ block, which is what keeps a loop spec from being picked up
+   across a function boundary. *)
+let cur_fn_start = ref 0
 
 (* ------------------------------------------------------------------ *)
 (* Type translation                                                     *)
@@ -279,18 +306,44 @@ let rec block_lone_break b =
   | _ -> false
 
 (* Cil normalizes `while(c) body` to a `Loop` whose first statement guards the
-   exit: `if (c) {} else { break; }` (the guard's false branch breaks). Recover
-   the guard text and the remaining real body statements. Returns None when the
-   head doesn't match this shape, so the caller can fall back to `while (1)`. *)
-let recover_while_guard body =
-  match body.bstmts with
-  | { skind = If(c, bthen, belse, _); _ } :: rest ->
+   exit: `if (c) {} else { break; }` (the guard's false branch breaks).
+   Short-circuit guards nest that shape rather than building a BinOp, so
+     while (a && b)  ->  if (a) { if (b) {} else break; } else break;
+     while (a || b)  ->  if (a) {} else { if (b) {} else break; }
+   and longer chains nest further. [guard_of_stmt] walks that tree back into a
+   single expression. Reconstructing `a && b` is only sound because the shape
+   only arises for side-effect-free Cil expressions: anything needing a
+   temporary (`while (f(x) && y)`) is hoisted by Cil into an Instr ahead of the
+   If, which matches no case here and falls back to `while (1)`. *)
+let rec guard_of_stmt s =
+  match s.skind with
+  | Block b -> guard_of_block b
+  | If(c, bthen, belse, _) ->
+    let cs = translate_exp c in
     if bthen.bstmts = [] && block_lone_break belse then
-      Some (translate_exp c, rest)               (* if(c){}else break; -> while(c)  *)
+      Some cs                                    (* if(c){}else break; -> c    *)
     else if belse.bstmts = [] && block_lone_break bthen then
-      Some ("!(" ^ translate_exp c ^ ")", rest)  (* if(c) break;       -> while(!c) *)
+      Some ("!(" ^ cs ^ ")")                     (* if(c) break;       -> !c   *)
+    else if block_lone_break belse then
+      (* if(c){ <chain> } else break;  ->  c && <chain> *)
+      Option.map (fun g -> "(" ^ cs ^ " && " ^ g ^ ")") (guard_of_block bthen)
+    else if bthen.bstmts = [] then
+      (* if(c){} else { <chain> }      ->  c || <chain> *)
+      Option.map (fun g -> "(" ^ cs ^ " || " ^ g ^ ")") (guard_of_block belse)
     else None
   | _ -> None
+
+and guard_of_block b =
+  match b.bstmts with
+  | [ s ] -> guard_of_stmt s
+  | _     -> None
+
+(* Recover the guard text and the remaining real body statements. Returns None
+   when the head doesn't match, so the caller can fall back to `while (1)`. *)
+let recover_while_guard body =
+  match body.bstmts with
+  | head :: rest -> Option.map (fun g -> (g, rest)) (guard_of_stmt head)
+  | []           -> None
 
 let rec translate_stmts buf indent stmts =
   match stmts with
@@ -329,43 +382,63 @@ and translate_stmt buf indent stmt =
   | Return(Some e, _) ->
     Buffer.add_string buf (pad ^ "return " ^ translate_exp e ^ ";\n")
   | If(e, bthen, belse, _) ->
-    Buffer.add_string buf (pad ^ "if (" ^ translate_exp e ^ ") {\n");
-    translate_stmts buf (indent + 2) bthen.bstmts;
-    if belse.bstmts <> [] then begin
-      Buffer.add_string buf (pad ^ "} else {\n");
-      translate_stmts buf (indent + 2) belse.bstmts
-    end;
-    Buffer.add_string buf (pad ^ "}\n")
+    let cond = translate_exp e in
+    (* hip's .ss parser rejects an empty block, so an `if` with an empty arm is
+       never emitted verbatim: Cil produces exactly that for short-circuit
+       guards. Cil expressions are side-effect free, so dropping/inverting an
+       empty arm preserves meaning. *)
+    if bthen.bstmts = [] && belse.bstmts = [] then ()
+    else if bthen.bstmts = [] then begin
+      Buffer.add_string buf (pad ^ "if (!(" ^ cond ^ ")) {\n");
+      emit_body buf (indent + 2) pad belse.bstmts;
+      Buffer.add_string buf (pad ^ "}\n")
+    end else begin
+      Buffer.add_string buf (pad ^ "if (" ^ cond ^ ") {\n");
+      emit_body buf (indent + 2) pad bthen.bstmts;
+      if belse.bstmts <> [] then begin
+        Buffer.add_string buf (pad ^ "} else {\n");
+        emit_body buf (indent + 2) pad belse.bstmts
+      end;
+      Buffer.add_string buf (pad ^ "}\n")
+    end
   | Loop(_, body, loc, _, _) ->
-    (match recover_while_guard body with
-     | Some (guard, inner) ->
-       Buffer.add_string buf (pad ^ "while (" ^ guard ^ ")\n");
-       (* Attach the closest /*[SL_loop]*/ block ending before the loop's line,
-          emitting its requires/ensures clauses between the guard and the body. *)
-       (match find_annotation !loop_annots (Fileloc.line loc) with
-        | None ->
-          add_warn
-            "while loop has no /*[SL_loop]*/ spec; HipSleek may reject it"
-        | Some (start_line, spec_body) ->
-          (* Map each loop spec clause to its C source line, so the loop's
-             PRE/POST obligations (keyed by HipSleek to these .ss spec lines)
-             point at the /*[SL_loop]*/ clauses, mirroring how the function
-             spec is recorded in translate_fundec. *)
-          List.iteri (fun k raw ->
-              let line = String.trim raw in
-              if line <> "" then begin
-                record_cline buf (start_line + k);
-                Buffer.add_string buf (pad ^ "  " ^ line ^ "\n")
-              end)
-            (String.split_on_char '\n' spec_body));
-       Buffer.add_string buf (pad ^ "{\n");
-       translate_stmts buf (indent + 2) inner;
-       Buffer.add_string buf (pad ^ "}\n")
+    (* Fall back to `while (1)` (keeping Cil's exit `if`/`break` in the body)
+       when the guard can't be recovered. The loop spec is emitted either way:
+       dropping it would leave the loop unspecified and silently change what is
+       being proved. *)
+    let guard, inner =
+      match recover_while_guard body with
+      | Some (guard, inner) -> guard, inner
+      | None ->
+        add_warn "could not recover while-loop guard; emitted while(1)";
+        "1", body.bstmts
+    in
+    Buffer.add_string buf (pad ^ "while (" ^ guard ^ ")\n");
+    (* Attach the closest unconsumed /*[SL_loop]*/ block ending before the
+       loop's line and inside the enclosing function, emitting its
+       requires/ensures clauses between the guard and the body. *)
+    (match
+       find_annotation !loop_annots ~after:!cur_fn_start
+         ~file:(Filepath.to_string (Fileloc.path loc))
+         ~line:(Fileloc.line loc)
+     with
      | None ->
-       add_warn "could not recover while-loop guard; emitted while(1)";
-       Buffer.add_string buf (pad ^ "while (1) {\n");
-       translate_stmts buf (indent + 2) body.bstmts;
-       Buffer.add_string buf (pad ^ "}\n"))
+       add_warn "while loop has no /*[SL_loop]*/ spec; HipSleek may reject it"
+     | Some (start_line, spec_body) ->
+       (* Map each loop spec clause to its C source line, so the loop's
+          PRE/POST obligations (keyed by HipSleek to these .ss spec lines)
+          point at the /*[SL_loop]*/ clauses, mirroring how the function
+          spec is recorded in translate_fundec. *)
+       List.iteri (fun k raw ->
+           let line = String.trim raw in
+           if line <> "" then begin
+             record_cline buf (start_line + k);
+             Buffer.add_string buf (pad ^ "  " ^ line ^ "\n")
+           end)
+         (String.split_on_char '\n' spec_body));
+    Buffer.add_string buf (pad ^ "{\n");
+    emit_body buf (indent + 2) pad inner;
+    Buffer.add_string buf (pad ^ "}\n")
   | Break _    -> Buffer.add_string buf (pad ^ "break;\n")
   | Continue _ -> Buffer.add_string buf (pad ^ "continue;\n")
   | Block b ->
@@ -388,6 +461,17 @@ and translate_stmt buf indent stmt =
   | TryExcept _    ->
     add_warn "exceptions not in subset (dropped)";
     Buffer.add_string buf (pad ^ "/* try-except: not in subset */\n")
+
+(* Emit the statements of a block, substituting a no-op when the translation
+   produces nothing: hip's .ss parser rejects `{}`, and a block can come out
+   empty either from Cil (short-circuit guards) or from a construct the
+   translation drops (goto, Skip). Appending to [buf] rather than a scratch
+   buffer keeps record_cline's .ss line numbering intact. *)
+and emit_body buf indent pad stmts =
+  let before = Buffer.length buf in
+  translate_stmts buf indent stmts;
+  if Buffer.length buf = before then
+    Buffer.add_string buf (pad ^ "  ;\n")
 
 and translate_instr buf pad = function
   | Set(lv, e, _) ->
@@ -451,14 +535,14 @@ let translate_compinfo buf ci =
 
 (* Translate one function into its own buffer and return
    (name, sl_spec_text option, generated .ss procedure text, fidelity warnings). *)
-let translate_fundec annotations fundec loc =
+let translate_fundec spec_info fundec loc =
   warn_acc := [];
   let buf = Buffer.create 512 in
   let func_line = Fileloc.line loc in
   (* Seed the line map so obligations before any statement (e.g. POST at the
      ensures line) still resolve to the function's C declaration line. *)
   linemap_acc := [ (1, func_line) ];
-  let spec_info = find_annotation annotations func_line in
+  cur_fn_start := func_line;
   let spec = Option.map snd spec_info in
   let ret_typ = match fundec.svar.vtype.tnode with
     | TFun(rt, _, _) -> translate_typ rt
@@ -484,6 +568,7 @@ let translate_fundec annotations fundec loc =
          end
        ) (String.split_on_char '\n' body));
   Buffer.add_string buf "{\n";
+  let body_start = Buffer.length buf in
   let visible_locals =
     List.filter (fun vi -> vi.vname <> retres_name) fundec.slocals
   in
@@ -493,6 +578,8 @@ let translate_fundec annotations fundec loc =
     ) visible_locals;
   if visible_locals <> [] then Buffer.add_string buf "\n";
   translate_stmts buf 2 fundec.sbody.bstmts;
+  (* hip rejects an empty procedure body just as it rejects any empty block. *)
+  if Buffer.length buf = body_start then Buffer.add_string buf "  ;\n";
   Buffer.add_string buf "}\n\n";
   (fundec.svar.vname, spec, Buffer.contents buf,
    List.rev !warn_acc, List.rev !linemap_acc)
@@ -550,6 +637,29 @@ let translate file =
   in
   (* Make /*[SL_loop]*/ blocks available to the statement translator's Loop case. *)
   loop_annots := List.concat_map extract_sl_loops src_files;
+  used_blocks := [];
+  (* Assign each /*[SL]*/ block to at most one function, walking functions in
+     source order. Doing this up front rather than during the globals iteration
+     below keeps the assignment independent of the order Frama-C hands us
+     globals in, which the consume-once rule would otherwise depend on. *)
+  let fn_specs =
+    let fns =
+      List.filter_map (function
+          | GFun(fd, loc) ->
+            Some (fd.svar.vname,
+                  Filepath.to_string (Fileloc.path loc),
+                  Fileloc.line loc)
+          | _ -> None)
+        file.globals
+    in
+    let fns =
+      List.sort (fun (_, f1, l1) (_, f2, l2) -> compare (f1, l1) (f2, l2)) fns
+    in
+    List.filter_map (fun (name, file, line) ->
+        Option.map (fun s -> (name, s))
+          (find_annotation annotations ~file ~line))
+      fns
+  in
   let functions = ref [] in
   let ss_spans = ref [] in
   let fidelity = ref [] in
@@ -558,8 +668,9 @@ let translate file =
       match g with
       | GCompTag(ci, _)     -> translate_compinfo buf ci
       | GFun(fundec, loc)   ->
+        let spec_info = List.assoc_opt fundec.svar.vname fn_specs in
         let (name, spec, proc_text, warnings, linemap) =
-          translate_fundec annotations fundec loc in
+          translate_fundec spec_info fundec loc in
         (* The procedure occupies lines [start_line, end_line] in full_ss. *)
         let start_line = count_lines (Buffer.contents buf) + 1 in
         Buffer.add_string buf proc_text;

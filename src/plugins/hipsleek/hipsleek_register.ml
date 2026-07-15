@@ -23,6 +23,11 @@ let run () =
         List.find_opt (fun r -> r.Hipsleek_run.func_name = name) results
       with
       | Some { Hipsleek_run.verdict = Hipsleek_run.Success; _ } -> "SUCCESS"
+      (* Not "SUCCESS": the proof assumes a loop spec that did not verify. The
+         panel maps anything outside SUCCESS/FAIL/ERROR to its amber "unknown"
+         badge, which is the right reading -- neither established nor refuted. *)
+      | Some { Hipsleek_run.verdict = Hipsleek_run.Success_assuming _; _ } ->
+        "ASSUMED"
       | Some { Hipsleek_run.verdict = Hipsleek_run.Fail; _ }    -> "FAIL"
       | Some { Hipsleek_run.verdict = Hipsleek_run.Error _; _ } -> "ERROR"
       | None -> "UNKNOWN"

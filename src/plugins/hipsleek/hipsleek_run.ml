@@ -1,4 +1,14 @@
-type verdict = Success | Fail | Error of string
+type verdict =
+  | Success
+  (* Proved, but only by ASSUMING the listed loop specs, which themselves
+     failed to verify. Verification is modular: HipSleek checks a loop against
+     its own spec, then checks the enclosing function taking that spec as given.
+     So a function in this state has a real proof resting on an undischarged
+     lemma -- reporting it as a plain Success reads as "verified" when nothing
+     of the sort was established. *)
+  | Success_assuming of string list
+  | Fail
+  | Error of string
 
 type result = {
   func_name : string;
@@ -75,6 +85,15 @@ let starts_with s prefix =
   let n = String.length prefix in
   String.length s >= n && String.sub s 0 n = prefix
 
+(* The last [n] non-blank lines of [s], for quoting hip's output in an error. *)
+let last_lines n s =
+  let ls =
+    List.filter (fun l -> String.trim l <> "") (String.split_on_char '\n' s)
+  in
+  let len = List.length ls in
+  let ls = if len <= n then ls else List.filteri (fun i _ -> i >= len - n) ls in
+  String.concat "\n" ls
+
 (* ------------------------------------------------------------------ *)
 (* Report results as Frama-C messages                                  *)
 (* ------------------------------------------------------------------ *)
@@ -84,6 +103,11 @@ let report results =
       match r.verdict with
       | Success ->
         Hipsleek_parameters.result "[HipSleek] %s: SUCCESS" r.func_name
+      | Success_assuming deps ->
+        Hipsleek_parameters.warning
+          "[HipSleek] %s: NOT VERIFIED -- its proof assumes %d loop spec(s) \
+           that did not verify: %s"
+          r.func_name (List.length deps) (String.concat "; " deps)
       | Fail ->
         Hipsleek_parameters.warning "[HipSleek] %s: FAIL" r.func_name
       | Error s ->
@@ -363,7 +387,11 @@ let proof_logs_of_info info =
 (* HipSleek desugars each while loop into a method named while_<ssline>_<col>,
    where <ssline> is the loop's line in the generated .ss. Relabel such verdicts
    with the loop's C source line (via the span + linemap that contains that .ss
-   line) so the user sees their own code instead of generated-.ss coordinates. *)
+   line) so the user sees their own code instead of generated-.ss coordinates.
+
+   The span also tells us which function each loop belongs to, which is what
+   lets a failed loop spec be charged back to the function that assumed it --
+   see the Success_assuming case of [verdict]. *)
 let humanize_loop_results ~spans ~linemaps results =
   let locate abs =
     match List.find_opt (fun (_, lo, hi) -> abs >= lo && abs <= hi) spans with
@@ -372,28 +400,55 @@ let humanize_loop_results ~spans ~linemaps results =
       let lm = match List.assoc_opt name linemaps with Some m -> m | None -> [] in
       Some (name, cline_of lm ~lo abs)
   in
+  (* (owning function, loop label) for every loop whose spec did not verify. *)
+  let failed_loops = ref [] in
+  let named =
+    List.map (fun r ->
+        if not (starts_with r.func_name "while_") then r
+        else
+          let rest = String.sub r.func_name 6 (String.length r.func_name - 6) in
+          match String.split_on_char '_' rest with
+          | ssline_str :: _ ->
+            (match int_of_string_opt ssline_str with
+             | Some abs ->
+               (match locate abs with
+                | Some (fn, cl) when cl > 0 ->
+                  let label =
+                    Printf.sprintf "while loop at line %d (in %s)" cl fn in
+                  (match r.verdict with
+                   | Fail | Error _ -> failed_loops := (fn, label) :: !failed_loops
+                   | Success | Success_assuming _ -> ());
+                  { r with func_name = label }
+                | _ -> r)
+             | None -> r)
+          | [] -> r)
+      results
+  in
+  (* Downgrade any function that came out green while depending on one of those
+     loops. Only [Success] is rewritten: a function that already failed on its
+     own account keeps its own, more direct, verdict. Loop entries never match
+     here, their func_name having been rewritten to a label above. *)
   List.map (fun r ->
-      if not (starts_with r.func_name "while_") then r
-      else
-        let rest = String.sub r.func_name 6 (String.length r.func_name - 6) in
-        match String.split_on_char '_' rest with
-        | ssline_str :: _ ->
-          (match int_of_string_opt ssline_str with
-           | Some abs ->
-             (match locate abs with
-              | Some (fn, cl) when cl > 0 ->
-                { r with func_name =
-                    Printf.sprintf "while loop at line %d (in %s)" cl fn }
-              | _ -> r)
-           | None -> r)
-        | [] -> r)
-    results
+      match r.verdict with
+      | Success ->
+        (match
+           List.filter_map
+             (fun (fn, label) -> if fn = r.func_name then Some label else None)
+             !failed_loops
+         with
+         | []   -> r
+         | deps -> { r with verdict = Success_assuming (List.rev deps) })
+      | Success_assuming _ | Fail | Error _ -> r)
+    named
 
 (* ------------------------------------------------------------------ *)
 (* Subprocess invocation                                                *)
 (* ------------------------------------------------------------------ *)
 
-let run_hip ~dir ~ss_file =
+(* [expect_verdicts] is false when the .ss holds no procedures at all (a file of
+   declarations only), where having no verdict is the correct outcome rather
+   than a sign that hip fell over. *)
+let run_hip ~dir ~ss_file ~expect_verdicts =
   let hip = resolve_hip_path () in
   if not (Sys.file_exists hip) then begin
     Hipsleek_parameters.error "hip.exe not found (tried: %s)" hip;
@@ -423,7 +478,17 @@ let run_hip ~dir ~ss_file =
     ignore (Unix.close_process_in ic);
     let output = Buffer.contents buf in
     Hipsleek_parameters.debug "hip output:@\n%s" output;
-    parse_output output
+    let results = parse_output output in
+    (* hip.exe exits 0 even on a parse error or an uncaught exception, so the
+       exit status tells us nothing: the absence of any verdict is the only
+       signal that the run never got off the ground. Staying quiet here would
+       report every function in the file as simply unverified. *)
+    if results = [] && expect_verdicts then
+      Hipsleek_parameters.error
+        "hip.exe produced no verdict for %s -- it did not get far enough to \
+         check anything. Last lines of its output:@\n%s"
+        ss_file (last_lines 10 output);
+    results
   end
 
 (* Read the SLEEK log file HipSleek wrote under [dir]/logs for [ss_file]. *)
@@ -449,13 +514,24 @@ let run ~ss_content ~ss_spans ~linemaps =
     let d = Hipsleek_parameters.OutputDir.get () in
     if d <> "" then d else Filename.get_temp_dir_name ()
   in
+  (* -hipsleek-output-dir may name a directory that does not exist yet; without
+     this the run dies on a bare "System error: ... No such file or directory". *)
+  let rec mkdir_p d =
+    if d <> "" && d <> "/" && d <> Filename.current_dir_name
+    && not (Sys.file_exists d) then begin
+      mkdir_p (Filename.dirname d);
+      try Unix.mkdir d 0o755 with Unix.Unix_error (Unix.EEXIST, _, _) -> ()
+    end
+  in
+  mkdir_p dir;
   let ss_file = Filename.concat dir "hipsleek_out.ss" in
   let oc = open_out ss_file in
   output_string oc ss_content;
   close_out oc;
   Hipsleek_parameters.feedback "Generated .ss file: %s" ss_file;
   let results =
-    humanize_loop_results ~spans:ss_spans ~linemaps (run_hip ~dir ~ss_file) in
+    humanize_loop_results ~spans:ss_spans ~linemaps
+      (run_hip ~dir ~ss_file ~expect_verdicts:(ss_spans <> [])) in
   report results;
   let proof_info =
     if Hipsleek_parameters.ProofLog.get () then

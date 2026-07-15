@@ -72,6 +72,11 @@ let register () =
 let status_of_verdict : Hipsleek_run.verdict -> Property_status.emitted_status =
   function
   | Hipsleek_run.Success -> Property_status.True
+  (* Proved only by assuming a loop spec that did not itself verify. Frama-C's
+     "valid under hypothesis" (emit ~hyps) cannot express this: the hypotheses
+     are loop specs in the generated .ss, not properties of the Cil AST, so
+     there is nothing to cite. Don't-know is the honest status. *)
+  | Hipsleek_run.Success_assuming _ -> Property_status.Dont_know
   (* A failed SL proof does not prove the contract false, so the honest
      status is "don't know" rather than False. *)
   | Hipsleek_run.Fail    -> Property_status.Dont_know

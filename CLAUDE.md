@@ -108,9 +108,30 @@ C/Frama-C demo programs exercised end-to-end through the plugin with
 | `ll.c` | `get_next`, `set_next`, `set_null`, `append` | the `ll<n>` length predicate (`[SL_pred]`); `append` is recursive |
 | `alias.c` | `alias_write`, `aliased_inputs`, `set_two`, `set_two_aliased` | aliasing vs. separation; `set_two_aliased` is an **expected FAIL** — `*` rejects unintended aliasing at the call site |
 | `loop.c` | `count_to_ten` | a `while` loop with an inline `/*[SL_loop]*/` requires/ensures spec (primed post-state vars); plugin recovers the guard from Cil's normalized `if/break` head |
+| `loop_arith.c` | `count_up`, `add_ones`, `countdown` | the basic loop-spec shapes: variable bound, accumulator invariant (`s = i`), loop variable as parameter |
+| `loop_control.c` | `and_guard`, `or_guard`, `stop_at_five`, `skip_three` | short-circuit `&&`/`||` guards (Cil nests these as if/break trees; the guards are deliberately redundant so the spec pins down which operand binds), plus `break` and `continue` |
+| `loop_heap.c` | `bump`, `length` | loops over the heap: `bump` hands back the cells it borrows; `length` is a **consuming** list traversal (the loop takes `x::ll<k>` and does not return it, which is why the spec is `res = n` and not `x::ll<n>`) |
+| `loop_bad.c` | `off_by_one`, `wrong_post`, `not_invariant`, `guard_ignored` | **all four are intentional FAILs** — negative twins of the above; see the note on modular verdicts below |
 
-All functions verify **SUCCESS** except `set_two_aliased` (intentional FAIL).
-`test_ll.c` is an older scratch file, not part of the demo set.
+All functions verify **SUCCESS** except `set_two_aliased` and all of `loop_bad.c`
+(intentional FAILs). `test_ll.c` and `demo.c` are older scratch files, not part
+of the demo set.
+
+**A loop spec must be an INVARIANT, not a precondition.** HipSleek compiles a
+`while` into a recursive procedure and re-checks the spec's `requires` at the
+recursive call, so `requires i = 0` on a loop that increments `i` fails on the
+second iteration. Write the spec over an unconstrained entry state and case-split
+on the guard in the `ensures` (`loop_bad.c`'s `not_invariant` demonstrates the
+mistake).
+
+**Verdicts are modular, and a failed loop taints its function.** HipSleek checks
+a loop against its own spec, then checks the enclosing function while *assuming*
+that spec. A function that comes out green while depending on a loop spec that
+did not verify has a real proof resting on an undischarged lemma, so the plugin
+reports it as **NOT VERIFIED** (naming the loops it leaned on) rather than
+SUCCESS — a don't-know property status, amber in the Ivette panel. A function
+that fails on its own account still reports a plain FAIL. `loop_bad.c` covers
+both shapes.
 
 **Encoding rule the specs use**: a C `node* x` is encoded by the plugin as the wrapper
 type `node_star` (a cell whose `pdata` field is the `node`), so `node* x` owns *two*
