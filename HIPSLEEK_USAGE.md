@@ -1,5 +1,8 @@
 # Using Frama-C with the HipSleek Plugin
 
+> **Source code:** the full project can be found here —
+> <https://github.com/hipsleek/frama-c-rebuild>
+
 A hands-on guide to verifying C programs with the **HipSleek** separation-logic
 backend from inside Frama-C, and to inspecting *how* the proof was found —
 the generated `.ss` program, the SLEEK entailment log, per-obligation results,
@@ -82,6 +85,7 @@ intentional FAIL in `alias.c`.
 | `ll.c` | `get_next`, `set_next`, `set_null`, `append` | the `ll<n>` length view; `append` is recursive |
 | `test_ll.c` | `length`, `append` | the plain `ll<>` (no length) view; smallest end-to-end example |
 | `alias.c` | `alias_write`, `aliased_inputs`, `set_two`, `set_two_aliased` | aliasing vs. separation; `set_two_aliased` is an **expected FAIL** |
+| `imm.c` | `get_val`, `double_val`, `get_val2` | the `@L` ("lend") immutability annotation — a read-only borrow that returns the node automatically |
 | `loop.c` | `count_to_ten` | a `while` loop with a `/*[SL_loop]*/` contract |
 
 Try them:
@@ -139,6 +143,27 @@ while (i < 10) { i = i + 1; }
 (a cell whose `pdata` field holds the `node`), so `node* x` owns *two* cells —
 `x::node_star<p> * p::node<…>` — and `x->val` becomes `x.pdata.val` in the
 generated `.ss`. Write specs in that generated-`.ss` vocabulary.
+
+**Immutability `@L` ("lend").** By default a heap assertion in a `requires`
+*consumes* the node: the callee takes ownership, and unless the `ensures` hands it
+back the caller has lost it. Appending `@L` turns the assertion into a **read-only
+borrow** instead — the callee may read the node but not mutate it, and the node
+returns to the caller automatically, so the `ensures` neither needs nor is allowed
+to restate it (`imm.c`):
+
+```c
+/*[SL]
+  requires x::node_star<p> * p::node<v,_>@L    // p is lent, not consumed
+  ensures  x::node_star<p> & res = v;          // returns automatically
+*/
+int get_val(node* x) { return x->val; }
+```
+
+The payoff is that a lent node survives repeated use: a caller can invoke
+`get_val(x)` twice and still own the node afterwards, whereas a consuming borrow
+would be gone after the first call and the second read would have nothing to read.
+`@L` works on any assertion, including the pointer cell itself
+(`x::node_star<p>@L`), whenever the callee only needs to look.
 
 ---
 
