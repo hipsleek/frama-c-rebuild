@@ -56,9 +56,34 @@ opam install \
   ppx_expect ppx_deriving visitors cppo
 ```
 
-### External solver (optional but recommended for HipSleek)
+### External provers
 
-HipSleek uses **Z3** for SMT solving. The `--smt-z3` flag requires `z3` on `PATH`:
+HipSleek dispatches arithmetic and set constraints to external provers. Only two
+matter for this project; the rest are optional. See the upstream HIP/SLEEK install
+guide for the canonical instructions: <https://hipsleek.github.io/hipsleek/install.html>.
+
+#### Omega Calculator (`oc`) — default backend
+
+**Omega is HipSleek's default arithmetic (Presburger) back-end** — hip/sleek call a
+binary named `oc` for quantifier elimination unless you force `--smt-z3`. It must be
+on `PATH`. Verify with:
+
+```bash
+oc            # prints "Omega Calculator v2.1.6 ..." then waits for input (Ctrl-D to exit)
+```
+
+If it is missing, build it from the upstream HipSleek tree (this trimmed monorepo
+does **not** ship the `omega_modified/` sources) and put the result on `PATH`:
+
+```bash
+# in a full hipsleek checkout
+(cd omega_modified; make oc)
+# then add omega_modified/omega_calc/obj to PATH (see "PATH setup" below)
+```
+
+#### Z3 — SMT back-end
+
+Used for the nonlinear/SMT obligations (and forced by `--smt-z3`). Needs `z3` on `PATH`:
 
 ```bash
 # Ubuntu/Debian
@@ -68,7 +93,43 @@ sudo apt-get install -y z3
 opam install z3
 ```
 
-The warning `ERROR : fixcalc cannot be found` is harmless and can be ignored.
+> Note: hip.exe also probes for a binary literally named **`z3-4.3.2`** while scanning
+> `PATH`. In WSL, symlink it (`ln -s "$(which z3)" ~/bin/z3-4.3.2`) and strip
+> `WindowsApps`/`/mnt/c` entries from `PATH` — see `HIPSLEEK_USAGE.md` and the project
+> `build-run-env` notes.
+
+#### Mona / Fixcalc — optional
+
+Not required for the demos. Install only if you use set-based predicates (Mona) or
+fixpoint inference (Fixcalc); their sources also live in the full upstream tree, not
+here. Following the upstream guide:
+
+```bash
+# Mona 1.4 (set reasoning; enable with -tp mona)
+tar -xvf mona-1.4-modif.tar.gz && cd mona-1.4
+./configure --prefix=$(pwd) && make install && cp mona_predicates.mona ..
+
+# Fixcalc (fixpoint calculator; needs GHC 9.4.8)
+cabal install --lib regex-compat old-time && cabal install happy
+git clone https://github.com/hipsleek/omega_stub.git && (cd omega_stub; make)
+git clone https://github.com/hipsleek/fixcalc.git fixcalc_src && (cd fixcalc_src; make fixcalc)
+```
+
+The warning `ERROR : fixcalc cannot be found` when Fixcalc is absent is **harmless** and
+can be ignored.
+
+#### PATH setup
+
+Every prover above is found via `PATH`. Add the relevant directories once — either
+export them in your shell profile, or, as upstream does, with a `direnv` `.envrc`:
+
+```bash
+# .envrc (upstream layout)
+eval "$(opam env --switch=4.14.2 --set-switch)"
+PATH_add omega_modified/omega_calc/obj
+PATH_add mona-1.4/bin
+PATH_add fixcalc_src
+```
 
 ---
 
@@ -170,6 +231,8 @@ dune runtest
 | `dune: Error: No implementation found for ...` | Missing opam package | Check the dependency list above |
 | `Error: Library "batteries" not found` | batteries not installed | `opam install batteries` |
 | `z3: command not found` when using `--smt-z3` | Z3 not on PATH | `sudo apt install z3` or `opam install z3` |
+| Arithmetic checks hang or error with no `--smt-z3` | Omega Calculator (`oc`) not on PATH | Build `oc` (`(cd omega_modified; make oc)`) and add it to PATH — see "External provers" |
+| `Unix.EACCES lstat .../WindowsApps/z3-4.3.2` | hip.exe scanning Windows PATH for `z3-4.3.2` | Symlink `z3-4.3.2 -> $(which z3)` and drop `WindowsApps`/`/mnt/c` from PATH |
 | Frama-C `dune build` fails on `why3` | why3 not installed | `opam install why3 alt-ergo` |
 
 ---
